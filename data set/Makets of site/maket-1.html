@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>Слой по центру веб-страницы</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+
+	.box{width:100%;}
+	.box table{display:block; width:21em; border-collapse:collapse; background:#eee; margin:5px auto;}
+	.box tr{height:3em;}
+	.box td{width:7em;text-align:center;font-size:1em;}
+	.box a{text-decoration:none;display:block;width:7em;height:2em;padding-top:1em;text-transform:uppercase;}
+	.br{background:#ff0000;} /* red         header  */
+	.by{background:#ffff00;} /* Yellow      section */
+	.bs{background:#0000ff;} /* Blue        section */
+	.bc{background:#D2691E;} /* Chocolate   section */
+	.bl{background:#32CD32;} /* LimeGreen   futer   */
+	.bg{background:#808080;} /* Gray */
+</style>
+</head>
+<body>
+<div class="item">
+<h2 class="sin">Слой по центру веб-страницы</h2>
+
+	<!-- окно на весь экран -->
+		<style>
+			.box1{position:fixed; top:0; left:0; right:0; bottom:0;
+				background:rgba(0,0,0,.6);
+				z-index:2;}
+			.mail{position:fixed; top:calc(50% - 3em); left:calc(50% - 6em);
+				height:2em; width:10em; padding:2em 1em;
+				display:block; background:#fff;
+				text-align:center; color:red; font-size:2em;
+				overflow:hidden; z-index:4;}
+			.window label{position:absolute; right:calc(50% - 6.6em); top:calc(50% - 3.6em);
+				cursor:pointer; z-index:3;
+				height:40px; width:40px; background:red;
+				transform:rotateZ(45deg);
+				box-shadow:0 1px 2px rgba(0,0,0,.5);}
+			.window input{display:none;}
+			.window :checked ~ .box1{display:none;}
+			.window :checked ~ label{display:none;}
+		</style>
+		<div class="window">
+			<input type="checkbox" id="w1">
+			<div class="box1">
+				<div class="mail">Важное сообщение!<!-- сообщение -->
+					<label for="w1" title="Закрыть окно"></label><!-- label - выключатель -->
+				</div>
+			</div>
+		</div>
+	<!-- /окно на весь экран -->
+
+	<div class="box">
+		<table>
+			<tr><td colspan="3"></td></tr>
+			<tr><td></td><td class="bg"><a href="maket-1.html" title="запустить окно">запустить</a></td><td></td></tr>
+			<tr><td></td><td class="bg"><a href="maket-1.html" title="запустить окно">окно</a></td><td></td></tr>
+			<tr><td colspan="3"></td></tr>
+		</table>
+	</div>
+	<p>Выравнивание слоя строго по центру веб-страницы применяется обычно для размещения картинки, служащей точкой входа на сайт или информационного сообщения. Удобство подобного расположения слоя - его независимость от разрешения экрана монитора и окна браузера. В любом случае слой будет занимать положение по центру веб-страницы.</p>
+	<div class="item2 br0">
+		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
+		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code>&lt;!-- окно на весь экран --><br>&lt;div class="window"><br>  &lt;input type="checkbox" id="w1"><br>    &lt;div class="box1"><br>      &lt;div class="mail">Важное сообщение!           &lt;!-- сообщение --><br>      &lt;label for="w1" title="Закрыть окно">&lt;/label> &lt;!-- label - выключатель --><br>    &lt;/div><br>  &lt;/div><br>&lt;/div><br>&lt;!-- /окно на весь экран --></code></pre>
+		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>.box1{<br>  position:fixed; top:0; left:0; right:0; bottom:0;<br>  background:rgba(0,0,0,.6);<br>  z-index:2;}<br>.mail{<br>  position:fixed; top:calc(50% - 3em); left:calc(50% - 6em);<br>  height:2em; width:10em; padding:2em 1em;<br>  display:block; background:#fff;<br>  text-align:center; color:red; font-size:2em;<br>  overflow:hidden; z-index:4;}<br>.window label{<br>  position:absolute; right:calc(50% - 6.6em); top:calc(50% - 3.6em);<br>  cursor:pointer; z-index:3;<br>  height:40px; width:40px; background:red;<br>  transform:rotateZ(45deg);}<br>.window input{display:none;}<br>.window :checked ~ .box1{display:none;}  /* откл.сообщение */<br>.window :checked ~ label{display:none;}  /* откл.сообщение */</code></pre>
+	</div>
+</div><!-- /item -->
+</body>
+</html>

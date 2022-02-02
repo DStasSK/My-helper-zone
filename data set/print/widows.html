@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><title>widows</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">widows</h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">widows</samp> задаёт минимальное число строк текста, которое располагается на следующей странице при печати документа. Это свойство работает в том случае, если весь текст размещается на двух и более печатных страницах. Если значение свойства <samp class="sin">widows</samp> конфликтует со значением <samp class="sin">orphans</samp>, то <samp class="sin">widows</samp> имеет приоритет и учитывается в первую очередь.</p>
+
+	<p>Значение по умолчанию <samp class="lsin">2</samp>, наследуется, применяется к блочным элементам. Значение - целое число, которое задает количество строк вверху печатной страницы. Отрицательное значение запрещено.</p>
+
+	<pre class="item2"><code>widows: <число></code></pre>
+</div>
+
+
+<div class="item">
+	<pre class="item2"><code>@media print {<br>  p {<br>    widows: 3;<br>    orphans: 3;<br>    }<br>}</code></pre>
+</div>
+</body></html>

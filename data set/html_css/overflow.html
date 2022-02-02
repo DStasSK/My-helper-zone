@@ -1,0 +1,139 @@
+<!DOCTYPE html><html><head><title>overflow</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.df {display:flex; justify-content:space-between}
+	.box {width:200px; height:150px; overflow:auto; margin:10px auto; border:solid 2px #000;background:#fff; text-align:left; padding:8px}
+	.boxs{overflow:scroll}
+	.boxh{overflow:hidden}
+	.boxv{overflow:visible}
+</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>overflow</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">overflow</samp> при помощи своих параметров управляет тем, как будет отображаться содержание блока, если оно выходит за пределы установленных размеров. Значения свойства не наследуются, не анимируются.</p>
+
+	<pre class="item2 mt20"><code>overflow: auto | hidden | scroll | visible</code></pre>
+	<table class="t1 tb mt10">
+		<tr><td>visible</td><td>Отображается всё содержимое элемента, даже за пределами установленной высоты и ширины.</td></tr>
+		<tr><td>hidden</td><td>Отображается только область внутри элемента, остальное будет скрыто.</td></tr>
+		<tr><td>scroll</td><td>Всегда добавляются полосы прокрутки.</td></tr>
+		<tr><td>auto</td><td>Полосы прокрутки добавляются только при необходимости.</td></tr>
+		<tr style="background:#eee"><td>overlay</td><td>Работает в браузерах <samp class="pur">-webkit-</samp>, в отличие от <samp class="sin">auto</samp>, не изменяет размеры блока, т.к. скролл при его необходимости накладывается "поверх" элемента.</td></tr>
+	</table>
+
+	<p class="mt20">Также можно указывать сразу два значения чезер пробел, первое значение - <samp class="lsin dib">overflow-x</samp>, второе - <samp class="lsin dib">overflow-y</samp>.</p>
+	<pre class="item2 sin mb20">overflow: <span class="lsin">hidden auto</span>;<br><br><span style="color:#333">что означает:</span><br><br>overflow-x: <span class="lsin">hidden</span>;<br>overflow-y: <span class="lsin">auto</span>;</pre>
+
+	<p>Свойство <samp class="sin">overflow-x</samp> управляет отображением содержания блочного элемента <span class="red dib">по горизонтали</span>, если контент целиком не помещается и выходит за область справа или слева от блока.</p>
+	<p>Свойство <samp class="sin">overflow-y</samp> управляет отображением содержания блочного элемента <span class="red dib">по вертикали</span>, если контент целиком не помещается и выходит за область сверху или снизу от блока.</p>
+</div>
+
+
+<div class="item">
+	<div class="no">
+		Internet Explorer до версии 7.0 включительно:
+		<ul class="list">
+			<li>относительно позиционированные дочерние элементы, значения <samp class="sin">overflow</samp> у которых заданы как <samp class="lsin">auto</samp> или <samp class="lsin">scroll</samp> ведут себя словно у них задано <samp class="sin dib">position: <samp class="lsin">fixed</samp></samp>.</li>
+		</ul>
+	</div>
+
+	<div class="no">
+		Internet Explorer 8:
+		<ul class="list">
+			<li>Сочетание <samp class="sin">overflow</samp> со значением <samp class="sin">scroll</samp> со свойствами <samp class="sin">max-height</samp> и <samp class="sin">float</samp> может привести к пропаданию элементов веб-страницы, в браузере выводится пустой экран.</li>
+			<li>Для блока, у которого указаны свойства <samp class="sin">float</samp> и <samp class="sin">overflow</samp> со значением <samp class="lsin">scroll</samp>, игнорируется ширина, заданная через свойство <samp class="sin">max-width</samp>.</li>
+			<li>Высота блока с горизонтальной полосой прокрутки увеличивается на высоту скролбара, хотя по спецификации CSS заданные размеры должны включать в себя и полосы прокрутки.</li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="item anp">
+<h3><samp class="sin">overflow:</samp> <samp class="lsin">hidden;</samp></h3>
+	<div class="item2">
+		<div class="df">
+			<div class="box boxh">
+				<p>Используя свойство <samp class="sin">overflow</samp> со значением <samp class="sin">hidden</samp>, текст будет скрыт, если он выходит за установленные границы.</p>
+				<p>Так как объём текста превышает предел контейнера, появляется полоса прокрутки.</p>
+			</div>
+			<div class="box boxh">
+				<p>Длинные слова не переносит и обрезает: jlsyjlsyjlsyjlsyjlsyjlsyjlsyjlsyjlsy</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="item anp">
+<h3><samp class="sin">overflow:</samp> <samp class="lsin">auto;</samp></h3>
+	<div class="item2">
+		<div class="df">
+			<div class="box">
+				<p>В данном контейнере высота составляет сто тридцать пикселей, а ширина двести пикселей.</p>
+				<br><p>Так как объём текста превышает предел контейнера, появляется полоса прокрутки.</p>
+			</div>
+			<div class="box">
+				<p>В данном контейнере текст не выходит за пределы контейнера.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="item anp">
+<h3><samp class="sin">overflow:</samp> <samp class="lsin">scroll;</samp></h3>
+	<div class="item2">
+		<div class="df">
+			<div class="box boxs">
+				<p>В данном контейнере высота составляет сто тридцать пикселей, а ширина двести пикселей.</p>
+				<br><p>Так как объём текста превышает предел контейнера, появляется полоса прокрутки.</p>
+			</div>
+			<div class="box boxs">
+				<p>Прокрутка добавляется независимо от размера содержания.</p>
+			</div>
+		</div>
+
+		<div class="df">
+			<div class="box" style="overflow-x:scroll;">
+				<samp class="sin">overflow-x:</samp> <samp class="lsin">scroll;</samp>
+			</div>
+			<div class="box" style="overflow-y:scroll;">
+				<samp class="sin">overflow-y:</samp> <samp class="lsin">scroll;</samp>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="item anp">
+<h3><samp class="sin">overflow:</samp> <samp class="lsin">visible;</samp></h3>
+	<div class="item2">
+		<div class="df">
+			<div class="box boxv">
+				<p>Применив значение <samp class="lsin">visible</samp>, текст будет отображаться даже вне установленных габаритов.</p>
+				<p>Tекст будет отображаться даже вне границ.</p>
+			</div>
+			<div class="box boxv">
+				<p>Длинные слова: jlsyjlsyjlsyjlsyjlsyjlsyjlsyjlsyjlsy</p>
+				<br>
+				<p>Иногда в маленьком окне требуется показать код.</p>
+				<pre><code>html, body {<br>	margin: 0;<br>	padding: 0;<br>}</code></pre>
+				это тег <samp class="red">&lt;pre> &lt;/pre></samp>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

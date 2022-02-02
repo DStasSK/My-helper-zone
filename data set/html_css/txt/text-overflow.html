@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><title>text overflow</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">text-overflow</h2>
+<div class="item">
+	<p>С помощью свойства <samp class="sin">text-overflow</samp> можно обрезать текст, который выходит за рамки контейнера. <samp class="sin">text-overflow</samp> работает в том случае, если для блока значение свойства <samp class="sin">overflow</samp> установлено как <samp class="lsin">auto</samp>, <samp class="lsin">scroll</samp> или <samp class="lsin">hidden</samp>.</p>
+
+	<pre class="item2"><code>text-overflow: clip | ellipsis</code></pre>
+	<samp class="lsin">clip</samp> - текст обрезается по размеру области.
+	<br><samp class="lsin">ellipsis</samp> - текст обрезается и к концу строки добавляется многоточие.
+
+	<style>
+		.primer {width:400px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+	</style>
+	<div class="prm mt20">
+		<div class="primer">С помощью свойства <samp class="sin">text-overflow</samp> можно обрезать текст, который выходит за рамки контейнера:</div>
+		<pre class="item2 ls-05"><code>&lt;style><br>  .primer {<br>    width: 400px;              /* ширина контейнера */<br>    text-overflow: ellipsis;   /* вставляем троеточие */<br>    white-space: nowrap;       /* запрещаем перенос строк */<br>    overflow: hidden;}<br>&lt;/style><br><br>&lt;div class="primer">С помощью свойства &lt;samp class="sin">text-overflow&lt;/samp><br>можно обрезать текст, который выходит за рамки контейнера:&lt;/div></code></pre>
+	</div>
+</div>
+
+</body>
+</html>

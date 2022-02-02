@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>datetime</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+
+	/*
+	.t2 tr td:nth-child(1){font-weight:700; color:#009; font-family:monospace;}
+	*/
+	
+	.t3 th{background:#eee;}
+
+
+</style></head>
+<body>
+
+<h2 class="sin"><samp>datetime</samp></h2>
+<div class="item">
+	<p>Устанавливает дату и время, например - редактирования текста, заключенного в тег.</p>
+	<pre class="item2"><code>&lt;xxx datetime="дата и время">...&lt;/xxx></code></pre>
+
+	<p>Дата и время задаётся в международном формате <samp><b>ISO 8601</b></samp>. Примеры оформления приведены в таблице.</p>
+	<table class="t0 tb t3 th1 th2 mt20 todd tw">
+		<tr><th width="245px">Значение</th><th width="235px">Формат</th><th>Пример</th></tr>
+		<tr><td>Год</td><td>ГГГГ</td><td>2012</td></tr>
+		<tr><td>Месяц и год</td><td>ГГГГ-ММ</td><td>2012-12</td></tr>
+		<tr><td>Полная дата</td><td>ГГГГ-ММ-ДД</td><td>23.12.2012</td></tr>
+		<tr><td>Дата и время с минутами</td><td>ГГГГ-ММ-ДДTчч:мм</td><td><span class="ls-1">2004-07-24T18:18</span></td></tr>
+		<tr><td>Дата и время с секундами</td><td>ГГГГ-ММ-ДДTчч:мм:сс</td><td><span class="ls-1">2004-07-24T18:18:18</span></td></tr>
+		<tr><td>Дата и время с часовым поясом</td><td>ГГГГ-ММ-ДДT<span class="ls-1">чч:мм:сс±чч:мм</span></td><td><span class="ls-1">2004-07-24T18:18:18+04:00</span></td></tr>
+	</table>
+
+	<div class="mt20">Для каждой единицы существует своя заданная форма и ограничения.</div>
+	<ul>
+		<li>Год - задаётся четырьмя цифрами (1860).</li>
+		<li>Месяц - две цифры (01 - январь, 02 - февраль, 12 - декабрь).</li>
+		<li>День - две цифры от 01 до 31.</li>
+		<li>Час - две цифры от 00 до 23.</li>
+		<li>Минуты - две цифры от 00 до 59.</li>
+		<li>Секунды - две цифры от 00 до 59.</li>
+		<li>Часовой пояс - часы и минуты с указанием знака плюс или минус.</li>
+	</ul>
+
+	<p>Дата и время разделяются между собой заглавной латинской буквой <b>T</b>. Часовой пояс при необходимости пишется после времени со знаком плюс или минус. К примеру, для Москвы часовой пояс будет <samp><b>+03:00</b></samp>.</p>
+
+	<div class="no">Браузеры никак не отображают значение атрибута <samp class="sin">datetime</samp>, однако оно доступно для скриптов.</div>
+</div>
+
+
+
+</body></html>

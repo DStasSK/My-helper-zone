@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><title>display</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.tt1 td{vertical-align:top}
+	.tt1 td:nth-child(1){letter-spacing:-.5px}
+</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>display</samp></h2>
+
+<div class="item">
+	<p>Многоцелевое свойство, которое определяет, как элемент должен быть показан в документе. Значения свойства не наследуется, может применяться для всех элементов. По умолчанию имеет значение <samp class="lsin">inline</samp>.</p>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Синтаксис</h3>
+	<pre class="item2 mb20"><samp class="sin">display:</samp> <samp class="lsin">block | inline | inline-block | none | flex | inline-flex |<br>         list-item | run-in | inline-table | table | table-caption |<br>         table-cell | table-column-group | table-column | table-footer-group |<br>         table-header-group | table-row | table-row-group</samp></pre>
+
+	<table class="t1 tt1 t3 tb">
+		<tr><td width="120px">block</td>
+			<td>Элемент показывается как блочный. Применение этого значения для встроенных элементов, например тега <samp class="red">&lt;span></samp>, заставляет его вести подобно блокам - происходит перенос строк в начале и в конце содержимого.</td></tr>
+		<tr><td>inline</td>
+			<td>Элемент отображается как встроенный. Использование блочных тегов, таких как <samp class="red">&lt;div></samp> и <samp class="red">&lt;p></samp>, автоматически создает перенос и показывает содержимое этих тегов с новой строки. Значение inline</samp> отменяет эту особенность, поэтому содержимое блочных элементов начинается с того места, где окончился предыдущий элемент.</td></tr>
+		<tr><td>inline-block</td>
+			<td>Это значение генерирует блочный элемент, который обтекается другими элементами веб-страницы подобно встроенному элементу. Фактически такой элемент по своему действию похож на встраиваемые элементы (вроде тега <samp class="red">&lt;img></samp>). При этом его внутренняя часть форматируется как блочный элемент, а сам элемент - как встроенный.</td></tr>
+		<tr><td>none</td>
+			<td>Временно удаляет элемент из документа. Занимаемое им место не резервируется и веб-страница формируется так, словно элемента и не было. Изменить значение и сделать вновь видимым элемент можно с помощью скриптов.</td></tr>
+		<tr><td>flex</td>
+			<td>Элемент ведёт себя как блочный и выкладывает содержимое согласно флекс-модели.</td></tr>
+		<tr><td>inline-flex</td>
+			<td>Элемент ведёт себя как строчный и выкладывает содержимое согласно флекс-модели.</td></tr>
+		<tr><td>list-item</td>
+			<td>Элемент выводится как блочный и добавляется маркер списка.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Следующие параметры поддерживают не все браузеры</h3>
+	<table class="t1 tt1 t3 tb tm20">
+		<tr><td width="170px">run-in</td>
+			<td>Устанавливает элемент как блочный или встроенный в зависимости от контекста.</td></tr>
+		<tr><td>inline-table</td>
+			<td>Определяет, что элемент является таблицей как при использовании тега <samp class="red">&lt;table></samp>, но при этом таблица является встроенным элементом и происходит ее обтекание другими элементами, например, текстом.</td></tr>
+		<tr><td>table</td>
+			<td>Определяет, что элемент является блочной таблицей подобно использованию тега <samp class="red">&lt;table></samp>.</td></tr>
+		<tr><td>table-caption</td>
+			<td>Задает заголовок таблицы подобно применению тега <samp class="red">&lt;caption></samp>.</td></tr>
+		<tr><td>table-cell</td>
+			<td>Указывает, что элемент представляет собой ячейку таблицы (тег <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>).</td></tr>
+		<tr><td>table-row</td>
+			<td>Элемент отображается как строка таблицы (тег <samp class="red">&lt;tr></samp>).</td></tr>
+		<tr><td>table-column</td>
+			<td>Назначает элемент колонкой таблицы, словно был добавлен тег <samp class="red">&lt;col></samp>.</td></tr>
+		<tr><td>table-column-group</td>
+			<td>Определяет, что элемент является группой одной или более колонок таблицы, как при использовании тега <samp class="red">&lt;colgroup></samp>.</td></tr>
+		<tr><td>table-footer-group</td>
+			<td>Используется для хранения одной или нескольких строк ячеек, которые отображаются в самом низу таблицы. По своему действию сходно с работой тега <samp class="red">&lt;tfoot></samp>.</td></tr>
+		<tr><td>table-header-group</td>
+			<td>Элемент предназначен для хранения одной или нескольких строк ячеек, которые представлены вверху таблицы. По своему действию сходно с работой тега <samp class="red">&lt;thead></samp>.</td></tr>
+		<tr><td>table-row-group</td>
+			<td>Создает структурный блок, состоящий из нескольких строк таблицы аналогично действию тега <samp class="red">&lt;tbody></samp>.</td></tr>
+	</table>
+
+</div>
+
+</body></html>

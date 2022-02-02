@@ -1,0 +1,229 @@
+<!DOCTYPE html><html><head><title>&lt;iframe></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin"><samp>&lt;iframe></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#z0">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#align" title="Определяет, как фрейм будет выравниваться по краю, а также способ обтекания его текстом. Устарел">align</a></span>
+				<span><a href="#allowfullscreen" title="Разрешает для фрейма полноэкранный режим.">allowfullscreen</a></span>
+				<span><a href="#allowtransparency" title="Устанавливает прозрачный фон фрейма, через который виден фон страницы. Нестандартный">allowtransparency</a></span>
+				<span><a href="#frameborder" title="Устанавливает, отображать границу вокруг фрейма или нет. Только HTML4">frameborder</a></span>
+				<span><a href="#height" title="Высота фрейма.">height</a></span>
+				<span><a href="#hspace" title="Горизонтальный отступ от фрейма до окружающего контента. Устарел">hspace</a></span>
+				<span><a href="#marginheight" title="Отступ сверху и снизу от содержания до границы фрейма. Только HTML4">marginheight</a></span>
+				<span><a href="#marginwidth" title="Отступ слева и справа от содержимого до границы фрейма. Только HTML4">marginwidth</a></span>
+				<span><a href="#name" title="Имя фрейма.">name</a></span>
+				<span><a href="#sandbox" title="Позволяет задать ряд ограничений на контент загружаемый во фрейме.">sandbox</a></span>
+				<span><a href="#scrolling" title="Способ отображения полосы прокрутки во фрейме.">scrolling</a></span>
+				<span><a href="#seamless" title="Определяет, что содержимое фрейма должно отображаться так, словно оно является частью документа.">seamless</a></span>
+				<span><a href="#src" title="Путь к файлу, содержимое которого будет загружаться во фрейм.">src</a></span>
+				<span><a href="#srcdoc" title="Хранит содержимое фрейма непосредственно в атрибуте.">srcdoc</a></span>
+				<span><a href="#vspace" title="Вертикальный отступ от фрейма до окружающего контента. Устарел">vspace</a></span>
+				<span><a href="#width" title="Ширина фрейма.">width</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;iframe></samp> (от англ. inline frame — встроенный фрейм) создаёт встроенный фрейм, который находится внутри обычного документа, он позволяет загружать в область заданных размеров любые другие независимые документы.</p>
+	<p><samp class="red">&lt;iframe></samp> является контейнером, содержание которого игнорируется браузерами, не поддерживающими данный элемент. Для таких браузеров можно указать альтернативный текст, который увидят пользователи. Он должен располагаться между тегами <samp class="red">&lt;iframe></samp> и <samp class="red">&lt;/iframe></samp>.</p>
+	<pre class="item2 br0 mt20"><code>&lt;iframe src="https://www.google.com"><br>Ваш браузер не поддерживает встроенные фреймы!<br>&lt;/iframe></code></pre>
+	<p class="mt20">Элемент <samp class="red">&lt;iframe></samp> содержит несколько стилей по умолчанию, в том числе <b>border, width</b> и <b>height</b>. Эти стили можно регулировать с помощью атрибутов в HTML (<samp class="sin">frameborder</samp>, <samp class="sin">width</samp> и <samp class="sin">height</samp>) или с помощью CSS-свойств (<samp class="sin">border</samp>, <samp class="sin">width</samp> и <samp class="sin">height</samp>).</p>
+	<div class="no mb10">Если значение высоты или ширины не заданы, то фрейм автоматически принимает размер 300х150 пикселей.</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"  id="z0"><a href="#">Атрибуты.</a></h3>
+	<table class="t1 tb mb10">
+		<tr><td><a href="#align">align</a></td><td>Определяет, как фрейм будет выравниваться по краю, а также способ обтекания его текстом.<span class="no ml10">устарел</span></td></tr>
+		<tr><td><a href="#allowfullscreen">allowfullscreen</a></td><td>Разрешает для фрейма полноэкранный режим.</td></tr>
+		<tr><td style="letter-spacing:-1px"><a href="#allowtransparency">allowtransparency</a></td><td>Устанавливает прозрачный фон фрейма, через который виден фон страницы.<span class="no ml10">нестандартный</span></td></tr>
+		<tr><td><a href="#frameborder">frameborder</a></td><td>Устанавливает, отображать границу вокруг фрейма или нет.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td></tr>
+		<tr><td><a href="#height">height</a></td><td>Высота фрейма.</td></tr>
+		<tr><td><a href="#hspace">hspace</a></td><td>Горизонтальный отступ от фрейма до окружающего контента.<span class="no ml10">устарел</span></td></tr>
+		<tr><td><a href="#marginheight">marginheight</a></td><td>Отступ сверху и снизу от содержания до границы фрейма.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td></tr>
+		<tr><td><a href="#marginwidth">marginwidth</a></td><td>Отступ слева и справа от содержимого до границы фрейма.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td></tr>
+		<tr><td><a href="#name">name</a></td><td>Имя фрейма.</td></tr>
+		<tr><td><a href="#sandbox">sandbox</a></td><td>Позволяет задать ряд ограничений на контент загружаемый во фрейме.<span class="html5"></span></td></tr>
+		<tr><td><a href="#scrolling">scrolling</a></td><td>Способ отображения полосы прокрутки во фрейме.</td></tr>
+		<tr><td><a href="#seamless">seamless</a></td><td>Определяет, что содержимое фрейма должно отображаться так, словно оно является частью документа.<span class="html5"></span></td></tr>
+		<tr><td><a href="#src">src</a></td><td>Путь к файлу, содержимое которого будет загружаться во фрейм.</td></tr>
+		<tr><td><a href="#srcdoc">srcdoc</a></td><td>Хранит содержимое фрейма непосредственно в атрибуте.<span class="html5"></span></td></tr>
+		<tr><td><a href="#vspace">vspace</a></td><td>Вертикальный отступ от фрейма до окружающего контента.<span class="no ml10">устарел</span></td></tr>
+		<tr><td><a href="#width">width</a></td><td>Ширина фрейма.</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin" id="align"><a href="#z0">Атрибут - <samp class="grin">align</samp></a></h3>
+	<p>Для встроенного фрейма можно указать его положение на веб-странице, а также задать способ обтекания текстом или другими элементами веб-страницы. Способ выравнивания задаётся атрибутом <samp class="sin">align</samp> элемента <samp class="red">&lt;iframe></samp>. Значение по умолчанию <samp class="lsin">bottom</samp>.</p>
+	<div class="no">Данный атрибут устарел, взамен используйте стили.</div>
+	<pre class="item2"><code>&lt;iframe align="absmiddle | baseline | bottom | left |<br>               middle | right | texttop | top">&lt;/iframe></code></pre>
+
+	<table class="t1 tgr t4">
+		<tr><td>absmiddle</td><td>Выравнивание середины фрейма по середине текущей строки.</td></tr>
+		<tr><td>baseline</td><td>Выравнивание фрейма по базовой линии текущей строки.</td></tr>
+		<tr><td>bottom</td><td>Выравнивание нижней границы фрейма по окружающему тексту.</td></tr>
+		<tr><td>left</td><td>Выравнивает фрейм по левому краю окна.</td></tr>
+		<tr><td>middle</td><td>Выравнивание середины фрейма по базовой линии текущей строки.</td></tr>
+		<tr><td>right</td><td>Выравнивает фрейм по правому краю окна.</td></tr>
+		<tr><td>texttop</td><td>Верхняя граница фрейма выравнивается по самому высокому текстовому элементу текущей строки.</td></tr>
+		<tr><td>top</td><td>Верхняя граница фрейма выравнивается по самому высокому элементу текущей строки.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="allowfullscreen"><a href="#z0">Атрибут - <samp class="grin">allowfullscreen</samp></a></h3>
+	<p>Атрибут <samp class="sin">allowfullscreen</samp> разрешает для фрейма полноэкранный режим.</p>
+	<pre class="item2"><code>&lt;iframe allowfullscreen>&lt;/iframe></code></pre>
+	<div class="no lh2">Internet Explorer поддерживает атрибут <samp class="sin">-ms-allowfullscreen</samp>.
+		<br>Chrome до версии 27 и Safari поддерживают атрибут <samp class="sin">-webkit-allowfullscreen</samp>.
+		<br>Firefox до версии 18 поддерживает атрибут <samp class="sin">-moz-allowfullscreen</samp>.</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="allowtransparency"><a href="#z0">Атрибут - <samp class="grin">allowtransparency</samp></a></h3>
+	<p>В Internet Explorer до версии 8.0 включительно фон фрейма на странице по умолчанию имеет белый цвет, если он не задан явно. Когда на странице применяется цвет фона отличный от белого или фоновая картинка, фрейм может не вписываться в дизайн страницы. Атрибут <samp class="sin">allowtransparency</samp> позволяет установить прозрачный фон фрейма, через который будет виден фон страницы.</p>
+	<pre class="item2"><code>&lt;iframe allowtransparency>&lt;/iframe></code></pre>
+	<div class="no">Это нестандартный атрибут, не используйте его.
+		<br>В IE9 и других браузерах фон фрейма задаётся прозрачным по умолчанию.</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="frameborder"><a href="#z0">Атрибут - <samp class="grin">frameborder</samp></a></h3>
+	<p>По умолчанию вокруг содержимого фрейма рисуется рамка с эффектом трёхмерности. Чтобы её скрыть применяется атрибут <samp class="sin">frameborder</samp>.
+		<br>Значение по умолчанию - <b>1</b> (oтображает рамку).</p>
+	<pre class="item2"><code>&lt;iframe  frameborder="yes (1) | no (0)">&lt;/iframe></code></pre>
+	<div class="no">Устарел - используйте стилевое свойство <samp class="sin">border</samp>.</div>
+</div>
+
+
+<div class="item" id="width">
+<h3 class="sin" id="height"><a href="#z0">Атрибуты - <samp class="grin">height</samp> и <samp class="grin">width</samp></a></h3>
+	<p>Для изменения размеров фрейма средствами HTML предусмотрены атрибуты <samp class="sin">height</samp> и <samp class="sin">width</samp>. Допускается использовать значения в пикселях или процентах. Если установлена процентная запись, то размеры фрейма вычисляются относительно родительского элемента, где находится элемент <samp class="red">&lt;iframe></samp>. В случае отсутствия родительского контейнера, в его качестве выступает окно браузера.</p>
+	<p>Значение по умолчанию: <samp class="sin">width</samp> - 300 пикселей, <samp class="sin">height</samp> - 150 пикселей.</p>
+	<pre class="item2"><code>&lt;iframe  height="значение" width="значение">&lt;/iframe></code></pre>
+</div>
+
+
+<div class="item" id="vspace">
+<h3 class="sin" id="hspace"><a href="#z0">Атрибуты - <samp class="grin">hspace</samp> и <samp class="grin">vspace</samp></a></h3>
+	<p>Для любого фрейма можно задать невидимые отступы по горизонтали и вертикали с помощью, соответственно, атрибутов <samp class="sin">hspace</samp> и <samp class="sin">vspace</samp>. Особенно это актуально при обтекании содержимого фрейма текстом. В этом случае, чтобы текст не «наезжал» плотно на границу фрейма, необходимо вокруг него добавить пустое пространство. Значения - любое целое положительное число в пикселях. Значение по умолчанию - 0.</p>
+	<div class="no">Данный атрибут устарел, взамен используйте стили.</div>
+	<pre class="item2"><code>&lt;iframe hspace="число" vspace="число">&lt;/iframe></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="marginheight"><a href="#z0">Атрибут - <samp class="grin">marginheight</samp></a></h3>
+	<p>Устанавливает высоту отступа в пикселях от содержимого встроенного фрейма до его верхней и нижней границы. Значение по умолчанию - oпределяется браузером.</p>
+	<pre class="item2"><code>&lt;iframe marginheight="число">&lt;/iframe></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="marginwidth"><a href="#z0">Атрибут - <samp class="grin">marginwidth</samp></a></h3>
+	<p>Задаёт отступ между содержимым и правой (левой) границей встроенного фрейма. Вы не можете задавать разные значения для левого и правого отступа, они устанавливаются одновременно. Значение по умолчанию - oпределяется браузером.</p>
+	<pre class="item2"><code>&lt;iframe marginwidth="число">&lt;/iframe></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="name"><a href="#z0">Атрибут - <samp class="grin">name</samp></a></h3>
+	<p>В обычном HTML-документе при переходе по ссылке в окне браузера текущий документ заменяется новым. Чтобы направить содержимое во фрейм, он должен иметь уникальное имя, задаваемое атрибутом <samp class="sin">name</samp>. В этом случае при создании ссылки у <samp class="red">&lt;a></samp> требуется указать атрибут <samp class="sin">target</samp>, в качестве значения которого выступает имя фрейма.</p>
+	<p>Для указания имени используется набор символов, включая числа и буквы. При обращении к фрейму по имени соблюдайте то же написание, что и в атрибуте <samp class="sin">name</samp>.</p>
+	<pre class="item2"><code>&lt;iframe name="имя">&lt;/iframe></code></pre>
+	<pre class="item2"><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"<br>  "http://www.w3.org/TR/html4/loose.dtd"><br>&lt;html><br>  &lt;head><br>    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br>    &lt;title>IFRAME, атрибут name&lt;/title><br>  &lt;/head><br>  &lt;body><br>    &lt;iframe name="hero" src="page/main.html" width="600" height="100"><br>    &lt;/iframe><br>    &lt;p>&lt;a href="page/1.html" target="hero">Чебурашка&lt;/a><br>    &lt;br>&lt;a href="page/2.html" target="hero">Крокодил Гена&lt;/a><br>    &lt;br>&lt;a href="page/3.html" target="hero">Шапокляк&lt;/a><br>  &lt;/body><br>&lt;/html></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="sandbox"><a href="#z0">Атрибут - <samp class="grin">sandbox</samp></a></h3>
+	<p>Атрибут <samp class="sin">sandbox</samp> позволяет установить ряд ограничений на контент, загружаемый во фрейме, к примеру, блокировать формы и скрипты. Это позволяет повысить безопасность текущего документа, особенно в том случае, когда во фрейм загружается документ из непроверенного источника.</p>
+	<pre class="item2"><code>&lt;iframe src="URL" sandbox="значение">&lt;/iframe></code></pre>
+	<div class="no anp">
+		<p>Допустимо писать несколько значений в любом порядке через пробел.</p>
+		<p>Если указано пустое значение, то устанавливаются все возможные ограничения.</p>
+		<p>При одновременном использовании значений <samp class="lsin">allow-scripts</samp> и <samp class="lsin">allow-same-origin</samp>, когда исходный и загружаемый документ одного происхождения, атрибут <samp class="sin">sandbox</samp> игнорируется.</p>
+	</div>
+	<table class="t1 tc tgr">
+		<caption>Значения</caption>
+		<tr><td width="210px">allow-forms</td><td>Позволяет содержимому фрейма отправлять формы.</td></tr>
+		<tr><td>allow-modals</td><td>Разрешает открытие модальных окон, вроде тех, которые делаются с помощью функции <samp class="sin">alert</samp> в JavaScript.</td></tr>
+		<tr><td class="ls-1">allow-orientation-lock</td><td>Позволяет отключать возможность блокировки экрана.</td></tr>
+		<tr><td>allow-pointer-lock</td><td>Позволяет фрейму использовать <a href="https://www.w3.org/TR/pointerlock/" class="tdu sin">Pointer Lock API</a>.</td></tr>
+		<tr><td>allow-popups</td><td>Разрешает всплывающие окна (такие как <samp class="sin">window.open, target="_blank", showModalDialog</samp>).</td></tr>
+		<tr><td>allow-presentation</td><td>Разрешает фрейму использовать <a href="https://www.w3.org/TR/presentation-api/" class="tdu sin">Presentation API</a>.</td></tr>
+		<tr><td>allow-same-origin</td><td>Разрешает загружать содержание фрейма, воспринимая его из того же источника, что и родительский документ. Может использоваться для безопасного открытия контента, блокируя при этом всплывающие окна.</td></tr>
+		<tr><td>allow-scripts</td><td>Разрешает запуск и выполнение скриптов. Создание всплывающих окон при этом запрещено.</td></tr>
+		<tr><td>allow-top-navigation</td><td>Позволяет открывать ссылки фрейма в родительском документе.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="scrolling"><a href="#z0">Атрибут - <samp class="grin">scrolling</samp></a></h3>
+	<p>Если содержимое фрейма не помещается в отведённые размеры, автоматически появляются полосы прокрутки для просмотра информации. В некоторых случаях, полосы прокрутки нарушают дизайн веб-страницы, поэтому от них можно отказаться. Для управления отображением полос прокрутки используется атрибут <samp class="sin">scrolling</samp>. Значение по умолчанию - auto.</p>
+	<pre class="item2"><code>&lt;iframe scrolling="<span title="Полосы прокрутки добавляются браузером только по необходимости, в том случае, когда содержимое фрейма превышает его видимую часть.">auto</span> | <span title="Запрещает отображение полос прокрутки.">no</span> | <span title="Всегда вызывает появление полос прокрутки, независимо от объёма информации.">yes</span>">&lt;/iframe></code></pre>
+</div>
+
+
+
+
+<div class="item">
+<h3 class="sin" id="seamless"><a href="#z0">Атрибут - <samp class="grin">seamless</samp></a></h3>
+	<p>Страницы, на которые ссылается aтрибут - <samp class="sin bold">src</samp> элемента <samp class="red">&lt;iframe></samp> играют по своим правилам — так, они не наследуют любые стили или поведение со страницы, на которую указывают. Любые стили применяемые к странице с элементом <samp class="red">&lt;iframe></samp> не наследуются страницей внутри элемента <samp class="red">&lt;iframe></samp>. Кроме того, ссылки внутри страницы в элементе <samp class="red">&lt;iframe></samp> откроются внутри фрейма, оставляя страницу, которая содержит элемент <samp class="red">&lt;iframe></samp>, без изменений.</p>
+	<!-- <p>Когда атрибут seamless присутствует в элементе <samp class="red">&lt;iframe></samp> это разрешает стилям для страницы с элементом <samp class="red">&lt;iframe></samp> наследоваться странице внутри элемента <samp class="red">&lt;iframe></samp>. Кроме того, Атрибут - <samp class="grin">seamless</samp> позволяет ссылкам, нажатым на странице внутри <samp class="red">&lt;iframe></samp>, открываться в том же окне, что и исходная страницы, содержащая элемент <samp class="red">&lt;iframe></samp>.</p> -->
+	<pre class="item2"><code>&lt;iframe src="contact.html" seamless>&lt;/iframe></code></pre>
+	<p class="no">Атрибут - <samp class="sin">seamless</samp> является новым атрибутом представленным в HTML5. Хотя поддержка браузеров для этого атрибута растёт, он не будет работать в старых браузерах. Рекомендуем проверить Атрибут - <samp class="sin">seamless</samp> перед его использованием.</p>
+	<div>При использовании атрибута <samp class="sin">seamless</samp> происхоит:</div>
+	<ul class="mt0 ml-10">
+		<li class="tm">игнорируется атрибут <samp class="sin">sandbox</samp>, если содержимое фрейма и родительского документа взяты из одного источника;</li>
+		<li class="tm">ссылки во фрейме открываются не внутри фрейма, а в текущем документе;</li>
+		<li class="tm">стили родительского документа применяются и к содержимому фрейма;</li>
+		<li class="tm">фрейм считается блочным элементом, у которого ширина задана как auto;</li>
+		<li class="tm">высота формируется автоматически на основе содержимого.</li>
+	</ul>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="src"><a href="#z0">Атрибут - <samp class="grin">src</samp></a></h3>
+	<p>Указывает адрес файла, который будет загружаться во фрейм. Это может быть HTML-документ, изображение или серверная программа. Допустимо использовать не только путь к файлу, но также имя функции JavaScript, которое возвращает значение.</p>
+	<pre class="item2"><code>&lt;iframe src="адрес">&lt;/iframe></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="srcdoc"><a href="#z0">Атрибут - <samp class="grin">srcdoc</samp></a></h3>
+	<p>Позволяет установить содержимое фрейма непосредственно в атрибуте. Значение должно иметь корректный синтаксис HTML, по желанию содержать <samp class="red">&lt;!DOCTYPE></samp> и <samp class="red">&lt;html></samp>, а также любое количество пробелов, переносов строк, комментариев и других элементов. При одновременном использовании атрибутов <samp class="sin">src</samp> и <samp class="sin">srcdoc</samp>, атрибут <samp class="sin">src</samp> игнорируется.</p>
+	<p>Значения: HTML-код содержимого, включая необходимые теги.</p>
+	<pre class="item2"><code>&lt;iframe srcdoc="html-код">&lt;/iframe></code></pre>
+	<pre class="item2"><code>&lt;iframe src="page/nosrcdoc.html"<br>        srcdoc="<br>&lt;html><br>  &lt;body><br>    &lt;p>Серпантинная волна выстраивает октавер, <br>    благодаря широким мелодическим скачкам.&lt;/p><br>">&lt;/iframe></code></pre>
+</div>
+
+
+</body>
+</html>

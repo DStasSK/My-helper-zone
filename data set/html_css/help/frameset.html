@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>&lt;frameset></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.ulli {margin:5px 0 0; text-align:justify;}
+	.ulli li {margin:8px 0;}
+</style></head>
+<body>
+
+<h2 class="sin"><samp>&lt;frameset></samp></h2>
+
+<div class="item">
+	<p>Элемент <samp class="red bold">&lt;frameset></samp> (от англ. frame set — набор рамок) заменяет собой <body> на веб-странице. Допустимо использовать вложенную структуру элементов, это позволяет разбить один фрейм на две и более области.</p>
+	<p>Определяет структуру фреймов на веб-странице. Фреймы разделяют окно браузера на отдельные области, расположенные вплотную друг к другу. В каждую из таких областей загружается самостоятельная веб-страница, определяемая с помощью элемента <samp class="red">&lt;frame></samp>. С помощью фреймов веб-страница делится на два или более документа, которые обычно содержат навигацию по сайту и его контент. Механизм фреймов позволяет открывать документ в одном фрейме, по ссылке, нажатой в совершенно другом фрейме</p>
+	<pre class="item2"><code>&lt;frameset><br>   &lt;frame><br>&lt;/frameset></code></pre>
+	<div class="no">Данный элемент устарел, не используйте его.</div>
+	<div class="mt30">При использовании фреймов примите во внимание их следующие особенности:</div>
+	<ul class="ulli">
+		<li>Поисковые системы плохо работают с фреймовой структурой, поскольку на страницах, которые содержат контент, обычно нет ссылок на другие документы.</li>
+		<li>Фреймы скрывают адрес страницы на которой находится посетитель и устанавливаемый через элемент <samp class="red">&lt;title></samp>, и всегда показывают только адрес сайта. По этой причине понравившуюся страницу невозможно поместить в раздел «Избранное» браузера.</li>
+		<li>Пользователь зачастую оказывается на сайте, совершенно не представляя, куда он попал, потому что всего лишь нажал на ссылку, полученную в поисковой системе. Чтобы посетителю сайта было проще разобраться, где он находится, на каждую страницу помещают название сайта, заголовок страницы и навигацию. Фреймы, как правило, нарушают данный принцип, отделяя заголовок сайта от содержания, а навигацию от контента. Представьте, что вы нашли подходящую ссылку в поисковой системе, нажимаете на неё, а в итоге открывается документ без названия и навигации. Чтобы понять, где мы находимся или посмотреть другие материалы, придётся редактировать путь в адресной строке, что в любом случае доставляет неудобство.</li>
+		<li>Большое число фреймов требует для браузера выделения больше памяти, чем обычно.</li>
+	</ul>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><a href="#">Парaметры.</a></h2>
+	<table class="t1">
+		<tr><td>border</td>
+			<td>Толщина границы между фреймами. По умолчанию линия отображается трёхмерной, но используя атрибуты bordercolor и border можно настроить её вид по своему усмотрению.
+			<div class="no">Браузеры по-разному интерпретируют атрибуты <samp class="red">&lt;frameset></samp> и отображают линию.</div>
+			<pre class="item2"><code>&lt;frameset border="число">...&lt;/frameset></code></pre></td></tr>
+		<tr><td>bordercolor</td>
+			<td>Определяет цвет видимых границ между фреймов. Цвет родительского элемента <samp class="red">&lt;frameset></samp> может быть изменён с помощью дочернего элемента <samp class="red">&lt;frameset></samp> или индивидуального элемента <samp class="red">&lt;frame></samp>.
+			<pre class="item2"><code>&lt;frameset bordercolor="цвет">...&lt;/frameset></code></pre></td></tr>
+		<tr><td>cols</td>
+			<td>Устанавливает ширину или пропорции фреймов в виде колонок.
+			<br>Pазмеры задаются: в пикселях (при этом <b class="red">px</b> не указывается - только число); в процентах от доступной ширины фрейма; символом <b><samp>*</samp></b>, который обозначает всю свободную ширину, оставшуюся после указания размеров в пикселях или процентах.
+			<pre class="item2"><code>&lt;frameset cols="размер, размер, ...">...&lt;/frameset></code></pre></td></tr>
+		<tr><td>rows</td>
+			<td>Задаёт размер или пропорции фреймов в виде строк.
+			<br>Pазмеры задаются: в пикселях (при этом <b class="red">px</b> не указывается - только число); в процентах от доступной ширины фрейма; символом <b><samp>*</samp></b>, который обозначает всю свободную ширину, оставшуюся после указания размеров в пикселях или процентах.
+			<pre class="item2"><code>&lt;frameset rows="размер, размер, ...">...&lt;/frameset></code></pre></td></tr>
+		<tr><td>frameborder</td>
+			<td>Определяет, отображать рамку вокруг фрейма или нет. По умолчанию этот атрибут включен.
+			<pre class="item2"><code>&lt;frameset frameborder="yes | no">...&lt;/frameset><br>&lt;frameset frameborder="1 | 0">...&lt;/frameset></code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><a href="#">Пример.</a></h2>
+	<pre class="item2"><code>&lt;iframe src="frame/start.html" width="100%" height="200px" class="if1">&lt;/iframe>
+		<br><b>&lt;!-- start.html --></b><br>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" <br>  "http://www.w3.org/TR/html4/frameset.dtd"><br>&lt;html><br>  &lt;head><br>    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br>    &lt;title>Frame Start&lt;/title><br>  &lt;/head><br>  &lt;frameset rows="80,*" cols="*"><br>    &lt;frame src="top.html" name="tf" scrolling="no" noresize><br>    &lt;frameset cols="80,*"><br>      &lt;frame src="left.html" name="lf" scrolling="no" noresize><br>      &lt;frame src="main.html" name="mf"><br>    &lt;/frameset><br>  &lt;/frameset><br>&lt;/html></code></pre>
+	<div>
+		<style>
+			.if1 {border:0; margin-top:15px}
+		</style>
+		<iframe src="frame/start.html" width="100%" height="200px" class="if1"></iframe>
+	</div>
+</div>
+
+
+</body>
+</html>

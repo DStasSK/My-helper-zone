@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>&lt;picture></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin"><samp class="t-html5">&lt;picture></samp></h2>
+
+<div class="item">
+	<p><samp class="red">&lt;picture></samp> (от англ. picture — картинка, изображение) представляет собой контейнер для хранения нескольких элементов <samp class="red tdu"><a href="source.html">&lt;source></samp></a>, которые поддерживают элемент <samp class="red tdu"><a href="img.html">&lt;img></a></samp>. Это позволяет указывать разные изображения с учётом размера экрана, плотности пикселей, формата изображения и других параметров. Элемент <samp class="red">&lt;picture></samp> может применяться для:</p>
+	<ul class="list">
+		<li>для экранов ретина можно показывать картинку большего размера</li>
+		<li>выводить рисунки разного размера для мобильных и настольных устройств</li>
+		<li>отображать изображения разных пропорций, учитывающих ориентацию устройства</li>
+		<li>выводить изображение в формате SVG или ином, отличном от указанном в <samp class="red">&lt;img></samp></li>
+	</ul>
+	<pre class="item2"><code>&lt;picture><br>   &lt;source srcset="url" type="MME-тип" media=""><br>   &lt;source srcset="url" type="MME-тип" media=""><br>   &lt;img src="url" width="" height="" alt=""><br>&lt;/picture></code></pre>
+
+	<div>Внутри <samp class="red">&lt;picture></samp> содержится ноль или несколько элементов <samp class="red">&lt;source></samp>, которые идут перед одним элементом <samp class="red">&lt;img></samp>.</div>
+
+	<div class="no">Наличие элемента <samp class="red">&lt;img></samp> <b>ОБЯЗАТЕЛЬНО</b> для работы <samp class="red">&lt;picture></samp>.</div>
+
+	<div class="no">Если использовать изображение в формате <samp class="lsin">.webp</samp> то нужно указать <samp class="sin">type=</samp><samp class="lsin">"image/webp"</samp> в теге <samp class="red">&lt;source></samp> иначе в <b>Safari</b> не будут грузиться запасные изображения.</div>
+
+	<div class="no mb10">internet Explorer не поддерживает данный элемент.</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Пример.</h3>
+	<picture class="prm">
+		<source srcset="img/mushroom_landscape.jpg" media="screen and (orientation: landscape)">
+		<source srcset="img/mushroom_portrait.jpg" media="screen and (orientation: portrait)">
+		<img src="img/mushroom.jpg" alt="" style="margin:auto; display:block; max-width:400px; max-height:200px;">
+	</picture>
+	<fieldset class="prm phtm prm3 bn mb0">
+		<legend class="point red" onclick='pr1.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<div id="pr1" class="hiden" onclick="event.stopPropagation()">
+			<pre class="item2"><code>&lt;picture><br>  &lt;source srcset="img/mushroom_landscape.jpg"<br>          media="screen and (orientation: landscape)"><br>  &lt;source srcset="img/mushroom_portrait.jpg"<br>          media="screen and (orientation: portrait)"><br>  &lt;img src="img/mushroom.jpg" alt=""<br>       style="margin:auto; max-width:400px; display:block; max-height:200px"><br>&lt;/picture></code></pre>
+		</div>
+	</fieldset>
+	<p style="font-style:italic;">В данном примере применяется два изображения — одно отображается при альбомной ориентации экрана, второе при портретной ориентации. Чтобы заметить эффект на настольном компьютере, достаточно изменить размеры окна браузера, задав ему разные пропорции.</p>
+
+	<picture class="prm mt20">
+		<source srcset="img/mushroom_landscape.jpg, img/mushroom_retina.jpg 2x" media="(min-width: 35em)">
+		<img src="img/mushroom.jpg" alt="" style="display:block; margin:auto;max-height:200px">
+	</picture>
+	<fieldset class="prm phtm prm3 bn mb0">
+		<legend class="point red" onclick='pr2.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<div id="pr2" class="hiden" onclick="event.stopPropagation()">
+			<pre class="item2"><code>&lt;picture><br>  &lt;source srcset="image/mushroom_landscape.jpg, <br>                  image/mushroom_retina.jpg 2x"<br>                  media="(min-width: 35em)"><br>  &lt;img src="image/mushroom.jpg" alt=""<br>       style="display:block; margin:auto; max-height:200px"><br>&lt;/picture></code></pre>
+		</div>
+	</fieldset>
+	<p style="font-style:italic;" class="mt0">В данном примере применяется два изображения — одно отображается при обычной плотности пикселей, второе при плотности пикселей <b>х2</b>. При минимальной ширине экрана менее <b>35em</b> - загрузится изображение из <samp class="red">&lt;img></samp></p>
+</div>
+
+<!-- <div class="item" id="attributs">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<table class="t1 t3 tb mt20">
+
+	</table>
+</div> -->
+
+</body></html>

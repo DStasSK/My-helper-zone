@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><title>user-select</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	#tt1 tr td:nth-child(1) {text-align:center;width:80px}
+	#tt1 td{vertical-align:middle; height:40px;}
+	.tt3 {-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; background:#eee;}
+	.tt4 {-webkit-user-select:all; -moz-user-select:all; -ms-user-select:all; user-select:all;}
+	.tt5 {-webkit-user-select:contain; -moz-user-select:contain; -ms-user-select:contain; user-select:contain;}
+</style>
+
+</head>
+<body>
+
+<h1 class="sin" id="z1">user-select</h1>
+<div class="item">
+	<p>Управляет поведением выделения текста и других элементов на странице, в частности, позволяет запретить выделение текста. Обычно применяется для интерактивных элементов, на которые можно щёлкать, например, вкладки, и для которых выделение текста нежелательно. Значение по умолчанию <samp class="lsin">auto</samp>, наследуется, применяется ко всем элементам.</p>
+
+	<b>Синтаксис:</b>
+	<pre class="item2"><code>div {<br>  -webkit-user-select: auto | none | text | all | contain;<br>     -moz-user-select: auto | none | text | all | contain;<br>      -ms-user-select: auto | none | text | all | contain;<br>          user-select: auto | none | text | all | contain;<br>}</code></pre>
+
+	<table class="t1 t2 tc tb mt20" id="tt1">
+		<caption>Значения / песочница</caption>
+		<tr><td>auto</td>
+			<td>Для редактируемых элементов значение принимается contain. Если у родителя значение <samp class="sin">user-select</samp> установлено как <samp class="lsin">all</samp>, то для элемента оно тоже будет <samp class="lsin">all</samp>. Если у родителя значение <samp class="sin">user-select</samp> установлено как <samp class="lsin">none</samp>, то для элемента оно тоже будет <samp class="lsin">none</samp>. Во всех остальных случаях принимается значение <samp class="lsin">text</samp>.</td></tr>
+		<tr><td>none</td>
+			<td class="tt3">Пользователю запрещено выделять элемент.</td></tr>
+		<tr><td>text</td>
+			<td>Пользователь может выделить текст в элементе.</td></tr>
+		<tr><td>all</td>
+			<td class="tt4">Позволяет выделить текст <b>одним кликом</b> внутри элемента, включая дочерние элементы.</td></tr>
+		<tr><td style="background:#eee">contain</td
+			><td class="tt5">Позволяет выделять текст, но только внутри границ элемента.
+			<p><i>Значение <span class="red">contain</span> поддерживается только в <pan class="sin">IE</pan>.</i></p></td></tr>
+	</table>
+
+
+
+</div>
+
+</body>
+</html>

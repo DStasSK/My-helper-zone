@@ -1,0 +1,388 @@
+<!DOCTYPE html><html><head><title>Примеры анимации</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item anp">
+<h3 class="sin">пример 1 - сужение</h3>
+	<p>Блок <samp class="red">&lt;div></samp> будет изначально с шириной <b>700px</b> и за <b>5 секунд</b> уменьшится до <b>100px</b>.</p>
+	<style>
+		.pr1{margin:0px auto; background:red; height:50px; width:700px;
+
+			-webkit-animation-name:animI;     /* Chrome, Safari, Opera */
+			-webkit-animation-duration:5s;    /* Chrome, Safari, Opera */
+			-webkit-animation-iteration-count:infinite;
+
+			animation-name:animI; /* название ключевых кадров (см.ниже) */
+			animation-duration:5s;            /* длительность анимации */
+			animation-iteration-count:infinite;}
+		.pr1 span {width:calc(100% / 7); text-align:center; display:inline-block; line-height:50px;}
+		@-webkit-keyframes animI {/* Chrome, Safari, Opera */
+			from {width:700px;}
+			to {width:100px;}}
+
+		@keyframes animI {
+			from {width:700px;} /* первый ключевой кадр, ширина блока 700px */
+			to {width:100px;}}  /* последний ключевой кадр, ширина - 100px */
+	</style>
+	<div class="pr1"><span>с</span><span>у</span><span>ж</span><span>е</span><span>н</span><span>и</span><span>е</span></div>
+	<div class="item2">
+		<samp class="red point" onclick='an1.classList.toggle("hiden");'>HTML</samp>
+		<div class="an1 hiden" id="an1">
+			<pre><code>&lt;div class="pr1">&lt;span>с&lt;/span>...&lt;span>е&lt;/span>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.pr1{margin:0px auto; background:red; height:50px; width:700px;<br><br>  animation-name:animI; /* название ключевых кадров (см.ниже) */<br>  animation-duration:5s;            /* длительность анимации */<br>  animation-iteration-count:infinite;<br>}<br><br>.pr1 span {<br>  width:calc(100% / 7); text-align:center;<br>  display:inline-block; line-height:50px;<br>}<br><br>@keyframes animI {<br>  from {width:700px;} /* первый ключевой кадр, ширина блока 700px */<br>  to {width:100px;}}  /* последний ключевой кадр, ширина - 100px */</code></pre>
+			<span class="point yel" onclick='an1.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 1 -->
+
+
+
+<div class="item">
+<h3 class="sin">пример 2 - вращение</h3>
+	<style>
+		.pr2 {perspective:800px}
+		.pr2 span {
+			margin:20px auto; display:block; width:250px; height:130px;
+			background:url(../html_css/background/img/2.jpg) no-repeat;
+			background-size:100% 100%; text-align:center; color:#fff;
+
+			animation-name:aniII;               /* указываем на ключевые кадры анимации */
+			animation-timing-function:linear;   /* функция синхронизации */
+			animation-iteration-count:infinite; /* количество повторов - бесконечно */
+			animation-duration:6s;              /* длительность анимации */
+
+			transform-style: preserve-3d;}      /* указываем что это 3D преобразование */
+		.pr2 span:hover {animation-play-state:paused;}      /* останавливаем анимацию */
+
+		@keyframes aniII {
+			from {transform: rotateY(0deg);}
+			to {transform: rotateY(-360deg);}}
+	</style>
+
+	<div class="pr2"><span>картинко</span></div>
+	<div class="item2">
+		<samp class="red point" onclick='an2.classList.toggle("hiden");'>HTML</samp>
+		<div class="an2 hiden" id="an2">
+			<pre><code>&lt;div class="pr2">&lt;span>картинко&lt;/span>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.pr2 {perspective:800px}<br>.pr2 span {<br>  display:block; width:250px; height:130px; margin:20px auto;<br>  background:url(../html_css/background/img/2.jpg) no-repeat;<br>  background-size:100% 100%;<br>  text-align:center; color:#fff;<br><br>  animation-name:aniII;               /* указываем на ключевые кадры анимации */<br>  animation-timing-function:linear;   /* функция синхронизации */<br>  animation-iteration-count:infinite; /* количество повторов - бесконечно */<br>  animation-duration:6s;              /* длительность анимации */<br><br>  transform-style: preserve-3d;}      /* указываем что это 3D преобразование */<br><br>.pr2 span:hover {animation-play-state:paused;}       /* останавливаем анимацию */<br><br>@keyframes aniII {<br>  from {transform: rotateY(0deg);}<br>  to {transform: rotateY(-360deg);}}</code></pre>
+			<span class="point yel" onclick='an2.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 2 -->
+
+
+
+<div class="item">
+<h3 class="sin" id="ppr3">пример 3 - вращение 2</h3>
+	<style>
+		.pr30 {margin:0 auto; height:160px; width:364px; padding-top:28px; perspective:1200px; overflow:hidden;}
+		.pr31 {padding:0; margin:0; position:relative; left:-50%; transform-style:preserve-3d;
+
+			animation-name:aniIII;
+			animation-timing-function:linear;
+			animation-iteration-count:infinite;
+			animation-duration:18s;
+		}
+
+		.pr31:hover {animation-play-state: paused;} 		/* Останавливаем вращение при наведении */
+
+		.pr31 a {display:block; box-sizing:border-box; width:100%; height:130px; padding-left:117px;
+			position:absolute; background:rgba(255,255,255,0.2); box-shadow:inset 0 0 20px rgba(0,0,0,0.4);}
+
+		.pr31 a img {height:100%}
+
+		.pr31 a:nth-child(1) {transform:rotateY(0deg) translateX(180px)}
+		.pr31 a:nth-child(5) {transform:rotateY(-72deg) translateX(180px)}
+		.pr31 a:nth-child(4) {transform:rotateY(-144deg) translateX(180px)}
+		.pr31 a:nth-child(3) {transform:rotateY(-216deg) translateX(180px)}
+		.pr31 a:nth-child(2) {transform:rotateY(-288deg) translateX(180px)}
+
+		@keyframes aniIII {
+			from {transform:rotateY(0deg)}
+			to   {transform:rotateY(-360deg)}}
+	</style>
+
+	<div class="pr30">
+		<div class="pr31">
+			<a href="#ppr3" title="1"><img src="img/1.png"></a>
+			<a href="#ppr3" title="2"><img src="img/2.png"></a>
+			<a href="#ppr3" title="3"><img src="img/3.png"></a>
+			<a href="#ppr3" title="4"><img src="img/4.png"></a>
+			<a href="#ppr3" title="5"><img src="img/5.png"></a>
+		</div>
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='an3.classList.toggle("hiden");'>HTML</samp>
+		<div class="an2 hiden" id="an3">
+			<pre><code>&lt;div class="pr30"><br>  &lt;div class="pr31"><br>    &lt;a href="#ppr3" title="1">&lt;img src="img/1.png">&lt;/a><br>    &lt;a href="#ppr3" title="2">&lt;img src="img/2.png">&lt;/a><br>    &lt;a href="#ppr3" title="3">&lt;img src="img/3.png">&lt;/a><br>    &lt;a href="#ppr3" title="4">&lt;img src="img/4.png">&lt;/a><br>    &lt;a href="#ppr3" title="5">&lt;img src="img/5.png">&lt;/a><br>  &lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb ls-05"><code>.pr30 {<br>  margin:0 auto; padding-top:28px; height:160px; width:364px;<br>  perspective:1200px; overflow:hidden;<br>}<br>.pr31 {<br>  padding:0; margin:0; position:relative; left:-50%;<br>  transform-style:preserve-3d;<br>  animation-name:aniIII;<br>  animation-timing-function:linear;<br>  animation-iteration-count:infinite;<br>  animation-duration:18s;<br>}<br><br>.pr31:hover {animation-play-state: paused;}   /* Останавливаем вращение */<br>.pr31 a {<br>  display:block; box-sizing:border-box; width:100%; height:130px;<br>  padding-left:117px; position:absolute;<br>  background:rgba(255,255,255,0.2);<br>  box-shadow:inset 0 0 20px rgba(0,0,0,0.4);<br>}<br><br>.pr31 a:nth-child(1) {transform:rotateY(0deg) translateX(180px)}<br>.pr31 a:nth-child(5) {transform:rotateY(-72deg) translateX(180px)}<br>.pr31 a:nth-child(4) {transform:rotateY(-144deg) translateX(180px)}<br>.pr31 a:nth-child(3) {transform:rotateY(-216deg) translateX(180px)}<br>.pr31 a:nth-child(2) {transform:rotateY(-288deg) translateX(180px)}<br>.pr31 a img {height:100%}<br><br>@keyframes aniIII {<br>  from {transform:rotateY(0deg)}<br>  to   {transform:rotateY(-360deg)}<br>}</code></pre>
+			<span class="point yel" onclick='an3.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 3 -->
+
+
+
+<div class="item">
+<h3 class="sin">пример 4</h3>
+	<style>
+		.pr4 {background:#ccc; position:relative; margin:20px auto;
+			/* периметр (1+3)x2=8 раз по 150рх - без радиусов; R шара = R угла */
+			width:500px; height:200px; border-radius:25px;}
+		.pr4 p{display:block; left:0; top:0; position:absolute; border-radius:50%;
+			width:50px; height:50px; opacity:.5; line-height:50px; text-align:center;}
+		.pr4 span{position:relative; display:block; width:50px; height:50px;}
+		.pr4 span:before{position:absolute; top:25px; left:19px; display:block;
+			width:12px; height:12px; background:#fff; content:""; border-radius:50%;
+			box-shadow:0 0 20px #fff, 0 0 15px #fff, 0 0 5px #fff;}
+		.box1 {background:red; animation:anired 8s linear infinite;}
+		.box2 {background:green; animation:anigreen 12s linear infinite;}
+
+		/* подключаем анимацию вращения */
+			/* 8 раз по 150рх; 158рх/150рх = 1.05 секунд    158 - длина окружности*/
+			.pr4 p:nth-child(1) span{animation:IVa 1.05s linear infinite;}
+			/* 8 раз по 150рх; 158рх/150рх = 1.05 секунд * 12 / 8 = 1.57сек */
+			.pr4 p:nth-child(2) span{animation:IVb 1.57s linear infinite;}
+
+			/* отключаем анимацию при наведении */
+		.pr4 p:hover {animation-play-state: paused;}
+		.pr4 p span:hover {animation-play-state: paused;}
+
+		@keyframes IVa {
+			0% {transform:rotateZ(0deg);}
+			100% {transform:rotateZ(-360deg);}}
+
+		@keyframes IVb {
+			0% {transform:rotateZ(0deg);}
+			100% {transform:rotateZ(360deg);}}
+
+		@-webkit-keyframes anired{
+			0% {transform:translate(0,0);}
+			37.5% {transform:translate(450px,0);}
+			50% {transform:translate(450px,150px);}
+			87.5% {transform:translate(0px,150px);}
+			100% {transform:translate(0,0);}}
+
+		@-webkit-keyframes anigreen{
+			0% {transform:translate(0,0);}
+			12.5% {transform:translate(0,150px);}
+			50% {transform:translate(450px,150px);}
+			62.5% {transform:translate(450px,0);}
+			100% {transform:translate(0,0);}}
+	</style>
+	<div class="pr4">
+		<p class="box1"><span></span></p>
+		<p class="box2"><span></span></p></div>
+	<div class="item2">
+		<samp class="red point" onclick='an4.classList.toggle("hiden");'>HTML</samp>
+		<div class="an2 hiden" id="an4">
+			<pre><code>&lt;div class="pr4"><br>  &lt;p class="box1">&lt;span>&lt;/span>&lt;/p><br>  &lt;p class="box2">&lt;span>&lt;/span>&lt;/p>&lt;/div><br>&lt;div class="item2"></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.pr4 {<br>  background:#ccc; position:relative; margin:20px auto;<br>  width:500px; height:200px; border-radius:25px;<br>}<br>.pr4 p{<br>  display:block; border-radius:50%; width:50px; height:50px;<br>  left:0; top:0; position:absolute;<br>  opacity:.5; line-height:50px; text-align:center;<br>}<br>.pr4 span{position:relative; display:block; width:50px; height:50px;}<br>.pr4 span:before{<br>  position:absolute; top:25px; left:19px;<br>  display:block; width:12px; height:12px;<br>  background:#fff; content:""; border-radius:50%;<br>  box-shadow:0 0 20px #fff, 0 0 15px #fff, 0 0 5px #fff;<br>}<br>.box1 {background:red; animation:anired 8s linear infinite;}<br>.box2 {background:green; animation:anigreen 12s linear infinite;}<br><br>/* подключаем анимацию вращения */<br>/* 158рх/150рх = 1.05 секунд    158 - длина окружности*/<br>.pr4 p:nth-child(1) span{animation:IVa 1.05s linear infinite;}<br>/* 158рх/150рх = 1.05 секунд * 12 / 8 = 1.57сек */<br>.pr4 p:nth-child(2) span{animation:IVb 1.57s linear infinite;}<br><br>/* отключаем анимацию при наведении */<br>.pr4 p:hover {animation-play-state: paused;}<br>.pr4 p span:hover {animation-play-state: paused;}<br><br>@keyframes IVa {<br>    0% {transform:rotateZ(0deg);}<br>  100% {transform:rotateZ(-360deg);}}<br><br>@keyframes IVb {<br>    0% {transform:rotateZ(0deg);}<br>  100% {transform:rotateZ(360deg);}}<br><br>@-webkit-keyframes anired{<br>     0% {transform:translate(0,0);}<br>  37.5% {transform:translate(450px,0);}<br>    50% {transform:translate(450px,150px);}<br>  87.5% {transform:translate(0px,150px);}<br>   100% {transform:translate(0,0);}}<br><br>@-webkit-keyframes anigreen{<br>     0% {transform:translate(0,0);}<br>  12.5% {transform:translate(0,150px);}<br>    50% {transform:translate(450px,150px);}<br>  62.5% {transform:translate(450px,0);}<br>   100% {transform:translate(0,0);}}</code></pre>
+			<span class="point yel" onclick='an4.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 4 -->
+
+
+
+<div class="item anp">
+<h3 class="sin">пример 5</h3>
+	<style>
+		.movingBall {position:relative; height:30px; width:400px; margin:0 auto;}
+		.movingBall::before {position:absolute; background:#ccc; top:8px; content:''; height:4px; width:400px;}
+		.movingBall::after {content:''; position:absolute; background:#000;
+			width:20px; height:20px; border-radius:50%;
+			animation: bounce 2.5s infinite alternate;} /* Параметры анимации */
+		@keyframes bounce {from {left:0;} to {left:380px;}}
+	</style>
+	<div class="movingBall"></div>
+	<div class="item2">
+		<samp class="red point" onclick='an5.classList.toggle("hiden");'>HTML</samp>
+		<div class="an1 hiden" id="an5">
+			<pre><code>&lt;div class="movingBall">&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.movingBall {<br>  position:relative;<br>  height:30px; width:400px;<br>  margin:0 auto;}<br>.movingBall::before {<br>  content:''; height:4px; width:400px;<br>  position:absolute; top:8px;<br>  background:#ccc;}<br>.movingBall::after {<br>  content:'';<br>  position:absolute;<br>  background: #000;<br>  width:20px; height:20px; border-radius:50%;<br>  animation:bounce 2.5s infinite alternate;}   /* Параметры анимации */<br>@keyframes bounce {                            /* анимация */<br>  from {left:0;}<br>  to {left:380px;}<br>}</code></pre>
+			<span class="point yel" onclick='an5.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 5 -->
+
+
+
+<div class="item anp">
+<h3 class="sin">пример 6</h3>
+	<style>
+		.loading {width:240px; margin:auto; padding:20px 0 10px; background:#333; color:#fff; text-align:center;}
+		.spin {display:inline-block; width:30px; height:30px;
+			border:10px solid #ccc; border-right:10px solid transparent; border-radius:30px;
+			animation: spin 2s linear 0s infinite normal;}
+		@keyframes spin {from {transform:rotate(0deg);}
+			to {transform:rotate(360deg);}}
+	</style>
+	<div class="loading">
+		<div class="spin"></div>
+		<br>Загружается...
+	</div>
+	<div class="item2">
+		<samp class="red point" onclick='an6.classList.toggle("hiden");'>HTML</samp>
+		<div class="an1 hiden" id="an6">
+			<pre><code>&lt;div class="loading"><br>  &lt;div class="spin">&lt;/div><br>  &lt;p>Загружается...&lt;/p><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.loading {<br>  width:240px; padding:20px 0 10px;<br>  margin:auto;<br>  background:#333;<br>  color:#fff; text-align:center;}<br>.spin {<br>  display:inline-block; width:30px; height:30px;<br>  border:10px solid #ccc;<br>  border-right:10px solid transparent;<br>  border-radius:30px;<br>  animation: spin 2s linear 0s infinite normal;} /* Анимация */<br><br>@keyframes spin {from {transform:rotate(0deg);}  /* Анимация вращения */<br>  to {transform:rotate(360deg);}}</code></pre>
+			<span class="point yel" onclick='an6.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 6 -->
+
+
+
+<div class="item anp">
+<h3 class="sin">пример 7 - disko xD)</h3>
+	<style>
+		.pr7 {width:200px; margin:0 auto;}
+		.pr7 img {filter:hue-rotate(140deg); animation:disko .25s linear 0s infinite; width:200px;}
+		@keyframes disko {from {filter:hue-rotate(140deg);}
+			to {filter:hue-rotate(300deg);}}
+	</style>
+	<div class="pr7">
+		<img src="../html_css/img/winnie.png">
+	</div>
+	<div class="item2">
+		<samp class="red point" onclick='an7.classList.toggle("hiden");'>HTML</samp>
+		<div class="an1 hiden" id="an7">
+			<pre><code>&lt;div class="pr7"><br>  &lt;img src="../html_css/img/winnie.png"><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.pr7 {width:200px; margin:0 auto;}<br>.pr7 img {<br>  filter:hue-rotate(0deg);<br>  animation:disko .14s linear 0s infinite;<br>  width:200px;}<br><br>@keyframes disko {<br>  from {filter:hue-rotate(0deg);}<br>  to {filter:hue-rotate(270deg);}}</code></pre>
+			<span class="point yel" onclick='an7.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 7 -->
+
+
+
+<div class="item anp">
+<h3 class="sin">пример 8 - perspective</h3>
+	<style>
+		.cube8 {font-size:5em; width:2em; height:2em; margin:.5em auto;
+			transform-style:preserve-3d; perspective:500px;
+			animation:move-origin infinite 2s;}
+		.side {position:absolute; width:2em; height:2em; color:white; text-align:center; line-height:2em;
+			background:rgba(255, 99, 71, 0.6); border:1px solid rgba(0, 0, 0, 0.5);}
+		.front{ transform:                 translateZ(1em);}
+		.top{   transform:rotateX( 90deg)  translateZ(1em);}
+		.right{ transform:rotateY( 90deg)  translateZ(1em);}
+		.left { transform:rotateY(-90deg)  translateZ(1em);}
+		.bottom{transform:rotateX(-90deg)  translateZ(1em);}
+		.back { transform:rotateY(-180deg) translateZ(1em);}
+		@keyframes move-origin {
+			0% { perspective-origin:0 0;}
+			25%{ perspective-origin:100% 0;}
+			50%{ perspective-origin:100% 100%;}
+			75%{ perspective-origin:0 100%;}
+			100%{perspective-origin:0 0;}}
+	</style>
+	<div class="cube8">
+		<div class="side front">1</div>
+		<div class="side back">6</div>
+		<div class="side right">4</div>
+		<div class="side left">3</div>
+		<div class="side top">5</div>
+		<div class="side bottom">2</div>
+	</div>
+	<div class="item2">
+		<samp class="red point" onclick='an8.classList.toggle("hiden");'>HTML</samp>
+		<div class="an1 hiden" id="an8">
+			<pre><code>&lt;div class="cube8"><br>  &lt;div class="side front">1&lt;/div><br>  &lt;div class="side back">6&lt;/div><br>  &lt;div class="side right">4&lt;/div><br>  &lt;div class="side left">3&lt;/div><br>  &lt;div class="side top">5&lt;/div><br>  &lt;div class="side bottom">2&lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>.cube8 {<br>  font-size:5em; width:2em; height:2em;<br>  margin:.5em auto; perspective:500px;<br>  transform-style:preserve-3d;<br>  animation:move-origin infinite 2s;}<br>.side {<br>  position:absolute; width:2em; height:2em;<br>  color:white; text-align:center; line-height:2em;<br>  background:rgba(255, 99, 71, 0.6);<br>  border:1px solid rgba(0, 0, 0, 0.5);}<br><br>.front{ transform:                 translateZ(1em);}<br>.top{   transform:rotateX( 90deg)  translateZ(1em);}<br>.right{ transform:rotateY( 90deg)  translateZ(1em);}<br>.left { transform:rotateY(-90deg)  translateZ(1em);}<br>.bottom{transform:rotateX(-90deg)  translateZ(1em);}<br>.back { transform:rotateY(-180deg) translateZ(1em);}<br><br>@keyframes move-origin {<br>  0% { perspective-origin:0 0;}<br>  25%{ perspective-origin:100% 0;}<br>  50%{ perspective-origin:100% 100%;}<br>  75%{ perspective-origin:0 100%;}<br>  100%{perspective-origin:0 0;}<br>}</code></pre>
+			<span class="point yel" onclick='an8.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 8 -->
+
+
+<div class="item anp">
+<h3 class="sin">пример 9</h3>
+	<style>
+		@keyframes gscrold {
+			from { top: 100%; }
+			to { top: -200%; }}
+		.titles9 {position:relative; bottom:0; left:50%; top:-2.2em; background:#000; color:#ffe919;
+			width:18em; height:10em; /* height:50em */ margin-left:-9em; overflow: hidden;
+			font-size:2em; line-height:1.5; text-align:justify;
+			transform-origin:50% 100%; transform:perspective(300px) rotateX(25deg);}
+		.content9 {position:absolute; top:100%; animation: gscrold 40s linear infinite;}
+	</style>
+	<div style="height:16em;background:#000;">
+	<div class="titles9">
+		<div class="content9">
+			<p>В Галактике бушует гражданская война. Корабли повстанцев, нанеся удар с тайной базы, одержали первую победу над жестокой Галактической Империей.</p>
+			<p>Во время сражения шпионы повстанцев смогли добыть секретные чертежи супероружия Империи — ЗВЕЗДЫ СМЕРТИ, укрепленной космической станции, обладающей достаточной огневой мощью, чтобы уничтожить целую планету.</p>
+			<p>Преследуемая зловещими агентами Империи, принцесса Лея летит домой на своем корабле, везя с собой украденные чертежи, которые могут спасти её народ и вернуть свободу галактике...</p>
+			<p> </p>
+			<p> </p>
+			<p> </p>
+		</div>
+	</div>
+	</div>
+	<div class="item2">
+		<samp class="red point" onclick='an9.classList.toggle("hiden");'>HTML</samp>
+		<div class="an1 hiden" id="an9">
+			<pre><code>&lt;div style="height:16em; background:#000;"><br>  &lt;div class="titles9"><br>    &lt;div class="content9"><br>      &lt;p>В Галактике ...&lt;/p><br>      &lt;p>Во время ...&lt;/p><br>      &lt;p>Преследуемая ...&lt;/p><br>    &lt;/div><br>  &lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb"><code>@keyframes scrold {<br>  from {top: 100%;}<br>  to   {top: -200%;}<br>}
+				<br>.titles9 {<br>  position:relative; bottom:0; left:50%; top:-2.2em;<br>  background:#000; color:#ffe919;<br>  width:18em; height:10em; /* height:50em */<br>  margin-left:-9em; overflow: hidden;<br>  font-size:2em; line-height:1.5; text-align:justify;<br>  transform-origin:50% 100%;<br>  transform:perspective(300px) rotateX(25deg);}
+				<br>.content9 {<br>  position:absolute; top:100%;<br>  animation: scrold 40s linear infinite;}</code></pre>
+			<span class="point yel" onclick='an9.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 9 -->
+
+
+<div class="item anp">
+<h3 class="sin">пример 10</h3>
+	<style>
+		.heart0{margin:40px auto 0px; width:120px; height:50px; background:#55f8; border-radius:5px; position:relative}
+		.heart1{animation:heart 5s cubic-bezier(.535,.15,.425,1) -1s infinite; position:absolute; left:0}
+		.heart2{animation:heartt 6s cubic-bezier(.535,.15,.425,1) -2s infinite; position:absolute; right:0}
+		@keyframes heart{
+			0%{opacity:0; transform:scale3d(.5,.5,.5) translate3d(0,0,0) rotate(0); top:0}
+			50%{opacity:.75; top:-21%;}
+			100%{opacity:0; transform:scale3d(.75,.75,.75) translate3d(-125%,-100%,0) rotate(-35deg); top:-28%;}}
+		@keyframes heartt{
+			0%{opacity:0; transform:scale3d(.35,.35,.35) translateZ(0) rotate(0); top:0}
+			50%{opacity:.5; top:-11%}
+			100%{opacity:0; transform:scale3d(.5,.5,.5) translate3d(150%,-120%,0) rotate(35deg); top:-22%}}
+	</style>
+
+	<div class="heart0">
+		<img src="img/heart.svg" class="heart1">
+		<img src="img/heart.svg" class="heart2">
+	</div>
+	<div class="item2">
+		<samp class="red point" onclick='an10.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="an10" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="heart0"><br>  &lt;img src="img/heart.svg" class="heart1"><br>  &lt;img src="img/heart.svg" class="heart2"><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre class="mb ls-05"><code>.heart0{<br>  margin:40px auto 0px; width:120px; height:50px;<br>  background:#55f8; border-radius:5px;  position:relative}<br>.heart1{<br>  animation:heart 5s cubic-bezier(.535,.15,.425,1) -1s infinite;<br>  position:absolute; left:0}<br>.heart2{<br>  animation:heartt 6s cubic-bezier(.535,.15,.425,1) -2s infinite;<br>  position:absolute; right:0}<br><br>@keyframes heart{<br>  0%{opacity:0; transform:scale3d(.5,.5,.5) translate3d(0,0,0) rotate(0); top:0}<br>  50%{opacity:.75; top:-21%}<br>  100%{opacity:0; transform:scale3d(.75,.75,.75) translate3d(-125%,-100%,0) rotate(-35deg); top:-28%}}<br><br>@keyframes heartt{<br>  0%{opacity:0; transform:scale3d(.35,.35,.35) translateZ(0) rotate(0); top:0}<br>  50%{opacity:.5; top:-11%}<br>  100%{opacity:0; transform:scale3d(.5,.5,.5) translate3d(150%,-120%,0) rotate(35deg); top:-22%}}</code></pre>
+			<span class="point yel" onclick='an10.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- /hiden -->
+	</div><!-- /item2 -->
+</div><!-- /пример 10 -->
+
+
+</body>
+</html>

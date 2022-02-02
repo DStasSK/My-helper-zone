@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>column</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.tt1 tr td:nth-child(1){letter-spacing:-0.5; width:120px}
+</style>
+</head>
+<body>
+<h2 class="sin">Columns - колонки</h2>
+
+<div class="item">
+	<p><samp class="sin">Columns</samp> - универсальное свойство, которое позволяет одновременно задать ширину и количество колонок многоколоночного текста.</p>
+	<p>Браузеры, которые поддерживают данные свойства: Firefox 2+, Chrome 4+, Safari 3.1+ и Opera 11.1.</p>
+	<p>Свойство <samp class="sin">columns</samp> позволяет разработчикам разбить текст на странице в несколько колонок. К примеру мы хотим разбить текст в блоке <samp class="red">&lt;div></samp> с классом <samp class="sin">content</samp> в две колонки, для этого в CSS необходимо написать:</p>
+
+	<pre class="item2"><code>.content {<br>  -webkit-column-count: 2;<br>  -moz-column-count: 2;<br>  columns: 2;<br>  -webkit-column-gap: 40px;<br>  -moz-column-gap: 40px;<br>  column-gap: 40px;<br>  -moz-column-rule: 1px dotted #ccc;<br>  -webkit-column-rule: 1px dotted #ccc;<br>  column-rule: 1px dotted #ccc;<br>  -moz-column-width: auto;<br>  -webkit-column-width: auto;<br>  column-width: auto;}</code></pre>
+
+	<style>
+		.prcol{border:1px solid #333; padding:5px 15px; text-align:justify;
+			columns:2; column-gap:40px; column-rule: 1px dotted #333;}
+	</style>
+	<div class="prcol">Свойство columns позволяет разработчикам разбить текст на странице в несколько колонок. К примеру мы хотим разбить текст в блоке <samp class="red">&lt;div></samp> с классом <samp class="sin">content</samp> в две колонки, для этого в CSS необходимо написать:</div>
+</div>
+
+
+<div class="item anp">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+<table class="t1 tb tt1">
+	<tr id="column-count"><td>column-count</td>
+		<td>Определяет количество колонок в многоколоночном тексте. Применяется к блочным элементам (кроме таблиц), ячейкам и элементам, у которых <samp class="sin">display</samp> установлен как <samp class="lsin">inline-block</samp>. При значении <samp class="lsin">auto</samp>, число колонок вычисляется автоматически на основе других свойств (<samp class="sin">column-width, column-gap</samp>).
+		<pre class="item2"><code>column-count: число | auto;</code></pre></td></tr>
+	<tr id="column-fill"><td>column-fill</td>
+		<td>Определяет, как содержимое должно распределяться внутри колонок.
+		<pre class="item2"><code>column-fill: auto | balance | balance-all;</code></pre>
+		<samp class="lsin">auto</samp> - Колонки заполняются последовательно.
+		<br><samp class="lsin">balance</samp> - Содержимое равномерно распределяется между колонок. При печати это правило относится только к последней странице.
+		<br><samp class="lsin">balance-all</samp> - Содержимое равномерно распределяется между колонок. При печати это правило относится ко всем страницам.
+		<div class="no">
+			<samp class="sin">column-fill</samp> практически не поддерживается брайзерами.
+			<br>Safari до версии 9 поддерживает свойство -webkit-column-fill.
+			<br>Firefox до версии 52 поддерживает свойство -moz-column-fill.
+		</div></td></tr>
+	<tr id="column-gap"><td>column-gap</td>
+		<td>Задаёт расстояние между колонками в многоколоночном тексте.
+		<pre class="item2"><code>column-gap: размер | normal</code></pre>
+		<p><samp class="lsin">normal</samp> - Межколоночный интервал устанавливается браузером.</p>
+		<div class="no">
+			Firefox до версии 52 поддерживает свойство -moz-column-gap.
+			<br>Safari до версии 10, Chrome до версии 50, Opera до версии 37 и Аndroid до версии 80 поддерживают свойство -webkit-column-gap.
+		</div></td></tr>
+	<tr id="column-rule"><td>column-rule</td>
+		<td>В многоколоночном тексте отрисовывает линию между колонок и определяет её параметры.
+		<pre class="item2 sin">column-rule: <span class="lsin">column-rule-width || column-rule-style ||<br>             column-rule-color</span></pre>
+		<samp class="lsin">column-rule-style</samp> - тип линии, аналогичен значениям <samp class="sin tdu"><a href="border & outline.html">border</a></samp>.
+		<div class="no">
+			Chrome до версии 50 b Safari до версии 9 поддерживают свойство -webkit-column-rule.
+			<br>Firefox до версии 52 поддерживает свойство -moz-column-rule.
+		</div></td></tr>
+	<tr id="column-span"><td>column-span</td>
+		<td>Определяет, как должен отображаться элемент в многоколоночном тексте - занимать ширину всех колонок или только одну из них. Это свойство обычно применяют для заголовков текста или изображений, которые не должны разбиваться на колонки.
+		<pre class="item2"><code>column-span: none | all</code></pre>
+		<samp class="lsin">none</samp> - элемент наряду с обычным содержимым занимает ширину одной колонки.
+		<br><samp class="lsin">all</samp> - элемент занимает все колонки
+		<div class="no">Chrome до версии 50, Safari до версии 9 и Аndroid до версии 80 поддерживают свойство -webkit-column-span.</div></td></tr>
+	<tr id="column-width"><td>column-width</td>
+		<td>Задаёт оптимальную ширину колонки в многоколоночном тексте. Реальная ширина колонки может быть больше введённого значения; сокращение указанной ширины приводит к отмене нескольких колонок, текст при этом выстраивается в одну колонку.
+		<pre class="item2"><code>column-width: размер | auto</code></pre>
+		<samp class="lsin">auto</samp> - Ширина колонок вычисляется автоматически на основе других свойств (column-count, column-gap).
+		<div class="no">
+			Firefox поддерживает свойство -moz-column-width.
+			<br>Safari, Chrome и Аndroid поддерживают свойство -webkit-column-width.
+		</div></td></tr>
+</table>
+
+</div>
+</body></html>

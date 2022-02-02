@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>font</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<!-- <h2 class="sin">Примеры записи стилей с заданными свойствами</h2> -->
+
+<div class="item" id="font-family">
+<h3><samp class="sin">font-family</samp></h3>
+	<p>Для того чтобы задать тот шрифт который будет уместен при отображении на интернет ресурсе используется свойство <samp class="sin">font-family</samp>, значением которого будет название шрифта.</p>
+	<p>Запись нескольких шрифтов осуществляется через запятую и делается это для того чтобы в случае отсутствия на компьютере необходимого шрифта, который идёт первым до запятой, назначался следующий.</p>
+	<p>Заканчивают список обычно ключевым словом, которое описывает тип шрифта: <samp class="sin">serif, sans-serif, cursive, fantasy</samp> или <samp class="sin">monospace</samp>.</p>
+	<p>Таким образом, последовательность шрифтов лучше начинать с экзотических типов и заканчивать обобщенным именем, которое задает вид начертания.</p>
+
+	<pre class="item2"><code>font-family: Arial, Gadget, sans-serif;<br>font-family: Courier New, monospace;<br>font-family: Impact, fantasy;</code></pre>
+
+	<samp class="sin">serif</samp> - шрифты с засечками (антиквенные), типа Georgia, 'Times New Roman', Times...;
+	<br><samp class="sin">sans-serif</samp> - <abbr title="шрифты без засечек или гротески">рубленные шрифты</abbr> (Geneva, Arial, Helvetica...);
+	<br><samp class="sin">cursive</samp> - курсивные шрифты;
+	<br><samp class="sin">fantasy</samp> - декоративные шрифты;
+	<br><samp class="sin">monospace</samp> - <abbr title="ширина каждого символа в таком семействе одинакова">моноширинные шрифты</abbr>, (шрифт Courier).
+</div>
+
+
+<div class="item">
+<h3><samp class="sin">Безопасные веб-шрифты</samp></h3>
+	<p>По умолчанию, есть несколько шрифтов которые заранее установлены на каждом компьютере, планшете, смартфоне или другом устройстве с браузером. Эти шрифты известны как «безопасные веб-шрифты».</p>
+
+	<pre class="item2">Arial<br>Courier New, Courier<br>Garamond<br>Georgia<br>Lucida Sans, Lucida Grande, Lucida<br>Palatino Linotype<br>Tahoma<br>Times New Roman, Times<br>Trebuchet<br>Verdana</pre>
+</div>
+
+
+<div class="item" id="font-face">
+<h3><samp class="red">@font-face</samp></h3>
+	<p>Tакже есть возможность загружать шрифты с сервера и включать их на сайт через стилевое правило <samp class="red">@font-face</samp>. Сперва используют правило <b>@font-face</b>, чтобы определить имя нашего шрифта через свойство <b>font-family</b>, а также исходник нашего шрифта (путь к файлу, содержащему наш выбранный шрифт) через свойство <b>src</b>. Отсюда мы можем использовать этот шрифт, включая его имя в качестве значения свойства <b>font-family</b>.</p>
+	<p>Браузер <samp class="sin">IE8</samp> не поддерживает загрузку шрифтов в формате <samp class="red">TTF</samp> для <samp class="red">@font-face</samp>. Это правило применяется для загрузки специфичного шрифта на компьютер пользователя для последующего отображения текста этим шрифтом. В <samp class="sin">IE8</samp> и младше текст будет отображаться шрифтом, заданным в браузере по умолчанию.</p>
+
+	<pre class="item2 ls-05"><code class="css">@font-face {<br>  font-family:Righteous; /* Имя шрифта */<br>  src:url(fonts/Righteous/Righteous-Regular.ttf);} /* Путь к файлу со шрифтом */<br>@font-face {<br>  font-family:Open Sans;<br>  src:url(fonts/Open_Sans/OpenSans-Regular.ttf);}<br><br>h1 {font-family:'Righteous', cursive;}<br><br><br>/* Работающий вариант подключения шрифта для всех версий браузеров */<br>@font-face {<br>  font-family: Pompadur;                                 /* Гарнитура шрифта */<br>  src: url(/example/font/pompadur.eot);                  /* Для IE5+ */<br>  src: local(pompadur), url(/example/font/pompadur.ttf); /* Для остальных браузеров */<br> }</code></pre>
+</div>
+
+
+<div class="item" id="font-size">
+<h3><samp class="sin">font-size</samp></h3>
+	<p>Для определения размера шрифта в CSS делается следующая запись:</p>
+	<pre class="item2"><code>font-size: 250%;<br>font-size: 30px;<br>font-size: 11pt;<br>font-size: 0.5em;</code></pre>
+</div>
+
+
+<div class="item" id="font-stretch">
+<h3><samp class="sin">font-stretch</samp></h3>
+	<p>Устанавливает узкое, нормальное или широкое начертание шрифта, что позволяет уплотнять или расширять текст.</p>
+	<pre class="item2"><code>p{<br>  font-stretch: ultra-condensed;<br>  font-stretch: extra-condensed;<br>  font-stretch: condensed;<br>  font-stretch: semi-condensed;<br>  font-stretch: normal;<br>  font-stretch: semi-expanded;<br>  font-stretch: expanded;<br>  font-stretch: extra-expanded;<br>  font-stretch: ultra-expanded;<br>}</code></pre>
+	<p>Браузеры применяют свойство font-stretch не ко всем шрифтам, поэтому уплотнение или расширение текста может не работать с некоторыми популярными и распространёнными гарнитурами шрифтов. Также некоторые значения могут не давать видимого результата.</p>
+</div>
+
+
+<div class="item" id="font-style">
+<h3><samp class="sin">font-style</samp></h3>
+	<p>Чтобы задать наклонный шрифт или отменить курсивное отображение запись ведётся следующим образом:</p>
+	<pre class="item2"><code class="css">font-style: normal;	/* обычный текст */<br>font-style: italic;	/* курсив */<br>font-style: oblique;	/* наклоняет буквы, не курсив */</code></pre>
+</div>
+
+
+<div class="item" id="font-variant">
+<h3><samp class="sin">font-variant</samp></h3>
+	<p>Стилями CSS можно задать вывод символов в верхнем регистре либо в исходном формате. Такой способ изменения символов называется капителью.</p>
+	<pre class="item2"><code>font-variant: normal;<br>font-variant: small-caps;</code></pre>
+	<samp class="lsin">normal</samp> – формат символов остаётся по умолчанию
+	<br><samp class="lsin">small-caps</samp> – <span style="font-variant:small-caps;">все строчные буквы как заглавные, но с уменьшенным размером.</span>
+</div>
+
+
+<div class="item" id="font-weight">
+<h3><samp class="sin">font-weight</samp></h3>
+	<p>Для того чтобы придать шрифту насыщенность можно воспользоваться следующими вариантами записи стилей:</p>
+	<pre class="item2"><code>font-weight:lighter;<br>font-weight:bold;<br>font-weight:normal;<br>font-weight:bolder;<br>font-weight:100;<br>font-weight:200;<br>. . .<br>font-weight:900;</code></pre>
+
+	<samp class="lsin">bold</samp> – полужирный шрифт (700)
+	<br><samp class="lsin">bolder</samp> – более жирный относительно родителя
+	<br><samp class="lsin">lighter</samp> – менее жирный шрифт относительно родителя
+	<br><samp class="lsin">normal</samp> – установка стандартного начертания (400)
+	<br><samp class="lsin">100 – 900</samp> – значение насыщенности с шагом через 100
+	<br><samp class="lsin">400</samp> – Нормальное начертание шрифта, которое установлено по умолчанию
+</div>
+
+
+<div class="item" id="font-kerning">
+<h3><samp class="sin">font-kerning</samp></h3>
+	<p>Свойство <samp class="sin">font-kerning</samp> управляет кернингом шрифта. Кернинг — это изменение интервала между определёнными сочетаниями букв для сохранения плотности букв в тексте. Это особенно важно для букв, у которых есть наклонные линии, вроде А, У, W, V. Информация о кернинге хранится в самом шрифте и если шрифт не поддерживает эту возможность, то свойство <samp class="sin">font-kerning</samp> не окажет влияние на текст.</p>
+
+	<pre class="item2"><code>font-kerning: <abbr title="Браузер самостоятельно определяет необходимость кернинга для текста. Так, для мелкого шрифта кернинг отключается для сохранения читаемости текста, для крупного, наоборот, включается.">auto</abbr> | <abbr title="К тексту применяется кернинг.">normal</abbr> | <abbr title="Браузер не использует кернинг для текста.">none</abbr></code></pre>
+
+	<p>Значение по умолчанию <samp class="lsin">auto</samp>, наследуется, применяется ко всем элементам, включая <samp class="pur">::first-letter</samp> и <samp class="pur">::first-line</samp>; не анимируется.</p>
+
+	<div class="no">
+		Chrome до версии 33, Opera до версии 20 и Safari поддерживают свойство <samp class="sin">-webkit-font-kerning</samp>.
+		<br>IE и Edge - не поддерживают данное свойство.
+	</div>
+</div>
+
+
+<div class="item" id="font">
+<h3><samp class="sin">font</samp></h3>
+	<p>Все перечисленные выше шрифтовые свойства могут быть объединены в одном универсальном свойстве <samp class="red">font</samp>. Это свойство может принимать несколько значений шрифтовых свойств. Порядок значений этих свойств должен быть следующим, слева направо:
+	<br><samp class="sin ls-05">font-style, font-variant, font-weight, font-size, line-height и font-family</samp>.</p>
+
+	<p class="mt20">Эти значения перечисляются слева направо без применения запятых (кроме названий шрифтов, поскольку свойство <samp class="sin">font-family</samp> задействует запятые). Косая черта ( <span class="red">/</span> ) необходима для разделения значений свойств <samp class="sin">font-size</samp> и <samp class="sin">line-height</samp>.</p>
+	<p>В качестве обязательных значений свойства <samp class="sin">font</samp> указывается размер шрифта и его семейство. Остальные значения являются опциональными</p>
+
+	<pre class="item2 mt40"><code>p { font: 12pt/10pt sans-serif; }</code></pre>
+	<p>Из типографики пошла запись указывать через слэш размер шрифта и высоту строки. Поэтому <samp class="lsin">12pt</samp> в данном случае означает размер основного текста в пунктах, а <samp class="lsin">10pt</samp> — высоту строки. В качестве семейства указывается рубленый шрифт (<samp class="sin">sans-serif</samp>).</p>
+
+	<pre class="item2 mt40"><code>p { font: bold italic 110% serif; }</code></pre>
+	<p>Значение <samp class="lsin">bold</samp> устанавливает жирное начертание текста, а <samp class="lsin">italic</samp> — курсивное. В данном случае их порядок не важен, поэтому <samp class="lsin">bold</samp> и <samp class="lsin">italic</samp> можно поменять местами. Размер текста задаётся в процентах, а в качестве гарнитуры используется шрифт с засечками (<samp class="lsin">serif).</p>
+
+	<pre class="item2 mt40"><code>p { font: normal small-caps 12px/14px fantasy; }</code></pre>
+	<p>Значение <samp class="lsin">small-caps</samp> принадлежит свойству <samp class="sin">font-variant</samp> и устанавливает текст в виде капители (заглавные буквы уменьшенного размера). Значение <samp class="lsin">normal</samp> применяется сразу к двум свойствам: <samp class="sin">font-style</samp> и <samp class="sin">font-weight</samp>.</p>
+
+	<pre class="item2 mt40"><code>p {font: [font-style||font-variant||font-weight||font-stretch]<br>      font-size [/line-height] font-family;<br><br>   font: bold italic 22px Times New Roman, serif;<br>   font: bold italic 22px Arial, sans-serif;<br>   font: 12pt/10pt Courier New, monospace;<br>   font: bold italic 110% Parkavenue, cursive;<br>   font: normal small-caps 12px/14px Impact, fantasy;}</code></pre>
+</div>
+
+</body>
+</html>

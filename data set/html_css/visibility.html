@@ -1,0 +1,115 @@
+<!DOCTYPE html><html><head><title>visibility</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.cc{text-align:center;}
+
+	.three-columns{overflow:hidden; display:flex; width:300px; margin:0 auto;}
+	.three-columns .column {width:30%; float:left; padding-right:1.6%; padding-left:1.6%;
+		padding-top:10px; padding-bottom:10px;}
+	.box{width:80px; font-size:24px; font-weight:bold; line-height:80px; margin:20px auto;}
+
+	.red2{background-color:#ee1d22;}
+	.green{background-color:#02a64f;}
+	.yellow{background-color:#fdce36;}
+	.invisible {visibility:hidden;}
+	.display-none {display:none;}
+
+	.two-columns{overflow:hidden; margin:0px auto; max-width:500px;}
+	.two-columns .columns {width:50%; float:left;}
+	.example {margin:40px auto; border-collapse:collapse;}
+	.example th,
+	.example td{padding:4px 10px; border:1px solid #000;}
+	.example th{color:#fff; font-weight:normal; background-color:#575757;}
+	.example tr.collapse {visibility:collapse;}
+</style>
+</head>
+<body>
+
+<h2 class="sin">visibility</h2>
+<div class="item">
+	<p>С помощью свойства <samp class="sin">visibility</samp> можно скрыть или отобразить любой элемент HTML-страницы. Особенностью этого свойства, является то, что когда объект становится невидимым его место остаётся за ним и не оказывает возможного влияния на другие элементы.</p>
+	<p>Значение по умолчанию <samp class="lsin">visible</samp>, наследуется, применяется ко всем элементам, анимируется.</p>
+	<p>Стоит отметить, что скрыть элемент можно так же с помощью свойства <samp class="sin">display</samp>, применив к нему параметр <samp class="lsin">none</samp>, однако в этом случае исчезнет как само его изображение, так и его габаритные параметры, а взаимодействующие с ним элементы могут сместиться.</p>
+
+	<pre class="item2"><code>visibility: visible;<br>visibility: hidden;<br>visibility: collapse;</code></pre>
+
+	<samp class="lsin">visible</samp> – параметр задающий видимость элемента.
+	<br><samp class="lsin">hidden</samp> – параметр убирающий видимость объекта или другими словами делающий его полностью прозрачным.
+	<br><samp class="lsin">collapse</samp> – параметр действует для всех элементов как <samp class="lsin">hidden</samp>, а для содержимого ячеек таблиц (<samp class="red">tr, td</samp>), как <samp class="sin">display:</samp> <samp class="lsin">none</samp>.
+</div>
+
+
+<div class="item">
+	<p>На изображении, которое расположено ниже, слева видны три блока обозначенные цифрами 1, 2, 3, фон которых к тому же имеет разные цвета. В колонке посередине отсутствует блок номер два, так как нему применено свойство <span class="sin">visibility:</span> <span class="lsin">hidden</span>. В правой колонке подобному блоку задано свойство <span class="sin">display:</span> <span class="lsin">none</span>, в результате чего он стал не видимым, а блок номер три занял его место.</p>
+
+	<div class="three-columns" style="margin:-15px auto">
+		<div class="column">
+			<div class="box red2 cc">1</div>
+			<div class="box yellow cc">2</div>
+			<div class="box green cc">3</div>
+		</div>
+		<div class="column">
+			<div class="box red2 cc">1</div>
+			<div class="box yellow invisible cc">2</div>
+			<div class="box green cc">3</div>
+		</div>
+		<div class="column">
+			<div class="box red2 cc">1</div>
+			<div class="box yellow display-none cc">2</div>
+			<div class="box green cc">3</div>
+		</div>
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='p1.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="p1" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="three-columns"&gt;<br>	&lt;div class="column"&gt;<br>		&lt;div class="box red2">1&lt;/div><br>		&lt;div class="box yellow">2&lt;/div><br>		&lt;div class="box green">3&lt;/div><br>	&lt;/div><br>	&lt;div class="column"><br>		&lt;div class="box red2">1&lt;/div><br>		&lt;div class="box yellow invisible">2&lt;/div><br>		&lt;div class="box green">3&lt;/div><br>	&lt;/div><br>	&lt;div class="column"><br>		&lt;div class="box red2">1&lt;/div><br>		&lt;div class="box yellow display-none">2&lt;/div><br>		&lt;div class="box green">3&lt;/div><br>	&lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.three-columns {<br>	overflow:hidden;<br>	display:flex;<br>	width:300px; margin:0 auto;<br>}<br>.three-columns .column {<br>	width:30%;<br>	float:left;<br>	padding-right:1.6%; padding-left:1.6%;<br>	padding-top:10px; padding-bottom:10px;<br>}<br>.box {<br>	width:80px; margin:20px auto;<br>	font-size:24px; font-weight:bold;<br>	line-height:80px; text-align:center;<br>}<br>.red2 {background-color: #ee1d22;}<br>.green {background-color: #02a64f;}<br>.yellow {background-color: #fdce36;}<br>.invisible {visibility: hidden;}<br>.display-none {display: none;}</code></pre>
+			<span class="yel" onclick='p1.classList.toggle("hiden");'>Свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+	<p>На следующем примере свойство <samp class="sin">visibility</samp>, которому задан параметр <samp class="lsin">collapse</samp>, убирает полностью строку, начинающуюся с детали под номером <samp class="red">002</samp>.</p>
+
+	<div class="two-columns" style="margin:-25px auto">
+		<div class="columns">
+			<table class="example">
+				<tr><th>Наименование</th><th>Цена</th></tr>
+				<tr><td>Деталь 001</td><td>45р.</td></tr>
+				<tr><td>Деталь 002</td><td>125р.</td></tr>
+				<tr><td>Деталь 003</td><td>348р.</td></tr>
+			</table>
+		</div>
+		<div class="columns">
+			<table class="example">
+				<tr><th>Наименование</th><th>Цена</th></tr>
+				<tr><td>Деталь 001</td><td>45р.</td></tr>
+				<tr class="collapse"><td>Деталь 002</td><td>125р.</td></tr>
+				<tr><td>Деталь 003</td><td>348р.</td></tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='p2.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="p2" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="two-columns"><br>  &lt;div class="columns"><br>    &lt;table class="example"><br>      &lt;tr>&lt;th>Наименование&lt;/th>&lt;th>Цена&lt;/th>&lt;/tr><br>      &lt;tr>&lt;td>Деталь 001&lt;/td>&lt;td>45р.&lt;/td>&lt;/tr><br>      &lt;tr>&lt;td>Деталь 002&lt;/td>&lt;td>125р.&lt;/td>&lt;/tr><br>      &lt;tr>&lt;td>Деталь 003&lt;/td>&lt;td>348р.&lt;/td>&lt;/tr><br>    &lt;/table><br>  &lt;/div><br>  &lt;div class="columns"><br>    &lt;table class="example"><br>      &lt;tr>&lt;th>Наименование&lt;/th>&lt;th>Цена&lt;/th>&lt;/tr><br>      &lt;tr>&lt;td>Деталь 001&lt;/td>&lt;td>45р.&lt;/td>&lt;/tr><br>      &lt;tr class="collapse"><br>      &lt;td>Деталь 002&lt;/td><br>      &lt;td>125р.&lt;/td>&lt;/tr><br>      &lt;tr>&lt;td>Деталь 003&lt;/td>&lt;td>348р.&lt;/td>&lt;/tr><br>    &lt;/table><br>  &lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.two-columns {overflow:hidden; margin:0px auto; max-width:500px;}<br>.two-columns .columns {width:50%; float:left;}<br>.example {margin:40px auto; border-collapse:collapse;}<br>.example th,<br>.example td {padding:4px 10px; border:1px solid #000;}<br>.example th {color:#fff; font-weight:normal; background-color:#575757;}<br>.example tr.collapse {visibility:collapse;}</code></pre>
+			<span class="yel" onclick='p2.classList.toggle("hiden");'>Свернуть</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

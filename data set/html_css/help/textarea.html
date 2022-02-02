@@ -1,0 +1,191 @@
+<!DOCTYPE html><html><head><title>&lt;textarea></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.t-html5::after, .t-trash::after{margin-left:3px}
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp>&lt;textarea></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li><a href="#resize">CSS свойство <samp>resize</samp></a></li>
+		<li><a href="#attributs">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#cols" title="Ширина поля в символах.">cols</a></span>
+				<span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
+				<span><a href="#name" title="Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.">name</a></span>
+				<span><a href="#readonly" title="Устанавливает, что поле не может изменяться пользователем.">readonly</a></span>
+				<span><a href="#rows" title="Высота поля в строках текста.">rows</a></span>
+				<span><a class="t-html5 off" href="#autocomplete" title="Включает или отключает автозаполнение.">autocomplete</a></span>
+				<span><a class="t-html5" href="#autofocus" title="Автоматическое получение фокуса.">autofocus</a></span>
+				<span><a class="t-html5" href="#dirname" title="Параметр, который передаёт на сервер направление текста.">dirname</a></span>
+				<span><a class="t-html5" href="#form" title="Связывает текстовое поле с формой по её идентификатору.">form</a></span>
+				<span><a class="t-html5" href="#maxlength" title="Максимальное число введённых символов.">maxlength</a></span>
+				<span><a class="t-html5" href="#minlength" title="Минимальное число введённых символов.">minlength</a></span>
+				<span><a class="t-html5" href="#placeholder" title="Добавляет подсказывающий текст.">placeholder</a></span>
+				<span><a class="t-html5" href="#required" title="Обязательное для заполнения поле.">required</a></span>
+				<span><a class="t-html5" href="#wrap" title="Параметры переноса строк.">wrap</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;textarea></samp> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста. В отличие от элемента <samp class="red">&lt;input></samp> в текстовом поле допустимо делать переносы строк, они сохраняются при отправке данных на сервер.</p>
+	<p>При оформлении многострочного поля применяются те же стилевые свойства, что и для однострочного текста. А именно можно изменять ширину (свойство <samp class="sin">width</samp>), высоту (<samp class="sin">height</samp>), границу (<samp class="sin">border</samp>), цвет текста и фона (<samp class="sin">color</samp> и <samp class="sin">background</samp> соответственно) и др. </p>
+	<p>Между тегами <samp class="red">&lt;textarea></samp> и <samp class="red">&lt;/textarea></samp> можно поместить любой текст, который будет отображаться внутри поля.</p>
+	<div class="prm">
+		<table width="100%" class="t3">
+			<tr><td><textarea cols="40" rows="5"></textarea></td>
+				<td><textarea cols="40" rows="5" style="resize:none;">текст</textarea></td></tr>
+			<tr><td colspan="2"><pre class="item2"><code>&lt;textarea cols="40" rows="5">&lt;/textarea><br>&lt;textarea cols="40" rows="5" style="resize:none;">текст&lt;/textarea></code></pre></td></tr>
+		</table>
+	</div>
+</div>
+
+
+
+<div class="item" id="resize">
+<h3 class="sin"><a href="#">CSS свойство <samp>resize</samp></a></h3>
+	<p>Указывает, можно ли пользователю изменять размеры текстового поля. Применяется к <samp class="red">&lt;textarea></samp> или к любому элементу, у которого значение свойства <samp class="sin">overflow</samp> отличается от <samp class="lsin">visible</samp>.</p>
+	<p>Все браузеры кроме Internet Explorer поддерживают изменение размера для <samp class="red">&lt;textarea></samp>. Достаточно потянуть за правый нижний уголок, который по своему виду отличается от остальных. </p>
+	<div class="no mt0">Каждый браузер имеет свои предварительные настрой параметра <samp class="sin">resize</samp>, для кроссбраузерности необходимо предопределять его значение.</div>
+	<pre class="item2"><code>textarea {<br>   resize: none | both | horizontal | vertical;<br>}</code></pre>
+	<div class="ls2 mt10"><b>Значения:</b></div>
+	<table class="t1 t0 t3" style="margin-left:-5px">
+		<tr><td>none</td>
+			<td>размеры элемента не изменяются.</td></tr>
+		<tr><td>both</td>
+			<td>можно изменять размеры элемента по горизонтали и вертикали.</td></tr>
+		<tr><td>horizontal</td>
+			<td>можно изменять размеры элемента только по горизонтали.</td></tr>
+		<tr><td>vertical</td>
+			<td>можно изменять размеры элемента только по вертикали.</td></tr>
+	</table>
+	<div class="no"><samp>IE, Edge, IOS Safari, Android WebView</samp> - не поддерживают данное свойство.</div>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<div class="ogl2 ogl22">
+		<span><a href="#cols" title="Ширина поля в символах.">cols</a></span>
+		<span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
+		<span><a href="#name" title="Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.">name</a></span>
+		<span><a href="#readonly" title="Устанавливает, что поле не может изменяться пользователем.">readonly</a></span>
+		<span><a href="#rows" title="Высота поля в строках текста.">rows</a></span>
+		<span><a class="t-html5 off" href="#autocomplete" title="Включает или отключает автозаполнение.">autocomplete</a></span>
+		<span><a class="t-html5" href="#autofocus" title="Автоматическое получение фокуса.">autofocus</a></span>
+		<span><a class="t-html5" href="#dirname" title="Параметр, который передаёт на сервер направление текста.">dirname</a></span>
+		<span><a class="t-html5" href="#form" title="Связывает текстовое поле с формой по её идентификатору.">form</a></span>
+		<span><a class="t-html5" href="#maxlength" title="Максимальное число введённых символов.">maxlength</a></span>
+		<span><a class="t-html5" href="#minlength" title="Минимальное число введённых символов.">minlength</a></span>
+		<span><a class="t-html5" href="#placeholder" title="Добавляет подсказывающий текст.">placeholder</a></span>
+		<span><a class="t-html5" href="#required" title="Обязательное для заполнения поле.">required</a></span>
+		<span><a class="t-html5" href="#wrap" title="Параметры переноса строк.">wrap</a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t3 tb mt10">
+		<tr><td id="cols"><a href="#attributs">cols</a></td>
+			<td><p>Ширина текстового поля, которое определяется числом символов моноширинного шрифта. Иными словами, ширина задаётся количеством близстоящих букв одинаковой ширины по горизонтали. Если размер шрифта изменяется с помощью стилей, ширина также соответственно меняется.</p>
+			Значение по умолчанию: в HTML4 зависит от настроек браузера и операционной системы, в HTML5 — 20.
+			<pre class="item2"><code>&lt;textarea cols="число">&lt;/textarea></code></pre></td></tr>
+		<tr><td id="disabled"><a href="#attributs">disabled</a></td>
+			<td>Блокирует доступ и изменение текстового поля. Оно в таком случае отображается серым и недоступным для активации пользователем. Кроме того, такое поле не может получить фокус путем нажатия на клавишу <b>Tab</b>, мышью или другим способом. Тем не менее, такое состояние поля можно менять с помощью скриптов. Заблокированный в поле текст не передаётся на сервер.
+			<pre class="item2"><code>&lt;textarea disabled>&lt;/textarea></code></pre></td></tr>
+		<tr><td id="name"><a href="#attributs">name</a></td>
+			<td><p>Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать. Как правило, это имя используется при отправке данных на сервер или для доступа к полю через скрипты.</p>
+			В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к элементу <samp class="red">&lt;textarea></samp> по имени соблюдайте ту же форму написания, что и в атрибуте <samp class="sin">name</samp>.
+			<pre class="item2"><code>&lt;textarea name="имя">&lt;/textarea></code></pre></td></tr>
+		<tr><td id="readonly"><a href="#attributs">readonly</a></td>
+			<td>Устанавливает, что поле не может изменяться пользователем, в том числе вводиться новый текст или модифицироваться существующий. Тем не менее, состояние и содержимое поля можно менять с помощью скриптов. Также содержимое поле можно выделить и скопировать в буфер обмена.
+			<pre class="item2"><code>&lt;textarea readonly>&lt;/textarea></code></pre>
+			<table width="100%" class="mb0 lh0"><tr><td><textarea cols="30" rows="3" class="nr" disabled>Недоступное поле (disabled)</textarea></td><td><textarea cols="30" rows="3" class="nr" readonly>Поле только для чтения (readonly)</textarea></td></tr></table>
+			</td></tr>
+		<tr><td id="rows"><a href="#attributs">rows</a></td>
+			<td><p>Высота текстового поля, которое определяется количеством отображаемых строк без прокрутки содержимого. Если размер шрифта изменяется с помощью стилей, высота поля также соответственно меняется.</p>
+			Значение по умолчанию: в HTML4 зависит от настроек браузера и операционной системы, в HTML5 — 2.
+			<pre class="item2"><code>&lt;textarea rows="число">&lt;/textarea></code></pre></td></tr>
+		<tr><td id="autocomplete"><a href="#attributs">autocomplete</a></td>
+			<td><p>Включает или отключает автозаполнение. Этот атрибут помогает заполнить текстовое поле текстом, который был введён в нём ранее. Значения сохраняет и подставляет браузер, при этом автозаполнение по соображениям безопасности может отключаться пользователем в настройках браузера и не может в таком случае управляться атрибутом <samp class="sin">autocomplete</samp>.</p>
+			Автозаполнение конкретного поля формы привязывается к его атрибуту <samp class="sin">name</samp> и при смене значения теряется. Значение по умолчанию - зависит от настроек браузера.
+			<pre class="item2"><code>&lt;textarea autocomplete="on | off">&lt;/textarea></code></pre>
+			<div class="no mb0">Данный атрибут не браузерами поддерживается.</div></td></tr>
+		<tr><td id="autofocus"><a href="#attributs">autofocus</a></td>
+			<td>Автоматически устанавливает фокус в текстовое поле. В таком поле можно сразу набирать текст без переключения курсора в текстовое поле.
+			<pre class="item2"><code>&lt;textarea autofocus>&lt;/textarea></code></pre></td></tr>
+		<tr><td id="dirname"><a href="#attributs">dirname</a></td>
+			<td>Параметр, который передаёт на сервер направление текста. При наличии атрибута <samp class="sin">dirname</samp> на сервер отправляется пара имя/значение, где имя задаётся атрибутом <samp class="sin">dirname</samp>, а значение подставляется браузером. Для текста, идущего слева направо, значение будет <samp class="lsin">ltr</samp>, а для текста справа налево (арабского, к примеру) значение будет <samp class="lsin">rtl</samp>. В качестве значения - произвольная текстовая строка, которая служит именем параметра. Чтобы показать, что этот параметр указывает направление текста, обычно в конце строки добавляют <samp class="lsin">.dir</samp>.
+			<pre class="item2"><code>&lt;textarea dirname="строка">&lt;/textarea><br><br>&lt;form action="handler.php"><br>  &lt;p>Комментарий:&lt;/p><br>  <span class="ls-1">&lt;p>&lt;textarea name="comment" dirname="comment.dir">&lt;/textarea>&lt;/p></span><br>  &lt;p>&lt;button type="submit">Отправить&lt;/button>&lt;/p><br>&lt;/form><br></code></pre>
+			<p>В данном примере на сервер будет отправлена строка <samp class="lsin">comment.dir</samp> со значением <samp class="lsin">ltr</samp>, поскольку для русского языка текст идёт слева направо.</p>
+			<div class="no mb0">IE, Edge, Ffox не поддерживают данный атрибут.</div></td></tr>
+		<tr><td id="form"><a href="#attributs">form</a></td>
+			<td>Связывает текстовое поле с формой по её идентификатору (значение атрибута <samp class="red">id</samp> элемента <samp class="red">&lt;form></samp>). Такая связь необходима в случае, когда поле по каким-либо причинам располагается за пределами <samp class="red">&lt;form></samp>.
+			<pre class="item2"><code>&lt;textarea form="идентификатор">&lt;/textarea></code></pre></td></tr>
+		<tr><td id="maxlength"><a href="#attributs">maxlength</a></td>
+			<td>Устанавливает максимальное число символов, которое может быть введено пользователем в текстовом поле. Когда это количество достигается при наборе, дальнейший ввод становится невозможным.
+			<pre class="item2"><code>&lt;textarea maxlength="число">&lt;/textarea></code></pre></td></tr>
+		<tr><td id="minlength"><a href="#attributs">minlength</a></td>
+			<td>Задаёт минимальное число символов, которое может быть введено пользователем в текстовом поле. Если число символов меньше указанного значения, то браузер выдаёт сообщение об ошибке и не отправляет форму.
+			<pre class="item2"><code>&lt;textarea minlength="число">&lt;/textarea></code></pre>
+			<div class="no">IE, Edge, Safari и мобильные браузеры не поддерживают данный атрибут.</div></td></tr>
+		<tr><td id="placeholder"><a href="#attributs">placeholder</a></td>
+			<td>Выводит подсказывающий текст внутри текстового поля, который исчезает при получении фокуса или наборе текста. В качестве подсказки обычно применяется короткий текст, состоящий из одного слова или фразы.
+			<pre class="item2"><code>&lt;textarea placeholder="текст">&lt;/textarea></code></pre>
+			<div class="lh0"><textarea cols="20" rows="2" placeholder="текст" class="nr"></textarea></div></td></tr>
+		<tr><td id="required"><a href="#attributs">required</a></td>
+			<td>Устанавливает текстовое поле обязательным для заполнения перед отправкой формы на сервер. Если в обязательном поле нет текста, браузер выведет сообщение, а форма отправлена не будет. Вид и содержание сообщения зависит от браузера и меняться пользователем не может. 
+			<pre class="item2"><code>&lt;textarea required>&lt;/textarea></code></pre></td></tr>
+		<tr><td id="wrap"><a href="#attributs">wrap</a></td>
+			<td>Параметры переноса строк. <!-- Если этот атрибут отсутствует, текст в поле набирается одной строкой, когда число введённых символов превышает ширину области, появляется горизонтальная полоса прокрутки. Нажатие кнопки Enter переносит текст на новую строку, и курсор устанавливается у левого края поля. -->
+			<pre class="item2"><code>&lt;textarea wrap="soft | hard">&lt;/textarea></code></pre>
+			<table class="t1 t3">
+				<tr><td>soft</td><td>Слова в текстовом поле переносятся механически, если они не поместились в размер области, но при отправке на сервер переносы не сохраняются. <b>Значение по умолчанию</b>.</td></tr>
+				<tr><td>hard</td><td>Длинный текст, который самостоятельно не помещается в поле по ширине, автоматически переносится на новую строку и вместе с переносами отправляется на сервер. Для работы требуется наличие атрибута <samp class="sin">cols</samp> (ширина поля в символах).</td></tr>
+			</table></td></tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример 1.</a></h3>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="textarea1.php" method="post">
+			<p><b>Введите ваш отзыв:</b></p>
+			<p><textarea rows="10" cols="45" name="text"></textarea></p>
+			<p><input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="textarea1.php" method="post"><br>   &lt;p>&lt;b>Введите ваш отзыв:&lt;/b>&lt;/p><br>   &lt;p>&lt;textarea rows="10" cols="45" name="text">&lt;/textarea>&lt;/p><br>   &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример 2.</a></h3>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p><b>Введите комментарий</b></p>
+			<p><textarea rows="10" cols="20" name="comment"></textarea></p>
+			<p><input type="button" value="ОК" onClick="dataField(this.form)"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;b>Введите комментарий&lt;/b>&lt;/p><br>  &lt;p>&lt;textarea rows="10" cols="20" name="comment">&lt;/textarea>&lt;/p><br>  &lt;p>&lt;input type="button" value="ОК" onClick="dataField(this.form)">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+</body></html>

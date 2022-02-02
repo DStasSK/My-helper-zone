@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><title>flex-direction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 caption {font-size:24px; font-weight:700; letter-spacing:1px}
+	.t1 td:nth-child(1) {width:90px}
+	.t1 td:nth-child(2) {width:90px}
+	.box {display:flex; width:80px; height:72px; margin:0 auto; outline:1px solid #ddd;
+		line-height:16px; box-sizing:border-box; background-color:#ddd; text-align:center;
+		font-size:16px; color:#fff;}
+	.box div {margin:2px; background-color:rgb(100, 84, 195); padding:2px 4px;}
+	.fdr {flex-direction:row;}
+	.fdrr {flex-direction:row-reverse;}
+	.fdc {flex-direction:column;}
+	.fdcr {flex-direction:column-reverse;}
+</style>
+</head>
+<body>
+<h2 class="sin">flex-direction</h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">flex-direction</samp> задаёт направление основных осей в контейнере и тем самым определяет положение флексов в контейнере. На само направление также влияет значение атрибута <samp class="red">dir</samp> у контейнера. Применяется к флекс-контейнеру, не наследуется, не анимируется. Значение по умолчанию: <samp class="lsin">row</samp>.</p>
+
+	<pre class="item2 css"><code>.fl {flex-direction: row | row-reverse | column | column-reverse }</code></pre>
+
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-flex-direction</samp></div>
+
+	<table class="t1 t3 tb th1 tcc">
+		<caption>Параметры</caption>
+		<tr><th>Значение</th><th>Положение</th><th>Описание</th></tr>
+		<tr><td>row</td>
+			<td><div class="box fdr"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Главная ось направлена так же, как и ориентация текста, по умолчанию слева направо. Если значение <samp class="sin">dir</samp> задано как <samp class="lsin">rtl</samp>, то направление оси идёт справа налево.</td></tr>
+		<tr><td>row-reverse</td>
+			<td><div class="box fdrr"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Похоже на значение row, но меняются местами начальная и конечная точки и главная ось направлена справа налево. Если значение <samp class="sin">dir</samp> задано как <samp class="lsin">rtl</samp>, то направление оси идёт слева направо.</td></tr>
+		<tr><td>column</td>
+			<td><div class="box fdc"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Главная ось располагается вертикально и направлена сверху вниз.</td></tr>
+		<tr><td>column-reverse</td>
+			<td><div class="box fdcr"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Главная ось располагается вертикально и направлена снизу вверх.</td></tr>
+	</table>
+</div>
+</body></html>

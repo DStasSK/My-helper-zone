@@ -1,0 +1,300 @@
+<!DOCTYPE html><html><head><title>Выпадающий список</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+
+	.be{background-color:yellow;padding:2px 5px;}
+
+	ol {margin:0 20px 10px 20px; padding:0;}
+	li {text-align:justify;}
+	.spoiler input, .spoiler div {display: none;}
+	.spoiler :checked ~ div {display: block;}
+	.spoiler label {display:inline-block;}
+
+</style></head>
+<body>
+
+<h2 class="sin">Выпадающий список</h2>
+
+<div class="item anp" id="summarydetails">
+<h3 class="sin">Ваиант на тегах <samp class="red">&lt;details></samp> и <samp class="red">&lt;summary></samp>.</h3>
+	<p>Архитектура:</p>
+	<div class="item2 br0" style="position:relative;">
+		<pre><code>&lt;details><br>  &lt;summary>Видимый текст 1&lt;/summary><br>  &lt;p>Скрытый текст 1&lt;/p><br>  &lt;p>Скрытый текст 1&lt;/p><br>&lt;/details><br>&lt;details><br>  &lt;summary>Видимый текст 2&lt;/summary><br>  &lt;p>Скрытый текст 2&lt;/p><br>  &lt;p>Скрытый текст 2&lt;/p><br>&lt;/details></code></pre>
+
+		<div style="position:absolute;top:0;right:0;width:250px;height:176px;background-color:#fff;padding:5px;font-size:16px;">
+			<p>Дефолтное отображение:</p>
+			<details>
+				<summary>Видимый текст 1</summary>
+				<p>Скрытый текст 1</p>
+				<p>Скрытый текст 1</p>
+			</details>
+			<details>
+				<summary>Видимый текст 2</summary>
+				<p>Скрытый текст 2</p>
+				<p>Скрытый текст 2</p>
+			</details>
+		</div>
+	</div>
+
+	<p class="pad">Минусы данного метода:
+	<br>- старые браузеры не знают таких тегов и не будут скрывать информацию.
+	<br>- дефолтный маркер надо спрятать, используя префиксы, и создать свой.</p>
+	<p>Чтобы тег <samp class="red">&lt;summary></samp> не растягивался на всю ширину и были кликабельными только слова, а не вся строка - устанавливают параметр <samp class="sin">display:</samp><samp class="lsin">inline-block</samp>.</p>
+
+	<pre class="item2 br0"><code>summary::-webkit-details-marker {display: none;}<br>summary::-moz-list-bullet {list-style-type: none;}<br>summary::marker {display: none;}<br>summary {display: inline-block;}</code></pre>
+
+	<div class="no"><samp class="sin"><b>IE</b></samp> не поддерживает данные тэги.</div>
+</div>
+
+
+
+<div class="item">
+<h3>Примеры выпадающих списков</h3>
+<div class="item2 br0 detsum">
+	<style type="text/css">
+		.detsum summary {display:inline-block; background-color:#fff; padding:2px 5px; width:390px; cursor:pointer;}
+		.detsum details {width:400px; background-color:#fafafa; display:block; margin:15px;}
+		.detsum details p {line-height:29px; padding:0 15px;}
+		.detsum summary:focus {outline:0;} /* убирает рамку выделения */		
+
+		.all summary::-webkit-details-marker{display:none;}
+		.all summary::-moz-list-bullet{list-style-type:none;}
+		.all summary::marker{display:none;}
+
+		.plusm summary:before {display:inline-block; content:"+"; width:15px;
+			text-align:center; margin-left:-5px; font-weight:700;}
+		.plusm details[open] > summary:before {content:"–";} /* заменяет + на - */
+
+		.plusm2 summary:after {display:inline-block; content:"+"; transition:transform .5s;
+			width:15px; text-align:center; font-weight:700;}
+		.plusm2 details[open] > summary:after {transform: scale(1,-1);} /* масштабирование для маркера */
+		.plusm2 details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
+										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+
+		.svg summary {padding-left:20px; display:block; cursor:pointer; position:relative; width:375px;}
+		.svg summary:before {display:inline-block; content:">"; transition:transform .5s; position:absolute;
+			left:5px; top:3px; font-weight:700;}
+		.svg details[open] > summary:before {transform: rotateZ(90deg);} /* поворот на 90 */
+		.svg details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
+										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+		.wt details{display:block; background:#fff;
+			box-shadow:0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+			border-radius:8px; overflow:hidden;}
+		.wt summary {padding-left:20px; display:block; cursor:pointer; position:relative;
+			border-bottom: 1px solid #e2e8f0;}
+		.wt summary:before {display:inline-block; content:">"; transition:transform .5s; position:absolute;
+			left:5px; top:3px; font-weight:700;}
+		.wt details[open] > summary:before {transform: rotateZ(90deg);}
+		.wt details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
+										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+		.wt2 details{display:block; background:#fff;
+			box-shadow:0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+			border-radius:8px; overflow:hidden;}
+		.wt2 summary {display:block; cursor:pointer; position:relative;
+			border-bottom: 1px solid #e2e8f0;}
+		.wt2 summary:before {top:.4em; right:.3em; color:transparent;
+		/* картинка стрелки */
+		background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTYuNTkgOC41OUwxMiAxMy4xNyA3LjQxIDguNTkgNiAxMGw2IDYgNi02eiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=") no-repeat 50% 50% / 1em 1em;
+			width:1em; height:1em; content: ""; position:absolute; transition:transform .5s;}
+		.wt2 details[open] > summary:before {transform: scale(1,-1);}
+		.wt2 details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
+										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+
+	</style>
+	<details>
+		<summary>Покажи-скрой меня 1</summary>
+		<p>Дефолтное оформление</p>
+	</details>
+	<div class="plusm all"><details open>
+		<summary>Покажи-скрой меня 2</summary>
+		<p>Открыт по умолчанию: <samp class="red">&lt;details <samp class="lsin">open</samp>></samp></p>
+		<p>Маркер изменен на <samp>+/-</samp></p>
+	</details></div>
+	<div class="plusm2 all"><details>
+		<summary>Покажи-скрой меня 3</summary>
+		<p>Маркер изменен на <samp>+</samp></p>
+		<p>Маркер расположен справа</p>
+		<p>Добавлена анимация маркера</p>
+		<p>Установлена плавность появления текста</p>
+	</details></div>
+	<div class="all svg"><details>
+		<summary>Покажи-скрой меня 4</summary>
+		<p>Маркер изменен на <samp>></samp></p>
+		<p>Добавлена анимация маркера</p>
+		<p>Установлена плавность появления текста</p>
+	</details></div>
+	<div class="all wt"><details>
+		<summary>Покажи-скрой меня 5</summary>
+		<p>Маркер изменен на <samp>></samp></p>
+		<p>Добавлена анимация маркера</p>
+		<p>Установлена плавность появления текста</p>
+	</details></div>
+	<div class="all wt2"><details>
+		<summary>Покажи-скрой меня 6</summary>
+		<p>Маркер изменен на <samp>></samp></p>
+		<p>Добавлена анимация маркера</p>
+		<p>Установлена плавность появления текста</p>
+	</details></div>
+</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Вариант на <samp class="lsin">onclick</samp> и <samp class="lsin">toggle</samp>.</h3>
+	<div class="point" onclick='asubmenu.classList.toggle("hiden");'>Нажми меня два раза</div>
+		<ul id='asubmenu' class="hiden" onclick="event.stopPropagation()" style="margin:0 0 0 30px;padding:0px;">
+			<li>1-й пункт</li>
+			<li>2-й пункт</li>
+			<li>3-й пункт</li>
+		</ul>
+	<div class="item2 br0">
+		<samp class="point red bold" onclick='vs21.classList.toggle("hiden");'><abbr title="развернуть / свернуть">HTML</abbr></samp>
+		<div class="hiden" id="vs21" onclick="event.stopPropagation()">
+			<pre><code>&lt;!-- id повторяться не должны --><br>&lt;div class="menu" onclick='<b>submenu</b>.classList.toggle("hiden");'><br>  Нажми меня два раза<br>&lt;/div><br><br>&lt;!-- event.stop... не позволят кликам по пунктам сворачивать меню<br>т.е. предотвращает всплытие клика<br>onclick="event.stopPropagation()" --><br>&lt;ul <b>id='submenu'</b> class="hiden" onclick="event.stopPropagation()"><br>  &lt;li>1-й пункт&lt;/li><br>  &lt;li>2-й пункт&lt;/li><br>  &lt;li>3-й пункт&lt;/li><br>&lt;/ul></code></pre>
+			<br><samp class="red"><b>CSS</b></samp>
+			<pre><code>.menu {cursor:pointer; display:inline-block;}<br>.hiden {display:none;}</code></pre>
+			<span class="yel" onclick='vs21.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Вариант на <samp class="red">&lt;input></samp>, <samp class="red">&lt;label></samp> и <samp class="lsin">:checked</samp>.</h3>
+	<div class="anp"><p>Есть два типа аккордеон-меню.</p></div>
+	<ol>
+		<li>При раскрытии любого пункта списка открытое содержимое закрывается; по своему действию это похоже на вкладки.</li>
+		<li>Можно раскрывать любой пункт списка, остальные пункты при этом не закрываются.</li>
+	</ol>
+
+	<p class="mt20">Для первого типа аккордеона вставляем <samp>&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp>, который позволяет выбрать лишь один пункт, а для второго типа <samp>&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp> - с его помощью можно раскрывать и закрывать произвольное число пунктов.</p>
+
+	<p>Для каждого <samp class="red">&lt;input></samp> необходимо добавить своей уникальный <samp class="red">id</samp>, а его значение затем вставить в атрибут <samp class="sin">for</samp> у расположенного ниже элемента <samp class="red">&lt;label></samp>.</p>
+
+	<p>Для того чтобы отдельные пункты были заранее открытими, необходимо добавить к тегу <samp class="red">&lt;input></samp> параметр <samp class="sin">checked</samp>.</p>
+
+	<div class="anp" style="margin-top:10px;"><p><b>Архитектура:</b></p></div>
+	<div class="item2 br0 anp" style="position:relative;">
+		<pre><code>&lt;style><br>  .spoiler label {cursor:pointer;}<br>  .spoiler input {display:none;}<br>  .spoiler div {display:none;}<br>  .spoiler :checked ~ div {display:block;}<br>&lt;/style><br>&lt;div class="spoiler"><br>  &lt;input type="checkbox" id="spoiler1"><br>  &lt;label for="spoiler1">Видимый текст&lt;/label><br>  &lt;div>Скрытый текст&lt;/div><br>&lt;/div></code></pre>
+	
+		<div style="position:absolute;top:0;right:0;width:250px;height:183px;background-color:#fff;padding:10px;font-size:16px;">
+			<p>Отображение со стилизацией:</p>
+			<style>
+				.spoiler99 label {cursor:pointer;}
+				.spoiler99 input {display:none;}
+				.spoiler99 div {display:none;}
+				.spoiler99 :checked ~ div {display:block;}
+			</style>
+			<div class="spoiler99">
+				<input type="checkbox" id="spoiler99">
+				<label for="spoiler99"><b>Видимый текст</b></label>
+				<div>Скрытый текст</div>
+			</div>
+		</div>
+		<div style="position:absolute; top:100px; right:0; width:250px; padding:10px;">
+			<p>Отображение без стилилации:</p>
+			<div class="spoiler98">
+				<input type="checkbox" id="spoiler98">
+				<label for="spoiler98"><b>Видимый текст</b></label>
+				<div>Скрытый текст</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Пример на <samp>&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp></h3>
+	<style>
+		.spoiler {border:1px solid #0000fa; margin:5px 0; display:inline-block;}
+		.spoiler label {cursor:pointer; padding:2px 5px;}
+		.spoiler :checked + label {border-bottom:1px solid #0000fa;}
+		.spoiler input, .spoiler div {display: none;}
+		.st label::before {content:'►'; margin-right:5px;}
+		.st :checked + label::before {content:'▼';}/* Открытый спойлер */
+		.spoiler :checked ~ div {display:block; padding:2px 5px;}/* Открытый спойлер */
+		.plus label {display:block; width:300px;}
+		.plus label::after {content: '+'; float: right;} /* Размещаем + по правому краю */
+		.plus :checked + label::after {content: '−';}
+	</style>
+
+	<div class="spoiler">
+		<input type="checkbox" id="spoiler1">
+		<label for="spoiler1">Внимание, спойлер №1</label>
+		<div>Убийца - дворецкий!</div>
+	</div>
+	<br>
+	<div class="spoiler st">
+		<input type="checkbox" id="spoiler2">
+		<label for="spoiler2">Cпойлер №2</label>
+		<div>Убийца точно дворецкий!</div>
+	</div>
+	<br>
+	<div class="spoiler plus">
+		<input type="checkbox" id="spoiler3">
+		<label for="spoiler3">Cпойлер №3</label>
+		<div>Убийца точно дворецкий с усами соседа снизу!</div>
+	</div>
+
+	<div class="item2 br0">
+		<samp class="hover red menu" onclick='vs31.classList.toggle("hiden");'><abbr title="развернуть / свернуть">HTML</abbr></samp>
+		<div class="hiden" id="vs31" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="spoiler"><br>  &lt;input type="checkbox" id="spoiler1"><br>  &lt;label for="spoiler1">Внимание, спойлер №1&lt;/label><br>  &lt;div>Убийца - дворецкий!&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoiler st"><br>  &lt;input type="checkbox" id="spoiler2"><br>  &lt;label for="spoiler2">Cпойлер №2&lt;/label><br>  &lt;div>Убийца точно дворецкий!&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoiler plus"><br>  &lt;input type="checkbox" id="spoiler3"><br>  &lt;label for="spoiler3">Cпойлер №3&lt;/label><br>  &lt;div>Убийца точно дворецкий с усами соседа снизу!&lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red"><b>CSS</b></samp>
+			<pre><code>.spoiler {border:1px solid #0000fa; margin:5px 0; display:inline-block;}<br>.spoiler label {cursor:pointer; padding:2px 5px;}<br>.spoiler :checked + label {border-bottom:1px solid #0000fa;}<br>.spoiler input, .spoiler div {display: none;}<br>.st label::before {content:'►'; margin-right:5px;}<br>.st :checked + label::before {content:'▼';}              /* Открытый спойлер */<br>.spoiler :checked ~ div {display:block; padding:2px 5px;}/* Открытый спойлер */<br>.plus label {display:block; width:300px;}<br>.plus label::after {content: '+'; float: right;} /* Размещаем + по правому краю */<br>.plus :checked + label::after {content: '−';}</code></pre>
+			<span class="yel" onclick='vs31.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div><!-- /item2 -->
+</div><!-- /item -->
+
+
+
+<div class="item">
+<h3 class="sin">Пример на <samp>&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp></h3>
+	<style>
+		.spoilerr {border:1px solid #0000fa; margin:5px 0; display:inline-block; text-align:center;}
+		.spoilerr label {cursor:pointer; padding:2px 5px;}
+		.spoilerr input, .spoilerr div {display: none;}
+		.spoilerr :checked ~ div {display:block; padding:2px 5px;}/* Открытый спойлер */
+	</style>
+	<div class="spoilerr">
+		<input type="radio" id="spoiler21" name="group1">
+		<label for="spoiler21">Спойлер №1</label>
+		<div>или этот</div>
+	</div>
+	<br>
+	<div class="spoilerr">
+		<input type="radio" id="spoiler22" name="group1">
+		<label for="spoiler22">Cпойлер №2</label>
+		<div>или этот</div>
+	</div>
+	<br>
+	<div class="spoilerr">
+		<input type="radio" id="spoiler23" name="group1">
+		<label for="spoiler23">Cпойлер №3</label>
+		<div>или этот</div>
+	</div>
+
+	<!-- item2 -->
+	<div class="item2 br0">
+		<samp class="hover red menu" onclick='vs41.classList.toggle("hiden");'><abbr title="развернуть / свернуть">HTML</abbr></samp>
+		<div id="vs41" onclick="event.stopPropagation()" class="hiden">
+			<pre><code>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler21" name="group1"><br>  &lt;label for="spoiler21">Спойлер №1&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler22" name="group1"><br>  &lt;label for="spoiler22">Cпойлер №2&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler23" name="group1"><br>  &lt;label for="spoiler23">Cпойлер №3&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red"><b>CSS</b></samp>
+			<pre><code>.spoilerr {border:1px solid #0000fa; margin:5px 0; display:inline-block;}<br>.spoilerr label {cursor:pointer; padding:2px 5px;}<br>.spoilerr input, .spoilerr div {display: none;}<br>.spoilerr :checked ~ div {display:block; padding:2px 5px;}</code></pre>
+			<span class="yel" onclick='vs41.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div><!-- /item2 -->
+</div><!-- /item -->
+</body>
+</html>

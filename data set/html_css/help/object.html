@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head><title>&lt;object></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.t-html5::after, .t-trash::after{margin-left:3px}
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp>&lt;object></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#attributs">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#align" title="Определяет, как объект будет выравниваться на странице и способ его обтекания текстом." class="t-trash">align</a></span>
+				<span><a href="#archive" title="Устанавливает путь к файлам, необходимым для работы объекта." class="t-trash">archive</a></span>
+				<span><a href="#classid" title="Адрес программы (приложения или плагина), которая работает с данным объектом, и будет запускать его." class="t-trash">classid</a></span>
+				<span><a href="#code" title="Имя объекта для его выполнения." class="t-trash">code</a></span>
+				<span><a href="#codebase" title="Путь к папке с объектом, который указан атрибутом code или classid." class="t-trash">codebase</a></span>
+				<span><a href="#codetype" title="Указывает на тип объекта, который задан атрибутом classid." class="t-trash">codetype</a></span>
+				<span><a href="#data" title="Адрес файла для его отображения в окне браузера. ">data</a></span>
+				<span><a href="#height" title="Высота объекта.">height</a></span>
+				<span><a href="#hspace" title="Горизонтальный отступ от объекта до окружающего контента." class="t-trash">hspace</a></span>
+				<span><a href="#type" title="MIME-тип объекта.">type</a></span>
+				<span><a href="#vspace" title="Вертикальный отступ от объекта до окружающего контента." class="t-trash">vspace</a></span>
+				<span><a href="#width" title="Ширина объекта.">width</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;object></samp> (от англ. object — объект) сообщает браузеру, как загружать и отображать объекты, которые исходно браузер не понимает. Как правило, такие объекты требуют подключения к браузеру специального модуля, который называется плагин, или запуска вспомогательной программы.</p>
+	<p>Дополнительно внутрь контейнера <samp class="red">&lt;object></samp> можно поместить элемент <samp class="red"><a href="param.html" class="tdu">&lt;param></a></samp>, который передаёт дополнительные параметры для отображения объекта.</p>
+
+	<pre class="item2"><code>&lt;object>&lt;/object></code></pre>
+	<div class="no mb10">Так же всесто <samp class="red">&lt;object></samp> можно использовать <samp class="red tdu"><a href="embed.html">&lt;embed></a></samp></div>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<table class="t1 t3 tb mt20">
+		<tr><td id="align"><a href="#">align</a></td>
+			<td>Определяет, как объект будет выравниваться на странице и способ его обтекания текстом. <span class="no">устарел</span>
+				<fieldset class="prm z-a bn prm2">
+					<legend class="point" onclick='id1.classList.toggle("hiden");' title="показать/скрыть"></legend>
+					<div id="id1" class="hiden" onclick="event.stopPropagation()">
+						<pre class="item2"><code>&lt;object align="значение">...&lt;/object></code></pre>
+						<table class="t1 t3 tgr">
+							<tr><td>absmiddle</td><td>Выравнивание середины объекта по середине текущей строки.</td></tr>
+							<tr><td>baseline</td><td>Выравнивание объекта по базовой линии текущей строки.</td></tr>
+							<tr><td>bottom</td><td>Выравнивание нижней границы объекта по окружающему тексту.</td></tr>
+							<tr><td>left</td><td>Выравнивание объекта по левому краю окна, текст обтекает его справа.</td></tr>
+							<tr><td>middle</td><td>Выравнивание середины объекта по базовой линии текущей строки.</td></tr>
+							<tr><td>right</td><td>Выравнивает объект по правому краю окна, текст обтекает слева.</td></tr>
+							<tr><td>texttop</td><td>Верхняя граница объекта выравнивается по самому высокому текстовому элементу текущей строки.</td></tr>
+							<tr><td>top</td><td>Верхняя граница объекта выравнивается по самому высокому элементу текущей строки.</td></tr>
+						</table>
+					</div>
+				</fieldset>
+			</td></tr>
+		<tr><td id="archive"><a href="#">archive</a></td>
+			<td><p>Устанавливает путь к файлам, необходимым для работы объекта. 
+				<span class="no">устарел</span></p>
+				<p>Позволяет задать произвольное число файлов необходимых для корректной работы объекта или для его отображения. Файлы перечисляются через пробел вместе с полным или локальным адресом.</p>
+				<pre class="item2"><code>&lt;object archive="адрес">...&lt;/object></code></pre></td></tr>
+		<tr><td id="classid"><a href="#">classid</a></td>
+			<td><p>Адрес программы (приложения или плагина), которая работает с данным объектом, и будет запускать его. <span class="no">устарел</span></p>
+				<p>Атрибут <samp class="sin">classid</samp> указывает браузеру, какую программу, плагин или апплет нужно загрузить. Можно также использовать идентификатор зарегистрированного ActiveX приложения, предваряя его ключевым словом <samp class="lsin">clsid</samp>.</p>
+				<pre class="item2"><code>&lt;object classid="адрес">...&lt;/object><br><br>&lt;object codetype="application/java-vm"<br>        codebase="http://htmlbook.ru/applet.class"<br>        classid="java:program.start" height="100" width="100"></code></pre></td></tr>
+		<tr><td id="code"><a href="#">code</a></td>
+			<td><p>Имя объекта для его выполнения. <span class="no">устарел</span></p>
+				<p>Атрибут <samp class="sin">code</samp> используется для замены элемента <samp class="red">&lt;applet></samp>, который загружает и выполняет Java-aпплет. В качестве значения <samp class="lsin">code</samp> используется имя класса Java-апплета (файл с расширением <samp class="lsin">class</samp>). Если файл располагается не в той же папке что и текущий документ, то следует указать путь к нему через атрибут <samp class="lsin">codebase</samp>.</p>
+				<pre class="item2"><code>&lt;object code="адрес">...&lt;/object><br>&lt;object code="applet/Сlock.class">&lt;/object></code></pre></td></tr>
+		<tr><td id="codebase"><a href="#">codebase</a></td>
+			<td><p>Путь к папке с объектом, который указан атрибутом <span class="sin">code</span> или <span class="sin">classid</span>. <span class="no">устарел</span></p>
+				<p>Атрибут <samp class="sin">codebase</samp> должен содержать только имя папки, а не файла.</p>
+				<pre class="item2"><code>&lt;object codebase="адрес">...&lt;/object></code></pre></td></tr>
+		<tr><td id="codetype"><a href="#">codetype</a></td>
+			<td><p>Указывает на тип объекта, который задан атрибутом <samp class="sin">classid</samp>. <span class="no">устарел</span></p>
+				<p>Браузер может использовать эту информацию, чтобы подготовить необходимые ресурсы для воспроизведения файла. Если атрибут <samp class="sin">codetype</samp> отсутствует, то рассматривается значение <samp class="sin">type</samp>, хотя оно обычно и связывается с атрибутом <samp class="sin">data</samp>. В случае, когда не указаны оба атрибута <samp class="sin">codetype</samp> и <samp class="sin">type</samp>, браузер получает данные о типе загружаемого файла самостоятельно.</p>
+				<pre class="item2"><code>&lt;object codetype="<a href="../MIME.html" class="tdu">MIME-тип</a>">...&lt;/object><br><br>&lt;object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" <br>        codetype="video/quicktime">&lt;/object></code></pre></td></tr>
+		<tr><td id="data"><a href="#">data</a></td>
+			<td><p>Адрес файла для его отображения в окне браузера. <span class="no no1">обязательный</span></p>
+				<p>Определяет файл, который следует отобразить в окне браузера. Для популярных форматов данных достаточно указать путь к файлу и его тип (атрибут <samp class="sin">type</samp>) для загрузки и демонстрации результата.</p>
+				<p>Путь к файлу определяется относительно папки, заданной атрибутом <samp class="sin">codebase</samp>. Если <samp class="sin">codebase</samp> не указан, тогда путь следует задавать относительно текущего документа.</p>
+				<pre class="item2"><code>&lt;object data="адрес">...&lt;/object><br><br>&lt;object data="video/duel.mp4" type="application/mpeg" <br>        width="300" height="200">&lt;/object></code></pre></td></tr>
+		<tr><td id="height"><a href="#">height</a></td>
+			<td><p>Устанавливает высоту объекта. В заданные размеры входит не только само изображение, например в случае воспроизведения видеофайла, но и панель управления им, включая кнопки проигрывания, паузы, остановки и т. д. По этой причине на размер отображаемого объекта влияет тип файла и применяемый плагин.</p>
+				<p>Если используется процентная запись, то размеры объекта вычисляются относительно родительского элемента — контейнера, где находится элемент <samp class="red">&lt;object></samp>. В случае отсутствия родительского контейнера, в его качестве выступает окно браузера.</p></td></tr>
+		<tr><td id="hspace"><a href="#">hspace</a></td>
+			<td>Горизонтальный отступ от объекта до окружающего контента. <span class="no">устарел</span>
+				<br>Значения - любое целое положительное число в пикселях.
+				<pre class="item2"><code>&lt;object hspace="число">...&lt;/object></code></pre></td></tr>
+		<tr><td id="type"><a href="#">type</a></td>
+			<td><a href="../MIME.html" class="tdu sin">MIME-тип</a> объекта. 
+				<span class="no no1">обязательный</span></td></tr>
+		<tr><td id="vspace"><a href="#">vspace</a></td>
+			<td>Вертикальный отступ от объекта до окружающего контента. <span class="no">устарел</span>
+				<br>Значения - любое целое положительное число в пикселях.
+				<pre class="item2"><code>&lt;object vspace="число">...&lt;/object></code></pre></td></tr>
+		<tr><td id="width"><a href="#">width</a></td>
+			<td>Ширина объекта. В заданные размеры входит не только само изображение, например в случае воспроизведения видеофайла, но и панель управления им, включая кнопки проигрывания, паузы, остановки и т. д. По этой причине на размер отображаемого объекта влияет тип файла и применяемый плагин.</p>
+				<p>Если используется процентная запись, то размеры объекта вычисляются относительно родительского элемента — контейнера, где находится элемент <samp class="red">&lt;object></samp>. В случае отсутствия родительского контейнера, в его качестве выступает окно браузера.</p></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример</a></h3>
+	<object type="application/x-shockwave-flash" data="swf/mouse.swf" width="400" height="300" style="margin:0 auto; display:block;">
+		<param name="quality" value="high">
+		<param name="wmode" value="opaque">
+	</object>
+	<fieldset class="prm">
+		<pre class="item2"><code>&lt;object type="application/x-shockwave-flash"<br>        data="swf/mouse.swf"<br>        width="400" height="300" style="margin:0 auto; display:block"><br>  &lt;param name="quality" value="high"><br>  &lt;param name="wmode" value="opaque"><br>&lt;/object></code></pre>
+	</fieldset>
+</div>
+</body></html>

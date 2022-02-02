@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>&lt;frame></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;frame></samp></h2>
+
+<div class="item">
+	<p>Элемент <samp class="red bold">&lt;frame></samp> (от англ. frame — рамка, каркас) определяет свойства отдельного фрейма, на которые делится окно браузера. Этот элемент должен располагаться в контейнере <samp class="red">&lt;frameset></samp>, который к тому же задаёт способ разметки страницы на отдельные области. В каждую из таких областей загружается самостоятельная веб-страница определяемая с помощью атрибута <samp class="sin">src</samp>.</p>
+	<p>Хотя обязательных атрибутов у <samp class="red">&lt;frame></samp> нет, рекомендуется задавать каждому фрейму его имя через атрибут <samp class="sin">name</samp>. Это особенно важно, если требуется по ссылке из одного фрейма загружать документ в другой. В обычном HTML-документе при переходе по ссылке, в окне браузера текущий документ заменяется новым. При использовании фреймов схема загрузки документов отличается от стандартной. Основное отличие — возможность загружать документ в выбранный фрейм из другого. Для этой цели используется атрибут <samp class="sin">target</samp> элемента <samp class="red">&lt;a></samp>. В качестве значения указывается имя фрейма, в который будет загружаться документ, заданный атрибутом <samp class="sin">name</samp>.</p>
+	Закрывающий тег - не требуется.
+	<pre class="item2"><code>&lt;frameset><br>   &lt;frame><br>&lt;/frameset></code></pre>
+	<div class="no">Данный элемент устарел, не используйте его.</div>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><a href="#">Парaметры.</a></h2>
+	<table class="t1">
+		<tr><td>bordercolor</td>
+			<td>Цвет линии границы.
+			<br>Если у элемента <samp class="red">&lt;frameset></samp> установлено отображение границ, то для индивидуальных фреймов их цвет можно изменить через атрибут bordercolor элемента <samp class="red">&lt;frame></samp>. Если для элементов <samp class="red">&lt;frameset></samp> и <samp class="red">&lt;frame></samp> рамка устанавливается разного цвета, то обычно приоритет имеет последний.
+			<pre class="item2"><code>&lt;frame bordercolor="цвет"></code></pre></td></tr>
+		<tr><td>frameborder</td>
+			<td>Определяет, отображать границу между фреймов или нет. Этот атрибут отменяет действие <samp class="sin">frameborder</samp> у элемента <samp class="red">&lt;frameset></samp>. Допускается использовать значения <b>1</b> для отображения границы или <b>0</b>, чтобы её скрыть.
+			<pre class="item2"><code>&lt;frame frameborder="1 | 0"></code></pre></td></tr>
+		<tr><td>name</td>
+			<td>Задаёт уникальное имя фрейма. В качестве имени используется набор символов, включая числа и буквы. При обращении к фрейму по имени соблюдайте то же написание, что и в атрибуте <samp class="sin">name</samp>.
+			<pre class="item2"><code>&lt;frame name="имя"></code></pre></td></tr>
+		<tr><td>noresize</td>
+			<td>Пользователь может изменить размер фрейма, активировав его на границе и перетаскивая в нужную сторону. Добавление атрибута <samp class="sin">noresize</samp> запрещает эту возможность, и пользователь уже не может изменить размеры фреймов самостоятельно.
+			<pre class="item2"><code>&lt;frame noresize></code></pre></td></tr>
+		<tr><td>scrolling</td>
+			<td>Способ отображения полосы прокрутки во фрейме.
+			<pre class="item2"><code>&lt;frame scrolling="<span class="tdu" title="Полосы прокрутки добавляются браузером только по необходимости - когда содержимое фрейма превышает его видимую часть. Значение по умолчанию.">auto</span> | <span class="tdu" title="Запрещает отображение полос прокрутки.">no</span> | <span class="tdu" title="Всегда вызывает появление полос прокрутки, независимо от объёма информации.">yes</span>"></code></pre></td></tr>
+		<tr><td>src</td>
+			<td>Указывает адрес файла, который будет загружаться во фрейм. Допустимо использовать не только путь к файлу, но также имя функции JavaScript, которое возвращает значение.
+			<pre class="item2"><code>&lt;frame src="адрес"></code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><a href="#">Пример.</a></h2>
+	<pre class="item2"><code>&lt;iframe src="frame/start.html" width="100%" height="200px" class="if1">&lt;/iframe>
+		<br><b>&lt;!-- start.html --></b><br>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" <br>  "http://www.w3.org/TR/html4/frameset.dtd"><br>&lt;html><br>  &lt;head><br>    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br>    &lt;title>Frame Start&lt;/title><br>  &lt;/head><br>  &lt;frameset rows="80,*" cols="*"><br>    &lt;frame src="top.html" name="tf" scrolling="no" noresize><br>    &lt;frameset cols="80,*"><br>      &lt;frame src="left.html" name="lf" scrolling="no" noresize><br>      &lt;frame src="main.html" name="mf"><br>    &lt;/frameset><br>  &lt;/frameset><br>&lt;/html></code></pre>
+	<div>
+		<style>
+			.if1 {border:0; margin-top:15px}
+		</style>
+		<iframe src="frame/start.html" width="100%" height="200px" class="if1"></iframe>
+	</div>
+</div>
+
+</body>
+</html>

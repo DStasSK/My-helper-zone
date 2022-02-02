@@ -1,0 +1,245 @@
+<!DOCTYPE html><html><head><title>Заголовок</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet"> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet"> -->
+
+<style type="text/css">
+	@font-face {
+		font-family:Righteous; /* Имя шрифта */
+		src:url(fonts/Righteous/Righteous-Regular.ttf);} /* Путь к файлу со шрифтом */
+	@font-face {
+		font-family:Open Sans;
+		src:url(fonts/Open_Sans/OpenSans-Regular.ttf);}
+	@font-face {
+		font-family:Merriweather;
+		src:url(fonts/Merriweather/Merriweather-Regular.ttf);}
+	@font-face {
+		font-family:Marck Script;
+		src:url(fonts/Marck_Script/MarckScript-Regular.ttf);}
+
+	.spoiler input, .spoiler div {display: none;}
+	.spoiler :checked ~ div {display: block;}
+	.spoiler label {display:inline-block;}
+</style></head>
+<body>
+
+<div class="item">
+	<style type="text/css">
+		.header-listed {position:relative;padding-left:50px;}
+		.header-listed span {position:absolute;left:0;top:50%;transform:translateY(-50%);display:block; width:27px;height:26px;background:#223c50;border-radius:4px 1px 1px 4px;line-height:26px; text-align:center;color:#fff;font-weight:500;font-size:16px;text-indent:4px;font-style:normal;}
+		.header-listed span::before {left:100%; border:13px solid rgba(0, 0, 0, 0);
+			content:"";height:0;width:0;position:absolute; border-left-color:#223c50;}
+	</style>
+
+	<div style="display:flex; justify-content:center;">
+		<h3 class="header-listed"><span>1</span>Заголовок</h3>
+	</div>
+	<center>
+		<h3 class="header-listed" style="background-color:#fafafa;"><span>2</span>Заголовок</h3>
+	</center>
+	<h3 class="header-listed"><span></span>Заголовок</h3>
+
+	<div class="item2">
+		<samp class="red point" onclick='pre1.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre1" onclick="event.stopPropagation()">
+			<pre><code>&lt;div style="display:flex; justify-content:center;"><br>   &lt;h3 class="header-listed">&lt;span>1&lt;/span>Заголовок&lt;/h3><br>&lt;/div><br>&lt;center><br>   &lt;h3 class="header-listed">&lt;span>2&lt;/span>Заголовок&lt;/h3><br>&lt;/center><br>&lt;h3 class="header-listed">&lt;span>&lt;/span>Заголовок&lt;/h3></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.header-listed {position:relative; padding-left:50px;}<br>.header-listed span {<br>   position:absolute; left:0; top:50%; transform:translateY(-50%);<br>   display:block; width:27px; height:26px; line-height:26px;<br>   background:#223c50; border-radius:4px 1px 1px 4px;<br>   text-align:center; color:#ffffff; font-weight:500; font-size:16px;<br>   text-indent:4px; font-style:normal;}<br>.header-listed span::before {<br>   border:13px solid rgba(0, 0, 0, 0); content: ""; height:0; width:0;<br>   position:absolute; left:100%; border-left-color:#223c50;}</code></pre>
+			<span class="yel" onclick='pre1.classList.toggle("hiden");'>свернуть</span>
+		</div><!-- hiden -->
+	</div><!-- item2 -->
+</div>
+
+
+<div class="item">
+	<style type="text/css">
+		/*ART SHOW*/
+		.one {background:#FFF4ED;padding:50px 20px;text-align:center;}
+		.one h1 {font-family:'Righteous', cursive;position:relative;color:#3CA1D9;display:inline-block; border-top:2px solid;border-bottom:2px solid;font-size:3em;padding:11px 60px;margin:0;line-height:1;}
+		.one h1:before, .one h1:after {content:"";position:absolute;top:0;width:30px;height:100%;
+			border-left:2px solid;border-right:2px solid;
+			background:repeating-linear-gradient(180deg, transparent, transparent 2px, #3CA1D9 2px, #3CA1D9 4px);}
+		.one h1:before {left:0;}
+		.one h1:after {right:0;}
+	</style>
+
+	<div class="one"><h1>ART SHOW</h1></div>
+	<div class="item2">
+		<samp class="red point" onclick='pre2.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre2" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="one"><br>   &lt;h1>ART SHOW&lt;/h1><br>   &lt;/div></code></pre>
+			<samp class="red">CSS</samp>
+			<pre><code>.one {background:#FFF4ED; padding:50px 20px; text-align:center;}<br>.one h1 {<br>   font-family:'Righteous', cursive; color:#3CA1D9;<br>   position:relative;<br>   display:inline-block; padding:11px 60px; margin:0;<br>   border-top:2px solid; border-bottom:2px solid;<br>   font-size:3em; line-height:1;}<br>.one h1:before, .one h1:after {<br>   content:""; position:absolute; top:0;<br>   width:30px; height:100%;<br>   border-left:2px solid; border-right:2px solid;<br>   background:repeating-linear-gradient<br>   (180deg, transparent, transparent 2px, #3CA1D9 2px, #3CA1D9 4px);<br>   }<br>.one h1:before {left:0;}<br>.one h1:after {right:0;}</code></pre>
+			<span class="yel" onclick='pre2.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<style type="text/css">
+		/*Burger Heroes*/
+		.two {background:#E4E5D2;padding:50px 20px;text-align:center;} 
+		.two h1 {font-family:'Open Sans', sans-serif;position:relative;color:#5C2610;font-size:3em;font-weight:normal; line-height:1; padding:10px 0; margin:0; display:inline-block;}
+		.two h1:before {content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);width:80%; height:200%; border-radius:50%/30%; border:6px solid #5C2610;border-left-color:transparent; border-right-color:transparent;}
+	</style>
+
+	<div class="two"><h1>Burger Heroes</h1></div>
+	<div class="item2">
+		<samp class="red point be" onclick='pre4.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre4" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="two"><br>   &lt;h1>Burger Heroes&lt;&lt;/h1><br>&lt;/div></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.two {background:#E4E5D2; padding:50px 20px; text-align:center;}<br>.two h1 {<br>   font-family:'Open Sans', sans-serif; color:#5C2610;<br>   font-size:3em; font-weight:normal; line-height:1;<br>   position:relative; padding:10px 0; margin:0; display: inline-block;}<br>.two h1:before {<br>   content:""; position:absolute; top:50%; left:50%;<br>   transform:translate(-50%,-50%);<br>   width:80%; height:200%;<br>   border-radius:50%/30%;<br>   border: 6px solid #5C2610;<br>   border-left-color:transparent;<br>   border-right-color:transparent;}</code></pre>
+			<span class="yel" onclick='pre4.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<style type="text/css">
+		/*новые поступления*/
+		.three {background: #FCF2E5;padding:50px 20px;text-align:center;}
+		.three h1 {font-family:'Merriweather', serif;position:relative;color:#FCF2E5;background:#90806A; font-size: 2.5em;font-weight:normal;padding:10px 40px;display:inline-block;margin:0;line-height:1;}
+		.three h1:before {content:"";position:absolute;width:100%;height:4px;left:0;bottom:-15px;background:#90806A;}
+		.three h1:after {content:""; position:absolute; height:0; width:80%; border-top:10px solid #90806A; border-left:12px solid transparent; border-right:12px solid transparent; left:50%; transform:translateX(-50%); bottom:-25px;}
+	</style>
+
+	<div class="three"><h1>Новые поступления</h1></div>
+	<div class="item2">
+		<samp class="red point" onclick='pre5.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre5" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="three"><br>   &lt;h1>Новые поступления&lt;/h1><br>&lt;/div></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.three {background:#FCF2E5; padding:50px 20px; text-align: center;}<br>.three h1 {<br>   font-family:'Merriweather', serif; color:#FCF2E5;<br>   position:relative; background:#90806A;<br>   font-size:2.5em; font-weight:normal; line-height: 1;<br>   padding:10px 40px; margin:0; display:inline-block;}<br>.three h1:before {<br>   content:""; width:100%; height:4px; background:#90806A;<br>   position:absolute; left:0; bottom:-15px;}<br>.three h1:after {<br>   content:""; width:80%; height:0; transform:translateX(-50%);<br>   position:absolute; left:50%; bottom:-25px;<br>   border-top:10px solid #90806A;<br>   border-left:12px solid transparent;<br>   border-right:12px solid transparent;}</code></pre>
+			<span class="yel" onclick='pre5.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<style type="text/css">
+		.four {background:#F4F7EE;padding:50px 20px;text-align:center;} 
+		.four h1 {font-family:'Merriweather', serif;position:relative;color:#C44737;font-size:50px;font-weight:normal; padding:8px 20px 7px 20px;border-top:4px solid;border-left:4px solid;display:inline-block; margin:0;line-height:1;}
+		.four h1:before {content:"";position:absolute;width:28px;height:28px;top:-28px;left:-28px;
+			border:4px solid #C44737;box-sizing:border-box;}
+		@media (max-width:450px) {
+			.four h1 {font-size:36px;}
+			.four h1:before {width:20px;height:20px;top:-20px;left:-20px;}}
+	</style>
+
+	<div class="four"><h1>Brand desight</h1></div>
+	<div class="item2">
+		<samp class="red point be" onclick='pre6.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre6" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="four"><br>   &lt;h1>Brand desight&lt;/h1><br>&lt;/div></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.four {background:#F4F7EE; padding:50px 20px; text-align:center;}<br>.four h1 {<br>   font-family:'Merriweather', serif; line-height:1;<br>   position:relative; display:inline-block;<br>   color:#C44737; font-size:50px; font-weight:normal;<br>   padding:8px 20px 7px 20px; margin:0;<br>   border-top:4px solid; border-left:4px solid;}<br>.four h1:before {<br>   content:""; box-sizing:border-box; width:28px; height:28px;<br>   position:absolute; top:-28px; left:-28px;<br>   border:4px solid #C44737;}<br>@media (max-width:450px) {<br>   .four h1 {font-size:36px;}<br>   .four h1:before {width:20px;height:20px;top:-20px;left:-20px;}}</code></pre>
+			<span class="hyel" onclick='pre6.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<style type="text/css">
+		.five {background:#F7F4ED;padding:50px 20px 50px 170px;text-align:center;} 
+		.five h1 {font-family:'Open Sans', sans-serif;font-weight:400;position:relative;color:#587493;font-size:2.5em;
+			font-weight:normal;display:inline-block;margin:0;line-height:1;padding:8px 20px 8px 2px;border-top:4px solid;}
+		.five h1:before {content:"Новый";position:absolute;top:-10px;left:-180px;font-size:1.5em;
+			transform:rotate(-25deg);font-family:'Marck Script', cursive;}
+		.five h1:after {content:"";position:absolute;width:120%;height:4px;right:0;bottom:-4px;background:#587493;}
+		@media (max-width:580px) {
+			.five {padding-left:130px;}
+			.five h1 {font-size:2em;}
+			.five h1:before {left:-130px;}	}
+	</style>
+
+	<div class="five"><h1>РЕЦЕПТ</h1></div>
+	<div class="item2">
+		<samp class="red point" onclick='pre7.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre7" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="five"><br>   &lt;h1>РЕЦЕПТ&lt;/h1><br>   &lt;/div></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.five {<br>   background:#F7F4ED;<br>   padding:50px 20px 50px 170px;<br>   text-align:center;}<br>.five h1 {<br>   font-family:'Open Sans', sans-serif; font-weight:400;<br>   color:#587493; font-size:2.5em; font-weight:normal; line-height:1;<br>   position:relative; display:inline-block; margin:0;<br>   padding:8px 20px 8px 2px; border-top:4px solid;}<br>.five h1:before {<br>   content:"Новый"; font-size:1.5em;<br>   position:absolute; top:-10px; left:-180px;<br>   transform:rotate(-25deg);<br>   font-family:'Marck Script', cursive;}<br>.five h1:after {<br>   content:""; width:120%; height:4px;<br>   position:absolute; right:0; bottom:-4px;<br>  background:#587493;}<br>@media (max-width:580px) {<br>   .five {padding-left:130px;}<br>   .five h1 {font-size:2em;}<br>   .five h1:before {left:-130px;}}</code></pre>
+			<span class="yel" onclick='pre7.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<style type="text/css">
+		.six {background:#F7E2C7;padding:50px 20px;text-align:center;}
+		.six h1 {font-weight:normal;font-family:'Merriweather', serif;position:relative;display:inline-block;margin:0;
+			line-height:1;color:#F7844E;font-size:40px;padding:.4em 1em .55em;}
+		.six h1:before,
+		.six h1:after {content:"";position:absolute;width:60%;height:.1em;background:#294200;}
+		.six h1:before {left:0;top:0;}
+		.six h1:after {right:0;bottom:0;}
+		.six h1 span:before,
+		.six h1 span:after {content:"";position:absolute;width:.65em;height:.65em;border:.1em solid #294200;
+			border-radius:50%;box-sizing:border-box;}
+		.six h1 span:before {top:-.55em;left:-.325em;}
+		.six h1 span:after {bottom:-.55em;right:-.325em;}
+		@media (max-width:600px) {.six h1 {font-size:2em;}}
+	</style>
+
+	<div class="six"><h1><span>Красота природы</span></h1></div>
+	<div class="item2">
+		<samp class="red point" onclick='pre8.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pre8" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="six"><br>   &lt;h1>&lt;span>Красота природы&lt;/span>&lt;/h1><br>   &lt;/div></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.six {background:#F7E2C7;padding:50px 20px;text-align:center;}<br>.six h1 {<br>   font-weight:normal; font-family:'Merriweather', serif;<br>   position:relative; display:inline-block; margin:0; padding:.4em 1em .55em;<br>   line-height:1; color:#F7844E; font-size:40px;}<br>.six h1:before,<br>.six h1:after {<br>   content:""; position:absolute;<br>   width:60%; height:.1em; background:#294200;}<br>.six h1:before {left:0;top:0;}<br>.six h1:after {right:0;bottom:0;}<br>.six h1 span:before,<br>.six h1 span:after {<br>   content:""; position:absolute;<br>   width:.65em; height:.65em; box-sizing:border-box;<br>   border:.1em solid #294200; border-radius:50%;}<br>.six h1 span:before {top:-.55em;left:-.325em;}<br>.six h1 span:after {bottom:-.55em;right:-.325em;}<br>@media (max-width:600px) {.six h1 {font-size:2em;}}</code></pre>
+			<span class="yel" onclick='pre8.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item">
+	<style type="text/css">
+		.breadcrumbs {margin:0; padding:10px; background:#b2d235;}
+		.breadcrumbs li {display:inline-block;} 
+		.breadcrumbs a {color:#fff; text-decoration:none;}
+		.breadcrumbs li + li::before {
+			content: '/'; /* Разделитель ссылок */
+			padding: 0 7px;} /* Расстояние вокруг разделителя */
+	</style>
+	<ul class="breadcrumbs"> <!-- "Хлебные крошки" -->
+		<li><a href="#">Главная</a></li>
+		<li><a href="#">Картинки</a></li>
+		<li><a href="#">Животные</a></li>
+	</ul>
+	<div class="spoiler item2">
+		<input type="checkbox" id="spoiler1">
+		<label for="spoiler1"><samp class="red point be">HTML</samp></label>
+		<div>
+			<pre><code>&lt;ul class="breadcrumbs"> &lt;!-- "Хлебные крошки" --><br>  &lt;li>&lt;a href="#">Главная&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="#">Картинки&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="#">Животные&lt;/a>&lt;/li><br>&lt;/ul></code></pre>
+			<samp class="red"><br>CSS</samp>
+			<pre><code>.breadcrumbs {margin:0; padding:10px; background:#b2d235;}<br>.breadcrumbs li {display:inline-block;}<br>.breadcrumbs a {color:#fff; text-decoration:none;}<br>.breadcrumbs li + li::before {<br>   content: '/';    /* Разделитель ссылок */<br>   padding: 0 7px;} /* Расстояние вокруг разделителя */</code></pre>
+			<label for="spoiler1"><samp class="yel">Свернуть</samp></label>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

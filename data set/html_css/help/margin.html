@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>margin</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.tt1 tr td:nth-child(1){text-align:center !important}
+	.tt1 th{padding:2px !important}
+	.list li{margin:3px 0}
+</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>margin</samp></h2>
+<div class="item">
+<p>Устанавливает величину отступа от каждого края элемента. Отступом является пространство от границы текущего элемента до внутренней границы его родительского элемента.</p>
+	<p>Если у элемента нет родителя, отступом будет расстояние от края элемента до края окна браузера с учетом того, что у самого окна по умолчанию тоже установлены отступы. Чтобы от них избавиться, следует устанавливать значение <samp class="sin">margin</samp> для селектора <samp class="red">&lt;body></samp> равное нулю.</p>
+
+	<pre class="item2 sin mb20">margin: <samp class="lsin"><размер> | <проценты> | <abbr title="Указывает, что размер отступов будет автоматически рассчитан браузером.">auto</abbr></samp></pre>
+
+	<p>Разрешается использовать одно, два, три или четыре значения, разделяя их между собой пробелом.</p>
+	<table class="t1 tb tt1 th1 t3">
+		<tr><th>Число значений</th><th>Результат</th></tr>
+		<tr><td>1</td>
+			<td>Отступы будут установлены одновременно от каждого края элемента.
+			<pre class="item2"><code>margin: 0;</code></pre></td></tr>
+		<tr><td>2</td>
+			<td>Первое значение устанавливает отступ от верхнего и нижнего краёв, второе - от левого и правого.
+			<pre class="item2"><code>margin: -10px -20px;</code></pre></td></tr>
+		<tr><td>3</td>
+			<td>Первое значение задает отступ от верхнего края, второе - одновременно от левого и правого краёв, а третье - от нижнего края.
+			<pre class="item2"><code>margin: 0 6px 4px;</code></pre></td></tr>
+		<tr><td>4</td>
+			<td>Поочередно устанавливается отступ от верхнего (<samp class="sin">margin-top</samp>), правого (<samp class="sin">margin-right</samp>), нижнего (<samp class="sin">margin-bottom</samp>) и левого (<samp class="sin">margin-left</samp>) края.
+			<pre class="item2"><code>margin: 0 3px 6px 9px;</code></pre></td></tr>
+	</table>
+
+	<div class="no">Для строчных элементов <samp class="sin">margin-top</samp> и <samp class="sin">margin-bottom</samp> не работают.</div>
+</div>
+
+
+<div class="item">
+	<p>Internet Explorer до версии 7 в режиме совместимости (quirk mode) не поддерживает выравнивание блока по центру с помощью правила <samp class="sin dib">margin: <samp class="lsin">0 auto</samp></samp>. Также в этом браузере наблюдается ошибка с удвоением значения левого или правого отступа для плавающих элементов, вложенных в родительские элементы. Удваивается тот отступ, который прилегает к стороне родителя. Проблема обычно решается добавлением <samp class="sin dib">display: <samp class="lsin">inline</samp></samp> для плавающего элемента.</p>
+
+	<p>У блочных элементов расположенных рядом друг с другом по вертикали наблюдается эффект схлопывания, когда отступы не суммируются, а объединяются между собой. Само схлопывание действует на два и более блока (один может быть вложен внутрь другого) с отступами сверху или снизу, при этом примыкающие отступы комбинируются в один. Для отступов слева и справа схлопывание никогда не применяется.</p>
+
+	<div class="mt20">Схлопывание не срабатывает:</div>
+	<ul class="list">
+		<li>для элементов, у которых на стороне схлопывания задано свойство <samp class="sin">padding</samp>.</li>
+		<li>для элементов, у которых на стороне схлопывания задана граница;</li>
+		<li>на плавающих элементах (для них свойство <samp class="sin">float</samp> задано как <samp class="lsin">left</samp> или <samp class="lsin">right</samp>);</li>
+		<li>для строчных элементов;</li>
+		<li>для <samp class="red">&lt;html></samp>;</li>
+		<li>на элементах с абсолютным позиционированием, т. е. таких, у которых <samp class="sin">position</samp> установлено как <samp class="lsin">absolute</samp>;</li>
+	</ul>
+
+</div>
+
+
+</body></html>

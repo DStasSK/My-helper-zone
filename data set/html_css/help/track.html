@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>&lt;track></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp class="t-html5">&lt;track></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li><a href="#attributs">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#src" title="Путь к файлу с дорожкой.">src</a></span>
+				<span><a href="#srclang" title="Язык дорожки.">srclang</a></span>
+				<span><a href="#label" title="Отображаемое название дорожки. Если этот атрибут не указан, браузер станет использовать значение, которое применяется у него по умолчанию, например «untitled1».">label</a></span>
+				<span><a href="#default" title="Наличие этого атрибута указывает, что данная дорожка предпочтительна и должна быть выбрана по умолчанию. Только одна дорожка может иметь атрибут default.">default</a></span>
+				<span><a href="#kind" title="Указывает тип дорожки.">kind</a></span>
+				<span></span>
+			</div>
+			</li>
+		<li><a href="#pr1">Пример 1.</a></li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;track></samp> (от англ. track — дорожка) позволяет авторам указать текстовую дорожку для медийных элементов <samp class="red">&lt;audio></samp> и <samp class="red">&lt;video></samp>. Такая дорожка обычно содержит субтитры на разных языках, комментарии, заголовки и др.</p>
+	<pre class="item2 mt10"><code>&lt;audio><br>  &lt;track kind | src | srclang | label | default><br>&lt;/audio><br>&lt;video><br>  &lt;track kind | src | srclang | label | default><br>&lt;/video></code></pre>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h3 class="sin"><a href="#" title="наверх">Атрибуты</a></h3>
+	<table class="t1 t3 tb">
+		<tr><td id="src"><a href="#attributs">src</a></td><td>Путь к файлу с дорожкой.</td></tr>
+		<tr><td id="srclang"><a href="#attributs">srclang</a></td><td>Язык дорожки. См. <a href="../lang-code.html" class="sin tdu">коды языков</a>.</td></tr>
+		<tr><td id="label"><a href="#attributs">label</a></td><td>Отображаемое название дорожки. Если этот атрибут не указан, браузер станет использовать значение, которое применяется у него по умолчанию, например «untitled1».</td></tr>
+		<tr><td id="default"><a href="#attributs">default</a></td><td>Наличие этого атрибута указывает, что данная дорожка предпочтительна и должна быть выбрана по умолчанию. Только одна дорожка может иметь атрибут <samp class="sin">default</samp>.</td></tr>
+		<tr><td id="kind"><a href="#attributs">kind</a></td><td>Указывает тип дорожки, возможные варианты перечислены в табл. 1.</td></tr>
+	</table>
+
+	<table class="t1 t3 tcc th1 th2 tb mt40">
+		<caption class="ls1">Табл. 1. Значения атрибута kind</caption>
+		<tr><th>Значение</th><th style="letter-spacing:-0.5px">Предназначение</th><th>Описание</th></tr>
+		<tr><td>subtitles</td><td>Субтитры</td><td>Предназначены для дублирования звуковой дорожки фильма в виде текста на языке оригинала для глухих людей. Также могут содержать перевод на другие языки для тех, кто не знаком с языком оригинала. Текст субтитров выводится поверх видео.</td></tr>
+		<tr><td>captions</td><td>Заголовки</td><td>Дублирование диалогов, звуковых эффектов, музыкального сопровождения в виде текста для тех случаев, когда звук недоступен или для глухих пользователей. Выводится поверх видео, при этом помечается, что подходит для плохо слышащих людей.</td></tr>
+		<tr><td class="ls-05">descriptions</td><td>Описание</td><td>Звуковое описание происходящего в видео для тех случаев, когда изображение недоступно или для слепых людей.</td></tr>
+		<tr><td>chapters</td><td>Главы</td><td>Названия глав используемые для быстрой навигации по видео или аудио. Отображаются в виде списка.</td></tr>
+		<tr><td>metadata</td><td>Метаданные</td><td>Предназначены для использования скриптами и не отображаются в браузере.</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="pr1">
+<h3 class="sin"><a href="#">Пример 1.</a></h3>
+	<div class="m0a" style="width:500px"><video width="500" height="400" controls>
+		<source src="media/jane.ogv" type='video/ogg; codecs="theora, vorbis"'>
+		<source src="media/jane.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+		<track kind="subtitles" src="media/jane.en.vtt" srclang="en" label="English">
+		<track kind="subtitles" src="media/jane.ru.vtt" srclang="ru" label="Русский" default>
+		Элемент video не поддерживается вашим браузером.
+	</video></div>
+	<pre class="item2 ls-05"><code>&lt;video width="500" height="400" controls><br>  &lt;source src="video/jane.ogv" type='video/ogg; codecs="theora, vorbis"'><br>  &lt;source src="video/jane.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'><br>  &lt;track kind="subtitles" src="video/jane.en.vtt" srclang="en" label="English"><br>  &lt;track kind="subtitles" src="video/jane.ru.vtt" srclang="ru" label="Русский" default><br>  Элемент video не поддерживается вашим браузером.<br>&lt;/video></code></pre>
+
+	Содержимое файла <samp class="lsin">jane.ru.vtt</samp> в формате субтитров VTT
+	<pre class="item2"><code>WEBVTT FILE<br><br>00:00.360 --> 00:01.240<br>  Солдат Джейн.<br><br>00:01.240 --> 00:02.240<br>  Спасаюсь от радиации.<br><br>00:02.240 --> 00:04.000<br>  Арбуз - лучшее средство.</code></pre>
+</div>
+</body></html>

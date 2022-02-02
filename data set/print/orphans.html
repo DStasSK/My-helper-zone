@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><title>orphans</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">orphans</h2>
+
+<div class="item">
+	<p>Свойство orphans задает минимальное число строк текста, которое остается на предыдущей странице при печати документа. Это свойство работает в том случае, если весь текст размещается на двух и более печатных страницах. Значение по умолчанию <samp class="red">2</samp>, наследуется, применяется к блочным элементам. В качестве значения используют целое положительное число.</p>
+
+	<pre class="item2"><code>&lt;head><br>  &lt;style><br>    @media print {     /* IE8 не поддерживает медиазапросы */<br>      p {orphans: 3;}<br>    }<br>  &lt;/style><br><br>  &lt;!-- или для поддержки IE8 отдельым файлом --><br>  &lt;link rel="stylesheet" href="/css/print.css" media="print"><br>&lt;/head></code></pre>
+</div>
+
+</body></html>

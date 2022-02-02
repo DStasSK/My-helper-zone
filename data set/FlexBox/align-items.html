@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><title>align-items</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 td:nth-child(1) {width:90px}
+	.t1 td:nth-child(2) {width:90px}
+	.box {display:flex; flex-wrap:wrap; width:80px; height:60px; margin:0 auto;
+		outline:1px solid #ddd; box-sizing:border-box; background-color:#ddd;
+		text-align:center; font-size:14px; color:#fff;}
+	.box div {width:16px; margin:2px; background-color:rgb(100, 84, 195); padding: 0 0 8px;}
+	.box div:nth-child(odd) {padding:0 0 16px 0; font-size:18px;}
+	.aifs {align-items:flex-start;}
+	.aic {align-items:center;}
+	.aife {align-items:flex-end;}
+	.aib {align-items:baseline;}
+	.ais {align-items:stretch;}
+</style>
+</head>
+<body>
+<h2 class="sin">align-items</h2>
+
+<div class="item">
+	<p>Свойство align-items выравнивает флекс-элементы внутри контейнера в перпендикулярном направлении. Применяется к флекс-контейнеру, не анимируется, не наследуется. Значение по умолчанию: <samp class="lsin">stretch</samp>.</p>
+
+	<pre class="item2 css"><code>.fl {align-items: flex-start | flex-end | center | baseline | stretch }</code></pre>
+
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-align-items</samp></div>
+
+	<table class="t1 t3 tb tcc th1">
+		<caption>Параметры</caption>
+		<tr><th>Значение</th><th>Положение</th><th>Описание</th></tr>
+		<tr><td>flex-start</td>
+			<td><div class="box aifs"><div>1</div><div>2</div><div>3</div><div>4</div></div></td>
+			<td>Флексы выравниваются в начале поперечной оси контейнера.</td></tr>
+		<tr><td>center</td>
+			<td><div class="box aic"><div>1</div><div>2</div><div>3</div><div>4</div></div></td>
+			<td>Флексы выравниваются по линии поперечной оси.</td></tr>
+		<tr><td>flex-end</td>
+			<td><div class="box aife"><div>1</div><div>2</div><div>3</div><div>4</div></div></td>
+			<td>Флексы выравниваются в конце поперечной оси контейнера.</td></tr>
+		<tr><td>stretch</td>
+			<td><div class="box ais"><div>1</div><div>2</div><div>3</div><div>4</div></div></td>
+			<td>Флексы растягиваются таким образом, чтобы занять всё доступное пространство контейнера.</td></tr>
+		<tr><td>baseline</td>
+			<td><div class="box aib"><div>1</div><div>2</div><div>3</div><div>4</div></div></td>
+			<td>Флексы выравниваются по их базовой линии.</td></tr>
+	</table>
+</div>
+
+</body></html>

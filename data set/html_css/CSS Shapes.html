@@ -1,0 +1,227 @@
+<!DOCTYPE html><html><head><title>CSS Shapes</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.gos{font-size:20px; letter-spacing:2px}
+	.bf samp{width:92px; display:inline-block; background:#eee; padding: 1px 4px 3px 6px; border-radius:3px; margin-left:-25px}
+	.bf li {margin:3px 0}
+
+	.tt1 td:nth-child(1){width:300px}
+	.tt3 td:nth-child(1){background:#8B0000; color:#fff;}
+	.tt4 td{overflow:hidden;}
+</style></head>
+
+<body>
+<h2 class="sin"><samp>CSS Shapes</samp></h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#z0">Свойства <samp>shape</samp></a></li>
+			<li><a href="#z1">Базовые фигуры</a></li>
+				<div class="ogl2 ogl21">
+					<span><a href="#z2" title="круг">circle()</a></span>
+					<span><a href="#z3" title="эллипс">elspanpse()</a></span>
+					<span><a href="#z4" title="прямоугольник">inset()</a></span>
+					<span><a href="#z5" title="многоугольник по произвольным точкам">polygon()</a></span>
+					<span></span>
+				</div></li>
+			<li><a href="#z6"><samp>CSS Shapes</samp> и изображения</a></li>
+			<li><a href="#z7"><samp>CSS Shapes</samp> и градиенты</a></li>
+		</ul><!-- /оглавление -->
+
+<div class="item">
+	<p>CSS Shapes позволяет создавать интересные и уникальные макеты, определяя геометрические фигуры, изображения и градиенты, вокруг которых может обтекать текстовое содержимое.</p>
+	<p>CSS Shapes позволяет определить геометрические фигуры, вокруг которых обтекает текст. Такими фигурами могут быть: круг, эллипс, простые или сложные многоугольники, а также изображения и градиенты. На практике CSS Shapes позволяет отображать круговой текст вокруг круглого аватара; выводить текст поверх части полноразмерного фонового изображения; отображать текст, обтекающий буквицы в статье.</p>
+	<p>CSS Shapes не поддерживает IE и Edge.</p>
+</div>
+
+
+<div class="item" id="z0">
+<h2 class="sin"><a href="#" title="наверх">Свойства <samp>shape</samp></a></h2>
+	<table class="t1 tb">
+		<tr><td width="130px">shape-outside</td>
+			<td><p>это свойство определяет фигуры, вокруг которых может обтекать текст.</p>
+			Чтобы добавить свойство <samp class="sin">shape-outside</samp> к элементу, он должен быть <b>обтекаемым</b>, а также у него должна быть установлена <b>высота и ширина</b>.</td></tr>
+		<tr><td>shape-inside</td>
+			<td>это свойство определяет фигуры, внутри которых может обтекать текст. <b>В настоящее время оно не реализовано ни в одном браузере</b>.</td></tr>
+		<tr><td>shape-margin</td>
+			<td>добавляет поле к фигуре; значение может быть задано в <b>px, em, %</b> или в любой другой стандартной единице измерения CSS.</td></tr>
+		<tr><td>shape-image-threshold</td>
+			<td>определяет порог альфа-канала фигуры, другими словами, какой процент изображения будет считаться прозрачным.</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="z1">
+<h2 class="sin mb20"><a href="#" title="наверх">Базовые фигуры</a></h2>
+	<div>На данный момент есть четыре значения функций у свойства <samp class="sin">shape-outside</samp>:</div>
+
+	<div class="ogl2 ogl22 mb40">
+		<span><a href="#z2" title="круг">circle()</a></span>
+		<span><a href="#z3" title="эллипс">elspanpse()</a></span>
+		<span><a href="#z4" title="прямоугольник">inset()</a></span>
+		<span><a href="#z5" title="многоугольник по произвольным точкам">polygon()</a></span>
+		<span></span>
+	</div>
+
+	<!-- circle() - круг -->
+		<a href="#z1" title="наверх"><samp class="red gos" id="z2">circle()</samp></a>
+		<div class="mt10">Представьте ситуацию, что есть круглый аватар автора и чтобы текст с описанием обтекал его. Для придания тексту круглой формы недостаточно использовать <samp class="sin dib">border-radius: <samp class="lsin">50%</samp></samp> на элементе аватара; текст по прежнему будет считать аватар прямоугольным элементом.</div>
+
+		<style>
+			.circle{float:left; height:200px; width:200px; shape-outside:circle();}
+			.circle2{background:#FDB171}
+			.circle3{background:#FDB171; clip-path:circle();}
+			.circle4{background:#FDB171; clip-path:circle(50% at 0 50%);
+				shape-margin:10px; shape-outside:circle(50% at 0 50%);}
+		</style>
+		<table class="t0 tw tt1 tb t2 t5">
+			<tr><td><div class="circle"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="circle">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.circle{<br>  float:left;<br>  height:200px; width:200px;<br>  shape-outside:circle();}<br>&lt;/style><br> </code></pre>
+				Функция <samp class="sin">circle()</samp> принимает необязательный параметр радиуса. В нашем случае радиус по умолчанию <b>(r)</b> составляет <samp class="lsin">50%</samp> или <samp class="lsin">100px</samp>.<br><samp class="sin">circle() = circle(<samp class="lsin">50%</samp>)</samp></td></tr>
+			<tr><td><div class="circle circle2"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="circle">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.circle{<br>  float:left;<br>  height:200px; width:200px;<br>  shape-outside:circle();<br>  background:#FDB171;}<br>&lt;/style></code></pre></td></tr>
+		</table>
+
+		<p>Мы можем ясно видеть обтекающий текст, но не саму фигуру элемента. Если желаем её отобразить, то нужно использовать свойство <samp class="sin">clip-path</samp>. Это свойство принимает те же значения, что и <samp class="sin">shape-outside</samp>, поэтому можем присвоить ему значение <samp class="sin">circle()</samp>.</p>
+		<p>В дополнение к радиусу функция принимает позиционирование через <b>at</b>. Положение по умолчанию — центр круга, поэтому <samp>circle()</samp> будет явно записан как <samp>circle(50% at 50% 50%)</samp> или <samp>circle(100px at 100px 100px)</samp>; значениями являются горизонтальное и вертикальное положение, соответственно.</p>
+
+		<table class="t0 tw tt1 tb t2 t5 mb40">
+			<tr><td><div class="circle circle3"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="circle">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.circle{<br>  float:left;<br>  height:200px; width:200px;<br>  background:#FDB171;<br>  shape-outside:circle();<br>  clip-path:circle();}<br>&lt;/style></code></pre></td></tr>
+			<tr><td><div class="circle circle4"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="circle">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.circle{<br>  float:left;<br>  height:200px; width:200px;<br>  background:#FDB171;<br>  shape-outside:circle(50% at 0 50%);<br>  clip-path:circle(50% at 0 50%);<br>  shape-margin:10px;}<br>&lt;/style></code></pre></td></tr>
+		</table>
+	<!-- /circle() - круг -->
+
+
+	<!-- ellipse() - эллипс -->
+		<a href="#z1" title="наверх"><samp class="red gos" id="z3">ellipse()</samp></a>
+		<div class="mt10">Похожей на <samp class="sin">circle()</samp> является функция <samp class="sin">ellipse()</samp>, которая создаёт эллипс. Для демонстрации добавим элемент с классом <samp class="lsin">ellipse</samp>. На этот раз установили разную высоту и ширину, чтобы сделать вертикально вытянутый овал.</div>
+
+		<style>
+			.ellipse{float:left; width:100px; height:200px; background:#FDB171;
+				shape-outside:ellipse(); clip-path:ellipse(); shape-margin:10px;}
+		</style>
+		<table class="t0 tw tt1 tb t2 t5 mt20 mb20">
+			<tr><td><div class="ellipse"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="ellipse">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.ellipse{<br>  float:left;<br>  height:200px; width:100px;<br>  shape-outside:ellipse();<br>  clip-path:ellipse();<br>  shape-margin:10px;}<br>&lt;/style><br> </code></pre></td></tr>
+		</table>
+
+		<p>Разница между <samp class="sin">ellipse()</samp> и <samp class="sin">circle()</samp> заключается в том, что эллипс имеет два радиуса - <b>rx</b> и <b>ry</b> или радиус по оси <b>X</b> и радиус по оси <b>Y</b>. Поэтому приведённый выше пример можно записать в виде <samp class="sin">ellipse(<samp class="lsin">75px 150px</samp>)</samp>.</p>
+		<p>Параметры позиционирования одинаковы для кругов и эллипсов. Радиусы, помимо того, что они являются единицей измерения, также включают <samp class="sin">farthest-side</samp> и <samp class="sin">closest-side</samp>.</p>
+		<p><samp class="sin">closest-side</samp> указывает на длину от центра до ближайшей стороны связанного блока и наоборот, <samp class="sin">farthest-side</samp> указывает на длину от центра до самой дальней стороны связанного блока. Эти два значения не действуют, если не установлено положение, отличное от значения по умолчанию.</p>
+		<p>Вот демонстрация разницы перестановки <samp class="sin">closest-side</samp> и <samp class="sin">farthest-side</samp> для <samp class="sin">ellipse()</samp> со смещением на <b>25%</b> по осям <b>X</b> и <b>Y</b>.</p>
+
+		<style>
+			.el{width:100px; height:200px; background:#FDB171;}
+			.el1{clip-path:ellipse(farthest-side closest-side at 25% 25%);}
+			.el2{clip-path:ellipse(closest-side farthest-side at 25% 25%);}
+		</style>
+		<table class="t0 tw tb t2 t5 mt20 mb40">
+			<tr>
+				<td style="width:50%; min-width:320px"><div class="el el1"><br>w100 x h200</div>
+				<pre class="ls-05"><code>.el1 {<br>clip-path: ellipse<br>(farthest-side closest-side at 25% 25%);}</code></pre></td>
+				<td style="width:50%; min-width:320px"><div class="el el2"><br>w100<br> x<br>h200</div>
+				<pre class="ls-05"><code>.el2 {<br>clip-path: ellipse<br>(closest-side farthest-side at 25% 25%);}</code></pre></td></tr>
+		</table>
+	<!-- /ellipse() - эллипс -->
+
+
+	<!-- inset() - прямоугольник -->
+		<a href="#z1" title="наверх"><samp class="red gos ml30" id="z4">inset()</samp></a>
+		<p class="mt10">Можно вставлять прямоугольники с внутренним отступом - через функцию <samp class="sin">inset()</samp>.</p>
+		<p>Подобно свойствам <samp class="sin">padding</samp> или <samp class="sin">margin</samp>, <samp class="sin">inset()</samp> принимает значение <samp class="lsin">top right bottom left</samp> по часовой стрелке <samp class="sin">inset(<samp class="lsin">25px 25px 25px 25px</samp>)</samp>, использование только одного значения установит все четыре стороны одинаковыми <samp class="sin">inset(<samp class="lsin">25px</samp>)</samp>.</p>
+		<p><samp class="sin">inset()</samp> также может принимать параметр <samp class="sin">border-radius</samp> со значением радиуса и текст будет учитывать скруглённые уголки. В примере с <b>40px</b> со всех сторон и скруглением <b>50px</b>.</p>
+
+		<style>
+			.inset{float:left; width:200px; height:200px; shape-margin:10px;
+				shape-outside:inset(40px); clip-path:inset(40px);
+				background:linear-gradient(#58C2ED, #1B85DC);}
+			.inset2{shape-outside:inset(40px round 50px); clip-path:inset(40px round 50px);}
+		</style>
+		<table class="t0 tw tb t2 t5 mt20 mb40 tt1">
+			<tr><td><div class="inset"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="inset">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.inset{<br>  float:left;<br>  height:200px; width:200px;<br>  shape-margin:10px;<br>  shape-outside:inset(40px);<br>  clip-path:inset(40px);}<br>&lt;/style></code></pre></td></tr>
+			<tr><td><div class="inset inset2"></div><span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>&lt;div class="inset">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.inset{<br>  float:left;<br>  height:200px; width:200px;<br>  shape-margin:10px;<br>  shape-outside:inset(40px round 50px);<br>  clip-path:inset(40px round 50px);}<br>&lt;/style></code></pre></td></tr>
+		</table>
+	<!-- /inset() - прямоугольник -->
+
+
+	<!-- polygon() - многоугольник -->
+		<a href="#z1" title="наверх"><samp class="red gos ml30" id="z5">polygon()</samp></a>
+		<p class="mt10">Наиболее интересной и гибкой из функций является <samp class="sin">polygon()</samp>, который может принимать массив точек <b>x</b> и <b>y</b> для создания любой сложной фигуры. Каждый элемент в массиве представляет <b>xi yi</b> и будет записан как <samp class="sin">polygon(<samp class="lsin">x1 y1, x2 y2, x3 y3...</samp>)</samp> и т.д.</p>
+		<p>Наименьшим количеством наборов точек, которые мы можем применить к <samp class="sin">polygon()</samp>, является три, что создаёт треугольник.</p>
+		<p>Интересное использование функции <samp class="sin">polygon()</samp> заключается в том, что текстовое содержимое может располагаться между двумя или более фигурами. Поскольку фигура <samp class="sin">polygon()</samp> очень гибкая и динамичная, это одна из самых больших возможностей для создания действительно уникальных макетов в журнальном стиле. В данном примере текст находится между двумя многоугольниками.</p>
+		<p>Многоугольники можно использовать для вырезания фигур вокруг изображений или других элементов, например вокруг большой буквы.</p>
+		<style>
+			.tleft{float:left; height:320px; width:50px;
+				shape-outside:polygon(0 0, 0 320px, 50px 320px);
+				clip-path:polygon(0 0, 0 320px, 50px 320px);
+				background:linear-gradient(to top right, #67D7F5, #86F7CC);}
+			.tright{float:right; height:320px; width:100px;
+				shape-outside: polygon(50px 320px, 100px 320px, 100px 0, 0 0);
+				clip-path: polygon(50px 320px, 100px 320px, 100px 0, 0 0);
+				background: linear-gradient(to bottom left, #67D7F5, #86F7CC);}
+		</style>
+		<table class="t0 tw tb t2 t5 mt20 mb10 tt1">
+			<tr><td><div class="tleft"></div>
+				<div class="tright"></div>
+				<span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+				<td><pre><code>.left {<br>  float:left; height:300px; width:50px;<br>  shape-outside: polygon(0 0,<br>                         0 300px,<br>                         50px 300px);<br>  clip-path: polygon(0 0,<br>                     0 300px,<br>                     50px 300px);}<br>.right {<br>  float:right; height:300px; width:100px;<br>  shape-outside: polygon(50px 300px,<br>                         100px 300px,<br>                         100px 0,<br>                         0 0);<br>  clip-path: polygon(50px 300px,<br>                     100px 300px,<br>                     100px 0,<br>                     0 0);}</code></pre>
+				</td></tr>
+		</table>
+	<!-- /polygon() - многоугольник -->
+</div>
+
+
+<div class="item" id="z6">
+<h2 class="sin"><a href="#" title="наверх"><samp>CSS Shapes</samp> и изображения</a></h2>
+	<p>Интересной особенностью CSS Shapes является то, что вам не всегда нужно явно определять фигуру с помощью функции. Вы также можете использовать адрес полупрозрачного изображения для определения фигуры и текст будет его автоматически обтекать.</p>
+	<p>Важно отметить, что используемое изображение должно быть CORS-совместимым (т.е. с того же сервера что и остальные файлы сайта), в противном случае вы получите ошибку подобную приведённой ниже.</p>
+
+	<div class="item2 mb20"><samp>Access to image at 'file:///users/tania/star.png' from origin 'null' has been blocked by CORS policy: The response is invalid.</samp></div>
+
+	<p>В отличие от других примеров, мы будем использовать тег <samp class="red">&lt;img></samp> вместо <samp class="red">&lt;div></samp>. На этот раз CSS простой — просто поместите <samp class="sin">url()</samp> в свойство <samp class="sin">shape-outside</samp>, как вы бы это сделали со свойством <samp class="sin">background-image</samp>.</p>
+
+	<style>
+		.star {float:left; height:200px; width:200px; shape-outside:url('img/star.png');}
+	</style>
+	<table class="tt1 t0 tw t2 tt3 mt20">
+		<tr><td><img class="star" src="img/star.png">
+			<span>text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+			<td><pre><code>&lt;img src="img/star.png" class="star"><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>  .star {<br>    float:left;<br>    height:200px; width:200px;<br>    shape-outside: url('img/star.png');}<br>&lt;/style></code></pre><p>видимо данный браузер не поддерживает эту функцию</p></td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="z7">
+<h2 class="sin"><a href="#" title="наверх"><samp>CSS Shapes</samp> и градиенты</a></h2>
+	<p>В качестве фигуры также можно использовать градиенты. Они работают как изображения, и как с изображением, которое мы использовали выше, текст будет обтекать прозрачную часть.</p>
+
+	<p>С градиентами мы будем использовать свойство - <samp class="sin">shape-image-threshold</samp>. Оно определяет порог альфа-канала фигуры, другими словами, какой процент изображения будет считаться прозрачным.</p>
+
+	<p>В примере с градиентом, который разделен на 50%/50% между цветом и прозрачностью, значение <samp class="sin">shape-image-threshold</samp> равно <samp class="lsin">0.5</samp>. Это означает, что все пиксели с непрозрачностью более <b>50%</b> должны рассматриваться как часть изображения.</p>
+
+	<style>
+		.gradient {float:left; height:250px; width:calc(100% + 50px); margin:-10px -10px -10px -40px;
+			background:linear-gradient(to bottom right, #000, transparent);
+			shape-outside:linear-gradient(to bottom right, #86F7CC, transparent);
+			shape-image-threshold:.5;}
+	</style>
+	<table class="t0 tw t2 tt1 tt4 mb10 mt20">
+		<tr><td><div class="gradient"></div>
+			<span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span></td>
+			<td><pre><code>&lt;div class="gradient">&lt;/div><br>&lt;span>text...&lt;/span><br><br>&lt;style><br>.gradient {<br> float:left;<br> height:200px; width:100%;<br> background:linear-gradient<br>  (to bottom right, #000, transparent);<br> shape-outside:linear-gradient<br>  (to bottom right, #86F7CC, transparent);<br> shape-image-threshold: .5;}<br>&lt;/style></code></pre></td></tr>
+	</table>
+</div>
+
+</body>
+</html>

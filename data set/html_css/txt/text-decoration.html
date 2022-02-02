@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><title>CSS свойство text-decoration</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">text-decoration</h2>
+<div class="item">
+	<p>Содержание <span class="sin">web</span>-сайта, в тех или иных случаях, требует оформления его части в виде подчёркнутого, перечёркнутого, а также текста с линией сверху или мигающий вариант отображения, который в прочем в настоящее время мало используется в виду не соответствия с текущими требованиями. Одновременно можно задействовать более одного стиля, перечисляя выбранные значения через пробел.</p>
+</div>
+
+<div class="item" id="none">
+	<pre class="item2"><code>a {text-decoration: none;}</code></pre>
+	<a href="text-decoration.html">отменяет все заданные ранее эффекты, включая и подчеркивания у ссылок которое установлено по умолчанию.</a>
+</div>
+
+
+<div class="item" id="underline">
+	<pre class="item2"><code>a {text-decoration: underline;}</code></pre>
+	<span class="tdu">подчёркивание текста сплошной линией.</span>
+</div>
+
+
+<div class="item" id="line-through">
+	<pre class="item2"><code>a {text-decoration: line-through;}</code></pre>
+	<span style="text-decoration:line-through;">вывод перечеркнутого текста.</span>
+</div>
+
+
+<div class="item" id="overline">
+	<pre class="item2"><code>a {text-decoration: overline;}</code></pre>
+	<span style="text-decoration:overline;">отображает текст с линией поверх него.</span>
+</div>
+
+
+<div class="item" id="blink">
+	<pre class="item2"><code>a {text-decoration: blink;}</code></pre>
+	<span style="text-decoration:blink;">этот параметр задаёт пульсирующий текст
+	(который не пульсирует, т.к. устарело).</span>
+</div>
+
+<div class="item">
+	<pre class="item2"><code><span style="text-decoration:underline line-through overline;">a {text-decoration: underline line-through overline;}</span></code></pre>
+</div>
+
+
+<div class="item">
+	<p>Т.к. это свойство наследуется, то если очень нужно избавиться от этого свойства, то нужно дочерние элементы сделать абсолютно спозиционированными, либо добавить им inline-block, либо сделать их плавающими(float).</p>
+	<pre class="item2"><code>div {<br>  text-decoration: none;<br>  /* position: absolute; */<br>  /* display: inline-block; */<br>  /* float: left; */<br>}</code></pre>
+</div>
+
+
+<div class="item" id="text-decoration-color">
+<h2 class="sin"><samp>text-decoration-color</samp></h2>
+	<p>Устанавливает цвет линии, которая добавляется через свойство <samp>text-decoration</samp>.</p>
+</div>
+
+
+<div class="item" id="text-decoration-line">
+<h2 class="sin"><samp>text-decoration-line</samp></h2>
+	<p>Определяет, как должна добавляться декоративная линия к тексту — подчёркивание, перечёркивание, над текстом. Одновременно можно добавлять несколько линий, перечисляя значения через пробел.</p>
+</div>
+
+
+<div class="item" id="text-decoration-skip-ink">
+<h2 class="sin"><samp>text-decoration-skip-ink</samp></h2>
+	<p>Задаёт, как выводить линию под или над текстом, когда линия пересекает выносные элементы букв, вроде <samp>«у», «р», «ц»</samp> и др. Линия может быть сплошной или прерываться, чтобы пропустить «хвостики» букв.</p>
+	<p><samp>auto</samp> - <span style="text-decoration:underline; text-decoration-skip-ink:auto">линия прерывается на выносных элементах символов.</span></p>
+	<p><samp>none</samp> - <span style="text-decoration:underline; text-decoration-skip-ink:none">линия отображается сплошной.</span></p>
+	<pre class="item2"><code>a {<br>  text-decoration:underline;<br>  text-decoration-skip-ink:none;<br>}</code></pre>
+</div>
+
+
+<div class="item" id="text-decoration-style">
+<h2 class="sin"><samp>text-decoration-style</samp></h2>
+	<p>Устанавливает стиль декоративной линии, которая добавляется к тексту через свойство <samp class="lsin">text-decoration</samp> или <samp class="lsin">text-decoration-line</samp>.</p>
+	<p><samp>solid</samp> - <span style="text-decoration:underline; text-decoration-style:solid">Одинарная линия.</span></p>
+	<p><samp>double</samp> - <span style="text-decoration:underline; text-decoration-style:double;">Двойная линия.</span></p>
+	<p><samp>dotted</samp> - <span style="text-decoration:underline; text-decoration-style:dotted;">Точечная линия.</span></p>
+	<p><samp>dashed</samp> - <span style="text-decoration:underline; text-decoration-style:dashed;">Пунктирная линия.</span></p>
+	<p><samp>wavy</samp> - <span style="text-decoration:underline; text-decoration-style:wavy">Волнистая линия.</span></p>
+	<pre class="item2"><code>a {<br>  text-decoration:underline;<br>  text-decoration-style:wavy;<br>}</code></pre>
+</div>
+
+
+</body>
+</html>

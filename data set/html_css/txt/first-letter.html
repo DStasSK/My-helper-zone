@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><title>first-letter</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.qitem3{font-size:22px; border:3px solid black; padding:0 30px 15px;
+		width:300px; background-color:#f9f9fd; text-align:center;}
+	.qitem3:first-letter{font-size:2em; color:#f00;}
+</style>
+</head>
+<body>
+
+<h2 class="sin">:first-letter</h2>
+<div class="item">
+	<p>Псевдоэлемент <span class="sin">:first-letter</span> устанавливает характер отображения первого символа участка текста. Первая буква может оформляться в соответствии с установленными атрибутами, связанными со свойствами шрифта.</p>
+	<p>К этому псевдоэлементу могут применяться только стилевые свойства, связанные со свойствами шрифта, полями, отступами, границами, цветом и фоном. Hе работает на элементах со значением <samp class="sin">display:</samp><samp class="lsin">inline;</samp>. Ставим <samp class="sin">display:</samp><samp class="lsin">block</samp> или <samp class="sin">display:</samp><samp class="lsin">inline-block;</samp></p>
+</div>
+
+<div class="item">
+	<div class="qitem3 m0a">первая буква будет выделена</div>
+	<div class="item2 mt10">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;p&gt;первая буква будет выделена&lt;/p&gt;</code></pre>
+		<samp class="red">CSS</samp>
+		<pre><code>p {font-size: 1em;}<br>p:first-letter {font-size: 2em; color: #f00;}</code></pre>
+	</div>
+</div>
+</body>
+</html>

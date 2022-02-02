@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><title>tegs</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+	.sinspan span {color:#009; font-weight:700; font-size:18px; line-height:1.5}
+</style>
+</head>
+<body>
+
+<h2 class="sin">Теги (часть) для форматирования текста</h2>
+<div class="item">
+	<p>У любого текста есть структура, состоящая из отдельных элементов. К ним относятся заголовки, абзацы, списки и тому подобные вещи. Каждый элемент должен быть на своем месте.</p>
+	<p><samp class="sin">HTML</samp> документ не является исключением. Здесь точно также нужно правильно расположить каждый элемент. Текст, прежде всего, следует разбить на абзацы. Он не должен выглядеть как сплошное полотно.</p>
+	<p>Чтобы это сделать, надо научиться пользоваться тегами. <span class="sin">Тег</span> – элемент документа, который указывают браузеру, как следует показывать страницу. Все, что внутри тега называется содержимым этого тега. Новый абзац в <samp class="sin">HTML</samp> документе следует делать с помощью тега <samp class="red">&lt;p></samp>. Также нужен закрывающий тег в конце абзаца <samp class="red">&lt;/p></samp>.</p>
+</div>
+
+
+<div class="item">
+<p>Чтобы форматирование текста осуществлялось должным образом, в <samp class="sin">HTML</samp> предусмотрена целая группа тэгов:</p>
+<div class="item2"><pre class="sinspan">
+<span>&lt;sup></span> и <span>&lt;/sup></span> - <sup>тег верхнего индекса.</sup>
+<span>&lt;sub></span> и <span>&lt;/sub></span> - <sub>тег нижнего индекса.</sub>
+<span>&lt;br></span> - принудительный перевод текста на новую строку.
+<span>&lt;em></span> и <span>&lt;/em></span> - <em>наклонный текст. (ВАЖНЫЙ)</em>
+<span>&lt;i></span> и <span>&lt;/i></span> - <i>наклонный текст.</i>
+<span>&lt;b></span> и <span>&lt;/b></span> - <b>полужирный текст.</b>
+<span>&lt;s></span> и <span>&lt;/s></span> - <s>зачеркнутый текст.</s>
+<span>&lt;del></span> и <span>&lt;/del></span> - <del>перечёркивает текст, помечая как удаленный</del>
+<span>&lt;u></span> и <span>&lt;/u></span> - <u>подчеркнутый текст.</u>
+<span>&lt;ins></span> и <span>&lt;/ins></span> - <ins>подчёркивает изменения в тексте</ins>
+<span>&lt;strong></span> и <span>&lt;/strong></span> - <strong>полужирный текст (ВАЖНЫЙ ТЕКСТ).</strong>
+<span>&lt;code></span> и <span>&lt;/code></span> - содержимое будет отображаться кодовым текстом.
+<span>&lt;var></span> и <span>&lt;/var></span> - <var>выделяет имена переменных, отображая курсивом</var>
+<span>&lt;bdo dir="<u title="по умолчанию ltr - left to right">rtl</u>"></span> и <span>&lt;/bdo></span> - <bdo dir="rtl">текст в теге отображается зеркально</bdo>
+<span>&lt;blockquote></span> и <span>&lt;/blockquote></span> - выделяет цитаты внутри документа
+<span>&lt;q></span> и <span>&lt;/q></span> - <q>выделяет короткие цитаты кавычками</q>
+
+
+моноширинный текст
+<span>&lt;samp></span> и <span>&lt;/samp></span> - <samp>моноширинный текст.</samp>
+<span>&lt;pre></span> и <span>&lt;/pre></span> - текст отображается точно также как пишется.
+<span>&lt;code></span> и <span>&lt;/code></span> - cлужит для выделения фрагментов программного кода
+<span>&lt;kbd></span> и <span>&lt;/kbd></span> - oтмечает фрагмент как вводимый с клавиатуры
+
+<span>&lt;input></span> - <samp>многофункциональные поля формы</samp> <input type="text" name="">
+<span>&lt;output>&lt;/output></span> - <samp>поле для вывода результата вычисления</samp>
+<span>&lt;abbr title="расшифровка аббревиатуры при наведении"></span> - <abbr title="расшифровка аббревиатуры при наведении">аббревиатура</abbr>.</pre>
+</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Теги заголовков</h3>
+	<p>Заголовки являются важными элементами веб-страницы, они упорядочивают текст, формируя его визуальную структуру. Теги <samp class="red">&lt;h1>...&lt;h6></samp> должны использоваться только для выделения заголовков нового раздела или подраздела. При использовании заголовков необходимо учитывать их иерархию, т.е. за <samp class="red">&lt;h1></samp> должен следовать <samp class="red">&lt;h2></samp> и т.д. Также не допускается вложение других тегов в теги <samp class="red">&lt;h1>...&lt;h6></samp>.</p>
+	<p>Тег <samp class="red">&lt;h1></samp> должен быть уникальным для каждой страницы сайта. Рекомендуется прописывать тег в начале статьи, используя ключевое слово в тексте заголовка.</p>
+	<p>Размеры шрифта для тегов в браузере равны <b>/ 2em / 1.5em / 1em / 1.17em / 0.83em / 0.67em</b></p>
+	<p>Верхний и нижний отступ по умолчанию <b>/ 0.67em / 0.83em / 1em / 1.33em / 1.67em / 2.33em</b></p>
+</div>
+
+</body></html>

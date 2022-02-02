@@ -1,0 +1,106 @@
+<!DOCTYPE html><html><head><title>&lt;meter></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp class="t-html5">&lt;meter></samp></h2>
+<!-- Оглавление -->
+	<!-- <ul class="ogl">
+		<li>
+			<a href="#attributs">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#charset" title="Задаёт кодировку документа." class="t-html5">charset</a></span>
+				<span><a href="#content" title="Устанавливает значение атрибута, заданного с помощью name или http-equiv.">content</a></span>
+				<span><a href="#http-equiv" title="Предназначен для конвертирования метатега в заголовок HTTP.">http-equiv</a></span>
+				<span><a href="#name" title="Имя метатега, также косвенно устанавливает его предназначение. Устанавливает название/имя метаданных документа.">name</a></span>
+				<span></span>
+			</div>
+		</li>
+		<li><a href="#refresh">META-переадресация (<samp>http-equiv="<samp class="lsin">Refresh</samp>"</samp>)</a></li>
+		<li><a href="#robots">Индексация страниц (<samp>name="<samp class="lsin">Robots</samp>"</samp>)</a></li>
+		<li><a href="#view">Высота и ширина области просмотра (<samp>name="<samp class="lsin">viewport</samp>"</samp>)</a></li>
+		<li><a href="#scale">Масштабирование области просмотра (для мобильников)</a></li>
+		<li><a href="#device">Разрешение области просмотра</a></li>
+		<li><a href="#Cache-Control">Управление кэшированием (<samp>http-equiv="<samp class="lsin">Cache-Control</samp>"</samp>)</a></li>
+		<li><a href="#content-language">Язык для всего документа (<samp>http-equiv="<samp class="lsin">Content-Language</samp>"</samp>)</a></li>
+		<li><a href="#referrer">Отслеживание перемещения пользователей между страницами</a></li>
+		<li><a href="#viewport2"><i>Правило <samp class="red">@viewport</samp></i></a></li>
+	</ul> -->
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;meter></samp> (от англ. meter — измеритель, счётчик), отображает значение в виде рисунка, на котором цветом помечается текущее значение в указанном диапазоне. Браузеры, которые не поддерживают данный тэг, выводят текст, написанный внутри <samp class="red">&lt;meter></samp>.</p>
+
+	<p>Используется для вывода значения в некотором известном диапазоне. Применяется преимущественно для отображения числовых значений, например, количества результатов поиска, объёма жидкости, давления и др.</p>
+
+	<p>В качестве значения указывается целое или дробное число. Допускается использование отрицательных значений.</p>
+
+	<pre class="item2"><code>&lt;meter value="число">текст&lt;/meter></code></pre>
+
+	<div class="no">Internet explorer и ряд мобильных браузеров не поддерживают данный тэг, только -webkit- Браузеры.</div>
+	<div class="no mb10">Для оформления тэга можно использовать стили, но работает это ограниченно.</div>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<table class="t1 t3 tb mt20">
+		<tr><td>value</td>
+			<td>Устанавливает значение. <span class="no">обязательный</span>
+			<br>Значение должно быть в диапазоне, задаваемым атрибутами <samp class="sin">min</samp> и <samp class="sin">max</samp>.
+			<fieldset class="prm">
+				<p><meter value="36.6" min="35" max="42">36,6 градусов</meter></p>
+				<pre class="item2"><code>&lt;meter value="36.6" min="35" max="42">36,6 градусов&lt;/meter></code></pre>
+			</fieldset></td></tr>
+		<tr><td>min</td>
+			<td>Задаёт минимально возможное значение. Значение по умолчанию - 0.
+			<br>Обязательно должно соблюдаться условие
+			<br><samp class="sin">min <samp class="red">≤</samp> value <samp class="red">≤</samp> max</samp></td></tr>
+		<tr><td>max</td>
+			<td>Задаёт максимально возможное значение. Значение по умолчанию - 1.</td></tr>
+		<tr><td>low</td>
+			<td>Определяет предел, при достижении которого значение считается низким.
+			<br>Обязательно должно соблюдаться условия
+			<br><samp class="sin">( min <samp class="red">≤</samp> value <samp class="red">≤</samp> max )</samp> и <samp class="sin">( low <samp class="red">≤</samp> high )</samp>
+			<pre class="item2"><code>&lt;meter value="число" low="число">&lt;/meter></code></pre></td></tr>
+		<tr><td>high</td>
+			<td>Определяет предел, при достижении которого значение считается высоким.</td></tr>
+		<tr><td>optimum</td>
+			<td>Определяет наилучшее или оптимальное значение.
+			<br>Обязательно должно соблюдаться условие
+			<br><samp class="sin">min <samp class="red">≤</samp> optimum <samp class="red">≤</samp> max</samp></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример</a></h3>
+	<fieldset class="prm">
+		<p>Температура воды</p>
+		<meter max="100" high="60" low="10" value="0">Низкая</meter>
+		<meter max="100" high="60" low="10" value="30">Нормальная</meter>
+		<meter max="100" high="60" low="50" value="80">Горячая</meter>
+		<meter max="100" high="60" low="50.1" value="80">Горячая</meter>
+		<meter max="100" value="100">Кипяток</meter>
+		<pre class="item2"><code>&lt;p>Температура воды&lt;/p>
+&lt;meter max="100" high="60" low="10" value="0">Низкая&lt;/meter>
+&lt;meter max="100" high="60" low="10" value="30">Нормальная&lt;/meter>
+&lt;meter max="100" high="60" low="50" value="80">Горячая&lt;/meter>
+&lt;meter max="100" high="60" low="50.1" value="80">Горячая&lt;/meter>
+&lt;meter max="100" value="100">Кипяток&lt;/meter></code></pre>
+	</fieldset>
+</div>
+</body></html>

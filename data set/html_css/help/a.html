@@ -1,0 +1,339 @@
+<!DOCTYPE html><html><head><title>Параметры тэга ссылки</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Cсылки</h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#z1">«якоря»</a></li>
+			<li><a href="#z2">Виды стандартных ссылок</a></li>
+			<li><a href="#z3">Параметры тэга ссылки</a></li>
+			<div class="ogl2 ogl21">
+				<span><a href="#href" title="URL-адрес документа, на который указывается ссылка.">href</a></span>
+				<span><a href="#hreflang" title="Определяет язык связанного веб-документа.">hreflang</a></span>
+				<span><a href="#download" title="сообщает браузеру, что ресурс должен быть загружен в момент, когда пользователь щелкает по ссылке">download</a></span>
+				<span><a href="#media" title="Определяет, для каких типов устройств файл будет оптимизирован.">media</a></span>
+				<span><a href="#ping" title="Отслеживает URL-адреса ресурсов, по которым переходил пользователь.">ping</a></span>
+				<span><a href="#rel" title="Дополняет атрибут href информацией об отношении между текущим и связанным документом.">rel</a></span>
+				<span><a href="#target" title="Указывает на то, в каком окне должен открываться документ, к которому ведет ссылка.">target</a></span>
+				<span><a href="#type" title="Указывает MIME-тип файлов ссылки, т.е. расширение файла.">type</a></span>
+				<span></span>
+			</div>
+			<!-- <li><a href="#z4"><samp>rel=«nofollow»</samp></a></li> -->
+			<li><a href="#z4a"><samp>scroll-behavior</samp> - плавная прокрутка по ссылке</a></li>
+			<li><a href="#z5"><samp>CSS</samp> параметры</a> (псевдоклассы)</li>
+			<li><a href="#z6">Aбсолютный и относительный путь</a></li>
+			<li><a href="#z7">Как добавить рисунок к внешним ссылкам</a></li>
+			<li><a href="#z8">Как сделать ссылку для скачивания (<samp>download</samp>)</a></li>
+			<li><a href="#z9">Как указать язык сайта по ссылке</a></li>
+			<li><a href="#z0"><samp>Uniform Resource Locator</samp></a></li>
+		</ul><!-- /оглавление -->
+
+<div class="item">
+	<p>Для того чтобы создать ссылки, необходимо сказать браузеру, что является ссылкой, и каков адрес документа, на который следует сделать ссылку. Делается это с помощью <samp class="sin">html</samp>-тегов.</p>
+	<p>Одним из таких элементов является тег <samp class="red">&lt;a></samp>, собственно который и предназначен для создания ссылок. Тег <samp class="red">&lt;a <samp class="sin">href</samp>="URL"></samp> открывает ссылку, а тег <samp class="red">&lt;/a></samp>, ее закрывает.</p>
+	<p>Между этими тегами прописывается текст, ссылки который ещё называют <samp class="sin">«анкор»</samp>, а также <samp class="red">URL</samp>-адрес. Для обозначения <samp class="red">URL</samp> используют атрибут <samp class="sin">href</samp>.</p>
+
+	<pre class="item2"e><code>&lt;a href="URL">анкор&lt;/a></code></pre>
+
+	<p>Чтобы при нажатии на ссылку открылось новое окно, когда это требуется, добавляется параметр <samp class="sin">target="<samp class="lsin">_blank</samp>"</samp></p>
+
+	<pre class="item2"><code>&lt;a href="URL" target="_blank">анкор&lt;/a></code></pre>
+</div>
+
+
+
+<div class="item" id="z1">
+	<p>Для перехода по ссылке внутри документа, используются так называемые <span class="sin">«якоря»</span>. Якорем называется ссылка (или тег с id), в состав которой входит атрибут <samp class="red">name</samp> или <samp class="red">id</samp> указывающий на место перехода по соответствующему названию, а ссылка с атрибутом <samp class="sin">«href»</samp> и именем якоря с символом решётки <samp class="red">#</samp> перед ним, создаёт условие для перехода.</p>
+	<div class="no">В XHTML и HTML5 вместо <samp class="red">name</samp> для определения закладки требуется указывать атрибут <samp class="red">id</samp>.</div>
+	<pre class="item2"><code>&lt;body><br>  &lt;p>&lt;a name="top">Текст, на который переходят&lt;/a>&lt;/p><br>  &lt;p>&lt;a id="top">Текст, на который переходят&lt;/a>&lt;/p><br>  &lt;p>...&lt;/p><br>  &lt;p>&lt;a href="#top">Наверх к якорю&lt;/a>&lt;/p><br>&lt;/body></code></pre>
+</div>
+
+
+
+<div class="item" id="z2">
+	Ссылка на корневой каталог (откроется файл <samp class="lsin">index.html</samp> или <samp class="lsin">index.php</samp>)
+	<pre class="item2 br0"><code>&lt;a href="/">Главная страница&lt;/a></code></pre>
+
+	<br>Ссылка перехода в начало документа - наверх текущей страницы
+	<pre class="item2 br0"><code>&lt;a href="#">начало документа&lt;/a></code></pre>
+
+	<br>Ссылка открывается в новом окне (внешняя ссылка)
+	<pre class="item2 br0"><code>&lt;a href="" target="_blank">Анкор&lt;/a></code></pre>
+
+	<br>Ссылка на папку (откроется файл <samp class="lsin">index.html</samp> или <samp class="lsin">index.php</samp>)
+	<pre class="item2 br0"><code>&lt;a href="/folder/">Основная папка&lt;/a></code></pre>
+
+	<br>ссылка на телефонный номер (откроется приложение для телефона и начнётся вызов абонента)
+	<pre class="item2 br0"><code>&lt;a href="tel:+74951234567">+7 (495) 123-45-67&lt;/a></code></pre>
+
+	<br>ссылка на адрес электронной почты
+	<pre class="item2 br0"><code>&lt;a href="mailto:example@mail.ru">example@mail.ru&lt;/a></code></pre>
+	Можно также автоматически добавить тему сообщения, присоединив к адресу электронной почты через символ вопроса (<b>?</b>) параметр <samp class="sin">subject</samp> с темой сообщения
+	<pre class="item2 br0"><code>&lt;a href="mailto:example@mail.ru?subject=Вопрос по HTML">Вопрос по HTML&lt;/a></code></pre>
+
+	<br>ссылка на скайп (позвонить)
+	<pre class="item2 br0"><code>&lt;a href="skype:имя-пользователя?call">Skype&lt;/a></code></pre>
+	ссылка на скайп (открыть чат)
+	<pre class="item2 br0"><code>&lt;a href="skype:имя-пользователя?chat">Skype&lt;/a></code></pre>
+	ссылка на скайп (добавить в список контактов)
+	<pre class="item2 br0"><code>&lt;a href="skype:имя-пользователя?add">Skype&lt;/a></code></pre>
+	ссылка на скайп (отправить файл)
+	<pre class="item2 br0"><code>&lt;a href="skype:имя-пользователя?sendfile">Skype&lt;/a></code></pre>
+	<div class="no mt0">Не все браузеры поддерживают такой формат ссылок.</div>
+</div>
+
+
+
+<div class="item" id="z3">
+<h2 class="sin"><a href="#">Параметры тэга ссылки <samp class="red">&lt;a></samp></a></h2>
+	<table style="margin: 10px 0" class="t1 tb">
+		<tr><td width="80px" id="href">href</td>
+			<td>Значением атрибута является URL-адрес документа, на который указывается ссылка.
+			</td></tr>
+		<tr><td id="hreflang" class="ls-05">hreflang</td>
+			<td>Определяет язык связанного веб-документа. Используется только вместе с атрибутом <samp class="sin">href</samp>. Принимаемые значения - аббревиатура, состоящая из пары букв, обозначающих <a href="../lang-code.html" class="tdu sin">код языка</a>, например:
+			<pre class="item2 br0"><code>&lt;a href="http://www.anysite.ru" hreflang="en">Anysite&lt;/a></code></pre></td></tr>
+		<tr><td class="ls-05" id="download">download<br>
+			<span class="html5" style="margin:0 0 0 -10px;"></span></td>
+			<td>Дополняет атрибут <samp class="sin">href</samp> и сообщает браузеру, что ресурс должен быть загружен в момент, когда пользователь щелкает по ссылке, вместо того, чтобы, например, предварительно открыть его (как PDF-файл). Задавая имя для атрибута, мы таким образом задаем имя загружаемому объекту.
+			<br>Разрешается использовать атрибут без указания его значения:
+			<pre class="item2 br0"><code>&lt;a href="/images/logo.png" download><br>   &lt;img src="/images/logo.png" alt="logo"><br>&lt;/a><br><br>&lt;a href="/images/logo.png" download="logo"><br>   &lt;img src="/images/logo.png" alt="logo"><br>&lt;/a><br><br>&lt;a href="files/20022014.pdf" download="Отчет Февраль 2014.pdf"><br>   Загрузить отчет за Февраль 2014<br>&lt;/a></code></pre></td></tr>
+		<tr><td id="media">media</td>
+			<td>Определяет, для каких типов устройств файл будет оптимизирован. 
+			Значением может быть любой медиа-запрос.</td></tr>
+		<tr><td id="ping">ping</td>
+			<td>Отслеживает URL-адреса ресурсов, по которым переходил пользователь.</td></tr>
+		<tr><td id="rel">rel</td>
+			<td>Дополняет атрибут <samp class="sin">href</samp> информацией об отношении между текущим и связанным документом.
+			<pre class="item2"><code>&lt;a href="#" rel="nofollow">site&lt;/a></code></pre>
+
+			<div class="mt20">Принимаемые значения:</div>
+			<table class="t1 t3" style="margin:0 -5px -8px -5px;">
+				<tr><td width="80px">alternate</td>
+					<td>- ссылка на альтернативную версию документа (например, печатную форму страницы, перевод или зеркало).</td></tr>
+				<tr><td>author</td>
+					<td>- ссылка на автора документа.</td></tr>
+				<tr><td>bookmark</td>
+					<td>- постоянный URL-адрес, используемый для закладок.</td></tr>
+				<tr><td>external</td>
+					<td><p>- служит только и исключительно для того, чтобы, обрабатывая его скриптом, назначать таким ссылкам класс и открывать их в новом окне браузера.</p>
+					Все дело в том, что <span class="red">спецификация XHTML</span> не поддерживает атрибут ссылки <samp class="sin">target</samp>. Поскольку открытие нового окна в браузере - это задача сценария, а не языка гипертекстовой разметки, конструкции вида <samp class="sin">target="<samp class="lsin dib">_blank</samp>"</samp> более не являются валидными.</td></tr>
+				<tr><td>help</td>
+					<td>- ссылка на справку.</td></tr>
+				<tr><td>license</td>
+					<td>- ссылка на информацию об авторских правах на данный веб-документ.</td></tr>
+				<tr><td>next/prev</td>
+					<td>- указывает связь между отдельными URL. Благодаря этой разметке Google может определить, что содержание данных страниц связано в логической последовательности.</td></tr>
+				<tr><td>nofollow</td>
+					<td>- запрещает поисковой системе переходить по ссылкам на данной странице или по конкретной ссылке. Указывает, что по ней не нужно переходить и заниматься индексацией страницы, на которую она указывает. Эти ссылки обычно не используются для ранжирования, обхода или индексирования.
+					<pre class="item2"><code>&lt;a href="#" rel="nofollow">site&lt;/a></code></pre></td></tr>
+				<tr><td>sponsored</td>
+					<td>- для рекламных или спонсорских ссылок. Также сюда будут входить партнерские ссылки, хотя Google явно не сказал.</td></tr>
+				<tr><td>ugc</td>
+					<td>- ссылки внутри всего пользовательского контента.</td></tr>
+				<tr><td>noreferrer</td>
+					<td>- указывает, что переходе по ссылке браузер не должен посылать заголовок HTTP-запроса (Referrer), в который записывается информация о том, с какой страницы пришел посетитель сайта.</td></tr>
+				<tr><td>prefetch</td>
+					<td>- указывает, что целевой документ должен быть кэширован, т.е. браузер в фоновом режиме загружает содержимое страницы к себе в кэш.</td></tr>
+				<tr><td>search</td>
+					<td>- указывает, что целевой документ содержит инструмент для поиска.</td></tr>
+				<tr><td>tag</td>
+					<td>- указывает ключевое слово для текущего документа.</td></tr>
+			</table>
+		</td></tr>
+
+		<tr><td id="target">target</td>
+			<td>Указывает на то, в каком окне должен открываться документ, к которому ведет ссылка. Принимает следующие значения:
+			<pre class="item2 br0"><samp class="lsin">_self</samp>   — страница загружается в текущее окно;<br><samp class="lsin">_blank</samp>  — страница открывается в новом окне браузера;<br><samp class="lsin">_parent</samp> — страница загружается во фрейм-родитель;<br><samp class="lsin">_top</samp>    — страница загружается в полное окно браузера.</pre>
+			<p class="no">Также, используя псевдокласс <samp class="sin tdu"><a href="psevdo-klass.html#pk-target">:target</samp></a>, дополнительно можно стилизовать объект к которому переходят по ссылке, например заголовок.</p></td></tr>
+
+		<tr><td id="type">type</td>
+			<td>Указывает <a href="http://ru.wikipedia.org/wiki/Список_MIME-типов"><span class="sin tdu">MIME-тип</span></a> файлов ссылки, т.е. расширение файла. На данный момент носит больше справочную информацию. <a href="../mime.html"><span class="sin tdu">MIME</span></a> (Multipurpose Internet Mail Extension, Многоцелевые расширения почты Интернета).
+			Указание <a href="../mime.html"><span class="sin tdu">MIME</span></a>-типа используется в HTML обычно при передаче данных форм и вставки на страницу различных объектов.</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="z4a">
+<h3 class="sin"><a href="#"><samp>scroll-behavior</samp></a></h3>
+	<p>Определяет поведение прокрутки внутри элемента — плавная прокрутка или мгновенный переход. Значение по умолчанию <samp class="lsin">auto</samp> (переход к элементу внутри блока с прокруткой происходит мгновенно).</p>
+	<pre class="item2"><code>div {scroll-behavior: auto;}<br><br>a {scroll-behavior: smooth;}</code></pre>
+	<p><samp class="lsin">smooth</samp> - прокрутка происходит плавно. Время и функция перехода устанавливаются непосредственно браузером.</p>
+</div>
+
+
+
+<div class="item" id="z5">
+<h3 class="sin"><a href="#">CSS параметры</a></h3>
+	<p>Благодаря псевдоклассу <samp class="sin">:link</samp>, можно изменить стиль ссылки и сайта в целом установив для неё необходимый формат. Этот параметр определяет необходимое стилевое оформление ссылкам, <b>которые ещё не посещались.</b></p>
+	<pre class="item2"><code>a:link {color:#336699;}</code></pre>
+
+	<p class="mt20">Псевдокласс <samp class="sin">:visited</samp> устанавливает стиль ссылки <b>по которой был осуществлён переход</b>. При использовании данного параметра, происходит замена стилей в соответствии с выбранными параметрами CSS, которыми могут быть цвет, фон и другие характерные опции.</p>
+	<pre class="item2"><code>a:visited {color:#336699;}</code></pre>
+
+	<p class="mt20">Псевдокласс <samp class="sin">:active</samp> устанавливает стиль ссылки <b>в момент нажатия на неё</b>.</p>
+	<pre class="item2"><code>a:active {color:#f30;}</code></pre>
+
+	<p class="mt20">Псевдокласс <samp class="sin">:hover</samp> устанавливает стиль элемента <b>при наведения на него курсора мыши</b>, без нажатия.</p>
+	<pre class="item2"><code>a:hover {color:#f30;}</code></pre>
+
+	<p class="mt20">Также можно использовать параметр <a href="txt/text-decoration.html"><samp class="sin tdu">text-decoration:</samp></a></p>
+	<pre class="item2"><code>a {text-decoration:none;}</code></pre>
+
+	<div class="no mt20">
+		строка <samp class="red">a:</samp> <samp class="sin">hover</samp> должна идти после <samp class="red">a:</samp> <samp class="sin">link</samp> и <samp class="red">a:</samp> <samp class="sin">visited</samp>
+		<br>строка <samp class="red">a:</samp> <samp class="sin">active</samp> должна идти перед <samp class="red">a:</samp> <samp class="sin">hover</samp>
+	</div>
+</div>
+
+
+
+<div class="item" id="z6">
+<h2 class="sin"><a href="#">Aбсолютный и относительный путь</a></h2>
+	<p>Адрес ссылки может быть как абсолютным, так и относительным. Абсолютные адреса должны начинаться с указания протокола (http:// или https://) и содержать имя домена. Относительные ссылки ведут отсчёт от корня сайта или текущего документа.</p>
+	<p>Протокол для сайта можно не указывать, в таком случае ссылка будет начинаться сразу с // без протокола. Браузер сам подставит нужный протокол, на котором работает сайт.</p>
+
+	<pre class="item2 br0"><code>&lt;a href="//facebook.com">Facebook&lt;/a></code></pre>
+
+	<p>Когда в адресе указывается только домен (<samp class="lsin">//webref.ru</samp>) или после домена идёт имя папки (<samp class="lsin">//webref.ru/css/</samp>), то веб-сервер автоматически загружает документ, обычно с именем <samp class="sin">index.html</samp> или <samp class="sin">index.php</samp>. Таким образом, полный путь к сайту будет <samp class="sin">https://webref.ru/index.php</samp>, а сокращённый - <samp class="sin">//webref.ru.</samp></p>
+
+
+	<p class="mt40">При создании адресов для разделения слов между собой рекомендуется использовать дефис, а не символ подчёркивания. В общем виде URl имеющий следующий формат:</p>
+	<div class="item2 br0"><samp>метод доступа://имя сервера:порт/путь</samp></div>
+
+	<h3 class="sin mt40">Метод доступа</h3>
+		<p>Метод доступа, или протокол, осуществляет обмен данными между рабочими станциями в разных сетях. Наиболее распространенные протоколы передачи данных:</p>
+		<table class="t1">
+			<tr><td>file</td>
+				<td>обеспечивает чтение файла с локального диска:
+				<pre class="item2 br0"><code>&lt;a href="file:/gallery/pictures/summer.html">&lt;/a></code></pre></td></tr>
+			<tr><td>http</td>
+				<td>предоставляет доступ к веб-странице по протоколу HTTP:
+				<pre class="item2 br0"><code>&lt;a href="http://site.ru/">&lt;/a></code></pre></td></tr>
+			<tr><td>https</td>
+				<td>специальная реализация протокола HTTP, использующая шифрование (как правило, SSL или TLS)
+				<pre class="item2 br0"><code>&lt;a href="https://site.ru/">&lt;/a></code></pre></td></tr>
+			<tr><td>ftp</td>
+				<td>осуществляет запрос к FTP-серверу на получение файла:
+				<pre class="item2 br0"><code>&lt;a href="ftp://pgu/directory/library">&lt;/a></code></pre></td></tr>
+			<tr><td>mailto</td>
+				<td>запускает сеанс почтовой связи с указанным адресатом и хостом:
+				<pre class="item2 br0"><code>&lt;a href="mailto:nika@gmail.com">&lt;/a></code></pre></td></tr>
+		</table>
+
+	<h3 class="sin mt20">Имя сервера</h3>
+		<p>Имя сервера описывает полное имя машины в сети, например, <samp class="sin">site.ru</samp>. Если имя сервера не указано, то ссылка считается локальной, т.е. она относится к той же машине, на которой находится HTML-документ, содержащий ссылку.</p>
+
+	<h3 class="sin mt20">Номер порта</h3>
+		<p>Номер порта ТСР, на котором функционирует веб-сервер. Представляет собой число, которое необходимо указывать, если метод требует номер порта (отдельные сервера могут иметь свой отличительный номер порта). Если порт не указан, по умолчанию используется порт 80. Стандартными портами являются:</p>
+		<div class="item2 br0"><pre>21 — FTP<br>23 — Telnet<br>70 — Gopher<br>80 — HTTP</pre></div>
+
+	<h3 class="sin mt20">Путь</h3>
+		<p>Путь содержит имя папки, в которой находится файл.</p>
+		<p>Когда в ссылке указывается только имя файла, браузер предполагает, что файл находится в той же папке, что и документ, содержащий гиперссылку. HTML поддерживает два вида пути: абсолютный и относительный.</p>
+		<br>
+		<p><span class="sin bold">Абсолютный путь</span> указывает точное местоположение файла в пределах всей структуры папок на компьютере (сервере). Абсолютный путь содержит следующие компоненты:
+		<br>- протокол, например, http (опционально);
+		<br>- домен (доменное имя или IP-адрес компьютера);
+		<br>- папка (имя папки, указывающей путь к файлу);
+		<br>- файл (имя файла)</p>
+		<p>Существует два вида записи абсолютного пути — с указанием протокола и без него:</p>
+		<pre class="item2 br0">http://site.ru/pages/tips/tips1.html<br>//site.ru/pages/tips/tips1.html</pre>
+		<p>Если файл находится в корневой папке, то путь к файлу будет следующим:</p>
+		<pre class="item2 br0">http://site.ru/index.html</pre>
+		<p>При отсутствии имени файла будет загружаться веб-страница, которая задана по умолчанию в настройках веб-сервера (так называемый индексный файл).</p>
+		<pre class="item2 br0">http://site.ru/</pre>
+		<p>Обычно в качестве индексного файла выступает документ с именем  <samp class="red">index.html</samp>. Наличие завершающего слеша <samp class="red">/</samp> означает, что обращение идет к папке, если его нет — напрямую к файлу.</p>
+		<div class="no mb40">Адрес, начинающийся с <samp class="red">//</samp>, можно применять только для сайтов под управлением веб-сервера, локально он работать не будет.</div>
+
+		<p><span class="sin bold">Относительный путь</span> описывает путь к указанному документу относительно текущего. Относительный путь содержит следующие компоненты:
+		<br>- папка (имя папки, указывающей путь к файлу);
+		<br>- файл (имя файла).</p>
+		<br>
+		<p>Путь для относительных ссылок имеет три специальных обозначения:
+		<br><samp class="red dib">&nbsp;&nbsp;/</samp> указывает на корневую директорию и говорит о том, что нужно начать путь от корневого каталога документов и идти вниз до следующей папки
+		<br><samp class="red dib">&nbsp;./</samp> указывает на текущую папку. Иногда можно встретить адреса в виде <samp class="sin">./file/doc.html</samp>. Точка впереди означает, что отсчёт ведётся от текущей папки. Подобная запись избыточна и её можно сократить до <samp class="sin">file/doc.html</samp>.
+		<br><samp class="red dib">../</samp> подняться на одну папку (директорию) выше</p>
+
+		<div class="no">Адреса относительно корня сайта вроде <samp class="sin">/demo/</samp> работают только под управлением веб-сервера и на локальном компьютере не применимы.</div>
+
+		<p>Главное отличие относительного пути от абсолютного в том, что относительный путь не содержит имени корневой папки и родительских папок, что делает адрес короче, и в случае переезда с одного домена на другой не нужно прописывать новый абсолютный адрес. Но если сторонний ресурс будет ссылаться например, на ваши изображения с относительными адресами, то они не будут отображаться на другом сайте.</p>
+</div>
+
+
+
+<div class="item" id="z7">
+<h2 class="sin"><a href="#">Как добавить рисунок к внешним ссылкам</a></h2>
+	<p>Внешними называются ссылки, которые ведут на другой сайт. Чтобы пользователь мог отличить такие ссылки от обычных, к внешним ссылкам добавляют небольшой рисунок (например, такой <img src="img/blank.png" style="width:16px; vertical-align:middle;"> ), который информирует о том, что ссылка указывает на другой ресурс.</p>
+	<p>Адрес сайта начинается с протокола <b class="red">http://</b> или <b class="red">https://</b>, а также можно писать адрес без указания протокола <b class="red">//</b>. Как видите, адреса сайтов содержат две косые черты, которые можно указать в селекторе следующим образом.</p>
+	<div class="item2"><pre><code>a[href*=//] { … }</code></pre></div>
+	<p>Эта запись читается следующим образом: <i>применить стиль к элементам <samp class="red">&lt;a></samp>, у которых атрибут <samp class="sin">href</samp> содержит <samp class="sin">//</samp>.</i></p>
+	<p>Для этого селектора добавим рисунок в виде фона с помощью свойства <samp class="sin">background</samp>. При этом следует указать значение <samp class="lsin">no-repeat</samp>, чтобы фон не повторялся.</p>
+	<style>
+		.vn a[href*="//"] {background:url(img/blank.png) no-repeat 100% 50%; padding-right: 13px;}
+	</style>
+	<div class="prm vn">
+		<a href="#" class="tdu">Обычная ссылка</a>
+		<br><a href="http://htmlbook.ru" class="tdu">Внешняя ссылка</a>
+		<pre class="item2"><code>&lt;style><br>  a[href*="//"] {<br>    background:url(img/blank.png) no-repeat 100% 50%;<br>    padding-right: 13px;}<br>&lt;/style><br><br>&lt;a href="#">Обычная ссылка&lt;/a><br>&lt;a href="http://htmlbook.ru">Внешняя ссылка&lt;/a></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="z8">
+<h2 class="sin"><a href="#">Как сделать ссылку для скачивания</a></h2>
+	<p>Любые известные браузеру типы документов, такие как HTML, изображение, PDF-файл и др., по ссылке открываются непосредственно в браузере. Чтобы браузер вместо открытия скачивал файл, к элементу <a> следует добавить атрибут <samp class="sin">download</samp></p>
+	<p>C помощью стилей можно выделить ссылки для скачивания, добавив к ним картинку. Для этого используют селектор <samp class="red">a[download]</samp> и тем самым выбираем элементы <samp class="sin">&lt;a></samp>, у которых присутствует атрибут <samp class="sin">download</samp>. Затем добавляем к селектору псевдоэлемент <samp class="sin">::after</samp> со свойством <samp class="sin">content</samp>, значением которого выступает адрес изображения.</p>
+
+	<style>
+		.dl a[download]:after {content:url(img/download.png); vertical-align:sub; padding-left: 5px;}
+	</style>
+	<div class="prm dl">
+		<a href="img/download.png" class="tdu">Обычная ссылка на картинку</a>
+		<br><a href="img/download.png" download="download.png" class="tdu">Эта же картинка для скачивания</a>
+		<pre class="item2"><code>&lt;style><br>  a[download]:after {<br>    content:url(img/download.png);<br>    vertical-align:sub;<br>    padding-left: 5px;}<br>&lt;/style><br><br>&lt;a href="img/download.png">Обычная ссылка на картинку&lt;/a><br>&lt;a href="img/download.png" download>Эта же картинка для скачивания&lt;/a></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="z9">
+<h2 class="sin"><a href="#">Как указать язык сайта по ссылке</a></h2>
+	<p>Ссылка представляет собой обычный текст, ведущий на другой сайт. По тексту ссылки и её виду обычно нельзя определить, на каком языке откроется веб-страница. Даже адрес сайта не является помощником в этом вопросе — habr.com может вести на русскоязычный ресурс.</p>
+	<p>Для указания языка ресурса по ссылке к элементу <samp class="red">&lt;a></samp> добавляется атрибут <samp class="sin">hreflang</samp> с кодом языка. Однако браузеры никак не используют этот атрибут, в итоге, ссылка с <samp class="sin">hreflang</samp> и без него выглядит совершенно одинаково. Тем не менее, атрибут <samp class="sin">hreflang</samp> можно использовать для стилизации ссылок по его значению. К примеру, селектор <samp class="red">a[hreflang="ru"]</samp> выберет ссылки на русскоязычные ресурсы, <samp class="red">a[hreflang="en"]</samp> — на англоязычные.</p>
+	<style>
+		.lg a[hreflang="en"] {background: url(img/flag_en.png) no-repeat 100% 50%; padding-right:30px;}
+		.lg a[hreflang="ru"]:after {content:" (rus.)"; font-size:0.8em; color:#666;}
+	</style>
+	<div class="prm lg">
+		<a href="https://www.android.com/intl/ru_ru/" hreflang="ru">Android</a> — официальный сайт.
+		<br><a href="https://www.android.com/intl/en_us/" hreflang="en">Android</a> — official website.
+		<pre class="item2"><code>&lt;style><br>  a[hreflang="en"] {<br>    background: url(/example/image/flag_en.png) no-repeat 100% 50%;<br>    padding-right:30px;}<br>  a[hreflang="ru"]:after {<br>    content:" (rus.)";<br>    font-size:0.8em; color:#666;}<br>&lt;/style><br><br>&lt;a href="https://www.android.com/intl/ru_ru/"<br>  hreflang="ru">Android&lt;/a> — официальный сайт.<br>&lt;a href="https://www.android.com/intl/en_us/"<br>  hreflang="en">Android&lt;/a> — official website.</code></pre>
+	</div>	
+</div>
+
+
+
+<div class="item" id="z0">
+<h2 class="sin" style="margin-top:5px;"><a href="#">Uniform Resource Locator (<samp class="red">URL</samp>)</a></h2>
+	<div class="item2">
+		<p><samp class="red">Uniform Resource Locator (URL)</samp> – это уникальный адрес web-ресурса или web-документа в глобальной сети. Другими словами, это набор знаков, который выведет посетителя на искомую страницу, если набрать их в адресной строке браузера.</p>
+	</div>
+	<p><samp class="red">URL</samp> пишется по определенной схеме, что делает его понятным для разных браузеров и поисковых систем. Вначале указывается метод доступа к ресурсу (так называемый протокол). Чаще всего это – <samp class="sin">HTTP</samp> или <samp class="sin">FTP</samp>. Далее пишется доменное имя сайта, и наконец, путь к данному файлу на сервере.</p>
+	<p>Еще одно мощное <samp class="sin">«оружие»</samp> – ключевые слова. Их можно и нужно использовать не только в текстовом наполнении сайта, но и в <samp class="red">URL</samp>. Скажем, если вы продаете фотоаппараты, то целесообразно включить название этого товара в адрес ресурса. Так поисковый робот быстрее поймет, что там размещено, и сайт с большей вероятностью отобразится среди первых результатов поиска</p>
+	<p>Поисковому роботу будет более понятен <samp class="red">URL</samp> из иностранных слов, например <samp class="sin">«correct»</samp> в переводе – <samp class="sin">«правильный»</samp>, а если набрать <samp class="sin">«pravelny»</samp> ссылка, конечно, будет работать, но для робота это будет просто набор букв.</p>
+	<p>Если <samp class="red">URL</samp> набрать с нижним подчёркиванием то слова в переводе с иностранного языка получатся слитными, так как они не разделяют слова и анализируются, как символы.</p>
+	<p><samp class="sin">correct_url</samp> – воспринимается поисковиком как целое слово состоящее из бессмысленного набора символов, а значит, так делать не следует.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html><html><head><title>transition</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.tt1 tr td:nth-child(1){width:120px}
+	.tt1 pre{display:inline-block}
+
+</style>
+
+</head>
+<body>
+<h1 class="sin">transition</h1>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#z0"><samp>transition-property</samp></a></li>
+			<li><a href="#z1"><samp>transition-duration</samp></a></li>
+			<li><a href="#z2"><samp>transition-timing-function</samp></a></li>
+			<li><a href="#z3">параметры <samp>transition-timing-function</samp></a></li>
+			<li><a href="#z4"><samp>transition-delay</samp></a></li>
+			<li><a href="#z5">cокращённое свойство <samp>transition</samp></a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item">
+	<div class="no">Для лучшей поддержки во всех браузерах необходимо использовать префиксы.</div>
+	<p>Есть четыре свойства, связанных с переходами в целом, это <samp class="sin">transition-property</samp>, <samp class="sin">transition-duration</samp>, <samp class="sin">transition-timing-function</samp> и <samp class="sin">transition-delay</samp>. Не все они обязательны для создания перехода, наиболее популярны первые три.</p>
+
+	<div class="item2" style="position:relative">
+		<style>
+			.hov1 {background:#2db34a; position:absolute; top:20px; right:20px; width:150px; height:150px;
+				  -webkit-transition-property:background;
+				     -moz-transition-property:background;
+				      -ms-transition-property:background;
+				       -o-transition-property:background;
+				          transition-property:background;
+				  -webkit-transition-duration:1s;
+				     -moz-transition-duration:1s;
+				      -ms-transition-duration:1s;
+				       -o-transition-duration:1s;
+				          transition-duration:1s;
+				 /* -webkit-transition-delay:1s;
+				     -moz-transition-delay:1s;
+				      -ms-transition-delay:1s;
+				       -o-transition-delay:1s;
+				          transition-delay:1s;*/
+				  -webkit-transition-timing-function:linear;
+				     -moz-transition-timing-function:linear;
+				      -ms-transition-timing-function:linear;
+				       -o-transition-timing-function:linear;
+				          transition-timing-function:linear;}
+			.hov1:hover {background:#ff7b29;}
+		</style>
+		<pre><code>.box {<br>  background: #2db34a;<br>  -webkit-transition-property: background;<br>     -moz-transition-property: background;<br>      -ms-transition-property: background;<br>       -o-transition-property: background;<br>          transition-property: background;<br>  -webkit-transition-duration: 1s;<br>     -moz-transition-duration: 1s;<br>      -ms-transition-duration: 1s;<br>       -o-transition-duration: 1s;<br>          transition-duration: 1s;<br>     -webkit-transition-delay: 1s;<br>        -moz-transition-delay: 1s;<br>         -ms-transition-delay: 1s;<br>          -o-transition-delay: 1s;<br>             transition-delay: 1s;<br>  -webkit-transition-timing-function: linear;<br>     -moz-transition-timing-function: linear;<br>      -ms-transition-timing-function: linear;<br>       -o-transition-timing-function: linear;<br>          transition-timing-function: linear;<br>}<br><br>.box:hover {<br>  background: #ff7b29;<br>}</code></pre>
+		<div class="hov1"></div>
+	</div>
+</div>
+
+
+<div class="item" id="z0">
+<h2 class="sin"><samp><a href="#">transition-property</a></samp></h2>
+	<p><samp class="sin">transition-property</samp> — здесь указывается свойство, которое будет изменяться в сочетании с другими свойствами перехода. По умолчанию, изменяться будут все свойства в различных состояниях. Тем не менее, только свойства заданные в значении <samp class="sin">transition-property</samp> будут затронуты в любых переходах. Если требуется добавить несколько свойств в переход, они могут быть разделены запятой внутри значения <samp class="sin">transition-property</samp>. Кроме того, может быть использовано ключевое слово <samp class="red">all</samp> для перехода всех свойств элемента.</p>
+
+	<div class="mt20">Набор наиболее популярных свойств, к которым применим переход следующий:</div>
+	<div style="min-width:600px" class="mb20">
+		<ul style="columns:3; margin-top:5px">
+			<li>background-color</li><li>background-position</li><li>border-color</li><li>border-width</li><li>border-spacing</li><li>bottom</li><li>clip</li><li>color</li><li>crop</li><li>font-size</li><li>font-weight</li><li>height</li><li>left</li><li>letter-spacing</li><li>line-height</li><li>margin</li><li>max-height</li><li>max-width</li><li>min-height</li><li>min-width</li><li>opacity</li><li>outline-color</li><li>outline-offset</li><li>outline-width</li><li>padding</li><li>right</li><li>text-indent</li><li>text-shadow</li><li>top</li><li>vertical-align</li><li>visibility</li><li>width</li><li>word-spacing</li><li>z-index</li>
+		</ul>
+	</div>
+
+	<a href="../animation/animated_properties.html"><span class="red tdu">Здесь представлен перечень всех анимируемых CSS свойств.</span></a>
+</div>
+
+<div class="item" id="z1">
+<h2 class="sin"><samp><a href="#">transition-duration</a></samp></h2>
+	<p>Длительность перехода задаётся с помощью свойства <samp class="sin">transition-duration</samp>. В качестве значения этого свойства можно использовать основные значения времени, в том числе секунды (s) и миллисекунды (ms). Эти значения времени можно также задавать и дробными, например: .2s</p>
+	<p>При переходе нескольких свойств можно задать несколько длительностей, по одному на каждое свойство. Как и в случае значения свойства <samp class="sin">transition-property</samp>, несколько длительностей могут быть объявлены с помощью значений, разделённых запятыми. Важен порядок этих значений при определении отдельных свойств и длительностей. К примеру, первое свойство, заданное в <samp class="sin">transition-property</samp>, будет совпадать с первым значением в свойстве <samp class="sin">transition-duration</samp> и так далее.</p>
+	<p>Если на несколько свойств в переходе приходится только одно значение длительности, то оно будет задавать длительность для всех свойств перехода.</p>
+</div>
+
+
+<div class="item" id="z2">
+<h2 class="sin"><samp><a href="#">transition-timing-function</a></samp></h2>
+	<p>Свойство <samp class="sin">transition-timing-function</samp> используется для задания скорости, с которой будет двигаться переход. Зная длительность из свойства <samp class="sin">transition-duration</samp> у перехода может быть несколько скоростей в пределах одной длительности. Некоторые наиболее популярные значения ключевых слов для свойства <samp class="sin">transition-timing-function</samp> включают <samp class="lsin">linear</samp>, <samp class="lsin">ease-in</samp>, <samp class="lsin">ease-out</samp> и <samp class="lsin">ease-in-out</samp>.</p>
+
+	<p>Значение <samp class="lsin">linear</samp> определяет переход, движущийся в постоянной скоростью из одного состояния к другому. Значение <samp class="lsin">ease-in</samp> определяет переход, который начинается медленно и ускоряется на протяжении перехода, в то время как значение <samp class="lsin">ease-out</samp> определяет переход, который начинает быстро и замедляется в течение всего перехода. Значение <samp class="lsin">ease-in-out</samp> определяет переход, который начинается медленно, ускоряется в середине, а затем снова замедляется перед окончанием.</p>
+
+	<table class="t1 tb tt1 tc mt20 mb20">
+		<caption>Может принимать следующие значения:</caption>
+		<tr><td>ease</td><td>Анимация начинается медленно, затем ускоряется и к концу движения опять замедляется.
+			<br>Аналогично <pre><code>cubic-bezier(0.25,0.1,0.25,1)</code></pre></td></tr>
+		<tr><td>ease-in</td><td>Анимация медленно начинается, к концу ускоряется.
+			<br>Аналогично <pre><code>cubic-bezier(0.42,0,1,1)</code></pre></td></tr>
+		<tr><td>ease-out</td><td>Анимация начинается быстро, к концу замедляется.
+			<br>Аналогично <pre><code>cubic-bezier(0,0,0.58,1)</code></pre></td></tr>
+		<tr><td>ease-in-out</td><td>Анимация начинается и заканчивается медленно.
+			<br>Аналогично <pre><code>cubic-bezier(0.42,0,0.58,1)</code></pre></td></tr>
+		<tr><td>linear</td><td>Одинаковая скорость от начала и до конца.</td></tr>
+		<tr><td>step-start</td><td>Как таковой анимации нет. Стилевые свойства сразу же принимают конечное значение.</td></tr>
+		<tr><td>step-end</td><td>Как таковой анимации нет. Стилевые свойства находятся в начальном значении заданное время, затем сразу же принимают конечное значение.</td></tr>
+		<tr><td>steps</td><td>Ступенчатая функция, имеющая заданное число шагов.
+			<br><pre><code style="color:#009">animation-timing-function: steps(<число>, start | end);</code></pre>
+			<br>Здесь:
+			<br><samp><число></samp> - целое число больше нуля;
+			<br><samp>start</samp> - задаёт полунепрерывную снизу функцию;
+			<br><samp>end</samp> - задаёт полунепрерывную сверху функцию.
+			<pre class="item2"><code style="color:#009">animation-timing-function: steps(5, end);</code></pre>
+		</td></tr>
+		<tr><td>cubic-bezier</td><td>Задаёт функцию движения в виде кривой Безье
+			<br><pre><code>cubic-bezier(n,n,n,n);</code></pre></td></tr>
+	</table>
+
+	<p id="z3">Чтобы посмотреть результат действия разных значений, наведите курсор на поле ниже. Время эффекта перехода установлено как 3s.</p>
+
+	<style>
+		.animation-tf{border:1px solid #ccc; font-size:15px; padding:5px 10px; margin:5px auto 5px; width:80%}
+		.animation-tf .e{background:#fc0; box-sizing:border-box; width:200px; padding:4px 10px; margin:5px 0; transition:width 3s; overflow:hidden; line-height:15px; height:23px;}
+		.animation-tf:hover .e{width:100%}
+	</style>
+	<div class="animation-tf">
+		<div class="e" style="transition-timing-function:ease">ease</div>
+		<div class="e" style="transition-timing-function:ease-in">ease-in</div>
+		<div class="e" style="transition-timing-function:ease-out">ease-out</div>
+		<div class="e" style="transition-timing-function:ease-in-out">ease-in-out</div>
+		<div class="e" style="transition-timing-function:linear">linear</div>
+		<div class="e" style="transition-timing-function:step-start">step-start</div>
+		<div class="e" style="transition-timing-function:step-end">step-end</div>
+		<div class="e" style="transition-timing-function:steps(5, end)">steps(5, end)</div>
+		<div class="e" style="transition-timing-function:cubic-bezier(0.1, -0.6, 0.2, 0)">cubic-bezier(0.1, -0.6, 0.2, 0)</div></div>
+	</div>
+</div>
+
+
+
+<div class="item" id="z4">
+<h2 class="sin"><samp><a href="#">transition-delay</a></samp></h2>
+	<p>Кроме объявления свойства перехода, длительности и функции времени, вы можете также установить задержку через свойство <samp class="sin">transition-delay</samp>. Задержка задаёт значение времени, в секундах или миллисекундах, которое определяет, сколько времени переход должен ожидать перед выполнением. Как и со всеми другими свойствами перехода, чтобы задержать многочисленные переходы, каждая задержка может быть перечислена через запятую.</p>
+</div>
+
+
+
+<div class="item" id="z5">
+<h2 class="sin"><a href="#">Сокращённое свойство <samp>transition</samp></a></h2>
+	<p>Написание каждого свойства перехода по отдельности может напрягать, особенно с префиксами. К счастью, есть сокращённое свойство transition, способное поддерживать все эти разные свойства и значения. Используя одиночное значение transition, вы можете установить каждое значение перехода в следующем порядке:</p>
+	<ul class="list sin">
+		<li>transition-property</li>
+		<li>transition-duration</li>
+		<li>transition-timing-function</li>
+		<li>transition-delay</li>
+	</ul>
+	<div class="no">Не используйте запятые с этими значениями, если не желаете определить несколько переходов.</div>
+
+	<p>Чтобы задать несколько переходов сразу, установите каждую отдельную группу значений перехода, а затем используйте запятую, чтобы отделить каждую дополнительную группу значений.</p>
+
+	<pre class="item2"><code>.box {<br>  background: #2db34a;<br>  border-radius: 6px;<br>  transition: background .2s linear, border-radius 1s ease-in 1s;<br>}<br><br>.box:hover {<br>  color: #ff7b29;<br>  border-radius: 50%;<br>}</code></pre>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><title>Макет сайта на флексбоксах</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin">Макет сайта на флексбоксах</h2>
+
+	<style type="text/css">
+		.containe {width:700px; margin:0 auto;}
+		* {box-sizing:border-box;}
+		#main {display:flex; min-height:calc(80vh - 22vh);}
+		#main > article {flex:1; overflow-x:auto;} /* flex:1; - чтобы увеличивалось при наполнении */
+		#main > nav, 
+		#main > aside {flex:0 0 auto; background:beige;}
+		#main > nav {order:-1;}
+		header, footer, article, nav, aside {padding:1em;}
+		header, footer {background:yellowgreen; height:11vh;}
+		@media screen and (max-width:575px) {
+			#main {flex-direction:column;}}
+	</style>
+	<div id="container">
+		<header>Шапка</header>
+		<div id="main">
+			<article>
+				Статья
+				<div class="item2 br0">
+					<samp class="red point" onclick='pr1.classList.toggle("hiden");'>HTML</samp>
+					<div id="pr1" class="hiden" onclick="event.stopPropagation()">
+						<pre><code>&lt;body><br>  &lt;header>Шапка&lt;/header><br>  &lt;div id="main"><br>    &lt;article>Статья&lt;/article><br>    &lt;nav>Навигация&lt;/nav><br>    &lt;aside>Боковая панель&lt;/aside><br>  &lt;/div><br>  &lt;footer>Подвал&lt;/footer><br>&lt;/body></code></pre>
+						<br><samp class="red">CSS</samp>
+						<pre><code>body {margin:0;}<br>* {box-sizing:border-box;}<br>#main {display:flex; min-height:calc(100vh - 40vh);}<br>#main > article {flex:1; overflow-x:auto;}<br>#main > nav,<br>#main > aside {flex:0 0 auto; background:beige;}<br>#main > nav {order:-1;}<br>header, footer, article, nav, aside {padding:1em;}<br>header, footer {background:yellowgreen; height:11vh;}<br>@media screen and (max-width:575px) {<br>  #main {flex-direction:column;}}</code></pre>
+						<span class="yel point" onclick='pr1.classList.toggle("hiden");'>Свернуть</span>
+					</div>
+				</div>
+			</article>
+			<nav>Навигация</nav>
+			<aside>Боковая<br>панель</aside>
+		</div>
+		<footer>Подвал</footer>
+	</div>
+
+	<p class="mat">Флексбоксы идеально подходят для создания широко используемых макетов веб-сайтов, вроде трёхколоночного, так называемый макет «Святой Грааль», где все колонки должны занимать полную высоту, независимо от их содержимого. При этом в исходном коде основное содержимое идёт до навигации, а на самой странице основное содержимое идёт после навигации.</p>
+	<p>До появления флексбоксов такой макет было довольно трудно получить без использования каких-либо хаков. Разработчикам часто приходилось делать такие вещи, как добавление дополнительной разметки, применение отрицательных <samp class="sin">margin</samp> и другие трюки, чтобы всё правильно выстраивалось независимо от объёма содержимого или размера экрана. Но, как показывает приведённый выше пример, на флексбоксах всё получается гораздо проще.</p>
+	<p>В данном примере мы делаем элемент <samp class="red">#main</samp> флекс-контейнером, а шапку и подвал оставляем блочными элементами. Другими словами, флексбоксом становится только средняя часть.</p>
+	<p>Просто используем <samp class="sin">display:<samp class="lsin">flex</samp></samp>, чтобы сделать флекс-контейнер. Обратите внимание, мы также задаём значение <samp class="sin">min-height</samp> с помощью функции <samp class="red">calc()</samp> и устанавливаем <samp class="red">#main</samp> как <b>100% </b>от высоты области просмотра минус высота шапки и подвала (по <b>20vh</b> каждый). Это гарантирует, что макет будет занимать всю высоту экрана, даже если в нём мало содержимого. В итоге подвал никогда не поднимется и не оставит пустого пространства под ним, если содержимое занимает меньше высоты экрана.</p>
+	<div class="no">Вычисление <samp class="sin">min-height</samp> было достаточно простым, учитывая, что мы применили <samp class="sin">box-sizing:<samp class="lsin">border-box</samp></samp> ко всем элементам. Если бы мы этого не сделали, тогда нужно было бы добавить значение <b>padding</b> к сумме для вычитания.</div>
+	<p class="mat">Свойство <samp class="sin">flex</samp> является сокращением для свойств <samp class="sin">flex-grow</samp>, <samp class="sin">flex-shrink</samp> и <samp class="sin">flex-basis</samp>. В первом случае мы написали только одно значение, поэтому <samp class="sin">flex</samp> устанавливает свойство <samp class="sin">flex-grow</samp>. Во втором случае мы написали все три значения для <samp class="red">&lt;nav></samp> и <samp class="red">&lt;aside></samp>, чтобы установить нулевое значение <samp class="sin">flex-grow</samp>, нулевое значение <samp class="sin">flex-shrink</samp> и значение <samp class="lsin">20vw</samp> для <samp class="sin">flex-basis</samp>. Свойство <samp class="sin">flex-basis</samp> устанавливает исходный основной размер флекс-элемента до распределения свободного пространства. Таким образом, мы просто устанавливаем ширину <samp class="red">&lt;nav></samp> и <samp class="red">&lt;aside></samp>, а также их цвет фона.</p>
+
+</div><!-- /item -->
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><title>&lt;marquee></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h1 class="sin" style="margin:0"><samp>&lt;marquee></samp></h1>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li>
+				<a href="#z0">Атрибуты</a>
+				<div class="ogl2 ogl21">
+					<span><a href="#behavior"><samp title="Задаёт тип движения содержимого">behavior</samp></a></span>
+					<span><a href="#bgcolor"><samp title="Цвет фона">bgcolor</samp></a></span>
+					<span><a href="#direction"><samp title="Указывает направление движения содержимого">direction</samp></a></span>
+					<span><a href="#height"><samp title="Высота области прокрутки">height</samp></a></span>
+					<span><a href="#hspace"><samp title="Горизонтальные поля вокруг контента">hspace</samp></a></span>
+					<span><a href="#loop"><samp title="Задаёт, сколько раз будет прокручиваться содержимое">loop</samp></a></span>
+					<span><a href="#scrollamount"><samp title="Скорость движения контента">scrollamount</samp></a></span>
+					<span><a href="#scrolldelay"><samp title="Величина задержки между движениями">scrolldelay</samp></a></span>
+					<span><a href="#truespeed"><samp title="Отменяет встроенный ограничитель скорости">truespeed</samp></a></span>
+					<span><a href="#vspace"><samp title="Вертикальные поля вокруг содержимого">vspace</samp></a></span>
+					<span><a href="#width"><samp title="Ширина области прокрутки">width</samp></a></span>
+					<span></span>
+				</div>
+			</li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;marquee></samp> создаёт бегущую строку на странице. На самом деле содержимое контейнера <samp class="red">&lt;marquee></samp> не ограничивается строками и позволяет перемещать (скролировать) любые элементы веб-страницы — изображения, текст, таблицы, элементы форм и т. д. Перемещение можно задать не только по горизонтали, но и по вертикали, в этом случае указываются размеры области, в которой будет происходить движение.</p>
+	<p>В качестве альтернативы <samp class="red">&lt;marquee></samp> применяется стилевое свойство <samp class="sin tdu"><a href="../../animation/index.html">animation</a></samp>.</p>
+	<div class="no">Это нестандартный элемент (но поддерживается всеми браузерами), взамен него используйте стили.</div>
+
+	<pre class="item2 mt40"><code>&lt;marquee behavior="alternate" direction="left" bgcolor=""> ... &lt;/marquee></code></pre>
+
+	<marquee behavior="alternate" direction="left" bgcolor="#ffcc00" style="padding:10px">Атомистика контролирует трансцендентальный катарсис.</marquee>
+</div>
+
+
+<div class="item" id="z0">
+	<h2 class="sin">Атрибуты</h2>
+	<table class="t1 t2 tbr todd mt20">
+		<tr><td width="120px"><a href="#behavior">behavior</a></td><td>Задаёт тип движения содержимого</td></tr>
+		<tr><td><a href="#bgcolor">bgcolor</a></td><td>Цвет фона</td></tr>
+		<tr><td><a href="#direction">direction</a></td><td>Указывает направление движения содержимого</td></tr>
+		<tr><td><a href="#height">height</a></td><td>Высота области прокрутки</td></tr>
+		<tr><td><a href="#hspace">hspace</a></td><td>Горизонтальные поля вокруг контента</td></tr>
+		<tr><td><a href="#loop">loop</a></td><td>Задаёт, сколько раз будет прокручиваться содержимое</td></tr>
+		<tr><td><a href="#scrollamount">scrollamount</a></td><td>Скорость движения контента</td></tr>
+		<tr><td><a href="#scrolldelay">scrolldelay</a></td><td>Величина задержки между движениями</td></tr>
+		<tr><td><a href="#truespeed">truespeed</a></td><td>Отменяет встроенный ограничитель скорости</td></tr>
+		<tr><td><a href="#vspace">vspace</a></td><td>Вертикальные поля вокруг содержимого</td></tr>
+		<tr><td><a href="#width">width</a></td><td>Ширина области прокрутки</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="behavior">
+<h2 class="sin"><samp><a href="#z0">behavior</a></samp></h2>
+	<p>Устанавливает способ движения содержимого внутри элемента <samp class="red">&lt;marquee></samp>. Значние по умолчанию - <samp><b>scroll</b></samp></p>
+	<pre class="item2"><code>&lt;marquee behavior="alternate | scroll | slide">...&lt;/marquee></code></pre>
+
+	<div class="mt20 ls1 bold">Значения:</div>
+	<table class="t1">
+		<tr><td>alternate</td><td>Контент перемещается между правым и левым краями элемента.</td></tr>
+		<tr><td>scroll</td><td>Контент перемещается в направлении, заданным атрибутом <b>direction</b>, затем скрывается за пределами области, после чего начинает движение с начала.</td></tr>
+		<tr><td>slide</td><td>Контент перемещается в направлении, заданным атрибутом <b>direction</b>, доходит до края области и останавливается.</td></tr>
+	</table>
+	<marquee bgcolor="#eee" behavior="alternate">Lorem ipsum dolor sit amet... <b>behavior="alternate"</b></marquee>
+	<marquee bgcolor="#eee" behavior="scroll">Lorem ipsum dolor sit amet... <b>behavior="scroll"</b></marquee>
+	<marquee bgcolor="#eee" behavior="slide">Lorem ipsum dolor sit amet... <b>behavior="slide"</b></marquee> 
+</div>
+
+
+<div class="item" id="bgcolor">
+<h2 class="sin"><samp><a href="#z0">bgcolor</a></samp></h2>
+	<p>Устанавливает цвет фона под содержимым элемента <samp class="red">&lt;marquee></samp>. Значение по умолчанию - cовпадает с цветом фона веб-страницы, обычно это белый цвет.</p>
+	<pre class="item2"><code>&lt;marquee bgcolor="<цвет>">...&lt;/marquee></code></pre>
+</div>
+
+
+<div class="item" id="direction">
+<h2 class="sin"><samp><a href="#z0">direction</a></samp></h2>
+	<p>Содержимое контейнера <samp class="red">&lt;marquee></samp> может перемещаться в четырёх направлениях, не только влево и вправо, но также вверх и вниз. Напрпавление определяестя значением свойства <b>direction</b>. Значение по умолчанию - <b>left</b></p>
+	<pre class="item2"><code>&lt;marquee direction="down | left | right | up">...&lt;/marquee></code></pre>
+	<table class="t1 t3 t0">
+		<tr><td>down</td><td>Движение сверху вниз.</td></tr>
+		<tr><td>left</td><td>Движение справа налево.</td></tr>
+		<tr><td>right</td><td>Движение в правую сторону.</td></tr>
+		<tr><td>up</td><td>Движение вверх.</td></tr>
+	</table>
+	<marquee direction="down" bgcolor="#ffcc00" style="padding:10px">Оно приближается... direction="down"</marquee>
+</div>
+
+
+<div class="item" id="height">
+<h2 class="sin"><samp><a href="#z0">height</a></samp></h2>
+	<p>Элемент <samp class="red">&lt;marquee></samp> отображается как прямоугольник, ширина и высота которого устанавливаются, соответственно, с помощью атрибутов <b>width</b> и <b>height</b>. Прокрутка содержимого происходит в пределах заданных размеров.</p>
+	<p>Допускается использовать значения в пикселях или процентах. Если установлена процентная запись, то размеры <samp class="red">&lt;marquee></samp> вычисляются относительно родительского элемента.</p>
+	<pre class="item2"><code>&lt;marquee height="<значение>">...&lt;/marquee></code></pre>
+	<marquee width="600" height="50" direction="up" bgcolor="olive" style="text-align:center; color:#fff">Компульсивность вероятна...  height="50"</marquee>
+</div>
+
+
+<div class="item" id="hspace">
+<h2 class="sin"><samp><a href="#z0">hspace</a></samp></h2>
+	<p>Атрибуты <b>hspace</b> и <b>vspace</b> предназначены для добавления пустого пространства вокруг содержимого <samp class="red">&lt;marquee></samp>. <b>hspace</b> устанавливает поля слева и справа от элемента (по горизонтали), а <b>vspace</b> — сверху и снизу (по вертикали). В качестве значения используется любое целое положительное число в пикселях.</p>
+	<p>Поля не увеличивают фоновую область под содержимым и служат для изменения расстояния между <samp class="red">&lt;marquee></samp> и другими элементами веб-страницы - что-то вроде <samp class="sin">margin</samp>.</p>
+	<pre class="item2"><code>&lt;marquee hspace="<число>">...&lt;/marquee></code></pre>
+	<marquee height="50" hspace="100" vspace="10" bgcolor="#eee">Компульсивность вероятна... hspace="100" vspace="10"</marquee>
+</div>
+
+
+<div class="item" id="loop">
+<h2 class="sin"><samp><a href="#z0">loop</a></samp></h2>
+	<p>Устанавливает, сколько раз скролировать содержимое элемента <samp class="red">&lt;marquee></samp>. После того, как заданное число раз отсчитано, содержимое остаётся в конечной точке.</p>
+	<p>Значения - любое целое положительное число или <b>-1</b> для бесконечного воспроизведения движения. Значение по умолчанию -1.</p>
+	<pre class="item2"><code>&lt;marquee loop="<число>">...&lt;/marquee></code></pre>
+</div>
+
+
+<div class="item" id="scrollamount">
+<h2 class="sin"><samp><a href="#z0">scrollamount</a></samp></h2>
+	<p>Анимация содержимого элемента <samp class="red">&lt;marquee></samp> происходит за счёт периодического стирания информации и отображения её на новом месте. Атрибут <b>scrollamount</b> устанавливает расстояние в пикселях между старым и новым положениями, которые влияют на скорость движения и плавность хода. Чем выше значение, тем быстрее перемещается содержимое контейнера. Если значение равно нулю, то движения не происходит.</p>
+	<p>Значения - любое целое положительное число в пикселях. Значение по умолчанию -<b>6</b>.</p>
+	<pre class="item2"><code>&lt;marquee scrollamount="<число>">...&lt;/marquee></code></pre>
+	<marquee scrollamount="1" behavior="alternate">Компульсивность вероятна... scrollamount="1"</marquee>
+	<marquee scrollamount="10" behavior="alternate">Компульсивность вероятна... scrollamount="10"</marquee>
+	<marquee scrollamount="20" behavior="alternate">Компульсивность вероятна... scrollamount="20"</marquee>
+</div>
+
+
+<div class="item" id="scrolldelay">
+<h2 class="sin"><samp><a href="#z0">scrolldelay</a></samp></h2>
+	<p>На скорость скролирования содержимого <samp class="red">&lt;marquee></samp>, как и изменение позиции, влияет частота обновления содержания. Атрибут <b>scrolldelay</b> задаёт время задержки между движениями в миллисекундах, чем ниже значение, тем выше скорость движения, и наоборот.</p>
+	<p>Значения - любое целое положительное число миллисекунд. Значение по умолчанию: <b>85</b>.</p>
+	<pre class="item2"><code>&lt;marquee scrolldelay="<число>">...&lt;/marquee></code></pre>
+	<marquee scrolldelay="50" scrollamount="6">Компульсивность вероятна... scrolldelay="50"</marquee>
+	<marquee scrolldelay="100" scrollamount="6">Компульсивность вероятна... scrolldelay="100"</marquee>
+</div>
+
+
+<div class="item" id="truespeed">
+<h2 class="sin"><samp><a href="#z0">truespeed</a></samp></h2>
+	<p>Если содержимое <samp class="red">&lt;marquee></samp> перемещается слишком быстро, то срабатывает встроенный ограничитель скорости, который насильно замедляет скролирование. Это сделано для того, чтобы сохранить читабельность текста. Если вы намерены обойти это ограничение, добавьте атрибут <b>truespeed</b>, он заставляет прокручиваться содержимое с заданной скоростью. По умолчанию этот атрибут выключен.</p>
+	<p>Для атрибута <b>scrolldelay</b> ограничение скорости начинается со значения <b>60</b> миллисекунд и ниже.</p>
+	<div class="no">Поддерживается только в <samp class="sin">IE</samp> и <samp class="red">Ffox</samp></div>
+	<pre class="item2"><code>&lt;marquee truespeed>...&lt;/marquee></code></pre>
+</div>
+
+
+<div class="item" id="vspace">
+<h2 class="sin"><samp><a href="#z0">vspace</a></samp></h2>
+	<p>Атрибуты <b>hspace</b> и <b>vspace</b> предназначены для добавления пустого пространства вокруг содержимого <samp class="red">&lt;marquee></samp>. <b>hspace</b> устанавливает поля слева и справа от элемента (по горизонтали), а <b>vspace</b> — сверху и снизу (по вертикали). В качестве значения используется любое целое положительное число в пикселях.</p>
+	<p>Поля не увеличивают фоновую область под содержимым и служат для изменения расстояния между <samp class="red">&lt;marquee></samp> и другими элементами веб-страницы - что-то вроде <samp><b>margin</b></samp>.</p>
+	<pre class="item2"><code>&lt;marquee vspace="<число>">...&lt;/marquee></code></pre>
+</div>
+
+
+<div class="item" id="width">
+<h2 class="sin"><samp><a href="#z0">width</a></samp></h2>
+	<p>Элемент <samp class="red">&lt;marquee></samp> отображается как прямоугольник, ширина и высота которого устанавливаются, соответственно, с помощью атрибутов <b>width</b> и <b>height</b>. Прокрутка содержимого происходит в пределах заданных размеров.</p>
+	<p>Допускается использовать значения в пикселях или процентах. Если установлена процентная запись, то размеры <samp class="red">&lt;marquee></samp> вычисляются относительно родительского элемента.</p>
+	<pre class="item2"><code>&lt;marquee width="<значение>">...&lt;/marquee></code></pre>
+</div>
+
+</body>
+</html>

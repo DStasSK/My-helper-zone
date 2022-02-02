@@ -1,0 +1,183 @@
+<!DOCTYPE html><html><head><title>direction</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.fc{display:flex; justify-content:center; margin-bottom:20px;}
+
+	.box1{width:250px; padding:10px; margin:0 20px; display:inline-block; background-color:#fc6;}
+	.title1{font-size:20px; font-weight:bold; text-align:center; margin-bottom:20px;}
+	.ltr{direction:ltr;}
+	.rtl{direction:rtl;}
+
+	.tt1 {font-size:18px; display:inline; margin:0 20px; border-collapse:collapse;}
+	.tt1 caption {font-size:22px; font-weight:bold; margin:0 0 5px 0;}
+	.tt1 td {padding:4px; border:1px solid black; text-align:center; background-color:#f1e1e1;}
+	.tt2 td:nth-child(1) {text-align:center}
+	.tt3 td:nth-child(1) {font-weight:400 !important;}
+
+	.box2{width:150px; height:100px; padding:8px; margin:0 20px;
+		overflow-y:scroll; display:inline-block; background-color:#d5d5d5;}
+	.title2{font-size:20px; font-weight:bold; text-align:center;}
+	ol{margin:0;}
+
+	.hh{position:relative; height:0; line-height:0; font-size:15px}
+	.hh span{position:absolute; font-family:monospace; display:block; top:-10px;}
+	.hh span:nth-child(1) {left:calc(50% - 220px);}
+	.hh span:nth-child(2) {left:calc(50% + 120px)}
+</style>
+</head>
+<body>
+
+<h1 class="sin" id="z1">direction</h1>
+	<div class="hh">
+		<span><a href="#z2">&darr; unicode-bidi</a></span>
+		<span style="margin-left:-20px"><a href="#z3">&darr;&darr; &lt;<samp style="color:red">bdo</samp>></a></span>
+	</div>
+<div class="item">
+	<p>В тех случаях, когда запись текста задаётся в другом направлении, например, если используется арабский алфавит, для соответствующего порядка символов с помощью свойства <span class="sin">direction</span> можно изменить параметры положения элементов.</p>
+	<p>Свойство <span class="sin">direction</span> так же позволяет изменять позицию полосы прокрутки в блоке и порядок колонок в таблице.</p>
+	<div class="item2">
+		<p style="margin:0;">Направление, соответствующее параметру <span class="lsin">ltr</span> задано по умолчанию и назначается в тех случаях, когда основное содержимое имеет направление справа налево и нужно отобразить часть материала слева на право.</p>
+	</div>
+	<p>Для использования со встроенными элементами, значение свойства <samp class="sin">unicode-bidi</samp> должно быть задано как <samp class="lsin">embed</samp> или <samp class="lsin">bidi-override</samp>.</p>
+	<p>Значение по умолчанию <samp class="lsin">ltr</samp>.</p>
+
+	<div><b>Синтаксис:</b></div>
+	<pre class="item2 css"><code>div {<br>  direction: ltr; /*  rtl  */<br>}</code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Свойство direction меняет способ отображения текста в блоке с помощью параметров ltr и rtl.</h3>
+	<div class="fc">
+		<div class="box1 ltr">
+			<div class="title1">ltr</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ex arcu, accumsan accumsan auctor tristique, scelerisque.
+		</div>
+		<div class="box1 rtl">
+			<div class="title1">rtl</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ex arcu, accumsan accumsan auctor tristique, scelerisque.
+		</div>
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='p1.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="p1" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="box1 ltr1"&gt;<br>  &lt;div class="title1"&gt;ltr&lt;/div&gt;<br>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec<br>  ex arcu, accumsan accumsan auctor tristique, scelerisque.<br>&lt;/div&gt;<br><br>&lt;div class="box1 rtl1"&gt;<br>  &lt;div class="title1"&gt;rtl&lt;/div&gt;<br>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec<br>  ex arcu, accumsan accumsan auctor tristique, scelerisque.<br>&lt;/div&gt;</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.box1 {<br>  width:140px;<br>  padding:20px; margin:0 20px;<br>  display:inline-block;<br>  background-color:#fC0;}<br>.title1 {<br>  font-size:20px; font-weight:bold;<br>  text-align:center;<br>  margin-bottom:20px;}<br>.ltr1 {direction: ltr;}<br>.rtl1 {direction: rtl;}</code></pre>
+			<span class="yel point" onclick='p1.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">С помощью свойства direction изменяется порядок колонок в таблице.</h3>
+	<div class="fc">
+		<table class="ltr tt1">
+			<caption>ltr</caption>
+			<tr><td>Наименование</td><td>Цена</td><td>Вес</td></tr>
+			<tr><td>Товар 1</td><td>100р.</td><td>20 кг.</td></tr>
+			<tr><td>Товар 2</td><td>120р.</td><td>25 кг.</td></tr>
+			<tr><td>Товар 3</td><td>180р.</td><td>40 кг.</td></tr>
+		</table>
+
+		<table class="rtl tt1">
+			<caption>rtl</caption>
+			<tr><td>Наименование</td><td>Цена</td><td>Вес</td></tr>
+			<tr><td>Товар 1</td><td>100р.</td><td>20 кг.</td></tr>
+			<tr><td>Товар 2</td><td>120р.</td><td>25 кг.</td></tr>
+			<tr><td>Товар 3</td><td>180р.</td><td>40 кг.</td></tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='p2.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="p2" onclick="event.stopPropagation()">
+			<pre><code>&lt;table class="ltr"><br>  &lt;caption>ltr&lt;/caption><br>  &lt;tr>&lt;td>Наименование&lt;/td>&lt;td>Цена&lt;/td>&lt;td>Вес&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Товар 1&lt;/td>&lt;td>100р.&lt;/td>&lt;td>20 кг.&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Товар 2&lt;/td>&lt;td>120р.&lt;/td>&lt;td>25 кг.&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Товар 3&lt;/td>&lt;td>180р.&lt;/td>&lt;td>40 кг.&lt;/td>&lt;/tr><br>&lt;/table><br>&lt;table class="rtl"><br>  &lt;caption>rtl&lt;/caption><br>  &lt;tr>&lt;td>Наименование&lt;/td>&lt;td>Цена&lt;/td>&lt;td>Вес&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Товар 1&lt;/td>&lt;td>100р.&lt;/td>&lt;td>20 кг.&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Товар 2&lt;/td>&lt;td>120р.&lt;/td>&lt;td>25 кг.&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Товар 3&lt;/td>&lt;td>180р.&lt;/td>&lt;td>40 кг.&lt;/td>&lt;/tr><br>&lt;/table></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.ltr {direction:ltr;}<br>.rtl {direction:rtl;}<br>table {<br>  font-size:18px;<br>  display:inline;<br>  margin:0 20px;<br>  border-collapse:collapse;}<br>caption {<br>  font-size:22px;<br>  font-weight:bold;<br>  margin:0 0 5px 0;}<br>td {padding:4px; border:1px solid black;}</code></pre>
+			<span class="yel point" onclick='p2.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Свойство direction позволяет изменять позицию полосы прокрутки в блоке.</h3>
+	<div class="fc">
+		<div class="box2 ltr">
+			<div class="title2">ltr</div>
+			<ol>
+				<li>Первый</li><li>Второй</li><li>Третий</li><li>Четвертый</li><li>Пятый</li><li>Шестой</li>
+			</ol>
+		</div>
+		<div class="box2 rtl">
+			<div class="title2">rtl</div>
+			<ol>
+				<li>Первый</li><li>Второй</li><li>Третий</li><li>Четвертый</li><li>Пятый</li><li>Шестой</li>
+			</ol>
+		</div>
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='p3.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="p3" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="box2 ltr"><br>  &lt;div class="title2">ltr&lt;/div><br>  &lt;ol><br>    &lt;li>Первый&lt;/li><br>    &lt;li>Второй &lt;/li><br>    &lt;li>Третий&lt;/li><br>    &lt;li>Четвертый&lt;/li><br>    &lt;li>Пятый&lt;/li><br>    &lt;li>Шестой&lt;/li><br>  &lt;/ol><br>&lt;/div><br>&lt;div class="box2 rtl"><br>  &lt;div class="title2">rtl&lt;/div><br>  &lt;ol><br>    &lt;li>Первый&lt;/li><br>    &lt;li>Второй &lt;/li><br>    &lt;li>Третий&lt;/li><br>    &lt;li>Четвертый&lt;/li><br>    &lt;li>Пятый&lt;/li><br>    &lt;li>Шестой&lt;/li><br>  &lt;/ol><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.box2 {<br>  width:150px; height:100px;<br>  padding:8px; margin:0 20px;<br>  overflow-y:scroll;<br>  display:inline-block;<br>  background-color:#d5d5d5;}<br>.title2 {<br>  font-size:20px; font-weight:bold;<br>  text-align:center;<br>  margin-bottom:20px;}</code></pre>
+			<span class="yel point" onclick='p3.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+<h1 class="sin" style="margin-top:50px" id="z2">unicode-bidi</h1>
+	<div class="hh">
+		<span style="margin-left:40px"><a href="#z3">&darr; &lt;<samp style="color:red">bdo</samp>></a></span>
+		<span><a href="#z1">&uarr; direction</a></span>
+	</div>
+<div class="item">
+	<p>В европейских языках чтение текста происходит слева направо, в то время как есть языки, где текст читается справа налево. При смешении в одном документе разных по написанию символов (русского с ивритом, к примеру) в системе юникод, их направление определяется браузером из характеристик и содержимого текста. Свойства <samp class="sin">unicode-bidi</samp> и <samp class="sin">direction</samp> задают, как должен располагаться текст используемого языка.</p>
+	<p>Значение по умолчанию <samp class="lsin">normal</samp>, не наследуется, применяется ко всем элементам.</p>
+
+	<table class="t1 tc tb tt2 mb20">
+		<caption>Значения:</caption>
+		<tr><td width="130px">normal</td><td>Браузер самостоятельно определяет, как ему следует отображать текст на основе символов юникода.</td></tr>
+		<tr><td>embed</td><td>Переопределяет параметры текста, располагая его, как указано в свойстве <b>direction</b>.</td></tr>
+		<tr><td>bidi-override</td><td>Аналогичен <b>embed</b>, но при этом также меняется порядок символов в тексте, подчиняясь значению <b>direction</b>.</td></tr>
+	</table>
+
+	<table class="t1 tc tb tt3 mt20">
+		<caption>Примеры текста:</caption>
+		<tr><td width="245px"><pre><code>div {<br> direction: rtl;<br> unicode-bidi: normal;<br>}</code></pre></td>
+			<td><div style="unicode-bidi: normal;">Браузер самостоятельно определяет, как ему следует отображать текст на основе символов юникода.</div></td></tr>
+		<tr><td><pre><code>div {<br> direction: rtl;<br> unicode-bidi: embed;<br>}</code></pre></td>
+			<td><div style="unicode-bidi: embed;">Переопределяет параметры текста, располагая его, как указано в свойстве <b>direction</b>.</div></td></tr>
+		<tr><td><pre><code>div {<br> direction: rtl;<br> unicode-bidi: bidi-override;<br>}</code></pre></td>
+			<td><div style="unicode-bidi: bidi-override;">Аналогичен <b>embed</b>, но при этом также меняется порядок символов в тексте, подчиняясь значению <b>direction</b>.</div></td></tr>
+	</table>
+</div>
+
+
+
+<h1 class="sin" style="margin-top:50px" id="z3"><pre style="font-size:20px"><code>&lt;bdo dir="rtl"></code></pre></h1>
+	<div class="hh">
+		<span style="margin-left:-20px"><a href="#z2">&uarr; unicode-bidi</a></span>
+		<span><a href="#z1">&uarr;&uarr; direction</a></span>
+	</div>
+<div class="item">
+	<p>Элемент <samp class="red tdu"><a href="../help/HTML help.html#bdo">&lt;bdo></a></samp> (<i>от англ. bidirectional override — переопределение двунаправленности</i>) устанавливает направление вывода текста и преимущественно предназначен для использования с языками, где чтение происходит справа налево. Например, к ним относится арабский язык.</p>
+	<div><b>Синтаксис:</b></div>
+	<pre class="item2"><code>&lt;bdo dir="rtl">Текст&lt;/bdo><br><br><bdo dir="rtl">А роза упала на лапу Азора.</bdo><br>&lt;bdo dir="rtl">А роза упала на лапу Азора.&lt;/bdo></code></pre>
+</div>
+</body>
+</html>

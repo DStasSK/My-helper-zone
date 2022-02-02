@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>justify-content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 caption {font-size:24px; font-weight:700; letter-spacing:1px}
+	.t1 td:nth-child(1) {width:90px}
+	.t1 td:nth-child(2) {width:90px}
+	.box {display:flex; width:80px; height:72px; margin:0 auto; outline:1px solid #ddd;
+		line-height:14px; box-sizing:border-box; background-color:#ddd; text-align:center;
+		font-size:14px; color:#fff;}
+	.box div {margin:2px; background-color:rgb(100, 84, 195); padding:2px 2px;}
+	.jcfs {justify-content:flex-start;}
+	.jcc {justify-content:center;}
+	.jcfe {justify-content:flex-end;}
+	.jcsb {justify-content:space-between;}
+	.jcsa {justify-content:space-around;}
+	.jcse {justify-content:space-evenly;}
+</style>
+</head>
+<body>
+<h2 class="sin">justify-content</h2>
+
+<div class="item">
+	<p>Определяет, как браузер распределяет пространство вокруг флекс-элементов вдоль главной оси контейнера. Это делается после того, как применяются размеры и автоматические отступы, за исключением ситуации, когда по крайней мере у одного элемента <samp class="sin">flex-grow</samp> больше нуля. При этом не остаётся никакого свободного пространства для манипулирования. Применяется к флекс-контейнеру, не наследуется, не анимируется. Значение по умолчанию: <samp class="lsin">flex-start</samp>.</p>
+
+	<pre class="item2 css"><code>.fl {justify-content: flex-start | flex-end | center | space-between<br>                      space-around | space-evenly }</code></pre>
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-justify-content</samp></div>
+
+	<table class="t1 t3 th1 tcc tb">
+		<caption>Параметры</caption>
+		<tr><th>Значение</th><th>Положение</th><th>Описание</th></tr>
+		<tr><td>flex-start</td>
+			<td><div class="box jcfs"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Флексы прижаты к началу строки.</td></tr>
+		<tr><td>center</td>
+			<td><div class="box jcc"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Флексы выравниваются по центру строки.</td></tr>
+		<tr><td>flex-end</td>
+			<td><div class="box jcfe"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Флексы прижаты к концу строки.</td></tr>
+		<tr><td>space-between</td>
+			<td><div class="box jcsb"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Флексы равномерно распределяются по всей строке. Первый и последний элемент прижимаются к соответствующим краям контейнера.</td></tr>
+		<tr><td>space-around</td>
+			<td><div class="box jcsa"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Флексы равномерно распределяются по всей строке. Пустое пространство перед первым и после последнего элементов равно половине пространства между двумя соседними элементами.</td></tr>
+		<tr><td>space-evenly</td>
+			<td><div class="box jcse"><div>1</div><div>2</div><div>3</div></div></td>
+			<td>Флексы распределяются так, что расстояние между любыми двумя соседними элементами, а также перед первым и после последнего, было одинаковым.</td></tr>
+	</table>
+</div>
+</body></html>

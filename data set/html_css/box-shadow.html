@@ -1,0 +1,222 @@
+<!DOCTYPE html><html><head><title>box-shadow</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.box{width:240px;height:80px;background-color:Teal;display:inline-block; padding:16px 5px;border-radius:10px;}
+	.tbox{width:320px;height:160px;}
+
+	.b1{box-shadow:10px 10px 10px rgba(5,5,5,1.0);}
+	.b2{box-shadow:20px -20px 0px #700070;}
+	.b3{box-shadow:0 0 0 5px rgba(5,5,5,.8);}
+	.b4{box-shadow:0px 0px 30px red, 0 0 50px yellow;}
+	.b5{box-shadow:inset 10px 10px 0px #700070;}
+	.b6{box-shadow:10px 0px 0px #700070, 0px 10px 0px #f00070, -10px 10px 0px green;}
+	.b7{box-shadow:inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);border-radius:0;background:#e6e3df;padding:0 5px;height:112px;color:black;}
+	.b8{box-shadow:0 10px 0 #3C93D5;transition:.3s;background:#55acee;}
+	.b8:hover{background:#6FC6FF;}
+	.b9{background:white;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);border-radius:0;color:black;}
+	.b10{position:relative;top:0;left:0;transition:.2s linear;}
+	.b10:hover{top:-8px;left:-8px;box-shadow: 2px 2px white, 4px 4px Teal,6px 6px white, 8px 8px Teal;}
+	.b11:hover{box-shadow: 0 0 0 2px white, 0 0 0 4px Teal;transition:.2s linear;}
+	.b12:hover{box-shadow: 250px 0 0 0 rgba(0,0,0,.3) inset;transition:.2s linear;}
+
+	.tva{vertical-align:top;}
+	.s16{font-size:16px;}
+
+	.box-1 {width:300px;height:150px; margin:10px auto;
+		background:url(img/box-shadow-syntax.png);background-size:100% 100%;
+		transform: scale(1); box-shadow: 0 0 5px 5px rgba(34, 60, 80, 0.2);
+		transition: box-shadow 0.5s, transform 0.5s, margin 0.5s;}
+	.box-1:hover {margin:26px auto; transform:scale(1.2);
+		box-shadow:0 0 15px 7px rgba(34, 60, 80, 0.25);
+		transition:box-shadow 0.5s, transform 0.5s, margin 0.5s;}
+
+	.box-2 {width:200px; height:150px; margin:40px auto; background-color:#ddd;
+		transform:translateY(0); transition:transform 1s;}
+
+	.box-2::after {content:""; display:block; position:absolute; bottom:-30px; left: 50%;
+		height: 8px; width: 100%;
+		box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+		border-radius: 50%;
+		background-color: rgba(0, 0, 0, 0.2);
+		transform:translate(-50%, 0); transition:transform 1s;}
+
+	.box-2:hover {transform: translateY(-40px); transition: transform 1s;}
+	.box-2:hover::after {transform: translate(-50%, 40px) scale(0.75); transition: transform 1s;}
+
+	.box-3__wrapper {filter: drop-shadow(-1px 6px 3px rgba(34, 60, 80, 0.2));
+		display:flex; justify-content:center; align-items:center;
+		width:300px; margin:10px auto 20px auto;}
+
+	.box-3 {clip-path: polygon(30px 0%, 100% 0%, 100% 100%, 30px 100%, 0 50%);
+		background-color:#eef; font-size:40px; padding:40px 50px;}
+
+	.rotate-shadows {width:220px; height:220px; position:relative; margin:10px auto}
+	.rotate-shadows:after,
+	.rotate-shadows:before {content:"";border-radius:50%;position:absolute;top:0;left:0;
+		width:100%;height:100%;transform-origin:center center;}
+
+	.rotate-shadows:before {
+		box-shadow:inset 0 20px 0 rgba(0, 250, 250, 0.6), inset 20px 0 0 rgba(0, 200, 200, 0.6),
+				   inset 0 -20px 0 rgba(0, 150, 200, 0.6), inset -20px 0 0 rgba(0, 200, 250, 0.6);
+		animation: rotate-before 2s -0.5s linear infinite;}
+
+	.rotate-shadows:after {
+		box-shadow: inset 0 20px 0 rgba(250, 250, 0, 0.6), inset 20px 0 0 rgba(250, 200, 0, 0.6),
+				    inset 0 -20px 0 rgba(250, 150, 0, 0.6), inset -20px 0 0 rgba(250, 100, 0, 0.6);
+		animation: rotate-after 2s -0.5s linear infinite;}
+
+	@keyframes rotate-after {
+		0% {transform: rotateZ(0deg) scaleX(1) scaleY(1);}
+		50% {transform: rotateZ(180deg) scaleX(0.82) scaleY(0.95);}
+		100% {transform: rotateZ(360deg) scaleX(1) scaleY(1);}}
+	@keyframes rotate-before {
+		0% {transform: rotateZ(0deg) scaleX(1) scaleY(1);}
+		50% {transform: rotateZ(-180deg) scaleX(0.95) scaleY(0.85);}
+		100% {transform: rotateZ(-360deg) scaleX(1) scaleY(1);}}
+</style></head>
+<body>
+
+<h2 class="sin"><samp>box-shadow</samp></h2>
+
+<div class="item">
+	<table>
+		<tr class="tva"><td><pre>Поддержка браузерами <i style="color:#666; font-weight:700;"><br>IE: 9.0<br>Edge: 12.0<br>Firefox: 4.0, 3.5 -moz-<br>Chrome: 10.0, 4.0 -webkit-<br>Safari: 5.1, 3.1 -webkit-<br>Opera: 11.5<br>iOS Safari: 5.1, 3.1 -webkit-<br>Android Browser: 4.0, 2.1 -webkit-</i></pre></td>
+		<td><img src="img/box-shadow-syntax.png" width="100%"></td></tr>
+	</table>
+
+	<p>Добавляет тень к элементу. Допускается использовать несколько теней, указывая их параметры через запятую, при наложении теней первая тень в списке будет выше, последняя ниже.</p>
+	<p>Если для элемента задается радиус скругления через свойство <a href="border-radius-css.html"><samp class="sin tdu">border-radius</samp></a>, то тень также получится с закруглёнными уголками.</p>
+	<p>Добавление тени увеличивает ширину элемента, поэтому возможно появление горизонтальной полосы прокрутки в браузере.</p>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Синтаксис</h3>
+	<div class="item2 mt20 mb20">
+		<samp><span class="red">box-shadow:</span> none | <span class="sin"><тень></span> [,<span class="sin"><тень></span>]*</samp>
+	</div>
+
+	<table class="t1 t3 tb">
+		<tr><td width="115px">none</td>
+			<td>отменяет добавление тени.</td></tr>
+		<tr><td><тень>:</td>
+			<td><samp class="lsin s16">inset <сдвиг по x> <сдвиг по y> <размытие> <растяжение> <цвет></samp></td></tr>
+		<tr><td>inset</td>
+			<td>тень выводится внутри элемента.</td></tr>
+		<tr><td class="ls-05"><сдвиг по x></td>
+			<td><span class="red">Обязательный параметр.</span> Смещение тени по горизонтали относительно элемента. Положительное значение этого параметра задает сдвиг тени вправо, отрицательное - влево.</td></tr>
+		<tr><td class="ls-05"><сдвиг по y></td>
+			<td><span class="red">Обязательный параметр.</span> Смещение тени по вертикали относительно элемента. Положительное значение задаёт сдвиг тени вниз, отрицательное - вверх.</td></tr>
+		<tr><td><размытие></td>
+			<td>Задаёт радиус размытия тени. Чем больше это значение, тем сильнее тень сглаживается, становится шире и светлее. Если этот параметр не задан, по умолчанию устанавливается равным <span class="sin">0</span>, тень при этом будет чёткой, а не размытой.</td></tr>
+		<tr><td class="ls-05"><растяжение></td>
+			<td>Положительное значение растягивает тень, отрицательное, наоборот, её сжимает. Если этот параметр не задан, по умолчанию устанавливается <span class="sin">0</span>, при этом тень будет того же размера, что и элемент.</td></tr>
+		<tr><td><цвет></td>
+			<td>цвет тени в любом доступном CSS формате. по умолчанию тень чёрная.</td></tr>
+	</table>
+
+	<p class="mt20">Допускается указывать несколько теней, разделяя их параметры между собой запятой. Учитывается следующий порядок: первая тень в списке размещается на самом верху, последняя в списке - в самом низу.</p>
+
+	<p>Тени не влияют на компоновку и могут перекрывать другие элементы или их тени. С точки зрения контекстов укладки и порядка рисования внешние тени элемента рисуются непосредственно под фоном этого элемента, а внутренние тени элемента рисуются непосредственно над фоном этого элемента (ниже <samp class="sin">border</samp> и <samp class="sin">border-image</samp>, если таковые имеются).</p>
+
+	<p>Если элемент имеет несколько ящиков, все они получают тени, но тени рисуются только там, где также будут нарисованы границы; см. <samp class="sin">box-decoration-break</samp>.</p>
+
+	<p>Тени не вызывают прокрутку или не увеличивают размер прокручиваемой области.</p>
+</div>
+
+
+<div class="item">
+	<div class="item2">
+		<table style="width:100%; color:#fff;" class="t1c">
+			<tr><td class="tbox"><div class="box b1">box-shadow:10px 10px 10px rgba(5,5,5,1.0);</div></td>
+				<td class="tbox"><div class="box b2">box-shadow:20px -20px 0px #700070;</div></td>
+			</tr>
+
+			<tr><td class="tbox"><div class="box b3">box-shadow:0 0 0 5px rgba(5,5,5,.8);</div></td>
+				<td class="tbox"><div class="box b4">box-shadow:0px 0px 30px red, 0 0 50px yellow;</div></td>
+			</tr>
+
+			<tr><td class="tbox"><div class="box b5">box-shadow:inset 10px 10px 0px #700070;</div></td>
+				<td class="tbox"><div class="box b6">box-shadow:10px 0px 0px #700070, 0px 10px 0px #f00070, -10px 10px 0px green;</div></td>
+			</tr>
+
+			<tr><td class="tbox" style="background:#e6e3df;"><div class="box b7">box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1); background:#e6e3df;</div></td>
+				<td class="tbox"><div class="box b9">box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);</div></td>
+			</tr>
+
+			<tr><td class="tbox"><div class="box b8">box-shadow: 0 10px 0 #3C93D5;<br><br>:hover{background:#6FC6FF;}</div></td>
+				<td class="tbox"><div class="box b10" title=".b10 {position:relative; top:0; left:0; transition:.2s linear;}
+			.b10:hover{top:-8px; left:-8px;}">:hover{box-shadow:2px 2px white,4px 4px Teal,6px 6px white,8px 8px Teal;}</div></td>
+			</tr>
+
+			<tr><td class="tbox"><div class="box b11">:hover{box-shadow: 0 0 0 2px white, 0 0 0 4px Teal;}</div></td>
+				<td class="tbox"><div class="box b12">hover{box-shadow: 250px 0 0 0 rgba(0,0,0,.3) inset;</div></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Эффект увеличения с тенью</h3>
+	<div class="box-1"></div>
+	<div class="item2">
+		<samp class="red">CSS</samp>
+		<pre><code>.box-1 {<br>   width:300px; height:150px; margin:10px auto;<br>   background:url(img/box-shadow-syntax.png); background-size:100% 100%;<br>   transform:scale(1);<br>   box-shadow:0 0 5px 5px rgba(34, 60, 80, 0.2);<br>   transition:box-shadow 0.5s, transform 0.5s, margin 0.5s;}<br>.box-1:hover {margin:26px auto; transform:scale(1.2);<br>   box-shadow:0 0 15px 7px rgba(34, 60, 80, 0.2);<br>   transition:box-shadow 0.5s, transform 0.5s, margin 0.5s;}</code></pre>
+		<br><samp class="red">HTML</samp>
+		<pre><code>&lt;div class="box-1">&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Эффект парения элемента с помощью box-shadow</h3>
+	<p>Мы можем добавить тень к псевдоэлементу <samp class="sin">:after</samp> и создать тень ниже элемента. Тем самым создавая иллюзию, что элемент был поднят вверх, а потом упал.</p>
+	<div class="box-2"></div>
+
+	<div class="item2">
+		<samp class="red">CSS</samp>
+		<pre><code>.box-2 {<br>   width:200px; height:150px; margin:40px auto; background-color:#ddd;<br>   transform: translateY(0); transition: transform 1s;}<br>.box-2::after {content:""; display:block;<br>   position:absolute; bottom: -30px; left:50%;<br>   height:8px; width:100%;<br>   box-shadow:0px 0px 15px 0px rgba(0, 0, 0, 0.4);<br>   border-radius:50%;<br>   background-color:rgba(0, 0, 0, 0.2);<br>   transform:translate(-50%, 0); transition:transform 1s;}<br>.box-2:hover {transform:translateY(-40px); transition:transform 1s;}<br>.box-2:hover::after {<br>   transform: translate(-50%, 40px) scale(0.75);<br>   transition: transform 1s;}</code></pre>
+		<br><samp class="red">HTML</samp>
+		<pre><code>&lt;div class="<span class="sin">box-2</span>">&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Тень и свойство clip-path</h3>
+	<p>Тень возможно сделать не только на элементах в виде блока или круга, но и на более сложных формах с использованием свойства <samp class="sin">clip-path</samp>. Правда свойство box-shadow при этом не сработает и нам придется заменить его другим.</p>
+	<p>В CSS существует фильтр, который тоже делает CSS тень блока - <samp class="sin">drop-shadow()</samp>. Но у вас не поучится использовать его непосредственно на элементе, так как <samp class="sin">clip-path</samp> просто отрежет эту тень. Поэтому создаем родительский блок и наложим тень на него.</p>
+	<div class="box-3__wrapper">
+		<span class="box-3">box-3</span>
+	</div>
+
+	<div class="item2">
+		<samp class="red">CSS</samp>
+		<pre><code>.box-3__wrapper {<br>   filter: drop-shadow(-1px 6px 3px rgba(34, 60, 80, 0.2));<br>   display:flex; justify-content:center; align-items:center;<br>   width:300px; margin: 10px auto 20px;}<br>.box-3 {<br>   clip-path: polygon(30px 0%, 100% 0%, 100% 100%, 30px 100%, 0 50%);<br>   background-color:#eef;<br>   font-size:40px; padding:40px 50px;}</code></pre>
+		<br><samp class="red">HTML</samp>
+		<pre><code>&lt;div class="box-3__wrapper"><br>   &lt;span class="box-3">box-3&lt;/span><br>&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+	<div class="rotate-shadows"></div>
+	<div class="item2">
+		<samp class="red">CSS</samp>
+		<pre><code>.rotate-shadows {width:220px; height:220px; position:relative;}<br>.rotate-shadows:after, .rotate-shadows:before {<br>   content:""; border-radius:50%;<br>   position:absolute; top:0; left:0;<br>   width:100%; height:100%; transform-origin:center center;<br>}<br>.rotate-shadows:before {<br>   box-shadow: inset 0 20px 0 rgba(0, 250, 250, 0.6),<br>               inset 20px 0 0 rgba(0, 200, 200, 0.6),<br>               inset 0 -20px 0 rgba(0, 150, 200, 0.6),<br>               inset -20px 0 0 rgba(0, 200, 250, 0.6);<br>   animation: rotate-before 2s -0.5s linear infinite;<br>}<br>.rotate-shadows:after {<br>   box-shadow: inset 0 20px 0 rgba(250, 250, 0, 0.6),<br>               inset 20px 0 0 rgba(250, 200, 0, 0.6),<br>               inset 0 -20px 0 rgba(250, 150, 0, 0.6),<br>               inset -20px 0 0 rgba(250, 100, 0, 0.6);<br>   animation: rotate-after 2s -0.5s linear infinite;<br>}<br>@keyframes rotate-after {<br>   0% {transform: rotateZ(0deg) scaleX(1) scaleY(1);}<br>   50% {transform: rotateZ(180deg) scaleX(0.82) scaleY(0.95);}<br>   100% {transform: rotateZ(360deg) scaleX(1) scaleY(1);}<br>}<br>@keyframes rotate-before {<br>   0% {transform: rotateZ(0deg) scaleX(1) scaleY(1);}<br>   50% {transform: rotateZ(-180deg) scaleX(0.95) scaleY(0.85);}<br>   100% {transform: rotateZ(-360deg) scaleX(1) scaleY(1);}<br>}</code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>&lt;div class="rotate-shadows">&lt;/div></code></pre>
+	</div>
+</div>
+
+</body></html>

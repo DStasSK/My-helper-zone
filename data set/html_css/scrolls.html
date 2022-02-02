@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><title>Scrollbar</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.overflow {min-height:500px;font-size:40px;text-align:center;}
+	.element {overflow-y:scroll;background-color:#EBEAFF;width:200px;height:300px;}
+	.el2::-webkit-scrollbar {width:10px;background-color:#f9f9fd;}
+	.el2::-webkit-scrollbar-thumb {background-color:#223c50;}
+	.el3::-webkit-scrollbar-track {-webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset; background-color: #f9f9fd;}
+
+	.el4::-webkit-scrollbar {width: 10px;}
+	.el4::-webkit-scrollbar-track {
+		-webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+		background-color: #f9f9fd;}
+	.el4::-webkit-scrollbar-thumb {background-color: #f2bf93;
+		background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, .25) 25%,
+			transparent 25%,transparent 50%,rgba(255, 255, 255, .25) 50%,
+			rgba(255, 255, 255, .25) 75%,transparent 75%,transparent);}
+	.el5::-webkit-scrollbar {width: 10px;}
+	.el5::-webkit-scrollbar-track {-webkit-box-shadow:5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset; background-color:#f9f9fd;}
+	.el5::-webkit-scrollbar-thumb {background-color: #356184;
+				background-image: -webkit-gradient(linear, 0 0, 0 100%,
+				color-stop(.5, rgba(255, 255, 255, .25)),
+				color-stop(.5, transparent), to(transparent));}
+	.el6::-webkit-scrollbar {width: 10px;}
+	.el6::-webkit-scrollbar-track {
+				-webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+				background-color: #f9f9fd; border-radius: 10px;}
+	.el6::-webkit-scrollbar-thumb {border-radius: 10px;
+				background: linear-gradient(180deg, #00c6fb, #005bea);}
+
+	.df{display:flex; justify-content:space-between; padding:10px 0;}
+	.sp {margin: 5px 10px; color:green;}
+	.cc {text-align:center;}
+</style></head>
+
+<body>
+<div class="item">
+	<p><em>Cтилизовать полосу прокрутки через <samp class="red">-webkit-</samp> префикс возможно только в браузерах, использующих механизм рендеринга <samp class="sin">Webkit</samp> и <samp class="sin">Blink</samp> (<samp class="pur">Safari, Google Chrome, Opera</samp>).</em>
+	<em>То есть в <span class="red">Firefox</span> и <span class="sin">IE</span> этот способ не сработает.</em></p>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Как убрать полосу прокрутки CSS</h2>
+	<p>Скрыть полосу прокрутки можно как у отдельного элемента на странице, так и у всей страницы целиком. Сделать это не сложно, достаточно написать следующее свойство:</p>
+
+	<pre class="item2"><code>/* Убрать полосу прокрутки у класса или элемента */<br>.classname::-webkit-scrollbar {width: 0;}<br><br>/* Убрать полосу прокрутки для всей страницы */<br>::-webkit-scrollbar {width: 0;}</code></pre>
+
+	<p>Полосу прокрутки так же можно скрывать или отображать при помощи параметров свойства <a href="overflow.html"><samp class="red tdu">overflow</samp></a>.</p>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Как изменить скроллбар CSS</h2>
+	<p><samp class="pur">-webkit-scrollbar</samp> состоит различных псевдо-элементов:</p>
+	<div class="item2">
+		<samp class="sin">::-webkit-scrollbar</samp> - это фон самого скроллбара.
+		<br><samp class="sin">::-webkit-scrollbar-button</samp> - кнопки направления на полосе прокрутки.
+		<br><samp class="sin">::-webkit-scrollbar-track</samp> - пустое пространство под индикатором прокрутки.
+		<br><samp class="sin">::-webkit-scrollbar-thumb</samp> - индикатор прокрутки (перетаскиваемый элемент).
+	</div>
+</div>
+
+
+<div class="item">
+	<div class="df">
+		<div style="border: 1px solid black;">
+			<div class="element">
+				<div class="overflow">1</div>
+			</div>
+		</div>
+		<div style="width:100%; padding:0px 20px;">
+			<center><b>базовый скролл (по умолчанию)</b></center>
+			<pre><code>&lt;style><br>  .element {overflow-y:scroll}<br>  .box {min-height:500px}<br>&lt;/style><br><br>&lt;div class="element"><br>   &lt;div class="box">1&lt;/div><br>&lt;/div></code></pre>
+		</div>
+	</div>
+
+	<div class="df">
+		<div style="border: 1px solid black;">
+			<div class="element el2">
+				<div class="overflow">2</div>
+			</div>
+		</div>
+		<div style="width:100%; padding:0px 20px;">
+			<center><b>ширина 10рх, изменены цвета</b></center>
+			<pre><code>&lt;style><br>   .el2::-webkit-scrollbar {<br>      width:10px;<br>      background-color:#f9f9fd;}<br>   .el2::-webkit-scrollbar-thumb {<br>      background-color:#223c50;}<br>&lt;/style><br><br>&lt;div class="element el2"><br>   &lt;div class="box">2&lt;/div><br>&lt;/div></code></pre>
+		</div>
+	</div>
+
+	<div class="df">
+		<div style="border: 1px solid black;">
+			<div class="element el2 el3">
+				<div class="overflow">3</div>
+			</div>
+		</div>
+		<div style="width:100%; padding:0px 20px;">
+			<center><b>добавлена тень на полосе</b></center>
+			<pre><code>&lt;style><br>.el3::-webkit-scrollbar-track {<br>   <span class="ls-1">-webkit-box-shadow:<br>      5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;</span><br>   background-color: #f9f9fd;}<br>&lt;/style><br><br>&lt;div class="element el2 el3"><br>   &lt;div class="box">3&lt;/div><br>&lt;/div></code></pre>
+		</div>
+	</div>
+
+
+	<div class="df">
+		<div style="border: 1px solid black;">
+			<div class="element el4">
+				<div class="overflow">4</div>
+			</div>
+		</div>
+		<div style="width:100%;padding:0px 20px;">
+			<center><b>описание</b></center>
+			<pre><code>&lt;style><br>  .el4::-webkit-scrollbar {width: 10px;}<br>  .el4::-webkit-scrollbar-thumb {<br>    background-color: #f2bf93;<br>    background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, .25) 25%,<br>      transparent 25%,transparent 50%,rgba(255, 255, 255, .25) 50%,<br>      rgba(255, 255, 255, .25) 75%,transparent 75%,transparent);}<br>&lt;/style><br><br>&lt;div class="element el3 el4"><br>   &lt;div class="box">4&lt;/div><br>&lt;/div></code></pre>
+		</div>
+	</div>
+
+
+	<div class="df">
+		<div style="border: 1px solid black;">
+			<div class="element el5">
+				<div class="overflow">5</div>
+			</div>
+		</div>
+		<div style="width:100%; padding:0px 20px;">
+			<center><b>описание</b></center>
+			<pre class="ls-05"><code>&lt;style><br>  .el5::-webkit-scrollbar {width: 10px;}<br>  .el5::-webkit-scrollbar-thumb {<br>    background-color: #356184;<br>    background-image: -webkit-gradient(linear, 0 0, 0 100%,<br>    color-stop(.5, rgba(255, 255, 255, .25)),<br>    color-stop(.5, transparent), to(transparent));}<br>&lt;/style><br><br>&lt;div class="element el3 el5"><br>   &lt;div class="box">5&lt;/div><br>&lt;/div></code>code></pre>
+		</div>
+	</div>
+
+
+	<div class="df">
+		<div style="border: 1px solid black;">
+			<div  class="element el6">
+				<div class="overflow">6</div>
+			</div>
+		</div>
+		<div style="width:100%;padding:0px 20px;">
+			<center><b>описание</b></center>
+			<pre class="ls-05"><code>&lt;style><br>  el6::-webkit-scrollbar {width: 10px;}<br>  .el6::-webkit-scrollbar-track {border-radius: 10px;}<br>  .el6::-webkit-scrollbar-thumb {<br>    border-radius: 10px;<br>    background: linear-gradient(180deg, #00c6fb, #005bea);}<br>&lt;/style><br><br>&lt;div class="element el3 el6"><br>   &lt;div class="box">6&lt;/div><br>&lt;/div></code></pre>
+		</div>
+	</div>
+</div>
+
+
+<p><a href="https://active-vision.ru/icon/box-shadow/">box-shadow генератор теней</a></p>
+
+</body>
+</html>

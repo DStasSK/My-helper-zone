@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><title>Hавигация справа, позиционирование</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin">Hавигация справа, позиционирование.</h2>
+
+	<style type="text/css">
+		.conteiner{width:700px; margin:auto;
+			font:Arial, Helvetica, sans-serif; font-size:1em;
+			background:#fff;
+			position:relative;}  /* Относительное позиционирование */
+		.header{padding:10px; background:#8fa09b;
+			text-align:center; font-size:20pt; color:#edeed5;}
+		.content{width:520px; padding:10px 15px;
+			margin-right:150px;
+			border-right:1px dashed #183533;}
+		.sidebar{position:absolute; right:0; top:57px;
+			border-bottom:1px solid red;
+			width:120px; padding:10px 15px;}
+		.footer{background:#8fa09b; color:#fff; padding:10px 20px 15px;}
+	</style>
+	<div class="conteiner">
+		<div class="header">Заголовок</div>
+		<div class="sidebar">ссылки</div>
+		<div class="content">содержание<br>контента<br>тут</div>
+		<div class="footer">&copy; фу-у-тер</div>
+	</div>
+
+	<p class="mat">При создании подобного макета необходимо понимать, что размеры абсолютно позиционированных элементов подгоняются под их содержание, поэтому ширину надо указывать явно. Также слои могут накладываться поверх других элементов макета: при уменьшении текста в левой колонке, правая колонка наедет на футер. Поэтому использование позиционирования подходит далеко не во всех случаях.</p>
+
+	<div class="item2 br0">
+		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
+		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code class="html">&lt;head><br>  &lt;!--[if IE]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--><br>&lt;/head><br><br>&lt;div class="conteiner"><br>  &lt;div class="header">Заголовок&lt;/div><br>  &lt;div class="content">содержание&lt;br>контента&lt;br>тут&lt;/div><br>  &lt;div class="sidebar">ссылки&lt;/div><br>  &lt;div class="footer">&copy; фу-у-тер&lt;/div><br>&lt;/div></code></pre>
+		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>.conteiner{<br>  width:700px;<br>  margin:auto;<br>  font:Arial, Helvetica, sans-serif; font-size:1em;<br>  background:#fff;<br>  position:relative;}  /* Относительное позиционирование */<br>.header{<br>  padding:10px;<br>  background:#8fa09b;<br>  text-align:center;<br>  font-size:20pt;<br>  color:#edeed5;}<br>.content{<br>  width:520px;<br>  padding:10px 15px;<br>  margin-right:150px;<br>  border-right:1px dashed #183533;}<br>.sidebar{<br>  position:absolute;   /* Абсолютное позиционирование */<br>  right:0; top:57px;<br>  border-bottom:1px solid red;<br>  width:120px;<br>  padding:10px 15px;}<br>.footer{<br>  background:#8fa09b;<br>  color:#fff;<br>  padding:10px 20px 15px;}</code></pre>
+	</div>
+</div><!-- /item -->
+</body>
+</html>

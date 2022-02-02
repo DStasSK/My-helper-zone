@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><title>&lt;audio></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.html5::after{margin:4px 0;}
+</style>
+
+</head>
+<body>
+
+<h2 class="sin t-html5"><samp>&lt;audio></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#z0">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#autoplay" title="Звук начинает играть сразу после загрузки страницы.">autoplay</a></span>
+				<span><a href="#controls" title="Добавляет панель управления к аудиофайлу.">controls</a></span>
+				<span><a href="#loop" title="Повторяет воспроизведение звука с начала после его завершения.">loop</a></span>
+				<span><a href="#muted" title="Отключает звук при воспроизведении музыки.">muted</a></span>
+				<span><a href="#preload" title="Используется для предварительной загрузки аудиофайла или его данных вместе с загрузкой веб-страницы.">preload</a></span>
+				<span><a href="#src" title="Указывает путь к воспроизводимому файлу.">src</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;audio></samp> (от англ. audio — звук) добавляет, воспроизводит и управляет настройками аудиозаписи на веб-странице. Путь к файлу задаётся через атрибут <samp class="sin">src</samp> или вложенный элемент <samp class="red">&lt;source></samp>. Внутри контейнера <samp class="red">&lt;audio></samp> можно написать текст, который будет выводиться в браузерах, не работающих с этим элементом.</p>
+	<p>Для универсального воспроизведения в указанных браузерах аудио кодируют с помощью разных кодеков и добавляют файлы одновременно через элемент <samp class="sin tdu"><a href="source.html">&lt;source></a></samp>.</p>
+	<pre class="item2"><code>&lt;audio src="адрес" controls>&lt;/audio><br><br>&lt;audio controls><br>  &lt;source src="адрес1" type="тип"><br>  &lt;source src="адрес2" type="тип"><br>&lt;/audio></code></pre>
+
+	<h3 class="sin mt20">Кодеки и браузеры</h3>
+		<style type="text/css">
+			.th5 {margin:5px auto 10px; color:#333;}
+			.th5 td:nth-child(n+2){background:#cee2d3; width:70px;}
+			.th5 span::before{content:'\e81b'; padding-right:5px; font-family:fontello; color:#4b846a;}
+			.th5 .no{background:#f2c8c8 !important}
+			.th5 .no span::before{content:'\e81c'; color:#ce3045; padding-right:0;}
+			.th5 .br td{background-color:#FAF3D2 !important}
+			.th5 .br td:nth-child(n+2) span{font-size:24px; margin-left:-10px}
+			.th5 .br td:nth-child(n+2) span::before{content:''}
+		</style>
+		<table class="t1 t0 tb todd th5 t1c">
+			<tr class="br"><td style="text-align:center; color:#333;">Кодек</td><td><span class="t-ie" title="Internet Explorer"></span></td><td><span class="t-edge" title="Edge"></span></td><td><span class="t-chrome" title="Chrome"></span></td><td><span class="t-opera" title="Opera"></span></td><td><span class="t-safari" title="Safari"></span></td><td><span class="t-firefox" title="Firefox"></span></td></tr>
+			<tr><td>ogg/vorbis</td><td class="no"><span></span></td><td><span>17</span></td><td><span>3</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>3.5</span></td></tr>
+			<tr><td>wav</td><td class="no"><span></span></td><td><span>12</span></td><td><span>3</span></td><td><span>11.5</span></td><td><span>3.1</span></td><td><span>3.5</span></td></tr>
+			<tr><td>mp3</td><td><span>9</span></td><td><span>12</span></td><td><span>3</span></td><td><span>15</span></td><td><span>3.1</span></td><td><span>22</span></td></tr>
+			<tr><td>AAC</td><td><span>9</span></td><td><span>12</span></td><td><span>3</span></td><td><span>15</span></td><td><span>3.1</span></td><td><span>22</span></td></tr>
+		</table>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Атрибуты</h3>
+	<table class="t1 tb t2">
+		<tr><td id="autoplay"><a href="#">autoplay</a></td>
+			<td>При наличии этого атрибута аудио начинает воспроизводиться автоматически после загрузки страницы. По умолчанию этот атрибут выключен. Атрибут <samp class="sin">autoplay</samp> отменяет действие атрибута <samp class="sin">preload</samp>.
+			<pre class="item2"><code>&lt;audio autoplay="autoplay" controls muted<br>       src="media/music.mp3">&lt;/audio></code></pre>
+			<audio autoplay="autoplay" src="media/music.mp3" controls muted="muted"></audio></td></tr>
+		<tr><td id="controls"><a href="#">controls</a></td>
+			<td>Добавляет панель управления к аудиофайлу. Вид панели и её содержимое зависит от браузера и может в себя включать: кнопку воспроизведения, паузы, перемотки, ползунок для изменения уровня громкости и др. В качестве значения указывается <samp class="lsin">controls</samp>, также допустимо писать атрибут без значения.
+			<pre class="item2"><code>&lt;audio controls="controls">&lt;/audio></code></pre>
+			<audio src="media/music.mp3" controls></audio></td></tr>
+		<tr><td id="loop"><a href="#">loop</a></td>
+			<td>Повторяет воспроизведение звука с начала после его завершения. По умолчанию этот атрибут выключен.
+			<pre class="item2"><code>&lt;audio loop="loop">&lt;/audio></code></pre></td></tr>
+		<tr><td id="muted"><a href="#">muted</a></td>
+			<td>Отключает звук при воспроизведении музыки. В качестве значения указывается muted, также допустимо вообще не указывать никакое значение.
+			<pre class="item2"><code>&lt;audio muted="muted">&lt;/audio></code></pre></td></tr>
+		<tr><td id="preload"><a href="#">preload</a></td>
+			<td>Используется для предварительной загрузки аудиофайла или его данных вместе с загрузкой веб-страницы. Этот атрибут игнорируется, если установлен атрибут <samp class="sin">autoplay</samp>. Пустое значение атрибута воспринимается как <samp class="lsin">auto</samp>. Значение по умолчанию - <samp class="lsin">none</samp>.
+			<pre class="item2"><code>&lt;audio preload="<abbr title="Не загружать предварительную информацию об аудиофайле.">none</abbr> | <abbr title="Загрузить только служебную информацию (продолжительность звучания и др.).">metadata</abbr> | <abbr title="Загрузить аудиофайл целиком при загрузке страницы.">auto</abbr>">&lt;/audio></code></pre></td></tr>
+		<tr><td id="src"><a href="#">src</a></td>
+			<td>Указывает путь к воспроизводимому файлу. Для этой же цели также можно использовать элемент <samp class="sin tdu"><a href="source.html">&lt;source></a></samp>.
+			<pre class="item2"><code>&lt;audio src="media/music.mp3">&lt;/audio></code></pre></td></tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример 1.</a></h3>
+	<p><i>При добавлении песни на сайт в <samp class="red">Safari</samp> отображается плеер, но нет громкости, только плэй, тогда как в <samp class="red">FFox</samp> все нормально. Для <samp class="red">Safari</samp> что то еще нужно прописывать?</i></p>
+	<p>В <samp class="red">Safari</samp> нужно подрубить <samp class="sin">style</samp> чтобы отобразилась громкость. Если просто указать <samp class="sin">controls</samp>, то он как будто обрубает плеер, а если добавить такой код например <samp>--></samp> <samp class="sin">style="<samp class="lsin">width:100%; max-width:600px;</samp>"</samp> то плеер отобразится полностью.</p>
+</div>
+</body></html>

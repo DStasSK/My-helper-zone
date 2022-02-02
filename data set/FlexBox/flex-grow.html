@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><title>flex-grow</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">flex-grow</h2>
+
+<div class="item">
+	<p>Cвойство отвечает за то, в какой пропорции будет разделено свободное место между элементами одного родителя. В качестве значения принимаются числа, они задают пропорции в которых свободное пространство будет добавляться к размерам каждого флекса. Например если есть один flex-элемент и у него значение <samp class="sin">flex-grow:1</samp>, то он займет все свободное пространство.</p>
+	<p>Применяется к флекс-элементам, не наследуется, анимируется.</p>
+	<p>Значение по умолчанию: <samp class="lsin">0</samp>.</p>
+
+	<pre class="item2 css"><code>.fl {flex-grow: число; } /* flex:1; = flex-grow:1; */</code></pre>
+
+	<p>Принимаются целые (1, 2, 3,…) или дробные числа (например: 0.6). Отрицательные значения игнорируются.</p>
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-flex-grow</samp></div>
+</div>
+
+
+<div class="item">
+	<h2 class="sin">Пример</h2>
+	<style>
+		.prim1 p {display:flex;}
+		.prim1 label {margin-right:10px;}
+		.prim1 input {background-color:#fffffe; border:1px solid;}
+		.fl1 {flex-grow:1;}
+		.mr {margin-right:10px;}
+		.fl3 {flex-grow:3;}
+	</style>
+	<div class="prim1 prm">
+		<p style="margin-bottom:10px">
+			<label>Имя:</label>
+			<input name="name" id="name" class="fl1" placeholder="flex-grow:1;">
+		</p>
+		<p style="margin-bottom:10px">
+			<label>Имя:</label>
+			<input name="name1" id="name1" class="fl1 mr" placeholder="flex-grow:1;">
+			<input name="name13" id="name13" class="fl3" placeholder="flex-grow:3;">
+		</p>
+		<p>
+			<label>Имя:</label>
+			<input name="name2" id="name2" placeholder="flex-grow:0;">
+		</p>
+	</div>
+	<pre class="item2"><code>&lt;style><br>  p {display:flex;}<br>  label {margin-right:10px;}<br>  .fl1 {flex-grow:1;}<br>  .mr {margin-right:10px;}<br>  .fl3 {flex-grow:3;}<br>&lt;/style><br><br>&lt;p><br>  &lt;label>Имя:&lt;/label><br>  &lt;input name="name" id="name" class="fl1" placeholder="flex-grow:1;">&lt;/p><br>&lt;p><br>  &lt;label>Имя:&lt;/label><br>  &lt;input name="name1" id="name1" class="fl1 mr" placeholder="flex-grow:1;"><br>  &lt;input name="name13" id="name13" class="fl3" placeholder="flex-grow:3;"><br>&lt;/p><br>&lt;p><br>  &lt;label>Имя:&lt;/label><br>  &lt;input name="name2" id="name2" placeholder="flex-grow:0;"><br>&lt;/p></code></pre>
+</div>
+</body></html>

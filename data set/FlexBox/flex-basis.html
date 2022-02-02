@@ -1,0 +1,98 @@
+<!DOCTYPE html><html><head><title>flex-basis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 td:nth-child(1) {width:80px}
+	.box {display:flex; flex-wrap:wrap; width:80px; height:60px; margin:0 auto;
+		outline:1px solid #ddd; box-sizing:border-box; background-color:#ddd;
+		text-align:center; font-size:14px; color:#fff;}
+</style>
+</head>
+<body>
+<h2 class="sin">flex-basis</h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">flex-basis</samp> определяет основу флекса, которая является начальным размером элемента. Похоже на свойства <b>width</b> и <b>height</b>, к которым добавляется содержимое элемента. Применяется к флекс-элементу, не наследуется, анимируется. Значение по умолчанию: <samp class="lsin">auto</samp>.</p>
+
+	<pre class="item2 css"><code>.fl {flex-basis: auto | <размер> }</code></pre>
+
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-flex-basis</samp></div>
+
+	<table class="t1 tc t2"><caption>Значение</caption>
+		<tr><td>auto</td><td>Указывает автоматический размер, основанный на содержимом элемента.</td></tr>
+		<tr><td><размер></td><td>Задаёт размер элемента в <b>px, mm, pt</b> или в процентах вдоль главной оси. При этом размер вычисляется относительно родителя. Отрицательное значение недопустимо.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+	<h2 class="sin">Пример 1</h2>
+	<style>
+		.container1 {color:#fff; font-size:30px; line-height:30px;
+			display:flex; height:80px;}
+		.items {padding:25px 0; display:flex; justify-content:center;}
+		.i1 {background:#508694; flex-basis:50%;}
+		.i2 {background:#BB844C; flex-basis:25%;}
+		.i3 {background:#929D79; flex-basis:25%;}
+	</style>
+	<div class="container1">
+		<div class="items i1">Первый</div>
+		<div class="items i2">Второй</div>
+		<div class="items i3">Третий</div>
+	</div>
+
+	<div class="item2" style="margin-top:15px">
+		<samp class="red point" onclick='pr1.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pr1" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="container1"><br>  &lt;div class="items i1">Первый&lt;/div><br>  &lt;div class="items i2">Второй&lt;/div><br>  &lt;div class="items i3">Третий&lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.container1 {color:#fff; font-size:30px; line-height:30px;<br>  display:flex; height:80px;}<br><br>.items {padding:25px 0; display:flex;<br>  justify-content:center;}   /* выравнивание по центру */<br><br>.i1 {background:#508694; flex-basis:50%;}<br>.i2 {background:#BB844C; flex-basis:25%;}<br>.i3 {background:#929D79; flex-basis:25%;}</code></pre>
+			<span class="yel" onclick='pr1.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+	<h2 class="sin">Пример 2</h2>
+	<style>
+		.flex-container {color:#fff; font-size:2.6em;
+			display:flex;
+			height:300px;
+			flex-direction:column;      /* Главная ось - вертикально */
+			flex-wrap:wrap;}            /* перенос разрешен */
+		.flex-items {display:flex;
+			align-items:center;         /* выравнивание текста по вертикали */
+			justify-content:center;}    /* выравнивание текста по горизонтали */
+		.one {background:#508694; margin-right:10px; order:1;   /* первый блок */
+			flex-basis:100%;}
+		.two {background:#BB844C; margin-bottom:10px; order:2;  /* второй блок */
+			flex: 1 1 0;}      /* flex-grow:1, flex-shrink:1, flex-basis: auto */
+		.three {background:#929D79; order:3;                    /* третий блок */
+			flex: 1 1 0;}
+	</style>
+	<div class="flex-container">
+		<div class="flex-items one">Первый</div>
+		<div class="flex-items two">Второй</div>
+		<div class="flex-items three">Третий</div>
+	</div>
+
+	<div class="item2" style="margin-top:15px">
+		<samp class="red point" onclick='pr2.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="pr2" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="flex-container"><br>  &lt;div class="flex-items one">Первый&lt;/div><br>  &lt;div class="flex-items two">Второй&lt;/div><br>  &lt;div class="flex-items three">Третий&lt;/div><br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.flex-container {color:#fff; font-size:2.6em;<br>  display:flex;<br>  height:300px;<br>  flex-direction:column;      /* Главная ось - вертикально */<br>  flex-wrap:wrap;}            /* перенос разрешен */<br><br>.flex-items {display:flex;<br>  align-items:center;         /* выравнивание текста по вертикали */<br>  justify-content:center;}    /* выравнивание текста по горизонтали */<br><br>.one {background:#508694; margin-right:10px; order:1;   /* первый блок */<br>  flex-basis:100%;}<br>.two {background:#BB844C; margin-bottom:10px; order:2;  /* второй блок */<br>  flex: 1 1 0;}        /* flex-grow:1, flex-shrink:1, flex-basis: auto */<br><br>.three {background:#929D79; order:3;                    /* третий блок */<br>  flex: 1 1 0;}</code></pre>
+			<span class="yel" onclick='pr2.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div>
+</body></html>

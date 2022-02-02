@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><title>Фиксированная ширина, три колонки</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	ul{margin:0 0 0 20px; padding:0;}
+</style></head>
+<body>
+<div class="item">
+<h2 class="sin">Фиксированная ширина, три колонки, float + margin.</h2>
+
+	<style type="text/css">
+		#container{width:700px; margin:0 auto; color:#ffe; background:#FCE600;}  /* Цвет колонок */
+		#header{font-size:2.2em; text-align:center; padding:5px; background:#D71920;}
+		#nav{float:left; width: 110px; padding: 5px; color:#000;}
+		#aside{float:right; width: 110px; padding: 5px; color:#000;}
+		#content{padding:10px; margin:0px 120px; background:#54B948;}
+		#footer{background:#D71920; padding:5px; clear:both; color:#ffe;}
+	</style>
+	<div id="container">
+		<div id="header">Заголовок</div>
+		<div id="nav">Левая колонка</div>
+		<div id="aside">Правая колонка</div>
+		<div id="content">Центральная колонка - контент<br>1<br>2</div>
+		<div id="footer">© фу-у-тер</div>
+	</div>
+
+	<p class="mat">Трехколоночный макет часто используется в тех случаях, когда двух колонок уже недостаточно или требуется особым образом разделить материал. Например, одна колонка отдается под контент, вторая под навигационные ссылки, а в третьей публикуются новости сайта или другая информация.</p>
+	<p>Общий каркас определяется с помощью слоя с именем container, он задает ширину и выравнивание макета. Внутри располагаются колонки, их порядок в коде такой: левая (<samp class="red">nav</samp>), правая (<samp class="red">aside</samp>), центральная (<samp class="red">content</samp>).</p>
+	<p class="mab">Положение слоев формируется через стили: для левой колонки устанавливается ширина (<samp class="sin">width</samp>) и выравнивание по левому краю (<samp class="sin">float:</samp><samp class="lsin">left</samp>), для правой колонки — ширина и выравнивание по правому краю (<samp class="sin">float:</samp><samp class="lsin">right</samp>), для центральной — отступ слева и справа на ширину левой и правой колонки.</p>
+
+	<div class="item2 br0">
+		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
+		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code class="html">&lt;head><br>  &lt;!--[if IE]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--><br>&lt;/head><br>&lt;div id="container"><br>  &lt;div id="header">Заголовок&lt;/div><br>  &lt;div id="nav">Левая колонка&lt;/div><br>  &lt;div id="aside">Правая колонка&lt;/div><br>  &lt;div id="content">Центральная колонка - контент&lt;br>1&lt;br>2&lt;/div><br>  &lt;div id="footer">© фу-у-тер&lt;/div><br>&lt;/div></code></pre>
+		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>#container{<br>  width:700px;<br>  margin:0 auto;<br>  color:#ffe;<br>  background:#FCE600;}  /* Цвет левой и правой колонок */<br>#header{<br>  font-size:2.2em;<br>  text-align:center;<br>  padding:5px;<br>  background:#D71920;}<br>#nav{<br>  float:left;<br>  width:110px;<br>  padding:5px;<br>  color:#000;}<br>#aside{<br> float:right;<br> width:110px;<br> padding:5px;<br> color:#000;}<br>#content{<br>  padding:10px;<br>  margin:0px 120px;<br>  background:#54B948;}<br>#footer{<br>  background:#D71920;<br>  padding:5px;<br>  clear:both;<br>  color:#ffe;}</code></pre>
+	</div>
+
+	<div class="mat anp">
+		<p>У данной реализации есть несколько особенностей:</p>
+		<ul>
+			<li>колонки имеют разную высоту, но за счет применения фона создается иллюзия одинаковой высоты у всех трех колонок;</li>
+			<li>у левой и правой колонки одинаковый цвет фона, он устанавливается свойством <samp class="sin">background</samp> для слоя <samp class="red">container</samp>;</li>
+			<li>вид колонок сохраняется только в случае, когда высота центральной колонки больше остальных. Если это условие нарушить, пропадет эффект колонок, в остальном макет при этом отображается корректно.</li>
+		</ul>
+	</div>
+
+
+</div><!-- /item -->
+</body>
+</html>

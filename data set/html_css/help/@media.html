@@ -1,0 +1,235 @@
+<!DOCTYPE html><html><head><title>@media</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.ptb5{padding-top:5px;padding-bottom:5px}
+	.tt1 td:nth-child(1){text-align:center !important}
+</style>
+</head>
+<body>
+
+<h1 class="red">@media</h1>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#z1">Типы носителей и их описание</a> (<a href="#z2">устаревшие</a>)</li>
+			<li><a href="#z3">Логические операторы, применяемые в медиа-запросах (<samp>end, not, only</samp>)</a></li>
+			<li><a href="#z4">Медиа-функции</a></li>
+		</ul><!-- /оглавление -->
+
+<div class="item">
+	<p>Правило <samp class="red">@media</samp> позволяет указать тип носителя, для которого будет применяться указанный стиль. В качестве типов выступают различные устройства, например, принтер, монитор и др.</p>
+	<p>Возможности медиа-запросов не ограничиваются выявлением мобильных устройств, с их помощью можно создавать адаптивный макет. Такой макет подстраивается под разрешение монитора и окна браузера, меняя при необходимости ширину макета, число колонок, размеры изображений и текста. Медиа-запросы ограничивают ширину макета и при достижении этого значения (к примеру за счёт уменьшения окна или при просмотре на устройстве с указанным размером) уже применяется другой стиль.</p>
+	<p>Все запросы начинаются с правила <samp class="red">@media</samp>, после чего следует условие, в котором используются типы носителей, логические операторы и медиа-функции.</p>
+
+	<table class="t1 tb t3 tc todd mt20" id="z1">
+		<caption>Типы носителей и их описание</caption>
+		<tr><td width="65px">all</td><td>Все типы. Это значение используется по умолчанию.</td></tr>
+		<tr><td>print</td><td>Принтеры и другие печатающие устройства.</td></tr>
+		<tr><td>screen</td><td>Экран монитора.</td></tr>
+		<tr><td>speech</td><td>Речевые синтезаторы, а также программы для воспроизведения текста вслух. Сюда, например, можно отнести речевые браузеры.</td></tr>
+	</table>
+
+	<table class="t1 tb t3 tc todd mt20" id="z2">
+		<caption>Устаревшие типы носителей</caption>
+		<tr><td width="100px">braille</td><td>Устройства, основанные на системе Брайля, которые предназначены для чтения слепыми людьми.</td></tr>
+		<tr><td>embossed</td><td>Принтеры, использующие для печати систему Брайля.</td></tr>
+		<tr><td>handheld</td><td>Наладонные компьютеры и аналогичные им аппараты.</td></tr>
+		<tr><td>projection</td><td>Проекторы.</td></tr>
+		<tr><td>tty</td><td>Устройства с фиксированным размером символов (телетайпы, терминалы, устройства с ограничениями дисплея).</td></tr>
+		<tr><td>tv</td><td>Телевизоры.</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="z3">
+<h3 class="sin"><a href="#">Логические операторы, применяемые в медиа-запросах</a></h3>
+	<table class="t1 t3 tb mt20 tt1">
+		<tr><td width="50px">and</td>
+			<td>Логическое <b>И</b>. Указывается для объединения нескольких условий.
+			<pre class="item2 css"><code>/* cтиль для всех (all) [and] цветных (color) устройств */<br>@media all and (color) { ... }</code></pre>
+			</td></tr>
+		<tr><td>not</td>
+			<td>Логическое <b>НЕ</b>. Указывается для отрицания условия.
+			<pre class="item2 css"><code>/* cтиль для всех (all) устройств кроме принтера (not print) */<br>@media all and (not print) { ... }</code></pre>
+			Оператор not оценивается в запросе последним, поэтому выражение
+			<pre class="css ptb5"><code>@media not all and (color) { ... }</code></pre>
+			следует понимать как
+			<pre class="css ptb5"><code>@media not (all and (color)) { ... }</code></pre>
+			а не
+			<pre class="css ptb5"><code>@media (not all) and (color) { ... }</code></pre>
+			</td></tr>
+		<tr><td>only</td>
+			<td>Применяется для старых браузеров, которые не поддерживают медиа-запросы. Старые браузеры считают ключевое слово only типом носителя, но поскольку такого типа не существует, то игнорируют весь стиль целиком. Современные браузеры воспринимают запись с only и без него одинаково.
+			<pre class="item2 css"><code>/* Стиль для новых браузеров */<br>@media only all and (not print) { ... }</code></pre>
+			</td></tr>
+		<tr><td>,<br>(или)</td>
+			<td>В списке нет логического оператора <b>ИЛИ</b>, <span style="border-bottom:1px dotted">его роль выполняет запятая</span>. Перечисление нескольких условий через запятую говорит о том, что если хотя бы одно условие выполняется, то стиль будет применён.
+			<pre class="item2 css"><code>/* Стиль для устройств с альбомной ориентацией<br>   или минимальной шириной 480 пикселей */<br><br>@media all and (orientation: landscape), all and (min-width: 480px)<br>{ ... }</code></pre>
+			<</td></tr>
+	</table>
+	<div class="no">При использовании операторов следует указывать скобки, чтобы менять приоритет операций.</div>
+</div>
+
+
+
+
+<div class="item" id="z4">
+<h2 class="sin"><a href="#">Медиа-функции.</a></h2>
+	<p>Медиа-функции задают технические характеристики устройства, на котором отображается документ. Стиль выполняется в том случае, если запрос возвращает истину, иными словами, указанные условия выполняются.</p>
+	<p>Большинство функций содержат приставку <samp class="red">min-</samp> и <samp class="red">max-</samp>, которая соответствуют минимальному и максимальному значению. Так, <samp class="sin">max-width: 400px</samp> означает, что ширина окна браузера меньше 400 пикселей, а <samp class="sin">min-width: 1000px</samp>, наоборот, сообщает, что ширина окна больше 1000 пикселей.</p>
+	<style>
+		#x0{margin-top:0; margin-bottom:0; font-family:monospace; color:#006;}
+		#x0 li:hover{color:#00a; font-weight:700}
+		a small{font-size:16px}
+	</style>
+	<ul id="x0">
+		<li><a href="#x1">aspect-ratio (<small>min-aspect-ratio, max-aspect-ratio</small>)</a></li>
+		<li><a href="#x2">color (<small>min-color, max-color</small>)</a></li>
+		<li><a href="#x3">color-index (<small>min-color-index, max-color-index</small>)</a></li>
+		<li><a href="#x4">device-aspect-ratio (<small>min-device-aspect-ratio, max-device-aspect-ratio</small>)</a></li>
+		<li><a href="#x5">device-height (<small>min-device-height, max-device-height</small>)</a></li>
+		<li><a href="#x6">device-width (<small>min-device-width, max-device-width</small>)</a></li>
+		<li><a href="#x7">grid</a></li>
+		<li><a href="#x8">height (<small>min-height, max-height</small>)</a></li>
+		<li><a href="#x9">monochrome (<small>min-monochrome, max-monochrome</small>)</a></li>
+		<li><a href="#x10">orientation</a></li>
+		<li><a href="#x11">resolution (<small>min-resolution, max-resolution</small>)</a></li>
+		<li><a href="#x12">scan</a></li>
+		<li><a href="#x13">width (<small>min-width, max-width</small>)</a></li>
+	</ul>
+</div>
+
+
+<div class="item" id="x1">
+<h2 class="sin"><a href="#x0"><samp>aspect-ratio<br><small>(min-aspect-ratio, max-aspect-ratio)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: целое число/целое число</div>
+	<div style="margin-top:15px">Определяет соотношение ширины и высоты отображаемой области устройства. Значение указывается в виде двух целых чисел разделяемых между собой слэшем <samp>(/)</samp>.</div>
+</div>
+
+
+<div class="item" id="x2">
+<h2 class="sin"><a href="#x0"><samp>color<br><small>(min-color, max-color)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: целое число</div>
+	<div style="margin-top:15px">Определяет число бит на канал цвета. К примеру, значение <b>3</b> означает, что красный, зелёный и синий канал могут отображать <b>23</b> цветов каждый, что в общем составляет <b>512</b> цветов (8×8×8).</div>
+	<div>Если значение не указано, тогда проверяется что устройство цветное.</div>
+	<pre class="item2 css"><code>@media screen and (color) { /* Для цветных экранов */<br>  body { background: #fc0; }<br>}<br><br>@media screen and (min-color:3) { /* Минимум 512 цветов */<br>  body { background: #ccc; }<br>}</code></pre>
+</div>
+
+
+<div class="item" id="x3">
+<h2 class="sin"><a href="#x0"><samp>color-index<br><small>(min-color-index, max-color-index)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: целое число</div>
+	<div style="margin-top:15px">Определяет количество цветов, которое поддерживает устройство. В примере ниже показан стиль для экранов отображающих не меньше 256 цветов.</div>
+	<pre class="item2 css"><code>@media all and (min-color-index: 256) {<br>  ...<br>}</code></pre>
+</div>
+
+
+<div class="item" id="x4">
+<h2 class="sin"><a href="#x0"><samp>device-aspect-ratio<br><small>(min-device-aspect-ratio, max-device-aspect-ratio)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: целое число/целое число</div>
+	<div style="margin-top:15px">Определяет соотношение сторон экрана устройства. Значение указывается в виде двух целых чисел разделяемых между собой слэшем <samp>(/)</samp>. В примере ниже показано, как установить стиль для экранов с соотношением сторон 16:9 и более.</div>
+	<pre class="item2 css"><code>@media screen and (min-device-aspect-ratio: 16/9) {<br>  ...<br>}</code></pre>
+</div>
+
+
+<div class="item" id="x5">
+<h2 class="sin"><a href="#x0"><samp>device-height<br><small>(min-device-height, max-device-height)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: размер</div>
+	<div style="margin-top:15px">Определяет всю доступную высоту экрана устройства или печатной страницы.</div>
+</div>
+
+
+<div class="item" id="x6">
+<h2 class="sin"><a href="#x0"><samp>device-width<br><small>(min-device-width, max-device-width)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: размер</div>
+	<div style="margin-top:15px">Определяет всю доступную ширину экрана устройства или печатной страницы. В примере ниже в зависимости от разрешения монитора устанавливается ширина слоя. Так, для значения 1280 пикселей ширина макета задаётся как 1100px.</div>
+	<pre class="item2 css"><code>div {padding:10px; margin:auto;}<br>@media screen and (device-width: 1280px) {  div {width: 1100px;}  }<br>@media screen and (device-width: 1024px) {  div {width: 980px;}   }</code></pre>
+</div>
+
+
+<div class="item" id="x7">
+<h2 class="sin"><a href="#x0"><samp>grid</samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: нет</div>
+	<div style="margin-top:15px">Определяет, что это устройство с фиксированным размером символов. Размеры букв на таком устройстве занимают одинаковую ширину и высоту и выстраиваются по заданной сетке. К подобным устройствам можно отнести терминалы, а также телефоны, которые поддерживают только один шрифт.</div>
+	<p><i style="color:red">Если вам требуется форматировать текст, не указывайте его размер в пикселях, для подобных устройств используется единица <b>em</b>.</i></p>
+	<pre class="item2"><code>&lt;style><br>  @media screen and (grid) and (max-width: 15em) {<br>    body {font-size: 2em;}<br>  }<br>&lt;/style></code></pre>
+</div>
+
+
+<div class="item" id="x8">
+<h2 class="sin"><a href="#x0"><samp>height<br> <small>(min-height, max-height)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: размер</div>
+	<div style="margin-top:15px">Высота отображаемой области.</div>
+</div>
+
+
+<div class="item" id="x9">
+<h2 class="sin"><a href="#x0"><samp>monochrome<br><small>(min-monochrome, max-monochrome)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: целое число</div>
+	<div style="margin-top:15px">Определяет, что устройство монохромное. Если указано число, то оно обозначает число бит на пиксель. Так, значение 8 равнозначно 256 оттенкам серого (или другого цвета). В данном примере показан стиль для монохромного и цветного принтера.</div>
+	<pre class="item2 css"><code>@media print and (monochrome) {<br>  body { font-family: Times, 'Times New Roman', serif; }<br>  h1, h2, p { color: black; }<br>}<br><br>@media print and (color) {<br>  body { font-family: Arial, Verdana, sans-serif; }<br>  h1, h2, p { color: #556b2f; }<br>}</code></pre>
+</div>
+
+
+<div class="item" id="x10">
+<h2 class="sin"><a href="#x0"><samp>orientation</samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: <samp>landscape | portrait</samp></div>
+	<div style="margin-top:15px">Определяет, что устройство находится в альбомном режиме (ширина больше высоты) или портретном (ширина меньше высоты).</div>
+	<pre class="item2 css"><code>@media screen and (orientation: landscape) {<br>  #logo { background: url(logo1.png) no-repeat; }<br>}<br><br>@media screen and (orientation: portrait) {<br>  #logo { background: url(logo2.png) no-repeat; }<br>}</code></pre>
+</div>
+
+
+<div class="item" id="x11">
+<h2 class="sin"><a href="#x0"><samp>resolution<br><small>(min-resolution, max-resolution)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: разрешение в <samp>dpi</samp> (точек на дюйм) или <samp>dpcm</samp> (точек на сантиметр)</div>
+	<div style="margin-top:15px">Определяет разрешение устройства, например, принтера. В примере ниже стиль будет работать для принтера с минимальным разрешением 300 точек на дюйм.</div>
+	<pre class="item2 css"><code>@media print and (min-resolution: 300dpi) {<br>  ...<br>}</code></pre>
+</div>
+
+
+<div class="item" id="x12">
+<h2 class="sin"><a href="#x0"><samp>scan</samp></a></h2>
+	<div>Тип носителя: <samp class="red">tv</samp></div>
+	<div>Значение: <samp>interlace | progressive</samp></div>
+	<div style="margin-top:15px">Определяет тип развертки телевизора — череcстрочная (interlace) или прогрессивная (progressive). При чересстрочной развёртке телевизор вначале показывает нечётные строки кадра, затем чётные, что позволяет сократить передаваемые данные. В прогрессивной развёртке кадр передаётся и показывается целиком.</div>
+</div>
+
+
+<div class="item" id="x13">
+<h2 class="sin"><a href="#x0"><samp>width<br><small>(min-width, max-width)</small></samp></a></h2>
+	<div>Тип носителя: <samp class="red">print, screen</samp></div>
+	<div>Значение: размер</div>
+	<div style="margin-top:15px">Описывает ширину отображаемой области. Это может быть окно браузера или печатная страница. В данном примере при уменьшении окна до 600 пикселей и меньше меняется цвет фона веб-страницы.</div>
+	<pre class="item2"><code>&lt;style><br>  body { background: #f0f0f0; }<br>  @media screen and (max-width: 600px) {  body {background:#fc0;}  }<br>&lt;/style></code></pre>
+</div>
+
+
+<div class="item">
+	Cуть проблемы - чтобы со смартфонов в альбомном режиме срабатывало правило
+	<br>код ниже не срабатывает
+	<pre class="item2"><code>@media handheld and (orientation:landscape) {<br>  .qwe {display:none !important ;}<br>}</code></pre>
+
+	Влад Мержевич Модератор: <samp class="red">handheld</samp> не используйте, плохо работает;
+	<br> так работает:
+	<pre class="item2"><code>@media screen and (orientation:landscape) {<br>  .qwe {display:none !important ;}<br>}</code></pre>
+</div>
+
+</body></html>

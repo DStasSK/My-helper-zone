@@ -1,0 +1,558 @@
+<!DOCTYPE html><html><head><title>clip, clip-path</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.upper{font:18px; letter-spacing:3px; color:#555; font-style:italic;
+		border-bottom:1px dashed red; display:inline-block; padding-bottom:2px;}
+	q{font-style:italic;}
+	li{margin:0; padding:0;}
+	ul{margin:-5px 0 0 0; padding:0 10px 0 20px;}
+
+	.ogl{margin:10px 0; padding-left:20px;}
+	.ogl ul, .ogl li{margin:0; font-size:16px; letter-spacing:1px; padding:0px;}
+	.ogl li{display:block; color:#555; position:relative;}
+	.ogl li:before{position:absolute; content:"•"; margin-left:-15px; display:block;}
+	.ogl li:hover{color:#000;}
+	.ogl ul{padding:0 20px;}
+	.ogl summary::-webkit-details-marker {display:none;}
+	.ogl summary::-moz-list-bullet {list-style-type:none;}
+	.ogl summary::marker {display:none;}
+	.ogl summary{display:inline-block; outline:none; cursor:pointer; color:#555; letter-spacing:2px;}
+</style>
+</head>
+<body>
+
+<details class="ogl"><!-- оглавление -->
+	<summary>оглавление:</summary>
+	<ul>
+		<li><a href="#z1">clip</a></li>
+		<li><a href="#z2">clip-path</a></li>
+		<li><a href="#z3">Два способа использования clip-path.</a></li>
+		<li><a href="#z4">Cинтаксис clip-path</a></li>
+		<li><a href="#z5">"Анимация" базовых фигур через transition, особенности.</a></li>
+		<li><a href="#p1">Пример 1 - многоугольник</a></li>
+		<li><a href="#p2">Пример 2 - шестиугольник</a></li>
+		<li><a href="#p3">Пример 3 - звезда <samp>-></samp> квадрат (<samp class="red">shape-inside</samp>)</a></li>
+		<li><a href="#p4">Пример 4 - трапеция (<samp class="red">shape-inside</samp>)</a></li>
+		<li><a href="#p5">Пример 5 - границы</a></li>
+		<li><a href="#p6">Пример 6</a></li>
+	</ul>
+</details><!-- /оглавление -->
+
+
+<div class="item" id="z1">
+<h2 class="sin"><a href="#"><samp>clip</samp></a></h2>
+	<div class="item2 br0">Данное свойство устарело, вместо него используют <samp>clip-path</samp>.</div>
+
+	<div class="upper">
+		<span class="point" id="clip1" onclick='clip0.classList.toggle("hiden");clip1.classList.toggle("hiden");clip2.classList.toggle("hiden");'>развернуть</span>
+		<span class="hiden point" id="clip2" onclick='clip0.classList.toggle("hiden");clip1.classList.toggle("hiden");clip2.classList.toggle("hiden");'>свернуть</span>
+	</div>
+
+	<div class="hiden" onclick="event.stopPropagation()" id="clip0">
+		<p class="mt10">Свойство <samp class="sin">clip</samp> определяет область позиционированного элемента, в которой будет показано его содержимое. Всё, что не помещается в эту область, будет обрезано и становится невидимым. На данный момент единственная доступная форма области - прямоугольник.</p>
+		<p><samp class="sin">clip</samp> работает только для позиционированных элементов, у которых свойство <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp> или <samp class="lsin">fixed</samp>.</p>
+		<p>Значение по умолчанию - <samp class="lsin">auto</samp>, свойство не наследуется, применяется к блочным элементам, анимируется</p>
+		<p>В качестве значений используется расстояние от края элемента до области вырезки, которое задается в единицах CSS — пиксели (px), em и др. Если край области нужно оставить без изменений, следует установить <samp class="lsin">auto</samp>, положение остальных значений показано ниже.</p>
+
+		<pre class="item2 br0"><code>clip: rect(Y1, X2, Y2, X1) | auto</code></pre>
+		<div>
+			<center><img src="img/css_clip_1.png" />
+			<br>Сначала отсекается верхняя область, потом правая, низ и левая сторона.</center>
+		</div>
+
+		<p class="mt20"><samp class="sin">Internet Explorer</samp> до версии <b>7</b> включительно работает с другой формой записи, при которой значения координат разделяются между собой пробелом, а не запятой.</p>
+		<pre class="item2 br0"><code>clip: rect(Y1 X2 Y2 X1) | auto</code></pre>
+
+		<h3 class="sin" style="padding-bottom:155px; padding-top:10px">Пример</h3>
+			<style>
+				.pr1 {width:500px; color:#fff; background:#7f4c3e; padding:0 10px;
+					position:absolute; left:calc(50% - 260px); margin-top:-155px;
+					animation:pra 8s infinite;} /* Анимация */
+				@keyframes pra {
+					0% {clip:rect(auto, 0, auto, 0);}
+					20% {clip:rect(auto, 520px, auto, 0);}
+					80% {clip:rect(auto, 520px, auto, 0);}
+					100% {clip:rect(auto, 0, auto, 0);}}
+			</style>
+			<div class="pr1">
+				<p>Свойство <samp class="sin">clip</samp> определяет область позиционированного элемента, в которой будет показано его содержимое. Всё, что не помещается в эту область, будет обрезано и становится невидимым. На данный момент единственная доступная форма области - прямоугольник.</p>
+			</div>
+
+			<div class="item2">
+				<samp class="red point" onclick='primer0.classList.toggle("hiden");'>HTML</samp>
+				<div class="hiden" onclick="event.stopPropagation()" id="primer0">
+					<pre><code>&lt;div class="pr1"><br>  &lt;p>Свойство &lt;samp class="red">clip&lt;/samp>...&lt;/p><br>&lt;/div></code></pre>
+					<br><samp class="red">CSS</samp>
+					<pre><code>.pr1 {<br>  width:500px; color:#fff; background:#7f4c3e; padding:0 10px;<br>  position:absolute; left:calc(50% - 260px); margin-top:-155px;<br>  animation:pra 8s infinite;}<br><br>@keyframes pra {<br>  0%   {clip:rect(auto, 0, auto, 0);}<br>  20%  {clip:rect(auto, 520px, auto, 0);}<br>  80%  {clip:rect(auto, 520px, auto, 0);}<br>  100% {clip:rect(auto, 0, auto, 0);}}</code></pre>
+					<span class="yel" onclick='primer0.classList.toggle("hiden");'>Свернуть</span>
+				</div>
+			</div>
+		<!-- /пример -->
+	</div><!-- /hiden -->
+</div><!-- /item -->
+
+
+
+<div class="item" id="z2">
+<h2 class="sin"><a href="#"><samp>clip-path</samp></a></h2>
+	<p>Свойство <samp class="sin">clip-path</samp> определяет область позиционированного элемента, в которой будет показано его содержимое. Всё, что не помещается в эту область, будет обрезано и становится невидимым.</p>
+	<p><samp class="sin">clip-path</samp> как и <samp class="sin">clip</samp> работает только для позиционированных элементов, у которых свойство <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp> или <samp class="lsin">fixed</samp>.</p>
+	<p>Значение по умолчанию - <samp class="lsin">auto</samp>, свойство не наследуется, применяется к блочным элементам, анимируется</p>
+
+	<p><samp class="sin">clip-path</samp> можно использовать совмесно с SVG графикой.</p>
+	<p>Отсечение с помощью свойства <samp class="sin">clip-path</samp> похоже на вырезание фигуры (например, круга или пятиугольника) из прямоугольного листа бумаги. Свойство относится к спецификации <a href="http://www.w3.org/TR/css-masking-1" class="sin tdu">«CSS Masking Module Level 1»</a>. Спецификация заявляет: <q>Маскирование <b>CSS</b> предлагает два средства для частичного или полного сокрытия частей визуальных элементов: маскирование и отсечение.</q></p>
+
+	<p>Первая часть, то есть маскирование, связана с использованием графического элемента, такого как изображения <b>PNG</b>, градиента на <b>CSS</b> или элемента <b>SVG</b>, в качестве маски для сокрытия разделов другого элемента.</p>
+	<p>Вторая часть, то есть <samp class="sin">clip-path</samp>, включает замкнутый векторный контур, который может быть базовой фигурой, определённой в <b>CSS</b> или <b>SVG</b> с использованием тега <b>clipPath</b>. Область внутри этого контура отображается, а всё, что находится за её пределами или снаружи, будет обрезано.</p>
+</div><!-- /item -->
+
+
+
+<div class="item" id="z3">
+<h2 class="sin"><a href="#">Два способа использования <samp>clip-path</samp></a></h2>
+
+	<p class="mb0 mt20"><samp>1. на CSS</samp></p>
+	<p class="mt0">Основные фигуры из <a href="http://www.w3.org/TR/css-shapes-1/#typedef-basic-shape">«CSS Shapes Module»</a> обеспечивают удобный способ использования <b>clip-path</b>. Доступны разные фигуры: <b>polygon, circle, ellipse и inset</b>; <b>inset</b> предназначен для прямоугольников.</p>
+
+	<p class="mb0 tm20"><samp>2. на SVG</samp></p>
+	<p class="mt0">В качестве альтернативы можно создать фигуру с помощью SVG, а затем обрезать элемент по этой фигуре с помощью синтаксиса URL. Есть два способа сделать это, в обоих случаях в SVG используется элемент clipPath для обёртывания элемента, который определяет обтравочный контур, будь то круг, многоугольник или другой элемент:
+	<br>а) через указатель на встроенный SVG (разметка SVG существует в самой странице);
+	<br>б) со ссылкой на внешний документ SVG.</p>
+
+	<div class="mt40 mb10">Mожно создать адаптивный обтравочный контур SVG следующим образом:</div>
+	<ul>
+		<li>Установить ширину и высоту SVG как 0.</li>
+		<li>Установить идентификатор для элемента <samp class="sin">clipPath</samp> внутри <samp class="sin">SVG</samp>, на который затем можно ссылаться из CSS. Вы можете использовать встроенный или внешний SVG, помня про "поддержку" браузерами.</li>
+		<li>Повторно использовать процентные значения координат многоугольника, определённого с помощью <samp class="sin">clipPath</samp>. Просто разделить их на <b>100</b> и добавить как безразмерные точки многоугольника в SVG. Установить значение атрибута <samp class="sin">clipPathUnits</samp> как <samp class="lsin">objectBoundingBox</samp>, чтобы обтравочный контур помечал границы элемента HTML, который на него ссылается.</li>
+	</ul>
+
+	<div class="no">Современные браузеры WebKit и Blink поддерживают обтравочные контуры на SVG, только если они объявлены встроенными (то есть внутри документа). Ссылки на внешние SVG поддерживаются только в Firefox.</div>
+	<div class="no">Все границы, тени и контуры за пределами области отсечения будут обрезаны. Также сообщается о нескольких ошибках с clip-path и трёхмерными трансформациями, переходами и прозрачностью.</div>
+</div>
+
+
+
+<div class="item amp anp" id="z4">
+<h2 class="sin"><a href="#">Cинтаксис <samp>clip-path</samp></a></h2>
+	<style>
+		.cir{-webkit-clip-path: circle(40.0% at 20% 50%);
+			clip-path: circle(40% at 20% 50%);}
+		.ell{
+			-webkit-clip-path: ellipse(50% 25% at 50% 50%);
+			clip-path: ellipse(50% 25% at 50% 50%);}
+		.ins{
+			-webkit-clip-path: inset(10% 20% 0 30%); /* отступы: сверху справа снизу слева */
+			clip-path: inset(10% 20% 0 30%);}
+		.pol{
+			-webkit-clip-path: polygon(0 0, 90% 10%, 100% 80%, 20% 100%, 10% 40%);
+			clip-path: polygon(0 0, 90% 10%, 100% 80%, 20% 100%, 10% 40%);}
+		/*.t1 table{width:100%; min-width:600px; margin:0 auto 20px; border-collapse:collapse;}*/
+		.tt1 td{height:90px; padding:5px; border:1px solid #000;}
+		.tt1 tr td:nth-child(1){text-align:center;}
+		.tt1 tr td:nth-child(3){background:#eee; width:90px;}
+		.tt1 tr td:nth-child(3) div{background:red; width:90px; height:90px;}
+		.tt1 tr td:nth-child(3) div:hover{background:red; -webkit-clip-path:none; clip-path:none;
+			-webkit-transition:all 0.5s linear; transition:all 0.5s linear;}
+	</style>
+	<table class="tw tb tt1">
+		<tr><td>Круг</td><td><pre><code>.cir{clip-path: circle(40% at 20% 50%);}</code></pre></td><td><div class="cir"></div></td></tr>
+		<tr><td>Эллипс</td><td><pre><code>.ell{clip-path: ellipse(50% 25% at 50% 50%);}</code></pre></td><td><div class="ell"></div></td></tr>
+		<tr><td>Прямоугольник</td><td><pre><code>/* отступы: сверху справа снизу слева */<br>.ins{clip-path: inset(10% 20% 0 30%);}</code></pre></td><td><div class="ins"></div></td></tr>
+		<tr><td>Многоугольник</td><td><pre><code>.pol{clip-path:polygon(<br>    0 0, 90% 10%, 100% 80%, 20% 100%, 10% 40%<br>  );}</code></pre></td><td><div class="pol"></div></td></tr>
+	</table>
+
+	<p class="mt20">Синтаксис для базового многоугольника таков:</p>
+	<pre class="item2"><code>.element {clip-path: polygon(x1 y1, x2 y2, x3 y3, …);}</code></pre>
+	<p>Каждая пара аргументов в списке соответствует координатам по оси x и по оси y конкретной вершины многоугольника. Начальную и конечную точку можно не замыкать.</p>
+
+	<p class="mt20">Вот как написано это в примере:</p>
+	<pre class="item2"><code>.element {clip-path: polygon(0 0, 90% 10%, 100% 80%, 20% 100%, 10% 40%);}</code></pre>
+
+	<p class="mt20">поддержкa Firefox с указателем на встроенный SVG:</p>
+	<pre class="item2"><code>.element {clip-path: url("#clip-shape");}</code></pre>
+
+	<p class="mt20">Tак будет выглядеть селектор с кроссбраузерной поддержкой:</p>
+	<pre class="item2"><code>.element {<br>  -webkit-clip-path: polygon(0 0, 90% 10%, 100% 80%, 20% 100%, 10% 40%);<br>  clip-path: polygon(0 0, 90% 10%, 100% 80%, 20% 100%, 10% 40%);<br><br>  /* требуется для браузеров Webkit/Blink,<br>     если использовать только встроенный SVG, а не clip-path */<br>  -webkit-clip-path: url("#clip-shape");<br>  clip-path: url("#clip-shape");<br>}</code></pre>
+
+	<p class="mt20">Ниже приведён код встроенного SVG, который нужно будет вставить в любом месте разметки.</p>
+	<pre class="item2"><code>&lt;svg width="0" height="0"><br>  &lt;defs><br>    &lt;clipPath id="clip-shape" clipPathUnits="objectBoundingBox"><br>      &lt;polygon points="0 0, .9 .1, 1 .8, .2 1, .1 .4" /><br>    &lt;/clipPath><br>  &lt;/defs><br>&lt;/svg></code></pre>
+</div><!-- /item -->
+
+
+
+<div class="item" id="z5">
+<h2 class="sin"><a href="#">"Анимация" базовых фигур через <samp>transition</samp>, особенности.</a></h2>
+	<p>При использавании свойства <samp class="sin">transition</samp> число точек, определяющих конечную фигуру, должно быть таким же, как число точек, определяющих начальную фигуру, иначе свойство <samp class="sin">transition</samp> работать не будет, т.е. переход будет мгновенным.</p>
+
+	<!-- 6-6-8 -->
+		<style>
+			.clip-content {text-align:center;}
+			.clip-t {background-color:#639; background-color:rebeccaPurple; width:100px; height:100px;
+				margin: 10px auto -20px;
+				-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+				clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+				-webkit-clip-path: url("#hexagon-clip"); clip-path: url("#hexagon-clip");}
+			.clip-t:hover {
+				-webkit-clip-path:polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+				clip-path:polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+				-webkit-clip-path:url("#octagon-clip"); clip-path:url("#octagon-clip");
+				-webkit-transition:all 0.2s ease-in; transition:all 0.2s ease-in;}
+		</style>
+		<div class="clip-content">
+			<div class="clip-t"></div> 
+		</div>
+
+		<svg class="clip-svg">
+			<defs>
+				<clipPath id="hexagon-clip" clipPathUnits="objectBoundingBox">
+					<polygon points="0.5 0, 1 0.25, 1 0.75, 0.5 1, 0 0.75, 0 0.25" />
+				</clipPath>
+			</defs>
+		</svg>
+
+		<svg class="clip-svg">
+			<defs>
+				<clipPath id="octagon-clip" clipPathUnits="objectBoundingBox">
+					<polygon points="0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3" />
+				</clipPath>
+			</defs>
+		</svg>
+	<!-- /6-6-8 -->
+
+	<p>Поскольку шестиугольник содержит шесть пар координатных точек, нужно добавим две пары через дублирование, чтобы их стало восемь и они соответствовали числу пар для восьмиугольника. Эти дублированные пары не будут влиять на форму шестиугольника.</p>
+
+	<pre class="item2"><code class="css">/* шестиугольник с шестью парами координатных точек: */<br>clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);<br><br>/* первые две пары координат были дублированы: */<br>clip-path: polygon(50% 0%, 50% 0%, 100% 25%, 100% 25%, 100% 75%, 50% 100%,<br>                   0% 75%, 0% 25%);</code></pre>
+
+	<p>Для браузеров, которые поддерживают обтравочные контуры только на SVG, нужно добавить анимацию SMIL, чтобы получить бесшовный переход при наведении. Согласно спецификации SMIL, декларативные анимации могут применяться для анимации линий и точек многоугольника в SVG, что в настоящее время невозможно с помощью CSS.</p>
+
+	<!-- 6-8a -->
+		<style>
+			.cont{margin:0 auto -20px; width:240px;}
+			.clip-svg {width:0; height:0;}
+			.clip-block {width:100px; height:100px; line-height:100px; display:inline-block; padding:0 10px;}
+			.clip-s1, .clip-s2 {background:#639; text-align:center; margin:0 auto;
+				-webkit-clip-path:polygon(50% 0, 50% 0, 100% 25%, 100% 75%, 50% 100%, 50% 100%, 0 75%, 0 25%);
+				clip-path:polygon(50% 0, 50% 0, 100% 25%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+				-webkit-transition:all 2.5s linear; transition:all 2.5s linear;}
+			.clip-s1:hover, .clip-s2:hover {
+				-webkit-clip-path:polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+				clip-path:polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+				-webkit-transition:all 2.5s linear; transition:all 2.5s linear;}
+			.clip-s1 {-webkit-clip-path:url("#hexagon-clip-animate"); clip-path:url("#hexagon-clip-animate");}
+		</style>
+		<div class="cont">
+			<div class="clip-block">
+				<section id="clipSection1" class="clip-s1">1 - SVG</section>
+			</div><!-- 
+		 --><div class="clip-block">
+				<section id="clipSection2" class="clip-s2">2 - not SVG</section>
+			</div>
+		</div>
+		<svg class="clip-svg">
+			<defs>
+				<clipPath id="hexagon-clip-animate" clipPathUnits="objectBoundingBox">
+					<polygon points="0.5 0, 0.5 0, 1 0.25, 1 0.75, 0.5 1, 0.5 1, 0 0.75, 0 0.25" id="hexagonPolygon" />
+					<animate xlink:href="#hexagonPolygon" begin="clipSection1.mouseover" attributeName="points" to="0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3" dur="2.2s" fill="freeze" />
+					<animate xlink:href="#hexagonPolygon" begin="clipSection1.mouseout" attributeName="points" to="0.5 0, 0.50 0, 1 0.25, 1 0.75, 0.5 1, 0.5 1, 0 0.75, 0 0.25" dur="2.2s" fill="freeze" />
+				</clipPath>
+			</defs>
+		</svg>
+	<!-- /6-8a -->
+
+		<div class="item2">
+			<samp class="red point" onclick='primer68.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" onclick="event.stopPropagation()" id="primer68">
+				<pre><code>&lt;div class="cont"><br>  &lt;div class="clip-block"><br>    &lt;section id="clipSection1" class="clip-s1">1 - SVG&lt;/section><br>  &lt;/div>&lt;!-- <br>  -->&lt;div class="clip-block"><br>    &lt;section id="clipSection2" class="clip-s2">2 - not SVG&lt;/section><br>  &lt;/div><br>&lt;/div><br>&lt;svg class="clip-svg"><br>  &lt;defs><br>    &lt;clipPath id="hexagon-clip-animate" clipPathUnits="objectBoundingBox"><br>      &lt;polygon id="hexagonPolygon" <br>      points="0.5 0, 0.5 0, 1 0.25, 1 0.75, 0.5 1, 0.5 1, 0 0.75, 0 0.25" /><br>      &lt;animate xlink:href="#hexagonPolygon" begin="clipSection1.mouseover" <br>      attributeName="points"  dur="2.2s" fill="freeze" <br>      to="0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3" /><br>      &lt;animate xlink:href="#hexagonPolygon" begin="clipSection1.mouseout" <br>      attributeName="points"  dur="2.2s" fill="freeze"<br>      to="0.5 0, 0.50 0, 1 0.25, 1 0.75, 0.5 1, 0.5 1, 0 0.75, 0 0.25" /><br>    &lt;/clipPath><br>  &lt;/defs><br>&lt;/svg></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre><code>.cont{margin:0 auto -20px; width:240px;}<br>.clip-svg {width:0; height:0;}<br>.clip-block {width:100px; height:100px;<br>  line-height:100px; display:inline-block; padding:0 10px;}<br>.clip-s1, .clip-s2 {background:#639; text-align:center; margin:0 auto;<br>  -webkit-clip-path:polygon(50% 0, 50% 0, 100% 25%, 100% 75%, 50% 100%, 50% 100%, 0 75%, 0 25%);<br>  clip-path:polygon(50% 0, 50% 0, 100% 25%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);<br>  -webkit-transition:all 2.5s linear; transition:all 2.5s linear;}<br>.clip-s1 {<br>  -webkit-clip-path:url("#hexagon-clip-animate");<br>  clip-path:url("#hexagon-clip-animate");}<br>.clip-s1:hover, .clip-s2:hover {<br>  -webkit-clip-path:polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);<br>  clip-path:polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);<br>  -webkit-transition:all 2.5s linear; transition:all 2.5s linear;}</code></pre>
+				<span class="yel" onclick='primer68.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div>
+</div><!-- /item -->
+
+
+
+<div class="item" id="p1">
+<h3><a href="#">Пример 1 - многоугольник</a></h3><!-- пример 1 -->
+	<style>
+		.clip1 {text-align:center;}
+		.el1 {
+			-webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
+			clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
+			-webkit-clip-path: url("#clip-shape1");
+			clip-path: url("#clip-shape1");}
+	</style>
+	<div class="clip1">
+		<img src="img/winnie.png" class="el1" width="200" height="150" title="пример">
+	</div>
+	<svg width="0" height="0">
+		<defs>
+			<clipPath id="clip-shape1" clipPathUnits="objectBoundingBox" >
+				<polygon points="0 1, 0 0, 1 0, 0.8 1" />
+			</clipPath>
+		</defs>
+	</svg>
+
+	<div class="item2">
+		<samp class="red point" onclick='primer1.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" onclick="event.stopPropagation()" id="primer1">
+			<pre><code>&lt;div class="clip-wrap"><br>  &lt;img src="img/winnie.png" class="element" width="200" height="150"><br>&lt;/div><br>&lt;svg width="0" height="0"><br>  &lt;defs><br>    &lt;clipPath id="clip-shape" clipPathUnits="objectBoundingBox" ><br>      &lt;polygon points="0 1, 0 0, 1 0, 0.8 1" /><br>    &lt;/clipPath><br>  &lt;/defs><br>&lt;/svg><br></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.clip-wrap {text-align:center;}<br>.element {<br>  -webkit-clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);<br>  clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);<br>  -webkit-clip-path: url("#clip-shape");<br>  clip-path: url("#clip-shape");}</code></pre>
+			<span class="yel" onclick='primer1.classList.toggle("hiden");'>Свернуть</span>
+		</div><!-- /hiden -->
+	</div>
+</div><!-- /item --><!-- /пример 1 -->
+
+
+
+<div class="item" id="p2">
+<h3><a href="#">Пример 2 - шестиугольник</a></h3><!-- пример 2 -->
+	<style>
+		.clip-wrap {text-align:center; border:1px solid red}
+		.clip-wrap span{font-size:36px; padding:0 10px;}
+		img {vertical-align:middle;}
+		.clip-svg {width:0; height:0;}
+		.clip-polygon {
+			-webkit-clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+			clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+			/* еще раз через SVG фигуру - для адаптивности */
+			-webkit-clip-path:url("#clip-svg-demo");
+			clip-path:url("#clip-svg-demo");}
+	</style>
+	<div class="clip-wrap">
+		<img src="img/vk.png" width="140" height="140">
+		<span>+</span>
+		<img src="img/6.png" width="140" height="140">
+		<span>=</span>
+		<img src="img/vk.png" width="140" height="140" class="clip-polygon">
+	</div> <!-- /clip-wrap -->
+
+	<svg class="clip-svg">
+		<defs>
+			<clipPath id="clip-svg-demo" clipPathUnits="objectBoundingBox">
+				<polygon points="0.25 0, 0.75 0, 1 0.5, 0.75 1, 0.25 1, 0 0.5" />
+ 			</clipPath>
+		</defs>
+	</svg>
+
+	<div class="item2" style="margin-top:0">
+		<samp class="red point" onclick='primer2.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" onclick="event.stopPropagation()" id="primer2">
+			<pre><code>&lt;div class="clip-wrap"><br>  &lt;img src="img/vk.png" width="140" height="140"><br>  &lt;span>+&lt;/span><br>  &lt;img src="img/6.png" width="140" height="140"><br>  &lt;span>=&lt;/span><br>  &lt;img src="img/vk.png" width="140" height="140" class="clip-polygon"><br>&lt;/div> &lt;!-- /clip-wrap --><br><br>&lt;!-- еще раз через SVG фигуру - для адаптивности --><br>&lt;svg class="clip-svg"><br>  &lt;defs><br>    &lt;clipPath id="clip-svg-demo" clipPathUnits="objectBoundingBox"><br>      &lt;polygon points="0.25 0, 0.75 0, 1 0.5, 0.75 1, 0.25 1, 0 0.5" /><br>    &lt;/clipPath><br>  &lt;/defs><br>&lt;/svg></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.clip-wrap {text-align:center; border:1px solid red;}<br>.clip-wrap span{font-size:36px; padding:0 10px;}<br>img {vertical-align:middle;}<br>.clip-svg {width:0; height:0;}<br>.clip-polygon {<br>  -webkit-clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);<br>  clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);<br>  /* еще раз через SVG фигуру - для адаптивности */<br>  -webkit-clip-path:url("#clip-svg-demo");<br>  clip-path:url("#clip-svg-demo");}</code></pre>
+			<span class="yel" onclick='primer2.classList.toggle("hiden");'>Свернуть</span>
+		</div>
+	</div><!-- /пример 2 -->
+</div><!-- /item --><!-- /пример 2 -->
+
+
+
+<div class="item" id="p3">
+<h3><a href="#">Пример 3 - звезда <samp>-></samp> квадрат</a></h3><!-- пример 3 -->
+	<style>
+		.element3 {background-color:#f1c40f; color:white; width:200px; height:200px;
+			margin:10px auto; text-align:justify; padding:5px;
+			shape-inside:polygon(50% 0, 70% 34%, 100% 36%, 76% 64%, 90% 100%, 50% 84%, 10% 100%, 24% 64%, 0 36%, 30% 34%);
+			shape-padding:10px;
+			-webkit-transition:all 2s ease; transition:all 2s ease; font-size:14px;
+			-webkit-clip-path:polygon(50% 0, 70% 34%, 100% 36%, 76% 64%, 90% 100%, 50% 84%, 10% 100%, 24% 64%, 0 36%, 30% 34%);}
+		.element3:hover{ 
+			shape-inside:polygon(50% 0, 100% 0, 100% 36%, 100% 64%, 100% 100%, 50% 100%, 0 100%, 0 64%, 0 36%, 0 0);
+			-webkit-clip-path:polygon(50% 0, 100% 0, 100% 36%, 100% 64%, 100% 100%, 50% 100%, 0 100%, 0 64%, 0 36%, 0 0);}
+	</style>
+	<div class="element3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ratione qui voluptatum quod et quaerat dolorum odio consequuntur dolores! Ipsum commodi mollitia maiores expedita reiciendis ducimus qui unde! Odio molestias!</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='primer3.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" onclick="event.stopPropagation()" id="primer3">
+			<pre><code>&lt;div class="element"><br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>  Vel ratione qui voluptatum quod et quaerat dolorum odio <br>  consequuntur dolores! Ipsum commodi mollitia maiores expedita<br>   reiciendis ducimus qui unde! Odio molestias!<br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.element {<br>  background-color:#f1c40f; color:white;<br>  width:200px; height:200px; margin:10px auto;<br>  text-align:justify; font-size:14px; padding:5px;<br>  shape-inside:polygon(50% 0, 70% 34%, 100% 36%, 76% 64%, 90% 100%, 50% 84%, 10% 100%, 24% 64%, 0 36%, 30% 34%);<br>  shape-padding:10px;<br>  -webkit-transition:all 2s ease;<br>  transition:all 2s ease;<br>  -webkit-clip-path:polygon(50% 0, 70% 34%, 100% 36%, 76% 64%, 90% 100%, 50% 84%, 10% 100%, 24% 64%, 0 36%, 30% 34%);}<br>.element:hover{<br>  shape-inside:polygon(50% 0, 100% 0, 100% 36%, 100% 64%, 100% 100%, 50% 100%, 0 100%, 0 64%, 0 36%, 0 0);<br>  -webkit-clip-path:polygon(50% 0, 100% 0, 100% 36%, 100% 64%, 100% 100%, 50% 100%, 0 100%, 0 64%, 0 36%, 0 0);}</code></pre>
+			<span class="yel" onclick='primer3.classList.toggle("hiden");'>Свернуть</span>
+		</div><!-- /hiden -->
+	</div>
+</div><!-- /item --><!-- /пример 3 -->
+
+
+
+<div class="item" id="p4">
+<h3><a href="#">Пример 4 - трапеция</a></h3><!-- пример 4 -->
+	<style>
+		.element4 {background-color:#16a085; color:white; width:300px; height:150px;
+			margin:0px auto; text-align:justify; padding:5px; display:block;
+			shape-inside:polygon(0 0, 100% 0, 70% 100%, 30% 100%);
+			shape-padding:20px;
+			-webkit-transition:all 2s ease;
+			transition:all 2s ease;
+			-webkit-clip-path:polygon(0 0, 100% 0, 70% 100%, 30% 100%);}
+		.element4:hover {
+			shape-inside: polygon(30% 0, 70% 0, 100% 60%, 0 60%);
+			-webkit-clip-path:polygon(30% 0, 70% 0, 100% 100%, 0 100%);}
+	</style>
+	<div class="element4">
+	 	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae modi minima eum veritatis dolores placeat soluta nostrum tempore aliquid pariatur.
+	</div>
+
+	<div class="item2">
+		<samp class="red point" onclick='primer4.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" onclick="event.stopPropagation()" id="primer4">
+			<pre><code>&lt;div class="element4"><br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>  Vitae modi minima eum veritatis dolores placeat soluta<br>  nostrum tempore aliquid pariatur.<br>&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.element4 {<br>  background-color:#16a085; color:white;<br>  width:300px; height:150px;<br>  margin:0px auto; text-align:justify;<br>  padding:5px; display:block;<br>  shape-inside:polygon(0 0, 100% 0, 70% 100%, 30% 100%);<br>  shape-padding:20px;<br>  -webkit-transition:all 2s ease;<br>  transition:all 2s ease;<br>  -webkit-clip-path:polygon(0 0, 100% 0, 70% 100%, 30% 100%);}<br>.element4:hover {<br>  shape-inside:polygon(30% 0, 70% 0, 100% 60%, 0 60%);<br>  -webkit-clip-path:polygon(30% 0, 70% 0, 100% 100%, 0 100%);}</code></pre>
+			<span class="yel" onclick='primer4.classList.toggle("hiden");'>Свернуть</span>
+		</div><!-- /hiden -->
+	</div>
+</div><!-- /item --><!-- /пример 4 -->
+
+
+
+<div class="item" id="p5">
+<h3><a href="#">Пример 5 - границы</a></h3><!-- пример 5 -->
+	<style>
+		.center5 {text-align:center;}
+		.clip-svg5 {width:0; height:0;}
+		.clip5 {display:inline-block; vertical-align:top; padding:10px;}
+		.clip-each5 {width:180px; height:180px; position:relative; line-height:180px;}
+		.clip-each5:after {content:""; position:absolute; background:#fff;}
+		.clip-each5, .clip-each5:after {z-index:1;
+			-webkit-clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+			clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+			clip-path: url("#octagon-clip");}
+		.clip-each5 span{position:relative; z-index:2;}
+		.border-style-thin {background-color:#639; background-color:rebeccaPurple;}
+		.border-style-thin:after {top:3px; left:3px; right:3px; bottom:3px;}
+		.border-style-gradient {
+			background:-webkit-linear-gradient(left, #ba59a6 0%, #69aed8 50%, #1c12a8 100%);
+			background:linear-gradient(to right, #ba59a6 0%, #69aed8 50%, #1c12a8 100%);}
+		.border-style-gradient:after {top:14px; left:14px; right:14px; bottom:14px;}
+		.box-shadow-inset {
+			background-color:#000; /* IE 8 fallback */
+			background-color:rgba(0,0,0,0.15);
+			-webkit-filter:blur(3px); filter:blur(3px);}
+		.box-shadow-inset:after {background:#fff; top:4px; left:4px; right:4px; bottom:4px;}
+	</style>
+	<div class="center5">
+		<div class="clip5">
+			<div class="clip-each5 border-style-thin"><span>1</span></div>
+		</div>
+		<div class="clip5">
+			<div class="clip-each5 border-style-gradient"><span>2</span></div>
+		</div>
+		<div class="clip5">
+			<div class="clip-each5 box-shadow-inset"><span>3</span></div>
+		</div>
+	</div>
+	<svg class="clip-svg5">
+		<defs>
+			<clipPath id="octagon-clip" clipPathUnits="objectBoundingBox">
+				<polygon points="0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3" />
+			</clipPath>
+		</defs>
+	</svg>
+	<div class="item2">
+		<samp class="red point" onclick='primer5.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" onclick="event.stopPropagation()" id="primer5">
+			<pre><code>&lt;div class="center5"><br>  &lt;div class="clip5"><br>    &lt;div class="clip-each5 border-style-thin">&lt;span>1&lt;/span>&lt;/div><br>  &lt;/div><br>  &lt;div class="clip5"><br>    &lt;div class="clip-each5 border-style-gradient">&lt;span>2&lt;/span>&lt;/div><br>  &lt;/div><br>  &lt;div class="clip5"><br>    &lt;div class="clip-each5 box-shadow-inset">&lt;span>3&lt;/span>&lt;/div><br>  &lt;/div><br>&lt;/div><br>&lt;svg class="clip-svg5"><br>  &lt;defs><br>    &lt;clipPath id="octagon-clip" clipPathUnits="objectBoundingBox"><br>      &lt;polygon points="0.3 0, 0.7 0, 1 0.3, 1 0.7, 0.7 1, 0.3 1, 0 0.7, 0 0.3" /><br>    &lt;/clipPath><br>  &lt;/defs><br>&lt;/svg></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.center5 {text-align:center;}<br>.clip-svg5 {width:0; height:0;}<br>.clip5 {<br>  display:inline-block;<br>  vertical-align:top;<br>  padding:10px;}<br>.clip-each5 {<br>  width:180px; height:180px;<br>  position:relative;<br>  line-height:180px;}<br>.clip-each5:after {content:""; position:absolute; background:#fff;}<br>.clip-each5, .clip-each5:after {<br>  z-index:1;<br>  -webkit-clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);<br>  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);<br>  clip-path: url("#octagon-clip");}<br>.clip-each5 span {position:relative; z-index:2;}<br>.border-style-thin {<br>  background-color:#639;<br>  background-color:rebeccaPurple;}<br>.border-style-thin:after {<br>  top:3px; left:3px; right:3px; bottom:3px;}<br>.border-style-gradient {<br>  background:-webkit-linear-gradient(left, #ba59a6 0%, #69aed8 50%, #1c12a8 100%);<br>  background:linear-gradient(to right, #ba59a6 0%, #69aed8 50%, #1c12a8 100%);}<br>.border-style-gradient:after {<br>  top:14px; left:14px; right:14px; bottom:14px;}<br>.box-shadow-inset {<br>  background-color:#000; /* IE 8 fallback */<br>  background-color:rgba(0,0,0,0.15);<br>  -webkit-filter:blur(3px);<br>  filter:blur(3px);}<br>.box-shadow-inset:after {<br>  background:#fff;<br>  top:4px; left:4px; right:4px; bottom:4px;}</code></pre>
+			<span class="yel" onclick='primer5.classList.toggle("hiden");'>Свернуть</span>
+		</div><!-- /hiden -->
+	</div>
+</div><!-- /item --><!-- /пример 5 -->
+
+
+
+<div class="item" id="p6">
+<h3><a href="#">Пример 6</a></h3><!-- пример 5 -->
+	<style>
+		.wrap6 {color:#222;font-size:24px;}
+		.clip-svg6 {width:0;height:0;}
+		.clip-caption6 {width:100%; position:absolute; top:50%; text-align:center;
+			-ms-transform:translateY(-50%); -webkit-transform:translateY(-50%); transform:translateY(-50%);}
+		.clip-each6 {display:block;position:relative;margin:0 auto;
+			-webkit-clip-path:polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+			clip-path:polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+			-webkit-clip-path:url("#hexagon-clip6"); clip-path:url("#hexagon-clip6");
+			-webkit-transition:all 0.2s ease-in; transition:all 0.2s ease-in;}
+		a.clip-each6:hover {background:#9E566E;-webkit-transition:all 0.25s ease-in;transition:all 0.25s ease-in;}
+		.clip-solid6 {width:300px;height:300px;
+			background-image:url("clip-demo-img.jpg");
+			background-repeat:no-repeat;background-size:contain;background-color:#ad6996;
+			background-blend-mode:hard-light;
+			-webkit-transition:all 2.5s linear;transition:all 2.5s linear;}
+		.clip-solid6:after {content:"";position:absolute;left:0;right:0;bottom:0;
+			-webkit-clip-path:polygon(100% 3%, 17% 100%, 100% 100%);
+			clip-path:polygon(100% 3%, 17% 100%, 100% 100%);
+			-webkit-clip-path:url("#triangle-clip6");clip-path:url("#triangle-clip6");
+			background:#9E566E;z-index:1;width:100%;height:155px;
+			-webkit-transition:all 0.2s linear;transition:all 0.2s linear;
+			pointer-events:none;}
+		.clip-solid6:hover:after {height:0;-webkit-transition:all 0.45s ease-in;transition:all 0.45s ease-in;}
+		.clip-solid6:hover .social-share-block6 {-webkit-transition:all 0.2s linear;transition:all 0.2s linear;}
+		.social-share-block6 {position:absolute;bottom:20px;right:75px;color:#fff;font-size:70%;z-index:2;}
+		.social-each6 {font-size:80%;}
+		.clip-gradient6 {background:#222;width:160px;height:160px;}
+		.clip-gradient6 .clip-caption6 {color:#fff;}
+		.clip-border6 {width:160px;height:160px;margin-top:7px;color:#222;
+			background:-webkit-linear-gradient(300deg, #aebcbf 0%, #6e7774 50%, #333 61%, #333 100%);
+			background:linear-gradient(150deg, #aebcbf 0%,#6e7774 50%,#333 61%,#333 100%);}
+		.clip-border6::after {content:"";position:absolute;top:4%;left:4%;right:4%;bottom:4%;margin:0 auto;
+			background:url("bg-cubes.png");
+			-webkit-transition:all 0.3s linear;transition:all 0.3s linear;
+			-webkit-clip-path:polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+			clip-path:polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+			-webkit-clip-path:url("#hexagon-clip6");clip-path:url("#hexagon-clip6");z-index:-1;}
+		.clip-tagline6 {display:block;color:#758C9B;text-decoration:none;text-align:center;}
+		@media only screen and (min-width:500px) {
+			.wrap6 {display:table;margin:10px auto;}
+			.clip-block6 {display:table-cell;vertical-align:middle;}
+			.clip-border6 {margin-top:20px;}}
+	</style>
+	<div class="wrap6">
+		<div class="clip-block6">
+			<div class="clip-each6 clip-solid6">
+				<div class="social-share-block6">
+					<span class="social-each6"><strong>10</strong></span> <span>&hearts;</span>
+				</div>
+			</div>
+		</div> <!-- /clip-block -->
+		<div class="clip-block6">
+			<a href="#" class="clip-each6 clip-gradient6">
+				<div class="clip-caption6">work</div></a>
+			<a href="#" class="clip-each6 clip-border6" title="Изменение значения opacity в сочетании с переходом CSS вызывает мерцание и артефакты на странице.">
+				<div class="clip-caption6">life</div></a>
+		</div> <!-- /clip-block -->
+		<div class="clip-block6">
+			<a href="#" class="clip-tagline6">balance</a>
+		</div> <!-- /clip-block -->
+
+		<svg class="clip-svg6"><!-- шестиугольник -->
+			<defs>
+				<clipPath id="hexagon-clip6" clipPathUnits="objectBoundingBox">
+					<polygon points="0.25 0.05, 0.75 0.05, 1 0.5, 0.75 0.95, 0.25 0.95, 0 0.5" />
+				</clipPath>
+			</defs>
+		</svg>
+
+		<svg class="clip-svg6"><!-- треугольник -->
+			<defs>
+				<clipPath id="triangle-clip6" clipPathUnits="objectBoundingBox">
+					<polygon points="1 0.03, 0.17 1, 1 1" />
+				</clipPath>
+			</defs>
+		</svg>
+	</div>
+</div><!-- /item --><!-- /пример 6 -->
+
+</body>
+</html>

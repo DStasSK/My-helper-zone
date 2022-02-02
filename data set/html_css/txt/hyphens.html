@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="ru"><head><title>hyphens</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.hyp{text-align:justify; hyphens:auto;}
+</style></head>
+<body>
+
+<h2 class="sin">перенос слов - hyphens</h2>
+<div class="item">
+	<p class="hyp">Перенос слов является очень полезным свойством, потому что текст на странице смотрится красивее. Также, иногда приходится делать колонки как в газетах, и тогда выравнивание по правому или левому краю смотрится некрасиво. А вот если растянуть по всей ширине колонки, тогда и для глаза приятнее читать такой текст. Но и в этом случае есть такой нюанс как большие пространства между словами, что смотрится некрасиво.</p>
+
+	<p><samp class="sin">hyphens</samp> - свойство, позваляющее автоматически осуществлять перенос в предложении (перенос не целого слова, а его части). Для работы данного свойства необходимо установить выравнивание текста по двум сторонам - <samp class="sin">text-align:</samp><samp class="lsin">justify</samp></p>
+
+	<p>Словарь переносов хранится в браузере и подключается только при наличии атрибута lang с кодом языка. Так, для русского языка следует добавить <samp class="sin">lang=</samp><samp class="lsin">"ru"</samp> к элементу <samp class="red">&lt;html></samp> или непосредственно к абзацу текста.</p>
+
+	<p>Переносы не работают в Chrome и Opera.</p>
+	<pre class="item2"><code>p {<br>  -webkit-hyphens: auto; /* для браузера Chrome и Safari */<br>  -moz-hyphens: auto;    /* для браузера Firefox */<br>  -ms-hyphens: auto;     /* для браузера Internet Explorer 10 */<br>  hyphens: auto;<br>}</code></pre>
+
+	<p>Единственное кросс-браузерное решение — это вставить мягкие переносы (мнемокод <b>&amp;shy;</b>) в места, где вы допускаете вставлять дефис и разбивать слово с последующим переносом в случае возможности (если ширина позволяет). Можно воспользоваться сервисом автоматической расстановки мягких переносов.</p>
+</div>
+
+</body>
+</html>

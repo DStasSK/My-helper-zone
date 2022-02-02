@@ -1,0 +1,310 @@
+<!DOCTYPE html><html><head><title>background-gradient</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.box{width:calc(50% - 10px); min-height:100px; margin:10px; line-height:1.2;}
+	.boxf{padding:20px 0; text-align:center; font-size:60px;}
+	.boxs{width:300px; height:250px; display:block; margin:0 auto;}
+	.box0{display:flex; justify-content:center; margin:0 -10px;}
+	.box1{background:repeating-linear-gradient(-30deg, #291810, #291810 8px, #FAAB1B 10px, #FAAB1B 14px);}
+	.box2{background:repeating-linear-gradient(-45deg, #E4E3DF, #E4E3DF 5px, #909090 6px, #909090 8px);}
+	.box3{background:linear-gradient(to left, #f38181, #fce38a);}
+	.box4-1{background:repeating-linear-gradient(0deg, #777, #777 1px, transparent 1px, transparent 20px);
+		width:100%;height:140px;}
+	.box4-2{background:repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 20px);
+		width:100%;height:140px;}
+	.box5{background:radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);}
+	.box6{background:repeating-radial-gradient(farthest-corner at 50% 50%, #000, #000 20px, #fff 20px, #fff 40px);}
+</style>
+</head>
+<body>
+<div class="item" id="linear">
+<h2 class="sin">background: linear-gradient</h2>
+	<p>Если в CSS3 добавить градиент на фон, то он будет находится только слева сверху. Для того чтобы растянуть на всю страницу, необходимо прописать следующие строки:</p>
+	<pre class="item2 br0"><code>html {height: 100%;}<br>body {height: 100%; margin: 0;<br>      background-repeat: no-repeat;<br>      background-attachment: fixed;}</code></pre>
+
+	<p>Для корректного отображения цвета фона в различных браузерах необходимо добавлять префиксы, а для Internet explorer - использовать фильтры.</p>
+	<p>По умолчанию, линейный градиент движется с верхней до нижней части элемента, плавно переходя между первым и вторым значением цвета. Это направление, однако, может быть изменено с помощью ключевых слов или значения угла, заданным перед любыми значениями цвета.</p>
+
+	<p>Например, если мы хотим, чтобы градиент в элементе двигался слева направо, мы можем использовать значение <samp class="sin">to right</samp> для указания направления, в котором линейный градиент должен продвигаться. Ключевые слова также могут быть объединены. Если мы хотим, чтобы градиент переходил от левой верхней до правой нижней части элемента, мы можем использовать значение ключевого слова <samp class="sin">to right bottom</samp>.</p>
+
+	<p>Когда мы применяем диагональный градиент в не совсем квадратном элементе, градиент не переходит напрямую из одного угла в другой. Вместо этого градиент определит абсолютный центр элемента, поместит опорные точки в противоположных углах, откуда он должен продвигаться и только затем двинется в направлении угла, заданном в значении. Эти углы, которые перемещает градиент, называются «волшебные уголки», так как они не являются абсолютными.</p>
+
+	<p>Кроме ключевых слов также допускаются углы. Если мы хотим, чтобы наш градиент двигался к левой верхней части элемента мы можем использовать значение угла <samp class="sin">315deg</samp>, также если мы хотим, чтобы наш градиент двигался к правой нижней части элемента, мы можем использовать значение <samp class="sin">135deg</samp>. Этот же подход может быть применён для любого значения угла, от 0 до 360º.</p>
+
+	<style>
+		.table1{background:red;}
+		.table1{border-collapse:separate; border-spacing:0; border-color:#fff;}
+		.table1 td:nth-child(1){width:500px; background:#eee; padding:5px;}
+		.table1 td:nth-child(2){background:#eee; padding:5px;
+			background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)),
+			color-stop(100%,rgba(255,255,255,1)));
+			background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff',
+			endColorstr='#ffffff',GradientType=0 );}
+	</style>
+	<table width="100%" class="table1">
+		<tr><td width="500px"><pre><code class="css">.table1{background:red;}<br>.table1{border-collapse:separate;<br>  border-spacing:0; border-color:#fff;}<br>.table1 td:nth-child(2) {<br>background: -moz-linear-gradient(top,<br> rgba(255,255,255,0) 0%,<br> rgba(255,255,255,1) 100%);<br>background: -webkit-gradient(linear,<br> left top, left bottom,<br> color-stop(0%,rgba(255,255,255,0)),<br> color-stop(100%,rgba(255,255,255,1)));<br>background: -webkit-linear-gradient(top,<br> rgba(255,255,255,0) 0%,<br> rgba(255,255,255,1) 100%);<br>background: -o-linear-gradient(top,<br> rgba(255,255,255,0) 0%,<br> rgba(255,255,255,1) 100%);<br>background: -ms-linear-gradient(top,<br> rgba(255,255,255,0) 0%,<br> rgba(255,255,255,1) 100%);<br>background: linear-gradient(top,<br> rgba(255,255,255,0) 0%,<br> rgba(255,255,255,1) 100%);<br>filter: progid:DXImageTransform.Microsoft.gradient<br>(startColorstr='#00ffffff',<br> endColorstr='#ffffff',<br> GradientType=0 );}</code></pre></td>
+			<td></td></tr>
+	</table>
+</div><!-- /item -->
+
+
+<div class="item" id="radial">
+<h2 class="sin">background: radial-gradient</h2>
+	<p>В то время как линейный градиент идеально подходит для градиентного перехода от одного направления к другому, часто возникает необходимость в радиальном градиенте. Радиальные градиенты работают так же, как линейные и повторяют большинство из тех же значений. Для радиальных градиентов используют функцию radial-gradient().</p>
+
+	<div class="item2 br0" style="background: radial-gradient(#648880, #293f50);">
+		<pre><code>div {<br>  background: #466368;<br>  background: radial-gradient(#648880, #293f50);<br>}</code></pre>
+	</div>
+
+	<p class="mab">Радиальные градиенты работают изнутри наружу элемента. Таким образом, первый цвет заданный в функции <samp class="sin">radial-gradient()</samp> будет располагаться в абсолютном центре элемента, а второй цвет будет находиться на внешней стороне элемента. Браузер затем создаст переход между этими двумя цветами. Одним из основных отличий между радиальными и линейными градиентами является то, что радиальные градиенты могут быть достаточно сложными, со значениями положения, размером, радиусом и так далее.</p>
+	<p><b>Начальную точку градиента</b> можно задавать в любом месте элемента, для этого вначале указывается её позиция. Позиция точки пишется аналогично значениям свойства background-position с помощью ключевых слов или доступных единиц измерения вроде пикселей или процентовб например:</p>
+
+	<style>
+		.bgul li{margin:0; padding:0px;}
+		.bgul li span{font-style:monospace; color:#4169E1; width:180px; display:inline-block;}
+		.bgul {padding:0px 20px; margin:5px 0px 15px 0px;}
+	</style>
+	<ul class="bgul">
+		<li><span>в левом верхнем углу:</span> at top left = at left top = at 0% 0%</li>
+		<li><span>по центру вверху:</span> at top = at top center = at center top = at 50% 0%</li>
+		<li><span>справа вверху:</span> at right top = at top right = at 100% 0%</li>
+		<li><span>слева в центре:</span> at left = at left center = at center left = at 0% 50%</li>
+		<li><span>по центру (defolt):</span> at center = at center center = at 50% 50%</li>
+		<li><span>справа и центру:</span> at right = at right center = at center right = at 100% 50%</li>
+		<li><span>слева внизу:</span> at bottom left = at left bottom = at 0% 100%</li>
+		<li><span>по центру внизу:</span> at bottom = at bottom center = at center bottom = at 50% 100%</li>
+		<li><span>в правом нижнем углу:</span> at bottom right = at right bottom = at 100% 100%.</li>
+	</ul>
+
+	<p class="mt40">Возможны две формы радиального градиента — круг (circle) и эллипс (ellipse), которые различаются своим видом. По умолчанию устанавливается эллиптический градиент.</p>
+	<div class="item2 br0" style="background:radial-gradient(circle at 20px 50%, #648880 10%, #fff, #fff 80%, grey);">
+		<pre class="ls-05"><code>div {<br>  background:radial-gradient(circle at 20px 50%, #648880 10%, #fff, #fff 80%, grey);<br>}</code></pre>
+	</div>
+	<p>Обратите внимание на синтаксис, если мы хотим сочетать форму градиента с указанием начальной точки, то вначале идёт ключевое слово <samp class="sin">circle</samp>, а потом уже через пробел позиция.</p>
+
+
+<h3 class="sin mt40"><b>Размер градиента.</b></h3>
+	<p>Наряду с типом градиента можно задавать и его размер, который зависит от применяемых ключевых слов. Размер пишется через пробел после типа градиента (circle или ellipse).</p>
+	<p>Под "границей градиента" понимается пространство в котором происходит градиентная смена цветов, остальное пространство заливается вторым цветом.</p>
+	<style>
+		.bgt1 table{border-collapse:collapse; width:100%; min-width:600px; margin:10px 0;}
+		.bgt1 td{text-align:center; padding:6px;}
+		.bgt1 tr:nth-child(1) td,.bgt1 tr:nth-child(3) td{background:#eee;}
+		.bgt1 tr:nth-child(2) td,.bgt1 tr:nth-child(4) td{height:90px; width:25%; color:#fff; font-size:16px;}
+
+		.bgd1 samp{width:155px; display:inline-block; height:26px; float:left; vertical-align:top;}
+		.bgd1 p:after{content:""; clear:both; display:block;}
+		.bgd1 p:first-letter {margin-left:0px;}
+		.bgd1 p{margin:7px 0; min-width:600px;}
+		.bgd1{margin:30px 0 10px;}
+	</style>
+	<div class="bgd1">
+		<p><samp class="lsin">closest-side</samp> Форма градиента совпадает с ближайшей к нему стороной блока.</p>
+		<p><samp class="lsin">closest-corner</samp> Форма градиента вычисляется на основании информации о расстоянии до ближайшего угла блока.</p>
+		<p><samp class="lsin">farthest-side</samp> Градиент распространяется до дальней стороны блока.</p>
+		<p><samp class="lsin">farthest-corner</samp> Форма градиента вычисляется на основании информации о расстоянии до дальнего угла блока.</p>
+	</div>
+
+	<div class="bgt1 mt40">
+		<table>
+			<tr><td colspan="4"><samp>background: radial-gradient(circle...)</samp></td></tr>
+			<tr>
+				<td style="background: radial-gradient(circle closest-side at 30px 20px, #fff, #000);" title="градиент доходит до ближайшей стороны">background: radial-gradient(circle closest-side at 30px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle closest-corner at 30px 20px, #fff, #000);" title="градиент доходит до ближайшего угла">background: radial-gradient(circle closest-corner at 30px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle farthest-side at 30px 20px, #fff, #000);" title="градиент доходит до дальней стороны">background: radial-gradient(circle farthest-side at 30px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle farthest-corner at 30px 20px, #fff, #000);" title="градиент доходит до дальнеего угла">background: radial-gradient(circle farthest-corner at 30px 20px, #fff, #000);</td></tr>
+			<tr><td colspan="4"><samp>background: radial-gradient(ellipse...)</samp></td></tr>
+			<tr>
+				<td style="background: radial-gradient(ellipse closest-side at 30px 20px, #fff, #000);" title="градиент доходит до ближайшей стороны">background: radial-gradient(ellipse closest-side at 30px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse closest-corner at 30px 20px, #fff, #000);" title="градиент доходит до ближайшего угла">background: radial-gradient(ellipse closest-corner at 30px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse farthest-side at 30px 20px, #fff, #000);" title="градиент доходит до дальней стороны">background: radial-gradient(ellipse farthest-side at 30px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse farthest-corner at 30px 20px, #fff, #000);" title="градиент доходит до дальнеего угла">background: radial-gradient(ellipse farthest-corner at 30px 20px, #fff, #000);</td></tr>
+		</table>
+	</div>
+
+	<p>Для центральной начальной точки градиенты вроде <samp class="sin">closest-corner</samp> и <samp class="sin">farthest-side</samp> совпадают. Но градиенты будут различаться, если установить начальную точку, отличную от центра, например в углу.</p>
+	<p>Подобно линейному градиенту можно указывать несколько цветов, устанавливать их позицию и делать резкие переходы между цветами. Для этого произвольное количество цветов перечисляется через запятую, а после значения цвета через пробел идёт его позиция, которая может быть задана в пикселях или процентах. Крайние значения 0% и 100% можно не писать, они подразумеваются автоматически.</p>
+	<img src="img/radial-gradient-color.png" width="100%">
+	<p>Когда позиция одного цвета совпадает с позицией другого иногда получаются резкие переходы - «лесенка» из пикселей. Чтобы немного сгладить переходы добавляют разницу в один процент.</p>
+	<pre  class="item2 br0"><code>{<br>  background: radial-gradient(circle at center, <br>  #000e5e 24%, #fff 25%, #fff 50%, #c70102 51%, #c70102);<br>}</code></pre>
+</div><!-- /item -->
+
+
+
+<div class="item">
+<h2 class="sin">Стоп-цвета</h2>
+	<p>Как минимум, градиентный фон переходит от одного цвета к другому, однако, мы можем добавить несколько цветов к градиенту и заставить браузер сделать по всем ним переход. Для этого мы добавим стоп-цвета в данную функцию градиента — с запятыми, которые отделяют один цвет от другого.</p>
+	<div class="item2 br0" style="background:linear-gradient(to right, #f6f1d3, #648880, #293f50);">
+		<pre><code>div {<br>  background: #648880;<br>  background:linear-gradient(to right, #f6f1d3, #648880, #293f50);<br>}</code></pre>
+	</div>
+	<p>По умолчанию браузер будет позиционировать каждый стоп-цвет на равном расстоянии от следующего и переходить между ними соответственно. Если требуется больше контроля над тем, как желательно расположить цвета, то их места в градиенте могут быть определены для каждого цвета. Место должно быть объявлено как значение размера и идёт после значения цвета. Если не указано иное, то первый цвет будет позиционироваться на 0%, а последний цвет на 100%.</p>
+	<div class="item2 br0" style="background:linear-gradient(to right, #f6f1d3, #648880 85%, #293f50)">
+		<pre><code>div {<br>  background: #648880;<br>  background:linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);<br>}</code></pre>
+	</div>
+</div><!-- /item -->
+
+
+
+<div class="item">
+<h2 class="sin">Примеры с градиентом</h2>
+	<div><!-- box1, 2 -->
+		<div class="box0">
+			<div class="box box1 boxf"><samp style="color:aqua;">box1</samp></div>
+			<div class="box box2 boxf"><samp class="red">box2</samp></div>
+		</div>
+		<div class="box0">
+			<div class="box"><samp>.box1{background: repeating-linear-gradient(-30deg, #291810, #291810 8px, #FAAB1B 10px, #FAAB1B 14px);}</samp></div>
+			<div class="box"><samp>.box2{background: repeating-linear-gradient(-45deg, #E4E3DF, #E4E3DF 5px, #909090 6px, #909090 8px);}</samp></div>
+		</div>
+	</div>
+
+
+	<div><!-- box3, 4 -->
+		<div class="box0" style="padding-top:20px;">
+			<div class="box box3 boxf"><samp style="color:aqua;">box3</samp></div>
+			<div class="box" style="position:relative;float:none;">
+				<samp class="red boxf" style="z-index:2;position:absolute;padding-left:30%;color:#000080;">box4</samp>
+				<div style="position:absolute;top:0;left:0;z-index:1;" class="box4-1"></div>
+				<div style="position:absolute;top:0;left:0;z-index:1;" class="box4-2"></div>
+			</div>
+		</div>
+		<div class="box0">
+			<div class="box"><samp>.box3{background: linear-gradient(to left, #f38181, #fce38a);}</samp></div>
+			<div class="box"><samp>.box4-1{background: repeating-linear-gradient(0deg, #777, #777 1px, transparent 1px, transparent 20px);}<br>.box4-2{background: repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 20px);}</samp></div>
+		</div>
+	</div>
+
+
+	<div><!-- box5, 6 -->
+		<div class="box0" style="padding-top:20px;">
+			<div class="box boxf box5 boxs"><samp class="red">box5</samp></div>
+			<div class="box boxf box6 boxs"><samp class="red">box6</samp></div>
+		</div>
+		<div class="box0">
+			<div class="box"><samp>.box5{background:radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);}</samp></div>
+			<div class="box"><samp>.box6{background:repeating-radial-gradient(farthest-corner at 50% 50%, #000, #000 20px, #fff 20px, #fff 40px);}</samp></div>
+		</div>
+	</div>
+
+
+	<div class="mt40 mb40"><!-- box7 -->
+		<style>
+			.box7 {
+			display:block; margin:0px auto; padding:0 20px; width:calc(50% - 10px); height:130px;
+			border-top: 20px solid #3ACFD5; /* цвет верхней границы - начало градиента */
+			border-bottom: 20px solid #3a4ed5; /* цвет нижней границы - окончание градиента */
+			border-radius:10px;
+
+			/* свойства width и height включают в себя значения полей и границ, но не отступов */
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			background-position: 0 0, 100% 0; /* положение 2-х фоновых изображений: слева и справа; */
+
+			background-repeat: no-repeat;
+			-webkit-background-size: 20px 100%;
+			-moz-background-size: 20px 100%;
+			background-size: 20px 100%;  /* размер фонового изображения */
+
+			/* само фоновое изображение, цвет начинает меняться сверху (top) */
+			/* задаётся для левого и правого backgrounda */
+			background-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),
+			 -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+			background-image: -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),
+			 -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+			background-image: -o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),
+			 -o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+			background-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%),
+			 linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);}
+		</style>
+
+		<div class="box0" style="margin:20px 0 10px;">
+			<div class="boxf box7"><samp class="red">box7</samp></div>
+			<div class="box" style="padding:0 10px;"><b>background-image</b><br>cверху и снизу - border шириной 20px;<br>слева и справа два фоновых градиента шириной 20рх;</div>
+		</div>
+		<div class="item2">
+			<samp class="point red" onclick='b7.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="b7" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="txt box7">box7&lt;/div></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre><code>.box7 {<br>  display:block; margin:0px auto; padding:0 20px;<br>  width:300px; height:250px;<br>  border-top:20px solid #3ACFD5;    /* цвет верхней границы */<br>  border-bottom:20px solid #3a4ed5; /* цвет нижней  границы */<br>  border-radius:10px;<br><br>  /* свойства width и height включают в себя<br>     значения полей и границ, но не отступов */<br>  -webkit-box-sizing:border-box;<br>  -moz-box-sizing:border-box;<br>  box-sizing:border-box;<br><br>  /* положение 2-х фоновых изображений: слева и справа; */<br>  background-position:0 0, 100% 0;<br><br>  background-repeat:no-repeat;<br>  -webkit-background-size:20px 100%; /* размер фонового изображения */<br>  -moz-background-size:20px 100%;    /* 20px - ширина */<br>  background-size:20px 100%;         /* 100% - высота */<br><br>  /* само фоновое изображение, цвет начинает меняться сверху (top) */<br>  /* задаётся для левого и правого backgrounda */<br>  background-image:-webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),<br>   -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  background-image:-moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),<br>   -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  background-image:-o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),<br>   -o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  background-image:linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%),<br>   linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);}</code></pre>
+				<span class="yel point" onclick='b7.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div><!-- /item2 -->
+	</div>
+
+
+	<div class="mt40 mb40"><!-- box8 -->
+		<style>
+			.box8{
+				display:block; margin:0px auto; width:calc(50% - 50px); height:90px; padding:0;
+				border:20px solid transparent; /* прозрачная граница шириной в 20px */
+
+				/* наша собственная граница */
+				-moz-border-image:-moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+				-webkit-border-image:-webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+				border-image:linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
+				border-image-slice:1;} /* смещение фона границы */
+		</style>
+		<div class="box0" style="margin:20px 0 10px;">
+			<div class="boxf box8"><samp class="red">box8</samp></div>
+			<div class="box" style="padding:0 10px;"><b>border-image</b><br>прозрачная граница шириной 20рх;<br><br>не работает border-radius</div>
+		</div>
+		<p>Браузеры, которые поддерживают данное свойство: Chrome, Internet Explorer 11, Firefox, Safari, и Opera. Данное свойство работает только с «квадратными» блоками. То есть вы не сможете сделать закругленные углы границы с помощью свойства <samp class="sin">border-radius</samp>.</p>
+		<div class="item2">
+			<samp class="point red" onclick='b8.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="b8" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="txt box8">box8&lt;/div></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre class="mab" style="font-size:15px"><code>.box8{<br>  display:block; margin:0px auto;<br>  width:calc(50% - 50px); height:130px; padding:0;<br>  border:20px solid transparent; /* прозрачная граница в 20px */<br><br>  /* наша собственная граница */<br>  -moz-border-image:-moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  webkit-border-image:-webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  border-image:linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);<br>  border-image-slice:1;} /* смещение фона границы */</code></pre>
+				<span class="yel point" onclick='b8.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div><!-- /item2 -->
+	</div><!-- /box8 -->
+
+
+	<div class="mt40"><!-- box9 -->
+		<style>
+			.box9{
+				width:calc(50% - 50px); height:90px; display:block; margin:0px auto;
+				padding:10px 10px 10px 40px; position:relative;
+				background:-webkit-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background:-moz-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background:-o-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background:repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background-size:100% 21px;}
+			.box9:before{
+				content:""; display:block; height:100%; width:4px; border-left:4px double #FCA1A1;
+				position:absolute; left:30px; top:0;}
+		</style>
+		<div class="box0" style="margin:20px 0px 10px;">
+			<div class="boxf box9"><samp class="red">box9</samp></div>
+			<div class="box" style="padding:0 10px;"> </div>
+		</div>
+		<div class="item2">
+			<samp class="point red" onclick='b9.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="b9" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="txt box9">box9&lt;/div></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre class="mab" style="font-size:14px"><code>.box9{<br>  width:calc(50% - 50px); height:90px;<br>  display:block; margin:0px auto;<br>  padding:10px 10px 10px 40px; position:relative;<br>  background:-webkit-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background:-moz-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background:-o-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background:repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background-size:100% 21px;}<br>.box9:before{<br>  content:""; display:block;<br>  height:100%; width:4px;<br>  border-left:4px double #FCA1A1;<br>  position:absolute; left:30px; top:0;}</code></pre>
+				<span class="yel point" onclick='b9.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div><!-- /item2 -->
+	</div><!-- /box9 -->
+</div><!-- /item -->
+
+</body></html>

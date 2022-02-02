@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><title>background</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">background</h2>
+
+<div class="item">
+	<p>Универсальное свойство <samp class="sin">background</samp> позволяет установить одновременно несколько характеристик фона. Значения могут идти в любом порядке, браузер сам определит, какое из них соответствует нужному свойству. Для подробного ознакомления смотрите информацию о каждом свойстве отдельно. Допустимо, также, указывать параметры сразу нескольких фонов, перечисляя их через запятую.</p>
+	<div class="item2">
+		<pre><code>background: &lt;background-color> <фон>, <фон>;</code></pre>
+		<pre><br><фон> = background-image    background-position    <samp class="red">/ background-size</samp><br>        background-repeat   background-attachment    background-origin<br>        background-clip<br><br>под  background-image, background-position, ...  понимается их значение</pre>
+	</div>
+	<p>Любые комбинации значений, разделяемых между собой пробелом, определяющих стиль фона, в произвольном порядке. Ни одно значение не является обязательным, поэтому неиспользуемые можно опустить.</p>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="z4"><a href="#">Пример.</a></h3>
+	<style>
+		.pr1{width:100%; height:300px; margin-bottom:10px; color:#fff; font-size:22px;
+			background:url(../txt/img/aquaria.jpg) center / cover no-repeat;}
+	</style>
+	<div class="pr1">
+		<p style="padding:15px">Любые комбинации значений, разделяемых между собой пробелом, определяющих стиль фона, в произвольном порядке. Ни одно значение не является обязательным, поэтому неиспользуемые можно опустить.</p>
+	</div>
+	<pre class="item2"><code>&lt;style><br>  .pr1{width:100%; height:300px; margin-bottom:10px;<br>    color:#fff; font-size:22px;<br>    background:url(../txt/img/aquaria.jpg) center / cover no-repeat;}<br>&lt;/style><br><br>&lt;div class="pr1"><br>  &lt;p style="padding:15px">...&lt;/p><br>&lt;/div></code></pre>
+</div>
+
+</body>
+</html>

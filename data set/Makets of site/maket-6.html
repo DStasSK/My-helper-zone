@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><title>Резиновая ширина, навигация слева</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div class="item">
+<h2 class="sin">Резиновая ширина, навигация слева, float + margin.</h2>
+
+	<style type="text/css">
+		.header{padding:10px; background:#0080c0; font-size:36px; color:#fc6;}
+		.sidebar{border:1px solid #333; float:left; width:20%; padding:5px; margin:10px 10px 20px 5px;}
+		.content{padding:5px; margin:10px 5px 20px 25%; border:1px solid #333;}
+		.footer{background:#333; color:#fff; padding:5px; clear:both;}
+	</style>
+	<div>
+		<div class="header">Заголовок</div>
+		<div class="sidebar">ссылки</div>
+		<div class="content">содержание<br>контента<br>тут</div>
+		<div class="footer">&copy; фу-у-тер</div>
+	</div>
+
+	<p class="mat">Добавление отступов (margin) и полей (padding) к слою увеличивает его заданную ширину, поэтому при определенных обстоятельствах слои могут накладываться друг на друга. В таких случаях необходимо или увеличить значение <samp class="sin">margin-left</samp> у слоя <samp class="red">content</samp> или указывать поля и отступы для вложенных слоев.</p>
+	<p>Свойство <samp class="sin">clear</samp> для слоя <samp class="red">footer</samp> понадобится в том случае, когда высота меню выше высоты контента, чтобы слои не накладывались друг на друга.</p>
+<!--  -->
+	<div class="item2 br0">
+		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
+		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code class="html"><!--&lt;head><br>  &lt;!--[if IE]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--&gt;<br>&lt;/head><br>-->  &lt;div class="header">Заголовок&lt;/div><br>  &lt;div class="sidebar">ссылки&lt;/div><br>  &lt;div class="content">содержание&lt;br>контента&lt;br>тут&lt;/div><br>  &lt;div class="footer">&copy; фу-у-тер&lt;/div></code></pre>
+		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>.header{<br>  padding:10px;<br>  background:#0080c0;<br>  font-size:36px;<br>  color:#fc6;}<br>.sidebar{<br>  border:1px solid #333;<br>  float:left;<br>  width:20%;<br>  padding:5px;<br>  margin:10px 10px 20px 5px;}<br>.content{<br>  padding:5px;<br>  margin:10px 5px 20px 25%;<br>  border:1px solid #333;}<br>.footer{<br>  background:#333;<br>  color:#fff;<br>  padding:5px;<br>  clear:both;}</code></pre>
+	</div>
+</div><!-- /item -->
+</body>
+</html>

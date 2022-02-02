@@ -1,0 +1,194 @@
+<!DOCTYPE html><html><head><title>:checked</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.qtt1 {background-color:#eee;width:100%;margin-bottom:10px;border:1px solid grey;}
+	.qtt1 td:first-child {text-align:center;}
+	.qtt1 td {padding:10px 5px;}
+
+	.qtt2{border-collapse:collapse;}
+	.qtt2 td{padding:10px;margin:0;}
+	.qtt2 td:last-child{background:#fff; width:35%;}
+	.qtt2 input[type="checkbox"]:checked + label {color:red;}
+</style></head>
+<body>
+
+<h2 class="sin">псевдокласс <samp>:checked</samp></h2>
+<div class="item">
+	<div class="anp">
+		<p><samp class="red">:checked</samp> - выбранный (чекнутый) элемент</p>
+		<p class="mt10">Применяется для:</p>
+		<table class="qtt1" cellspacing="0">
+			<tr><td width=100px><input type="checkbox" checked></td><td>Флажка</td><td><pre><code class="html">&lt;input type="checkbox" checked></code></pre></td></tr>
+			<tr><td><input type="radio" name="yesno" checked>Да<input type="radio" name="yesno">Нет</td><td>Переключателя</td><td><pre><code class="html">&lt;input type="radio" name="yesno" checked>Да<br>&lt;input type="radio" name="yesno">Нет</code></pre></td></tr>
+			<tr><td><select><option>один</option><option>два</option><option>три</option></select></td><td>Списка</td><td><pre><code class="html">&lt;select><br>  &lt;option>один&lt;/option><br>  &lt;option>два&lt;/option><br>  &lt;option>три&lt;/option><br>&lt;/select></code></pre></td></tr>
+		</table>
+	</div><!-- /anp -->
+
+	<p>Сами поля форм плохо стилизуются, и для того чтобы как-то активно использовать <samp class="sin">:checked</samp> идут на хитрость и стилизуют не сам <samp class="red">&lt;input></samp>, а элемент <samp class="red">&lt;label></samp>. Для этого сразу после <samp class="red">&lt;input></samp> вставляем <samp class="red">&lt;label></samp> и связываем эти два элемента с помощью одинакового значения у атрибутов <samp class="red">id</samp> и <samp class="red">for</samp>. Теперь можно щёлкать уже по тексту и флажок будет включаться или выключаться. В стилях их тоже можно связать между собой.</p>
+
+	<div class="item2 br0" style="padding:0">
+		<table width=100% class="qtt2">
+		<tr><td>
+				<pre><code class="html">&lt;input type="checkbox" id="switch" <abbr title="предварительно выбранный чекпойнт">checked</abbr>><br>&lt;label for="switch">Флажок&lt;/label></code></pre>
+				<br><pre><code class="css">input[type="checkbox"]:checked + label <abbr title="красный текст у выбранного элемента">{color:red}</abbr></code></pre>
+			</td>
+			<td>
+				Чекни флажок:
+				<input type="checkbox" id="switch" checked style="margin-top:10px;">
+				<label for="switch">Флажок</label>
+			</td>
+		</tr></table>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Стилизация "флажка"</h3>
+	<p>Для изменения стиля флажков и переключателей - прячут исходный элемент <samp class="red">&lt;input></samp> с помощью значения <samp class="lsin">none</samp> у свойства <samp class="sin">display</samp>, а нужный стиль применяют к элементу <samp class="red">&lt;label></samp>, связанный с этим <samp class="red">&lt;input></samp>. В примере флажок сделан как цветной прямоугольник, внутри которого перемещается белый квадратик. Включенный флажок выглядит как прямоугольник синего цвета с квадратиком слева; выключенный флажок выглядит как прямоугольник серого цвета с квадратиком справа.</p>
+	<p>Чтобы квадратик плавно перемещался из одного положения в другое, добавлено свойство <samp class="sin">transition</samp>, значением которого выступает время движения, в данном случае полсекунды.</p>
+	<p>Сам квадратик выводится с помощью псевдоэлемента <samp class="lsin">:before</samp>, который добавляется к селектору <samp class="red">&lt;label></samp>. Это позволяет легко стилизовать элемент, к примеру, сделать его круглым, добавив лишь свойство <samp class="sin">border-radius</samp>.</p>
+
+	<div class="qtt3" style="text-align:center">
+		<input type="checkbox" id="ts31">
+		<label for="ts31"></label>
+	</div>
+
+	<style>
+		.qtt3 input{display:none;}
+		.qtt3 label{
+			margin-top:10px;
+			display: inline-block;
+			position: relative;
+			width: 60px; height: 30px;
+			background: #9E9E9E;
+			transition: 0.5s; /* Время смены цвета фона */
+			}
+		.qtt3 label::before {
+			content: '';
+			position: absolute;
+			background: #fff;
+			width: 20px; height: 20px;
+			left: 35px; top: 5px;
+			transition: 0.5s; /* Время движения квадратика */
+			} 
+		.qtt3 input:checked + label {background: #1976D2;}
+		.qtt3 input:checked + label::before {left: 5px;} /* Квадратик слева */
+
+		.t311 input{display:none;}
+		.t311 .t312{display:none;}
+		.t311 :checked ~ .t312{display:block;}
+	</style>
+	<div class="item2 br0 t311">
+		<input type="checkbox" id="pre1">
+		<label for="pre1" class="red point"><pre>HTML</pre></label>
+		<pre class="t312"><code class="html">&lt;div class="t3"><br>  &lt;input type="checkbox" id="switch"><br>  &lt;label</span> for="switch">&lt;/label><br>&lt;/div></code></pre>
+		<pre class="t312"><code class="css"><br><span class="red">CSS</span><br>.t3 input{display:none;}<br>.t3 label{<br>  margin-top:10px;<br>  display: inline-block;<br>  position: relative;<br>  width: 60px; height: 30px;<br>  background: #9E9E9E;<br>  transition: 0.5s; /* Время смены цвета фона */<br>  }<br>.t3 label:before {<br>  content: '';<br>  position: absolute;<br>  background: #fff;<br>  width: 20px; height: 20px;<br>  left: 35px; top: 5px;<br>  transition: 0.5s; /* Время движения квадратика */<br>  }<br>.t3 input:checked + label{background: #1976D2;}<br>.t3 input:checked + label:before {left: 5px;} /*Квадратик слева*/</code></pre>
+	</div><!-- item2 -->
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Cтилизация "переключателей"</h3>
+	<p>Стилизация переключателей происходит аналогично стилизации флажков — скрывают исходный элемент <samp class="red">&lt;input></samp>, а вместо него стилизуют элемент, идущий в коде HTML после <samp class="red">&lt;input></samp>. При этом обязательно используют <samp class="red">&lt;label></samp>, без которого поведение переключателя работать не будет.</p>
+
+	<p>Поскольку переключатели обычно вставляются группой, то связывать <samp class="red">&lt;input></samp> с <samp class="red">&lt;label></samp> через идентификатор не очень удобно из-за того, что придётся вводить множество идентификаторов. Так что поступают иначе — вставляют <samp class="red">&lt;input></samp> внутрь <samp class="red">&lt;label></samp>, а после <samp class="red">&lt;input></samp> добавляют необходимый элемент, в данном примере - <samp class="red">&lt;span></samp>.</p>
+
+	<pre class="item2 br0"><code class="html">&lt;label>&lt;input type="radio">&lt;span>&lt;/span>&lt;/label></code></pre>
+
+	<p class="mb10">Вид самого переключателя задаётся через селектор <samp class="red">&lt;span></samp>, а вид выбранного переключателя через селектор <samp class="lsin">:checked+</samp><samp class="red">&lt;span></samp>.</p>
+
+	<style>
+		.qtt4 {display:block;}
+		.qtt4 input {display:none;}
+		.qtt4 label {margin:0px 20px; display:inline-block; line-height:20px; padding:0; cursor:pointer;
+			position:relative;}
+		.qtt4 span {content:""; display:inline-block; position:absolute; top:0px; left:-25px;
+			width:20px; height:20px; border-radius:50%; background:#bbb; padding:0;
+			box-shadow: inset 0 0 7px 4px rgba(0,0,0,0.25); transition:background .5s, box-shadow .4s;}
+		.qtt4 input:checked + span {background:red; box-shadow:none;}
+		.qtt4 input:checked + span:before {content:""; position:absolute; top:5px; left:5px;
+			width:10px; height:10px; border-radius:50%; background:#fff;}
+		.t41 input{display:none;}
+		.t41 .t42{display:none;}
+		.t41 :checked ~ .t42{display:block;}
+	</style>
+	<div class="cc mb10 qtt4">
+		<label><input type="radio" checked name="thre"><span></span>Один</label>
+		<label><input type="radio" name="thre"><span></span>Два</label>
+		<label><input type="radio" name="thre"><span></span>Три</label>
+	</div>
+	<div class="item2 br0 anp t41">
+		<input type="checkbox" id="pre2">
+		<label for="pre2" class="red point"><pre>HTML</pre></label>
+		<pre class="t42"><code class="html">&lt;div class="t4"><br>  &lt;label>&lt;input type="radio" checked name="thre">&lt;span>&lt;/span>Один&lt;/label><br>  &lt;label>&lt;input type="radio" name="thre">&lt;span>&lt;/span>Два&lt;/label><br>  &lt;label>&lt;input type="radio" name="thre">&lt;span>&lt;/span>Три&lt;/label><br>&lt;/div></code></pre>
+		<pre class="t42"><code class="css"><br><samp class="red">CSS</samp><br>.t4 {display:block;}<br>.t4 input</span> {display:none;}<br>.t4 label {<br>  display:inline-block;<br>  margin:0px 20px;<br>  line-height:20px;<br>  padding:0;<br>  cursor:pointer;<br>  position:relative;}<br>.t4 span {<br>  content:"";<br>  display:inline-block;<br>  position:absolute;  top:0px;  left:-25px;<br>  width:20px;  height:20px;  border-radius:50%;<br>  background:#999;<br>  padding:0;<br>  box-shadow: inset 0 0 7px 4px rgba(0,0,0,0.25);<br>  transition: background .5s, box-shadow .4s;<br>  }<br>.t4 input:checked + span {background:red; box-shadow:none;}<br>.t4 input:checked + span:before {<br>  content:"";<br>  position:absolute;<br>  width:10px;<br>  height:10px;<br>  border-radius:50%;<br>  top:5px;<br>  left:5px;<br>  background:#fff;}</code></pre>
+	</div><!-- /item2 -->
+</div><!-- /item -->
+
+
+
+<div class="item"><a href="menu-na-vkladkah.html">
+<h3 class="sin tdu">Меню сайта с вкладками на "переключателях"</h3></a>
+</div>
+
+
+
+<!-- пример -->
+<div class="item">
+	<style>
+		.test1 input {display:none;}
+		.test1 label {cursor:pointer; background:#f0f0f0; display:inline-block; margin:0;
+			padding:1px 10px; border-right:1px solid; transition:background .5s;}
+		.ttt{display:block; position:relative; width:100%; height:120px;}
+		.tt{font-size:120px; color:#000; padding:0px 50px; margin:0 auto; width:calc(100% - 100px);
+			text-align:center; opacity:.1; transition:color .8s;
+			position:absolute; top:0; line-height:1; z-index:2}
+		.test1 .sss1:checked ~ .ll1, .test1 .sss2:checked ~ .ll2,
+		.test1 .sss3:checked ~ .ll3, .test1 .sss4:checked ~ .ll4,
+		.test1 .sss5:checked ~ .ll5, .test1 .sss6:checked ~ .ll6,
+		.test1 .sss7:checked ~ .ll7, .test1 .sss8:checked ~ .ll8,
+		.test1 .sss9:checked ~ .ll9{background:#888; transition:background .5s;}
+		.test1 .sss1:checked ~ .ttt .tt1, .test1 .sss2:checked ~ .ttt .tt2,
+		.test1 .sss3:checked ~ .ttt .tt3, .test1 .sss4:checked ~ .ttt .tt4,
+		.test1 .sss5:checked ~ .ttt .tt5, .test1 .sss6:checked ~ .ttt .tt6,
+		.test1 .sss7:checked ~ .ttt .tt7, .test1 .sss8:checked ~ .ttt .tt8,
+		.test1 .sss9:checked ~ .ttt .tt9{opacity:1; color:red; transition:opacity .8s; z-index:3;}
+	</style>
+	<div class="test1">
+		<input type="radio" name="s1" id="ss1" class="sss1" checked><label for="ss1" class="ll1">1</label>
+		<input type="radio" name="s1" id="ss2" class="sss2"><label for="ss2" class="ll2">2</label>
+		<input type="radio" name="s1" id="ss3" class="sss3"><label for="ss3" class="ll3">3</label>
+		<input type="radio" name="s1" id="ss4" class="sss4"><label for="ss4" class="ll4">4</label>
+		<input type="radio" name="s1" id="ss5" class="sss5"><label for="ss5" class="ll5">5</label>
+		<input type="radio" name="s1" id="ss6" class="sss6"><label for="ss6" class="ll6">6</label>
+		<input type="radio" name="s1" id="ss7" class="sss7"><label for="ss7" class="ll7">7</label>
+		<input type="radio" name="s1" id="ss8" class="sss8"><label for="ss8" class="ll8">8</label>
+		<input type="radio" name="s1" id="ss9" class="sss9"><label for="ss9" class="ll9">9</label>
+		<div class="ttt">
+			<div class="tt tt1">1</div>
+			<div class="tt tt2">2</div>
+			<div class="tt tt3">3</div>
+			<div class="tt tt4">4</div>
+			<div class="tt tt5">5</div>
+			<div class="tt tt6">6</div>
+			<div class="tt tt7">7</div>
+			<div class="tt tt8">8</div>
+			<div class="tt tt9">9</div>
+		</div>
+	</div>
+</div> <!-- /item-->
+
+
+
+</body>
+</html>

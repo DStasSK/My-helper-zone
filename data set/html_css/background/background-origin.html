@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><title>background-origin</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.qitem3 {display:flex;justify-content:space-between;margin:0 -10px;}
+	.box{width:calc(33% - 20px);overflow:hidden;margin:0 10px;}
+	.bg{border:10px dashed #C90;}
+	.bg1{background:url(img/bg.jpg) no-repeat #957;background-size:100%;background-origin:padding-box;}
+	.bg2{background:url(img/bg.jpg) no-repeat #957;background-size:100%;background-origin:border-box;}
+	.bg3{background:url(img/bg.jpg) no-repeat #957;background-size:100%;background-origin:content-box;}
+	</style>
+</head>
+<body>
+
+<h2 class="sin">background-origin</h2>
+<div class="item">
+	<p>У такого свойства как <span class="sin">background-origin</span> имеются параметры, которые определяют ту область позиционирования, где предполагается выводить фоновое изображение.</p>
+	<p>Стоит отметить, что если свойство <span class="sin">background-attachment</span> имеет параметр <span class="sin">fixed</span>, делающий фоновый рисунок неподвижным, свойство <span class="sin">background-origin</span> не возможно к применению.</p>
+
+	<pre class="item2"><code>background-origin: padding-box;<br>background-origin: border-box;<br>background-origin: content-box;</code></pre>
+
+	<p><span class="lsin">padding-box</span> – параметр задаёт позиционирование фона относительно края элемента при этом учитывается толщина границы и игнорируется padding. Данное значение для элемента задано по умолчанию.</p>
+	<p><span class="lsin">border-box</span> – с помощью данного параметра фоновое изображение также позиционируется от границы с игнорированием свойства padding, но при этом её линия перекрывает графический элемент.</p>
+	<p><span class="lsin">content-box</span> – это значение указывает на то, что позиция фонового изображения будет реализована относительно края границы, учитывая её толщину и самого элемента с учётом заданного поля padding.</p>
+</div>
+
+<div class="item">
+	<div class="qitem3">
+		<div class="box">
+			<div class="bg bg1" style="padding:15px 15px 15px 15px;height:150px;">
+				<pre style="color:#fff;font-size:17px;margin-top:90px;">background-origin:<br>padding-box;</pre>
+			</div>
+		</div>
+		<div class="box">
+			<div class="bg bg2" style="padding:15px;height:150px;">
+				<pre style="color:#fff;font-size:17px;margin-top:90px;">background-origin:<br>border-box;</pre>
+			</div>
+		</div>
+		<div class="box">
+			<div class="bg bg3" style="padding:15px;height:150px;">
+				<pre style="color:#fff;font-size:17px;margin-top:90px;">background-origin:<br>content-box;</pre>
+			</div>
+		</div>
+	</div><!-- item3 -->
+</div><!-- item -->
+</body></html>

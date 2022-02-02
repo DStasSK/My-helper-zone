@@ -1,0 +1,209 @@
+<!DOCTYPE html><html><head><title>&lt;ul> &lt;ol> &lt;li></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin ls2">Mаркированный/нумерованный список</h2>
+<div class="item">
+	<p>Для того чтобы на странице интернет ресурса можно было отобразить маркированный список, в HTML предусмотрены теги <samp class="red">&lt;ul></samp> и <samp class="red">&lt;li></samp>. Между тегами <samp class="red">&lt;ul></samp> помещаются элементы списка начинающиеся с тега <samp class="red">&lt;li></samp>.</p>
+	<p>Списки на html страницах по умолчанию выводятся с маркерами, которые задаются параметрами <samp class="grin">«disc»</samp> для тега <samp class="red">&lt;ul></samp> и <samp class="grin">«decimal»</samp> для тега <samp class="red">&lt;ol></samp>.</p>
+	<p>Для того чтобы на web-странице отображался нумерованный список в HTML предусмотрены теги <samp class="red">&lt;оl></samp> и <samp class="red">&lt;li></samp>. Между тегами <samp class="red">&lt;оl></samp> помещаются сегменты списка которые начинаются с тега <samp class="red">&lt;li></samp>.</p>
+	<p><a href="help/HTML help.html#dldtdd" class="tdu sin">Cписок определений</a> <samp class="red">&lt;dl></samp> - состоит из пар термин <samp class="red">&lt;dt></samp> - <samp class="red">&lt;dd></samp> определение.</p>
+</div>
+
+
+<div class="item" id="ul">
+<h2 class="sin"><samp>&lt;ul></samp></h2>
+	<p>Элемент <samp class="red">&lt;ul></samp> (от англ. unordered list — неупорядоченный список) устанавливает маркированный список. Каждый пункт списка должен начинаться с элемента <samp class="red">&lt;li></samp>.</p>
+	<pre class="item2"><code>&lt;ul><br>  &lt;li>пункт списка&lt;/li><br>  &lt;li>пункт списка&lt;/li><br>  &lt;li>пункт списка&lt;/li><br>&lt;/ul></code></pre>
+
+
+	<div class="attr mt20 ml5 bold">Атрибуты:</div>
+	<table class="t1">
+		<tr><td>type</td>
+			<td>Устанавливает вид маркера списка.
+			<pre class="item2"><code>&lt;ul type="<abbr title="закрашенный круг - значение по умолчанию">disc</abbr> | <abbr title="окружность (не закрашеннй круг)">circle</abbr> | <abbr title="закрашенный квадрат">square</abbr>">...&lt;/ul></code></pre></td></tr>
+	</table>
+	<div class="no mt0">Данный атрибут устарел, взамен используйте стили.</div>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<ul style="list-style: square" class="list">
+			<li>Чебурашка</li>
+			<li>Крокодил Гена</li>
+			<li>Шапокляк</li>
+		</ul>
+		<pre class="item2"><code>&lt;ul style="list-style: square"><br>  &lt;li>Чебурашка&lt;/li><br>  &lt;li>Крокодил Гена&lt;/li><br>  &lt;li>Шапокляк&lt;/li><br>&lt;/ul></code></pre>
+	</fieldset>
+</div>
+
+
+
+<div class="item" id="ol">
+<h2 class="sin"><samp>&lt;ol></samp></h2>
+	<p>Элемент <samp class="red">&lt;ol></samp> (от англ. ordered list — упорядоченный список) устанавливает нумерованный список. Каждый элемент списка должен начинаться с <samp class="red">&lt;li></samp>. Если к <samp class="red">&lt;ol></samp> применяется таблица стилей, то элементы <samp class="red">&lt;li></samp> наследуют эти свойства.</p>
+	<pre class="item2"><code>&lt;ol><br>  &lt;li>пункт списка&lt;/li><br>  &lt;li>пункт списка&lt;/li><br>  &lt;li>пункт списка&lt;/li><br>&lt;/ol></code></pre>
+
+
+	<h3 class="sin mt20"><a href="#" title="наверх">Атрибуты тега <samp>&lt;ol></samp></a></h3>
+		<table class="t1 tb">
+			<tr><td width="70px">reversed<span class="t-html5"></span></td>
+				<td><p>задает отображение списка в обратном порядке (например, 9, 8, 7…).</p>
+					<p>Атрибут <samp class="lsin">reversed</samp> является логическим атрибутом, он может быть истиной, либо ложью. Ложь является значением по умолчанию, значение становится истинным, когда атрибут <samp class="lsin">reversed</samp> появляется у элемента <samp class="red">&lt;ol></samp>.</p>
+					<pre class="item2 br0"><code>&lt;ol reversed></code></pre></td></tr>
+			<tr><td>start<span class="t-html5"></span></td>
+				<td><p>задает начальное значение, от которого пойдет отсчет нумерации.</p>
+					<pre class="item2 br0"><code>&lt;ol start="10"></code></pre>
+					первому пункту присвоит порядковый номер <b>«10»</b>.</td></tr>
+			<tr><td>type</td>
+				<td><p>задает вид маркера для использования в списке (в виде букв или цифр).<br>принимаемые значения:</p>
+					<div class="item2 br0">
+						<pre><p>1 — значение по умолчанию, десятичная нумерация<br>A — нумерация списка заглавными буквами (A, B, C, D).<br>a — нумерация списка строчными буквами (a, b, c, d).<br>I — нумерация римскими заглавными цифрами (I, II, III, IV).<br>i — нумерация римскими строчными цифрами (i, ii, iii, iv).</p></pre>
+						<pre><code>&lt;ol type="I"></code></pre>
+					</div></td></tr>
+		</table>
+</div>
+
+
+
+<div class="item" id="li">
+<h2 class="sin"><samp>&lt;li></samp></h2>
+	<p>Элемент <samp class="red">&lt;li></samp> (от англ. list item — пункт списка) определяет отдельный пункт списка. Внешний элемент <samp class="red">&lt;ul></samp> или <samp class="red">&lt;ol></samp> устанавливает тип списка — маркированный или нумерованный.</p>
+	<pre class="item2"><code>&lt;ul><br>  &lt;li>элемент маркированного списка&lt;/li><br>&lt;/ul> <br><br>&lt;ol><br>  &lt;li>элемент нумерованного списка&lt;/li><br>&lt;/ol></code></pre>
+
+
+	<div class="attr mt20 ml5 bold">Атрибуты:</div>
+	<table class="t1">
+		<tr><td>type<span class="t-trash"></span></td>
+			<td>Устанавливает вид маркера нумерованного или маркированного списка.
+				<pre class="item2"><code>&lt;li type="disc | circle | square">...&lt;/li><br>&lt;li type="A | a | I | i | 1">...&lt;/li></code></pre>
+				<div class="no">Данный атрибут устарел, взамен используйте стили - <a href="list-style-type ul li ol.html" class="sin tdu">list-style</a>.</div></td></tr>
+		<tr><td>value<span class="t-html5"></span></td>
+			<td><p>атрибут <samp class="lsin">value</samp> устанавливает номер, с которого будет начинаться список. <samp class="lsin">value</samp> применяется только для нумерованных списков, когда элемент <samp class="red">&lt;li></samp> находится внутри контейнера <samp class="red">&lt;ol></samp>. При этом не имеет значения, какой тип списка установлен с помощью <samp class="sin">type</samp>, атрибут <samp class="lsin">value</samp> одинаково работает и с римскими и с арабскими числами.</p>
+				<p>В качестве примера, если у второго пункта списка атрибут <samp class="lsin">value</samp> задан как <samp class="red">9</samp>, номер этого пункта списка будет выводиться, как если бы он был девятым. Все последующие пункты списка будут пронумерованы от <samp class="red">9</samp>.</p>
+				<div class="item2 br0" style="margin-bottom:0">
+					<style>
+						.t21{margin:0 5px; padding:0} 
+						.t21 td{padding:0}
+						.t21 ol{margin:5px 0}
+					</style>
+					<table class="t21"><tr>
+						<td><pre><code>&lt;ol><br>  &lt;li>Пункт №1&lt;/li><br>  &lt;li value="9">Пункт №2&lt;/li><br>  &lt;li>Пункт №3&lt;/li><br>&lt;/ol></code></pre></td>
+						<td><ol><li>Пункт №1</li><li value="9">Пункт №2</li><li>Пункт №3</li></ol></td>
+					</tr></table>
+				</div>
+			</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">как увеличить размер самих маркеров?</a></h3>
+	Есть несколько способов.
+	<ul class="list">
+		<li>Добавить <samp class="red">&lt;span></samp> внутрь <samp class="red">&lt;li></samp> и для них задать разный размер шрифта.
+			<pre class="item2"><code>&lt;ul style="font-size: 20px"><br>  &lt;li>&lt;span style="font-size: 14px">пункт&lt;/span>&lt;/li><br>  &lt;li>&lt;span style="font-size: 14px">пункт&lt;/span>&lt;/li><br>&lt;/ul></code></pre></li>
+		<li>Установить маркеры через <samp class="sin">content</samp> у <samp class="sin">::before</samp>, предварительно установив свойству <samp class="sin">list-style</samp> значение <samp class="grin">none</samp>.</li>
+		<li>Маркеры вставить картинкой с помощью <samp class="sin">background</samp> или <samp class="sin">list-style-image</samp>.</li>
+	</ul>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Как в теге <samp class="red">&lt;ol></samp> перенести нумерацию на право и убрать точку.
+	<br>По умолчанию "1. Глава", а надо что бы было "Глава 1"</a></h3>
+	<fieldset class="prm">
+		<legend></legend>
+		<style>
+			ol.pr1 {counter-reset:section; list-style:none; padding-left:0;}
+			.pr1 li::after {content:' ' counter(section); counter-increment:section;}
+		</style>
+		<ol class="pr1 list">
+			<li>Section</li>
+			<li>Section</li>
+			<li>Section</li>
+		</ol>
+		<pre class="item2"><code>&lt;style><br>  ol.pr1 {counter-reset:section; list-style:none; padding-left:0;}<br>  .pr1 li::after {content:' ' counter(section);<br>                  counter-increment:section;}<br>&lt;/style><br><br>&lt;ol class="pr1"><br>  &lt;li>Section&lt;/li><br>  &lt;li>Section&lt;/li><br>  &lt;li>Section&lt;/li><br>&lt;/ol></code></pre>
+	</fieldset>
+	<div class="no mb10">Более подробно про создание нумерованных списков написано <a href="list-style-type ul li ol.html#content" class="sin tdu">тут</a>.</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Стилизация списков.</a></h3>
+	<p>Так как разные браузеры имеют собственные стили по умолчанию, то для кросбраузерности (чтобы во всех браузерах списки выглядели одинаково) необходимо переопределять все параметры.</p>
+	<style>
+		.t2 pre {-o-tab-size:2; -moz-tab-size:2; tab-size:2;}
+
+		.pr_1 ol, ul {list-style:none; position:relative}
+		.pr_1 ol {counter-reset:counter; padding-left:4rem}
+		.pr_1 ol > li:before {content:counter(counter)'.'; counter-increment:counter; position:absolute; left:0}
+		.pr_1 ol > li {margin-left:-1.8rem}
+		.pr_1 ol > li:nth-child(n+10) {margin-left:-.9rem}
+		.pr_1 ol > li:nth-child(n+100) {margin-left:0}
+		.pr_1 ol.qww > li:before {content:counter(counter)'\200a)'}
+		.pr_1 ul {padding-left: 2.2rem}
+		.pr_1 ul > li:before {content:'•'; position:absolute; left:.3rem}
+	</style>
+	<table class="t2 tb t5">
+		<tr>
+			<td><div class="pr_1">
+				<ul><li>One</li><li>Two</li><li>Three</li><li>Four</li><li>Five</li><li>Six</li><li>Seven</li><li>Eight</li><li>Nine</li><li>Ten</li><li>Eleven</li></ul>
+				<ol><li>One</li><li>Two</li><li>Three</li><li>Four</li><li>Five</li><li>Six</li><li>Seven</<li>Eight</li><li>Nine</li><li>Ten</li><li>Eleven</li></ol>
+				<ol class="qww"><li>One</li><li>Two</li><li>Three</li><li>Four</li><li>Five</li><li>Six</li><li>Seven</li><li>Eight</li><li>Nine</li><li>Ten</li><li>Eleven</li></ol>
+			</div></td>
+			<td class="item2">
+				<pre><code>&lt;ul><br>  &lt;li>One&lt;/li><br>  &lt;li>Two&lt;/li><br>  &lt;li>Three&lt;/li><br>  &lt;li>Four&lt;/li><br>  &lt;li>Five&lt;/li><br>  &lt;li>Six&lt;/li><br>  &lt;li>Seven&lt;/li><br>  &lt;li>Eight&lt;/li><br>  &lt;li>Nine&lt;/li><br>  &lt;li>Ten&lt;/li><br>  &lt;li>Eleven&lt;/li><br>&lt;/ul>
+				<br>&lt;ol><br>  &lt;li>One&lt;/li><br>  &lt;li>Two&lt;/li><br>  &lt;li>Three&lt;/li><br>  &lt;li>Four&lt;/li><br>  &lt;li>Five&lt;/li><br>  &lt;li>Six&lt;/li><br>  &lt;li>Seven&lt;/li><br>  &lt;li>Eight&lt;/li><br>  &lt;li>Nine&lt;/li><br>  &lt;li>Ten&lt;/li><br>  &lt;li>Eleven&lt;/li><br>&lt;/ol>
+				<br>&lt;ol class="qww"><br>  &lt;li>One&lt;/li><br>  &lt;li>Two&lt;/li><br>  &lt;li>Three&lt;/li><br>  &lt;li>Four&lt;/li><br>  &lt;li>Five&lt;/li><br>  &lt;li>Six&lt;/li><br>  &lt;li>Seven&lt;/li><br>  &lt;li>Eight&lt;/li><br>  &lt;li>Nine&lt;/li><br>  &lt;li>Ten&lt;/li><br>  &lt;li>Eleven&lt;/li><br>&lt;/ol></code></pre></td>
+			<td class="item2">
+				<pre><code>ol, ul {
+  list-style: none;
+  position: relative
+}
+
+ol {
+  counter-reset: counter;
+  padding-left: 4rem
+}
+
+ol > li:before {
+  content: counter(counter)'.';
+  counter-increment: counter;
+  position: absolute;
+  left: 0
+}
+
+ol > li {margin-left:-1.8rem}
+ol > li:nth-child(n+10) {margin-left:-.9rem}
+ol > li:nth-child(n+100) {margin-left:0}
+
+ol.qww > li:before {
+  content: counter(counter)'\200a)'
+}
+
+ul {padding-left:2.2rem}
+
+ul > li:before {
+  content: '•';
+  position: absolute;
+  left: .3rem
+}</code></pre></td>
+		</tr>
+	</table>
+
+</div>
+
+
+</body>
+</html>

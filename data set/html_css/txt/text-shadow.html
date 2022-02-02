@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>text-shadow</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.pr01{text-shadow:0px 0px 4px red, 0px 0px 12px yellow, 0px 0px 16px green; font-size:30px}
+	.pr02{font-size:30px; color:#000; background:#000; padding:10px; margin:10px 0;
+		text-shadow:0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -18px 18px #f20;}
+</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>text-shadow</samp></h2>
+<div class="item">
+	<p>Добавляет тень к тексту, а также устанавливает её параметры: цвет тени, смещение относительно надписи и радиус размытия. Свойство <samp class="sin">text-shadow</samp> может работать совместно с псевдоэлементами <samp class="sin">:first-letter</samp> и <samp class="sin">:first-line</samp>.</p>
+	<p>Значение по умолчанию <samp class="lsin">none</samp>. Параметры свойства наследуется, применяется ко всем элементам, анимируется.</p>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Синтаксис</h3>
+	<pre class="item2"><code>text-shadow: none | тень1 [,тень2]*</code></pre>
+
+	<table class="t1 tb t3 mt10">
+		<tr><td width="120px"><тень>:</td>
+			<td><samp class="lsin"><сдвиг по x> <сдвиг по y> <радиус размытия> <цвет></samp></td></tr>
+		<tr><td>none</td>
+			<td>Oтменяет добавление тени.</td></tr>
+		<tr><td><цвет></td>
+			<td>Цвет тени в любом доступном CSS формате. По умолчанию цвет тени совпадает с цветом текста.</td></tr>
+		<tr><td><сдвиг по x></td>
+			<td><span class="red">Обязательный параметр.</span> Смещение тени по горизонтали относительно текста. Положительное значение этого параметра задает сдвиг тени вправо, отрицательное - влево.</td></tr>
+		<tr><td><сдвиг по y></td>
+			<td><span class="red">Обязательный параметр.</span> Смещение тени по вертикали относительно текста. Также допустимо использовать отрицательное значение, которое поднимает тень выше текста.</td></tr>
+		<tr><td><радиус></td>
+			<td>Задаёт радиус размытия тени. Чем больше это значение, тем сильнее тень сглаживается, становится шире и светлее. Если этот параметр не задан, по умолчанию устанавливается равным <b>0</b>. Учтите, что алгоритм сглаживания в браузерах обычно разный, поэтому вид тени может несколько различаться в зависимости от заданных параметров сглаживания.</td></tr>
+	</table>
+
+	<p class="mt20">Допускается указывать несколько параметров тени, разделяя их между собой запятой. В <span class="red">CSS3</span> учитывается следующий порядок: первая тень в списке размещается на самом верху, последняя в списке - в самом низу. В <span class="red">CSS2</span> порядок наоборот: первая тень размещается в самом низу, а последняя на самом верху.</p>
+
+	<p><span class="red">Safari</span> до версии <span class="sin">4</span> поддерживает только одну тень, остальные игнорируются. С версии <span class="sin">4</span> работает уже множество теней.</p>
+
+	<p>Браузер <span class="sin">Internet Explorer</span> понимает свойство <span class="sin">text-shadow</span> только с версии <span class="red">10</span>. До этого используется свойство <a href="../filter.html" class="tdu"><span class="sin">filter:Shadow(параметры)</span></a>. К примеру, следующая конструкция задает цвет тени (#666666), её направление (45° от вертикали) и величину смещения (4 пикселя):</p>
+	<pre class="item2"><code>filter: Shadow(Color=#666666, Direction=45, Strength=4);</code></pre>
+</div>
+
+
+<div class="item">
+	<span class="sin pr01">пример текста с тенью</span>
+	<div class="item2">
+		<samp class="red">CSS</samp>
+		<pre><code>.sin{<br>  color:#000099; font-weight:700; font-size:30px;<br>  text-shadow: 0px 0px 4px red,0px 0px 12px yellow,0px 0px 16px green;<br>}</code></pre>
+		<samp class="red"><br>HTML</samp>
+		<pre><code>&lt;span class="sin">пример текста с тенью&lt;/span></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+	<div class="sin pr02 dib">пример текста с тенью 2</div>
+	<div class="item2">
+		<samp class="red">CSS</samp>
+		<pre><code>.sin{<br>  color:#000099; font-weight:700; font-size:30px;<br>  text-shadow:0px 0px 4px red,0px 0px 12px yellow,0px 0px 16px green;<br>}</code></pre>
+		<samp class="red"><br>HTML</samp>
+		<pre><code>&lt;div class="sin">пример текста с тенью&lt;/div></code></pre>
+	</div>
+</div>
+
+</body></html>

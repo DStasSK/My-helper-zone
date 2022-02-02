@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><title>&lt;style&gt;</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;style&gt;</samp></h2>
+<div class="item">
+	<p><samp class="red">&lt;style></samp> (от англ. style — стиль) применяется для определения стилей элементов веб-страницы. Элемент <samp class="red">&lt;style></samp> необходимо использовать внутри контейнера <samp class="red">&lt;head></samp>. Можно задавать несколько <samp class="red">&lt;style></samp>.</p>
+	<p>Также тег <samp class="sin">&lt;style></samp> можно использовать непосредственно в теле документа изменяя параметры отдельных компонентов (тегов).</p>
+
+	<pre class="item2"><code>&lt;!DOCTYPE HTML><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>Тег STYLE&lt;/title><br>    &lt;style><br>      html, body {margin:0; padding:0;}<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>    &lt;style><br>      p {font-size:20px; color:red;}<br>    &lt;/style><br>    &lt;p>Текст&lt;/p><br>    &lt;div style="text-align:center;">Текст&lt;/div><br>  &lt;/body><br>&lt;/html></code></pre>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h2 class="sin"><a href="#" title="наверх">Атрибуты</a></h2>
+	<table class="t1 t3 tb">
+		<tr><td id="media"><a href="#">media</a></td>
+			<td><p>Устанавливает устройство вывода, для которого предназначена таблица стилей. Для каждого устройства можно определить свой собственный стиль, который бы учитывал специфику устройства и подгонял под него вид веб-страницы.</p>
+			Можно устанавливать сразу несколько значений, перечисляя их через запятую.
+			<pre class="item2"><code>&lt;style media="<abbr title="Все устройства. В HTML5 значение по умолчанию.">all</abbr> | <abbr title="Печатающее устройство вроде принтера.">print</abbr> | <abbr title="Экран монитора. В HTML4 значение по умолчанию.">screen</abbr> | <abbr title="Речевые синтезаторы, речевые браузеры, программы для воспроизведения текста вслух.">speech</abbr>">...&lt;/style></code></pre></td></tr>
+		<tr><td id="type"><a href="#">type</a></td>
+			<td><p>Сообщает браузеру, какой синтаксис использовать, чтобы правильно интерпретировать стили. Как правило, браузеры корректно работают со стилями и при отсутствии этого атрибута, он необходим для некоторых старых браузеров, которые могут не распознать содержимое контейнера <samp class="red">&lt;style></samp>.</p>
+			В качестве значения используется MIME-тип.
+			<pre class="item2"><code>&lt;style type="<abbr title="Значение по умолчанию.">text/css</abbr>">...&lt;/style></code></pre>
+			<div class="no mt20 mb0">В HTML4 этот атрибут является обязательным, в HTML5 его можно опустить.</div></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+	<pre class="item2"><code>&lt;head><br>  &lt;style media="screen"><br>    .window {padding:10px;<br>     border:1px solid red; font-size:0.9em; color:#fc0;<br>     background: #333;}<br>  &lt;/style><br>  &lt;style media="print"><br>    .window {padding:10px;<br>     border:1px solid black; font-size:0.9em; color:black;<br>     font-family:Arial;}<br>  &lt;/style><br>  &lt;style type="text/css"><br>    a:link    {color:#003366}<br>    a:visited {color:#660066}<br>    a:hover   {color:#800000}<br>    a:active  {color:#FF0000}<br>  &lt;/style><br>&lt;/head></code></pre>
+</div>
+</body></html>

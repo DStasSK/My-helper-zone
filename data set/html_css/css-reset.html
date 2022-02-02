@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><title>Сбросс дефолтных параметров тегов</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">Сбросс дефолтных параметров тегов</h2>
+<div class="item">
+	<p>Каждый браузер имеет свои собственные стили по умолчанию для различных элементов. То, как Google Chrome отображает заголовки, абзацы, списки и так далее, может отличаться от того, как это делает Internet Explorer. Для обеспечения совместимости с разными браузерами стал широко использоваться сброс CSS.</p>
+	<p>Сброс CSS берёт все основные элементы HTML с заданным стилем и обеспечивает единый стиль для всех браузеров. Эти сбросы обычно включают в себя удаление размеров, отступов, полей или дополнительные стили понижающие эти значения. Поскольку каскадирование CSS работает сверху вниз — сброс должен быть в самом верху стиля. Это гарантирует, что эти стили прочитаются первыми и все разные браузеры станут работать с общей точки отсчёта.</p>
+
+	<pre class="item2 br0"><code>/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126<br>  License: none (public domain) */<br>html, body, div, span, applet, object, iframe,<br>h1, h2, h3, h4, h5, h6, p, blockquote, pre,<br>a, abbr, acronym, address, big, cite, code,<br>del, dfn, em, img, ins, kbd, q, s, samp,<br>small, strike, strong, sub, sup, tt, var,<br>b, u, i, center,<br>dl, dt, dd, ol, ul, li,<br>fieldset, form, label, legend,<br>table, caption, tbody, tfoot, thead, tr, th, td,<br>article, aside, canvas, details, embed,<br>figure, figcaption, footer, header, hgroup,<br>menu, nav, output, ruby, section, summary,<br>time, mark, audio, video {<br>  margin: 0;<br>  padding: 0;<br>  border: 0;<br>  font-size: 100%;<br>  font: inherit;<br>  vertical-align: baseline;<br>}
+	<br>/* HTML5 display-role reset for older browsers */<br>article, aside, details, figcaption, figure,<br>footer, header, hgroup, menu, nav, section {<br>  display: block;<br>}
+	<br>body {line-height: 1;}<br>ol, ul {list-style:none;}<br>blockquote, q {quotes:none;}<br>blockquote:before, blockquote:after,<br>q:before, q:after {content:''; content:none;}<br>table {border-collapse:collapse; border-spacing:0;}
+	<br>/* для всех элементов, для лучшего понимания шириныи высоты */<br>/* border-box - ширина элемента не зависит от padding, margin, border */<br>*,<br>*:before,<br>*:after {<br>  -webkit-box-sizing: border-box;<br>  -moz-box-sizing: border-box;<br>  box-sizing: border-box;<br>}</code></pre>
+</div>
+
+
+<div class="item">
+	<p>До версии 9, <samp class="sin">Internet Explorer</samp> <i class="red">не применяет любые стили к неизвестным элементам</i>. Все стилевые правила просто игнорируются. В <samp class="sin">Internet Explorer 9</samp> пофиксили эту проблему. Если <samp class="sin">IE 8</samp> не признаёт элемент, то вставляет его в DOM как пустой узел без детей. Все элементы, которые ожидаются как прямые потомки неизвестного элемента, на самом деле будут вставлены как родственные.</p>
+	<p>Если вы создаёте фиктивный элемент (например <samp class="red">&lt;article></samp>) через <samp class="sin">JavaScript</samp>, прежде чем использовать его на вашей странице, то <samp class="sin">Internet Explorer</samp></samp> волшебным образом признаёт элемент и позволяет стилизовать его через <samp class="sin">CSS</samp>. Нет необходимости вставлять фиктивный элемент в DOM. Простого однократного создания элемента достаточно, чтобы научить <samp class="sin">IE</samp> стилизации элемента, который он не признаёт. Это работает во всех версиях <samp class="sin">Internet Explorer</samp>, включая <samp class="sin">IE 6</samp>!</p>
+	<p>Реми Шарп написал скрипт. Скрипт прошёл более десятка редакций с момента написания этой книги, но вот его основная идея.</p>
+	<pre class="item2 html"><code>&lt;!--[if lt IE 9]><br>&lt;script><br>  var e = ("abbr,article,aside,audio,canvas,datalist,details," +<br>           "figure,footer,header,hgroup,mark,menu,meter,nav,output," +<br>           "progress,section,time,video,main,section").split(',');<br>  for (var i = 0; i < e.length; i++) {<br>    document.createElement(e[i]);<br>  }<br>&lt;/script><br>&lt;![endif]--></code></pre>
+
+	<div class="no"><p>Скрипт должен располагаться в верхней части страницы, предпочтительно внутри <samp class="red">&lt;head></samp>, а не внизу. Таким образом, <samp class="sin">Internet Explorer</samp> будет выполнять скрипт прежде, чем он разберёт теги и атрибуты. Если вы вставите скрипт в нижнюю часть страницы, будет слишком поздно: <samp class="sin">Internet Explorer</samp> уже получит неправильную разметку и построит ошибочный DOM и уже нельзя будет повернуть назад и настроить все заново.</p></div>
+
+	<div class="no"><p>Скрипт не задает значения свойст по умолчанию (например <samp class="sin dib">display:<samp class="lsin">block</samp></samp>, <samp class="sin">width</samp>, ...), а просто создает элементы без каких-либо свойств. Сами свойства необходимо устанавливать самостоятельно.</p></div>
+
+	<p>Реми Шарп уменьшил скрипт и разместил его на <a href="http://code.google.com/p/html5shiv/"><span class="sin tdu">Google Project Hosting</span></a>. Там находится сам код скрипта и MIT-лицензия, так что вы можете использовать его в любом проекте. Если хотите, можете сделать ссылку на последнюю версию скрипта напрямую, как показано ниже.</p>
+	<pre class="item2"><code>&lt;head><br>  &lt;meta charset="utf-8"><br>  &lt;title>Мой блог&lt;/title><br>  &lt;!--[if lt IE 9]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--><br>  &lt;link rel="stylesheet" type="text/css" href="..."><br>&lt;/head></code></pre>
+</div>
+</body></html>

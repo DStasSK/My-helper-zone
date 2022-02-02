@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><title>align-content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 td:nth-child(1) {width:90px}
+	.t1 td:nth-child(2) {width:90px}
+	.box {display:flex; flex-wrap:wrap; width:80px; height:70px; margin:0 auto;
+		outline:1px solid #ddd; box-sizing:border-box; background-color:#ddd;}
+	.box div {width:16px; margin:2px; background-color:rgb(100, 84, 195); padding:8px 0;}
+	.acfs {align-content:flex-start;}
+	.acc {align-content:center;}
+	.acfe {align-content:flex-end;}
+	.acsb {align-content:space-between;}
+	.acsa {align-content:space-around;}
+	.acse {align-content:space-evenly;}
+	.acs {align-content:stretch;}
+</style>
+</head>
+<body>
+
+<h2 class="sin">align-content</h2>
+
+<div class="item">
+	<p>Задаёт тип выравнивания строк внутри флекс-контейнера по поперечной оси при наличии свободного пространства. Применяется к флекс-контейнеру, не анимируется, не наследуется. Значение по умолчанию: <samp class="lsin">stretch</samp>.</p>
+
+	<pre class="item2 css"><code>div {align-content: flex-start | flex-end | center | space-between |<br>                    space-around | space-evenly | stretch; }</code></pre>
+
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-align-content</samp></div>
+
+	<table class="t1 tb t3 th1 tc">
+		<caption>Параметры</caption>
+		<tr><th>Значение</th><th>Положение</th><th>Описание</th></tr>
+		<tr><td>flex-start</td>
+			<td><div class="box acfs"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки располагаются в начале поперечной оси. Каждая следующая строка идёт вровень с предыдущей.</td></tr>
+		<tr><td>center</td>
+			<td><div class="box acc"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки располагаются по центру контейнера.</td></tr>
+		<tr><td>flex-end</td>
+			<td><div class="box acfe"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки располагаются начиная с конца поперечной оси. Каждая предыдущая строка идёт вровень со следующей.</td></tr>
+		<tr><td>space-between</td>
+			<td><div class="box acsb"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки равномерно распределяются в контейнере и расстояние между ними одинаково.</td></tr>
+		<tr><td>space-around</td>
+			<td><div class="box acsa"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки равномерно распределяются таким образом, чтобы пространство между двумя соседними строками было одинаковым. Пустое пространство перед первой строкой и после последней строки равно половине пространства между двумя соседними строками.</td></tr>
+		<tr><td>space-evenly</td>
+			<td><div class="box acse"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки равномерно распределяются таким образом, чтобы пространство между двумя соседними строками, а также пространство перед первой строкой и после последней строки было одинаковым.</td></tr>
+		<tr><td>stretch</td>
+			<td><div class="box acs"><div></div><div></div><div></div><div></div><div></div><div></div></div></td>
+			<td>Строки равномерно растягиваются, заполняя свободное пространство.</td></tr>
+	</table>
+</div>
+
+</body></html>

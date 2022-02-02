@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>@page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*html {scroll-behavior:smooth;}*/ /* Плавная прокрутка по ссылкам*/
+</style>
+</head>
+<body>
+
+<h2 class="sin">@page</h2>
+
+<div class="item">
+	<p>Правило <samp class="red">@page</samp> позволяет задать значение полей при печати документа или для страниц, у которых тип носителя задан как <samp class="sin">print</samp>.</p>
+	<pre class="item2"><code>@page [ { :left | :right | :first } ] { ... }</code></pre>
+	<p>Для установки полей на странице используется универсальное свойство <samp class="sin">margin</samp> или его производные - <samp class="sin">margin-top, margin-right, margin-bottom, margin-left</samp>, задающие соответственно отступ сверху, справа, снизу и слева. Отрицательное значение допускается, но часть страницы может оказаться «отрезанной». Свойства <samp class="sin">border</samp> и <samp class="sin">padding</samp> не применимы.</p>
+	<p>Ключевое слово <samp class="lsin">:left</samp> позволяет задать поля для всех левых страниц, <samp class="lsin">:right</samp> — для всех правых, а <samp class="lsin">:first</samp> — для первой страницы.</p>
+
+	<div class="no">По поводу поддержки браузерами. <samp class="sin">IE8</samp> действительно поддерживает правило <samp class="red">@page</samp>, но не поддерживает медиазапросы <samp class="red">@media</samp>. Поддержка медиазапросов появилась только в <samp class="sin">IE9</samp>. Лучше поместить все правила в стилевой файл и подключить его через <samp class="sin">&lt;link></samp> со значением <samp class="sin">media="<samp class="lsin">print</samp>"</samp>.</div>
+</div>
+
+
+<div class="item anp">
+	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>@page&lt;/title><br>    &lt;link rel="stylesheet" href="/css/print.css" media="print"><br>  &lt;/head><br>  &lt;body><br>    &lt;h1>Метод ловли льва в пустыне&lt;/h1><br>    &lt;h2>Метод последовательного перебора&lt;/h2><br>    &lt;p>...&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
+
+	<p>Сам файл <samp><b>print.css</b></samp> выглядит следующим образом.</p>
+	<pre class="item2"><code>body {font-family: Times, 'Times New Roman', serif;}<br>h1, h2, p {color: #000;}<br>@page :first {margin: 1cm;}               /* Отступы для первой страницы */<br>@page :left  {margin: 1cm 3cm 1cm 1.5cm;} /* Отступы для левых страниц */<br>@page :right {margin: 1cm 3cm 1cm 1.5cm;} /* Отступы для правых страниц */</code></pre>
+</div>
+</body></html>

@@ -1,0 +1,23 @@
+<html><head><meta charset="utf-8"><title>HTML-CSS</title>
+<link rel="shortcut icon" href="data set/i.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  *{transition:.3s}
+  body,iframe{height:100vh; border:0; padding:0; margin:0}
+  div{width:10px; height:40px; position:absolute; z-index:10; left:250px; top:0; line-height:37px; color:#999; background:#eee; opacity:0}
+  div::before{content:'<<'; letter-spacing:-6px; display:block; font-size:15px; font-family:monospace; width:100%; height:100%}
+  div:hover{background:#ccc; color:#333; opacity:1}
+  #menu{width:247px; float:left; border-right:3px solid #000}
+  #menu:hover ~ div{opacity:1}
+  #book{width:calc(100% - 250px)}
+  .menu-off #menu{margin-left:-250px}
+  .menu-off #book{width:100%}
+  .menu-off div{left:0; background:#aaa; color:#000; opacity:1}
+  .menu-off div::before{content:'>>'}
+</style>
+</head>
+<body id="body">
+<iframe src="data set/menu.html" id="menu"></iframe>
+<iframe src="data set/blank.html" id="book" name="mane"></iframe>
+<div onclick='body.classList.toggle("menu-off");' title="показать/скрыть меню"></div>
+</body></html>

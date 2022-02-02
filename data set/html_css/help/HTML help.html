@@ -1,0 +1,800 @@
+<!DOCTYPE html><html><head><title>HTML help</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="menu-help"><a href="#">Home</a><a href="#end">End</a></div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="comment">&lt;!-- --></samp></p>
+	<p>Добавляет комментарий в код документа. Текст комментария не отображается на странице и предназначен для пояснения кода или для технических целей. Разрешается внутрь комментария добавлять другие элементы, при этом недопустимо один комментарий вкладывать внутрь другого.</p>
+	<pre class="item2"><code>&lt;!-- комментарий --></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="abbr">&lt;abbr></samp></p>
+	<p>Элемент <samp class="red">&lt;abbr></samp> (от англ. abbreviation — аббревиатура) указывает, что последовательность символов является аббревиатурой. С помощью атрибута <samp class="sin">title</samp> даётся расшифровка сокращения, что позволяет понимать аббревиатуру тем людям, которые с ней не знакомы. Кроме того, поисковые системы индексируют полнотекстовый вариант сокращения, это может использоваться для повышения рейтинга документа.</p>
+	<p>Браузеры обычно добавляют к тексту пунктирное подчёркивание, но могут и не выделять содержимое элемента.</p>
+	<pre class="item2"><code>&lt;abbr title="расшифровка">Текст&lt;/abbr></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="acronym">&lt;acronym></samp></p>
+	<p>Элемент <samp class="red">&lt;acronym></samp> (от англ. acronym — акроним) указывает на то, что текст является акронимом. В отличие от аббревиатуры, акроним — это устоявшееся сокращение, которое применяется как самостоятельное слово. К акронимам, например, можно отнести следующие слова: замполит, США, DOS и др.</p>
+	<p>Браузеры по разному выделяют текст внутри элемента. Firefox и Opera добавляют к тексту пунктирное подчёркивание, IE и Chrome не меняют стиль элемента.</p>
+	<div class="no">Это устаревший элемент, взамен используйте <samp class="red">&lt;abbr></samp>.</div>
+	<pre class="item2"><code>&lt;acronym>Текст&lt;/acronym></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="address">&lt;address></samp></p>
+	<p>Элемент <samp class="red">&lt;address></samp> (от англ. address — адрес) предназначен для хранения контактной информации автора (адрес, телефон, e-mail, ссылка на сайт и др.) и может включать в себя любые элементы HTML вроде ссылок, текста, выделений и т. д. Планируется, что поисковые системы будут анализировать содержимое этого элемента для сбора информации об авторах.</p>
+	<p>По умолчанию текст внутри контейнера <samp class="red">&lt;address></samp> отображается курсивным начертанием. <samp class="red">&lt;address></samp> не должен использоваться для разметки почтовых адресов в целом, только для контактной информации.</p>
+	<p>Eсли <samp class="red">&lt;address></samp> располагается внутри <samp class="red">&lt;body></samp>, то информация внутри <samp class="red">&lt;address></samp> относится ко всему документу в целом; если <samp class="red">&lt;address></samp> располагается внутри <samp class="red">&lt;article></samp>, то информация внутри <samp class="red">&lt;address></samp> относится к автору статьи.</p>
+	<p>Внутри <samp class="red">&lt;address></samp> нельзя размещать заголовки <samp class="red">&lt;h1></samp> ... <samp class="red">&lt;h6></samp>, элементы <samp class="red">&lt;header></samp>, <samp class="red">&lt;footer></samp> и другой <samp class="red">&lt;address></samp>.</p>
+	<pre class="item2"><code>&lt;address>Волоколамское шоссе, д. 17, офис 392&lt;/address></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="applet">&lt;applet></samp></p>
+	<p>Элемент <samp class="red">&lt;applet></samp> (от англ. application — приложение и уменьшительного суффикса -let) предназначен для вставки на страницу апплетов — небольших программ, написанных на языке Java. Между открывающим и закрывающим тегом можно добавить текст, который будет отображаться в браузере, если он не поддерживает апплеты. В противном случае текст не выводится.</p>
+	<div class="no">Этот элемент является устаревшим, взамен необходимо использовать <samp class="red">&lt;object></samp>.<br>Современные браузеры отключают работу <samp class="red">applet</samp> по соображениям безопасности.</div>
+	<pre class="item2"><code>&lt;applet code="адрес">Текст&lt;/applet></code></pre>
+	<div class="attr mt20 ml5 ls1 bold">Атрибуты:</div>
+	<table class="t1 t0 t3">
+		<tr><td>align</td>
+			<td>Задаёт выравнивание апплета относительно близлежащих элементов и текста.
+				<pre><code>&lt;applet align="<abbr title="Выравнивание нижней границы апплета по окружающему тексту.">bottom</abbr> | <abbr title="Выравнивает апплет по левому краю.">left</abbr> | <abbr title="Выравнивание середины апплета по базовой линии текущей строки.">middle</abbr> | <abbr title="Выравнивает апплет по правому краю.">right</abbr> | <abbr title="Верхняя граница апплета выравнивается по самому высокому элементу текущей строки.">top"</abbr>>&lt;/applet></code></pre></td></tr>
+		<tr><td>alt</td>
+			<td>Альтернативный текст.</td></tr>
+		<tr><td>archive</td>
+			<td>Указывает путь и имя файла с архивом в формате ZIP или JAR (Java-архив) в котором располагается апплет.
+				<pre><code>&lt;applet code="адрес" archive="адрес файла с архивом">&lt;/applet></code></pre></td></tr>
+		<tr><td>code</td>
+			<td>Указывает имя файла с Java-классом (оно имеет расширение .class). Это имя может комбинироваться со значением атрибута <samp class="sin">codebase</samp>, который задаёт путь к папке, где располагается файл. Если расширение не указано (например: code="clock"), то браузер добавит расширение автоматически.</td></tr>
+		<tr><td>codebase</td>
+			<td>Используется для установки базового адреса, относительно которого будет задаваться значение атрибута <samp class="sin">code</samp>. Если значение codebase не указано, то в качестве адреса принимается адрес текущего документа.</td></tr>
+		<tr><td>height</td>
+			<td>Высота апплета в пикселях или процентах.</td></tr>
+		<tr><td>hspace</td>
+			<td>Горизонтальный отступ вокруг апплета в пикселях.</td></tr>
+		<tr><td>vspace</td>
+			<td>Вертикальный отступ вокруг апплета в пикселях.</td></tr>
+		<tr><td>width</td>
+			<td>Ширина апплета в пикселях или процентах.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="article">&lt;article></samp></p>
+	<p>Элемент <samp class="red">&lt;article></samp> (от англ. article — статья) представляет собой независимый фрагмент веб-страницы и, как правило, включает «шапку», основное содержимое и «подвал», в которых располагаются такие части, как заголовок, текст, имя автора, дата публикации, метки, рейтинг статьи и др. <samp class="red">&lt;article></samp> обычно применяется для статей сайта, сообщений блога и форума, комментариев.</p>
+	<p>Внутри <samp class="red">&lt;article></samp> запрещено использовать элемент <samp class="red">&lt;main></samp>. Каждый элемент <samp class="red">&lt;article></samp> обязательно должен содержать заголовок через <samp class="red">&lt;h1></samp>,…,<samp class="red">&lt;h6></samp>.</p>
+	<pre class="item2"><code>&lt;article><br>  &lt;h1>Заголовок&lt;/h1><br>  &lt;p>Текст статьи&lt;/p><br>&lt;/article></code></pre>
+	<p>При принятии решения, следует ли использовать элемент <samp class="red">&lt;article></samp>, мы должны определить, может ли содержимое элемента быть повторено в других местах без какой-либо путаницы. Если содержимое элемента <samp class="red">&lt;article></samp> было удалено из контекста страницы и помещено, к примеру, в электронную почту или печатную работу, то в содержимом по прежнему должен остаться смысл.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="aside">&lt;aside></samp></p>
+	<p>Элемент <samp class="red">&lt;aside></samp> (от англ. aside — в стороне, отступление) представляет собой раздел страницы, который имеет косвенное отношение к содержимому страницы и может быть рассмотрен отдельно от этого содержимого. <samp class="red">&lt;aside></samp> применяется для боковых панелей, рекламных блоков, ссылок на архив, меток и другой информации, которая отделена от основного содержимого страницы.</p>
+	<pre class="item2"><code>&lt;aside><br> ... <br>&lt;/aside></code></pre>
+	<p>Мы можем инстинктивно думать об элементе <samp class="red">&lt;aside></samp> в качестве элемента, который отображается слева или справа на странице. Однако мы должны помнить, что все структурные элементы, включая <samp class="red">&lt;aside></samp>, являются блочными и как таковые выводятся с новой строки и занимают всю доступную ширину страницы или элемента, в который они вложены, также известного как их родительский элемент.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="bold">&lt;b></samp></p>
+	<p>Элемент <samp class="red">&lt;b></samp> (от англ. bold — жирный) используется для привлечения внимания к тексту, при этом важность или значение текста не играют роли. Текст внутри <samp class="red">&lt;b></samp> отображается жирным начертанием. Тэг <samp class="red">&lt;b></samp> не предназначен для оформления текста, с этой целью подойдёт элемент <samp class="red">&lt;span></samp> с добавленными к нему стилями.</p>
+	<pre class="item2"><code>&lt;b>текст&lt;/b></code></pre>
+	<p>Чтобы задать жирное начертание через стили, используйте стилевое свойство <samp class="sin tdu dib"><a href="../txt/font.html#font-weight">font-weight</a></samp>.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="basefont">&lt;basefont></samp></p>
+	<p>Элемент <samp class="red">&lt;basefont></samp>  (от англ. base font — базовый шрифт) предназначен для задания шрифта, размера и цвета текста по умолчанию. Указанные значения будут использоваться во всём документе за исключением элемента <samp class="red">&lt;font></samp>, в котором можно переопределить параметры оформления текста. <samp class="red">&lt;basefont></samp> допустимо использовать внутри <samp class="red">&lt;head></samp> или <samp class="red">&lt;body></samp>, причём несколько раз. Это позволяет изменять вид шрифта для части документа.</p>
+	<pre class="item2"><code>&lt;basefont color="цвет" face="шрифт1, ..." size="значение"></code></pre>
+	<p>Атрибут <samp class="sin">size</samp> задаёт размер шрифта в условных единицах. Значение может быть от 1 до 7. Размер шрифта можно указывать как абсолютной величиной (например, size="4"), так и относительной (например, size="+1", size="-1"). Размер, установленный в браузере по умолчанию - 3.</p>
+	<div class="no">Тэг поддеривается только в <samp class="sin"><b>IE</b></samp></div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="bgsound">&lt;bgsound></samp></p>
+	<p>Элемент <samp class="red">&lt;bgsound></samp> (от англ. background sound — фоновая музыка) определяет музыкальный файл, который будет проигрываться на веб-странице при её открытии. Громкость, продолжительность звучания музыки и другие характеристики определяются с помощью атрибутов, а также могут управляться через скрипты. Этот элемент должен размещаться только в контейнере <samp class="red">&lt;head></samp>.</p>
+	<div class="no">Тэг поддеривается только в <samp class="sin"><b>IE</b></samp></div>
+	<pre class="item2"><code>&lt;bgsound атрибуты></code></pre>
+	<h3 class="sin" style="margin:20px 0 0">Атрибуты</h3>
+	<table class="t1">
+		<tr><td>balance</td>
+			<td>Управляет балансом звука между правой и левой колонками.
+			<br>Целое число от -10000 до 10000. Значение 0 служит для баланса громкости, отрицательные числа увеличивают громкость в левой колонке, а положительные — в правой. Этот атрибут не может быть изменён динамически с помощью скриптов.
+			<pre class="item2"><code>&lt;bgsound balance="число"></code></pre></td></tr>
+		<tr><td>loop</td>
+			<td>Устанавливает, сколько раз проигрывать музыкальный файл.
+			<br>Значение 0 проигрывает файл один раз, -1 проигрывает музыку до тех пор, пока текущая веб-страница открыта. Любое целое положительное число заставляет браузер проигрывать музыкальный файл указанное число раз.
+			<pre class="item2"><code>&lt;bgsound loop="число"></code></pre></td></tr>
+		<tr><td>src</td>
+			<td>Путь к музыкальному файлу.</td></tr>
+		<tr><td>volume</td>
+			<td>Задаёт громкость звучания музыки. По умолчанию уровень звука устанавливается максимальным и зависит от текущих настроек оборудования и операционной системы. Поэтому громкость можно только уменьшать, присваивая атрибуту volume отрицательное значение. Чем это число больше, тем тише звучит музыка на веб-странице. Целое число от -10000 до 0. Ноль соответствует максимальной громкости звучания.
+			<pre class="item2"><code>&lt;bgsound volume="число"></code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="bdi">&lt;bdi></samp></p>
+	<p>Элемент <samp class="red">&lt;bdi></samp> (от англ. bidirectional isolate — изоляция двунаправленности) указывает фрагмент текста, который должен быть изолирован от изменения направления вывода текста. Такое поведение важно для текстов, одновременно содержащих разные языки, читающихся слева направо и справа налево.</p>
+	<div class="item2" style="line-height:1.1; font-size:16px;">
+		<div><bdi>текст1</bdi> текст2</div>
+		<div dir="rtl"><bdi>текст1</bdi> текст2</div>
+		<pre><code><br>&lt;div>&lt;bdi>текст1&lt;/bdi> текст2&lt;/div><br>&lt;div dir="rtl">&lt;bdi>текст1&lt;/bdi> текст2&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="bdo">&lt;bdo></samp></p>
+	<p>Элемент <samp class="red">&lt;bdo></samp> (от англ. bidirectional override — переопределение двунаправленности) устанавливает направление вывода текста и преимущественно предназначен для использования с языками, где чтение происходит справа налево. Например, к ним относится арабский язык.</p>
+	<div class="item2" style="line-height:1.1; font-size:16px;">
+		<div style="font-size:22px; line-height:1.4; font-family:arial;"><bdo>текст1</bdo> текст2<br><bdo dir="rtl">текст1</bdo> текст2</div>
+		<pre><code><br>&lt;bdo>текст1&lt;/bdo> текст2<br>&lt;bdo dir="rtl">текст1&lt;/bdo> текст2</code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="big">&lt;big></samp></p>
+	<p>Элемент <samp class="red">&lt;big></samp> (от англ. big — большой) увеличивает размер шрифта на единицу по сравнению с обычным текстом. В HTML размер шрифта измеряется в условных единицах от 1 до 7, средний размер текста, используемый по умолчанию, принят 3. Таким образом, добавление <samp class="red">&lt;big></samp> увеличивает текст на одну условную единицу. Допускается применение вложенных элементов <samp class="red">&lt;big></samp>, при этом размер шрифта будет больше с каждым уровнем.</p>
+	<div class="item2" style="line-height:1.1; font-size:16px;">
+		<div><big>текст1</big> текст2</div>
+		<pre><code><br>&lt;big>текст1&lt;/big> текст2</code></pre>
+	</div>
+	<div class="no">Это нестандартный элемент (<span class="red">для HTML5</span>), вместо него используйте стили.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="blink">&lt;blink></samp></p>
+	<p>Элемент <samp class="red">&lt;blink></samp> (от англ. blink — мигание, мерцание) устанавливает мигание текста.</p>
+	<pre class="item2"><code>&lt;blink>текст&lt;/blink></code></pre>
+	<div class="no">Это нестандартный элемент, не применяйте его, взамен воспользуйтесь стилями.</div>
+	<style>
+		.blink {animation:blink 2s infinite}
+		@keyframes blink {from {opacity:1} to {opacity:0}}
+	</style>
+	<p>В качестве альтернативы применяется стилевое свойство <samp class="sin tdu blink"><a href="../../animation/index.html">animation</a></samp>, в параметрах которого указывается бесконечная анимация.</p>
+	<pre class="item2"><code>.blink {animation: blink 2s infinite}<br>@keyframes blink {from {opacity:1} to {opacity:0}}</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="br">&lt;br></samp></p>
+	<p>Элемент <samp class="red">&lt;br></samp> (от англ. line break — перенос строки) устанавливает перевод строки в том месте, где он находится. В отличие от элемента <samp class="red">&lt;p></samp>, использование <samp class="red">&lt;br></samp> не добавляет пустой отступ перед строкой.</p>
+	<pre class="item2"><code>текст&lt;br>текст</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="blockquote">&lt;blockquote></samp></p>
+	<p>Элемент <samp class="red">&lt;blockquote></samp> (от англ. block quote — блок с цитатой) предназначен для выделения длинных цитат внутри документа. Текст внутри <samp class="red">&lt;blockquote></samp> отображается как выровненный блок с отступами слева и справа (по 40 пикселей), а также с отбивкой сверху и снизу.</p>
+	<pre class="item2"><code>&lt;blockquote cite="адрес">Цитата&lt;/blockquote><br>&lt;blockquote>Цитата&lt;/blockquote></code></pre>
+	<div><samp class="sin">cite</samp> - aдрес, который указывает на источник цитаты.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="center">&lt;center></samp></p>
+	<p>Элемент <samp class="red">&lt;center></samp> (от англ. center — центр, середина) выравнивает содержимое контейнера по центру относительно родительского элемента.</p>
+	<div class="no">Использование этого элемента осуждается спецификацией HTML, вместо него применяйте стили.</div>
+	<pre class="item2"><code>&lt;center>...&lt;/center></code></pre>
+	<p>В CSS есть несколько способов выравнивания содержимого по центру. Для текста самый простой вариант — это задать для него стилевое свойство <samp class="sin">text-align</samp> со значением <samp class="grin">center</samp>.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="cite">&lt;cite></samp></p>
+	<p>Элемент <samp class="red">&lt;cite></samp> (от англ. cite — цитировать) представляет название творческой работы (книги, статьи, поэмы, сценария, фильма, песни, оперы, игры и др.). Это может быть произведение, на которое ссылаются в цитате, или просто работа, упоминаемая вскользь. <samp class="red">&lt;cite></samp> обычно сочетается с цитатами, в частности, с элементом <samp class="red">&lt;blockquote></samp> и указывает название произведения, из которого взята цитата. Учтите, что для ссылки на первоисточник <samp class="red">&lt;cite></samp> не подходит, для этого есть атрибут <samp class="sin">cite</samp>. Браузеры обычно выделяют текст внутри <samp class="red">&lt;cite></samp> курсивом.</p>
+	<pre class="item2"><code>&lt;cite>Текст&lt;/cite></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="code">&lt;code></samp></p>
+	<p>Элемент <samp class="red">&lt;code></samp> (от англ. code — код) предназначен для отображения одной или нескольких строк текста, который представляет собой программный код. Сюда относятся имена переменных, ключевые слова, тексты функции и т. д. Браузеры обычно отображают содержимое контейнера <samp class="red">&lt;code></samp> как моноширинный текст уменьшенного размера.</p>
+	<p>В отличие от элемента <samp class="red">&lt;pre></samp> дополнительные пробелы внутри контейнера <samp class="red">&lt;code></samp> не учитываются, так же, как и переносы текста. Для разметки кода программы элементы <samp class="red">&lt;pre></samp> и <samp class="red">&lt;code></samp> комбинируют.</p>
+	<pre class="item2"><code>&lt;code>Текст&lt;/code></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="command">&lt;command></samp></p>
+	<p>Элемент <samp class="red">&lt;command></samp> (от англ. command — команда) cоздаёт команду в виде переключателя, флажка или обычной кнопки. Элемент <samp class="red">&lt;command></samp> должен располагаться внутри <samp class="red">&lt;menu></samp>, в противном случае он не будет показан.</p>
+	<div class="no">Это нестандартный элемент и браузерами не поддерживается.</div>
+	<pre class="item2"><code>&lt;menu><br>  &lt;command параметры><br>&lt;/menu></code></pre>
+	<div class="attr">Атрибуты:</div>
+	<table class="t1 tb t3">
+		<tr><td>checked</td><td>Активирует команду. Доступно только если <samp class="sin">type</samp> установлен как <samp class="grin">radio</samp> или <samp class="grin">checkbox</samp>.</td></tr>
+		<tr><td>disabled</td><td>Задаёт, доступна команда или нет.</td></tr>
+		<tr><td>icon</td><td>Адрес картинки, которая показывается перед командой.</td></tr>
+		<tr><td>label</td><td>Название команды.</td></tr>
+		<tr><td>radiogroup</td><td>Задаёт имя группы переключателей. Доступно только если <samp class="sin">type</samp> установлен как <samp class="grin">radio</samp>.</td></tr>
+		<tr><td>type</td><td>Определяет тип команды (<samp class="grin">checkbox, command, radio</samp>). По умолчанию command.</td></tr>	
+	</table>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="comment2">&lt;comment></samp></p>
+	<p>Элемент <samp class="red">&lt;comment></samp> (от англ. comment — комментарий) добавляет комментарий в код документа, он не отображается в браузере. Допустимо использовать только внутри <samp class="red">&lt;body></samp>.</p>
+	<div class="no">Это нестандартный элемент, вместо него используйте комментарии <samp class="sin">&lt;!-- --></samp>.</div>
+	<pre class="item2"><code>&lt;comment>...&lt;/comment></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="data">&lt;data></samp></p>
+	<p>Представляет содержимое в машиночитаемом виде, предназначенное для внешних автоматизированных систем или скриптов на самом сайте. Внутри <samp class="red">&lt;data></samp> (от англ. data — данные) , к примеру, может храниться идентификатор товара</p>
+	<pre class="item2"><code>&lt;data value="значение">Текст&lt;/data></code></pre>
+	<div><samp class="grin">value</samp> - yстанавливает значение атрибута в машиночитаемой форме.</div>
+	<div class="no">Поддерживается тоько <samp class="red">FireFox</samp></div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="datalist">&lt;datalist></samp></p>
+	<p>Элемент <samp class="red">&lt;datalist></samp> (от англ. data list — список данных) создаёт список вариантов, которые можно выбирать при наборе в текстовом поле. Изначально этот список скрыт и становится доступным при получении полем фокуса или при наборе текста.</p>
+	<p>Список, создаваемый элементом <samp class="red">&lt;datalist></samp>, связывается с текстовым полем посредством атрибута <samp class="red">id</samp>. Его значение должно совпадать со значением атрибута <samp class="sin">list</samp> элемента <samp class="red">&lt;input></samp>.</p>
+	<div class="item2">
+		<form class="prm">
+			<p>Выберите любимого персонажа:</p>
+			<p><input list="character">
+				<datalist id="character">
+					<option value="Чебурашка"></option>
+					<option value="Крокодил Гена"></option>
+					<option value="Шапокляк"></option>
+				</datalist>
+			</p>
+		</form>
+		<pre><code>&lt;p>Выберите любимого персонажа:&lt;/p><br>&lt;p>&lt;input list="character"><br>   &lt;datalist id="character"><br>      &lt;option value="Чебурашка">&lt;/option><br>      &lt;option value="Крокодил Гена">&lt;/option><br>      &lt;option value="Шапокляк">&lt;/option><br>   &lt;/datalist><br>&lt;/p></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="del">&lt;del></samp></p>
+	<p>Элемент <samp class="red">&lt;del></samp> (от англ. delete — удалить) используется для выделения текста, который был удалён в новой версии документа. Подобное форматирование позволяет отследить, какие изменения в тексте документа были сделаны. Браузеры обычно помечают текст в контейнере <samp class="red">&lt;del></samp> как перечёркнутый.</p>
+	<pre class="item2 anp"><code>&lt;del cite="адрес" datetime="дата и время">...&lt;/del></code></pre>
+	<table class="t1">
+		<tr><td>cite</td><td>Указывает ссылку на документ, где приведена причина редактирования текста и другие подробности.
+			<br>Браузеры никак не отображают значение атрибута <samp class="sin">cite</samp>, однако оно доступно для скриптов.</td></tr>
+		<tr><td>datetime</td><td>Дата и время редактирования текста.
+			<br>Браузеры никак не отображают <a href="datetime.html"><samp class="sin tdu">значение</samp></a> атрибута <samp class="sin">datetime</samp>, однако оно доступно для скриптов.</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="details">
+<p><samp class="sin bold t-html5" id="del">&lt;details></samp></p>
+	<p>Элемент <samp class="red">&lt;details></samp> (от англ. details — подробности, данные) используется для хранения информации, которую можно скрыть или показать по требованию пользователя. По умолчанию содержимое элемента не отображается, для изменения статуса применяется атрибут <samp class="sin">open</samp>.</p>
+	<div class="no">Подробнее расписано <a href="../vspisok.html#summarydetails"><span class="sin tdu"><b>тут</b></span></a></div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="dfn">&lt;dfn></samp></p>
+	<p>Элемент <samp class="red">&lt;dfn></samp> (от англ. definition — определение) применяется для выделения таких терминов при их первом появлении в тексте. Как правило, в документе, когда упоминается новый термин, он выделяется курсивом и даётся его определение. При использовании этого термина в дальнейшем, он считается уже известным читателю.</p>
+	<p>Браузеры, как правило, отображают содержимое контейнера <samp class="red">&lt;dfn></samp> с помощью курсивного начертания.</p>
+	<p>Определение термина задаётся с помощью атрибута <samp class="sin">title</samp> у элемента <samp class="red">&lt;dfn></samp>, либо с помощью атрибута <samp class="sin">title</samp> у вложенного элемента <samp class="red">&lt;abbr></samp>, либо текстом внутри <samp class="red">&lt;dfn></samp>.</p>
+	<pre class="item2"><code>&lt;dfn>...&lt;/dfn></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="dialog">&lt;dialog></samp></p>
+	<p>Элемент <samp class="red">&lt;dialog></samp> (от англ. dialog — диалог) создаёт диалоговое окно, в котором можно выводить сообщение или форму, например, для входа на сайт.</p>
+	<pre class="item2"><code>&lt;dialog open><br>...<br>&lt;/dialog></code></pre>
+	<div class="no">Слабая поддержка браузерами (только Chrome и Opera), лучше использовать скрипты.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="dir">&lt;dir></samp></p>
+	<p>Элемент <samp class="red">&lt;dir></samp> (от англ. directory — директория) создаёт список, содержащий названия директорий (системные папки). Аналогично элемента <samp class="red">&lt;ol></samp> и <samp class="red">&lt;ul></samp> внутри контейнера <samp class="red">&lt;dir></samp> список формируется с помощью <samp class="red">&lt;li></samp>.</p>
+	<pre class="item2 anp"><code>&lt;dir><br>  &lt;li>имя директории&lt;/li><br>  &lt;li>имя директории&lt;/li><br>&lt;/dir></code></pre>
+	<div class="no">Данный элемент устарел, вместо него используйте <samp class="red">&lt;ul></samp>.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="div">&lt;div></samp></p>
+	<p>Элемент <samp class="red">&lt;div></samp> (от англ. division — раздел, секция) является универсальным блочным элементом и предназначен для группирования элементов документа с целью изменения вида содержимого через стили. Для этого добавляется атрибут <sam class="sin">class</sam> или <samp class="sin">id</samp> с именем класса или идентификатора.</p>
+	<p>Как и при использовании других блочных элементов, содержимое <samp class="red">&lt;div></samp> всегда начинается с новой строки, после него также добавляется перенос строки.</p>
+	<pre class="item2 anp"><code>&lt;div>...&lt;/div></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="dldtdd">&lt;dl>, &lt;dt>, &lt;dd></samp></p>
+	<p>Элементы <samp class="red">&lt;dl></samp> (от англ. description list — список описаний), <samp class="red">&lt;dt></samp> (от англ. description list term — термин списка описаний), <samp class="red">&lt;dd></samp> (от англ. description list description — описание списка описаний), предназначенны для создания списка описаний. Каждый такой список начинается с контейнера <samp class="red">&lt;dl></samp>, куда входит элемент <samp class="red">&lt;dt></samp> создающий термин и элемент <samp class="red">&lt;dd></samp> задающий описание этого термина.</p>
+	<pre class="item2"><code>&lt;dl><br>  &lt;dt>Термин 1&lt;/dt><br>    &lt;dd>Описание термина 1&lt;/dd><br>  &lt;dt>Термин 2&lt;/dt><br>    &lt;dd>Описание термина 2&lt;/dd><br>&lt;/dl></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold" id="em">&lt;em></samp></p>
+	<p>Предназначен для текста, имеющего особое значение или на который следует сделать акцент. Текст внутри <samp class="red">&lt;em></samp> (от англ. emphasis — акцент) отображается курсивным начертанием.</p>
+	<pre class="item2"><code>&lt;em>...&lt;/em></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="font">&lt;font></samp></p>
+	<p>Элемент <samp class="red">&lt;font></samp> (от англ. font — шрифт) представляет собой контейнер для изменения характеристик шрифта, таких как размер, цвет и гарнитура. Атрибуты: <samp class="sin" title="Устанавливает цвет текста.">color</samp>, <samp class="sin" title="Определяет гарнитуру шрифта. Названий шрифтов можно привести несколько, через запятую. Можно использовать универсальные семейства шрифтов: serif, sans-serif, cursive, fantasy, monospace.">face</samp>, <samp class="sin" title="Задаёт размер шрифта в условных единицах от 1 до 7. Pазмер по умолчанию - 3. Размер шрифта можно указывать как абсолютной величиной (например, size=&Prime;4&Prime;), так и относительной (например, size=&Prime;+1&Prime;, size=&Prime;-1&Prime;).">size</samp>.</p>
+
+	<pre class="item2"><code>&lt;font size="5" color="red" face="Arial">Текст&lt;/font></code></pre>
+	<div class="no">Данный элемент устарел, взамен используйте стили.</div>
+</div>
+
+
+<div class="item">
+<p class="sin"><samp class="bold" id="h1">&lt;h1>...&lt;h6></samp> - теги заголовков</p>
+	<p>Заголовки являются важными элементами веб-страницы, они упорядочивают текст, формируя его визуальную структуру. Теги <samp class="red">&lt;h1>...&lt;h6></samp> должны использоваться только для выделения заголовков нового раздела или подраздела. При использовании заголовков необходимо учитывать их иерархию, т.е. за <samp class="red">&lt;h1></samp> должен следовать <samp class="red">&lt;h2></samp> и т.д. Также не допускается вложение других тегов в теги <samp class="red">&lt;h1>...&lt;h6></samp>.</p>
+	<p>Тег <samp class="red">&lt;h1></samp> должен быть уникальным для каждой страницы сайта. Рекомендуется прописывать тег в начале статьи, используя ключевое слово в тексте заголовка.</p>
+	<p>Размеры шрифта для тегов в браузере равны <b>/ 2em / 1.5em / 1em / 1.17em / 0.83em / 0.67em</b></p>
+	<p>Верхний и нижний отступ по умолчанию <b>/ 0.67em / 0.83em / 1em / 1.33em / 1.67em / 2.33em</b></p>
+</div>
+
+
+<div class="item">
+<p><samp class="bold t-html5 sin" id="header">&lt;header></samp></p>
+	<p>Элемент <samp class="red">&lt;header></samp> (от англ. header — верхний колонтитул, шапка) задаёт «шапку» сайта или раздела веб-страницы. Внутри «шапки» сайта обычно располагается логотип, название сайта, поисковая форма, навигационные ссылки и др.</p>
+	<p><samp class="red">&lt;header></samp> нельзя вкладывать внутрь другого <samp class="red">&lt;header></samp>, а также внутрь элементов <samp class="red">&lt;address></samp> и <samp class="red">&lt;footer></samp>. Внутри <samp class="red">&lt;header></samp> не должно быть элемента <samp class="red">&lt;main></samp>.</p>
+	<p><samp class="red">&lt;header></samp> также может быть использован для обёртывания оглавления разделов, формы поиска или любых подходящих логотипов.</p>
+	<pre class="item2"><code>&lt;header><br>...<br>&lt;/header></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="hgroup">&lt;hgroup></samp></p>
+	<p>Элемент <samp class="red">&lt;hgroup></samp> (от англ. heading group — группа заголовков) используется для группирования заголовков веб-страницы или раздела. Внутри располагаются заголовки от <samp class="red">&lt;h1></samp> до <samp class="red">&lt;h6></samp>.</p>
+	<pre class="item2"><code>&lt;hgroup><br>...<br>&lt;/hgroup></code></pre>
+	<div class="no">Данный элемент исключён из спецификации W3C HTML5, но оставлен в спецификации WHATWG. Не рекомендуем его применять на рабочих сайтах, поскольку статус элемента точно не определён и его дальнейшая судьба не известна.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="hr">&lt;hr></samp></p>
+	<p>Элемент <samp class="red">&lt;hr></samp>(от англ. horizontal rule — горизонтальная линейка) рисует горизонтальную линию, которая по своему виду зависит от используемых параметров, а также браузера.</p>
+	<pre class="item2"><code>&lt;hr></code></pre>
+	<style>
+		.dashed{border:0; border-bottom:1px dashed #000;}
+	</style>
+	<hr class="dashed">
+	<pre class="item2"><code>&lt;style><br>  hr {border:0; border-bottom:1px dashed #000;}<br>&lt;/style><br><br>&lt;hr></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="i">&lt;i></samp></p>
+	<p>Элемент <samp class="red">&lt;i></samp>(от англ. italic — курсив) используется для текста, который по разным причинам отличается от обычного текста. Это может быть термин, иностранное слово, название и др. Текст внутри <samp class="red">&lt;i></samp> (от англ. italic — курсив) отображается курсивным начертанием.</p>
+	<pre class="item2"><code>&lt;i>текст&lt;/i></code></pre>
+	<div class="no">Тэг <samp class="red">&lt;i></samp> не должен применяться для оформления текста курсивом, для этого есть стили.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="ins">&lt;ins></samp></p>
+	<p>Элемент <samp class="red">&lt;ins></samp> (от англ. insert — вставить) предназначен для выделения текста, который был добавлен в новую версию документа. Подобное форматирование позволяет отследить, какие изменения в тексте документа были сделаны. Браузеры обычно помечают текст в контейнере <samp class="red">&lt;ins></samp> как подчёркнутый.</p>
+	<pre class="item2 anp"><code>&lt;ins cite="адрес" datetime="дата и время">...&lt;/ins><br>&lt;ins>текст&lt;/ins></code></pre>
+	<table class="t1 t3">
+		<tr><td>cite</td><td>Указывает ссылку на документ, где приведена причина редактирования текста и другие подробности.<br>Браузеры никак не отображают значение атрибута <samp class="sin">cite</samp>, однако оно доступно для скриптов.</td></tr>
+		<tr><td>datetime</td><td>Дата и время редактирования текста.
+			<br>Браузеры никак не отображают <a href="datetime.html"><samp class="sin tdu">значение</samp></a> атрибута <samp class="sin">datetime</samp>, однако оно доступно для скриптов.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="isindex">&lt;isindex></samp></p>
+	<p>Элемент <samp class="red">&lt;isindex></samp> предназначен для поискового индекса в текущем документе. Согласно спецификации, <samp class="red">&lt;isindex></samp> следует размещать внутри контейнера <samp class="red">&lt;head></samp>, но браузеры корректно выводят <samp class="red">&lt;isindex></samp> и когда он располагается в другом месте кода. Сам элемент отображается как текстовая строка, сверху и снизу которой выводятся линии, добавляемые через <samp class="red">&lt;hr></samp>. Браузеры плохо поддерживают атрибуты <samp class="red">&lt;isindex></samp>, в итоге поиск должным образом не работает. Взамен этого элемента используйте <samp class="red">&lt;form></samp> и <samp class="red">&lt;input></samp>.</p>
+	<div class="no">Данный элемент устарел, не используйте его.</div>
+	<pre class="item2 anp"><code>&lt;head><br>  &lt;isindex><br>&lt;/head></code></pre>
+	<table class="t1 t3">
+		<tr><td>action</td><td>Адрес программы, осуществляющей поиск.</td></tr>
+		<tr><td>prompt</td><td>Текстовая строка, которая выводится перед текстовым полем. Если этот атрибут не указан, браузер самостоятельно добавит собственный текст.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="kbd">&lt;kbd></samp></p>
+	<p>Элемент <samp class="red">&lt;kbd></samp> (от англ. keyboard — клавиатура) используется для обозначения текста, который набирается на клавиатуре или для названия клавиш. Браузеры обычно помечают текст в контейнере <samp class="red">&lt;kbd></samp> моноширинным шрифтом.</p>
+	<pre class="item2 anp"><code>&lt;kbd>...&lt;/kbd></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="keygen">&lt;keygen></samp></p>
+	<p>Элемент <samp class="red">&lt;keygen></samp> используется для генерации пары ключей — закрытого и открытого. Когда форма отправляется на сервер, закрытый ключ сохраняется на локальном компьютере, а открытый ключ передаётся вместе с формой. Сами ключи необходимы для шифрования и расшифровки данных, создания и проверки цифровой подписи. Закрывающий тег - не требуется.</p>
+	<div class="no">Данный элемент устарел и больше не используется.</div>
+	<pre class="item2 anp"><code>&lt;form><br>  &lt;keygen><br>&lt;/form></code></pre>
+	<table class="t1 t3">
+		<tr><td>autofocus</td><td>Передаёт фокус элементу при загрузке страницы.</td></tr>
+		<tr><td>challenge</td><td>Определяет, должно ли значение изменяться при отправке формы.</td></tr>
+		<tr><td>disabled</td><td>Отключает этот элемент.</td></tr>
+		<tr><td>form</td><td>Идентификатор формы, к которой применяется шифрование.</td></tr>
+		<tr><td>keytype</td><td>Задаёт алгоритм шифрования ключа. К примеру, значение rsa использует криптографический алгоритм RSA.</td></tr>
+		<tr><td>name</td><td>Имя элемента.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="listing">&lt;listing></samp></p>
+	<p>Предназначен для вывода листинга программ или кода. Отображает содержимое моноширинным шрифтом уменьшенного размера.</p>
+	<div class="no">Это устаревший элемент (но поддреживается), взамен него используйте элемент <samp class="red">&lt;code></samp>.</div>
+	<pre class="item2 anp"><code>&lt;listing>Текст&lt;/listing></code></pre>
+	<fieldset class="prm">
+		<legend class="point" onclick='listing1.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<div id="listing1" class="hiden" onclick="event.stopPropagation()">
+			<listing style="margin:0; font-size:16px">if (s/.*\*\//?/<>&!@#$%^&1) {<br>    $comment = 0;<br>  }<br>  else {<br>    next;<br>    }<br>}</listing>
+			<div class="item2">
+				<pre><code>&lt;listing style="margin:0; font-size:16px"></code></pre>
+				<pre><code>  if (s/.*\*\//?/&lt;>&!@#$%^&1) {<br>    $comment = 0;<br>  }<br>  else {<br>    next;<br>    }<br>  }</code></pre>
+				<pre><code>&lt;/listing></code></pre>
+			</div>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-html5" id="mark">&lt;mark></samp></p>
+	<p>Элемент <samp class="red">&lt;mark></samp> (от англ. mark — пометка) помечает текст как выделенный. В браузере фоновый цвет текста внутри <samp class="red">&lt;mark></samp> как правило выделяется жёлтым цветом.</p>
+	<p>Авторы обычно используют <samp class="red">&lt;mark></samp> для <mark>привлечения внимания</mark> читателя к части текста. Заметьте, что такой текст ничего не говорит о важности выделенного фрагмента, а лишь предлагает <mark>обратить на него внимание</mark>.</p>
+	<pre class="item2 anp"><code>&lt;mark>Текст&lt;/mark></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="menu">&lt;menu></samp></p>
+	<p>Элемент <samp class="red">&lt;menu></samp> (от англ. menu — меню) предназначен для отображения списка пунктов меню. Аналогично элементам <samp class="red">&lt;ol></samp> и <samp class="red">&lt;ul></samp> внутри контейнера <samp class="red">&lt;menu></samp> список формируется с помощью <samp class="red">&lt;li></samp>.</p>
+	<pre class="item2 anp"><code>&lt;menu><br>  &lt;li>пункт меню&lt;/li><br>  &lt;li>пункт меню&lt;/li><br>&lt;/menu></code></pre>
+	<div class="no mb10">
+		<p>В HTML4 элемент <samp class="red">&lt;menu></samp> вышел из употребления, вместо него рекомендуется использовать <samp class="red">&lt;ul></samp>. В HTML5 элемент <samp class="red">&lt;menu></samp> вновь включен, но уже в другом качестве. Теперь он выступает контейнером для элемента <samp class="red">&lt;command></samp> и создания меню.</p>
+		<p>Браузеры не поддерживают данный элемент.</p>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="menuitem">&lt;menuitem></samp></p>
+	<p>Задаёт команду, которую пользователь может вызывать через контекстное меню. Команда выглядит как текстовая метка, а также дополнительно может содержать небольшую картинку. Сама команда связана с программой на JavaScript.</p>
+	<pre class="item2 anp"><code>&lt;menu><br>  &lt;menuitem атрибуты>&lt;/menuitem><br>&lt;/menu></code></pre>
+	<div class="no mb10">Теги menu и menuitem убрали в HTML 5.2.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="multicol">&lt;multicol></samp></p>
+	<p>Задаёт количество колонок, ширину и расстояние между колонок в многоколоночном тексте.</p>
+	<div class="bold ls1 ml5 mt20">Атрибуты:</div>
+	<table class="t1 t3">
+		<tr><td>cols</td><td>Количество колонок. </td></tr>
+		<tr><td>gutter</td><td>Расстояние между колонок в пикселях.</td></tr>
+		<tr><td>width</td><td>Определяет общую ширину колонок включая пространство между ними. Это значение может быть задано в пикселях или процентах.</td></tr>
+	</table>
+	<pre class="item2 anp"><code>&lt;multicol cols="число">Текст&lt;/multicol></code></pre>
+	<div class="no mb10">Элемент не поддрерживается - устарел.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold t-html5 sin" id="nav">&lt;nav></samp></p>
+	<p>Элемент <samp class="red">&lt;nav></samp> (от англ. navigation — навигация) задаёт навигацию по сайту. Если на странице несколько блоков ссылок, то в <samp class="red">&lt;nav></samp> обычно помещают приоритетные ссылки. Также допустимо использовать несколько <samp class="red">&lt;nav></samp> в документе. Запрещается вкладывать <samp class="red">&lt;nav></samp> внутрь <samp class="red"><a href="#address">&lt;address></a></samp>.</p>
+	<p>Элемент <samp class="red">&lt;nav></samp> определяет блок основных навигационных ссылок на странице. Данный элемент должен быть зарезервирован только для главных разделов навигации, таких как глобальная навигация, оглавление, предыдущая/следующая ссылки или других заслуживающих внимания групп навигационных ссылок.</p>
+	<p>Чаще всего ссылки внутри элемента <samp class="red">&lt;nav></samp> будут вести на другие страницы в пределах одного сайта или частей той же веб-страницы. Разные одноразовые ссылки не должны быть обернуты элементом <samp class="red">&lt;nav></samp>, они должны использовать только элемент <samp class="red"><a href="a.html">&lt;a></a></samp>.</p>
+	<pre class="item2"><code>&lt;nav>ссылки&lt;/nav></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold t-trash sin" id="nobr">&lt;nobr></samp></p>
+	<p>Элемент <samp class="red">&lt;nobr></samp> (от англ. no line break — нет переноса строки) уведомляет браузер отображать текст без переносов. Без него текст выравнивается по левому краю окна браузера или родительского элемента. При этом браузер переводы строк расставляет автоматически, чтобы текст полностью поместился по ширине окна.</p>
+	<p>Использование <samp class="red">&lt;nobr></samp> заставляет отображать текст без переносов, одной строкой, что может привести к появлению горизонтальной полосы прокрутки. Пользователям придется прокручивать текст по горизонтали, чтобы увидеть его полностью.</p>
+	<pre class="item2"><code>&lt;nobr>Текст&lt;/nobr></code></pre>
+	<div class="no">Это нестандартный элемент, но поддерживается, взамен него используйте стили.</div>
+	<p><i>Для запрета переноса строк в тексте используйте свойство <samp class="sin">white-space</samp> со значением <samp class="lsin">nowrap</samp>.</i></p>
+	<pre><code>span { white-space: nowrap }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold t-trash sin" id="noembed">&lt;noembed></samp></p>
+	<p>Элемент <samp class="red">&lt;noembed></samp> предназначен для отображения информации на веб-странице, если браузер не поддерживает работу с плагинами. Во всех остальных случаях содержимое контейнера <samp class="red">&lt;noembed></samp> будет проигнорировано.</p>
+	<p>Плагином называется подключаемый к браузеру программный модуль, расширяющий возможности браузера. Например, к плагинам можно отнести поддержку Flash, QuickTime VR, VRML и т. д.</p>
+	<pre class="item2"><code>&lt;noembed>Текст&lt;/noembed></code></pre>
+	<div class="no">Это нестандартный элемент, но поддерживается, не используйте его.</div>
+	<pre class="item2"><code>&lt;embed src="flash/mouse.swf" width="400" height="300"<br>       type="application/x-shockwave-flash" <br>       pluginspage="http://www.macromedia.com/go/getflashplayer">&lt;/embed><br>&lt;noembed>Браузер не поддерживает работу с плагинами&lt;/noembed></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold t-trash sin" id="noframes">&lt;noframes></samp></p>
+	<p>Содержимое элемента <samp class="red">&lt;noframes></samp> отображается в браузере, когда он не поддерживает фреймы и не умеет их интерпретировать. Браузеры, которые работают с фреймами, полностью игнорируют содержимое <samp class="red">&lt;noframes></samp>. Как правило, внутри этого элемента располагается текст, информирующий пользователя о том, что его браузер фреймы не поддерживает или с предложением перейти на страницу без фреймов.</p>
+	<pre class="item2"><code>&lt;frameset><br>  &lt;noframes>Текст&lt;/noframes><br>&lt;/frameset></code></pre>
+	<div class="no">Поскольку все современные браузеры поддерживают фреймы, данный элемент потерял свою актуальность.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="noindex">&lt;noindex></samp></p>
+	<p>Поисковый робот Яндекса «ходит» по сайтам, просматривает и анализирует их содержимое, после чего сохраняет указатель на текст и изображения в поисковую базу данных Яндекса. Такой процесс называется индексированием. Часть веб-страницы можно закрыть от индексирования, поместив её внутрь элемента <samp class="red">&lt;noindex></samp>. Тогда при следующем посещении веб-страницы поисковый робот проигнорирует такое содержимое и не станет добавлять его в свою базу данных. Это делается по разным причинам, к примеру, закрытые от индексации ссылки не передают ТИЦ (тематический индекс цитирования).</p>
+	<pre class="item2"><code>&lt;noindex>текст&lt;/noindex></code></pre>
+	<div class="no">Важно понимать, что это нестандартный элемент и придуман Яндексом для своих целей. Браузеры никак не поддерживают <samp class="red">&lt;noindex></samp> и просто выводят его содержимое как обычно.</div>
+
+	<p class="mt20">Если вам нужно закрыть ссылку для поисковиков, добавьте к ней атрибут <samp class="sin">rel</samp> со значением <samp class="lsin">nofollow</samp>:</p>
+	<pre class="item2"><code>&lt;a href="//webref.ru" rel="nofollow">Ссылка не индексируется&lt;/a></code></pre>
+	<p>Если требуется закрыть для поисковиков всю страницу используйте элемент <samp class="red">&lt;meta></samp>, добавив его в код HTML:</p>
+	<pre class="item2"><code>&lt;meta name="robots" content="noindex"></code></pre>
+	<p>Или добавьте в файл <b>robots.txt</b> следующую строку:</p>
+	<pre class="item2"><code>Disallow: /private.html<br>Где private.html адрес страницы.</code></pre>
+
+	<fieldset class="prm leg1">
+		<legend class="point" onclick='noind.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<div id="noind" class="hiden" onclick="event.stopPropagation()">
+			<p>Еще один момент, к которому нужно быть готовым  – закрывая от робота часть текста, <samp class="red">&lt;noindex></samp> приводит к тому, что валидация сайта будет содержать множество ошибок в коде. Причина все та же: среди тех, кто понимает тег <samp class="red">&lt;noindex></samp> – Яндекс и никто более из существенных поисковиков. Кроме того, этот тег не является стандартизированным.</p>
+			<p>Но выход все же есть. Для того, чтобы исключить ошибки, связанные с использованием этого тега, существует вариант его написания, который устраивает абсолютно всех:</p>
+			<pre class="item2"><code>&lt;!-- noindex --><br>Содержимое, запрещенное для индексирования на Яндексе<br>&lt;!-- /noindex --></code></pre>
+			<p>В этом случае тег будет распознан Яндексом, другие поисковики не обратят на него внимания, а проверка кода не будет воспринимать его, как ошибку. Несмотря на явную пользу от возможности использовать тег <samp class="red">&lt;noindex></samp>, Google так и не принял его и не создал ничего аналогичного.</p>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="noscript">&lt;noscript></samp></p>
+	<p>Контейнер <samp class="red">&lt;noscript></samp> показывает своё содержимое, если браузер не поддерживает работу со скриптами или их поддержка отключена пользователем. В остальных случаях браузер игнорирует этот элемент и всё, что располагается внутри него.</p>
+	<pre class="item2"><code>&lt;noscript>Ваш браузер не поддерживает скрипты!&lt;/noscript></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="optgroup">&lt;optgroup></samp></p>
+	<p>Контейнер <samp class="red">&lt;optgroup></samp> (от англ. option group — группа вариантов) представляет собой контейнер, внутри которого располагаются элементы <samp class="red">&lt;option></samp>, объединённые в одну группу. Особенностью <samp class="red">&lt;optgroup></samp> является то, что он не выделяется как обычный элемент списка, акцентируется с помощью жирного начертания, а все элементы, входящие в этот контейнер, смещаются вправо от своего исходного положения.</p>
+	<pre class="item2"><code>&lt;select><br>   &lt;optgroup label="текст"><br>      &lt;option>...&lt;/option><br>      &lt;option>...&lt;/option><br>   &lt;/optgroup><br>&lt;/select></code></pre>
+
+	<fieldset class="prm leg1 bn mb0 prm2">
+		<legend class="point" onclick='optgroup1.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<div id="optgroup1" class="hiden" onclick="event.stopPropagation()">
+			<table class="t1 t3">
+				<tr><td>disabled</td>
+					<td>Блокирует доступ к группе списка, при этом группа отображается другим цветом (обычно серым) и не доступна для выбора.</td></tr>
+				<tr><td>label</td>
+					<td>Текст, который будет входить в список в виде заголовка группы. Значения - любая текстовая строка.</td></tr>
+			</table>
+
+			<fieldset class="prm mb5">
+				<legend></legend>
+				<form>
+					<select>
+						<optgroup label="Цвет">
+							<option value="c1">Апельсиновый</option>
+							<option value="c2">Лимонный</option>
+							<option value="c3">Персиковый</option>
+						</optgroup>
+						<optgroup label="Тон" disabled>
+							<option value="s1">Светлый</option>
+							<option value="s2">Нормальный</option>
+							<option value="s3">Темный</option>
+						</optgroup>
+					</select>
+					<p><input type="submit" value="Отправить"></p>
+				</form>
+				<pre class="item2"><code>&lt;form action="handler.php"><br>   &lt;select><br>      &lt;optgroup label="Цвет"><br>         &lt;option value="c1">Апельсиновый&lt;/option><br>         &lt;option value="c2">Лимонный&lt;/option><br>         &lt;option value="c3">Персиковый&lt;/option><br>      &lt;/optgroup><br>      &lt;optgroup label="Тон" disabled><br>         &lt;option value="s1">Светлый&lt;/option><br>         &lt;option value="s2">Нормальный&lt;/option><br>         &lt;option value="s3">Темный&lt;/option><br>      &lt;/optgroup><br>   &lt;/select><br>   &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+			</fieldset>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="paragraph">&lt;p></samp></p>
+	<p>Определяет текстовый абзац. Элемент <samp class="red">&lt;p></samp> (от англ. paragraph — абзац, параграф) является блочным, всегда начинается с новой строки, абзацы текста идущие друг за другом разделяются между собой отбивкой. Величиной отбивки можно управлять с помощью стилей. Если закрывающего тега нет, считается, что конец абзаца совпадает с началом следующего абзаца или другого блочного элемента.</p>
+	<div class="bold ls1">Параметры по умолчанияю:</div>
+	<pre class="item2"><code>margin-top: 1em;<br>margin-bottom: 1em;</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="plaintext">&lt;plaintext></samp></p>
+	<p>Элемент <samp class="red">&lt;plaintext></samp> (от англ. plain text — простой текст) отображает содержимое контейнера «как есть». Пока тег <samp class="red">&lt;plaintext></samp> не закрыт, все теги внутри него отображаются как обычный текст. Несмотря на то, что все браузеры поддерживают этот тег, он не входит в спецификацию HTML и его использование осуждается.</p>
+	<p><b>Все браузеры игнорируют закрывающий тег</b> и отображают его в виде текста. Элемент <samp class="red">&lt;plaintext></samp> действует до конца кода веб-страницы, включая закрывающие теги <samp class="red">&lt;/body></samp> и <samp class="red">&lt;/html></samp>.</p>
+	<pre class="item2"><code>&lt;plaintext>...&lt;/plaintext></code></pre>
+	<div class="no">Это нестандартный элемент, не применяйте его.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="pre">&lt;pre></samp></p>
+	<p>Элемент <samp class="red">&lt;pre></samp> (от англ. preformatted text — форматированный текст) определяет блок предварительно форматированного текста. Такой текст отображается обычно моноширинным шрифтом и со всеми пробелами между словами. По умолчанию, любое количество пробелов идущих в коде подряд, на веб-странице показывается как один. Элемент <samp class="red">&lt;pre></samp> позволяет обойти эту особенность и отображать текст как требуется разработчику.</p>
+	<pre class="item2"><code>&lt;pre>...&lt;/pre></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="quotes">&lt;q></samp></p>
+	<p>Элемент <samp class="red">&lt;q></samp> (от англ. quotation — цитата, кавычки) используется для выделения в тексте цитат. Содержимое контейнера автоматически отображается в браузере в кавычках.</p>
+	<p>В каждом языке существуют свои традиции для обозначения кавычек, в русской типографике, например, применяются кавычки вида <samp>«...»</samp> или <samp>„...“</samp>. Для изменения типа кавычек используется стилевое свойство <samp class="sin tdu"><a href="help.html#quotes">quotes</a></samp>.</p>
+	<pre class="item2"><code>&lt;q <abbr title="Адрес, который указывает на источник цитаты - не обязательный элемент">cite=""</abbr>>Текст&lt;/q><br>&lt;q>Текст&lt;/q></code></pre>
+	<div class="no mb10">Браузер Internet Explorer до версии 7 включительно кавычки не ставит. Остальные браузеры кавычки добавляют корректно.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="s">&lt;s></samp></p>
+	<p>Элемент <samp class="red">&lt;s></samp> (от англ. strikethrough — зачёркнутый) используется для содержимого, которое уже не является точным или актуальным. Браузеры отображают такой текст как перечёркнутый. Элемент <samp class="red">&lt;s></samp> не должен применяться для удалённого текста, для этой цели есть элемент <samp class="red tdu"><a href="#del">&lt;del></a></samp>.</p>
+	<pre class="item2"><code>&lt;s>Текст&lt;/s></code></pre>
+	<div class="no mb10">Для создания перечёркнутого текста вместо элемента <samp class="red">&lt;s></samp> применяется стилевое свойство <samp class="sin tdu"><a href="../txt/text-decoration.html#line-through">text-decoration</a></samp> со значением <samp class="lsin">line-through</samp>.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="samp">&lt;samp></samp></p>
+	<p>Элемент <samp class="red">&lt;samp></samp> (от англ. sample — пример, образец) используется для отображения текста, который является результатом вывода компьютерной программы или скрипта. Браузеры обычно отображают текст в контейнере <samp class="red">&lt;samp></samp> с помощью <samp><b>моноширинного шрифта</b></samp>.</p>
+	<pre class="item2"><code>&lt;samp>Текст&lt;/samp></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold t-html5 sin" id="section">&lt;section></samp></p>
+	<p>Задаёт раздел документа, может применяться для блока новостей, контактной информации, глав текста, вкладок в диалоговом окне и др. Раздел обычно содержит заголовок. Допускается вкладывать один элемент <samp class="red">&lt;section></samp> (от англ. section — раздел) внутрь другого.</p>
+	<p>Элемент <samp class="red">&lt;section></samp> применяется для идентификации тематической группы содержимого, которая, как правило, но не всегда, включает в себя заголовок. Группа контента внутри <samp class="red">&lt;section></samp> может носить общий характер, но полезно определить всё содержимое как связанное между собой.</p>
+	<p>Элемент <samp class="red">&lt;section></samp> обычно используется для разделения страницы и обеспечения на ней иерархии.</p>
+	<pre class="item2"><code>&lt;section>&lt;/section></code></pre>
+	<div class="no">
+		<p>Если содержимое сгруппировано исключительно для стилизации и не несёт ценность для схемы документа, используйте элемент <samp class="red"><a href="#div">&lt;div></a></samp>.</p>
+		<p>Если содержимое добавляется к схеме документа и может быть независимо повторено или перенесено, используйте элемент <samp class="red"><a href="#article">&lt;article></a></samp>.</p>
+		<p>Если содержимое добавляется к схеме документа и представляет собой тематическую группу содержимого, используйте элемент <samp class="red">&lt;section></samp>.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="small">&lt;small></samp></p>
+	<p>В HTML4 элемент <samp class="red">&lt;small></samp> (от англ. small — маленький) уменьшает размер шрифта на единицу по сравнению с обычным текстом. В HTML4 размер шрифта измеряется в условных единицах от 1 до 7, средний размер текста, используемый по умолчанию, принят 3. Таким образом, добавление <samp class="red">&lt;small></samp> уменьшает текст на одну условную единицу. Допускается применение вложенных элементов <samp class="red">&lt;small></samp>, при этом размер шрифта будет меньше с каждым вложенным уровнем, но не может быть меньше, чем 1.</p>
+	<p>В HTML5 элемент <samp class="red">&lt;small></samp> используется для сносок и комментариев, написанных обычно мелким текстом. К ним могут относиться предостережения, информация о лицензии, авторских правах и др.</p>
+	<pre class="item2"><code>&lt;small>текст&lt;/small></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="spacer">&lt;spacer></samp></p>
+	<p>Элемент <samp class="red">&lt;spacer></samp> cоздаёт пустое пространство по вертикали или горизонтали.</p>
+	<div class="bold ls1 ml5 mt20">Атрибуты:</div>
+	<table class="t1 t3">
+		<tr><td>align</td>
+			<td>Определяет выравнивание элемента относительно содержимого.</td></tr>
+		<tr><td>height</td>
+			<td>Устанавливает высоту пустого пространства в пикселях.</td></tr>
+		<tr><td>size</td>
+			<td>Число пикселей пустого пространства вставляемых горизонтально или вертикально, в зависимости от значения атрибута <samp class="sin">type</samp> - <samp class="lsin">horizontal</samp> или <samp class="lsin">vertical</samp>.</td></tr>
+		<tr><td>type</td>
+			<td>Указывает тип элемента. Возможные значения <samp class="lsin">block | horizontal | vertical</samp>.</td></tr>
+		<tr><td>width</td>
+			<td>Устанавливает ширину пустого пространства в пикселях.</td></tr>
+	</table>
+	<pre class="item2"><code>&lt;spacer height="число" width="число">&lt;/spacer></code></pre>
+	<div class="no mb10">Элемент не поддрерживается ни одним браузером.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="span">&lt;span></samp></p>
+	<p>Элемент форматирования <samp class="red">&lt;span></samp> предназначен для преобразования <span class="sin">строчных элементов</span> документа.</p>
+	<p>В отличие от тегов <samp class="red">&lt;table></samp>, <samp class="red">&lt;p></samp> или <samp class="red">&lt;div></samp>, которые являются <span class="sin">блочными элементами</span>, тег <samp class="red">&lt;span></samp> выделяет часть содержимого внутри какого либо элемента и задаёт свои варианты стиля для данного участка.</p>
+	<p>Наименование тега <samp class="red">&lt;div></samp> было взято из начала английского слова <samp class="sin">«division»</samp>, что значит деление.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="strike">&lt;strike></samp></p>
+	<p>Элемент <samp class="red">&lt;strike></samp> (от англ. strikethrough — зачёркнутый) отображает текст как перечёркнутый. По своему действию аналогичен <samp class="red">&lt;s></samp>, который имеет сокращённую форму записи.</p>
+	<pre class="item2"><code>&lt;strike>текст&lt;/strike></code></pre>
+	<div class="no">Использование этого элемента осуждается спецификацией HTML, вместо него применяйте стили.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="strong">&lt;strong></samp></p>
+	<p>Элемент <samp class="red">&lt;strong></samp> (от англ. strong — сильный) выделяет важный текст, отображается жирным начертанием. Важное предложение имеет большое значение для всей веб-страницы, указывает на что-то серьёзное или срочное. Важное слово или словосочетание показывает, что оно имеет большее значение по сравнению с окружающим текстом. Браузеры отображают текст внутри <samp class="red">&lt;strong></samp> жирным начертанием.</p>
+	<pre class="item2"><code>&lt;strong>текст&lt;/strong></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="sub">&lt;sub></samp></p>
+	<p>Элемент <samp class="red">&lt;sub></samp> (от англ. subscript — нижний индекс) отображает шрифт в виде нижнего индекса. Текст при этом располагается ниже базовой линии остальных символов строки и уменьшенного размера. H<sub class="lh0">2</sub>O.</p>
+	<pre class="item2"><code>&lt;sub>текст&lt;/sub></code></pre>
+	<div class="no">Использование <samp class="red">&lt;sub></samp>/<samp class="red">&lt;sup></samp> изменяет высоту строки. Для решения проблемы можно задать свойству <samp class="sin">line-height</samp> значение <b>0</b>.</div>
+	<pre class="item2"><code> sub, sup { line-height: 0; }</code></pre>
+</div>
+
+
+<div class="item" id="summary">
+<p><samp class="sin bold t-html5" id="del">&lt;summary></samp></p>
+	<p>Указывает заголовок для <samp class="red tdu"><a href="#details">&lt;details></a></samp>, по которому можно щёлкать для разворачивания/сворачивания информации. Элемент <samp class="red">&lt;summary></samp> должен идти первым внутри <samp class="red">&lt;details></samp>.</p>
+	<div class="no">Подробнее расписано <a href="../vspisok.html#summarydetails"><span class="sin tdu"><b>тут</b></span></a></div>
+	<div class="no">IE и Edge не поддерживают данный тэг.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="sup">&lt;sup></samp></p>
+	<p>Элемент <samp class="red">&lt;sup></samp> (от англ. superscript — верхний индекс) отображает шрифт в виде верхнего индекса. Шрифт при этом отображается выше базовой линии текста и уменьшенного размера.</p>
+	<div class="prm">
+		X<sup class="lh0">2</sup><br>
+		X<sup class="lh0"><small>2</small></sup>
+		<pre class="item2"><code>&lt;style>.lh0 {line-height:0}&lt;/style><br><br>X&lt;sup class="lh0">2&lt;/sup><br>X&lt;sup class="lh0">&lt;small>2&lt;/small>&lt;/sup></code></pre>
+	</div>
+	<div class="no">Использование <samp class="red">&lt;sub></samp>/<samp class="red">&lt;sup></samp> изменяет высоту строки. Для решения проблемы можно задать свойству <samp class="sin">line-height</samp> значение <b>0</b>.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin t-trash" id="tt">&lt;tt></samp></p>
+	<p>Элемент <samp class="red">&lt;tt></samp> (от англ. teletype text — текст телетайпа) отображает текст <tt>моноширинным шрифтом</tt>.</p>
+	<pre class="item2"><code>&lt;tt>Текст&lt;/tt></code></pre>
+	<div class="no">Использование этого элемента осуждается спецификацией HTML, вместо него применяйте стили.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="u">&lt;u></samp></p>
+	<p>Элемент <samp class="red">&lt;u></samp> (от англ. unarticulated — невнятный) используется для разметки текста, который должен отличаться стилистически от обычного текста. К примеру, так можно помечать ошибки в тексте, собственные имена, иностранные слова. Текст в <samp class="red">&lt;u></samp> выделяется подчёркиванием.</p>
+	<pre class="item2"><code>&lt;u>Текст&lt;/u></code></pre>
+	<div class="no">В HTML4 использование этого элемента осуждается.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="bold sin" id="var">&lt;var></samp></p>
+	<p>Элемент <samp class="red">&lt;var></samp> (от англ. variable — переменная) используется для выделения переменных из компьютерных программ. Браузеры обычно помечают текст в контейнере <samp class="red">&lt;var></samp> курсивным начертанием.</p>
+	<pre class="item2"><code>&lt;var>Текст&lt;/var></code></pre>
+	А в чём принципиальная разница, если сравнивать с тегом "i" ?<br>
+	<i>скорее всего семантика</i>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-html5" id="wbr">&lt;wbr></samp></p>
+	<p>Применение элемента <samp class="red">&lt;wbr></samp> в середине слова гарантирует, что, если слово нужно разбить на две строки, это будет сделано в разборчивой форме.</p>
+	<p>Аналогично <i>мecту вoзмoжнoгo пepeнoca</i> - <samp class="lsin">&amp;shy;</samp></p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin bold t-trash" id="xmp">&lt;xmp></samp></p>
+	<p>Применение элемента <samp class="red">&lt;xmp></samp> (от англ. example — пример) отображает содержимое контейнера «как есть» и шрифтом фиксированной ширины. Пока элемент <samp class="red">&lt;xmp></samp> не закрыт, все теги внутри него отображаются как обычный текст.</p>
+	<pre class="item2"><code>&lt;xmp>Текст&lt;/xmp></code></pre>
+	<div class="no">Данный элемент устарел, не используйте его. Взамен применяйте элемент <samp class="red">&lt;pre></samp>, заменяя скобки < и > на &amp;lt; и &amp;gt;. Также для управления видом содержимого предназначены стили.</div>
+</div>
+
+
+
+<div id="end" style="line-height:0;font-size:0"></div>
+</body>
+</html>

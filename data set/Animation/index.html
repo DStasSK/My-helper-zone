@@ -1,0 +1,249 @@
+<!DOCTYPE html><html><head><title>Animation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.t1 pre{display:inline-block;}
+	.animation-tf{border:1px solid #ccc; font-size:15px;
+		padding:5px 10px; margin:5px auto 5px; width:80%; min-width:400px;}
+	.animation-tf .e{background:#fc0; box-sizing:border-box; width:200px; padding:4px 10px; margin:5px 0; transition:width 3s; overflow:hidden; line-height:15px; height:23px;}
+	.animation-tf:hover .e{width:100%}
+
+	.aa1 div {left:0; height:20px; width:20px; position:relative; transition:1s;}
+	.aa1 p{margin:0;}
+	.aa2:hover div {left:370px}
+	.aa1 .ease {transition-timing-function:ease; background:crimson;} /* по умолчанию */
+	.aa1 .linear {transition-timing-function:linear; background:midnightblue;}
+	.aa1 .ease-in {transition-timing-function:ease-in; background:mediumseagreen}
+	.aa1 .ease-out {transition-timing-function:ease-out; background:orangered;}
+	.aa1 .ease-in-out {transition-timing-function:ease-in-out; background:darkviolet;}
+
+	.aa3{font-family:monospace;}
+	.aa3 .normal div{animation-direction:normal; background:crimson;}
+	.aa3 .reverse div{animation-direction:reverse; background:midnightblue;}
+	.aa3 .alternate div{animation-direction:alternate; background:mediumseagreen;}
+	.aa3 .alternate-reverse div{animation-direction:alternate-reverse; background:goldenrod;}
+	.aa3 div {height:20px; width:220px; margin-bottom:5px}
+	.aa3 div div {height:20px; width:20px; position:relative; left:0; /*margin-top:-1rem;*/
+		animation:swipe 2s linear infinite; transition:1s;
+		/*background: crimson;*/}
+	@keyframes swipe {0%{left:0;} 100%{left:200px;}}
+</style>
+</head>
+
+<body>
+<div class="item">
+<h1 class="sin">Анимация</h1>
+	<!-- оглавление -->
+		<ul class="ogl mt10">
+			<li><a href="#z0"><samp class="red">@keyframes</samp> (контрольные точки)</a></li>
+			<li><a href="#z1"><samp>animation-name</samp></a></li>
+			<li><a href="#z2"><samp>animation-duration</samp> (длительность анимации)</a></li>
+			<li><a href="#z3"><samp>animation-timing-function</samp> (вид движения)</a></li>
+			<li><a href="#z4"><span style="font-size:17px">значения</span> <samp>animation-timing-function</samp></a></li>
+			<li><a href="#z5"><samp>animation-delay</samp> (время до запуска)</a></li>
+			<li><a href="#z6"><samp>animation-iteration-count</samp> (число повторений)</a></li>
+			<li><a href="#z7"><samp>animation-direction</samp> (направление проигрывания анимации)</a></li>
+			<li><a href="#z8"><samp>animation-play-state</samp> (пауза / пуск)</a></li>
+			<li><a href="#z9"><samp>animation-fill-mode</samp> (определяет CSS стили по завершении анимации)</a></li>
+			<li><a href="#z10"><span style="font-size:17px">cокращённое свойство</span> <samp class="red">animation</samp></a></li>
+		</ul><!-- /оглавление -->
+
+	<p class="mt30">Переходы выполняют большую работу по созданию визуальных взаимодействий из одного состояния в другое и идеально подходят для этих видов одиночных изменений состояния. Тем не менее, когда требуется больший контроль, для переходов необходимо несколько состояний. С этого момента переходы уходят, а в дело вступает анимация.</p>
+</div>
+
+
+<div class="item" id="z0">
+<h2 class="sin"><a href="#">Ключевые кадры анимации <samp class="red">@keyframes</samp></a></h2>
+	<p>Чтобы установить несколько точек, в которых элемент должен совершать переход, используется правило <samp class="red">@keyframes</samp>. Это правило включает имя анимации, любое число контрольных точек, а также свойства, предназначенные для анимации.</p>
+
+	<pre> class="item2"<code>@keyframes <samp class="red">slide</samp> {<br>    0% { left:0;     top:0; }<br>   50% { left:244px; top:100px; }<br>  100% { left:488px; top:0; }<br>}</code></pre>
+
+	<p>Правило <samp class="red">@keyframes</samp> должно быть с вендорными префиксами, так же, как и все другие свойства <samp class="sin">transition</samp> и <samp class="sin">animation</samp>. Префиксы для <samp class="red">@keyframes</samp> выглядят следующим образом:</p>
+	<ul style="margin-top:-5px">
+		<li>@-webkit-keyframes</li>
+		<li>@-moz-keyframes</li>
+		<li>@-o-keyframes</li>
+	</ul>
+
+	<p>Анимация выше называется <samp class="red">slide</samp>, состояния начинаются сразу же после открытия правила <b>@keyframes</b>. Разные контрольные точки ключевых кадров задаются помощью процентов, начиная с <b>0%</b> и работая до <b>100%</b>, с промежуточной точкой на <b>50%</b>. При желании вместо <b>0%</b> и <b>100%</b> могут быть использованы ключевые слова <b>from</b> и <b>to</b>. Кроме <b>50%</b> также могут быть указаны дополнительные контрольные точки. Свойства элементов для анимации перечислены внутри каждой контрольной точки, <samp class="sin">left</samp> и <samp class="sin">top</samp> в приведённом выше примере.</p>
+
+	<p>Важно отметить, как и с переходами, могут быть анимированы только отдельные свойства. Подумайте, как вы могли бы переместить элемент сверху вниз, например. Попытка анимировать от <b>top: 0</b> до <b>bottom: 0</b> не будет работать, потому что анимация может применять только переход в пределах одного свойства, а не от одного свойства к другому. В этом случае элемент необходимо анимировать от <b>top: 0</b> до <b>top: 100%</b>.</p>
+</div>
+
+
+<div class="item" id="z1">
+<h2 class="sin"><samp><a href="#">animation-name</a></samp></h2>
+	<p>После того, как объявлены ключевые кадры для анимации, они должны быть назначены для элемента. Для этого используется свойство <samp class="sin">animation-name</samp> с именем анимации из правила <samp class="red">@keyframes</samp>, как значение свойства. Декларация <samp class="sin">animation-name</samp> применяется к элементу, для которого должна быть задана анимация. Значение по умолчанию <samp class="lsin">none</samp> (oтключает анимацию).</p>
+
+	<pre class="item2"><code>.stage:hover .ball {<br>  -webkit-animation-name: slide;<br>     -moz-animation-name: slide;<br>       -o-animation-name: slide;<br>          animation-name: slide;<br>}</code></pre>
+
+	<p>Использования одного свойства <samp class="sin">animation-name</samp> при этом недостаточно. Кроме того, необходимо объявить свойство <samp class="sin">animation-duration</samp> и значение, чтобы браузер знал, как долго должна длиться анимация до завершения.</p>
+</div>
+
+
+<div class="item" id="z2">
+<h2 class="sin"><samp><a href="#">animation-duration</a></samp></h2>
+	<p>Задаёт время в секундах или миллисекундах, сколько должен длиться один цикл анимации. По умолчанию значение равно <b>0s</b>, это означает, что никакой анимации нет.</p>
+	<p>Можно указать несколько значений, перечисляя их через запятую. Отрицательные значения и значения без указания единиц времени (s или ms) недопустимы и будут игнорироваться.</p>
+	<pre class="item2"><code>.box {<br>  -webkit-animation-duration: 1s;<br>     -moz-animation-duration: 1s;<br>       -o-animation-duration: 1s;<br>          animation-duration: 1s;<br>}</code></pre>
+</div>
+
+
+<div class="item" id="z3">
+<h2 class="sin"><samp><a href="#">animation-timing-function</a></samp></h2>
+	<p>Устанавливает, согласно какой функции времени должна происходить анимация каждого цикла между ключевыми кадрами. Она представляет собой математическую функцию, показывающую, как быстро по времени меняется значение свойства. Значение по умолчанию <samp class="lsin">ease</samp></p>
+	<p>Начальная точка имеет координаты 0.0, 0.0, конечная — 1.0, 1.0, при этом функция по оси ординат может превышать эти значения в большую или меньшую сторону.</p>
+
+	<pre class="item2"><code>.box {<br>  -webkit-animation-timing-function: linear;<br>     -moz-animation-timing-function: linear;<br>       -o-animation-timing-function: linear;<br>          animation-timing-function: linear;<br>}</code></pre>
+
+	<table class="t1 tc t3 tb ">
+		<caption>Может принимать следующие значения:</caption>
+		<tr><td width="120px">ease</td><td>Анимация начинается медленно, затем ускоряется и к концу движения опять замедляется.
+			<br>Аналогично <pre><code>cubic-bezier(0.25,0.1,0.25,1)</code></pre></td></tr>
+		<tr><td>ease-in</td><td>Анимация медленно начинается, к концу ускоряется.
+			<br>Аналогично <pre><code>cubic-bezier(0.42,0,1,1)</code></pre></td></tr>
+		<tr><td>ease-out</td><td>Анимация начинается быстро, к концу замедляется.
+			<br>Аналогично <pre><code>cubic-bezier(0,0,0.58,1)</code></pre></td></tr>
+		<tr><td>ease-in-out</td><td>Анимация начинается и заканчивается медленно.
+			<br>Аналогично <pre><code>cubic-bezier(0.42,0,0.58,1)</code></pre></td></tr>
+		<tr><td>linear</td><td>Одинаковая скорость от начала и до конца.</td></tr>
+		<tr><td>step-start</td><td>Как таковой анимации нет. Стилевые свойства сразу же принимают конечное значение.</td></tr>
+		<tr><td>step-end</td><td>Как таковой анимации нет. Стилевые свойства находятся в начальном значении заданное время, затем сразу же принимают конечное значение.</td></tr>
+		<tr><td>steps</td><td>Ступенчатая функция, имеющая заданное число шагов.
+			<br><pre class="sin">animation-timing-function: steps(<число>, start | end);</pre>
+			<br>Здесь:
+			<br><samp><число></samp> — целое число больше нуля;
+			<br><samp>start</samp> — задаёт полунепрерывную снизу функцию;
+			<br><samp>end</samp> — задаёт полунепрерывную сверху функцию.
+			<br><pre class="item2"><code>animation-timing-function: steps(5, end);</code></pre>
+		</td></tr>
+		<tr><td>cubic-bezier</td><td>Задаёт функцию движения в виде кривой Безье
+			<br><pre><code>cubic-bezier(n,n,n,n);</code></pre></td></tr>
+	</table>
+
+	<p id="z4">Чтобы посмотреть результат действия разных значений, наведите курсор на поле ниже. Время эффекта перехода установлено как <b>3s</b>.</p>
+	<div class="animation-tf">
+		<div class="e" style="transition-timing-function:ease">ease</div>
+		<div class="e" style="transition-timing-function:ease-in">ease-in</div>
+		<div class="e" style="transition-timing-function:ease-out">ease-out</div>
+		<div class="e" style="transition-timing-function:ease-in-out">ease-in-out</div>
+		<div class="e" style="transition-timing-function:linear">linear</div>
+		<div class="e" style="transition-timing-function:step-start">step-start</div>
+		<div class="e" style="transition-timing-function:step-end">step-end</div>
+		<div class="e" style="transition-timing-function:steps(5, end)">steps(5, end)</div>
+		<div class="e" style="transition-timing-function:cubic-bezier(0.1, -0.6, 0.2, 0)">cubic-bezier(0.1, -0.6, 0.2, 0)</div>
+	</div>
+
+	<div class="animation-tf aa1 aa2 anp">
+		Bсе переходы занимают одинаковое время (1 секунда).
+		<p class="mt10"><strong>ease</strong>: медленно начинается, быстро в середине, медленно завершается</p>
+		<div class="ease"></div>
+		<p><strong>linear</strong>: постоянная скорость</p>
+		<div class="linear"></div>
+		<p><strong>ease-in</strong>: медленно начинается, быстро завершается</p>
+		<div class="ease-in"></div>
+		<p><strong>ease-out</strong>: быстро начинается, медленно завершается</p>
+		<div class="ease-out"></div>
+		<p><strong>ease-in-out</strong>: похоже на ease, но с более выраженным ускорением/замедлением</p>
+		<div class="ease-in-out"></div>
+	</div>
+</div>
+
+
+<div class="item" id="z5">
+<h2 class="sin"><samp><a href="#">animation-delay</a></samp></h2>
+	<p>Свойство <samp class="sin">animation-delay</samp> устанавливает время ожидания перед запуском цикла анимации. Значение <samp class="lsin">0s</samp> или <samp class="lsin">0ms</samp> запускает анимацию сразу же. Отрицательное значение также включает анимацию без задержек, но может привести к изменению вида начала анимации. Значение по умолчанию <samp class="lsin">0s</samp>.</p>
+	<pre class="item2"><code>.box {<br>  -webkit-animation-delay: 1s;<br>     -moz-animation-delay: 1s;<br>       -o-animation-delay: 1s;<br>          animation-delay: 1s;<br>}</code></pre>
+</div>
+
+
+<div class="item" id="z6">
+<h2 class="sin"><samp><a href="#">animation-iteration-count</a></samp></h2>
+	<p>Свойство определяет, сколько раз проигрывать цикл анимации до её остановки. Задается либо просто числом, либо можно указать <samp class="lsin">infinite</samp> и анимация будет выполняться бесконечно. Значение по умолчанию <b>1</b>.</p>
+	<pre class="item2"><code>.box {<br>  -webkit-animation-iteration-count: 1;<br>     -moz-animation-iteration-count: 1;<br>       -o-animation-iteration-count: 1;<br>          animation-iteration-count: 1;<br>}</code></pre>
+</div>
+
+
+<div class="item" id="z7">
+<h2 class="sin"><samp><a href="#">animation-direction</a></samp></h2>
+	<p>Кроме возможности установить, сколько раз анимация повторяется, вы можете также объявить направление, в котором анимация завершается, с помощью свойства <samp class="sin">animation-direction</samp>. Значения этого свойства включают в себя <samp class="lsin">normal, reverse, alternate</samp> и <samp class="lsin">alternate-reverse</samp>.</p>
+
+	<div class="animation-tf aa1 aa3 anp">
+		<strong>normal</strong>: 0% --&gt; 100%
+		<div class="normal">
+			<div></div>
+		</div>
+		<strong>reverse</strong>: 100% --&gt; 0%
+		<div class="reverse">
+			<div></div>
+		</div>
+		<strong>alternate</strong>: 0% &lt;--&gt; 100%
+		<div class="alternate">
+			<div></div>
+		</div>
+		<strong>alternate-reverse</strong>: 100% &lt;--&gt; 0%
+		<div class="alternate-reverse">
+			<div></div>
+		</div>
+	</div>
+
+	<p class="mt20">Значение <samp class="lsin">normal</samp> воспроизводит анимацию, как и намеревалось, от начала до конца. Значение <samp class="lsin">reverse</samp> воспроизводит анимацию точно наоборот, чем это определено в правиле <samp class="red">@keyframes</samp>, таким образом, начиная со 100% и работая в обратном направлении до 0%.</p>
+
+	<p>Значение <samp class="lsin">alternate</samp> воспроизведёт анимацию вперёд, а затем назад. В ключевых кадрах это включает выполнение вперёд от 0% до 100%, а затем в обратном направлении от 100% до 0%. Используя свойство <samp class="sin">animation-iteration-count</samp> можно ограничить количество раз, когда анимация работает вперёд и назад. Счёт начинается с 1, когда анимация проходит вперёд от 0% до 100%, а затем добавляется 1, когда анимация проходит в обратном порядке от 100% до 0%. Объединение в общей сложности двух итераций. Значение <samp class="lsin">alternate</samp> также инвертирует любые функции времени при воспроизведении в обратном направлении. Если анимация использует значение <b>ease-in</b> идущее от 0% до 100%, то затем использует значение <b>ease-out</b> идущее от 100% до 0%.</p>
+
+	<p>И, наконец, значение <samp class="lsin">alternate-reverse</samp> сочетает оба значения <samp class="lsin">alternate</samp> и <samp class="lsin">reverse</samp>, запуская анимацию назад, а затем вперёд. Значение <samp class="lsin">alternate-reverse</samp> начинается со 100% и выполняется до 0%, а затем снова обратно до 100%.</p>
+
+	<pre class="item2"><code>.box {<br>  -webkit-animation-direction: normal;<br>     -moz-animation-direction: normal;<br>       -o-animation-direction: normal;<br>          animation-direction: normal;<br>}</code></pre>
+
+	<div class="no"><b>IE</b> действительно поддерживает это свойство, но <samp class="red">calc</samp> почему-то не работает внутри <samp class="red">@keyframes</samp>. Из-за этого и нет анимации.</div>
+</div>
+
+
+<div class="item" id="z8">
+<h2 class="sin"><samp><a href="#">animation-play-state</a></samp></h2>
+	<p>Свойство <samp class="sin">animation-play-state</samp> позволяет анимации воспроизводиться или остановиться на паузу, с помощью ключевых слов <samp class="lsin">running</samp> и <samp class="lsin">paused</samp>, соответственно. Когда анимация снимается с паузы, она возобновляет работу с того момента где была остановлена, а не начинается снова с самого начала.</p>
+	<pre class="item2"><code>.stage:hover .ball {<br>  -webkit-animation-play-state: paused;<br>     -moz-animation-play-state: paused;<br>       -o-animation-play-state: paused;<br>          animation-play-state: paused;<br>}</code></pre>
+</div>
+
+
+<div class="item" id="z9">
+<h2 class="sin"><samp><a href="#">animation-fill-mode</a></samp></h2>
+	<p>Определяет, какие стили должны применяться к элементу, когда анимация не проигрывается. Например, после её завершения или при остановке. По умолчанию, в момент окончания анимации стиль элемента возвращается к исходному, свойство <samp class="sin">animation-fill-mode</samp> позволяет изменить это поведение и сделать так, чтобы стиль элемента оставался как у последнего ключевого кадра.</p>
+
+	<p>Свойство <samp class="sin">animation-fill-mode</samp> принимает четыре значения ключевых слов, включая <samp class="lsin">none, forwards, backwards</samp> и <samp class="lsin">both</samp>. Значение по умолчанию <samp class="lsin">none</samp>.</p>
+
+	<p>Значение <samp class="lsin">none</samp> не будет применять любые стили к элементу до или после того, как анимация запущена.</p>
+	<p>Значение <samp class="lsin">forwards</samp> сохранит стили, объявленные в последнем указанном ключевом кадре. На эти стили, однако, могут повлиять значения свойств <samp class="sin">animation-direction</samp> и <samp class="sin">animation-iteration-count</samp>, меняя, где анимация заканчивается.</p>
+	<p>Значение <samp class="lsin">backwards</samp> будет применять стили первого заданного ключевого кадра, до того, как анимация будет работать. Включает применение этих стилей в течение всего времени, что может быть задано в <samp class="sin">animation-delay</samp>. Значение <samp class="lsin">backwards</samp> также может зависеть от значения свойства <samp class="sin">animation-direction</samp>.</p>
+	<p>Наконец, значение <samp class="lsin">both</samp> применит поведение сразу от обоих значений <samp class="lsin">forwards</samp> и <samp class="lsin">backwards</samp>.</p>
+
+	<pre class="item2"><code>.box {<br>  -webkit-animation-fill-mode: forwards;<br>     -moz-animation-fill-mode: forwards;<br>       -o-animation-fill-mode: forwards;<br>          animation-fill-mode: forwards;<br>}</code></pre>
+</div>
+
+
+<div class="item" id="z10">
+<h2 class="sin"><a href="#">Сокращённое свойство <samp>animation</a></samp></h2>
+	<p>К счастью анимация, подобно переходам, может быть записана в сокращённом формате. Это получается с помощью одного свойства <samp class="sin">animation</samp> вместо нескольких объявлений.</p>
+
+	<p>Порядок значений в свойстве <samp class="sin">animation</samp> должен быть следующий:<br> <samp class="sin">animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, animation-play-state</samp>.</p>
+
+	<pre class="item2"><code>.ball {<br>  -webkit-animation: slide 2s ease-in-out .5s infinite alternate;<br>     -moz-animation: slide 2s ease-in-out .5s infinite alternate;<br>       -o-animation: slide 2s ease-in-out .5s infinite alternate;<br>          animation: slide 2s ease-in-out .5s infinite alternate;<br>}<br><br>.ball:hover {animation-play-state: paused;}</code></pre>
+
+	<div style="margin-top:15px;margin-bottom:-15px;">Значения по умолчанию:</div>
+	<ul style="font-family:monospace;font-size:16px;margin-bottom:0"><li>animation-name: none;</li><li>animation-duration: 0s;</li><li>animation-timing-function: ease;</li><li>animation-delay: 0s;</li><li>animation-iteration-count: 1;</li><li>animation-direction: normal;</li><li>animation-fill-mode: none;</li><li>animation-play-state: running;</li></ul>
+</div>
+
+
+
+<div class="item">
+	<samp class="sin">IE10</samp> не поддерживает параметр <samp class="red">preserve-3d</samp> для создания 3D слоев.
+</div>
+
+</body>
+</html>

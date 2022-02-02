@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><title>text-aling</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin">text-aling</h2>
+	<p><span class="sin">text-aling</span> - определяет горизонтальное выравнивание текста в пределах элемента. Применяется к блочным контейнерам, не анимируется, значение по умолчанию <samp class="lsin">left</samp>.</p>
+
+	<pre class="item2"><code>div {<br>  text-align:left;     /* выравнивание текста по левому краю */<br>  text-align:right;    /* выравнивание текста по правому краю */<br>  text-align:center;   /* расположение текста по центру */<br>  text-align:justify;  /* выравнивание по левому и правому краю одновременно*/<br>  text-align:start;<br>  text-align:end;<br>}</code></pre>
+	<p><samp class="lsin">start</samp> - aналогично значению <samp class="lsin">left</samp>, если текст идёт слева направо и <samp class="lsin">right</samp>, когда текст идёт справа налево.</p>
+	</div>
+</div>
+
+
+<div class="item anp">
+<h2 class="sin">text-aling-last</h2>
+	<p>Задаёт выравнивание последней строки блока текста.</p>
+	<pre class="item2"><code>div {<br>  -moz-text-align-last:left;<br>  text-align-last:left;<br>}</code></pre>
+
+	<div class="t1">
+		<table class="t1">
+			<tr><td width="80px">auto</td><td>Совпадает с выравниванием, заданным свойством text-align, за исключением значения justify. Для него выравнивание будет как start.</td></tr>
+			<tr><td>start</td><td>Строка выравнивается по начальному краю блока, который может меняться в зависимости от направления текста (слева направо или справа налево).</td></tr>
+			<tr><td>end</td><td>Строка выравнивается по конечному краю блока, он определяется направлением текста.</td></tr>
+			<tr><td>left</td><td>Строка выравнивается по левому краю.</td></tr>
+			<tr><td>right</td><td>Строка выравнивается по правому краю.</td></tr>
+			<tr><td>center</td><td>Строка выравнивается по центру.</td></tr>
+			<tr><td>justify</td><td>Строка выравнивается по ширине. Если в последней строке только одно слово, то оно будет выравнено по левому краю.</td></tr>
+		</table>
+	</div>
+</div>
+</body>
+</html>

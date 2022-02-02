@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>content</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.no li{margin:10px 0; padding:0}
+</style></head>
+
+<body>
+<h2 class="sin"><samp>content</samp></h2>
+	<!-- оглавление -->
+		<!-- <ul class="ogl"> -->
+			<!-- <li><a href="#">Свойства <samp>shape</samp></a></li> -->
+			<!-- <li>content
+				<div class="ogl2 ogl21">
+					<span><a href="#absolute">absolute</a></span>
+					<span><a href="#fixed">fixed</a></span>
+					<span><a href="#relative">relative</a></span>
+					<span><a href="#static">static</a></span>
+					<span><a href="#sticky">sticky</a></span>
+					<span></span>
+				</div>
+			</li>
+		</ul> -->
+		<!-- /оглавление -->
+
+
+<div class="item">
+	<p>Свойство <samp class="sin">content</samp> позволяет вставлять генерируемое содержание в текст веб-страницы, которое первоначально в тексте отсутствует.</p>
+	<p>Применяется совместно с псевдоэлементами <samp class="pur">::after</samp> и <samp class="pur">::before</samp>, они соответственно указывают отображать новое содержимое после или до содержимого элемента, к которому добавляются.</p>
+	<p>Значение по умолчанию - <samp class="lsin">normal</samp>, не наследуется, не анимируется.</p>
+	<pre class="item2 sin">content: <samp class="lsin"><строка> | attr(<атрибут>) | open-quote | close-quote |<br>         no-open-quote | no-close-quote | url | counter | normal | none</samp></pre>
+
+
+	<table class="t1 tb t3 mt20">
+		<tr><td id="str"><a href="#"><строка></a></td>
+			<td><p>Текст, который добавляется на веб-страницу, строка при этом должна браться в двойные или одинарные кавычки. Допускается использовать юникод для вставки спецсимволов.</p>
+			Спецсимволы HTML которые начинаются с амперсанда (&amp;sect; например), будут отображаться как есть, т. е. простым текстом (&amp;sect;, а не §).</td></tr>
+		<tr><td id="attr"><a href="#">attr(<samp class="lsin"><атрибут></samp>)</a></td>
+			<td>Возвращает строку, которая является значением атрибута тега указанного в скобках.
+				<pre><code>a::after {content:attr(href)}</code></pre>
+				добавит после ссылки её адрес, т. е. значение атрибута <samp class="sin">href</samp>. Если указанного атрибута нет, то вернётся пустая строка.</td></tr>
+		<tr><td id="open-quote"><a href="#">open-quote</a></td>
+			<td>Вставляет открывающую кавычку, тип которой устанавливается с помощью стилевого свойства 
+			<samp class="sin">quotes.</samp></td></tr>
+		<tr><td id="close-quote"><a href="#">close-quote</a></td>
+			<td>Вставляет закрывающую кавычку.</td></tr>
+		<tr><td id="no-open-quote"><a href="#">no-open-quote</a></td>
+			<td>Отменяет добавление открывающей кавычки.</td></tr>
+		<tr><td id="no-close-quote"><a href="#">no-close-quote</a></td>
+			<td>Отменяет добавление закрывающей кавычки.</td></tr>
+		<tr><td id="url"><a href="#">url</a></td>
+			<td>Абсолютный или относительный адрес вставляемого объекта. Если указанный файл браузер не может отобразить, то значение игнорируется.</td></tr>
+		<tr><td id="counter"><a href="#">counter</a></td>
+			<td>Выводит значение счётчика, заданного свойством 
+			<samp class="sin">counter-reset</samp>.</td></tr>
+		<tr><td id="none"><a href="#">none</a></td>
+			<td>Не добавляет никакого содержимого.</td></tr>
+		<tr><td id="normal"><a href="#">normal</a></td>
+			<td>Задаётся как <samp class="lsin">none</samp> для псевдоэлементов 
+			<samp class="pur">::after</samp> и <samp class="pur">::before</samp>.</td></tr>
+	</table>
+
+	<ul class="no mb10">
+		<li>Firefox до версии 2.0 включительно и Opera до версии 9.2 включительно не поддерживают значение <samp class="lsin">none</samp>.</li>
+		<li>Safari до версии 3.1 не поддерживает значение <samp class="lsin">none</samp> и <samp class="lsin">normal</samp>.</li>
+		<li>Chrome и Safari поддерживают свойство <samp class="sin">quotes</samp> для добавления кавычек с версии 11 и 5.1 соответственно.</li>
+	</ul>
+</div>
+
+</body>
+</html>

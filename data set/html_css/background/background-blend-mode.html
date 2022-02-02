@@ -1,0 +1,236 @@
+<!DOCTYPE html><html><head><title>background-blend-mode</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">background-blend-mode</h2>
+<!-- оглавление -->
+	<ul class="ogl">
+		<li><a href="#z1">Синтаксис.</a></li>
+		<li><a href="#z2">Значения.</a></li>
+		<li><a href="#z3">Песочница.</a></li>
+		<li><a href="#z4">Пример.</a></li>
+	</ul>
+
+
+<div class="item">
+	<p>Определяет режим наложения фонового изображения на фоновый цвет или другие фоновые изображения. Допустимо указывать несколько значений через запятую, при этом они будут применяться к фоновым изображениям, перечисленных в <samp class="sin">background-image</samp>, в том же порядке. Значение по умолчанию <samp class="lsin">normal</samp>, применяется ко всем элементам, не анимируется.</p>
+
+	<p class="no">Safari до версии 10 и iOS Safari до версии 10.3 не поддерживают значения <samp class="lsin">hue, saturation, color и luminosity</samp>.</p>
+
+	<div id="z1"><b><a href="#">Синтаксис:</a></b></div>
+		<pre class="item2"><code>p{<br> background-blend-mode: normal | multiply | screen | overlay | darken |<br>                 lighten | color-dodge | color-burn | hard-light |<br>                 soft-light | difference | exclusion | hue | saturation |<br>                 color | luminosity<br>}</code></pre>
+
+		<div>Значения и эффекты примерно совпадают с параметром <a href="../mix-blend-mode.html"><span class="sin tdu">mix-blend-mode</span></a> для текста.</div>
+
+
+	<div id="z2" class="mt20"><b><a href="#">Значения:</a></b></div>
+		<style>
+			.tt1 table{width:100%; min-width:600px; border-collapse:collapse;}
+			.tt1 td{border:1px solid #555; padding:4px;}
+			.tt1 tr:nth-child(odd){background:#eee;}
+			.tt1 tr td:nth-child(1){text-align:center; width:110px; vertical-align:top;
+				font-family:monospace; color:#00008B;}
+			.tt1 tr td:nth-child(2){text-align:justify;}
+		</style>
+		<div class="tt1 mb20">
+			<table>
+				<tr><td>normal</td><td>Обычный. Не используется смешивание цветов. Режим по умолчанию.</td></tr>
+				<tr><td>multiply</td><td>Умножение. В этом режиме значение основного цвета умножается на значение накладываемого цвета. Результирующий цвет всегда представляет собой более тёмный цвет. В результате умножения значения любого цвета на значение чёрного цвета вырабатывается чёрный цвет. В результате умножения значения любого цвета на значение белого цвета цвет остаётся неизменным.</td></tr>
+				<tr><td>screen</td><td>Осветление. В этом режиме перемножаются обратные значения основного и накладываемого цвета. В качестве результирующего цвета всегда применяется более светлый цвет. При осветлении с применением чёрного цвета, цвет остаётся неизменным. При перекрытии с применением белого цвета, цвет становится белым. Полученный эффект аналогичен наложению друг на друга изображений многочисленных фотографических слайдов с помощью проектора.</td></tr>
+				<tr><td>overlay</td><td>Перекрытие. В этом режиме цвета умножаются или осветляются в зависимости от основного цвета. Узоры или цвета перекрывают существующие пиксели, оставляя неизменными светлые и тёмные участки основного цвета. Базовый цвет не заменяется, а смешивается с накладываемым цветом, что позволяет отразить наличие светлых или тёмных участков первоначального цвета.</td></tr>
+				<tr><td>darken</td><td>Замена тёмным. В качестве результирующего выбирается основной или накладываемый цвет, в зависимости от того, какой из них темнее. Пиксели с цветом, более светлым по сравнению с совмещённым, заменяются, а пиксели с цветом, более тёмным по сравнению с накладываемым, остаются неизменными.</td></tr>
+				<tr><td>lighten</td><td>Замена светлым. В качестве результирующего цвета выбирается основной или накладываемый цвет, в зависимости от того, какой из них светлее. Пиксели с более тёмным цветом по сравнению с накладываемым цветом заменяются, а пиксели с более светлым цветом по сравнению с накладываемым цветом остаются неизменными.</td></tr>
+				<tr><td>color-dodge</td><td>Осветление основы. Основной цвет заменяется более ярким для отражения накладываемого цвета в результате уменьшения контраста между двумя цветами. Смешивание с чёрным цветом не приводит к появлению каких-либо изменений.</td></tr>
+				<tr><td>color-burn</td><td>Затемнение основы. Основной цвет заменяется более тёмным для отражения накладываемого цвета в результате увеличения контраста между двумя цветами. Смешивание с белым цветом не приводит к появлению каких-либо изменений.</td></tr>
+				<tr><td>hard-light</td><td>Направленный свет. В этом режиме цвета умножаются или осветляются в зависимости от накладываемого цвета. Полученный эффект аналогичен освещению изображения резким светом прожектора. Если накладываемый цвет (источник света) является более светлым, чем 50% серого, то изображение становится светлее, как после осветления. Этот эффект может применяться для добавления светлых участков к изображению. Если накладываемый цвет (источник света) является более тёмным, чем 50% серого, то изображение становится темнее, как после умножения. Этот эффект может применяться для добавления тёмных участков к изображению. Наложение чисто-чёрного или чисто-белого цвета приводит к получению чисто-чёрного или чисто-белого цвета.</td></tr>
+				<tr><td>soft-light</td><td>Рассеянный свет. В этом режиме цвета становятся более тёмными или более светлыми в зависимости от накладываемого цвета. Полученный эффект аналогичен освещению изображения расплывчатым светом прожектора. Если накладываемый цвет (источник света) является более светлым, чем 50% серого, то изображение становится светлее, как после осветления. Если накладываемый цвет является более тёмным, чем 50% серого, изображение становится темнее, как после затемнения. Наложение чисто-чёрного или чисто-белого цвета создаёт отчётливые, более тёмные или более светлые зоны, но чистого чёрного или белого цвета не получится.</td></tr>
+				<tr><td>difference</td><td>Разница. В этом режиме вычитается либо накладываемый цвет из основного цвета, либо основной цвет из накладываемого цвета в зависимости от того, какой цвет имеет большее значение яркости. Смешивание с белым цветом приводит к инвертированию значений основного цвета, смешивание с чёрным цветом не влечёт за собой каких-либо изменений.</td></tr>
+				<tr><td>exclusion</td><td>Исключение. В этом режиме создается эффект, аналогичный создаваемому в режиме «Разница», но характеризующийся более низким контрастом. Смешивание с белым цветом приводит к инвертированию значений основного цвета. Смешивание с чёрным цветом не приводит к появлению каких-либо изменений.</td></tr>
+				<tr><td>hue</td><td>Тон. В этом режиме создаётся результирующий цвет с яркостью и насыщенностью основного цвета и цветовым тоном накладываемого цвета.</td></tr>
+				<tr><td>saturation</td><td>Насыщенность. В этом режиме создаётся результирующий цвет с яркостью и цветовым тоном основного цвета и насыщенностью накладываемого цвета.</td></tr>
+				<tr><td>color</td><td>Цвет. Создаётся результирующий цвет с яркостью основного цвета и с цветовым тоном и насыщенностью накладываемого цвета. Этот режим сохраняет уровни серого в изображении и может применяться для раскрашивания монохромных изображений и добавления оттенков к цветным изображениям.</td></tr>
+				<tr><td>luminosity</td><td>Яркость. В этом режиме создаётся результирующий цвет с цветовым тоном и насыщенностью основного цвета и яркостью накладываемого цвета. Этот режим создаёт эффект инверсии цвета.</td></tr>
+			</table>
+		</div>
+<!-- Песочница. -->
+		<style>
+			.pec{line-height:29px; display:block; padding:0; margin:0; min-width:700px; max-width:800px;
+				position:relative; width:100%; border:1px solid #777;}
+			.pec input{float:left; margin-right:8px;}
+			.pec label{display:block; margin-top:-5px; font-family:monospace; font-size:15px;}
+			.d1{position:absolute; top:0; left:130px; height:381px; width:calc(100% - 130px); outline:1px solid #777;}
+
+
+			/* 4 diva с фоновыми изображениями */
+			.d00{position:absolute; width:200px;}
+			.dbg1 {height:170px;}
+			.dbg2 {height:120px;}
+			.d01{top:15px; left:calc(130px + 8%);}
+			.d02{top:205px; left:calc(130px + 8%);}
+			.d03{top:15px; right:8%;}
+			.d04{top:205px; right:8%;}
+
+
+			/* надпись под картинками */
+			.pec .d2 p{display:block; margin:0; font-family:monospace; font-size:15px;}
+			.pec .d2 p:nth-child(1){position:absolute; top:335px; left:140px;}
+			.pec .d2 p:nth-child(2){position:absolute; top:350px; left:140px;}
+			.s1:after{color:red;}
+			.pec #r1:checked ~ .d2 .s1:after{content:"normal"}
+			.pec #r2:checked ~ .d2 .s1:after{content:"multiply"}
+			.pec #r3:checked ~ .d2 .s1:after{content:"screen"}
+			.pec #r4:checked ~ .d2 .s1:after{content:"overlay"}
+			.pec #r5:checked ~ .d2 .s1:after{content:"darken"}
+			.pec #r6:checked ~ .d2 .s1:after{content:"lighten"}
+			.pec #r7:checked ~ .d2 .s1:after{content:"color-dodge"}
+			.pec #r8:checked ~ .d2 .s1:after{content:"color-burn"}
+			.pec #r9:checked ~ .d2 .s1:after{content:"hard-light"}
+			.pec #r10:checked ~ .d2 .s1:after{content:"soft-light"}
+			.pec #r11:checked ~ .d2 .s1:after{content:"difference"}
+			.pec #r12:checked ~ .d2 .s1:after{content:"exclusion"}
+			.pec #r13:checked ~ .d2 .s1:after{content:"hue"}
+			.pec #r14:checked ~ .d2 .s1:after{content:"saturation"}
+			.pec #r15:checked ~ .d2 .s1:after{content:"color"}
+			.pec #r16:checked ~ .d2 .s1:after{content:"luminosity"}
+			/* /надпись под картинками */
+
+
+			/* регулировака эффекта фона по чекенам */
+			.pec #r1:checked ~ .d00{background-blend-mode: normal;}
+			.pec #r2:checked ~ .d00{background-blend-mode: multiply;}
+			.pec #r3:checked ~ .d00{background-blend-mode: screen;}
+			.pec #r4:checked ~ .d00{background-blend-mode: overlay;}
+			.pec #r5:checked ~ .d00{background-blend-mode: darken;}
+			.pec #r6:checked ~ .d00{background-blend-mode: lighten;}
+			.pec #r7:checked ~ .d00{background-blend-mode: color-dodge;}
+			.pec #r8:checked ~ .d00{background-blend-mode: color-burn;}
+			.pec #r9:checked ~ .d00{background-blend-mode: hard-light;}
+			.pec #r10:checked ~ .d00{background-blend-mode: soft-light;}
+			.pec #r11:checked ~ .d00{background-blend-mode: difference;}
+			.pec #r12:checked ~ .d00{background-blend-mode: exclusion;}
+			.pec #r13:checked ~ .d00{background-blend-mode: hue;}
+			.pec #r14:checked ~ .d00{background-blend-mode: saturation;}
+			.pec #r15:checked ~ .d00{background-blend-mode: color;}
+			.pec #r16:checked ~ .d00{background-blend-mode: luminosity;}
+
+
+			/* надпись над картинками в правой части */
+			.d3 p{font-size:20px; font-weight:700; font-family:monospace; text-transform:uppercase; letter-spacing:1px;}
+			.d3 p{position:absolute;}
+			.d3 p:nth-child(1){color:#fff; top:50px; right:10%;}
+			.d3 p:nth-child(2){color:#000; top:80px; right:10%;}
+			.d3 p:nth-child(3){color:#fff; top:230px; right:15%;}
+			.d3 p:nth-child(4){color:#000; top:270px; right:15%;}
+
+
+			/* меню выбора цвета фона */
+			.bgg{display:block; position:absolute; top:12px; width:15px; height:15px;
+				border:1px solid #888; z-index:5; cursor:pointer;}
+			#bg1,#bg2,#bg3,#bg4,#bg5,#bg6{display:none;}
+			.g1{background:#fff; left:140px}
+			.g2{background:#C8EAF5; left:156px;}
+			.g3{background:#f00; left:172px;}
+			.g4{background:#0f0; left:188px}
+			.g5{background:#00f; left:204px}
+			.g6{background:#000; left:220px}
+			.pec .bg0:checked + label{outline:1px solid red; border:1px solid red; z-index:20;}
+			.pec #bg1:checked ~ .d1{background:#fff;}
+			.pec #bg2:checked ~ .d1{background:#C8EAF5;}
+			.pec #bg3:checked ~ .d1{background:#f00;}
+			.pec #bg4:checked ~ .d1{background:#0f0;}
+			.pec #bg5:checked ~ .d1{background:#00f;}
+			.pec #bg6:checked ~ .d1{background:#000;}
+			/* замена значения фвета фона под картинками */
+			.pec #bg1:checked ~ .d2 .s0:after{content:"#fff"}
+			.pec #bg2:checked ~ .d2 .s0:after{content:"#C8EAF5"}
+			.pec #bg3:checked ~ .d2 .s0:after{content:"#f00"}
+			.pec #bg4:checked ~ .d2 .s0:after{content:"#0f0"}
+			.pec #bg5:checked ~ .d2 .s0:after{content:"#00f"}
+			.pec #bg6:checked ~ .d2 .s0:after{content:"#000"}
+			.pec #bg6:checked ~ .d2 {color:#fff}
+			/* /меню выбора цвета фона */
+
+
+			/* смена цвета фона при неизменном изображении */
+			.pec #bg1:checked ~ .dbg1{background:#fff url(../txt/img/animate-bg3.png); background-size:100% 100%;}
+			.pec #bg2:checked ~ .dbg1{background:#C8EAF5 url(../txt/img/animate-bg3.png); background-size:100% 100%;}
+			.pec #bg3:checked ~ .dbg1{background:#f00 url(../txt/img/animate-bg3.png); background-size:100% 100%;}
+			.pec #bg4:checked ~ .dbg1{background:#0f0 url(../txt/img/animate-bg3.png); background-size:100% 100%;}
+			.pec #bg5:checked ~ .dbg1{background:#00f url(../txt/img/animate-bg3.png); background-size:100% 100%;}
+			.pec #bg6:checked ~ .dbg1{background:#000 url(../txt/img/animate-bg3.png); background-size:100% 100%;}
+
+			.pec #bg1:checked ~ .dbg2{background:#fff url(../txt/img/aquaria.jpg); background-size:100% 100%;}
+			.pec #bg2:checked ~ .dbg2{background:#C8EAF5 url(../txt/img/aquaria.jpg); background-size:100% 100%;}
+			.pec #bg3:checked ~ .dbg2{background:#f00 url(../txt/img/aquaria.jpg); background-size:100% 100%;}
+			.pec #bg4:checked ~ .dbg2{background:#0f0 url(../txt/img/aquaria.jpg); background-size:100% 100%;}
+			.pec #bg5:checked ~ .dbg2{background:#00f url(../txt/img/aquaria.jpg); background-size:100% 100%;}
+			.pec #bg6:checked ~ .dbg2{background:#000 url(../txt/img/aquaria.jpg); background-size:100% 100%;}
+		</style>
+		<b style="letter-spacing:2px;" id="z3"><a href="#">песочница:</a></b>
+		<div class="pec anp">
+			<input type="radio" name="bg" id="bg1" class="bg0"><label for="bg1" class="bgg g1"></label>
+			<input type="radio" name="bg" id="bg2" class="bg0" checked><label for="bg2" class="bgg g2"></label>
+			<input type="radio" name="bg" id="bg3" class="bg0"><label for="bg3" class="bgg g3"></label>
+			<input type="radio" name="bg" id="bg4" class="bg0"><label for="bg4" class="bgg g4"></label>
+			<input type="radio" name="bg" id="bg5" class="bg0"><label for="bg5" class="bgg g5"></label>
+			<input type="radio" name="bg" id="bg6" class="bg0"><label for="bg6" class="bgg g6"></label>
+
+			<input type="radio" name="ra" id="r1" checked><label for="r1">normal</label>
+			<input type="radio" name="ra" id="r2"><label for="r2">multiply</label>
+			<input type="radio" name="ra" id="r3"><label for="r3">screen</label>
+			<input type="radio" name="ra" id="r4"><label for="r4">overlay</label>
+			<input type="radio" name="ra" id="r5"><label for="r5">darken</label>
+			<input type="radio" name="ra" id="r6"><label for="r6">lighten</label>
+			<input type="radio" name="ra" id="r7"><label for="r7">color-dodge</label>
+			<input type="radio" name="ra" id="r8"><label for="r8">color-burn</label>
+			<input type="radio" name="ra" id="r9"><label for="r9">hard-light</label>
+			<input type="radio" name="ra" id="r10"><label for="r10">soft-light</label>
+			<input type="radio" name="ra" id="r11"><label for="r11">difference</label>
+			<input type="radio" name="ra" id="r12"><label for="r12">exclusion</label>
+			<input type="radio" name="ra" id="r13"><label for="r13">hue</label>
+			<input type="radio" name="ra" id="r14"><label for="r14">saturation</label>
+			<input type="radio" name="ra" id="r15"><label for="r15">color</label>
+			<input type="radio" name="ra" id="r16"><label for="r16">luminosity</label>
+
+			<div class="d1"></div>
+			<div class="d00 d01 dbg1"></div>
+			<div class="d00 d02 dbg2"></div>
+			<div class="d00 d03 dbg1"></div>
+			<div class="d00 d04 dbg2"></div>
+			<div class="d2">
+				<p><span class="red">div</span> {background: <span class="s0"></span>, url(...);}</p>
+				<p><span class="red">div</span> {background-blend-mode: <span class="s1"></span>}</p>
+			</div>
+			<div class="d3">
+				<p>Воздушный шар</p>
+				<p>Воздушный шар</p>
+				<p>Аквариум</p>
+				<p>Аквариум</p>
+			</div>
+		</div>
+<!-- /Песочница. -->
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="z4"><a href="#">Пример.</a></h3>
+	<p>В данном примере фоновое изображение плюс вертикальный линейный градиент от голубого до белого цвета. В результате смешивания фонового изображения и градиента получается однотонное изображение, которое постепенно становится чёрно-белым.</p>
+	<style>
+		.pr1{width:100%; height:300px; margin-bottom:10px;
+			background:url(../txt/img/aquaria.jpg) center / cover no-repeat, linear-gradient(#00A8DE, #FFF);
+			background-blend-mode: luminosity;}
+	</style>
+	<div class="pr1"></div>
+	<pre class="item2"><code>&lt;style><br>  .pr1{width:100%; height:300px; margin-bottom:10px;<br>    background-blend-mode: luminosity;<br>    background:url(../txt/img/aquaria.jpg) center / cover no-repeat,<br>      linear-gradient(#00A8DE, #FFF);<br>  }<br>&lt;/style><br><br>&lt;div class="pr1">&lt;/div></code></pre>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html><html><head><title>Таблица</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- автораскравка тегов внутри pre-code -->
+	<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+	<script src="../../highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<style>
+		.ogl2 span{letter-spacing:0.3px}
+		.ogl2 a:hover {letter-spacing:0.3px}
+		.tt6 td{padding:2px 8px;
+			border-top:1px solid transparent !important;
+			border-bottom:1px solid transparent !important;}
+		.tt6 tr:last-child td{border-bottom:1px solid #aaa !important}
+	</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;table&gt;</samp> - таблица</h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#atab3">Структура таблицы</a></li>
+			<li><a href="#teg">Тэги таблицы</a></li>
+				<div class="ogl2 ogl21">
+					<span class="span-block"><a href="#table" title="Служит контейнером для элементов, определяющих содержимое таблицы.">&lt;table></a></span>
+					<span class="span-block"><a href="#caption" title="Предназначен для создания заголовка к таблице">&lt;caption></a></span>
+					<span class="span-block"><a href="#thead" title="Предназначен для хранения одной или нескольких строк, которые представлены вверху таблицы">&lt;thead></a></span>
+					<span class="span-block"><a href="#tbody" title="Предназначен для хранения одной или нескольких строк таблицы.">&lt;tbody></a></span>
+					<span class="span-block"><a href="#tfoot" title="Представляет собой «подвал» таблицы и отображается внизу таблицы.">&lt;tfoot></a></span>
+					<span class="span-block"><a href="#colgroup" title="Создает структурную группу столбцов, выделяя логически однородные ячейки.">&lt;colgroup></a></span>
+					<span class="span-block"><a href="#col" title="Задаёт ширину и другие характеристики одной или нескольких колонок таблицы.">&lt;col></a></span>
+					<span class="span-block"><a href="#th" title="">&lt;th></a></span>
+					<span class="span-block"><a href="#tr" title="">&lt;tr></a></span>
+					<span class="span-block"><a href="#td" title="">&lt;td></a></span>
+					<span></span>
+				</div>
+			<li><a href="#atab1">Атрибуты тегов таблицы:</a></li>
+				<div class="ogl2 ogl21">
+					<span class="span-block"><a href="#table_at">&lt;table></a></span>
+					<span class="span-block"><a href="#caption_at">&lt;caption></a></span>
+					<span class="span-block"><a href="#thead_at">&lt;thead></a></span>
+					<span class="span-block"><a href="#tbody_at">&lt;tbody></a></span>
+					<span class="span-block"><a href="#tfoot_at">&lt;tfoot></a></span>
+					<span class="span-block"><a href="#colgroup_at">&lt;colgroup></a></span>
+					<span class="span-block"><a href="#col_at">&lt;col></a></span>
+					<span class="span-block"><a href="#th_at" title="">&lt;th></a></span>
+					<span class="span-block"><a href="#tr_at" title="">&lt;tr></a></span>
+					<span class="span-block"><a href="#td_at" title="">&lt;td></a></span>
+					<span></span>
+				</div>
+			<li><a href="#atab2"><samp>CSS</samp> параметры</a></li>
+				<div class="ogl2 ogl21">
+					<span><a href="#border-collapse">border-collapse</a></span>
+					<span><a href="#border-spacing">border-spacing</a></span>
+					<span><a href="#caption-side">caption-side</a></span>
+					<span><a href="#empty-cells">empty-cells</a></span>
+					<span><a href="#table-layout">table-layout</a></span>
+					<span></span>
+				</div>
+			<li><a href="#atab7">Пример <samp>&lt;colgroup></samp> и <samp>&lt;col></samp></a></li>
+			<li><a href="#atab4">Пример таблицы №1 (<samp>bgcolor</samp>)</a></li>
+			<li><a href="#atab5">Пример таблицы №2 (меню)</a></li>
+			<li><a href="#atab6">Пример таблицы №3 (фиксированный заголовок)</a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item">
+	<p>Каждая таблица состоит из строк и ячеек, минимально может быть одна строка и одна ячейка. Кроме того, таблице можно задать заголовок - <samp class="red">&lt;caption></samp>, который кратко описывает её содержимое, указать «шапку» <samp class="red">&lt;thead></samp>, «тело» - <samp class="red">&lt;tbody></samp> и «подвал» таблицы - <samp class="red">&lt;tfoot></samp>. Они нужны для стилевого или смыслового выделения части данных.</p>
+	<!-- <p>Таблица, в <span class="red">HTML</span> форматируется тегом <samp class="red">&lt;table></samp>, который является контейнером для её элементов. Конструкция, какой либо таблицы, включает в себя строки и ячейки, соответственно задаваемые тегами <samp class="red">&lt;tr></samp> и <samp class="red">&lt;td></samp>. Выравнивание таблицы по центру и форматирование содержимого осуществляется с помощью стилей.</p> -->
+	<p><samp class="red">&lt;tbody></samp> может быть один или несколько. Например, в некоторых строках имеются объединения ячеек по вертикали и чтобы строки при наведении на них курсора мыши выделялись как требуется, их объединяют в <samp class="red">&lt;tbody></samp> согласно требуемой логике.</p>
+</div>
+
+
+
+<div class="item" id="atab3">
+<h3 class="sin"><a href="#" title="к оглавлению">Структура таблицы</a></h3>
+	<table class="th1 th2 t0 m0a tb t2 t5 tt6">
+		<tr><th>HTML 4</th><th>HTML 5</th></tr>
+		<tr>
+			<td width="50%"><p>В HTML4 элемент <samp class="red">&lt;tfoot></samp> должен располагаться перед элементом <samp class="red">&lt;tbody></samp>, но после <samp class="red">&lt;thead></samp>, если они присутствуют, при этом содержимое <samp class="red">&lt;tfoot></samp> отображается внизу таблицы.</p></td>
+			<td><p>В HTML5 <samp class="red">&lt;tfoot></samp> идёт после всех элементов <samp class="red">&lt;caption></samp>, <samp class="red">&lt;colgroup></samp>, <samp class="red">&lt;thead></samp>, <samp class="red">&lt;tbody></samp>.</p></td></tr>
+		<tr>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;caption>…&lt;/caption><br>   &lt;thead>…&lt;/thead><br>   &lt;tfoot>…&lt;/tfoot><br>   &lt;tbody>…&lt;/tbody><br>&lt;/table></code></pre></td>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;caption>…&lt;/caption><br>   &lt;thead>…&lt;/thead><br>   &lt;tbody>…&lt;/tbody><br>   &lt;tfoot>…&lt;/tfoot><br>&lt;/table></code></pre></td></tr>
+		<tr>
+			<td><p>Если элементов <samp class="red">&lt;thead></samp> и <samp class="red">&lt;tbody></samp> в таблице нет, тогда <samp class="red">&lt;tfoot></samp> идёт после открывающего тега <samp class="red">&lt;table></samp> или после необязательного элемента <samp class="red">&lt;caption></samp>.</p></td>
+			<td><p>Если указанных элементов в таблице нет, тогда <samp class="red">&lt;tfoot></samp> идёт после всех <samp class="red">&lt;tr></samp>.</p></td></tr>
+		<tr>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;caption>…&lt;/caption><br>   &lt;tfoot>…&lt;/tfoot><br>   &lt;tr>&lt;td>…&lt;/td>&lt;/tr><br>&lt;/table></code></pre></td>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;tr>&lt;td>…&lt;/td>&lt;/tr><br>   &lt;tr>&lt;td>…&lt;/td>&lt;/tr><br>   &lt;tfoot>…&lt;/tfoot><br>&lt;/table></code></pre></td></tr>
+	</table>
+	<!-- пример -->
+		<style>
+			.tttt table{border:10px outset #999; border-collapse:separate;}
+			.tttt td, .tttt th {border:1pz solid #333;}
+		</style>
+		<div class="tttt">
+			<table align="center" border="10">
+				<caption>Таблица</caption>
+				<thead><tr><th>Столбец 1</th><th>Столбец 2</th></tr></thead>
+				<tbody>
+					<tr><td>Строка 1 яч.1</td><td>Строка 1 яч.2</td></tr>
+					<tr><td>Строка 2 яч.1</td><td>Строка 2 яч.2</td></tr>
+				</tbody>
+				<tfoot><tr><td colspan="2">две ячейки в одной</td></tr></tfoot>
+			</table>
+		</div>
+		<div class="item2">
+			<samp class="point red bold" onclick='item211.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="item211" onclick="event.stopPropagation()">
+				<pre><code>&lt;table border="10" align="center"><br><br>   &lt;!-- заголовок тaблицы (может не быть) --><br>   &lt;caption>Таблица&lt;/caption><br><br>   &lt;!-- шапка тaблицы (может не быть) --><br>   &lt;thead><br>      &lt;tr>&lt;th>Столбец 1&lt;/th>&lt;th>Столбец 2&lt;/th>&lt;/tr><br>   &lt;/thead><br><br>   &lt;!-- тело таблицы --><br>   &lt;tbody><br>      &lt;tr>&lt;td>Строка 1 яч.1&lt;/td>&lt;td>Строка 1 яч.2&lt;/td>&lt;/tr><br>      &lt;tr>&lt;td>Строка 2 яч.1&lt;/td>&lt;td>Строка 2 яч.2&lt;/td>&lt;/tr><br>   &lt;/tbody><br><br>   &lt;!-- подвал таблицы (может не быть) --><br>   &lt;tfoot><br>      &lt;tr>&lt;td colspan="2">две ячейки в одной&lt;/td>&lt;/tr><br>   &lt;/tfoot><br><br>&lt;/table></code></pre>
+				<span class="yel" onclick='item211.classList.toggle("hiden");'>свернуть</span>
+			</div>
+		</div>
+</div>
+
+
+
+<div class="item" id="teg">
+<h2 class="sin"><a href="#" title="к оглавлению">Тэги таблицы</a></h2>
+
+	<p class="mb0"><samp class="sin" id="table"><big><a href="#teg">&lt;table></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;table></samp> (от англ. table — таблица) служит контейнером для элементов, определяющих содержимое таблицы. Любая таблица состоит из строк и ячеек, которые задаются с помощью элементов <samp class="red">&lt;tr></samp> и <samp class="red">&lt;td></samp>.
+		Внутри <samp class="red">&lt;table></samp> допустимо использовать следующие элементы: <samp class="red">&lt;caption></samp>, <samp class="red">&lt;col></samp>, <samp class="red">&lt;colgroup></samp>, <samp class="red">&lt;tbody></samp>, <samp class="red">&lt;td></samp>, <samp class="red">&lt;tfoot></samp>, <samp class="red">&lt;th></samp>, <samp class="red">&lt;thead></samp> и <samp class="red">&lt;tr></samp>.</p>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="caption"><big><a href="#teg">&lt;caption></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;caption></samp> (от англ. caption — заголовок) предназначен для создания заголовка к таблице и может размещаться только внутри контейнера <samp class="red">&lt;table></samp>, причём сразу после открывающего тега. Такой заголовок представляет собой текст, по умолчанию отображаемый перед таблицей и описывающий её содержание.</p>
+		<p>CSS свойство <a href="#caption-side"><samp class="sin bold" style="text-decoration:underline;">caption-side</samp></a> - выводит заголовок до или после таблицы.</p>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="thead"><big><a href="#teg">&lt;thead></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;thead></samp> (от англ. table head — голова или шапка таблицы) предназначен для хранения одной или нескольких строк, которые представлены вверху таблицы.
+		Допустимо использовать не более одного элемента <samp class="red">&lt;thead></samp> в пределах одной таблицы, и он должен идти в исходном коде сразу после открывающего тега <samp class="red">&lt;table></samp> или <samp class="red">&lt;caption></samp> (если он есть).</p>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="tbody"><big><a href="#teg">&lt;tbody></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;tbody></samp> (от англ. table body — тело таблицы) предназначен для хранения одной или нескольких строк таблицы.
+		Это позволяет создавать структурные блоки, к которым можно применять единое оформление через стили, а также управлять их видом через скрипты.</p>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="tfoot"><big><a href="#teg">&lt;tfoot></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;tfoot></samp> (от англ. table foot — подвал таблицы) представляет собой «подвал» таблицы и отображается внизу таблицы.
+		Предназначен для информации о колонках таблицы. В таблице разрешается использовать только один элемент <samp class="red">&lt;tfoot></samp>.</p>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="colgroup"><big><a href="#teg">&lt;colgroup></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;colgroup></samp> (от англ. column group — группа колонок) предназначен для задания ширины и стиля одной или нескольких колонок таблицы. Этот элемент позволяет уменьшить код таблицы за счёт сокращения повторяющихся атрибутов, и при его наличии браузер начинает показывать содержимое таблицы, не дожидаясь её полной загрузки. Элемент <samp class="red">&lt;colgroup></samp> можно использовать в комбинации с <samp class="red">&lt;col></samp>, который определяет характеристики одной или нескольких колонок.</p>
+		<p>Обычно закрывающий тег не требуется, но если <samp class="red">&lt;colgroup></samp> выступает как контейнер для элементов <samp class="red">&lt;col></samp>, тогда следует добавить тег <samp class="red">&lt;/colgroup></samp> в конце группы.</p>
+		<p class="mb0">Разница между свойствами <samp class="red">&lt;colgroup></samp> и <samp class="red">&lt;col></samp> не очень велика и состоит в следующем. <samp class="red">&lt;colgroup></samp> позволяет объединять колонки в определённые группы, также при добавлении атрибута <samp class="sin">rules</samp> со значением <samp class="lsin">groups</samp> к элементу <samp class="red">&lt;table></samp> браузер будет рисовать линию только между колонками, созданными с помощью <samp class="red">&lt;colgroup></samp>. В остальных случаях поведение колонок назначенных через элементы <samp class="red">&lt;colgroup></samp> и <samp class="red">&lt;col></samp> идентично.</p>
+		<div class="no mt10">Для <samp class="red">&lt;colgroup></samp> допустимо использовать следующие стилевые свойства: <samp class="sin">border, background, width, visibility</samp>. Остальные свойства не оказывают никакого эффекта на элемент.</div>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="col"><big><a href="#teg">&lt;col></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;col></samp> (от англ. column — колонка) задаёт ширину и другие характеристики одной или нескольких колонок таблицы. При наличии этого элемента браузер начинает показывать содержимое таблицы, не дожидаясь её полной загрузки. <samp class="red">&lt;col></samp> можно использовать совместно с элементом <samp class="red">&lt;colgroup></samp>, который задаёт группу колонок, обладающих общими характеристиками.</p>
+		<div class="no mt10">Для <samp class="red">&lt;col></samp> допустимо использовать следующие стилевые свойства: <samp class="sin">border, background, width, visibility</samp>. Остальные свойства не оказывают никакого эффекта на элемент.</div>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="th"><big><a href="#teg">&lt;th></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;th></samp> (от англ. table header cell — ячейка заголовка таблицы) предназначен для создания одной ячейки таблицы, которая обозначается как заголовочная. Текст в такой ячейке отображается браузером обычно жирным шрифтом и выравнивается по центру. Элемент <samp class="red">&lt;th></samp> должен размещаться внутри контейнера <samp class="red">&lt;tr></samp>.</p>
+		<pre class="item2"><code>&lt;table><br>   &lt;tr><br>      &lt;th>...&lt;/th><br>   &lt;/tr><br>&lt;/table></code></pre>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="tr"><big><a href="#teg">&lt;tr></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;tr></samp> (от англ. table row - строка таблицы) служит контейнером для создания строки таблицы. Каждая ячейка в пределах такой строки устанавливается с помощью элемента <samp class="red">&lt;th></samp> или <samp class="red">&lt;td></samp>.</p>
+		<pre class="item2"><code>&lt;table><br>   &lt;tr><br>      &lt;td>...&lt;/td><br>   &lt;/tr><br>&lt;/table></code></pre>
+
+
+	<p class="mb0 mt40"><samp class="sin" id="td"><big><a href="#teg">&lt;td></a></big></samp></p>
+		<p>Элемент <samp class="red">&lt;td></samp> (от англ. table row - строка таблицы) предназначен для создания одной ячейки таблицы. Должен размещаться внутри контейнера <samp class="red">&lt;tr></samp>, который в свою очередь располагается внутри <samp class="red">&lt;table></samp>.</p>
+		<p class="no mt10 mb10">К <samp class="red">&lt;td></samp> можно применять стили. Но <samp class="sin">margin</samp> не даст результата, потому что ячейка не может сместиться со своего положения в таблице.</p>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin" id="table_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;table></samp></a></h3>
+	<div class="no mb10">Все данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#table_align" title="Определяет выравнивание таблицы. ">&lt;align></a></span>
+		<span><a href="#table_background" title="Задаёт фоновый рисунок в таблице. ">&lt;background></a></span>
+		<span><a href="#table_bgcolor" title="Цвет фона таблицы. ">&lt;bgcolor></a></span>
+		<span><a href="#table_border" title="Толщина рамки в пикселях. ">&lt;border></a></span>
+		<span><a href="#table_bordercolor" title="Цвет рамки. ">&lt;bordercolor></a></span>
+		<span><a href="#table_cellpadding" title="Отступ от рамки до содержимого ячейки. ">&lt;cellpadding></a></span>
+		<span><a href="#table_cellspacing" title="Расстояние между ячеек. ">&lt;cellspacing></a></span>
+		<span><a href="#table_cols" title="Число колонок в таблице. ">&lt;cols></a></span>
+		<span><a href="#table_frame" title="Сообщает браузеру, как отображать границы вокруг таблицы. ">&lt;frame></a></span>
+		<span><a href="#table_rules" title="Сообщает браузеру, где отображать границы между ячеек. ">&lt;rules></a></span>
+		<span><a href="#table_summary" title="Краткое описание таблицы. ">&lt;summary></a></span>
+		<span><a href="#table_width" title="Ширина таблицы.">&lt;width></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="table_align"><a href="#table_at">align</a></td>
+			<td>Задаёт выравнивание таблицы по краю окна браузера.
+			<pre class="item2"><code>&lt;table align="left | center | right">...&lt;/table></code></pre>
+			Для выравнивания таблицы по центру через СSS, ей надо указать ширину через стилевое свойство <samp class="sin">width</samp> и задать <samp class="sin">margin</samp> со значением <samp class="lsin">auto</samp>.</td></tr>
+		<tr><td id="table_background"><a href="#table_at">background</a></td>
+			<td>Определяет изображение, которое будет использоваться в качестве фонового рисунка таблицы. В отличие от обычных изображений, для фона не устанавливаются ширина и высота, и он всегда отображается в натуральную величину с масштабом 100%. Если рисунок по размеру меньше ширины или высоты таблицы, то картинка повторяется по горизонтали вправо и вниз, выстраиваясь, как мозаика.
+			<pre class="item2"><code>&lt;table background="адрес">...&lt;/table></code></pre>
+			Чтобы задать фоновую картинку для таблицы, используют стилевое свойство <samp class="sin"><a href="../background/background.html">background</a></samp>.
+			<pre class="item2"><code>table {background: url()}</code></pre></td></tr>
+		<tr><td id="table_bgcolor"><a href="#table_at">bgcolor</a></td>
+			<td>Цвет фона таблицы.
+			<pre class="item2"><code>&lt;table bgcolor="цвет">...&lt;/table></code></pre>
+			Для изменения цвета фона таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../background/background-color.html">background-color</a></samp>.
+			<pre class="item2"><code>table {background: цвет}</code></pre></td></tr>
+		<tr><td id="table_border"><a href="#table_at">border</a></td>
+			<td>Устанавливает толщину рамки таблицы в пикселях. По умолчанию рамка изображается трёхмерной, но если используется атрибут <samp class="sin">bordercolor</samp> элемента <samp class="red">&lt;table></samp>, то вид рамки меняется в зависимости от браузера. Когда в <samp class="red">&lt;table></samp> используется атрибут <samp class="sin">border</samp> без значений (<samp class="red">&lt;table <samp class="sin">border</samp>></samp>), то браузер отображает рамку толщиной один пиксель. Значение по умолчанию - 0.
+			<pre class="item2"><code>&lt;table border="число">...&lt;/table></code></pre>
+			Для изменения толщины и цвета рамки таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../border & outline.html">border</a></samp>.</td></tr>
+		<tr><td id="table_bordercolor"><a href="#table_at">bordercolor</a></td>
+			<td>Устанавливает цвет рамки таблицы. Рамка обычно рисуется как трёхмерная, добавление атрибутов <samp class="sin">bordercolor</samp> и <samp class="sin">border</samp> к элементу <samp class="red">&lt;table></samp> создаёт однотонную линию.
+			<pre class="item2"><code>&lt;table bordercolor="цвет">...&lt;/table></code></pre>
+			Для изменения цвета рамки таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../border & outline.html">border</a></samp></td></tr>
+		<tr><td id="table_cellpadding"><a href="#table_at">cellpadding</a></td>
+			<td>Отступ от рамки до содержимого ячейки. Этот атрибут добавляет пустое пространство к ячейке, увеличивая тем самым её размеры. При отсутствии границ особого значения этот атрибут не имеет, но может помочь, когда требуется установить пустой промежуток между ячеек. Значения - любое целое значение в пикселях или процентах.
+			<pre class="item2"><code>&lt;table cellpadding="число">...&lt;/table></code></pre>
+			В CSS вместо атрибута <samp class="sin">cellpadding</samp> используйте стилевое свойство <samp class="sin">padding</samp>, добавляя его к селектору <samp class="red">td</samp> или <samp class="red">th</samp>.
+			<pre class="item2"><code>td {padding:10px;}</code></pre></td></tr>
+		<tr><td id="table_cellspacing"><a href="#table_at">cellspacing</a></td>
+			<td>Задаёт расстояние в пикселях между внешними границами ячеек. Если установлен атрибут <samp class="sin">border</samp>, толщина границы принимается в расчёт.
+			<pre class="item2"><code>&lt;table cellspacing="число">...&lt;/table></code></pre>
+			<p>Значение по умолчанию: 0 (когда нет атрибута <samp class="sin">border</samp>); 2 (когда атрибут <samp class="sin">border</samp> установлен).</p>
+			Вместо атрибута <samp class="sin">cellspacing</samp> используйте стилевое свойство <samp class="sin">border-spacing</samp>, добавляя его к селектору <samp class="red">table</samp>.
+			<pre class="item2"><code>table {border:1px solid #333; border-spacing: 5px}</code></pre></td></tr>
+		<tr><td id="table_cols"><a href="#table_at">cols</a></td>
+			<td>Задаёт количество столбцов в таблице, помогая браузеру в подготовке к её отображению. Без этого атрибута таблица будет показана только после того, как всё содержимое таблицы будет загружено в браузер и проанализировано. Использование атрибута <samp class="sin">cols</samp> позволяет несколько ускорить отображение содержимого таблицы.
+			<pre class="item2"><code>&lt;table cols="число">...&lt;/table></code></pre></td></tr>
+		<tr><td id="table_frame"><a href="#table_at">frame</a></td>
+			<td>Сообщает браузеру, как отображать границы вокруг таблицы. Толщина границы указывается с помощью атрибута <samp class="sin">border</samp> элемента <samp class="red">&lt;table></samp>.
+			<pre class="item2"><code>&lt;table frame="<abbr title="Не отрисовывать границы.">void</abbr> | <abbr title="Граница вокруг таблицы. Значение по кмолчанию.">border</abbr> | <abbr title="Граница по верхнему краю таблицы.">above</abbr> | <abbr title="Граница снизу таблицы.">below</abbr> |<br>              <abbr title="Добавить только горизонтальные границы (сверху и снизу таблицы).">hsides</abbr> | <abbr title="Рисовать только вертикальные границы (слева и справа от таблицы).">vsides</abbr> | <abbr title="Граница только на правой стороне таблицы.">rhs</abbr> | <abbr title="Граница только на левой стороне таблицы.">lhs</abbr>">...&lt;/table></code></pre>
+			Для отображения границ на разных сторонах таблицы воспользуйтесь стилевыми свойствами <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp>, <samp class="sin">border-top</samp> и <samp class="sin">border-bottom</samp>, которые задают границы, соответственно, слева, справа, сверху и снизу таблицы.</td></tr>
+		<tr><td id="table_rules"><a href="#table_at">rules</a></td>
+			<td>Сообщает браузеру, где отображать границы между ячеек. Цвет границы указывается с помощью атрибута <samp class="sin">bordercolor</samp>, толщина внешней рамки таблицы — через атрибут <samp class="sin">border</samp>. По умолчанию рамка рисуется вокруг каждой ячейки, образуя тем самым сетку; толщина таких линий составляет <b>1px</b>.
+			<pre class="item2"><code>&lt;table rules="<abbr title="Линия рисуется вокруг каждой ячейки таблицы.">all</abbr> | <abbr title="Линия отображается между группами, которые образуются элементами &lt;thead>, &lt;tfoot>, &lt;tbody>, &lt;colgroup> или &lt;col>.">groups</abbr> | <abbr title="Линия отображается между колонок.">cols</abbr> | <abbr title="Все границы скрываются.">none</abbr> | <abbr title="Граница рисуется между строк таблицы, созданных через элемент &lt;tr>.">rows</abbr>">...&lt;/table></code></pre>
+			Для отображения границ на разных сторонах ячеек воспользуйтесь стилевыми свойствами <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp>, <samp class="sin">border-top</samp> и <samp class="sin">border-bottom</samp>, которые задают границы, соответственно, слева, справа, сверху и снизу ячеек таблицы.</td></tr>
+		<tr><td id="table_summary"><a href="#table_at">summary</a></td>
+			<td>Краткое описание таблицы. В отличие от элемента <samp class="red">&lt;caption></samp> содержимое <samp class="sin">summary</samp> никак не отображается и в браузере не выводится, однако может использоваться поисковыми системами или речевыми браузерами.
+			<pre class="item2"><code>&lt;table summary="текст">...&lt;/table></code></pre></td></tr>
+		<tr><td id="table_width"><a href="#table_at">width</a></td>
+			<td>Ширина таблицы в пикселях или процентах. Если общая ширина содержимого превышает указанную ширину таблицы, то браузер будет пытаться «втиснуться» в заданные размеры за счёт форматирования текста. В случае, когда это невозможно, например, в таблице находятся изображения, атрибут <samp class="sin">width</samp> будет проигнорирован, и новая ширина таблицы будет вычислена на основе её содержимого.
+			<pre class="item2"><code>&lt;table width="значение">...&lt;/table></code></pre>
+			Для изменения ширины таблицы через стили воспользуйтесь свойством <samp class="sin">width</samp>, применяя его к селектору <samp class="red">table</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="caption_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;caption></samp></a></h3>
+	<div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="caption_align"><a href="#caption_at">align</a></td>
+			<td>Определяет выравнивание заголовка относительно таблицы. Результат его действия зависит от используемого браузера и установленного значения.
+			<pre class="item2"><code>&lt;caption align="<span class="off dib"><abbr title="В Firefox заголовок располагается слева от таблицы. Остальные браузеры игнорируют это значение.">left</abbr></span> | <span class="off dib"><abbr title="В Firefox заголовок располагается справа от таблицы. Остальные браузеры игнорируют это значение.">right</abbr></span> | <abbr title="Заголовок размещается перед таблицей по её центру.">top</abbr> | <abbr title="Заголовок размещается внизу таблицы по её центру.">bottom</abbr>">justify</abbr>">...&lt;/caption></code></pre>
+			Для выравнивания заголовка по горизонтали используйте стилевое свойство <samp class="sin">text-align</samp>. Чтобы задать положение заголовка до или после таблицы, воспользуйтесь свойством <samp class="sin">caption-side</samp>.
+			<pre class="item2"><code>caption {<br>   text-align:center;<br>   caption-side:bottom;<br>}</code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="thead_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;thead></samp></a></h3>
+	<div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#thead_align" title="Определяет выравнивание по горизонтали для всех ячеек в пределах &lt;thead>">&lt;align></a></span>
+		<span><a class="off" href="#thead_char" title="Выравнивание содержимого ячеек относительно заданного символа. ">&lt;char></a></span>
+		<span><a class="off" href="#thead_charoff" title="Смещение содержимого ячеек относительно указанного символа. ">&lt;charoff></a></span>
+		<span><a href="#thead_bgcolor" title="Цвет фона ячеек, которые расположены внутри контейнера &lt;thead>. ">&lt;bgcolor></a></span>
+		<span><a href="#thead_valign" title="Выравнивание содержимого ячеек по вертикали.">&lt;valign></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="thead_align"><a href="#thead_at">align</a></td>
+			<td>Задаёт выравнивание по горизонтали для всех ячеек в пределах <samp class="red">&lt;thead></samp>. Если требуется применить разное выравнивание для каждой ячейки, воспользуйтесь стилями или используйте атрибут <samp class="sin">align</samp> для элемента <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>.
+			<pre class="item2"><code>&lt;thead align="<abbr title="Выравнивание по левому краю. Значение по умолчанию.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краю).">justify</abbr>">...&lt;/thead></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;thead></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">thead</samp>.</td></tr>
+		<tr><td id="thead_char"><a href="#thead_at">char</a></td>
+			<td>Выравнивание содержимого ячеек относительно заданного символа. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;table><br>   &lt;thead align="char" char="символ">...&lt;/thead><br>&lt;/table></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="thead_charoff"><a href="#thead_at">charoff</a></td>
+			<td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> - сместить на три символа влево.
+			<pre class="item2"><code>&lt;table><br>   &lt;thead align="char" char="символ"  charoff="число">...&lt;/thead><br>&lt;/table></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="thead_bgcolor"><a href="#thead_at">bgcolor</a></td>
+			<td>Цвет фона ячеек, которые расположены внутри контейнера <samp class="red">&lt;thead></samp>.
+			<pre class="item2"><code>&lt;thead bgcolor="цвет">...&lt;/thead></code></pre>
+			Чтобы задать цвет фона внутри <samp class="red">&lt;thead></samp> используйте стилевое свойство <samp class="sin tdu dib"><a href="../background/background-color.html">background-color</a></samp>, применяя его к селектору <samp class="red">thead</samp>.</td></tr>
+		<tr><td id="thead_valign"><a href="#thead_at">valign</a></td>
+			<td>Задает вертикальное выравнивание содержимого ячеек в контейнере <samp class="red">&lt;thead></samp>. По умолчанию контент ячейки располагается по её вертикали в центре.
+			<pre class="item2"><code>&lt;thead valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячеек строки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/thead></code></pre>
+			Для изменения выравнивания по высоте внутри <samp class="red">&lt;thead></samp> воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">thead</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="tbody_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;tbody></samp></a></h3>
+	<div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#tbody_align" title="Определяет выравнивание по горизонтали для всех ячеек в пределах &lt;tbody>">&lt;align></a></span>
+		<span><a class="off" href="#tbody_char" title="Выравнивание содержимого ячеек относительно заданного символа.">&lt;char></a></span>
+		<span><a class="off" href="#tbody_charoff" title="Смещение содержимого ячеек относительно указанного символа.">&lt;charoff></a></span>
+		<span><a href="#tbody_bgcolor" title="Цвет фона ячеек, которые расположены внутри контейнера &lt;tbody>.">&lt;bgcolor></a></span>
+		<span><a href="#tbody_valign" title="Выравнивание содержимого ячеек по вертикали.">&lt;valign></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="tbody_align"><a href="#tbody_at">align</a></td>
+			<td>Задаёт выравнивание по горизонтали для всех ячеек в пределах <samp class="red">&lt;tbody></samp>. Если требуется применить разное выравнивание для каждой ячейки, воспользуйтесь стилями или используйте атрибут <samp class="sin">align</samp> для элемента <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>.
+			<pre class="item2"><code>&lt;tbody align="<abbr title="Выравнивание по левому краю. Значение по умолчанию.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краю).">justify</abbr>">...&lt;/tbody></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;tbody></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">tbody</samp>.</td></tr>
+		<tr><td id="tbody_char"><a href="#tbody_at">char</a></td>
+			<td>Выравнивание содержимого ячеек относительно заданного символа. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;table><br>   &lt;tbody align="char" char="символ">...&lt;/tbody><br>&lt;/table></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="tbody_charoff"><a href="#tbody_at">charoff</a></td>
+			<td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> - сместить на три символа влево.
+			<pre class="item2"><code>&lt;table><br>   &lt;tbody align="char" char="символ"  charoff="число">...&lt;/tbody><br>&lt;/table></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="tbody_bgcolor"><a href="#tbody_at">bgcolor</a></td>
+			<td>Цвет фона ячеек, которые расположены внутри контейнера <samp class="red">&lt;tbody></samp>.
+			<pre class="item2"><code>&lt;tbody bgcolor="цвет">...&lt;/tbody></code></pre>
+			Чтобы задать цвет фона внутри <samp class="red">&lt;tbody></samp> используйте стилевое свойство <samp class="sin tdu dib"><a href="../background/background-color.html">background-color</a></samp>, применяя его к селектору <samp class="red">tbody</samp>.</td></tr>
+		<tr><td id="tbody_valign"><a href="#tbody_at">valign</a></td>
+			<td>Задает вертикальное выравнивание содержимого ячеек в контейнере <samp class="red">&lt;tbody></samp>. По умолчанию контент ячейки располагается по вертикали в центре.
+			<pre class="item2"><code>&lt;tbody valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячеек строки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/tbody></code></pre>
+			Для изменения выравнивания по высоте внутри <samp class="red">&lt;tbody></samp> воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">tbody</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="tfoot_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;tfoot></samp></a></h3>
+	<div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#tfoot_align" title="Определяет выравнивание по горизонтали для всех ячеек в пределах &lt;tfoot>">&lt;align></a></span>
+		<span><a class="off" href="#tfoot_char" title="Выравнивание содержимого ячеек относительно заданного символа.">&lt;char></a></span>
+		<span><a class="off" href="#tfoot_charoff" title="Смещение содержимого ячеек относительно указанного символа.">&lt;charoff></a></span>
+		<span><a href="#tfoot_bgcolor" title="Цвет фона ячеек, которые расположены внутри контейнера &lt;tfoot>.">&lt;bgcolor></a></span>
+		<span><a href="#tfoot_valign" title="Выравнивание содержимого ячеек по вертикали.">&lt;valign></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="tfoot_align"><a href="#tfoot_at">align</a></td>
+			<td>Задаёт выравнивание по горизонтали для всех ячеек в пределах <samp class="red">&lt;tfoot></samp>. Если требуется применить разное выравнивание для каждой ячейки, воспользуйтесь стилями или используйте атрибут <samp class="sin">align</samp> для элемента <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>.
+			<pre class="item2"><code>&lt;tfoot align="<abbr title="Выравнивание по левому краю. Значение по умолчанию.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краю).">justify</abbr>">...&lt;/tfoot></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;tfoot></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">tfoot</samp>.</td></tr>
+		<tr><td id="tfoot_char"><a href="#tfoot_at">char</a></td>
+			<td>Выравнивание содержимого ячеек относительно заданного символа. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;table><br>   &lt;tfoot align="char" char="символ">...&lt;/tfoot><br>&lt;/table></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="tfoot_charoff"><a href="#tfoot_at">charoff</a></td>
+			<td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> - сместить на три символа влево.
+			<pre class="item2"><code>&lt;table><br>   &lt;tfoot align="char" char="символ"  charoff="число">...&lt;/tfoot><br>&lt;/table></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="tfoot_bgcolor"><a href="#tfoot_at">bgcolor</a></td>
+			<td>Цвет фона ячеек, которые расположены внутри контейнера <samp class="red">&lt;tfoot></samp>.
+			<pre class="item2"><code>&lt;tfoot bgcolor="цвет">...&lt;/tfoot></code></pre>
+			Чтобы задать цвет фона внутри <samp class="red">&lt;tfoot></samp> используйте стилевое свойство <samp class="sin tdu dib"><a href="../background/background-color.html">background-color</a></samp>, применяя его к селектору <samp class="red">tfoot</samp>.</td></tr>
+		<tr><td id="tfoot_valign"><a href="#tfoot_at">valign</a></td>
+			<td>Задает вертикальное выравнивание содержимого ячеек в контейнере <samp class="red">&lt;tfoot></samp>. По умолчанию контент ячейки располагается по вертикали в центре.
+			<pre class="item2"><code>&lt;tfoot valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячеек строки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/tfoot></code></pre>
+			Для изменения выравнивания по высоте внутри <samp class="red">&lt;tfoot></samp> воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">tfoot</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="colgroup_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;colgroup></samp></a></h3>
+	<div class="no mb10">Все данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a class="off" href="#colgroup_align" title="Устанавливает выравнивание содержимого колонки по краю.">&lt;align></a></span>
+		<span><a class="off" href="#colgroup_char" title="Выравнивает содержимое колонки по заданному символу. ">&lt;char></a></span>
+		<span><a class="off" href="#colgroup_charoff" title="Сдвигает содержимое ячейки относительно заданного символа. ">&lt;charoff></a></span>
+		<span><a href="#colgroup_span" title="Количество колонок, к которым следует применять параметры.">&lt;span></a></span>
+		<span><a class="off" href="#colgroup_valign" title="Задает вертикальное выравнивание содержимого колонки. ">&lt;valign></a></span>
+		<span><a href="#colgroup_width" title="Ширина колонок.">&lt;width></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="colgroup_align"><a href="#colgroup_at">align</a></td>
+			<td>Задаёт выравнивание содержимого колонок по горизонтали.
+			<pre class="item2"><code>&lt;colgroup align="left | center | right | justify"><br><br>&lt;colgroup align="left"><br>&lt;colgroup span="3" align="center"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="colgroup_char"><a href="#colgroup_at">char</a></td>
+			<td>Атрибут <samp class="sin">char</samp> заставляет выравниваться содержимое колонки по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;colgroup align="char" char=","></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="colgroup_charoff"><a href="#colgroup_at">charoff</a></td>
+			<td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;colgroup align="char" char="," charoff="-2"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="colgroup_span"><a href="#colgroup_at">span</a></td>
+			<td>Определяет число колонок, к которым будут применяться заданные характеристики. Если этот атрибут отсутствует, то элемент <samp class="red">&lt;colgroup></samp> работает для одной колонки. Допускается применять атрибут <samp class="sin">span</samp> к нескольким колонкам и таким образом формировать группы колонок с одинаковыми характеристиками.
+			<pre class="item2"><code>&lt;table><br>   &lt;col width="150"><br>   &lt;col span="5" width="50"><br>   &lt;col span="4" width="75"><br>   &lt;tr>...&lt;/tr><br>&lt;/table></code></pre></td></tr>
+		<tr><td id="colgroup_valign"><a href="#colgroup_at">valign</a></td>
+			<td>Задает вертикальное выравнивание содержимого колонки. По умолчанию контент ячеек в колонке располагается по центру вертикали.
+			<pre class="item2"><code>&lt;colgroup valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого колонки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">td</samp>.</td></tr>
+		<tr><td id="colgroup_width"><a href="#colgroup_at">width</a></td>
+			<td>Ширина колонок. В качестве значения обычно применяется любое целое значение в пикселях или процентах от доступного пространства. Альтернативный вариант основан на использовании символа <b>*</b>, который обозначает всю доступную ширину. Допустимо использовать кратные значения, например <b>3*</b>. Например, если для таблицы установлена ширина 600 пикселей, а для колонок - 1*, 2*, то в пикселях это будет соответственно 200 и 400.
+			<pre class="item2"><code>&lt;colgroup width="значение"></code></pre>
+			Для изменения ширины колонок можно использавоть псевдокласс <samp class="sin">:nth-child</samp> и свойство <samp class="sin">width</samp>, добавляя их к селектору <samp class="red">td</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="col_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;col></samp></a></h3>
+	<div class="no mb10">Все данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a class="off" href="#col_align" title="Устанавливает выравнивание содержимого колонки по краю.">&lt;align></a></span>
+		<span><a class="off" href="#col_char" title="Выравнивает содержимое колонки по заданному символу. ">&lt;char></a></span>
+		<span><a class="off" href="#col_charoff" title="Сдвигает содержимое ячейки относительно заданного символа. ">&lt;charoff></a></span>
+		<span><a href="#col_span" title="Количество колонок, к которым следует применять параметры.">&lt;span></a></span>
+		<span><a class="off" href="#col_valign" title="Задает вертикальное выравнивание содержимого колонки. ">&lt;valign></a></span>
+		<span><a href="#col_width" title="Ширина колонок.">&lt;width></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="col_align"><a href="#col_at">align</a></td>
+			<td>Задаёт выравнивание содержимого колонок по горизонтали.
+			<pre class="item2"><code>&lt;col align="left | center | right | justify"><br><br>&lt;col align="left"><br>&lt;col span="3" align="center"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="col_char"><a href="#col_at">char</a></td>
+			<td>Атрибут char заставляет выравниваться содержимое колонки по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;col align="char" char=","></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="col_charoff"><a href="#col_at">charoff</a></td>
+			<td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;col align="char" char="," charoff="-2"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="col_span"><a href="#col_at">span</a></td>
+			<td>Определяет число колонок, к которым будут применяться заданные характеристики. Если этот атрибут отсутствует, то элемент <samp class="red">&lt;col></samp> работает для одной колонки. Допускается применять атрибут <samp class="sin">span</samp> к нескольким колонкам и таким образом формировать группы колонок с одинаковыми характеристиками.
+			<pre class="item2"><code>&lt;table><br>   &lt;col width="150"><br>   &lt;col span="5" width="50"><br>   &lt;col span="4" width="75"><br>   &lt;tr>...&lt;/tr><br>&lt;/table></code></pre></td></tr>
+		<tr><td id="col_valign"><a href="#col_at">valign</a></td>
+			<td>Задает вертикальное выравнивание содержимого колонки. По умолчанию контент ячеек в колонке располагается по центру вертикали.
+			<pre class="item2"><code>&lt;col valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого колонки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">td</samp>.</td></tr>
+		<tr><td id="col_width"><a href="#col_at">width</a></td>
+			<td>Ширина колонок. В качестве значения обычно применяется любое целое значение в пикселях или процентах от доступного пространства. Альтернативный вариант основан на использовании символа <b>*</b>, который обозначает всю доступную ширину. Допустимо использовать кратные значения, например <b>3*</b>. Например, если для таблицы установлена ширина 600 пикселей, а для колонок - 1*, 2*, то в пикселях это будет соответственно 200 и 400.
+			<pre class="item2"><code>&lt;col width="значение"></code></pre>
+			Для изменения ширины колонок можно использавоть псевдокласс <samp class="sin">:nth-child</samp> и свойство <samp class="sin">width</samp>, добавляя их к селектору <samp class="red">td</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="th_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;th></samp></a></h3>
+	<div class="no mb10">Некоторые атрибуты <span class="off dib">устарели</span> <span class="off dib">или</span> <span class="off dib">не</span> <span class="off dib">поддерживаются</span>, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#th_abbr" title="Краткое описание содержимого ячейки.">&lt;abbr></a></span>
+		<span><a class="off" href="#th_align" title="Определяет выравнивание содержимого ячейки по горизонтали.">&lt;align></a></span>
+		<span><a class="off" href="#th_axis" title="Группирует ячейки связанные между собой похожей информацией.">&lt;axis></a></span>
+		<span><a class="off" href="#th_background" title="Задает фоновый рисунок в ячейке.">&lt;background></a></span>
+		<span><a class="off" href="#th_bgcolor" title="Цвет фона ячейки.">&lt;bgcolor></a></span>
+		<span><a class="off" href="#th_bordercolor" title="Цвет рамки.">&lt;bordercolor></a></span>
+		<span><a class="off" href="#th_char" title="Выравнивает содержимое ячейки по заданному символу.">&lt;char></a></span>
+		<span><a class="off" href="#th_charoff" title="Смещает содержимое ячейки относительно заданного символа.">&lt;charoff></a></span>
+		<span><a href="#th_colspan" title="Объединяет горизонтальные ячейки.">&lt;colspan></a></span>
+		<span><a href="#th_headers" title="Позволяет связать ячейки таблицы с заголовками в речевых браузерах.">&lt;headers></a></span>
+		<span><a class="off" href="#th_height" title="Высота ячейки.">&lt;height></a></span>
+		<span><a class="off" href="#th_nowrap" title="Запрещает перенос строк.">&lt;nowrap></a></span>
+		<span><a href="#th_rowspan" title="Объединяет вертикальные ячейки.">&lt;rowspan></a></span>
+		<span><a href="#th_scope" title="Позволяет связать ячейки простой таблицы с заголовками в речевых браузерах.">&lt;scope></a></span>
+		<span><a class="off" href="#th_valign" title="Выравнивание содержимого ячейки по вертикали.">&lt;valign></a></span>
+		<span><a class="off" href="#th_width" title="Ширина ячейки.">&lt;width></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="th_abbr"><a href="#th_at">abbr</a></td>
+			<td>Краткое описание содержимого ячейки. Текст внутри <samp class="sin">abbr</samp> браузерами не отображается и предназначен в первую очередь для доступа людей к содержанию с помощью вспомогательных технологий вроде речевых браузеров. Значение представляет сокращённую версию текста внутри элемента <samp class="red">&lt;th></samp>.
+			<pre class="item2"><code>&lt;th abbr="текст">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_align"><a href="#th_at">align</a></td>
+			<td>Определяет выравнивание содержимого ячейки по горизонтали.
+			<pre class="item2"><code>&lt;th align="<abbr title="Выравнивание содержимого ячейки по левому краю.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краям).">justify</abbr> | <abbr title="Выравнивает по указанному символу.">char</abbr>">...&lt;/th></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;th></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">th</samp>.</td></tr>
+		<tr><td id="th_axis"><a href="#th_at">axis</a></td>
+			<td>Группирует ячейки связанные между собой похожей информацией. Значения: любой текст, представляющий собой произвольное имя ячейки. Для связывания ячеек между собой значения атрибута <samp class="sin">axis</samp> должны совпадать.
+			<pre class="item2"><code>&lt;th axis="текст">...&lt;/th></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="th_background"><a href="#th_at">background</a></td>
+			<td>Задает фоновый рисунок в ячейке. В отличие от обычных изображений, для фона не устанавливаются ширина и высота, и он всегда отображается в натуральную величину с масштабом 100%. Если рисунок по размеру меньше ширины или высоты ячейки, то картинка повторяется по горизонтали вправо и вниз, выстраиваясь, как мозаика.
+			<pre class="item2"><code>&lt;th background="адрес">...&lt;/th></code></pre>
+			Чтобы задать фоновое изображение для ячейки используйте стилевое свойство <samp class="sin tdu"><a href="../background/background.html">background</a></samp>, добавляя его к селектору <samp class="red">th</samp>.</td></tr>
+		<tr><td id="th_bgcolor"><a href="#th_at">bgcolor</a></td>
+			<td>Цвет фона ячейки.
+			<pre class="item2"><code>&lt;th bgcolor="Цвет">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_bordercolor"><a href="#th_at">bordercolor</a></td>
+			<td>Цвет рамки.
+			<pre class="item2"><code>&lt;th bordercolor="Цвет">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_char"><a href="#th_at">char</a></td>
+			<td>Выравнивает содержимое ячейки по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;th align="char" char="символ">...&lt;/th></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="th_charoff"><a href="#th_at">charoff</a></td>
+			<td>Смещает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;th align="char" char="," charoff="-2">...&lt;/th></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="th_colspan"><a href="#th_at">colspan</a></td>
+			<td>Устанавливает число ячеек, которые должны быть объединены по горизонтали.
+			<pre class="item2"><code>&lt;th colspan="число">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_headers"><a href="#th_at">headers</a></td>
+			<td><p>Позволяет связать ячейки таблицы с заголовками. Этот атрибут предназначен для повышения доступности таблицы пользователям речевых браузеров, в обычных браузерах результат применения атрибута <samp class="sin">headers</samp> не заметен.</p>
+			Для связывания ячеек между собой, ячейке в <samp class="red">&lt;th></samp> пишется атрибут <samp class="red">id</samp>, а в другой ячейке — атрибут <samp class="sin">headers</samp> со значением, совпадающим со значением <samp class="red">id</samp>.
+			<pre class="item2"><code>&lt;th id="идентификатор">...&lt;/th><br>&lt;th headers="идентификатор">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_height"><a href="#th_at">height</a></td>
+			<td>Браузер сам устанавливает высоту таблицы и её ячеек исходя из их содержимого. Однако при использовании атрибута <samp class="sin">height</samp> высота ячеек будет изменена. Здесь возможны два варианта. Если значение <samp class="sin">height</samp> меньше, чем содержимое ячейки, то этот атрибут будет проигнорирован. В случае, когда установлена высота ячейки, превышающая её содержимое, добавляется пустое пространство по вертикали.
+			<pre class="item2"><code>&lt;th height="значение">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_nowrap"><a href="#th_at">nowrap</a></td>
+			<td>Добавление атрибута <samp class="sin">nowrap</samp> к элементу <samp class="red">&lt;th></samp> заставляет текст внутри ячейки отображаться без переносов, одной сплошной строкой. Неправильное использование этого атрибута может привести к тому, что таблица будет слишком широкой и не поместится целиком на веб-страницу.
+			<pre class="item2"><code>&lt;th nowrap>...&lt;/th></code></pre>
+			Чтобы запретить перенос текста в ячейке таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../txt/white-space.html">white-space</a></samp> со значением <samp class="lsin">nowrap</samp>, добавляя его к селектору <samp class="red">th</samp>.</td></tr>
+		<tr><td id="th_rowspan"><a href="#th_at">rowspan</a></td>
+			<td>Устанавливает число ячеек, которые должны быть объединены по вертикали.
+			<pre class="item2"><code>&lt;th rowspan="число">...&lt;/th></code></pre></td></tr>
+		<tr><td id="th_scope"><a href="#th_at">scope</a></td>
+			<td>Атрибут scope связывает между собой ячейки с заголовком и обычные ячейки. По своему действию напоминает атрибут <samp class="sin">headers</samp>, но используется для простых таблиц. Атрибут предназначен для экранных ридеров вроде речевых браузеров, в обычных браузерах результат добавления <samp class="sin">scope</samp> никак не заметен.
+			<pre class="item2"><code>&lt;th scope="<abbr title="Ячейка заголовка установлена для колонки.">col</abbr> | <abbr title="Ячейка заголовка установлена для группы колонок.">colgroup</abbr> | <abbr title="Ячейка заголовка задана для строки.">row</abbr> | <abbr title="Ячейка заголовка установлена для группы строк.">rowgroup</abbr>">...&lt;/th></code></pre>
+			Значение <samp class="lsin">colgroup</samp> применяется в таблице, в которой используется элемент <samp class="red">&lt;colgroup></samp> или при объединении ячеек с помощью атрибута <samp class="sin">colspan</samp>. Значение <samp class="lsin">rowgroup</samp> требуется при объединении ячеек через атрибут <samp class="sin">rowspan</samp>.</td></tr>
+		<tr><td id="th_valign"><a href="#th_at">valign</a></td>
+			<td>Устанавливает вертикальное выравнивание содержимого ячейки. По умолчанию содержимое ячейки располагается по центру её вертикали.
+			<pre class="item2"><code>&lt;th valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячейки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/th></code></pre>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">th</samp></td></tr>
+		<tr><td id="th_width"><a href="#th_at">width</a></td>
+			<td>Задаёт ширину ячейки. Если общая ширина содержимого превышает указанную ширину ячейки, то браузер будет пытаться «втиснуться» в заданные размеры за счёт форматирования текста. В случае, когда это невозможно, например, в ячейке находятся изображения, атрибут <samp class="sin">width</samp> будет проигнорирован, и новая ширина ячейки будет вычислена на основе её содержимого.
+			<pre class="item2"><code>&lt;th width="значение">...&lt;/th></code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="tr_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;tr></samp></a></h3>
+	<div class="no mb10">Aтрибуты устарели или <span class="off dib">не</span> <span class="off dib">поддерживаются</span>, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#tr_align" title="Задаёт выравнивание содержимого ячеек строки по горизонтали.">&lt;align></a></span>
+		<span><a href="#tr_bgcolor" title="Устанавливает цвет фона строки таблицы.">&lt;bgcolor></a></span>
+		<span><a class="off" href="#tr_bordercolor" title="Цвет рамки.">&lt;bordercolor></a></span>
+		<span><a class="off" href="#tr_char" title="Выравнивание содержимого ячеек в строке относительно заданного символа.">&lt;char></a></span>
+		<span><a class="off" href="#tr_charoff" title="Смещение содержимого ячеек в строке относительно указанного символа.">&lt;charoff></a></span>
+		<span><a href="#tr_valign" title="Устанавливает вертикальное выравнивание содержимого ячеек в строке.">&lt;valign></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="tr_align"><a href="#tr_at">align</a></td>
+			<td>Задаёт выравнивание содержимого ячеек строки по горизонтали. Выравнивание осуществляется для всех ячеек в пределах одной строки. Если требуется применить разное выравнивание для каждой ячейки, воспользуйтесь стилями или используйте атрибут <samp class="sin">align</samp> для элемента <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>.
+			<pre class="item2"><code>&lt;tr align="<abbr title="Выравнивание содержимого ячейки по левому краю.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краям).">justify</abbr>">...&lt;/tr></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;tr></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">tr</samp>.</td></tr>
+		<tr><td id="tr_bgcolor"><a href="#tr_at">bgcolor</a></td>
+			<td>Устанавливает цвет фона строки таблицы.
+			<pre class="item2"><code>&lt;tr bgcolor="Цвет">...&lt;/tr></code></pre></td></tr>
+		<tr><td id="tr_bordercolor"><a href="#tr_at">bordercolor</a></td>
+			<td>Цвет рамки.
+			<pre class="item2"><code>&lt;tr bordercolor="Цвет">...&lt;/tr></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="tr_char"><a href="#tr_at">char</a></td>
+			<td>Выравнивает содержимое ячеек внутри <samp class="red">&lt;tr></samp> по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;tr align="char" char="символ">...&lt;/tr></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="tr_charoff"><a href="#tr_at">charoff</a></td>
+			<td>Смещает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;tr align="char" char="," charoff="-2">...&lt;/tr></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="tr_valign"><a href="#tr_at">valign</a></td>
+			<td>Устанавливает вертикальное выравнивание содержимого ячеек в строке. По умолчанию контент ячейки располагается по ее вертикали в центре.
+			<pre class="item2"><code>&lt;th valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячейки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/th></code></pre>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">tr</samp></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="td_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;td></samp></a></h3>
+	<div class="no mb10">Некоторые атрибуты <span class="off dib">устарели</span> <span class="off dib">или</span> <span class="off dib">не</span> <span class="off dib">поддерживаются</span>, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#td_abbr" title="Краткое описание содержимого ячейки.">&lt;abbr></a></span>
+		<span><a class="off" href="#td_align" title="Определяет выравнивание содержимого ячейки по горизонтали.">&lt;align></a></span>
+		<span><a class="off" href="#td_axis" title="Группирует ячейки связанные между собой похожей информацией.">&lt;axis></a></span>
+		<span><a class="off" href="#td_background" title="Задает фоновый рисунок в ячейке.">&lt;background></a></span>
+		<span><a class="off" href="#td_bgcolor" title="Цвет фона ячейки.">&lt;bgcolor></a></span>
+		<span><a class="off" href="#td_bordercolor" title="Цвет рамки.">&lt;bordercolor></a></span>
+		<span><a class="off" href="#td_char" title="Выравнивает содержимое ячейки по заданному символу.">&lt;char></a></span>
+		<span><a class="off" href="#td_charoff" title="Смещает содержимое ячейки относительно заданного символа.">&lt;charoff></a></span>
+		<span><a href="#td_colspan" title="Объединяет горизонтальные ячейки.">&lt;colspan></a></span>
+		<span><a href="#td_headers" title="Позволяет связать ячейки таблицы с заголовками в речевых браузерах.">&lt;headers></a></span>
+		<span><a class="off" href="#td_height" title="Высота ячейки.">&lt;height></a></span>
+		<span><a class="off" href="#td_nowrap" title="Запрещает перенос строк.">&lt;nowrap></a></span>
+		<span><a href="#td_rowspan" title="Объединяет вертикальные ячейки.">&lt;rowspan></a></span>
+		<span><a href="#td_scope" title="Позволяет связать ячейки простой таблицы с заголовками в речевых браузерах.">&lt;scope></a></span>
+		<span><a class="off" href="#td_valign" title="Выравнивание содержимого ячейки по вертикали.">&lt;valign></a></span>
+		<span><a class="off" href="#td_width" title="Ширина ячейки.">&lt;width></a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="td_abbr"><a href="#td_at">abbr</a></td>
+			<td>Краткое описание содержимого ячейки. Текст внутри <samp class="sin">abbr</samp> браузерами не отображается и предназначен в первую очередь для доступа людей к содержанию с помощью вспомогательных технологий вроде речевых браузеров. Значение представляет сокращённую версию текста внутри элемента <samp class="red">&lt;td></samp>.
+			<pre class="item2"><code>&lt;td abbr="текст">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_align"><a href="#td_at">align</a></td>
+			<td>Определяет выравнивание содержимого ячейки по горизонтали.
+			<pre class="item2"><code>&lt;td align="<abbr title="Выравнивание содержимого ячейки по левому краю.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краям).">justify</abbr> | <abbr title="Выравнивает по указанному символу.">char</abbr>">...&lt;/td></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;td></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">td</samp>.</td></tr>
+		<tr><td id="td_axis"><a href="#td_at">axis</a></td>
+			<td>Группирует ячейки связанные между собой похожей информацией. Значения: любой текст, представляющий собой произвольное имя ячейки. Для связывания ячеек между собой значения атрибута <samp class="sin">axis</samp> должны совпадать.
+			<pre class="item2"><code>&lt;td axis="текст">...&lt;/td></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="td_background"><a href="#td_at">background</a></td>
+			<td>Задает фоновый рисунок в ячейке. В отличие от обычных изображений, для фона не устанавливаются ширина и высота, и он всегда отображается в натуральную величину с масштабом 100%. Если рисунок по размеру меньше ширины или высоты ячейки, то картинка повторяется по горизонтали вправо и вниз, выстраиваясь, как мозаика.
+			<pre class="item2"><code>&lt;td background="адрес">...&lt;/td></code></pre>
+			Чтобы задать фоновое изображение для ячейки используйте стилевое свойство <samp class="sin tdu"><a href="../background/background.html">background</a></samp>, добавляя его к селектору <samp class="red">td</samp>.</td></tr>
+		<tr><td id="td_bgcolor"><a href="#td_at">bgcolor</a></td>
+			<td>Цвет фона ячейки.
+			<pre class="item2"><code>&lt;td bgcolor="Цвет">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_bordercolor"><a href="#td_at">bordercolor</a></td>
+			<td>Цвет рамки.
+			<pre class="item2"><code>&lt;td bordercolor="Цвет">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_char"><a href="#td_at">char</a></td>
+			<td>Выравнивает содержимое ячейки по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;td align="char" char="символ">...&lt;/td></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="td_charoff"><a href="#td_at">charoff</a></td>
+			<td>Смещает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;td align="char" char="," charoff="-2">...&lt;/td></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="td_colspan"><a href="#td_at">colspan</a></td>
+			<td>Устанавливает число ячеек, которые должны быть объединены по горизонтали.
+			<pre class="item2"><code>&lt;td colspan="число">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_headers"><a href="#td_at">headers</a></td>
+			<td><p>Позволяет связать ячейки таблицы с заголовками. Этот атрибут предназначен для повышения доступности таблицы пользователям речевых браузеров, в обычных браузерах результат применения атрибута <samp class="sin">headers</samp> не заметен.</p>
+			Для связывания ячеек между собой, ячейке в <samp class="red">&lt;td></samp> пишется атрибут <samp class="red">id</samp>, а в другой ячейке — атрибут <samp class="sin">headers</samp> со значением, совпадающим со значением <samp class="red">id</samp>.
+			<pre class="item2"><code>&lt;td id="идентификатор">...&lt;/td><br>&lt;td headers="идентификатор">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_height"><a href="#td_at">height</a></td>
+			<td>Браузер сам устанавливает высоту таблицы и её ячеек исходя из их содержимого. Однако при использовании атрибута <samp class="sin">height</samp> высота ячеек будет изменена. Здесь возможны два варианта. Если значение <samp class="sin">height</samp> меньше, чем содержимое ячейки, то этот атрибут будет проигнорирован. В случае, когда установлена высота ячейки, превышающая её содержимое, добавляется пустое пространство по вертикали.
+			<pre class="item2"><code>&lt;td height="значение">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_nowrap"><a href="#td_at">nowrap</a></td>
+			<td>Добавление атрибута <samp class="sin">nowrap</samp> к элементу <samp class="red">&lt;td></samp> заставляет текст внутри ячейки отображаться без переносов, одной сплошной строкой. Неправильное использование этого атрибута может привести к тому, что таблица будет слишком широкой и не поместится целиком на веб-страницу.
+			<pre class="item2"><code>&lt;td nowrap>...&lt;/td></code></pre>
+			Чтобы запретить перенос текста в ячейке таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../txt/white-space.html">white-space</a></samp> со значением <samp class="lsin">nowrap</samp>, добавляя его к селектору <samp class="red">td</samp>.</td></tr>
+		<tr><td id="td_rowspan"><a href="#td_at">rowspan</a></td>
+			<td>Устанавливает число ячеек, которые должны быть объединены по вертикали. Максимально допустимое значение равно <b>65534</b>. Если значение установлено как <b>0</b>, то ячейки объединяются до конца раздела таблицы (<samp class="red">&lt;thead></samp>, <samp class="red">&lt;tbody></samp> или <samp class="red">&lt;tfoot></samp>) или самой таблицы.
+			<pre class="item2"><code>&lt;td rowspan="число">...&lt;/td></code></pre></td></tr>
+		<tr><td id="td_scope"><a href="#td_at">scope</a></td>
+			<td>Атрибут scope связывает между собой ячейки с заголовком и обычные ячейки. По своему действию напоминает атрибут <samp class="sin">headers</samp>, но используется для простых таблиц. Атрибут предназначен для экранных ридеров вроде речевых браузеров, в обычных браузерах результат добавления <samp class="sin">scope</samp> никак не заметен.
+			<pre class="item2"><code>&lt;td scope="<abbr title="Ячейка заголовка установлена для колонки.">col</abbr> | <abbr title="Ячейка заголовка установлена для группы колонок.">colgroup</abbr> | <abbr title="Ячейка заголовка задана для строки.">row</abbr> | <abbr title="Ячейка заголовка установлена для группы строк.">rowgroup</abbr>">...&lt;/td></code></pre>
+			Значение <samp class="lsin">colgroup</samp> применяется в таблице, в которой используется элемент <samp class="red">&lt;colgroup></samp> или при объединении ячеек с помощью атрибута <samp class="sin">colspan</samp>. Значение <samp class="lsin">rowgroup</samp> требуется при объединении ячеек через атрибут <samp class="sin">rowspan</samp>.</td></tr>
+		<tr><td id="td_valign"><a href="#td_at">valign</a></td>
+			<td>Устанавливает вертикальное выравнивание содержимого ячейки. По умолчанию содержимое ячейки располагается по центру её вертикали.
+			<pre class="item2"><code>&lt;td valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячейки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/td></code></pre>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">td</samp></td></tr>
+		<tr><td id="td_width"><a href="#td_at">width</a></td>
+			<td>Задаёт ширину ячейки. Если общая ширина содержимого превышает указанную ширину ячейки, то браузер будет пытаться «втиснуться» в заданные размеры за счёт форматирования текста. В случае, когда это невозможно, например, в ячейке находятся изображения, атрибут <samp class="sin">width</samp> будет проигнорирован, и новая ширина ячейки будет вычислена на основе её содержимого.
+			<pre class="item2"><code>&lt;td width="значение">...&lt;/td></code></pre></td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="atab2">
+<h2 class="sin"><a href="#" title="к оглавлению"><samp>CSS</samp> параметры</a></h2>
+	<p>Также тэгов структуры таблици доступны универсальные атрибуты и события. Но также есть рад специфичных свойств и их значений.</p>
+	<div class="ogl2 ogl21">
+		<span><a href="#border-collapse">border-collapse</a></span>
+		<span><a href="#border-spacing">border-spacing</a></span>
+		<span><a href="#caption-side">caption-side</a></span>
+		<span><a href="#empty-cells">empty-cells</a></span>
+		<span><a href="#table-layout">table-layout</a></span>
+		<span></span>
+	</div>
+
+
+	<p class="mt40"><samp class="red" id="border-collapse"><big><a href="#atab2">border-collapse (CSS)</a></big></samp></p>
+		<p>Применяется	к элементу <samp class="red">&lt;table></samp> или к элементам, у которых свойство <samp class="sin">display</samp> установлено как <samp class="lsin">table</samp> или <samp class="lsin">inline-table</samp>. Свойство наследуется.</p>
+		<p>Устанавливает, как отображать границы вокруг ячеек таблицы. Это свойство играет роль, когда для ячеек установлена рамка, тогда в месте стыка ячеек получится линия двойной толщины. Значение <samp class="lsin">collapse</samp> заставляет браузер анализировать подобные места в таблице и убирать в ней двойные линии. При этом между ячейками остается только одна граница, одновременно принадлежащая обеим ячейкам. То же правило соблюдается и для внешних границ, когда вокруг самой таблицы добавляется рамка.</p>
+		<div style="margin:15px 0 5px;" class="bold">Значения:</div>
+		<table class="t1 t3" style="margin:0px -5px 15px -5px;">
+			<tr><td width="90px">collapse</td>
+				<td>Линия между ячейками отображается только одна, также игнорируется значение атрибута <samp class="sin">cellspacing</samp>.</td></tr>
+			<tr><td>separate</td>
+				<td>Вокруг каждой ячейки отображается своя собственная рамка, в местах соприкосновения ячеек показываются сразу две линии. Значение по умолчанию.</td></tr>
+			<tr><td>inherit</td>
+				<td>Наследует значение родителя.</td></tr>
+		</table>
+		<pre class="item2 br0"><code>table {border-collapse: collapse;}</code></pre>
+		<div class="no">Internet Explorer до версии 8.0 не отменяет действие атрибута <samp class="sin">cellspacing</samp>.</div>
+		<div class="no">Eсли у таблицы стоит свойство <samp class="sin">border-collapse</samp>, а у ячеек свойство <samp class="sin">position</samp> установлено в <samp class="lsin">relative</samp> и они раскрашены, то IE, Edge и Firefox могут не прорисовывать границы. В таких случаях к ячейкам надо добавлять "<samp class="sin">background-clip: </samp><samp class="lsin">padding-box;</samp>".</div>
+	<div class="hr2"></div>
+
+
+	<p class="mt40"><samp class="red" id="border-spacing"><big><a href="#atab2">border-spacing (CSS)</a></big></samp></p>
+		<p>Применяется	к элементу <samp class="red">&lt;table></samp> или к элементам, у которых свойство <samp class="sin">display</samp> установлено как <samp class="lsin">table</samp> или <samp class="lsin">inline-table</samp>. Свойство наследуется.</p>
+		<p>Задает расстояние между границами ячеек в таблице. <samp class="sin">border-spacing</samp> не работает в случае, когда для таблицы установлено свойство <samp class="sin">border-collapse</samp> со значением <samp class="lsin">collapse</samp>.</p>
+		<p>Одно значение устанавливает одновременно расстояние по вертикали и горизонтали между границами ячеек. Если значений два, то первое определяет горизонтальное расстояние, а второе — вертикальное.</p>
+		<pre class="item2"><code>table {<br>  border-collapse: separate;<br>  border-spacing: 10px 5px;<br>}</code></pre>
+		<div class="no">Если к элементу <samp class="red">&lt;table></samp> добавлен атрибут <samp class="sin">cellspacing</samp>, то при использовании стилевого свойства <samp class="sin">border-spacing</samp> атрибут <samp class="sin">cellspacing</samp> не принимается во внимание и его значение игнорируется.</div>
+	<div class="hr2"></div>
+
+
+	<p class="mt40"><samp class="red" id="caption-side"><big><a href="#atab2">caption-side (CSS)</a></big></samp></p>
+		<p>Применяется	к <samp class="red">&lt;caption></samp> или ко всем элементам, у которых значение <samp class="sin">display</samp> установлено как <samp class="lsin">table-caption</samp>.</p>
+		<p>Определяет положение заголовка таблицы, который задается с помощью тега <samp class="red">&lt;caption></samp>, относительно самой таблицы. Свойство <samp class="sin">caption-side</samp> выводит заголовок до или после таблицы, а выравнивание текста по правому или левому краю устанавливается через свойство <samp class="sin">text-align</samp>.</p>
+		<p>Браузер Firefox также поддерживает расположение заголовка слева или справа от таблицы, но эти значения не входят в спецификацию CSS.</p>
+		<div style="margin:15px 0 5px;" class="bold">Значения:</div>
+		<table style="margin:0px -5px 15px -5px;" class="t1 t0 t3">
+			<tr><td>top</td>
+				<td>Располагает заголовок по верхнему краю таблицы.</td></tr>
+			<tr><td>bottom</td>
+				<td>Заголовок располагается под таблицей.</td></tr>
+			<tr><td>left</td>
+				<td>Заголовок размещается слева от таблицы.
+				<br><div class="no dib">Это значение работает только в браузерах Firefox.</div></td></tr>
+			<tr><td>right</td>
+				<td>Заголовок размещается справа от таблицы.
+				<br><div class="no dib">Это значение работает только в браузерах Firefox.</div></td></tr>
+		</table>
+		<pre class="item2 br0"><code>caption {<br>  caption-side: bottom; /* Заголовок под таблицей */<br>}</code></pre>
+	<div class="hr2"></div>
+
+
+	<p class="mt40"><samp class="red" id="empty-cells"><big><a href="#atab2">empty-cells (CSS)</a></big></samp></p>
+		<p>Это свойство применяется к <samp class="red">&lt;td></samp>, <samp class="red">&lt;th></samp> или к элементам, у которых <samp class="sin">display: <samp class="lsin">table-cell</samp></samp>.</p>
+		<p>Задает отображение границ и фона в ячейке, если она пустая. При одновременном добавлении к таблице свойства <samp class="sin">border-collapse</samp> со значением <samp class="lsin">collapse</samp>, свойство <samp class="sin">empty-cells</samp> игнорируется.</p>
+
+		<p style="padding-top:15px;">Ячейка считается пустой в следующих случаях:
+		<br>- нет вообще никаких символов;
+		<br>- в ячейке содержится только перевод строки, символ табуляции или пробел;
+		<br>- значение <samp class="sin">visibility</samp> установлено как <samp class="lsin">hidden</samp>.</p>
+		<p style="padding-top:15px;">Добавление неразрывного пробела <code class="sin">&amp;nbsp;</code> воспринимается как видимое содержание, т.е. ячейка уже будет непустой.
+
+		<div style="margin:20px 0 0px;" class="bold">Значения:</div>
+		<table style="margin:0 -5px 10px;" class="t1 t3">
+			<tr><td width="90px">show</td>
+				<td>Отображает границу вокруг ячейки и фон в ней.</td></tr>
+			<tr><td>hide</td>
+				<td>Граница и фон в пустых ячейках не отображается. Если все ячейки в строке пустые, то строка прячется целиком.</td></tr>
+		</table>
+		<pre class="item2 br0"><code>td {<br>  empty-cells: hide; /* Прячем пустые ячейки */<br>}</code></pre>
+		<div class="no">Internet Explorer до версии 7 включительно не поддерживает свойство <samp class="sin">empty-cells</samp> и отображает пустые ячейки всегда так, словно для них установлено <samp class="sin">empty-cells:</samp> <samp class="lsin">hide</samp>.</div>
+
+		<fieldset class="prm"><!-- example -->
+			<legend></legend>
+			<style type="text/css">
+				.tt5 {border:4px double #399; width:300px; margin:10px auto; border-collapse:separate;}
+				.tt5 td {background:#fc0; border:1px solid #333; empty-cells:hide; padding:5px;}
+			</style>
+			<table class="tt5">
+				<tr><td>Леонардо</td><td>5</td><td>8</td></tr>
+				<tr><td>Рафаэль</td><td> </td><td>11</td></tr>
+				<tr><td>Микеланджело</td><td>24</td><td></td></tr>
+				<tr><td>Донателло</td><td>&nbsp;</td><td>13</td></tr>
+			</table>
+
+			<div class="item2">
+				<samp class="hov red point bold" onclick='ftt51.classList.toggle("hiden");'>HTML</samp>
+				<div class="hiden" id="ftt51" onclick="event.stopPropagation()">
+					<pre><code>&lt;table align="center"><br>  &lt;tr>&lt;td>Леонардо&lt;/td>&lt;td>5&lt;/td>&lt;td>8&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Рафаэль&lt;/td>&lt;td> &lt;/td>&lt;td>11&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Микеланджело&lt;/td>&lt;td>24&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>  &lt;tr>&lt;td>Донателло&lt;/td>&lt;td>&amp;nbsp;&lt;/td>&lt;td>13&lt;/td>&lt;/tr><br>&lt;/table></code></pre>
+					<br><span class="red">CSS</span>
+					<pre><code>table {<br>  border: 4px double #399;<br>  width: 300px;}<br>td {<br>  background: #fc0;<br>  border: 1px solid #333;<br>  <span class="sin">empty-cells</span>: <span class="grin">hide;</span><br>  padding: 5px;}</code></pre>
+					<span class="yel" onclick='ftt51.classList.toggle("hiden");'>свернуть</span>
+				</div>
+			</div>
+		</fieldset><!-- /example -->
+		<div class="hr2"></div>
+
+
+	<p class="mt40"><samp class="red" id="table-layout"><big><a href="#atab2">table-layout (CSS)</a></big></samp></p>
+		<p>Определяет, как браузер должен вычислять ширину ячеек таблицы, основываясь на ее содержимом. Применяется	к тегу <samp class="red">&lt;table></samp> или к элементу, у которого значение <samp class="sin">display</samp> установлено как <samp class="lsin">table</samp> или <samp class="lsin">inline-table</samp>.</p>
+
+		<pre class="item2 br0"><code>table {<br>  table-layout: fixed; /* Фиксированная ширина ячеек */<br>  width: 100%;<br>  }</code></pre>
+
+		<div style="margin:15px 0 5px;" class="bold">Значения:</div>
+		<table style="margin:0 -5px 5px" class="t1 t3">
+			<tr><td width="70px">auto</td>
+				<td>Браузер загружает всю таблицу, анализирует ее для определения размеров ячеек и только после этого отображает.</td></tr>
+			<tr ><td>fixed</td>
+				<td>Ширина колонок в этом случае определяется либо с помощью тега <samp class="sin">&lt;col></samp>, либо вычисляется на основе первой строки. Если данные о форматировании первой строки таблицы по каким-либо причинам получить невозможно, в этом случае таблица делится на колонки равной ширины. При использовании этого значения, содержимое, которое не помещается в ячейку указанной ширины, будет «обрезано» либо наложено поверх ячейки. Это зависит от используемого браузера, но в любом случае ширина ячейки меняться не будет. Для корректной работы этого значения обязательно должна быть задана ширина таблицы.</td></tr>
+			<tr><td>inherit</td>
+				<td>Наследует значение родителя.</td></tr>
+		</table>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin" id="atab7"><a href="#" title="к оглавлению">Пример <samp>&lt;colgroup></samp> и <samp>&lt;col></samp></a></h3>
+	<!-- пример -->
+		<style type="text/css">
+			.col1 table {margin:20px auto;}
+			.col1 td, .col1 th {text-align:center; padding:5px 5px;}
+		</style>
+		<div class="col1">
+			<table border="1" cellspacing="0">
+				<colgroup>
+					<col span="2" style="background:Khaki;"><!-- цвет фона для первых 2 столбцов -->
+					<col style="background-color:LightCyan;"><!-- цвет фона для следующего (1) столбца -->
+				</colgroup>
+				<tr><th>№ п/п</th><th>Наименование</th><th>Цена, руб.</th></tr>
+				<tr><td>1</td><td>Карандаш цветной</td><td>20,00</td></tr>
+				<tr><td>2</td><td>Линейка 20 см</td><td>30,00</td></tr>
+			</table>
+		</div>
+		<div class="item2">
+			<samp class="point red bold" onclick='item611.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="item611" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="col1"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table border="1" cellspacing="0"><br>    &lt;colgroup><br>      &lt;!-- цвет фона для первых 2 столбцов --><br>      &lt;col span="2" style="background:Khaki;"><br>      &lt;!-- цвет фона для следующего (1) столбца --><br>      &lt;col style="background-color:LightCyan;"><br>    &lt;/colgroup><br>    &lt;tr>&lt;th>№ п/п&lt;/th>&lt;th>Наименование&lt;/th>&lt;th>Цена, руб.&lt;/th>&lt;/tr><br>    &lt;tr>&lt;td>1&lt;/td>&lt;td>Карандаш цветной&lt;/td>&lt;td>20,00&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>2&lt;/td>&lt;td>Линейка 20 см&lt;/td>&lt;td>30,00&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;/div></code></pre>
+				<br><samp class="red bold">CSS</samp>
+				<pre><code>.col1 table {margin:20px auto;}<br>.col1 td, .col1 th {text-align:center; padding:5px 5px;}</pre>
+				<span class="yel" onclick='item611.classList.toggle("hiden");'>свернуть</span>
+			</div>
+		</div>
+</div>
+
+
+
+<!-- example 1 -->
+<div class="item">
+<h3 class="sin" id="atab4"><a href="#" title="к оглавлению">Пример таблицы №1 <samp>(bgcolor)</samp></a></h3>
+	<style type="text/css">
+		.ext2 table{margin:10px auto; border-collapse:collapse; overflow:hidden;}
+		.ext2 td{border:1px solid black; width:50px; height:50px; position:relative; padding:0;}
+		.ext2 td:before{
+			content:""; position: absolute; left:5px; bottom:5px;
+			width:40px; height:40px; background:blue; border-radius:50%;}
+		.ext2 td:hover:before{content:""; background:black;}
+		.ext2 td:hover{background:orange;}
+		.ext2 tr:hover{background:yellow;}
+		.ext2 td:after{
+			content:""; position:absolute; left:0; z-index:-1;
+			width:50px; height:600px; bottom:-300px;}
+		.ext2 td:hover:after{background:yellow;}
+	</style>
+	<div class="ext2">
+		<table>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item311.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="item311" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="ext2"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;div></code></pre>
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>.ext2 table {margin: 10px auto;<br>  border-collapse: collapse;<br>  overflow: hidden;}<br>.ext2 td {<br>  border: 1px solid black;<br>  width: 50px;<br>  height: 50px;<br>  position: relative;<br>  padding: 0;}<br>.ext2 td:before {<br>  content: "";<br>  position: absolute;<br>  width: 40px;<br>  height: 40px;<br>  background: blue;<br>  border-radius: 50%;<br>  left: 5px;<br>  bottom: 5px;}<br>.ext2 td:hover:before {content: ""; background: black;}<br>.ext2 td:hover {background: orange;}<br>.ext2 tr:hover {background: yellow;}<br>.ext2 td:after {<br>  content: "";<br>  position: absolute;<br>  width: 50px;<br>  height: 600px;<br>  bottom: -300px;<br>  left: 0;<br>  z-index: -1;}<br>.ext2 td:hover:after {background: yellow;}</pre>
+			<span class="yel" onclick='item311.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div><!-- /example 1 -->
+
+
+
+<!-- example 2 -->
+<div class="item">
+<h3 class="sin" id="atab5"><a href="#" title="к оглавлению">Пример таблицы №2 <samp>(меню)</samp></a></h3>
+	<style type="text/css">
+		.prim2 table {
+			border-collapse:collapse; line-height:1.1; color:#0C213B;
+			font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			background:radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);}
+		.prim2 caption {
+			font-family:annabelle, cursive; font-weight:bold; font-size:2em; color:#F3CD26;
+			padding:10px; text-shadow:1px 1px 0 rgba(0,0,0,.3);}
+		.prim2 caption:before, .prim2 caption:after {content: "\274B"; color: #A9E2CC; margin: 0 10px;}
+		.prim2 th {padding:10px; border:1px solid #A9E2CC;}
+		.prim2 td {font-size:0.8em; padding:5px 7px; border:1px solid #A9E2CC;}
+		.first {font-size:1em; font-weight:bold; text-align:center;}
+	</style>
+	<div class="prim2">
+		<table>
+			<caption>Меню ресторана "Ромашка"</caption> 
+			<tr>
+				<th rowspan="2" class="first">Кухня</th><th colspan="2">Холодные блюда</th>
+				<th colspan="2">Горячие блюда</th><th rowspan="2">Десерты</th>
+			</tr>
+			<tr>
+				<td class="first">Салаты</td><td class="first">Закуски</td>
+				<td class="first">Первые блюда</td><td class="first">Вторые блюда</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="first">Русская</td><td>Винегрет</td><td>Язык с хреном</td>
+				<td>Щи с квашеной капустой</td><td>Вареники с картошкой</td><td>Печеные яблоки с медом</td>
+			</tr>
+			<tr>
+				<td>Оливье</td><td>Студень говяжий</td><td>Рассольник домашний</td>
+				<td>Караси запеченые в сметане</td><td>Блинчатый пирог</td>
+			</tr>
+			<tr>
+				<td>Сельдь под "шубой"</td><td>Судак заливной</td><td>Мясная солянка</td>
+				<td>Котлеты "Пожарские"</td><td>Пирожное "Картошка"</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="first">Испанская</td><td>Севиче из гребешков</td><td>Эмпанадас</td>
+				<td>Хлебный суп с чесноком</td><td>Паэлья с морепродуктами</td><td>Чуррос</td>
+			</tr>
+			<tr>
+				<td>Тимбал из авокадо и тунца</td><td>Ахотомате</td><td>Астурийская фабада</td>
+				<td>Свиное раксо</td><td>Альмойшавена</td>
+			</tr>
+			<tr>
+				<td>Фасоль с ветчиной</td><td>Чанфайна</td><td>Рыбный суп с манными клецками </td>
+				<td>Тортилья картофельная</td><td>Бунуэлос</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="first">Французская</td><td>Вогезский салат</td><td>Рийет из курицы</td>
+				<td>Баклажанный крем-суп "Ренуар"</td><td>Картофель огратен</td><td>Бриоши</td>
+			</tr>
+			<tr>
+				<td>Салат "Панзанелла"</td><td>Делисьез из сыра</td><td>Французский тыквенный суп</td>
+				<td>Гратин из птицы</td><td>Лигурийский лимонный пирог</td>
+			</tr>
+			<tr>
+				<td>Тар-тар</td><td>Маринованный лосось</td><td>Суп "Конти"</td>
+				<td>Тартифлетт</td><td>Саварен "Триумф"</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item511.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="item511" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="prim2"> &lt;!-- div с классом локализует теги td, tr, table --><br>&lt;table><br>  &lt;caption>Меню ресторана "Ромашка"&lt;/caption><br>  &lt;tr><br>    &lt;th rowspan="2" class="first">Кухня&lt;/th><br>    &lt;th colspan="2">Холодные блюда&lt;/th><br>    &lt;th colspan="2">Горячие блюда&lt;/th><br>    &lt;th rowspan="2">Десерты&lt;/th><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td class="first">Салаты&lt;/td><br>    &lt;td class="first">Закуски&lt;/td><br>    &lt;td class="first">Первые блюда&lt;/td><br>    &lt;td class="first">Вторые блюда&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td rowspan="3" class="first">Русская&lt;/td><br>    &lt;td>Винегрет&lt;/td><br>    &lt;td>Язык с хреном&lt;/td><br>    &lt;td>Щи с квашеной капустой&lt;/td><br>    &lt;td>Вареники с картошкой&lt;/td><br>    &lt;td>Печеные яблоки с медом&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td>Оливье&lt;/td><br>    &lt;td>Студень говяжий&lt;/td><br>    &lt;td>Рассольник домашний&lt;/td><br>    &lt;td>Караси запеченые в сметане&lt;/td><br>    &lt;td>Блинчатый пирог&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td>Сельдь под "шубой"&lt;/td><br>    &lt;td>Судак заливной&lt;/td><br>    &lt;td>Мясная солянка&lt;/td><br>    &lt;td>Котлеты "Пожарские"&lt;/td><br>    &lt;td>Пирожное "Картошка"&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td rowspan="3" class="first">Испанская&lt;/td><br>    &lt;td>Севиче из гребешков&lt;/td><br>    &lt;td>Эмпанадас&lt;/td><br>    &lt;td>Хлебный суп с чесноком&lt;/td><br>    &lt;td>Паэлья с морепродуктами&lt;/td><br>    &lt;td>Чуррос&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td>Тимбал из авокадо и тунца&lt;/td><br>    &lt;td>Ахотомате&lt;/td><br>    &lt;td>Астурийская фабада&lt;/td><br>    &lt;td>Свиное раксо&lt;/td><br>    &lt;td>Альмойшавена&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td>Фасоль с ветчиной&lt;/td><br>    &lt;td>Чанфайна&lt;/td><br>    &lt;td>Рыбный суп с манными клецками &lt;/td><br>    &lt;td>Тортилья картофельная&lt;/td><br>    &lt;td>Бунуэлос&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td rowspan="3" class="first">Французская&lt;/td><br>    &lt;td>Вогезский салат&lt;/td><br>    &lt;td>Рийет из курицы&lt;/td><br>    &lt;td>Баклажанный крем-суп "Ренуар"&lt;/td><br>    &lt;td>Картофель огратен&lt;/td><br>    &lt;td>Бриоши&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td>Салат "Панзанелла"&lt;/td><br>    &lt;td>Делисьез из сыра&lt;/td><br>    &lt;td>Французский тыквенный суп&lt;/td><br>    &lt;td>Гратин из птицы&lt;/td><br>    &lt;td>Лигурийский лимонный пирог&lt;/td><br>  &lt;/tr><br>  &lt;tr><br>    &lt;td>Тар-тар&lt;/td><br>    &lt;td>Маринованный лосось&lt;/td><br>    &lt;td>Суп "Конти"&lt;/td><br>    &lt;td>Тартифлетт&lt;/td><br>    &lt;td>Саварен "Триумф"&lt;/td><br>  &lt;/tr><br>&lt;/table></code></pre>
+
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>.prim2 table {<br>  border-collapse: collapse;<br>  line-height: 1.1;<br>  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;<br>  background:  radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);<br>  color: #0C213B;}<br>.prim2 caption {<br>  font-family: annabelle, cursive;<br>  font-weight: bold;<br>  font-size: 2em;<br>  padding: 10px;<br>  color: #F3CD26;<br>  text-shadow: 1px 1px 0 rgba(0,0,0,.3);}<br>.prim2 caption:before, .prim2 caption:after {<br>  content: "\274B";<br>  color: #A9E2CC;<br>  margin: 0 10px;}<br>.prim2 th {padding: 10px; border: 1px solid #A9E2CC;}<br>.prim2 td {<br>  font-size: 0.8em;<br>  padding: 5px 7px;<br>  border: 1px solid #A9E2CC;}<br>.first {font-size: 1em; font-weight: bold; text-align: center;}</code></pre>
+			<span class="yel" onclick='item511.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div><!-- /example 2 -->
+
+
+<!-- example 3 -->
+<div class="item">
+<h3 class="sin" id="atab6"><a href="#" title="к оглавлению">Фиксированный заголовок</a></h3>
+	<style type="text/css">
+	.prim6{overflow:auto; width:100%; height:60vh; padding:0;}
+
+	.prim6 .tt61 {border-collapse:separate; border-spacing:0; max-width:none; border:none;}
+
+	.prim6 .tt61 th{text-align:center; padding:1px 80px; height:40px; line-height:30px;
+		border:solid #000; border-width:0 1px 1px 0; box-shadow:inset 0 1px 0 #000;
+		position:sticky; top:0; background:#eee;}
+
+	.prim6 .tt61 tr th:nth-child(1){left:0; z-index:3; box-shadow:inset 1px 1px 0 #000;}
+
+	.prim6 .tt61 td{height:100px; text-align:center; vertical-align:middle; background:#fff;
+		border:solid #000; border-width:0 1px 1px 0;}
+	.prim6 .tt61 tr td:nth-child(1){position:sticky; left:0; background: yellow;
+		box-shadow:inset 1px 0 0 #000;}
+
+	/* опционально */
+	.prim6 .tt61 tr th:last-child{box-shadow:inset -1px 1px 0 #000;}
+	.prim6 .tt61 tr td:last-child{box-shadow:inset -1px 0 0 #000;}
+
+	</style>
+	<div class="prim6">
+		<table class="tt61">
+			<tr><th> </th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+			<tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+			<tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+			<tr><td>30</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td></tr>
+			<tr><td>40</td><td>41</td><td>42</td><td>43</td><td>44</td><td>45</td></tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item61.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden ls-05" id="item61" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="prim6"><br>  &lt;table class="tt61"><br>    &lt;tr>&lt;th>&lt;/th>&lt;th>1&lt;/th>&lt;th>2&lt;/th>&lt;th>3&lt;/th>&lt;th>4&lt;/th>&lt;th>5&lt;/th>&lt;/tr><br>    &lt;tr>&lt;td>10&lt;/td>&lt;td>11&lt;/td>&lt;td>12&lt;/td>&lt;td>13&lt;/td>&lt;td>14&lt;/td>&lt;td>15&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>20&lt;/td>&lt;td>21&lt;/td>&lt;td>22&lt;/td>&lt;td>23&lt;/td>&lt;td>24&lt;/td>&lt;td>25&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>30&lt;/td>&lt;td>31&lt;/td>&lt;td>32&lt;/td>&lt;td>33&lt;/td>&lt;td>34&lt;/td>&lt;td>35&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>40&lt;/td>&lt;td>41&lt;/td>&lt;td>42&lt;/td>&lt;td>43&lt;/td>&lt;td>44&lt;/td>&lt;td>45&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;/div></code></pre>
+
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>.prim6{overflow:auto; width:100%; height:60vh; padding:0;}<br>.tt61 {border-collapse:separate; border-spacing:0;}<br><br>.tt61 th{padding:0 80px; height:40px; background:#eee; position:sticky; top:0;<br>  border:solid #000; border-width:0 1px 1px 0; box-shadow:inset 0 1px 0 #000;}<br>.tt61 tr th:nth-child(1){left:0; z-index:3; box-shadow:inset 1px 1px 0 #000;}<br><br>.tt61 td{height:100px; border:solid #000; border-width:0 1px 1px 0;}<br>.tt61 tr td:nth-child(1){position:sticky; left:0; box-shadow:inset 1px 0 0 #000;}<br><br>/* опционально */<br>.tt61 tr th:last-child{box-shadow:inset -1px 1px 0 #000;}<br>.tt61 tr td:last-child{box-shadow:inset -1px 0 0 #000;}</code></pre>
+			<span class="yel" onclick='item61.classList.toggle("hiden");'>свернуть</span>
+		</div>
+	</div>
+</div><!-- /example 3 -->
+
+</body>
+</html>

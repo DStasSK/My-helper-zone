@@ -1,0 +1,228 @@
+<!DOCTYPE html><html><head><title>@-правила</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h1 class="sin" style="margin:0"><samp>@-</samp>правила</h1>
+<div class="cf">
+	<!-- оглавление -->
+		<ul class="ogl fl mt0" style="float:left; width:120px">
+			<li><a href="#charset"><samp>@charset</samp></a></li>
+			<li><a href="#document"><samp>@document</samp></a></li>
+			<li><a href="#font-face"><samp>@font-face</samp></a></li>
+			<li><a href="#import"><samp>@import</samp></a></li>
+			<li><a href="#keyframes"><samp>@keyframes</samp></a></li>
+			<li><a href="#media"><samp>@media</samp></a></li>
+			<li><a href="#page"><samp>@page</samp></a></li>
+			<li><a href="#supports"><samp>@supports</samp></a></li>
+			<li><a href="#viewport"><samp>@viewport</samp></a></li>
+		</ul><!-- /оглавление -->
+		<div style="margin:10px 0 10px 10px; width:calc(100% - 20px)">
+			<p>Используются для подключения дополнительных стилей или шрифтов, установки кодировки и др.</p>
+			<p>@-правила включают в себя все, что находится до первой, следующей после идентификатора, точки с запятой ( <samp>;</samp> ) либо до окончания первого, следующего за ним, структурного блока</p>
+			<pre class="item2"><code>@import "style.css";<br>@media print {body {color:green;}}</code></pre>
+		</div>
+</div>
+
+
+<div class="item mt20" id="charset">
+<h2 class="sin"><samp><a href="#">@charset</a></samp></h2>
+	<p>Команда <samp class="red">@charset</samp> применяется для задания кодировки внешнего CSS-файла. Это имеет значение в том случае, если в CSS-файле используются символы национального алфавита</p>
+	<p>Для внешней таблицы стилей браузер последовательно просматривает следующие пункты для определения кодировки таблицы стилей:</p>
+	<ul style="margin-top:5px">
+		<li>кодировка, которую отдает сервер;</li>
+		<li>правило <samp class="red">@charset;</samp></li>
+		<li>атрибут <samp class="sin">charset</samp> элемента <samp class="red">&lt;link></samp> (устарелo, не используйте его).</li>
+	</ul>
+	<p>Приведённый список имеет чётко выраженную иерархию — чем выше находится пункт, тем выше его приоритет. Если ни один из пунктов не найден, будет установлена кодировка <b>UTF-8</b>.</p>
+	<p>Для русского языка обычно указывается кодировка <b>windows-1251</b> или <b>utf-8</b>. Значение кодировки обязательно должно быть взято в кавычки.</p>
+
+	<pre class="item2"><code>@charset "windows-1251";<br>body {<br>  font: 11pt Arial, Helvetica, sans-serif;<br>  margin: 0;<br>}<br>p.new:after {<br>  content: " Новье!";<br>}</code></pre>
+</div>
+
+
+<div class="item" id="document">
+<h2 class="sin"><samp><a href="#">@document</a></samp></h2>
+	<p class="red" style="font-size:22px">Pаботает только нa firefox!!</p>
+	<p><samp class="red">@document</samp> устанавливает стилевые правила на основе адреса документа. К примеру, если адреса мобильной и основной версии сайта различаются, то мы можем задать собственный стиль элементов для каждой версии</p>
+	<pre class="item2 br0 ls-1"><code>@document [url(<адрес>) [, url-prefix(<адрес>)][, domain(<адрес>)][, regexp(<адрес>)] ] {<br>  Стилевые правила<br>}</code></pre>
+
+	<table class="t1 tb tc">
+		<caption>Значения:</caption>
+		<tr><td width="120px">url()</td><td>Указывает точный адрес страницы, для которой применяются стилевые правила. Адрес пишется внутри скобок <samp class="sin">url()</samp>.</td></tr>
+		<tr><td>url-prefix()</td><td>Значение, с которого начинается адрес документа.</td></tr>
+		<tr><td>domain()</td><td>Домен или поддомен сайта.</td></tr>
+		<tr><td>regexp()</td><td>Регулярное выражение которому соответствует адрес.</td></tr>
+	</table>
+	<pre class="item2 mt10"><code>&lt;style><br>  .ssl {display:none; background:#5bd4b6;}<br>  @-moz-document regexp("https:.*") {<br>    .ssl {display: block;}<br>  }<br>&lt;/style><br><br>&lt;!-- блок с классом ssl будет виден только на сайте,<br>     адрес которого начинается с протокола https. --><br>&lt;div class="ssl"><br>Для вашей безопасности на сайте мы используем защищённый протокол.<br>&lt;/div></code></pre>
+</div>
+
+
+<div class="item" id="font-face">
+<h2 class="sin"><samp><a href="#">@font-face</a></samp></h2>
+	<p>Правило <samp class="red">@font-face</samp> позволяет определить настройки шрифтов, а также загрузить специфичный шрифт на компьютер пользователя.</p>
+
+	<pre class="item2 br0"><code>@font-face { свойства шрифта }</code></pre>
+
+	<p>Внутри конструкции <samp class="red">@font-face</samp> может находиться набор свойств для изменения параметров шрифта (<samp class="sin">font-family, font-size, font-style</samp> и др.), а также ссылка на шрифтовой файл. Ссылка записывается в виде <samp class="red">src: url(<</samp>адрес<samp class="red">>)</samp>, где <b><адрес></b> — относительный или абсолютный путь к файлу.</p>
+	<p><i>Для каждого набора шрифта свой @font-fac</i>e</p>
+	<pre class="item2"><code>&lt;style><br>  @font-face {<br>    font-family: Pompadur;                /* Имя шрифта */<br>    src: url(/example/font/pompadur.ttf); /* Путь к файлу со шрифтом */<br>  }<br>  P {font-family: Pompadur;}<br>&lt;/style></code></pre>
+
+	<p>Браузер Internet Explorer до версии 9 поддерживает только шрифты формата EOT (Embedded OpenType).</p>
+	<p>Opera в некоторых случаях может не показывать на веб-странице текст выбранным шрифтом, заменяя его стандартным. Причём для локальных документов всё работает корректно. Это происходит в тех случаях, когда имя пользователя в Windows написано кириллицей.</p>
+</div>
+
+
+<div class="item" id="import">
+<h2 class="sin"><samp><a href="#">@import</a></samp></h2>
+	<p class="red" style="font-size:22px">Это свойство крайне не рекомендуют использовать</p>
+	<p>Правило <samp class="red">@import</samp> позволяет импортировать содержимое CSS-файла в текущую стилевую таблицу. <samp class="red">@import</samp>  не разрешается вставлять после любых объявлений кроме <samp class="red">@charset</samp> или другого <samp class="red">@import</samp>.</p>
+
+	<pre class="item2 br0"><code>@import url("имя файла") [типы носителей];<br>@import "имя файла" [типы носителей];</code></pre>
+
+	<p>В качестве типа носителя выступают различные устройства, например, принтер, КПК, монитор и др.</p>
+	<p>В качестве значения используется путь к стилевому файлу, который указывается внутри необязательной конструкции <b>url()</b>. Путь к файлу при этом можно писать как в кавычках (двойных или одинарных), так и без них.</p>
+
+	<pre class="item2"><code>&lt;style><br>   @import "/style/all.css" all;              /* Стиль для всех устройств */<br>   @import "/style/main.css" screen;          /* Стиль для мониторa */<br>   @import "/style/palm.css" handheld, print; /* Стиль для печати */<br>&lt;/style></code></pre>
+	<p>Браузер Internet Explorer до версии 7 включительно не поддерживает типы носителей при импорте стилевого файла. Более того, при добавлении типа носителя стилевой файл вообще не загружается.</p>
+</div>
+
+
+<div class="item" id="keyframes">
+<h2 class="sin"><samp><a href="#">@keyframes</a></samp></h2>
+	<p><samp class="red">@keyframes</samp> устанавливает ключевые кадры при анимации элемента. Ключевой кадр это свойства элемента (прозрачность, цвет, положение и др.), которые должны применяться к элементу в заданный момент времени.</p>
+	<pre class="item2"><code>@keyframes box {<br>  50% { left: 0; }<br>  90% { left: 300px; }<br>}</code></pre>
+	<p>Подробнее можно прочитать в разделе <a href="../../animation/index.html" class="sin tdu ls1">анимации</a>.</p>
+</div>
+
+
+<div class="item" id="media">
+<h2 class="sin"><samp><a href="#">@media</a></samp></h2>
+	<p>Правило <samp class="red">@media</samp> позволяет указать тип носителя, для которого будет применяться указанный стиль. В качестве типов выступают различные устройства, например, принтер, монитор и др.</p>
+	<p>Подробнее о медиазапросах можно прочитать в разделе <a href="@media.html" class="sin tdu ls1"><samp>@media</samp></a>.</p>
+	<pre class="item2"><code>@media (тип носителя) {<br>  (стилевые правила)<br>}</code></pre>
+
+	<table class="t1 tb tc mt20">
+		<caption>Типы носителей и их описание</caption>
+		<tr><td>all</td><td>Все типы. Это значение используется по умолчанию.</td></tr>
+		<tr><td>print</td><td>Принтеры и другие печатающие устройства.</td></tr>
+		<tr><td>screen</td><td>Экран монитора.</td></tr>
+		<tr><td>speech</td><td>Речевые синтезаторы, а также программы для воспроизведения текста вслух. Сюда, например, можно отнести речевые браузеры.</td></tr>
+	</table>
+	<table class="t1 tb tc mt20">
+		<caption>Устаревшие типы носителей</caption>
+		<tr><td>braille</td><td>Устройства, основанные на системе Брайля, которые предназначены для чтения слепыми людьми.</td></tr>
+		<tr><td>embossed</td><td>Принтеры, использующие для печати систему Брайля.</td></tr>
+		<tr><td>handheld</td><td>Наладонные компьютеры и аналогичные им аппараты.</td></tr>
+		<tr><td>projection</td><td>Проекторы.</td></tr>
+		<tr><td>tty</td><td>Устройства с фиксированным размером символов (телетайпы, терминалы, устройства с ограничениями дисплея).</td></tr>
+		<tr><td>tv</td><td>Телевизоры.</td></tr>
+	</table>
+	<p class="mt20">После ключевого слова <samp class="red">@media</samp> идёт один или несколько типов носителя, перечисленных в табл.; если их больше одного, то они разделяются между собой запятой. После чего следуют обязательные фигурные скобки, внутри которых пишутся стилевые правила.</p>
+
+	<pre class="item2 mb20"><code>&lt;style type="text/css"><br>  @media screen {                 /* Стиль для отображения в браузере */<br>    body {font-family: Arial, Verdana, sans-serif;}<br>    h1 {background:#faf0e6; color:#a0522d; padding: 7px;}<br>    h2 {color:#556b2f; margin:0;}<br>    p {margin-top: 0.5em;}<br>  }<br><br>  @media print {                  /* Стиль для печати */<br>    body {font-family: Times, 'Times New Roman', serif;}<br>    h1, h2, p {color: #000;}<br>  }<br>&lt;/style></code></pre>
+
+	<p>Команда <samp class="red">@media</samp> применяется в основном для формирования одного стилевого файла, который разбит на блоки по типу устройств. Иногда же имеет смысл создать несколько разных CSS-файлов — один для печати, другой для отображения в браузере — и подключать их к документу по мере необходимости. В подобном случае следует воспользоваться элементом <samp class="red">&lt;link></samp> с атрибутом <samp class="sin">media</samp>, значением которого выступают те же типы, перечисленные в таблице.</p>
+
+	<pre class="item2"><code>&lt;head><br>  &lt;meta charset="utf-8"><br>  &lt;title>@media&lt;/title><br>  &lt;link media="print" rel="stylesheet" href="print.css"><br>  &lt;link media="screen" rel="stylesheet" href="main.css"><br>&lt;/head></code></pre>
+</div>
+
+
+<div class="item" id="page">
+<h2 class="sin"><samp><a href="#">@page</a></samp></h2>
+	<p>Правило <samp class="red">@page</samp> позволяет задать значение полей при печати документа или для страниц, у которых тип носителя задан как <samp class="lsin">print</samp>.</p>
+	<pre class="item2"><code>@page [ { :left | :right | :first } ] { ... }</code></pre>
+
+	<p>Для установки полей на странице используется универсальное свойство <samp class="sin">margin</samp> или его производные — <samp class="sin">margin-top, margin-right, margin-bottom</samp> и <samp class="sin">margin-left</samp>, задающие соответственно отступ сверху, справа, снизу и слева. Отрицательное значение допускается, но часть страницы может оказаться «отрезанной». Свойства <b>border</b> и <b>padding</b> не применимы.</p>
+
+	<p>Ключевое слово <samp class="sin">:left</samp> позволяет задать поля для всех левых страниц, <samp class="sin">:right</samp> — для всех правых, а <samp class="sin">:first</samp> — для первой страницы.</p>
+
+	<p>IE8 действительно поддерживает правило <samp class="red">@page</samp>, но не поддерживает медиазапросы <samp class="red">@media</samp>. Поддержка медиазапросов появилась только в <b>9</b> версии <b>IE</b>. Лучше поместить все правила в стилевой файл и подключить его через <samp class="red">&lt;link></samp> со значением <samp class="sin">media="<samp class="lsin">print</samp>"</samp>.</p>
+
+	<div class="item2">
+		<pre><code>&lt;head><br>  &lt;meta charset="utf-8"><br>  &lt;title>@page&lt;/title><br>  &lt;link rel="stylesheet" href="/example/css/print.css" media="print"><br>&lt;/head></code></pre>
+		<pre><code><br>&lt;!-- файл print.css выглядит следующим образом --><br>body {font-family: Times, 'Times New Roman', serif;}<br>h1, h2, p {color: #000;}<br>@page :first {margin: 1cm;}               /* для первой страницы */<br>@page :left {margin: 1cm 3cm 1cm 1.5cm;}  /* для всех левых страниц */<br>@page :right {margin: 1cm 3cm 1cm 1.5cm;} /* для всех правых страниц */</code></pre>
+	</div>
+</div>
+
+
+<div class="item" id="supports">
+<h2 class="sin"><samp><a href="#">@supports</a></samp></h2>
+	<p>Правило <samp class="red">@supports</samp> позволяет проверить, поддерживает браузер ту или иную возможность, и на основе этого создать набор стилевых правил. Допустимо создавать комплексные условия с помощью логических операторов <b>not, and, or</b>.</p>
+	<pre class="item2 css"><code>@supports <условие> {<br>  <стилевые правила><br>}</code></pre>
+
+	<p>В качестве условия в круглых скобках пишется стилевое свойство и его значение. Далее в фигурных скобках идут стилевые правила. Если браузер поддерживает указанное свойство, то применяются заданные стилевые правила, в противном случае они игнорируются.</p>
+	<pre class="item2 css"><code>@supports (transform: perspective(300px)) {...<br>  /* Браузер поддерживает свойство transform с функцией perspective() */<br>}</code></pre>
+
+	<p>Для проверки того, что свойство не поддерживается применяется логический оператор <samp class="sin">not</samp>, он ставится перед условием.</p>
+	<pre class="item2 css"><code>@supports not (transform: perspective(300px)) {...<br>  /* Браузер НЕ поддерживает свойство transform с функцией perspective() */<br>}</code></pre>
+
+	<p>Объединить несколько условий можно через логический оператор <samp class="sin">and</samp>. Если хотя бы одно из условий не поддерживается, то стилевые правила не применяются.</p>
+	<pre class="item2 css"><code>@supports (transform-origin: 50% 100%) and (transform: perspective(300px)) {<br>  /* Браузер одновременно поддерживает свойства transform-origin И <br>     transform с функцией perspective() */<br>}</code></pre>
+
+	<p>Для выбора одного из условий используется логический оператор <samp class="sin">or</samp>. Если поддерживается хотя бы одно из условий, то применяются стилевые правила.</p>
+	<pre class="item2 css"><code>@supports (perspective: 300px) or (transform: perspective(300px)) {<br>  /* Браузер поддерживает свойство perspective ИЛИ <br>     свойство transform с функцией perspective() */<br>}</code></pre>
+
+	<div class="mt20"><b>Пример</b></div>
+	<pre class="item2"><code>&lt;style><br>  @supports (display: flex) {<br>    .no { display: none; }<br>  }<br>  @supports not (display: flex) {<br>    .yes { display: none; }<br>  }<br>&lt;/style><br><br>&lt;p class="yes">Ваш браузер поддерживает display: flex.&lt;/p><br>&lt;p class="no">Ваш браузер не поддерживает display: flex.&lt;/p></code></pre>
+</div>
+
+
+<div class="item" id="viewport">
+<h2 class="sin"><samp><a href="#">@viewport</a></samp></h2>
+	<p class="red" style="font-size:22px">Это свойство поддерживается токлько Internet Explorer и Edge.</p>
+	<p>Позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров. Является аналогом <samp class="red">&lt;meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>></samp>, но переносит параметры из HTML в правила CSS.</p>
+
+	<pre class="item2"><code>@-ms-viewport {<br>  <дескриптор>: <значение>;<br>}<br><br>@viewport {<br>  <дескриптор>: <значение>;<br>}</code></pre>
+	<div class="no">Internet Explorer и Edge используют правило <samp class="red">@-ms-viewport</samp>.</div>
+
+	<style>
+		.tt1 tr td:nth-child(2){vertical-align:middle;}
+		.tt1 ul{margin:0;padding-left:20px}
+	</style>
+	<table class="t1 tc tb tm40 tt1 mb10">
+		<caption>Значения:</caption>
+		<tr><td width="130px">min-width</td><td>Минимальная ширина области просмотра.</td></tr>
+		<tr><td>max-width</td><td>Максимальная ширина области просмотра.</td></tr>
+		<tr><td>width<br>device-width</td><td>Одновременно устанавливает min-width и max-width.</td></tr>
+		<tr><td>min-height</td><td>Минимальная высота области просмотра.</td></tr>
+		<tr><td>max-height</td><td>Максимальная высота области просмотра.</td></tr>
+		<tr><td>height<br>device-height</td><td>Одновременно устанавливает min-height и max-height.</td></tr>
+		<tr><td>zoom</td>
+			<td>Устанавливает начальный масштаб документа, может задаваться как положительное дробное число или в процентах. По умолчанию установлено значение auto.
+			<ul>
+				<li><samp class="lsin">auto</samp> - браузер автоматически устанавливает масштаб, чтобы целиком отобразить документ;</li>
+				<li><samp class="lsin"><число></samp> - значение 1.0 соответствует 100%;</li>
+				<li><samp class="lsin"><проценты></samp> - 100% указывает, что масштабирование не требуется.</li>
+			</ul></td></tr>
+		<tr><td>min-zoom</td><td>Устанавливает минимальный масштаб документа. По умолчанию установлено значение auto.</td></tr>
+		<tr><td>max-zoom</td><td>Устанавливает максимальный масштаб документа. По умолчанию установлено значение auto.</td></tr>
+		<tr><td>user-zoom</td>
+			<td>Определяет, может пользователь масштабировать документ или нет. По умолчанию установлено значение zoom.
+			<ul>
+				<li><samp class="lsin">zoom</samp> - пользователь может масштабировать документ;</li>
+				<li><samp class="lsin">fixed</samp> - пользователю запрещено изменять масштаб.</li>
+			</ul></td></tr>
+		<tr><td>orientation</td>
+			<td>Управляет ориентацией документа. По умолчанию установлено значение auto.
+			<ul>
+				<li><samp class="lsin">auto</samp> - устанавливает ориентацию автоматически на основе положения устройства;</li>
+				<li><samp class="lsin">portrait</samp> - документ должен быть зафиксирован в портретной ориентации;</li>
+				<li><samp class="lsin">landscape</samp> - документ должен быть зафиксирован в альбомной ориентации.</li>
+			</ul>
+			</td></tr>
+	</table>
+
+	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>@viewport&lt;/title><br>    &lt;style><br>      @viewport {<br>        width: device-width;<br>        zoom: 1;<br>        max-zoom: 2;<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>  ...<br>  &lt;/body><br>&lt;/html></code></pre>
+</div>
+
+</body>
+</html>

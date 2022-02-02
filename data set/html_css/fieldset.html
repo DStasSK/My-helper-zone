@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>&lt;fieldset></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.t1 tr td:nth-child(1) span{font-family:default; border-left:3px solid #00b; background:#ccf;font-weight:400; padding:3px 5px;display:inline-block; margin-top:4px; font-size:16px; letter-spacing:1px;}
+
+</style></head>
+<body>
+<div class="menu-help">
+	<a href="#fieldset"><samp>&lt;fieldset></samp></a>
+	<a href="#legend"><samp>&lt;legend></samp></a>
+</div>
+
+<h2 class="sin" id="fieldset"><samp>&lt;fieldset></samp></h2>
+
+<div class="item">
+	<p>Элемент <samp class="red bold">&lt;fieldset></samp> (от англ. form field set — набор полей формы) предназначен для группирования элементов формы. Такая группировка облегчает работу с формами, содержащими большое число данных, например, один блок может быть предназначен для ввода текстовой информации, а другой — для флажков.</p>
+	<p>Браузеры для повышения наглядности отображают результат использования элемента <samp class="red">&lt;fieldset></samp> в виде рамки. Её вид зависит от операционной системы, а также используемого браузера</p>
+	<pre class="item2"><code>&lt;form><br>  &lt;fieldset>...&lt;/fieldset><br>&lt;/form></code></pre>
+	<h3 class="mt20 sin mb0">Aтрибуты</h3>
+	<table class="t1 tc">
+		<!-- <caption>атрибуты:</caption> -->
+		<tr><td>disabled<br><span>HTML5</span></td>
+			<td>Блокирует поля формы в группе. Поля формы при этом отображаются так, словно к каждому из них добавлен атрибут <samp class="sin">disabled</samp>.
+			<pre class="item2"><code>&lt;fieldset disabled>...&lt;/fieldset></code></pre>
+			<div class="no">Internet Explorer хотя и делает поля формы неактивными, позволяет взаимодействовать с ними.</div></td></tr>
+		<tr><td>form<br><span>HTML5</span></td>
+			<td>Связывает группу с формой по её идентификатору. Такая связь необходима в случае, когда элемент не располагается внутри <samp class="red">&lt;form></samp>, например, при создании её программно. Если установлено связывание <samp class="red">&lt;form></samp> и <samp class="red">&lt;fieldset></samp> между собой, то можно отправлять данные на сервер и работать с формой, как если бы элементы находились внутри формы.
+			<pre class="item2"><code>&lt;fieldset form="идентификатор">...&lt;/fieldset></code></pre>
+			<div class="no">Поддерживается только в <samp class="sin"><b>Enge</b></samp></div>
+			</td></tr>
+	</table>
+</div>
+
+
+
+<h2 class="sin" id="legend"><samp>&lt;legend></samp></h2>
+
+<div class="item">
+	<p>Элемент <samp class="red bold">&lt;legend></samp> (от англ. legend — легенда, надпись) применяется для создания заголовка группы элементов формы, которая определяется с помощью <samp class="red">&lt;fieldset></samp>. Группа элементов обозначается в браузере с помощью рамки, а текст, который располагается внутри контейнера <samp class="red">&lt;legend></samp>, встраивается в эту рамку.</p>
+	<pre class="item2"><code>&lt;fieldset><br>  &lt;legend>Текст&lt;/legend><br>    ...<br>&lt;/fieldset></code></pre>
+	<div>Для этого элемента доступны <a href="uni attributs.html" class="sin tdu">универсальные атрибуты</a> и <a href="ivents.html" class="sin tdu">события</a>.</div>
+</div>
+
+
+
+
+<div class="item">
+<h3 class="sin">Пример формы 1</h3>
+	<form action="handler.php">
+		<fieldset>
+			<legend style="color:red">Работа со временем</legend>
+			<input type="checkbox"> создание пунктуальности (никогда не будете никуда опаздывать);<br>
+			<input type="checkbox"> излечение от пунктуальности (никогда никуда не будете торопиться);<br>
+			<input type="checkbox"> изменение восприятия времени и часов.
+			<p style="margin-bottom:0"><input type="submit"></p>
+		</fieldset>
+	</form>
+	<fieldset class="prm phtm mb40">
+		<legend class="point" onclick='pr1.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<pre class="item2 hiden" id="pr1" onclick="event.stopPropagation()"><code>&lt;form action="handler.php"><br>  &lt;fieldset><br>    &lt;legend>Работа со временем&lt;/legend><br>    &lt;input type="checkbox"> создание пунктуальности&lt;br><br>    &lt;input type="checkbox"> излечение от пунктуальности&lt;br><br>    &lt;input type="checkbox"> изменение восприятия времени<br>    &lt;p>&lt;input type="submit">&lt;/p><br>  &lt;/fieldset><br>&lt;/form></code></pre>
+	</fieldset>
+
+<h3 class="sin">Пример формы 2</h3>
+	<form action="handler.php">
+		<fieldset>
+			<input type="checkbox"> создание пунктуальности (никогда не будете никуда опаздывать);<br>
+			<input type="checkbox"> излечение от пунктуальности (никогда никуда не будете торопиться);<br>
+			<input type="checkbox"> изменение восприятия времени и часов.
+			<p style="margin-bottom:0"><input type="submit"></p>
+		</fieldset>
+	</form>
+	<fieldset class="prm phtm">
+		<legend class="point" onclick='pr2.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<pre class="item2 hiden" id="pr2" onclick="event.stopPropagation()"><code>&lt;form action="handler.php"><br>  &lt;fieldset><br>    &lt;input type="checkbox"> создание пунктуальности&lt;br><br>    &lt;input type="checkbox"> излечение от пунктуальности&lt;br><br>    &lt;input type="checkbox"> изменение восприятия времени<br>    &lt;p>&lt;input type="submit">&lt;/p><br>  &lt;/fieldset><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+</body>
+</html>

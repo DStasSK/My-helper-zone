@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>&lt;time></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.t-html5::after, .t-trash::after{margin-left:3px}
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp>&lt;time></samp></h2>
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;time></samp> (от англ. time — время) помечает текст внутри элемента как дата, время или оба значения. Может указываться непосредственно внутри контейнера <samp class="red">&lt;time></samp>, либо задаваться через атрибут <samp class="sin">datetime</samp>.</p>
+	<pre class="item2"><code>&lt;time>дата и время&lt;/time><br>&lt;time datetime="дата и время">текст&lt;/time></code></pre>
+</div>
+
+
+<div class="item" id="attributs">
+<h2 class="sin"><a href="#" title="наверх">Атрибуты</a></h2>
+	<table class="t1 t3 tb">
+		<tr><td id="datetime"><a href="#attributs">datetime</a></td>
+			<td><p>Задаёт дату, время или оба значения для текста. Содержимое атрибута напрямую в браузере не отображается. Дата и время задаётся в международном формате ISO 8601.</p>
+			<pre class="item2"><code>&lt;time datetime="дата и время">текст&lt;/time></code></pre>
+			<div class="no mb0 mt10">Более подробно про допустимые значения написано <a href="datetime.html" class="sin tdu">тут</a>.</div></td></tr>
+		<tr><td id="pubdate"><a href="#attributs">pubdate</a></td>
+			<td>Указывает дату и время публикации документа. Если атрибут <samp class="sin">pubdate</samp> добавляется внутрь элемента <samp class="red">&lt;article></samp>, то он обозначает дату и время публикации статьи.
+			<pre class="item2"><code>&lt;time pubdate>дата и время&lt;/time><br>&lt;time pubdate datetime="дата и время">текст&lt;/time></code></pre>
+			<div class="no mb0">Данный атрибут исключён из спецификации HTML5, не используйте его. Поддержка браузеров осталась.</div></td></tr>
+			</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример 1.</a></h3>
+	<pre class="item2"><code>&lt;article>
+  &lt;p>Опубликовано: <span style="letter-spacing:-0.4px">&lt;time datetime="2012-12-23T08:23:11+07:00">сегодня&lt;/time>&lt;/p></span>
+  &lt;p>&lt;time>1957-10-04&lt;/time> запущен первый искусственный спутник Земли.&lt;/p>
+  &lt;p>&lt;time>1960-08-19&lt;/time> первый полёт собак в космос.&lt;/p>
+  &lt;p>&lt;time>1961-04-12&lt;/time> первый полёт человека в космос.&lt;/p>
+  &lt;p>&lt;time>1963-06-16&lt;/time> первый полёт женщины-космонавта.&lt;/p>
+  &lt;p>&lt;time>1969-07-21&lt;/time> высадка человека на Луну.&lt;/p>
+&lt;/article></code></pre>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Пример 2.</a></h3>
+	<p>До недавнего времени считалось, что расходящийся ряд стремительно привлекает линейно зависимый <del cite="http://http://ru.wikipedia.org/wiki/Ряд_Фурье" datetime="2011-11-05T23:31:05+07:00">ряд Тейлора</del> <ins>Ряд Фурье</ins>, что известно даже школьникам.</p>
+
+	<pre class="item2"><code>&lt;p>До недавнего времени считалось, что расходящийся ряд 
+стремительно привлекает линейно зависимый 
+&lt;del cite="http://http://ru.wikipedia.org/wiki/Ряд_Фурье" 
+     datetime="2011-11-05T23:31:05+07:00">ряд Тейлора&lt;/del> 
+&lt;ins>Ряд Фурье&lt;/ins>, что известно даже школьникам.&lt;/p></code></pre>
+</div>
+
+</body></html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html><html><head><title>Псевдоклассы и псевдоэлементы</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="menu-help"><a href="#">Home</a><a href="#end">End</a></div>
+
+<h2 class="sin">Псевдоклассы и псевдоэлементы.</h2>
+<!-- оглавление -->
+	<ul class="ogl">
+		<li><a href="#z1">Псевдоклассы для тегов <samp>&lt;input> &lt;form> и &lt;textarea></samp></a></li>
+	</ul><!-- /оглавление -->
+
+
+
+<div class="item">
+<p><samp class="sin" id="pk-active">:active</samp></p>
+	<p>Чтобы пользователь понимал, что его щелчок по элементу сработал, в момент щелчка меняют вид элемента. Для этого используется псевдокласс <samp class="sin">:active</samp>, который добавляется к селектору.</p>
+	устанавливает стиль ссылки <b>в момент нажатия на неё</b>.
+	<pre class="item2"><code>a:active {color:#f30;}</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-link">:link</samp></p>
+	<p>Благодаря псевдоклассу можно изменить стиль ссылки и сайта в целом установив для неё необходимый формат. Этот параметр определяет необходимое стилевое оформление ссылкам, <b>которые ещё не посещались</b>.</p>
+	<pre class="item2"><code>a:link {color:#336699;}</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-visited">:visited</samp></p>
+	<p>Устанавливает стиль ссылки <b>по которой был осуществлён переход</b>. При использовании данного параметра, происходит замена стилей в соответствии с выбранными параметрами CSS, которыми могут быть цвет, фон и другие характерные опции.</p>
+	<pre class="item2"><code>a:visited {color:#336699;}</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-target">:target</samp></p>
+	<p>Для перехода к выбранному фрагменту документа, в адресе пишется символ <samp class="red"><b>#</b></samp> и указывается имя идентификатора. К примеру, в адресе <i class="lsin">http://www.w3.org/TR/css3-selectors/<samp class="red">#</samp>target-pseudo</i> происходит переход к элементу, атрибут <samp class="red">id</samp> которого задан как <samp class="sin">target-pseudo</samp>. Такая запись адреса называется <u>«целевой элемент»</u>.</p>
+	<p>Псевдокласс <samp class="sin">:target</samp> применяется к целевому элементу, иными словами, к идентификатору, который указан в адресной строке браузера.</p>
+	<p>Также этот псевдокласс стилизует «целевые элементы» при переходе внутри страницы по ссылкам (анкор).</p>
+	
+	<style>
+		#f10 {border:1px solid #ccc; background:#fafafa; padding:10px}
+		#f10 h3:target {background:#fc0;}
+		#f10 ul{padding:0 0 0 25px; margin-bottom:-10px; margin-top:0}
+	</style>
+	<div id="f10">
+		<ul>
+			<li><a href="#h1">История 1</a></li>
+			<li><a href="#h2">История 2</a></li>
+		</ul>
+		<h3 id="h1">История 1</h3>
+		<p>История о том, как необходимо было сделать, ее начали, а потом, и что из этого получилось.</p>
+		<h3 id="h2">История 2</h3>
+		<p>История о том, как возле столовой появились загадочные розовые с шестью пальцами, и почему это случилось.</p>
+	</div>
+
+	<pre class="item2"><code>&lt;style><br>  #f10 h3:target {background:#fc0;}<br>&lt;/style><br><br>&lt;div id="f10"><br>  &lt;ul><br>    &lt;li>&lt;a href="#h1">История 1&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#h2">История 2&lt;/a>&lt;/li><br>  &lt;/ul><br>  &lt;h3 id="h1">История 1&lt;/h3><br>  &lt;p>...&lt;/p><br>  &lt;h3 id="h2">История 2&lt;/h3><br>  &lt;p>...&lt;/p><br>&lt;/div></code></pre>
+
+	<p class="mt40">Можно ли сделать ссылку на <b>oбъект</b> через тег <samp class="red">&lt;a></samp>, а сам <b>oбъект</b> будет появляться только после нажатия на эту ссылку?</p>
+	<style>
+		#canvas {display:none;}
+		#canvas:target {display:inline-block;}
+	</style>
+	<div class="item2">
+		<a href="#canvas" class="sin tdu">Ссылка для отображения объекта</a>
+		<div id="canvas"> <span class="red">Oбъект</span></div>
+		<pre><code><br>&lt;style><br>  #canvas {display: none;}<br>  #canvas:target {display: block;}<br>&lt;/style><br><br>&lt;div class="item2"><br>  &lt;a href="#canvas">Ссылка для отображения объекта&lt;/a><br>  &lt;div id="canvas">&lt;span class="red">Oбъект&lt;/span>&lt;/div><br>&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-blank-empty">:empty и :blank</samp></p>
+	<p>Псевдокласс <b>:empty</b> выбирает все пустые элементы, это такие элементы, внутри которых нет дочерних элементов и текста, включая пробелы и переносы. Пустыми будут считаться следующие элементы.</p>
+	<pre class="item2"><code>&lt;style>div:empy{...}&lt;/style><br><br>&lt;div>&lt;/div><br>&lt;div>&lt;!-- Пустой -->&lt;/div></code></pre>
+
+	Соответственно, к непустым относятся следующие элементы.
+	<pre class="item2"><code>&lt;div> &lt;/div> &lt;!-- Есть пробел --><br>&lt;div>&nbsp;&lt;/div> &lt;!-- Есть символ --><br>&lt;div>Бла-бла&lt;/div> &lt;!-- Есть текст --><br>&lt;div>&lt;span>&lt;/span>&lt;/div> &lt;!-- Есть дочерний элемент --><br>&lt;div><br>&lt;/div> &lt;!-- Есть перенос текста --></code></pre>
+	<p>Псевдокласс <b>:blank</b> работает схожим образом - считает пустыми элементы, содержащие пробел или перенос строк. Псевдокласс :blank не поддерживается браузерами.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-checked">:checked</samp></p>
+	<p>Псевдокласс <b>:checked</b> применяется к элементам интерфейса, таким как переключатели (checkbox), флажки (radio) и пункты списка (option), когда они находятся в положение «включено». Переключение элементов в такое состояние происходит с помощью атрибута <samp class="lsin">checked</samp> элемента <samp class="red">&lt;input></samp> или пользователем.</p>
+	<p>Более подробно написано в разделе <a href="../checked.html"><samp class="red tdu">:checked</samp></a></p>
+
+	<pre class="item2"><code>input[type="radio"]:checked { ... }     /* Стиль применяется только ко включенным переключателям */<br>input[type="checkbox"]:checked { ... }  /* Стиль применяется только к помеченным флажкам (чекбоксам) */<br>option:checked { ... }                  /* Стиль применяется только к выбранным элементам списка */</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-indeterminate">:indeterminate</samp></p>
+	<p>Псевдокласс <b>:checked</b> пзадаёт стиль для переключателей, когда они находятся в неопределённом состоянии. К примеру, если ни один переключатель не помечен, то они находятся в указанном состоянии. В реальности, стиль применяется только к элементам, у которых DOM-атрибут <b>:indeterminate</b> через JavaScript установлен в значение <samp class="lsin">true</samp>. Также этот псевдокласс используется некоторыми браузерами для элемента <samp class="red">&lt;progress></samp>.</p>
+	<pre class="item2"><code>Селектор:indeterminate { ... }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-fullscreen">:fullscreen</samp></p>
+	<p>Применяется к элементам, когда браузер находится в полноэкранном режиме. При этом скрывается заголовок окна, адресная строка, вкладки, меню и другие стандартные элементы и браузер отображается на весь экран. Для перехода из стандартного режима в полноэкранный и обратно обычно применяется клавиша F11.</p>
+	<p>Чтобы псевдокласс работал, предварительно для отдельных элементов следует разрешить полноэкранный режим с помощью скриптов.</p>
+	<div class="item2">
+		<samp class="red point" onclick='fs.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="fs" onclick="event.stopPropagation()">
+			<pre><code>&lt;!DOCTYPE html><br>&lt;html><br> &lt;head>&lt;meta charset="utf-8">&lt;title>:fullscreen&lt;/title><br>  &lt;script><br>   function fullScreen() {<br>    var el = document.getElementById('msg'); // Получаем элемент<br>    if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();// Chrome, Opera, Safari<br>    else if (el.mozRequestFullScreen) el.mozRequestFullScreen(); // Firefox<br>    else if (el.msRequestFullscreen) el.msRequestFullscreen();   // Internet Explorer, Edge<br>    else if (el.requestFullscreen) el.requestFullscreen();       // Стандарт<br>   }<br>  &lt;/script><br>  &lt;style><br>   body { margin: 0; }<br>   #msg {padding:10px; background:#bc7062; color:#fff;}<br>   #msg:-ms-fullscreen { background: #6088a5; }<br>   #msg:-webkit-full-screen { background: #6088a5; }<br>   #msg:-moz-full-screen { background: #6088a5; }<br>  &lt;/style><br> &lt;/head><br> &lt;body><br>  &lt;div id="msg"><br>   Страница отображается в полноэкранном режиме.<br>  &lt;/div><br>  &lt;p>&lt;button onclick="fullScreen()">Посмотреть на полном экране!&lt;/button>&lt;/p><br> &lt;/body><br>&lt;/html></code></pre>
+			<span class="yel point" onclick='fs.classList.toggle("hiden");'>Свернуть</span>
+		</div>
+	</div>
+	<ul class="list">
+		<li>Internet Explorer поддерживает псевдокласс <samp class="sin">:-ms-fullscreen</samp></li>
+		<li>Chrome, Opera, Safari поддерживают псевдокласс <samp class="sin">:-webkit-full-screen</samp></li>
+		<li>Firefox поддерживает псевдокласс <samp class="sin">:-moz-full-screen</samp></li>
+	</ul>
+	<p class="mt20">Псевдоклассы для каждого браузера следует писать отдельно, а не перечислять их через запятую.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-hover">:hover</samp></p>
+	<p>устанавливает стиль элемента <b>при наведения на него курсора мыши</b>, без нажатия.</p>
+	<pre class="item2"><code>селектор:hover {color:#f30;}</code></pre>
+	<p>Благодаря данному псевдоклассу можно <a href="../hover.html" class="sin tdu">существенно преобразить</a> сайт.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-lang">:lang()</samp></p>
+	<p>Данный псевдокласс используется когда в документе содержатся абзацы текста на разных языках. Чтобы браузер различал их, элементу с текстом добавляется атрибут <samp class="sin">lang</samp> с кодом языка, например, <samp class="sin">lang="fr"</samp>. В результате чего этот элемент может быть стилизован при помощи селектора.</p>
+	<pre class="item2 css"><code>p:lang(fr) {css-стили}</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-not">:not</samp></p>
+	<p>задаёт правила стилей для элементов, которые не содержат указанный селектор.</p>
+	<pre class="item2"><code>Селектор:not(<Селектор>) { ... }</code></pre>
+
+	<p>В качестве селектора могут указываться единичные псевдоклассы, теги, идентификаторы, классы и селекторы атрибутов. Нельзя использовать псевдоэлементы и составные селекторы<br>:not (конструкция :not(:not(...)) запрещена).</p>
+	<pre class="item2"><code>input:not([type="submit"]) { ... }<br>div:not(.head) { ... }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin">:root</samp></p>
+	<p>Более подробно написано в разделе <a href="../root.html"><samp class="red tdu">:root</samp></a>
+	</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-first-child">:first-child</samp></p>
+	<p>Селектор или псевдокласс <samp class="sin">:first-child</samp> устанавливает стилевое оформление первого потомка элемента своего родителя.</p>
+	<pre class="item2"><code>:first-child {...}</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-last-child">:last-child</samp></p>
+	<p>Селектор или псевдокласс <samp class="sin">:last-child</samp> позволяет настраивать характеристики оформления последнего элемента из ряда блоков содержащихся внутри родительского контейнера.</p>
+	<pre class="item2"><code>:last-child {...}</code></pre>
+
+	<p>Псевдокласс <samp class="sin">:last-child</samp> можно использовать в частности для списков, например если элементу списка <samp class="red">&lt;li></samp> задать свойство <samp class="sin">border-bottom: </samp><samp class="lsin">3px solid black;</samp> то в результате под всеми словами или предложениями из которых состоит список появятся сплошная линия чёрного цвета толщина которой составляет три пикселя. С эстетической точки зрения последнюю подчёркивающую линию можно убрать, с помощью <samp class="sin">li:last-child</samp> задав свойство <samp class="sin">border-bottom</samp> со значением ноль:</p>
+	<pre class="item2"><code>li {border-bottom: 3px solid black;}<br><br>li:last-child {border-bottom:0;}</code></pre>
+</div>
+
+
+<div class="item">
+<samp class="sin" id="pk-nth-child">:nth-child()</samp> - элементы на основе их индекса (в порядке очереди) 
+	<br><samp class="sin">:nth-child(-n+3)</samp> - выбрать только первые три элемента (3, 2, 1)
+	<br><samp class="sin">:nth-child(n+2):nth-child(-n+4)</samp> - выбрать (2, 3, 4)
+	<br><samp class="sin">:nth-child(even)</samp> - каждый четный элемент (2, 4, 6, 8, и т.д.)
+	<br><samp class="sin">:nth-child(odd)</samp> - каждый нечетный элемент (1, 3, 5, 7, и т.д.)
+	<br>Использование <samp class="sin">:nth-child(2)</samp> без указания селектора выберет второй элемент любого типа 
+	<br>
+	<br><samp class="sin">:nth-of-type()</samp> - элементы одного типа на основе их индекса внутри контейнера
+	<br><samp class="sin">img:nth-of-type(2n) {float: left;}</samp> - установит обтекание по левому краю каждой четной картинке, при условии, что каждая из них не обёрнута другим блоком.
+	<br>Использование <samp class="sin">:nth-of-type(2)</samp> без указания селектора выберет второй элемент каждого типа.
+	<br><br>
+
+	<p>Псевдоклассы <b>:nth-child()</b> и <b>:nth-of-type()</b> выбирают заданные элементы из группы братских элементов, начиная с первого. В противоположность им, псевдоклассы <b>:nth-last-child()</b> и <b>:nth-last-of-type()</b> выбирают элементы, считая от последнего.</p>
+	<br><samp class="sin">:nth-last-child(2)</samp> - Выбирает предпоследний элемент.
+	<br><samp class="sin">:nth-last-child(-n+2)</samp> - Последние два элемента.
+	<br><samp class="sin">:nth-last-child(n+2)</samp> - Все элементы, кроме последних двух.
+	<br><br>
+	<p>Псевдокласс <samp class="sin">:only-child</samp> выбирает дочерний элемент, только если он является единственным у своего родителя. Если у родителя два дочерних элемента, то они не выбираются. Например: <samp class="sin">p:only-child</samp> находит элемент только при соблюдении двух условий: это единственный дочерний элемент и это элемент <samp class="sin">&lt;p></samp>.</p>
+	<p>Псевдокласс <samp class="sin">:only-of-type</samp> выбирает дочерний элемент определённого типа, только если он является единственным таикм у своего родителя, наличие других элеметнов, отличного от заданного - не влияют на выбор.</p>
+	<p>Таким образом, <samp class="sin">p:only-child</samp> находит только единственный элемент и только если это <samp class="sin">&lt;p></samp>, а <samp class="sin">p:only-of-type</samp> находит элемент <samp class="sin">&lt;p></samp> и смотрит, является ли он единственным.</p>
+</div>
+
+
+
+
+
+
+<h2 class="sin" style="margin:40px auto">
+<a href="#">Псевдоэлементы</a></samp></h2>
+
+<div class="item">
+<p><samp class="sin" id="pe-before-after">::before и ::after</samp></p>
+	<p>Данные псевдо элементы позволяют добавлять контент до или после блоков, которым задан данный элемент. Кроме того, элементы, такие как <samp class="red">&lt;input></samp>, <samp class="red">&lt;textarea></samp> или <samp class="red">&lt;img></samp> не содержат в себе другие элементы, таким образом псевдо-элементы к ним не применяются.</p>
+	<div class="no">По умолчанию <b><samp>::after</samp></b> создаёт строчный элемент.</div>
+
+	<pre class="item2 mt20"><code>span::after{content:'\A'; white-space:pre;}</code></pre>
+	перенос строки через псевдоэлемент <samp class="sin">::after</samp>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pe-backdrop">::backdrop</samp></p>
+	<p>Псевдоэлемент отображается ниже самого верхнего элемента в стеке по оси Z, но выше всех остальных элементов на странице, если они имеются. Обычно <b>::backdrop</b> применяется для затемнения страницы, чтобы акцентировать внимание на фотографии или диалоговом окне, которые выводятся поверх такого затемнения.</p>
+	<p>В настоящее время работает только с модальными окнами, созданными с помощью элемента <samp class="red">&lt;dialog></samp>.</p>
+
+	<pre class="item2 css"><code>Селектор::backdrop { ... }</code></pre>
+
+	<p style="float:left; margin-top:20px">Применяется со скриптами. Пример: 
+		<style>
+			.primer-dialog {display:inline-block; margin-left:10px; margin-top:20px;}
+			.primer-dialog dialog {width:300px;}
+			.primer-dialog dialog::backdrop {background: rgba(0,0,0,0.7);}
+		</style>
+		<div class="primer-dialog">
+			<button id="openDialog">Вход на сайт</button> 
+			<dialog>
+				<form id="authentication" action="handler.php">
+					<p><input name="login" required autofocus placeholder="Логин"></p>
+					<p><input type="password" name="pass" required placeholder="Пароль"></p>
+					<p><button type="submit">Войти</button> 
+					<button id="closeDialog">Закрыть окно</button></p>
+				</form> 
+			</dialog>
+			<script>
+				var dialog = document.querySelector('dialog');
+				document.querySelector('#openDialog').onclick = function() {dialog.showModal();}
+				document.querySelector('#closeDialog').onclick = function() {dialog.close();}
+			</script>
+		</div>
+	</p>
+
+	<div class="cf"></div>
+	<div class="item2 ls-05">
+		<samp class="red point" onclick='butt.classList.toggle("hiden");'>HTML</samp>
+		<pre class="hiden" id="butt" onclick="event.stopPropagation()"><code>&lt;style><br>  .primer-dialog {display:inline-block; margin-left:10px;}<br>  .primer-dialog dialog {width:300px;}<br>  .primer-dialog dialog::backdrop {background: rgba(0,0,0,0.7);}<br>&lt;/style><br><br>&lt;div class="primer-dialog"><br>  &lt;button id="openDialog">Вход на сайт&lt;/button><br>  &lt;dialog><br>    &lt;form id="authentication" action="handler.php"><br>      &lt;p>&lt;input name="login" required autofocus placeholder="Логин">&lt;/p><br>      &lt;p>&lt;input type="password" name="pass" required placeholder="Пароль">&lt;/p><br>      &lt;p>&lt;button type="submit">Войти&lt;/button><br>      &lt;button id="closeDialog">Закрыть окно&lt;/button>&lt;/p><br>    &lt;/form><br>  &lt;/dialog><br>  &lt;script><br>    var dialog = document.querySelector('dialog');<br>    document.querySelector('#openDialog').onclick = function() {dialog.showModal();}<br>    document.querySelector('#closeDialog').onclick = function() {dialog.close();}<br>  &lt;/script><br>&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="first-letter">::first-letter</samp></p>
+	<p>определяет стиль первого символа в тексте элемента, к которому добавляется. К этому псевдоэлементу могут применяться только стилевые свойства, связанные со свойствами шрифта, полями, отступами, границами, цветом и фоном. Hе работает на элементах со значением <samp class="sin">display:</samp><samp class="lsin"> inline;</samp>. Ставим <samp class="sin">display:</samp><samp class="sin"> block</samp> или <samp class="sin">display:</samp><samp class="sin"> inline-block;</samp></p>
+	<pre class="item2"><code>p::first-letter { ... }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pe-first-line">::first-line</samp></p>
+	<p>задаёт стиль первой строки форматированного текста. Длина этой строки зависит от многих факторов, таких как используемый шрифт, размер окна браузера, ширина блока, языка и т. д. В правилах стиля допустимо использовать только свойства, относящиеся к шрифту, изменению цвета текста и фона.</p>
+	<pre class="item2"><code>p::first-line { ... }</code></pre>
+	<style>.pp1::first-line{color:red}</style>
+	<p class="pp1">первую строку<br>можно отделить с помощью тега <samp><b>&lt;br></b></samp> и использовать как заголовок.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pe-selection">::selection</samp><span class="red" style="float:right">Позваляет задать цвет выделения текста.</span></p>
+	<p>Выделение обычно применяется для копирования в буфер фрагмента текста, чтобы после этого вставить выделенный фрагмент в другое место. Например, в текстовый редактор для дальнейшей правки текста. Сам цвет и фон выделенного фрагмента определяется настройками операционной системы, но с помощью CSS эти параметры можно задать самостоятельно.</p>
+	<p>В правилах стилей допускается использовать следующие свойства: <samp>color, background, background-color, cursor, outline и text-shadow</samp>.</p>
+	<p>Firefox до версии 62 использует нестандартный псевдоэлемент ::-moz-selection.</p>
+
+	<pre class="item2"><code>&lt;style><br>  ::selection {<br>    background:#809778;<br>    color:#fff;<br>  }<br>&lt;/style></code></pre>
+</div>
+
+
+
+
+
+
+
+
+<!-- input -->
+<h2 class="sin" id="z1" style="margin:40px auto">
+<a href="#">Псевдоклассы для тегов <samp>&lt;input> &lt;form> и &lt;textarea></a></samp></h2>
+
+
+
+<div class="item">
+<p><samp class="sin" id="pk-default">:default</samp></p>
+	<p>Псевдокласс <b>:default</b> применяет стиль к элементам форм, которые установлены по умолчанию в группе похожих элементов. Например, у нас может быть две кнопки для отправки данных формы на сервер. Одна из этих кнопок задана по умолчанию, мы можем изменить её стиль через <b>:default</b>.</p>
+	<div class="item2">
+		<pre><code>Селектор:default { ... }</code></pre>
+		<pre><code><br>&lt;style><br>  :default { background-color:lime; }<br>&lt;/style><br><br>&lt;form action="handler.php"><br>  &lt;p><br>    &lt;input type="submit"><br>    &lt;input type="submit"><br>    &lt;input type="reset"><br>  &lt;/p><br>&lt;/form></code></pre>
+	</div>
+	<p>В данном примере кнопка <b>Submit</b>, заданная по умолчанию, имеет другой цвет. Первая добавленная кнопка и является кнопкой по умолчанию.</p>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-disabled">:disabled</samp></p>
+	<p>используется для применения стиля к заблокированным элементам форм. Такие элементы не могут получить фокус, быть нажатыми или активированы, в текстовых полях нельзя набирать текст.</p>
+	<pre class="item2"><code>Селектор:disabled { ... }</code></pre>
+
+	<style type="text/css">
+		.ta3 {width:300px; height:30px; resize:none; background:#fcfcfc; display:inline-block;}
+		textarea:disabled::placeholder{color:red;}
+		.ta4{background:#eee;}
+	</style>
+	<form>
+		<textarea class="ta3" placeholder="введите текст"></textarea>
+		<textarea class="ta3 ta4" placeholder="заблокированно" disabled></textarea>
+	</form>
+
+	<pre class="item2 ls-05"><code>&lt;style type="text/css"><br>  .ta3 {width:300px; height:30px; resize:none; background:#fcfcfc; display:inline-block;}<br>  .ta4 {background:#eee;}<br>  textarea:disabled::placeholder {color:red;}<br>&lt;/style><br><br>&lt;form><br>  &lt;textarea class="ta3" placeholder="введите текст">&lt;/textarea><br>  &lt;textarea class="ta3 ta4" placeholder="заблокированно" disabled>&lt;/textarea><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-enabled">:enabled</samp></p>
+	<p>Псевдокласс <b>:enabled</b> используется для применения стиля к доступным (не заблокированным) элементам форм. По умолчанию, все элементы форм являются доступными, если в коде HTML к ним не добавляется атрибут <b>disabled</b>.</p>
+	<pre class="item2"><code>Селектор:enabled { ... }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-focus">:focus</samp></p>
+	<p>Псевдокласс :focus определяет стиль для элемента, получающего фокус. Например, им может быть текстовое поле формы, в которое устанавливается курсор.</p>
+	<p>Фокус могут получить не все элементы веб-страницы, а только ссылки, кнопки, поля формы. Чтобы заставить работать <b>:focus</b> для, скажем, изображений (<samp class="red">&lt;img></samp>) или ссылки (<samp class="red">&lt;a></samp>), надо добавить к ним атрибут <a href="help.html#tabindex"><samp class="sin tdu">tabindex</samp></a> — он позволяет переходить к изображениям через клавишу <b>Tab</b>. В качестве значения указываются целые числа, переход происходит от элемента с меньшим значением к элементу с большим значением.</p>
+	<div class="item2">
+		<pre><code>Селектор:focus { ... }</code></pre>
+		<pre><code><br>&lt;img src="image/thumb1.jpg" tabindex="1"><br><br>&lt;a href="1.html" tabindex="2">Ссылка&lt;/a></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-focus-within">:focus-within</samp></p>
+	<p>определяет стиль элемента, когда он сам или элементы внутри него получают фокус. В отличие от <b>:focus</b>, который применяется непосредственно к самому элементу, <b>:focus-within</b> работает для родителя. Это позволяет выделять цветом или другими методами всю форму или отдельные её части, когда пользователь работает с полями формы.</p>
+	<style>
+		.f3 {margin:10px 0; border:1px solid;}
+		.f3 button {margin:10px}
+		.f3 div {padding:10px; border-bottom:1px solid}
+		.f3 div:focus-within {background:#DEF0E7;}
+	</style>
+	<form action="/example/handler.php" class="f3">
+		<div>Введите ваше имя: <input name="user"></div>
+		<p><button>Отправить</button></p>
+	</form>
+
+	<pre class="item2"><code>&lt;style><br>  .f3 div {padding:10px;}<br>  .f3 div:focus-within {background:#DEF0E7;}<br>&lt;/style><br><br>&lt;form action="/example/handler.php" class="f3"><br>  &lt;div>Введите ваше имя: &lt;input name="user">&lt;/div><br>  &lt;p>&lt;button>Отправить&lt;/button>&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-in-range">:in-range</samp></p>
+	<p>Применяется к элементам форм, у которых введённое пользователем значение находится в заранее заданном диапазоне. Сам диапазон устанавливается с помощью атрибутов <b>min</b> и <b>max</b>, они, соответственно, задают минимальное и максимальное значение.</p>
+	<style>
+		.f4 input:in-range {background: #e2edc1;}
+		.f4 input:out-of-range {background: #f9c3d2;}
+	</style>
+	<form class="f4">
+		<p>Введите число от 1 до 10</p>
+		<p><input type="number" min="1" max="10" value="1"></p>
+	</form>
+
+	<pre class="item2"><code>&lt;style><br>  .f4 input:in-range {background: #e2edc1;}<br>  .f4 input:out-of-range {background: #f9c3d2;}<br>&lt;/style><br><br>&lt;form class="f4"><br>  &lt;p>Введите число от 1 до 10&lt;/p><br>  &lt;p>&lt;input type="number" min="1" max="10" value="1">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-out-of-range">:out-of-range</samp></p>
+	<p>Псевдокласс применяется к полям форм, у которых введённое пользователем значение выходит из заданного диапазона. Псевдокласс работает только для тех полей, где пользователь может сам ввести значение, даже несмотря на ограничения наложенные атрибутами <b>min</b> и <b>max</b>.</p>
+	<style>
+		.f6 input:in-range {background:#e2edc1;}
+		.f6 input:out-of-range {background:#f9c3d2;}
+		.f6 label { height: 1em; }
+		.f6 input:out-of-range + label::after {
+			content:'Неверное число';
+			color:#ec008c;
+			margin-left:0.5em;}
+	</style>
+	<form class="f6">
+		<p>Введите число от 1 до 10</p>
+		<p><input type="number" id="dec" min="1" max="10" value="1">
+		<label for="dec"></label></p>
+	</form>
+
+	<pre class="item2"><code>&lt;style><br>  .f6 input:in-range {background:#e2edc1;}<br>  .f6 input:out-of-range {background:#f9c3d2;}<br>  .f6 <abbr title="label по высоте нулевой, поэтому текст выводится, но не виден. Добавьте height: 1em к label.">label {height:1em;}</abbr><br>  .f6 input:out-of-range + label::after {content:'Неверное число'; color:#ec008c; margin-left:0.5em;}<br>&lt;/style><br><br>&lt;form class="f6"><br>  &lt;p>Введите число от 1 до 10&lt;/p><br>  &lt;p>&lt;input type="number" id="dec" min="1" max="10" value="1"><br>  &lt;label for="dec">&lt;/label>&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-invalid">:invalid</samp></p>
+	<p>Применяется к полям формы, содержимое которых не соответствует указанному типу. Например, для <b>type="number"</b> должно вводиться число, а не буквы, для <b>type="email"</b> корректный адрес электронной почты.</p>
+	<style>
+		.f5 input:invalid {background: #fdd;} /* Красный цвет фона */
+		.f5 input:valid {background: #dfd;}   /* Зелёный цвет фона */
+		.f50 {background:#ccc;}
+		#f51 {background:#ccc;}
+	</style>
+	<form class="f5">
+		<p>Адрес сайта</p>
+		<p><input type="url" required></p>
+		<p>Адрес электронной почты</p>
+		<p><input type="email" required></p>
+		<p><input type="submit" value="Отправить" id="f51"></p>
+		<p><input type="submit" value="Отправить" class="f50"></p>
+	</form>
+
+	<pre class="item2"><code>&lt;style><br>  .f5 input:invalid {background: #fdd;} /* Красный цвет фона */<br>  .f5 input:valid {background: #dfd;}   /* Зелёный цвет фона */<br>  .f50 {background:#ccc;}<br>  #f51 {background:#ccc;}<br>&lt;/style><br><br>&lt;form class="f5"><br>  &lt;p>Адрес сайта&lt;/p><br>  &lt;p>&lt;input type="url" required>&lt;/p><br>  &lt;p>Адрес электронной почты&lt;/p><br>  &lt;p>&lt;input type="email" required>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить" id="f51">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить" class="f50">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-valid">:valid</samp></p>
+	<p>Применяется к полям формы, содержимое которых проходит проверку в браузере на соответствие указанному типу. Например, для <samp class="sin">type="<samp class="lsin">number</samp>"</samp> вводится число, а не буквы, для <samp class="sin">type="<samp class="lsin">email</samp>"</samp> корректный адрес электронной почты.</p>
+	<pre class="item2"><code>Селектор:valid { ... }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-optional">:optional</samp></p>
+	<p>Псевдокласс применяет стилевые правила к элементу <samp class="red">&lt;input></samp>, у которого не задан атрибут <b>required</b> (он позволяет выделять поля обязательные к заполнению перед отправкой формы). Таким образом <samp class="sin">:optional</samp> применяется к необязательным полям формы.</p>
+	<pre class="item2"><code>input:optional { ... }</code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-required">:required</samp></p>
+	<p>Псевдокласс применяет стилевые правила к элементу <samp class="red">&lt;input></samp>, у которого установлен атрибут <samp class="sin">required</samp>, он позволяет выделять поля обязательные к заполнению перед отправкой формы.</p>
+	<pre class="item2"><code>input:required {  ...  }</code></pre>
+	<style>
+		#f9 {border:1px solid}
+		#f9 p {margin: 0 0 5px;}
+		#f9 label {width:110px; float:left; text-align:right; padding-right:10px;}
+		#f9 input[type="text"], #f9 textarea {width: 320px; background:#fefefe;}
+		#f9 input:required {border:2px solid red;}
+	</style>
+	<form action="handler.php" id="f9">
+		<p><label for="user">Имя</label>
+		<input id="user" type="text" required></p>
+		<p><label for="email">E-mail</label><input id="email" type="text"></p>
+		<p><label for="text">Комментарий</label>
+			<textarea cols="40" rows="10" id="text"></textarea></p>
+		<p><label>&nbsp;</label><input type="submit" id="send" value="Отправить"></p>
+	</form>
+
+	<pre class="item2"><code>&lt;style><br>  #f9 p {margin: 0 0 5px;}<br>  #f9 label {width:110px; float:left; text-align:right; padding-right:10px;}<br>  #f9 input[type="text"], #f9 textarea {width:320px;}<br>  #f9 input:required {border:2px solid red;}<br>&lt;/style><br><br>&lt;form action="handler.php" id="f9"><br>  &lt;p>&lt;label for="user">Имя&lt;/label><br>  &lt;input id="user" type="text" required>&lt;/p><br>  &lt;p>&lt;label for="email">E-mail&lt;/label>&lt;input id="email" type="text">&lt;/p><br>  &lt;p>&lt;label for="text">Комментарий&lt;/label><br>     &lt;textarea cols="40" rows="10" id="text">&lt;/textarea>&lt;/p><br>  &lt;p>&lt;label>&nbsp;&lt;/label>&lt;input type="submit" id="send" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pe-placeholder">::placeholder</samp></p>
+	<p>Псевдоэлемент, с помощью которого задаётся стилевое оформление подсказывающего текста, созданного атрибутом <samp class="sin">placeholder</samp>. Допускается использовать свойства для изменения вида текста, например, задать шрифт и цвет.</p>
+	<pre class="item2"><code>&lt;style><br>  input[type="search"]::-moz-placeholder          {color:#009}<br>  input[type="search"]:-moz-placeholder          {color:#009}<br>  input[type="search"]::-webkit-input-placeholder {color:#009}<br>  input[type="search"]:-ms-input-placeholder      {color:#009} /* не ошибка */<br>  input[type="search"]::-ms-input-placeholder     {color:#009} /* их два */<br>  input[type="search"]::placeholder               {color:#009}<br>&lt;/style></code></pre>
+	<style type="text/css">
+		.ta {width:500px; height:30px; color:red; resize:none; background:#fcfcfc;}
+		.ta::placeholder{color:#009;}
+	</style>
+	<textarea class="ta" placeholder="введите красный текст"></textarea>
+	<div class="no">
+		Т.к. в разных браузерах цвет шрифта <samp class="sin">placeholder</samp> может быть прозрачной, то лучше дополнительно указывать параметр <samp class="sin">opacity</samp>
+
+		<pre class="item2"><code>  ::-webkit-input-placeholder {color:#f00; opacity:1;}<br>  ::-moz-placeholder          {color:#f00; opacity:1;}<br>  :-moz-placeholder           {color:#f00; opacity:1;}<br>  :-ms-input-placeholder      {color:#f00; opacity:1;}</code></pre>
+	</div>
+	<div class="no">IE8 не поддерживают атрибут «placeholder» — он просто не будет отображаться. Для отображени подсказки в браузерах, которые не поддерживают атрибут, необходимо использовать скрипты.</div>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-placeholder-shown">:placeholder-shown</samp></p>
+	<p>Определяет стиль элемента <samp class="red">&lt;input></samp> или <samp class="red">&lt;textarea></samp>, который в данный момент отображает текст подсказки, заданной атрибутом <b>placeholder</b> (при этом текст в поле еще не введен).</p>
+	<p>Так же можно прятать текст подсказки при фокусе поля ввода - задавая ей цвет как transparent;</p>
+	<pre class="item2"><code>input:focus:placeholder-shown {-webkit-text-fill-color:transparent;}</code></pre>
+	<style type="text/css">
+		.ta2 {width:500px; height:30px; color:red; resize:none; background:#fcfcfc;}
+		.ta2:focus:placeholder-shown {-webkit-text-fill-color:transparent;}
+		.ta2::placeholder{color:#009;}
+	</style>
+	<textarea class="ta2" placeholder="введите красный текст"></textarea>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-read-only">:read-only</samp></p>
+	<p>Псевдокласс применяется к полям формы, у которых задан атрибут <samp class="sin">readonly</samp>. Такое поле не может быть модифицировано, при этом оно получает фокус, а данные в таком поле можно выделить и скопировать.</p>
+	<p>Firefox поддерживает псевдокласс <samp class="red">:-moz-read-only</samp>.</p>
+	<pre class="item2"><code>input:-moz-read-only { ... }<br>input:read-only { ... }</code></pre>
+
+	<style>
+		#f7 {border:1px solid; padding:5px 8px 8px}
+		#f7 input:read-only {opacity:0.3;} /* Полупрозрачность */	
+	</style>
+	<form action="handler.php" id="f7">
+		<p><input type="text" name="comment" size="40" value="Введенный текст не может изменяться" readonly></p>
+		<p><input type="submit" value="Отправить"></p>
+	</form>
+
+	<pre class="item2"><code>&lt;style><br>  #f7 input:read-only {opacity:0.5;} /* Полупрозрачность */<br>&lt;/style><br><br>&lt;form action="handler.php" id="f7"><br>  &lt;p>&lt;input type="text" name="comment" size="40"<br>  value="Введенный текст не может изменяться" readonly>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<p><samp class="sin" id="pk-read-write">:read-write</samp></p>
+	<p>Псевдокласс применяется к полям формы, доступных для изменения. Псевдокласс <samp class="sin">:read-write</samp> является противоположным по своему действию <samp class="sin">:read-only</samp>, который применяется к полям с атрибутом <samp class="sin">readonly</samp> (только для чтения).</p>
+	<p>Firefox поддерживает псевдокласс <samp class="red">:-moz-read-write</samp>.</p>
+	<pre class="item2"><code>input:-moz-read-write { ... }<br>input:read-write { ... }</code></pre>
+	<style>
+		#f8 {border:1px solid; padding:5px 8px 8px; margin:10px 0;}
+		#f8 input:read-only {border: 3px solid grey;}
+		#f8 input:read-write {border: 3px solid green;}
+	</style>
+	<form action="handler.php" id="f8">
+		<p><input type="text" size="40" value="Введенный текст не может изменяться" readonly></p>
+		<p><input type="text" size="40" value="Заранее введенный текст"></p>
+		<p><input type="text" size="40" value="disabled" disabled></p>
+		<p><input type="submit" value="Отправить"></p>
+	</form>
+
+	<p>Как видно из примера элемнт <samp class="red">&lt;input></samp> с параметром <samp class="lsin">disabled</samp> применяет на себя параметры заданные псевдоклассом <samp class="sin">:read-write</samp>.</p>
+
+	<pre class="item2"><code>&lt;style><br>  #f8 input:read-only {border: 3px solid grey;}<br>  #f8 input:read-write {border: 3px solid green;}<br>&lt;/style><br><br>&lt;form action="handler.php" id="f8"><br>  &lt;p>&lt;input type="text" size="40" value="Введенный текст не может изменяться" readonly>&lt;/p><br>  &lt;p>&lt;input type="text" size="40" value="Заранее введенный текст">&lt;/p><br>  &lt;p>&lt;input type="text" size="40" value="disabled" disabled>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div id="end" style="line-height:0;font-size:0"></div>
+</body>
+</html>

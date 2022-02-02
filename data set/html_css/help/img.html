@@ -1,0 +1,356 @@
+<!DOCTYPE html><html><head><title>&lt;img&gt;</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.abb abbr{border-bottom:1px dotted red; text-decoration:none; padding-bottom:1px;}
+</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;img></samp> - тег ввода изображения</h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#orientation"><samp>Image Orientation</samp></a></li>
+			<li><a href="#aimg">Атрибуты <samp class="red">&lt;img></samp></a></li>
+			<li><a href="#o-map">Описание тэга <samp>&lt;map></samp></a></li>
+			<li><a href="#area">Тэг <samp>&lt;area></samp></a></li>
+			<li><a href="#aar">Атрибуты <samp>&lt;area></samp></a></li>
+			<li><a href="#pr1">Пример создания карты-изображения</a></li>
+			<li><a href="#ire"><samp>image-rendering</samp></a></li>
+			<li><a href="#of"><samp class="sin">object-fit</samp></a></li>
+			<li><a href="#figure"><samp class="red">&lt;figure></samp> и <samp class="red">&lt;figcaption></samp></a></li>
+			<li><a href="#imgcenrt">Выравнивание картинки по центру (пример)</a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item abb">
+	<p>Для отображения картинки, на странице сайта, используется тег <samp class="red bold">&lt;img></samp>. Если на том или ином сайте необходимо расположить какие-либо графические элементы, то для этого нужно использовать такие форматы, как <abbr class="red" title="Joint Photographic Experts Group">*.jpeg</abbr>, <abbr class="red" title="Portable Network Graphics">*.png</abbr> или <abbr class="red" title="Graphics Interchange Format">*.gif</abbr>. Эти форматы поддерживаются абсолютно всеми распространенными браузерами.</p>
+	<p>Так же можно использовать форматы: <abbr class="red" title="Animated Portable Network Graphics">*.apng</abbr>, <abbr class="red" title="Scalable Vector Graphics">*.svg</abbr>, <abbr class="red" title="Bitmap Picture">*.bmp</abbr>, <abbr class="red" title="Windows icon">*.ico</abbr></p>
+	<p>Для того, чтобы отобразить графику в других форматах, зачастую требуется использовать различные специальные средства.</p>
+	<p>Все файлы изображений, используемых на WEB-страницах, обычно хранятся в папках, которые имеют имена <span class="sin">«img»</span> или <span class="sin">«images»</span>. В тех случаях, когда речь идет об изображениях, формирующих дизайн сайта, то для них лучше предусмотреть специальную папку например – <span class="sin">«design»</span>.</p>
+	<br>
+	Код для вывода изображения в <span class="red">HTML</span>, выглядит следующим образом:
+	<pre class="item2"><code>&lt;img src="URL" width="150" height="150" alt=""></code></pre>
+	Для вывода изображения в <span class="red">XHTML</span>, в коде добавляется слеш с отступом:
+	<pre class="item2"><code>&lt;img src="URL" width="150" height="150" alt="" /></code></pre>
+
+	<div class="no mt40">У картинок внутри блока снизу появляется небольшое пространство, т.к. <samp class="red">&lt;img></samp> лежит на базовой линии "текстового потомка по-умолчанию".</div>
+	<div>Убрать его можно разными способами, у каждого из них есть свои недостатки:
+		<ul style="margin:0;">
+			<li>установить <samp class="sin">line-height:0;</samp> для родителя.</li>
+			<li>установить <samp class="sin">font-size:0;</samp> для родителя.</li>
+			<li>установить <samp class="sin">display:block;</samp> для изображения.</li>
+			<li>использовать параметр <a href="../txt/vertical-align.html"><b><samp class="sin tdu">vertical-align</samp></b></a> для изображения.</li>
+			<li>использовать <a href="#fflex"><b><samp class="sin tdu">display:flex;</samp></b></a> для родителя.</li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><a href="#">Указание размеров картинки</a></h2>
+	<p>Чтобы средствами HTML можно было изменять размеры рисунков, тег <samp class="red">&lt;img></samp> имеет такие атрибуты, как <samp class="sin">heigh</samp> (высота) и <samp class="sin">width</samp> (ширина). Для указания их значений применяются пиксели, причем таким образом, чтобы сами аргументы совпадали с теми физическими размерами, которые имеет картинка.</p>
+	<p>В коде HTML в обязательном порядке следует задавать размеры, которые имеет картинка. Благодаря этому ее загрузка несколько ускорится, поскольку браузер заблаговременно будет располагать информацией о том, какой размер будет иметь изображение. Это позволит ему производить загрузку другого содержимого страницы не дожидаясь того момента, когда изображение загрузится полностью.</p>
+</div>
+
+
+<div class="item" id="orientation">
+<h2 class="sin"><a href="#"><samp>Image Orientation</samp></a></h2>
+	<p>Можно вращать изображение или отразить его по горизонтали с помощью нового свойства <samp>image-orientation</samp>.</p>
+	<pre class="item2"><code>img {image-orientation: flip;}  /* отразить изображение по горизонтали */<br>img {image-orientation: 90deg;} /* повернуть изображение на 90 градусов по часовой */</code></pre>
+	<div class="no">
+		Почему-то не работает (в Opere)
+		<br>Можно использовать параметр <a href="../transform.html#flips"><span class="tdu sin">transform</span></a>
+	</div>
+</div>
+
+
+<div class="item" id="aimg">
+<h2 class="sin"><a href="#">Атрибуты тега <samp>&lt;img></samp></a></h2>
+	<table class="t1 tb">
+		<tr><td>alt</td>
+			<td><p>Чтобы создать альтернативный текст, следует применять атрибут <samp class="sin">alt</samp> для тега <samp class="red">&lt;img></samp>. Альтернативный текст необходим для того, чтобы картинки были обозначены некоей текстовой информацией в тех случаях, когда в браузере показ изображений отключен, или же на период их загрузки. По его содержанию можно судить о том, что изображено на картинке, причем появляется он до ее загрузки.</p>
+			После того как загрузка <span class="red">картинки</span> завершена, альтернативный текст исчезает.
+			<pre class="item2"><code>&lt;img alt="Альтернативный текст" /></code></pre></td></tr>
+		<tr><td><span style="letter-spacing:-1px">crossorigin</span><br><span class="html5 ml-10"></span></td>
+			<td><p>Атрибут <samp class="sin">crossorigin</samp> позволяет загружать изображения с ресурсов другого домена с помощью CORS-запросов. Изображения, загруженные в холст с помощью CORS-запросов, могут быть использованы повторно.</p>
+			Допускаемые значения:
+			<p><samp class="lsin">anonymous</samp> - cross-origin запрос выполняется с помощью HTTP-заголовка, при этом учетные данные не передаются. Если сервер не даёт учетные данные серверу, с которого запрашивается контент, то изображение будет испорчено и его использование будет ограничено.</p>
+			<p><samp class="lsin">use-credentials</samp> - cross-origin запрос выполняется с передачей учетных данных.</p>
+			<pre class="item2"><code>&lt;img crossorigin="anonymous" /></code></pre></td></tr>
+		<tr><td>height</td>
+			<td>Атрибут <samp class="sin">height</samp> задает высоту изображения как в пикселях, так и в процентах. В первом случае размер изображения не зависит от разрешения экрана и всегда будет постоянным, а во втором он будет меняться в зависимости от разрешения экрана.
+			<pre class="item2"><code>&lt;img src="/images/picture.jpg" width="200" height="200"><br>&lt;img src="/images/picture.jpg" width="25%" height="15%"></code></pre></td></tr>
+		<tr><td>ismap</td>
+			<td>Атрибут <samp class="sin">ismap</samp> указывает на то, что картинка является частью изображения-карты, расположенного на сервере (изображение-карта - изображение с интерактивными областями). При нажатии на изображение-карту координаты передаются на сервер в виде строки запроса URL-адреса. Атрибут <samp class="sin">ismap</samp> допускается только в случае, если элемент <samp class="red">&lt;img></samp> является потомком элемента <samp class="red">&lt;a></samp> с действительным атрибутом <samp class="sin">href</samp>.
+			<pre class="item2"><code>&lt;img src="/images/picture.jpg" ismap=""></code></pre></td></tr>
+		<tr><td>longdesc</td>
+			<td>URL расширенного описания изображения, дополняющее атрибут <samp class="sin">alt</samp>.
+			<pre class="item2"><code>&lt;img src="" alt=""<br>     longdesc="http://www.example.com/description.txt"></code></pre></td></tr>
+		<tr><td>src</td>
+			<td><p>Для того чтобы на WEB-страницу добавить изображение, следует использовать тег <samp class="red">&lt;img></samp>. Он должен сопровождаться атрибутом <samp class="sin">src</samp>, который определяет тот адрес, по которому размещен графический файл.</p>
+			В тех случаях, когда файл располагается в одной папке со страницей, то его адрес можно не указывать. Достаточно просто имени и расширения графического файла.
+			<pre class="item2"><code>&lt;img src="picture.jpg"></code></pre>
+			Если же он располагается в другой папке, то надо указывать путь к нему.
+			<pre class="item2"><code>&lt;img src="/images/picture.jpg"></code></pre></td></tr>
+		<tr><td>sizes<br><span class="html5 ml-10"></span></td>
+			<td>Задаёт размер изображения в зависимости от параметров отображения. Работает только при заданном атрибуте <samp class="sin">srcset</samp>. Значением атрибута является одна или несколько строк, указанных через запятую.</td></tr>
+		<tr><td>srcset<br><span class="html5 ml-10"></span></td>
+			<td>Создаёт список источников для изображения, которые будут выбраны, исходя из разрешения экрана. Может использоваться вместе или вместо атрибута <samp class="sin">src</samp>. Значением атрибута является одна или несколько строк, разделенных запятой.
+			<pre class="item2"><code>&lt;img src="flower.jpg"<br>     srcset="<br>       img/flower-mobile.jpg 320w,<br>       img/flower-wide-mobile.jpg 480w,<br>       img/flower-tablet.jpg 768w,<br>       img/flower-desktop.jpg 1024w,<br>       img/flower-hires.jpg 1280w"<br>     sizes="<br>       (max-width: 20em) 30vw,<br>       (max-width: 30em) 60vw,<br>       (max-width: 40em) 90vw"<br>     alt="Роза в моём саду"></code></pre></td></tr>
+		<tr><td>title</td>
+			<td>Эта подсказка, как правило, применяется для того, чтобы при наведении курсора мышки на картинку появился краткий комментарий к ее содержанию. Чтобы добавить всплывающую подсказку, используют параметр <samp class="sin">title</samp> тега <samp class="red">&lt;img></samp>. Его значением является заключенный в кавычки текст.
+			<pre class="item2"><code>&lt;img title="Всплывающая подсказка" /></code></pre></td></tr>
+		<tr><td>usemap</td>
+			<td><p>Атрибут <samp class="sin">usemap</samp> определяет изображение в качестве карты-изображения. Значение обязательно должно начинаться с символа <samp class="red">#</samp>. Значение ассоциируется со значением атрибута <samp class="sin">name</samp> или <samp class="sin">id</samp> тега <samp class="red">&lt;map></samp> и создает связь между элементами <samp class="red">&lt;img></samp> и <samp class="red">&lt;map></samp>.</p>
+			Атрибут нельзя использовать, если элемент <samp class="red">&lt;map></samp> является потомком элемента <samp class="red">&lt;a></samp> или <samp class="red">&lt;button></samp>.
+			<pre class="item2"><code>&lt;img src="" usemap="#mymap" /></code></pre></td></tr>
+		<tr><td>width</td>
+			<td>Атрибут <samp class="sin">width</samp> задает ширину изображения как в пикселях, так и в процентах. В первом случае размер изображения не зависит от разрешения экрана и всегда будет постоянным, а во втором он будет меняться в зависимости от разрешения экрана.
+			<pre class="item2"><code>&lt;img src="/images/picture.jpg" width="200" height="200"><br>&lt;img src="/images/picture.jpg" width="25%" height="15%"></code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="o-map">
+<h2 class="sin"><a href="#">Тег <samp>&lt;map></samp></a></h2>
+	<p>Элемент <samp class="red">&lt;map></samp> (от англ. map — карта) служит контейнером для элементов <samp class="red">&lt;area></samp>, которые определяют активные области для карт-изображений. Такие области устанавливают невидимые зоны на изображении, являющиеся ссылками на HTML-документы. Цель использования <samp class="red">&lt;map></samp> — в связывании элемента <samp class="red">&lt;img></samp> с клиентской картой-изображением. Эта связь определяется применением единого идентификатора как в <samp class="red">&lt;img></samp>, задаваемого атрибутом <samp class="sin">usemap</samp>, так и в <samp class="red">&lt;map></samp>, устанавливаемого атрибутом name.</p>
+
+	<pre class="item2"><code>&lt;img src="url" usemap="#имя_карты"><br>&lt;map name="имя_карты"><br>  &lt;area><br>&lt;/map></code></pre>
+
+	<p>Элемент <samp class="red">&lt;map></samp> содержит ряд элементов <samp class="red">&lt;area></samp>, определяющих интерактивные области в изображении карты.</p>
+</div>
+
+
+<div class="item" id="area">
+<h2 class="sin"><a href="#">Тег <samp>&lt;area></samp></a></h2>
+	<p>Тег <samp class="red">&lt;area></samp> описывает только одну активную область в составе карты изображений на стороне клиента. Элемент не имеет закрывающего тега. Если одна активная область перекрывает другую, то будет реализована первая ссылка из списка областей.</p>
+	<pre class="item2"><code>&lt;map name="имя_карты"><br>  &lt;area атрибуты><br>&lt;/map></code></pre>
+</div>
+
+
+<div class="item" id="aar">
+<h2 class="sin"><a href="#">Атрибуты тега <samp>&lt;area></samp></a></h2>
+	<table class="t1 tb">
+		<tr><td>alt</td>
+			<td>Задает альтернативный текст для активной области карты.
+			</td></tr>
+		<tr><td>coords</td>
+			<td>Определяет позицию области на экране. Координаты задаются в единицах длины и разделяются запятыми:
+			<div class="item2">для круга — координаты центра и радиус круга;
+				<br>для прямоугольника — координаты верхнего левого и правого нижнего углов;
+				<br>для многоугольника — координаты вершин многоугольника в нужном порядке:
+			</div>
+			Также рекомендуется указывать последние координаты, равные первым, для логического завершения фигуры.</td></tr>
+		<tr><td>download<br><span class="html5 ml-10"></span></td>
+			<td>Дополняет атрибут <samp class="sin">href</samp> и сообщает браузеру, что ресурс должен быть загружен в момент, когда пользователь щелкает по ссылке, вместо того, чтобы, например, предварительно открыть его (как PDF-файл). Задавая имя для атрибута, мы таким образом задаем имя загружаемому объекту. Разрешается использовать атрибут без указания его значения.
+			</td></tr>
+		<tr><td>href</td>
+			<td>Указывает URL-адрес для ссылки. Может быть указан абсолютный или относительный адрес ссылки.
+			</td></tr>
+		<tr><td>hreflang<br><span class="html5 ml-10"></span></td>
+			<td>Определяет язык связанного веб-документа. Используется только вместе с атрибутом <samp class="sin">href</samp>. Принимаемые значения — аббревиатура, состоящая из пары букв, обозначающих код языка.
+			</td></tr>
+		<tr><td>media<br><span class="html5 ml-10"></span></td>
+			<td>Определяет, для каких типов устройств файл будет оптимизирован. Значением может быть любой медиа-запрос.
+			</td></tr>
+		<tr><td>rel<br><span class="html5 ml-10"></span></td>
+			<td><p>Дополняет атрибут <samp class="sin">href</samp> информацией об отношении между текущим и связанным документом.</p>
+				<p><abbr class="point sin tdu" onclick='pre11.classList.toggle("hiden");' title="развернуть / свернуть">Принимаемые значения:</abbr></p>
+
+				<style type="text/css">
+					#t2{margin:0 -10px -8px -5px; width:calc(100% + 10px)}
+				</style>
+				<table class="t1 thov" id="t2">
+					<tbody class="hiden" id="pre11" onclick="event.stopPropagation()">
+					<tr><td width="80px">alternate</td>
+						<td>ссылка на альтернативную версию документа (например, печатную форму страницы, перевод или зеркало).</td></tr>
+					<tr><td>author</td>
+						<td>ссылка на автора документа.</td></tr>
+					<tr><td>bookmark</td>
+						<td>постоянный URL-адрес, используемый для закладок.</td></tr>
+					<tr><td>help</td>
+						<td>ссылка на справку.</td></tr>
+					<tr><td>license</td>
+						<td>ссылка на информацию об авторских правах на данный веб-документ.</td></tr>
+					<tr><td>next/prev</td>
+						<td>указывает связь между отдельными URL. Благодаря этой разметке Google может определить, что содержание данных страниц связано в логической последовательности.</td></tr>
+					<tr><td>nofollow</td>
+						<td>запрещает поисковой системе переходить по ссылкам на данной странице или по конкретной ссылке.</td></tr>
+					<tr><td>noreferrer</td>
+						<td>указывает, что переходе по ссылке браузер не должен посылать заголовок HTTP-запроса (Referrer), в который записывается информация о том, с какой страницы пришел посетитель сайта.</td></tr>
+					<tr><td>prefetch</td>
+						<td>указывает, что целевой документ должен быть кэширован, т.е. браузер в фоновом режиме загружает содержимое страницы к себе в кэш.</td></tr>
+					<tr><td>search</td>
+						<td>указывает, что целевой документ содержит инструмент для поиска.</td></tr>
+					<tr><td>tag</td>
+						<td>указывает ключевое слово для текущего документа.</td></tr>
+					</tbody>
+				</table></td></tr>
+		<tr><td>shape</td>
+			<td>Задает форму активной области на карте и ее координаты. Может принимать следующие значения:</p>
+			<div class="item2"><samp>rect</samp> - активная область прямоугольной формы;
+			<br><samp>circle</samp> - активная область в форме круга;
+			<br><samp>poly</samp> - активная область в форме многоугольника;
+			<br><samp>default</samp> - активная область занимает всю площадь изображения.</div></td></tr>
+		<tr><td>target</td>
+			<td>Указывает, куда будет загружен документ при переходе по ссылке. Принимает следующие значения:</p>
+			<div class="item2"><samp>_self</samp> - страница загружается в текущее окно;
+			<br><samp>_blank</samp> - страница открывается в новом окне браузера;
+			<br><samp>_parent</samp> - страница загружается во фрейм-родитель;
+			<br><samp>_top</samp> - страница загружается в полное окно браузера.</div></td></tr>
+		<tr><td>type<br><span class="html5 ml-10"></span></td>
+			<td>Указывает <a href="../MIME.html"><span class="sin tdu">MIME-тип</span></a> файлов ссылки, т.е. расширение файла.
+			</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="pr1">
+<h2 class="sin"><a href="#">Пример создания карты-изображения</a></h2>
+	<p>Размечаем исходное изображение на активные области нужной формы. Координаты областей можно вычислить с помощью программы для обработки фотографий, например, Adobe Photoshop или Paint.</p>
+	<p>Задаем имя карты, добавив его в тег <samp class="red">&lt;map></samp> с помощью атрибута <samp class="sin">name</samp>. Это же значение присваиваем атрибуту <samp class="sin">usemap</samp> тега <samp class="red">&lt;img></samp>.</p>
+	<p>Добавляем ссылки на веб-страницы или части веб-документа для каждой активной области, по которым пользователь будет переходить при нажатии курсором мыши на активную область изображения.</p>
+
+	<img src="img/image-map.png" alt="flowers_foto" width="680" height="383" usemap="#flowers">
+	<map name="flowers">
+		<area shape="circle" coords="70,164,50" alt="Гербера/gerbera" target="_blank"
+			href="https://ru.wikipedia.org/wiki/Гербера"> 
+		<area shape="poly" coords="191,13,240,98,143,98,191,13" alt="Гиацинт/hyacinth" target="_blank"
+			href="https://ru.wikipedia.org/wiki/Гиацинт"> 
+		<area shape="circle" coords="322,93,50" alt="Ромашка/camomiles" target="_blank"
+			href="https://ru.wikipedia.org/wiki/Ромашка"> 
+		<area shape="circle" coords="435,129,45" alt="Нарцисс/narcissus" target="_blank"
+			href="https://ru.wikipedia.org/wiki/Нарцисс_(растение)"> 
+		<area shape="rect" coords="495,3,592,89" alt="Тюльпан/tulip" target="_blank"
+			href="https://ru.wikipedia.org/wiki/Тюльпан"> 
+	</map>
+	<div class="item2"><samp class="red">HTML</samp>
+		<pre><code>&lt;img src="img/image-map.png" width="680" height="383" usemap="#flowers"><br>&lt;map name="flowers"><br>  &lt;area shape="circle" coords="70,164,50" target="_blank" <br>    alt="Гербера/gerbera" href="https://ru.wikipedia.org/wiki/Гербера"> <br>  &lt;area shape="poly" coords="191,13,240,98,143,98,191,13" target="_blank" <br>    alt="Гиацинт/hyacinth" href="https://ru.wikipedia.org/wiki/Гиацинт"> <br>  &lt;area shape="circle" coords="322,93,50" target="_blank" <br>    alt="Ромашка/camomiles" href="https://ru.wikipedia.org/wiki/Ромашка"> <br>  &lt;area shape="circle" coords="435,129,45" alt="Нарцисс/narcissus" <br>    target="_blank" href="https://ru.wikipedia.org/wiki/Нарцисс_(растение)"> <br>  &lt;area shape="rect" coords="495,3,592,89" target="_blank" <br>    alt="Тюльпан/tulip" href="https://ru.wikipedia.org/wiki/Тюльпан"> <br>&lt;/map></code></pre>
+	</div>
+</div>
+
+
+<div class="item" id="ire">
+<h2 class="sin"><a href="#">image-rendering</a></h2>
+	<p>Сообщает браузеру, каким алгоритмом интерполировать изображение при масштабировании его размеров или изменении масштаба в параметрах браузера.</p>
+	<p>Применяется к изображениям, фоновым картинкам, <samp class="red">&lt;video></samp>, <samp class="red">&lt;canvas></samp>.</p>
+	<div class="bold mt20 ls1">Значения:</div>
+	<table class="t1 tb">
+		<tr><td width="112px">auto</td>
+			<td>Браузер применяет встроенный в него алгоритм интерполяции, обычно используется бикубический метод.</td></tr>
+		<tr><td>crisp-edges</td>
+			<td>Цель алгоритма — быстрое отображение картинки, для чего применяется метод интерполяции по ближайшим точкам. Он не создаёт сглаживания вокруг линий и его можно рекомендовать в тех случаях, когда требуется сохранить первоначальный набор цветов и резкость краёв.
+			<div class="no">не поддерживается почти никакими браузерами.</div></td></tr>
+		<tr><td>pixelated</td>
+			<td>При увеличении размера картинки сохраняет контраст и контуры изображения, не допуская размытия цветов и контуров. При уменьшении размеров аналогичен auto.</td></tr>
+	</table>
+
+	<div class="no mt20">
+		<samp class="red">Firefox</samp> поддерживает только значение <samp class="sin">-moz-crisp-edges</samp>, а <samp class="red">Internet Explorer</samp> работает только с собственным свойством <samp class="sin">-ms-interpolation-mode</samp>. <samp class="sin">Edge</samp> вообще ничего пока не поддерживает.
+	</div>
+
+	<pre class="item2 m20-0"><code>img {<br>  image-rendering: pixelated;<br>  image-rendering: -moz-crisp-edges;        /* Firefox */<br>  -ms-interpolation-mode: nearest-neighbor; /* IE */<br>}</code></pre>
+	<style>
+		.imf{width:650px; margin:0 auto;}
+		.imf img {width:320px; margin:0 auto;}
+		.imf img:nth-child(2){image-rendering:pixelated; image-rendering:-moz-crisp-edges;
+			-ms-interpolation-mode:nearest-neighbor;}
+	</style>
+	<div class="imf">
+		<img src="../img/winnie.png" title="image-rendering: auto">
+		<img src="../img/winnie.png" title="image-rendering: pixelated">
+	</div>
+</div>
+
+
+<div class="item" id="of">
+<h2 class="sin" id="object-fit"><a href="#">object-fit</a></h2>
+	<p>Управляет соотношением сторон заменяемых элементов, таких как <samp class="red">&lt;img></samp> и <samp class="red">&lt;video></samp>, когда у них задана ширина или высота, а также способом масштабирования. Свойство <samp class="sin">object-fit</samp> может сохранять исходные пропорции элемента или наоборот, искажать пропорции, в угоду соблюдения размеров.</p>
+	<p>В общем это свойство работает аналогично <a href="../background/background-size.html"><samp class="sin tdu bold">background-size</samp></a>, только не с фоновым изображением, а непосредственно с картинкой <samp class="red">&lt;img></samp> или <samp class="red">&lt;video></samp>.</p>
+	<div class="no m20-0">Примечание: <samp class="sin bold">Edge</samp> поддерживает <samp class="sin">object-fit</samp> только для <samp class="red">&lt;img></samp>; <samp class="red bold">Opera</samp> до версии 19 поддерживает свойство <samp class="sin">-o-object-fit</samp>.</div>
+
+	<div class="bold mt20 ls1">Значения:</div>
+	<table class="t1 t3">
+		<tr><td>none</td>
+			<td>cохраняются исходные пропорции элемента, установленные значения ширины или высоты не влияют на содержимое.</td></tr>
+		<tr><td>contain</td>
+			<td>элемент масштабируется, чтобы целиком уместиться в заданные размеры с соблюдением пропорций</td></tr>
+		<tr><td>fill</td>
+			<td>элемент масштабируется, чтобы соответствовать заданным размерам, при этом пропорции игнорируются.</td></tr>
+		<tr><td>cover</td>
+			<td>элемент увеличивается или уменьшается, чтобы целиком заполнить заданную область с сохранением пропорций.</td></tr>
+	</table>
+
+	<style>
+		.fit td{border:3px solid #000; position:relative; height:190px; padding:0; background:#eee;}
+		.fit pre{position:absolute; top:10px; left:10px; line-height:1.2}
+		.fit td img{margin:0 auto; width:100%; height:200px; vertical-align:middle;}
+	</style>
+	<div class="fit">
+		<table class="t1 m10-0">
+			<tr><td><img src="../img/winnie.png" style="object-fit:none">
+				<pre><code>img{<br>  width:100%; height:200px;<br>  object-fit: none;<br>}</code></pre></td>
+				<td><img src="../img/winnie.png" style="object-fit:contain">
+				<pre><code>img{<br>  width:100%; height:200px;<br>  object-fit: contain;<br>}</code></pre></td></tr>
+			<tr><td><img src="../img/winnie.png" style="object-fit:fill">
+				<pre><code>img{<br>  width:100%; height:200px;<br>  object-fit: fill;<br>}</code></pre></td>
+				<td><img src="../img/winnie.png" style="object-fit:cover">
+				<pre><code>img{<br>  width:100%; height:200px;<br>  object-fit: cover;<br>}</code></pre></td></tr>
+		</table>
+	</div>
+</div>
+
+
+<div class="item" id="figure">
+<h2 class="sin" id="figcaption"><a href="#"><samp class="sin">&lt;figure></samp> и <samp class="sin">&lt;figcaption></samp></a></h2>
+	<p><samp class="red bold">&lt;figure></samp> (от англ. figure — рисунок, иллюстрация) используется для группирования любых элементов, например, изображений и подписей к ним, не должен быть связан непосредственно с основным содержимым документа и при его перемещении в другое место смысл текста не должен меняться. Обычно применяется для иллюстраций, фрагментов кода, схем, графиков, диаграмм и др.</p>
+	<p><samp class="red bold">&lt;figcaption></samp> (от англ. figure caption — подпись к рисунку) содержит описание для элемента <samp class="red">&lt;figure></samp>. Должен быть первым или последним элементом в группе.</p>
+	<p style="margin-top:25px;">Содержимое <samp class="red">&lt;figure></samp> выравнивается по левому краю и к нему добавляются небольшие отступы, это заметно по картинке, она отступает немного вправо относительно левого края текста. Для изменения способа выравнивания, например, по центру, в стилях используем свойство <samp class="sin">text-align</samp>.</p>
+	<p>Элемент <samp class="red">&lt;figure></samp> не должен быть связан с основным текстом, так что если его переместить в другое место, то смысл содержания не потеряется. К примеру, если добавить иллюстрацию, то в тексте на неё можно сослаться как «...изображена на рис. 2». Сам рисунок при этом может располагаться в другом месте, а не только идти сразу же после текста, главное, не забыть его подписать. И, наоборот, неверным шагом будет воспользоваться <samp class="red">&lt;figure></samp> и сослаться на него как «смотри рисунок ниже». Потому что при перемещении иллюстрации искажается смысл текста.</p>
+	<pre class="item2"><code>&lt;figure><br>   &lt;figcaption>Описание&lt;/figcaption><br>&lt;/figure></code></pre>
+</div>
+
+
+<div class="item" id="fflex">
+<h3 class="sin"><a href="#">Пример <samp>&lt;figure></samp> и <samp>&lt;figcaption></samp></a></h3>
+	<style>
+		.fflex {display:flex; justify-content:center;}
+		.fflex figure {background:#d9dabb; text-align:center;
+				display:block; margin:5px 10px; width:300px;}
+		.fflex img {border: 2px solid #8b8e4b; width:296px; display:block;}
+		.fflex figcaption {padding:5px;}
+		.flip {transform: scale(-1, 1)}
+	</style>
+
+	<article class="fflex">
+		<figure>
+			<img src="../img/winnie.png" alt="">
+			<figcaption>Пух</figcaption>
+		</figure>
+		<figure>
+			<figcaption>Пух</figcaption>
+			<img src="../img/winnie.png" alt="" class="flip">
+		</figure>
+	</article>
+	<div class="item2">
+		<pre><code>&lt;style><br>  .fflex {display:flex; justify-content:center;}<br>  .fflex figure {background:#d9dabb; text-align:center;<br>                 display:block; margin:5px 10px; width:300px;}<br>  .fflex img {border:2px solid #8b8e4b; width:296px; display:block;}<br>  .fflex figcaption {padding:5px;}<br>  .flip {transform:scale(-1, 1);}<br>&lt;/style>
+		<br>&lt;article class="fflex"><br>  &lt;figure><br>    &lt;img src="../img/winnie.png" alt=""><br>    &lt;figcaption>Пух&lt;/figcaption><br>  &lt;/figure><br>  &lt;figure><br>    &lt;figcaption>Пух&lt;/figcaption><br>    &lt;img src="../img/winnie.png" alt="" class="flip"><br>  &lt;/figure><br>&lt;/article></code></pre>
+	</div>
+</div>
+
+<div class="item" id="imgcenrt">
+<h3 class="sin"><a href="#">Пример: выравнивание по центру</a></h3>
+	<img src="../img/winnie.png" style="display:block;margin:auto;">
+	<div class="item2">
+		<pre><code>&lt;img src="../img/winnie.png" style="display:block; margin:auto;"></code></pre>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html><html><head><title>&lt;ruby></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin" id="ruby"><samp class="t-html5">&lt;ruby></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li><a href="#ruby"><samp>&lt;ruby></samp></a></li>
+		<li><a href="#rt"><samp>&lt;rt></samp></a></li>
+		<li><a href="#rp"><samp>&lt;rp></samp></a></li>
+		<li><a href="#rtc"><samp>&lt;rtc></samp></a></li>
+		<li><a href="#pr1">Примеры.</a></li>
+<!-- 		<li>
+				<a href="#"></a>
+				<div class="ogl2 ogl21">
+					<span><a href="#" title=""></a></span>
+					<span><a href="#" title=""></a></span>
+					<span></span>
+				</div>
+			</li> -->
+	</ul>
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;ruby></samp> (от англ. ruby — рубин) предназначен для добавления небольшой аннотации сверху или снизу от заданного текста. Такая форма записи преимущественно используется для идеографической письменности вроде китайского языка, но может применяться и для других языков, если требуется написать один текст над другим. Название происходит от слова «рубин», которым в типографии обозначается небольшой шрифт.</p>
+	<p>Сам элемент <samp class="red">&lt;ruby></samp> выступает контейнером для <samp class="red">&lt;rt></samp> (он и формирует аннотацию к тексту, после которого идёт) и <samp class="red">&lt;rp></samp> (этот элемент предназначен для браузеров, которые не поддерживают <samp class="red">&lt;ruby></samp>).</p>
+	<p>Браузеры, которые не поддерживают этот элемент, отобразят текст рядом по горизонтали и без изменения его размеров.</p>
+
+	<pre class="item2 mt20"><code>&lt;ruby><br>  текст<br>  &lt;rt>аннотация&lt;/rt><br>&lt;/ruby></code></pre>
+</div>
+
+
+<div class="item">
+<h2 class="sin" id="rt"><a href="#"><samp class="t-html5">&lt;rt></samp></a></h2>
+	<p>Элемент <samp class="red">&lt;rt></samp> (от англ. ruby text — текст рубина) добавляет аннотацию сверху или снизу от текста, заключенного в контейнер <samp class="red">&lt;ruby></samp>.
+	Сама аннотация выводится уменьшенным шрифтом.</p>
+</div>
+
+
+<div class="item">
+<h2 class="sin" id="rp"><a href="#"><samp class="t-html5">&lt;rp></samp></a></h2>
+	<p>Элемент <samp class="red">&lt;rp></samp> (от англ. ruby parenthesis — скобки рубина) Используется для вывода текста в браузерах, которые не поддерживают элемент <samp class="red">&lt;ruby></samp>. В остальных браузерах текст, заключенный в контейнер <samp class="red">&lt;rp></samp>, не отображается. Элемент <samp class="red">&lt;rp></samp> должен идти до или после <samp class="red">&lt;rt></samp>.</p>
+	<pre class="item2 mt20"><code>&lt;ruby><br>  текст<br>  &lt;rp>текст&lt;/rp>&lt;rt>аннотация&lt;/rt>&lt;rp>текст&lt;/rp><br>&lt;/ruby></code></pre>
+</div>
+
+
+<div class="item">
+<h2 class="sin" id="rtc"><a href="#"><samp class="t-html5">&lt;rtc></samp></a></h2>
+	<p>Элемент <samp class="red">&lt;rtc></samp> (от англ. ruby text container — текстовый контейнер рубина) обозначает текстовый контейнер внутри <samp class="red">&lt;ruby></samp>. В основном применяется в качестве описательной части или аннотации для иероглифов.</p>
+
+	<pre class="item2 mt20"><code>&lt;ruby><br>  текст<br>  &lt;rtc>аннотация&lt;/rtc><br>&lt;/ruby></code></pre>
+	<div class="no mb10 mt10">Поддерживается только в <samp class="red">FireFox</samp>.</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="pr1"><a href="#">Примеры.</a></h3>
+	<style>
+		p:lang(zh-CN) {font-size: 2em;}
+	</style>
+
+
+	<fieldset class="prm mt0">
+		<legend></legend>
+
+		<p lang="zh-CN"><ruby>汉<rt>hàn</rt>字<rt>zì</rt></ruby></p>
+
+		<pre class="item2"><code>&lt;style><br>  p:lang(zh-CN) {font-size: 2em;}<br>&lt;/style><br><br>&lt;p lang="zh-CN"><br>  &lt;ruby><br>    汉&lt;rt>hàn&lt;/rt><br>    字&lt;rt>zì&lt;/rt><br>  &lt;/ruby><br>&lt;/p></code></pre>
+	</fieldset>
+
+
+	<fieldset class="prm mt20">
+		<legend></legend>
+		<p lang="zh-CN"><ruby>字 <rp>(</rp><rt>zì</rt><rp>)</rp></ruby></p>
+
+		<pre class="item2"><code>&lt;p lang="zh-CN"><br>  &lt;ruby><br>    字 &lt;rp>(&lt;/rp>&lt;rt>zì&lt;/rt>&lt;rp>)&lt;/rp><br>  &lt;/ruby><br>&lt;/p></code></pre>
+	</fieldset>
+
+
+	<fieldset class="prm mt20">
+		<legend></legend>
+		<p lang="zh-CN"><ruby>
+			旧<rt>jiù</rt>
+			金<rt>jīn</rt>
+			山<rt>shān</rt>
+			<rtc>Сан-Франциско</rtc> 
+		</ruby></p>
+
+		<pre class="item2"><code>&lt;p><br>  &lt;ruby><br>    旧&lt;rt>jiù&lt;/rt><br>    金&lt;rt>jīn&lt;/rt><br>    山&lt;rt>shān&lt;/rt><br>    &lt;rtc>Сан-Франциско&lt;/rtc><br>  &lt;/ruby><br>&lt;/p></code></pre>
+	</fieldset>
+
+
+	<fieldset class="prm mt20">
+		<legend></legend>
+		<style>
+			.date11{font-size:2em;}
+			.date11 ruby{background:#0078c9; color:#fff;}
+			.date11 rt{background:#a0dae8; color:#000; padding:2px;}
+		</style>
+		<p class="date11"><ruby>23<rt>ноябрь</rt></ruby></p>
+
+		<pre class="item2"><code>&lt;style><br>   .date {font-size:2em;}<br>   .date ruby {background:#0078c9; color:#fff;}<br>   .date rt {background:#a0dae8; color:#000; padding:2px;}<br>&lt;/style><br><br>&lt;p class="date"><br>  &lt;ruby><br>    23&lt;rt>ноябрь&lt;/rt>&lt;/ruby><br>&lt;/p></code></pre>
+
+		<p class="mt10"><i>Как сделать чтобы аннотации были снизу?</i></p>
+		<p><i>Если вам не для азиатских языков использовать, а просто для оформления, то лучше вообще от <samp class="red">&lt;ruby></samp> отказаться.</i></p>
+	</fieldset>
+</div>
+
+
+</body></html>

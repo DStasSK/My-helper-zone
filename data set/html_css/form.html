@@ -1,0 +1,221 @@
+<!DOCTYPE html><html><head><title>form</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Формы ( <samp>&lt;form></samp> )</h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#z1">Атрибуты:</a>
+				<div class="ogl2 ogl21">
+					<span><a href="#accept-charset" title="yстанавливает кодировку, в которой сервер может принимать и обрабатывать данные">accept-charset</a></span>
+					<span><a href="#action" title="aдрес программы или документа, который обрабатывает данные формы">action</a></span>
+					<span><a href="#autocomplete" title="автозаполнение полей формы">autocomplete</a></span>
+					<span><a href="#enctype" title="cпособ кодирования данных формы">enctype</a></span>
+					<span><a href="#method" title="метод запроса/протокола HTTP">method</a></span>
+					<span><a href="#name" title="уникальное имя формы">name</a></span>
+					<span><a href="#novalidate" title="oтменяет встроенную проверку данных формы на корректность ввода.">novalidate</a></span>
+					<span><a href="#target" title="имя окна или фрейма, куда обработчик будет загружать возвращаемый результат">target</a></span>
+					<span></span>
+				</div>
+			<li><a href="#e-prm1">Полe для отправки файла</a></li>
+			<li><a href="#z2">Пример 1</a></li>
+			<li><a href="#z3">Пример 2</a></li>
+		</ul><!-- /оглавление -->
+
+<div class="item">
+	<p><samp class="red">&lt;form></samp> является блочным элементом, который определяет интерактивную часть веб-страницы. Как результат, элементы управления (такие как <samp class="red">&lt;input></samp>, <samp class="red">&lt;textarea></samp> или <samp class="red">&lt;button></samp>) должны находиться внутри элемента <samp class="red">&lt;form></samp>.</p>
+	<p>Допускается внутрь контейнера <samp class="red">&lt;form></samp> помещать другие элементы, при этом сама форма никак не отображается на веб-странице, видны только элементы внутри неё.</p>
+	<pre class="item2"><code>&lt;form><br>  ...<br>&lt;/form></code></pre>
+
+	<p class="mt20">Для элемента <samp class="red">&lt;form></samp> необходимы два атрибута:</p>
+	<ul class="list">
+		<li><samp class="lsin"><a href="#action">action</a></samp> - содержит адрес куда будет отправлена информация формы</li>
+		<li><samp class="lsin"><a href="#method">method</a></samp> - определяет, как будет отправлена информация формы</li>
+	</ul>
+
+	<p class="mt40">Для отправки формы на сервер используется кнопка <samp class="sin">Submit</samp>, того же можно добиться, если нажать клавишу <b>Enter</b> в пределах формы. Если кнопка <samp class="sin">Submit</samp> отсутствует в форме, клавиша <b>Enter</b> имитирует её использование.</p>
+	<p>Когда форма отправляется на сервер, управление данными передаётся программе, заданной атрибутом <samp class="sin">action</samp> элемента <samp class="red">&lt;form></samp>. Предварительно браузер подготавливает информацию в виде пары «имя=значение», где имя определяется атрибутом <samp class="sin">name</samp> элемента <a href="input.html"><samp class="red tdu">&lt;input></samp></a>, а значение введено пользователем или установлено в поле формы по умолчанию.</p>
+	<p>Документ может содержать любое количество форм, но одновременно на сервер может быть отправлена только одна форма. По этой причине данные форм должны быть независимы друг от друга.</p>
+	<p>Форма предназначена для обмена данными между пользователем и сервером. Область применения форм не ограничена отправкой данных на сервер, с помощью клиентских скриптов можно получить доступ к любому элементу формы, изменять его и применять по своему усмотрению.</p>
+</div>
+
+
+<div class="item" id="z1">
+<h2 class="sin"><a href="#">Атрибуты</a></h2>
+
+<h3 class="attr ml30" id="accept-charset"><a href="#">accept-charset</a></h3>
+	<p>Устанавливает кодировку, в которой сервер может принимать и обрабатывать данные. В качестве значения выступает название кодировки, например <b>Windows-1251</b>, <b>UTF-8</b> и др. Значение по умолчанию - кодировка, установленная для страницы.</p>
+	<pre class="item2"><code>&lt;form accept-charset="<кодировка>">...&lt;/form></code></pre>
+	<div class="no">Internet Explorer до версии 7.0 содержит ошибку при использовании кодировки ISO-8859-1, в этом случае браузер отправляет данные в кодировке Windows-1252.</div>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30" id="action"><a href="#">action</a></h3>
+	<p>Адрес программы или документа, который обрабатывает данные формы. После выполнения обработчиком действий по работе с данными формы он возвращает новый HTML-документ.</p>
+	<p>Если атрибут <samp class="sin">action</samp> отсутствует, текущая страница перезагружается, возвращая все элементы формы к их значениям по умолчанию. В качестве значения принимается полный или относительный путь к серверному файлу.</p>
+	<pre class="item2"><code>&lt;form action="<адрес>">...&lt;/form></code></pre>
+	<p>В качестве обработчика можно указать адрес электронной почты, начиная его с ключевого слова <samp class="red">mailto:</samp> При отправке формы будет запущена почтовая программа установленная по умолчанию. В целях безопасности в браузере установлено, что отправить незаметно информацию, введённую в форме, по почте невозможно. Для корректной интерпретации данных используйте атрибут <samp class="sin">enctype="<samp class="lsin">text/plain</samp>"</samp> в элементе <samp class="red">&lt;form></samp>.</p>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="mailto:vlad@htmlbook.ru" enctype="text/plain">
+			<p><input type="submit" value="Написать письмо"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="mailto:vlad@mail.ru" enctype="text/plain"><br>  &lt;p>&lt;input type="submit" value="Написать письмо">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30 html5" id="autocomplete"><a href="#">autocomplete</a></h3>
+	<p>Включает автозаполнение полей формы.</p>
+	<p>Автозаполнение производит браузер, который запоминает написанные при первом вводе значения, а затем подставляет их при повторном наборе в поля формы. При этом автозаполнение может быть отключено в настройках браузера и не может быть в таком случае изменено при помощи атрибута <samp class="sin">autocomplete</samp>.</p>
+	<p>При вводе первых букв текста отображается список сохранённых ранее значений, из которого можно выбрать необходимое.</p>
+	<pre class="item2"><code>&lt;form autocomplete="on | off">...&lt;/form></code></pre>
+	<p>Значение по умолчанию - <b>on</b> (включает автозаполнение формы); <b>off</b> - отключает автозаполнение. Это значение обычно используется для отмены сохранения в браузере важных данных (паролей, номеров банковских карт), а также редко вводимых или уникальных данных (капча).</p>
+	<fieldset class="prm">
+		<legend></legend>
+		<form autocomplete="on">
+			<p>Имя: <input name="user"></p>
+			<p>Пароль: <input name="pass" type="password"></p>
+			<p><input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form autocomplete="on"><br>  &lt;p>Имя: &lt;input name="user">&lt;/p><br>  &lt;p>Пароль: &lt;input name="pass" type="password">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30" id="enctype"><a href="#">enctype</a></h3>
+	<p>Способ кодирования данных формы. Обычно устанавливать значение атрибута <b>enctype</b> не требуется, данные вполне правильно понимаются на стороне сервера. Однако если используется поле для отправки файла (<b>input type="file"</b>), следует определить атрибут <samp class="red">enctype</samp> как <samp class="sin">multipart/form-data</samp>.</p>
+	<div class="item2"><pre><code>&lt;form enctype="application/x-www-form-urlencoded | multipart/form-data | text/plain"><br>  ...<br>&lt;/form></code></pre></div>
+	<table class="t1">
+		<tr><td width="220px">application/x-www-form-urlencoded</td><td>Значение по умолчанию. Вместо пробелов ставится +, символы вроде русских букв кодируются их шестнадцатеричными значениями (например, %D0%90%D0%BD%D1%8F вместо Аня).</td></tr>
+		<tr><td>multipart/form-data</td><td>Данные не кодируются. Это значение применяется при отправке файлов.</td></tr>
+		<tr><td>text/plain</td><td>Пробелы заменяются знаком +, буквы и другие символы не кодируются.</td></tr>
+	</table>
+
+	<fieldset class="prm" id="e-prm1">
+		<legend></legend>
+		<form action="handler.php" enctype="multipart/form-data" method="post">
+			<p>Загрузите файл с картинкой</p>
+			<p><input type="file" name="pic"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"<br>   enctype="multipart/form-data" method="post"><br>   &lt;p>Загрузите файл с картинкой&lt;/p><br>   &lt;p>&lt;input type="file" name="pic">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+	<div>Для отправки файлов в форме необходимо сделать следующее:
+		<ul class="list">
+			<li>задать метод отправки данных POST (<samp class="sin">method="<samp class="lsin">post</samp>"</samp>);</li>
+			<li>установить у атрибута <samp class="sin">enctype</samp> значение <samp class="lsin">multipart/form-data</samp>.</li>
+			<li>тип отправляемых файлов можно указать через атрибут <samp class="sin tdu"><a href="input.html#accept">accept</a></samp></li>
+			<li>если задать атрибут <samp class="sin">multiple</samp> элементу <samp class="red">input</samp>, то можно будет выбирать несколько файлов для загрузки: <pre class="sin dib">  &lt;<samp class="red">input</samp> type="<samp class="lsin">file</samp>" name="<samp class="lsin">pic</samp>" multiple></pre> </li>
+		</ul>
+	</div>
+	<div class="no">Слова "файл не выбран" можно скрыть при помощи свойства <samp class="sin">letter-spacing</samp> и, вероятно, через ::after и ::before</div>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30" id="method"><a href="#">method</a></h3>
+	<p>Атрибут method сообщает серверу о методе запроса/протокола HTTP. Значение по умолчанию - get.</p>
+	<pre class="item2"><code>&lt;form  method="get | post"> ... &lt;/form></code></pre>
+	<table class="t1">
+		<tr><td>get</td><td><p>Этот метод является одним из самых распространённых и предназначен для получения требуемой информации и передачи данных в адресной строке. Пары «имя=значение» присоединяются в этом случае к адресу после вопросительного знака и разделяются между собой амперсандом (символ &). Полный адрес к примеру будет <samp class="lsin">http://site.ru/doc/?name=Vasya&password=pup</samp>.</p>
+			<p class="no">Объём данных в методе ограничен 4 Кб.</p></td></tr>
+		<tr><td>post</td><td>Метод <b>post</b> посылает на сервер данные в запросе браузера. Большие объёмы данных используются в форумах, почтовых службах, заполнении базы данных, при пересылке файлов и др.</td></tr>
+	</table>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php" method="post">
+			<p><input type="text" name="str"></p>
+			<p><input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php" method="post"><br>  &lt;p>&lt;input type="text" name="str">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30" id="name"><a href="#">name</a></h3>
+	<p>Определяет уникальное имя формы. Как правило, имя формы используется для доступа к её элементам через скрипты.</p>
+	<p>В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к форме по имени через скрипты соблюдайте то же написание, что и в атрибуте <b>name</b>.</p>
+	<pre class="item2"><code>&lt;form name="<имя>"> ... &lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30 html5" id="novalidate"><a href="#">novalidate</a></h3>
+	<p>Отменяет встроенную проверку данных формы на корректность ввода.</p>
+	<p>Такая проверка осуществляется браузером автоматически при отправке формы на сервер и происходит для полей <samp class="red">&lt;input <samp class="sin">type="<samp class="lsin">email</samp>"</samp>></samp>, <samp class="red">&lt;input <samp class="sin">type="<samp class="lsin">url</samp>"</samp>></samp>, а также при наличии атрибута <samp class="sin">pattern</samp> или <samp class="sin">required</samp> у <samp class="red">&lt;input></samp>.</p>
+	<pre class="item2"><code>&lt;form novalidate> ... &lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="attr ml30" id="target"><a href="#">target</a></h3>
+	<p>Имя окна или фрейма, куда обработчик будет загружать возвращаемый результат.</p>
+	<p>После того, как обработчик формы получает данные, он возвращает результат в виде HTML-документа. Вы можете определить фрейм, в который будет загружаться итоговая веб-страница. Для этого используется атрибут <samp class="sin">target</samp>, в качестве его значения указывается имя фрейма. Если <samp class="sin">target</samp> не установлен, возвращаемый результат показывается в текущей вкладке.</p>
+	<pre class="item2"><code>&lt;form target="<значение>"> ... &lt;/form></code></pre>
+	<p>В качестве значения используется имя фрейма, заданное атрибутом <samp class="sin">name</samp> элемента <samp class="red">&lt;iframe></samp>. Если установлено несуществующее имя, то будет открыта новая вкладка. В качестве зарезервированных имён можно указывать следующие.</p>
+	<table class="t1">
+		<tr><td>_blank</td><td>Загружает страницу в новую вкладку браузера.</td></tr>
+		<tr><td>_self</td><td>Загружает страницу в текущую вкладку. <i>(Значение по умолчанию.)</i></td></tr>
+		<tr><td>_parent</td><td>Загружает страницу во фрейм-родитель; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+		<tr><td>_top</td><td>Отменяет все фреймы и загружает страницу в окне браузера; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="z2">
+<h3 class="sin"><a href="#">Пример 1.</a></h3>
+	<div class="prm">
+		<form action="handler.php">
+			<p><b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?</b></p>
+			<p><input type="radio" name="answer" value="a1">Офицерский состав
+				<br><input type="radio" name="answer" value="a2">Операционная система
+				<br><input type="radio" name="answer" value="a3">Большой полосатый мух</p>
+			<p><input type="submit"></p>
+		</form>
+	</div>
+	<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?&lt;/b>&lt;/p><br>  &lt;p>&lt;input type="radio" name="answer" value="a1">Офицерский состав<br>    &lt;br>&lt;input type="radio" name="answer" value="a2">Операционная система<br>    &lt;br>&lt;input type="radio" name="answer" value="a3">Большой полосатый мух&lt;/p><br>  &lt;p>&lt;input type="submit">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item" id="z3">
+<h3 class="sin"><a href="#">Пример 2.</a></h3>
+	<div class="prm">
+		<form action="/signup" method="POST">
+			<p><label>Обращение</label>
+				<label><input type="radio" name="title" value="mr">Госпадин</label>
+				<label><input type="radio" name="title" value="mrs">Госпажа</label></p>
+			<p><label>Имя</label> <input type="text" name="first_name"></p>
+			<p><label>Фамилия</label> <input type="text" name="last_name"></p>
+			<p><label>Email</label> <input type="email" name="email"></p>
+			<p> <label>Телефон</label> <input type="tel" name="phone"></p>
+			<p><label>Пароль</label> <input type="password" name="password"></p>
+			<p><label>Подтвердите пароль</label> <input type="password" name="p_confirm"></p>
+			<p><label>Страна</label>
+				<select name="country">
+					<option>Канада</option>
+					<option>Германия</option>
+					<option>Италия</option>
+					<option>Россия</option>
+					<option>США</option>
+				</select></p>
+			<p><label><input type="checkbox" name="terms">
+				Я согласен с <a href="" class="sin tdu">условиями использования</a></label></p>
+			<p><button>Зарегистрироваться</button></p>
+		</form>
+	</div>
+	<pre class="item2"><code>&lt;form action="/signup" method="POST"><br>  &lt;p>&lt;label>Обращение&lt;/label><br>    &lt;label>&lt;input type="radio" name="title" value="mr">Госпадин&lt;/label><br>    &lt;label>&lt;input type="radio" name="title" value="mrs">Госпажа&lt;/label>&lt;/p><br>  &lt;p>&lt;label>Имя&lt;/label> &lt;input type="text" name="first_name">&lt;/p><br>  &lt;p>&lt;label>Фамилия&lt;/label> &lt;input type="text" name="last_name">&lt;/p><br>  &lt;p>&lt;label>Email&lt;/label> &lt;input type="email" name="email">&lt;/p><br>  &lt;p> &lt;label>Телефон&lt;/label> &lt;input type="tel" name="phone">&lt;/p><br>  &lt;p>&lt;label>Пароль&lt;/label> &lt;input type="password" name="password">&lt;/p><br>  &lt;p>&lt;label>Подтвердите пароль&lt;/label><br>    &lt;input type="password" name="p_confirm">&lt;/p><br>  &lt;p>&lt;label>Страна&lt;/label><br>    &lt;select name="country"><br>    &lt;option>Канада&lt;/option><br>    &lt;option>Германия&lt;/option><br>    &lt;option>Италия&lt;/option><br>    &lt;option>Россия&lt;/option><br>    &lt;option>США&lt;/option><br>    &lt;/select>&lt;/p><br>  &lt;p>&lt;label>&lt;input type="checkbox" name="terms"><br>    Я согласен с &lt;a href="">условиями использования&lt;/a>&lt;/label>&lt;/p><br>  &lt;p>&lt;button>Зарегистрироваться&lt;/button>&lt;/p><br>&lt;/form></code></pre>
+</div>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>word-break / word-wrap</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.tt3 {width:400px; border-collapse:collapse; margin:30px auto 10px; table-layout: fixed}
+	.tt3 td{width:50%; padding:10px; border:1px solid #ccc; line-height:24px; font-size:20px}
+	.tt3 th{text-align:center;}
+</style>
+</head>
+<body>
+
+<h2 class="sin">word-break</h2>
+<div class="item">
+	<p>Свойство <samp class="sin">word-break</samp> указывает, как делать перенос строк внутри слов, которые не помещаются по ширине в заданную область. Значение по умолчанию <samp class="lsin">normal</samp>, наследуется, применяется ко всем элементам.</p>
+	<p>Chrome до версии 44, Opera до версии 31, Safari до версии 9, Android и Opera Mobile не поддерживают значение <samp class="lsin">keep-all</samp>.</p>
+
+	<table class="t1 tc mt20">
+		<caption>Значения:</caption>
+		<tr><td width="100px">normal</td>
+			<td>Используются правила переноса строк по умолчанию. Как правило, в этом случае строки не переносятся или переносятся в тех местах, где явно задан перенос (например, с помощью <samp class="red">&lt;br></samp>, <samp class="red">&lt;wbr></samp>, <samp title="место возможного переноса" class="red">&amp;shy;</samp>).</td></tr>
+		<tr><td>break-all</td>
+			<td>Перенос строк добавляется автоматически, чтобы слово поместилось в заданную ширину блока. Значение не работает для текста на китайском, корейском или японском языке.</td></tr>
+		<tr><td>keep-all</td>
+			<td>Не разрешает перенос строк в словах на китайском, корейском или японском языке. Для остальных языков действует как <samp>normal</samp>.</td></tr>
+	</table>
+
+	<table class="tt3">
+		<tr><th><pre class="css"><code>word-break:normal;</code></pre></th>
+			<th><pre class="css"><code>word-break:break-all;</code></pre></th></tr>
+		<tr><td style="word-break:normal;">
+				<p>Cуществительное</p>
+				<p>высокопревосходительство</p><p style="color:#fff; margin:-5px 0">1</p>
+				<p>Одушевленное существительное</p>
+				<p>одиннадцатиклассница</p><p style="color:#fff; margin:-5px 0">1</p>
+				<p>Химическое вещество</p>
+			</td>
+			<td style="word-break:break-all;">
+				<p>Cуществительное</p>
+				<p>высокопревосходительство</p>
+				<p>Одушевленное существительное</p>
+				<p>одиннадцатиклассница</p>
+				<p>Химическое вещество</p>
+			</td></tr>
+	</table>
+</div>
+
+
+<h2 class="sin" id="word-wrap">word-wrap</h2>
+<div class="item">
+	<p>Свойство word-wrap указывает, переносить или нет длинные слова, которые не помещаются по ширине в заданную область. Валидатор заменяет <samp class="red">word-wrap</samp> на <samp class="red">overflow-wrap</samp>.</p>
+
+	<table class="t1 tc t3 mt20">
+		<caption>Значения:</caption>
+		<tr><td width="110px">normal</td>
+			<td>Строки не переносятся или переносятся в тех местах, где явно задан перенос (например, с помощью <samp class="red">&lt;br></samp>, <samp class="red">&lt;wbr></samp>, <samp title="место возможного переноса" class="sin">&amp;shy;</samp>).</td></tr>
+		<tr><td>break-word</td>
+			<td>Перенос строк добавляется автоматически, чтобы слово поместилось в заданную ширину блока.</td></tr>
+	</table>
+</div>
+</body>
+</html>

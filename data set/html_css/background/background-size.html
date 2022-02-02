@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>background-size</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.tt1 table {border-spacing:0; width:360px; border:1px solid black; border-collapse:collapse; background:#fefefe;}
+	.tt1 {margin:10px 0px 15px 0;}
+	.tt1 tr:nth-child(even){background:#f7f7f7;}
+	.tt1 td{border:1px solid black; padding:5px;}
+</style>
+</head>
+<body>
+
+<h2 class="sin">background-size</h2>
+<div class="item anp">
+	<p>Масштабирует фоновое изображение, согласно заданным размерам.</p>
+	<div class="tt1">
+		<table>
+			<tr><td width=190px>Значение по умолчанию</td><td><span style="color:red">auto</span></td></tr>
+			<tr><td>Наследуется</td><td>Нет</td></tr>
+			<tr><td>Применяется</td><td>Ко всем элементам</td></tr>
+			<tr><td>Анимируется</td><td>Да</td></tr>
+		</table>
+	</div>
+
+	<p class="mt20"><b>Синтаксис:</b></p>
+	<div class="item2 br0"><pre>background-size: ширина высота;</pre></div>
+
+	<p class="mt20 mb20">Если установлено одно значение, оно устанавливает ширину фона, второе значение принимается за <samp class="lsin">auto</samp>. Пропорции картинки при этом сохраняются. Использование двух значений через пробел задаёт ширину и высоту фоновой картинки, при этом картинка может искажаться.</p>
+
+	<p class="bold">Ширина и высота могут задоваться:</p>
+	<table class="t1 tb t3 mb20">
+		<tr><td><размер></td><td>Задаёт размер в любых доступных для CSS единицах: пикселях (px), сантиметрах (cm), em и др.</td></tr>
+		<tr><td><проценты></td><td>Задаёт размер фоновой картинки в процентах от ширины или высоты элемента.</td></tr>
+		<tr><td>auto</td><td>Если задано одновременно для ширины и высоты (auto auto), размеры фона остаются исходными; если только для одной стороны картинки (100px auto), то размер вычисляется автоматически исходя из пропорций картинки.</td></tr>
+		<tr><td>cover</td><td>Масштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равнялась ширине или высоте блока.<br>Пропорционально растягивает изображерие, пока оно не закроет весь блок, т.е. min-height <samp class="red">и</samp> min-width достигает 100%.</td></tr>
+		<tr><td>contain</td><td>Масштабирует изображение с сохранением пропорций таким образом, чтобы картинка целиком поместилась внутрь блока.<br>Пропорционально растягивает изображение, пока один из параметров не перекроет граници блока, т.е. width <samp class="red">или</samp> height достигнет 100%.</td></tr>
+	</table>
+
+
+	<!-- Песочница -->
+	<style>
+		.p0 {display:block; width:705px; margin:0 auto; margin-top:15px; background-repeat:no-repeat;}
+		.p0 .p00 {display:none;}
+		.p0 span{cursor:pointer; display:inline;}
+		.p0 span:after{content:" больше чем размер блока";}
+		.p0 .p00:checked + span:after{content:" меньше чем размер блока";}
+
+		.radio {width:703px; height:192px; border:1px solid #000; position:relative; padding:0;}
+		.radio label {
+			display:block; width:120px; border-right:1px solid #000;
+			background:#0ffff0;
+			cursor:pointer;
+			margin:0; padding:0 4px;
+			line-height:32px;}
+		.radio input{display:inline-block;width:auto;}
+		.radio p{
+			cursor:default;
+			content:"";
+			display:none; width:193px; height:192px;
+			position:absolute; left:129px; top:0;
+			background:url(img/1.jpg) #f00; background-repeat:no-repeat;
+			border-right:2px solid #000;}
+		.radio p:after{
+			content:"";
+			display:block; width:381px; height:192px;
+			position:absolute; left:193px; top:0;
+			background:url(img/1.jpg) #f0f000; background-repeat:no-repeat;}
+		.radio input:checked + p{display:block;}
+
+		.p00:checked ~ .radio p{background:url(img/bg.jpg) #f00; background-repeat:no-repeat;}
+		.p00:checked ~ .radio .p1 {background-size:auto;}
+		.p00:checked ~ .radio .p2 {background-size:auto 100%;}
+		.p00:checked ~ .radio .p3 {background-size:100% auto;;}
+		.p00:checked ~ .radio .p4 {background-size:100% 100%;}
+		.p00:checked ~ .radio .p5 {background-size:cover;}
+		.p00:checked ~ .radio .p6 {background-size:contain;}
+		.p00:checked ~ .radio p:after{background:url(img/bg.jpg) #f0f000; background-repeat:no-repeat;}
+		.p00:checked ~ .radio .p1:after {background-size:auto;}
+		.p00:checked ~ .radio .p2:after {background-size:auto 100%;}
+		.p00:checked ~ .radio .p3:after {background-size:100% auto;;}
+		.p00:checked ~ .radio .p4:after {background-size:100% 100%;}
+		.p00:checked ~ .radio .p5:after {background-size:cover;}
+		.p00:checked ~ .radio .p6:after {background-size:contain;}
+
+		input + .p1, input + .p1:after{background-size:auto;}
+		input + .p2, input + .p2:after{background-size:auto 100%;}
+		input + .p3, input + .p3:after{background-size:100% auto;}
+		input + .p4, input + .p4:after{background-size:100% 100%;}
+		input + .p5, input + .p5:after{background-size:cover;}
+		input + .p6, input + .p6:after{background-size:contain;}
+
+		/*.radio input:checked{background-color:red;}*/
+	</style>
+	<div class="p0">
+		<label><input type="checkbox" class="p00" checked><span>поставить фоновою картинку:</span>
+			<div class="radio">
+				<label><input type="radio" name="rad">auto<p class="p1"></p></label>
+				<label><input type="radio" name="rad">auto 100%<p class="p2"></p></label>
+				<label><input type="radio" name="rad">100% auto<p class="p3"></p></label>
+				<label><input type="radio" name="rad">100% 100%<p class="p4"></p></label>
+				<label><input type="radio" name="rad">cover<p class="p5"></p></label>
+				<label><input type="radio" name="rad" checked>contain<p class="p6"></p></label>
+			</div>
+		</label>
+	</div>
+	<!-- /Песочница -->
+</div>
+</body></html>

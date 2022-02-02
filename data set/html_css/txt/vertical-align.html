@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><title>vertical-align</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.tt1 {width:100%; min-width:600px; border-collapse:collapse; margin-top:20px; margin-bottom:10px}
+	.tt1 caption {font-weight:700; text-align: left; padding:5px 0;}
+	.tt1 caption p{display:block; position:relative; margin:0}
+	.tt1 caption p:after{display:inline-block; position:absolute; right:0px; content:"line-height:18px;"; font-weight:400; font-size:16px; color:red; top:8px}
+	.tt1 td {padding:10px 5px; border:1px solid #aaa; text-align:center; position:relative;}
+	.tt2 tr td:nth-child(1) {font-family:monospace; color:#009; width:110px}
+	.tt2 tr td:nth-child(2) {text-align:justify; /*vertical-align:top;*/}
+	.tt2 tr td:nth-child(3) {line-height:18px; width:100px; color:red; padding:0 5px}
+	.tt1 h3 {display:inline; background:#eee; color:#000; font-size:22px; }
+	.tt1 h3:hover::before{position:absolute; top:0; left:0; content:"font-size:22px;"; display:block; width:110px; background:rgba(255,0,0,0.3); font-size:16px; font-weight:400; letter-spacing:0;}
+	.tt1 span{background:#eee; color:#000; font-size:18px;}
+	.tt1 span:hover::before{position:absolute; top:0; left:0; content:"font-size:18px;"; display:block; width:110px; background:rgba(255,0,0,0.3); font-size:16px;}
+	.tv1 {vertical-align:baseline}
+	.tv2 {vertical-align:bottom}
+	.tv3 {vertical-align:middle}
+	.tv4 {vertical-align:sub}
+	.tv5 {vertical-align:super}
+	.tv6 {vertical-align:text-bottom}
+	.tv7 {vertical-align:text-top}
+	.tv8 {vertical-align:top}
+</style>
+
+</head>
+<body>
+
+<h1 class="sin" id="z1">vertical-align</h1>
+<div class="item">
+	<p>Выравнивает элемент по вертикали относительно своего родителя, окружающего текста или ячейки таблицы.</p>
+	<p>Значение по умолчанию <samp class="red">baseline</samp>, не наследуется, применяется к строчным элементам или ячейкам таблицы.</p>
+
+
+	<table class="tt1 tt2">
+		<caption><p>Значения</p></caption>
+		<tr><td>baseline</td>
+			<td>Выравнивает базовую линию блока по базовой линии родителя. Если у блока нет базовой линии, то за неё принимается нижняя граница.</td>
+			<td>t<span class="tv1">text</span><img src="img/30.png" class="tv1"><h3 class="tv1">h3</h3></td></tr>
+		<tr><td>bottom</td>
+			<td>Выравнивает низ блока по нижней части строки.</td>
+			<td>t<span class="tv2">text</span><img src="img/30.png" class="tv2"><h3 class="tv2">h3</h3></td></tr>
+		<tr><td>middle</td>
+			<td>Выравнивает вертикальную среднюю точку блока по базовой линии родительского блока плюс половина высоты буквы «x».</td>
+			<td>t<span class="tv3">text</span><img src="img/30.png" class="tv3"><h3 class="tv3">h3</h3></td></tr>
+		<tr><td>sub</td>
+			<td>Опускает базовую линию блока вниз для создания нижнего индекса. Не оказывает влияние на размер текста.</td>
+			<td>t<span class="tv4">text</span><img src="img/30.png" class="tv4"><h3 class="tv4">h3</h3></td></tr>
+		<tr><td>super</td>
+			<td>Поднимает базовую линию блока вверх для создания верхнего индекса. Не оказывает влияние на размер текста.</td>
+			<td>t<span class="tv5">text</span><img src="img/30.png" class="tv5"><h3 class="tv5">h3</h3></td></tr>
+		<tr><td>text-bottom</td>
+			<td>Нижняя граница элемента выравнивается по нижнему краю содержимого родителя.</td>
+			<td>t<span class="tv6">text</span><img src="img/30.png" class="tv6"><h3 class="tv6">h3</h3></td></tr>
+		<tr><td>text-top</td>
+			<td>Верхняя граница элемента выравнивается по верхнему краю содержимого родителя.</td>
+			<td>t<span class="tv7">text</span><img src="img/30.png" class="tv7"><h3 class="tv7">h3</h3></td></tr>
+		<tr><td>top</td>
+			<td>Выравнивает верх блока по верхней части строки.</td>
+			<td>t<span class="tv8">text</span><img src="img/30.png" class="tv8"><h3 class="tv8">h3</h3></td></tr>
+	</table>
+	<p class="mt20">В качестве значения также можно использовать проценты, пиксели или другие доступные единицы. Положительное число смещает элемент вверх относительно базовой линии, в то время как отрицательное число опускает его вниз. При использовании процентов, отсчёт ведётся от значения свойства <b>line-height</b>, при этом 0% аналогично значению <b>baseline</b>.</p>
+	<p class="mt20 mb10">Для выравнивания по вертикали в ячейках таблицы применяются следующие значения.</p>
+
+	<table class="tt1 tt2 mt10">
+		<tr><td>baseline</td>
+			<td>Выравнивает базовую линию ячейки с базовой линией первой текстовой строки или другого вложенного элемента.</td></tr>
+		<tr><td>bottom</td>
+			<td>Выравнивает по нижнему краю ячейки.</td></tr>
+		<tr><td>middle</td>
+			<td>Выравнивает по середине ячейки.</td></tr>
+		<tr><td>top</td>
+			<td>Выравнивает содержимое ячейки по её верхнему краю.</td></tr>
+	</table>
+</div>
+
+</body>
+</html>

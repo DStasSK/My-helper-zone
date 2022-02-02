@@ -1,0 +1,427 @@
+<!DOCTYPE html><html><head><title>Универсальные атрибуты</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	h2{letter-spacing:2px}
+</style>
+
+</head>
+
+<body>
+<h2 class="sin">Универсальные атрибуты</h2>
+<div class="item">
+	<!-- Оглавление -->
+		<div class="ogl2 ogl22">
+			<span><a href="#accesskey" title="Позволяет получить доступ к элементу с помощью заданного сочетания клавиш.">accesskey</a></span>
+			<span><a href="#class" title="Определяет имя класса, которое позволяет связать элемент со стилевым оформлением.">class</a></span>
+			<span><a href="#contenteditable" title="Сообщает, что элемент доступен для редактирования пользователем.">contenteditable</a></span>
+			<span><a href="#contextmenu" title="Устанавливает контекстное меню для элемента.">contextmenu</a></span>
+			<span><a href="#data-*" title="Позволяет создавать свои атрибуты для хранения произвольной информации.">data-*</a></span>
+			<span><a href="#dir" title="Задаёт направление и отображение текста — слева направо или справа налево.">dir</a></span>
+			<span><a href="#draggable" title="Указывает, можно ли перетаскивать элемент используя Drag and Drop API.">draggable</a></span>
+			<span><a href="#dropzone" title="Определяет, что делать с перетаскиваемыми пользователем данными — скопировать их, перетащить или связать.">dropzone</a></span>
+			<span><a href="#hidden" title="Скрывает содержимое элемента от просмотра.">hidden</a></span>
+			<span><a href="#id" title="Указывает имя стилевого идентификатора.">id</a></span>
+			<span><a href="#itemid" title="Определяет уникальный глобальный идентификатор элемента для микроданных.">itemid</a></span>
+			<span><a href="#itemprop" title="Используется для добавления свойств словаря микроданных к элементу.">itemprop</a></span>
+			<span><a href="#itemref" title="Связывает свойства элемента с атрибутом itemscope.">itemref</a></span>
+			<span><a href="#itemscope" title="Задаёт область действия словаря в структуре данных.">itemscope</a></span>
+			<span><a href="#itemtype" title="Указывает адрес словаря, который будет применяться для определения свойств элемента в структуре данных.">itemtype</a></span>
+			<span><a href="#lang" title="Браузер использует значение атрибута для правильного отображения некоторых национальных символов.">lang</a></span>
+			<span><a href="#spellcheck" title="Указывает браузеру проверять или нет правописание и грамматику в тексте.">spellcheck</a></span>
+			<span><a href="#style" title="Применяется для определения стиля элемента с помощью правил CSS.">style</a></span>
+			<span><a href="#tabindex" title="Устанавливает порядок получения фокуса при переходе между элементами с помощью клавиши Tab.">tabindex</a></span>
+			<span><a href="#title" title="Описывает содержимое элемента в виде всплывающей подсказки.">title</a></span>
+			<span><a href="#translate" title="Разрешает или запрещает перевод текста внутри элемента">translate</a></span>
+			<span></span>
+		</div>
+
+	<p>Универсальные атрибуты применяются практически ко всем элементам HTML, поэтому выделены в отдельную группу, чтобы не повторять их для каждого элемента.</p>
+</div>
+
+
+<div class="item"><h2 class="sin" id="accesskey"><a href="#">accesskey</a></h2>
+	<p>Позволяет получить доступ к элементу с помощью заданного сочетания клавиш.</p>
+	<p>Браузеры при этом используют различные комбинации клавиш. Например, для <samp class="sin">accesskey="<samp class="lsin">s</samp>"</samp> работают следующие сочетания:</p>
+	<ul class="list">
+		<li>Internet Explorer: <b>Alt + S</b></li>
+		<li>Chrome: <b>Alt + S</b></li>
+		<li>Opera: <b>Shift + Esc, S</b></li>
+		<li>Safari: <b>Alt + S</b></li>
+		<li>Firefox: <b>Shift + Alt + S</b></li>
+	</ul>
+	<p class="mt20">Обычно элемент при использовании комбинации клавиш получает фокус, но конкретное действие зависит от применяемого элемента. К примеру, для <samp class="red">&lt;a></samp> произойдёт переход по ссылке, для текстовых полей можно вводить текст, для флажков (<samp class="red dib">&lt;input <samp class="sin">type="<samp class="lsin">checkbox</samp>"</samp>></samp>) будет поставлена галочка и т. д.</p>
+	<p>В качестве значения - цифра (0-9) или латинская буква (a-z).</p>
+
+	<pre class="item2"><code>&lt;a href="image/xxx.jpg" accesskey="x">клавиша <b>X</b> для открытия ссылки&lt;/a><br>&lt;a href="image/rob.jpg" accesskey="r"> клавиша <b>R</b> для открытия ссылки&lt;/a></code></pre>
+</div>
+
+
+<div class="item"><h2 class="sin" id="class"><a href="#">class</a></h2>
+	<p>Задаёт стилевой класс, который позволяет связать определённый элемент со стилевым оформлением. В значении допускается указывать сразу несколько классов, разделяя их между собой пробелом.</p>
+	<p>В HTML4 имена классов могут содержать в себе латинские буквы (<b>A–Z</b>, <b>a–z</b>), цифры (<b>0–9</b>), символ дефиса (<b> - </b>) и подчёркивания (<b> _ </b>) и не должны начинаться с цифры. Использование русских букв в классах недопустимо. В HTML5 эти ограничения сняты, но для совместимости со старыми браузерами и JavaScript рекомендуется придерживаться данных правил.</p>
+	<pre class="item2"><code>class="имя класса"</code></pre>
+</div>
+
+
+<div class="item"><h2 class="sin" id="contenteditable"><a href="#">contenteditable</a></h2>
+	<p>Сообщает, что элемент доступен для редактирования пользователем — можно удалять текст и вводить новый. Также работают стандартные команды вроде отмены, вставки текста из буфера и др.</p>
+	<div class="no">Изменения не сохраняются в исходном html файле, используйте Js.</div>
+	<pre class="item2"><code>contenteditable="<abbr title="Включает режим редактирования.">true</abbr> | <abbr title="Запрещает редактирование элемента.">false</abbr>"</code></pre>
+	<p>Вместо <samp class="lsin">true</samp> допустимо указывать пустое значение (<samp class="sin">contenteditable=""</samp>) или вообще его не писать (<samp class="sin">contenteditable)</samp>. По умолчанию наследует значение родителя.</p>
+</div>
+
+
+<div class="item"><h2 class="sin" id="contextmenu"><a href="#">contextmenu</a></h2>
+	<p>Устанавливает контекстное меню для элемента. В качестве значения указывается идентификатор меню, созданное с помощью элемента <samp class="red">&lt;menu></samp>.</p>
+	<pre class="item2"><code>&lt;img src="" alt="" contextmenu="edit"><br>&lt;menu type="context" id="edit"></code></pre>
+	<div class="no">Поддерживается только <samp class="red">Firefox</samp>.</div>
+</div>
+
+
+<div class="item"><h2 class="sin" id="data-*"><a href="#">data-*</a></h2>
+	<p>Позволяет создавать свои атрибуты для хранения произвольной информации. Данные могут быть получены с помощью скриптов или через стилевую функцию <samp class="sin tdu"><a href="help/help.html#attr">attr()</a></samp>.</p>
+	<p>Имя атрибута должно обязательно начинаться с <samp class="sin">data-</samp>, дальше можно использовать латинские буквы в нижнем регистре, цифры и следующие символы: дефис ( - ), двоеточие ( : ), подчёркивание ( _ ).</p>
+	<p class="mt40">Имена атрибутов трансформируются в переменные, к которым в дальнейшем можно обращаться и получать значения, по следующим правилам:</p>
+	<ul class="list ml10 mb10">
+		<li><samp class="sin">data-</samp> идещее первым, удаляется;</li>
+		<li>любой дефис идущий перед буквой удаляется, а буква за ним становится заглавной;</li>
+		<li>любые другие буквы остаются неизменными.</li>
+	</ul>
+	<div class="item2">Например, атрибут <samp class="sin">data-date-of-birth</samp> преобразуется в переменную <samp class="red">dateOfBirth</samp>.</div>
+
+	<p class="mt40">Для обращения к атрибутам и получения их значений через скрипты применяется метод <samp class="sin">dataset</samp>. Он же используется и для установки нового значения.</p>
+	<pre class="item2">значение = элемент.dataset.атрибут<br>элемент.dataset.атрибут = значение</pre>
+	<p>Здесь <samp class="lsin">атрибут</samp> — это переменная, полученная путём изменения атрибута по вышеприведённым правилам (dateOfBirth, а не data-date-of-birth или date-of-birth).</p>
+
+	<fieldset class="prm mt40">
+		<legend class="point" onclick='pr1.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class="" id="pr1" onclick="event.stopPropagation()">
+			<div id="user" data-id="1234567890" data-user="Вася Пупкин" data-date-of-birth="01.04.1990">Пользователь</div>
+			<script>
+				var el = document.getElementById('user');
+				id = el.dataset.id; // Получаем значение атрибута data-id
+				user = el.dataset.user;
+				dob = el.dataset.dateOfBirth; // Получаем значение атрибута data-date-of-birth
+				el.dataset.ban = 'Нет'; // Назначаем новый атрибут data-ban и его значение
+				console.log(user); // Выводим в консоль значение переменной user
+				console.log(dob); // Выводим в консоль значение переменной dob
+			</script>
+			<pre class="item2"><code>&lt;div id="user" data-id="1234567890"<br>     data-user="Вася Пупкин" <br>     data-date-of-birth="01.04.1990">Пользователь&lt;/div><br><br>&lt;script><br>  var el = document.getElementById('user');<br>  id = el.dataset.id;           <span class="ls-1">// Получаем значение атрибута data-id</span><br>  user = el.dataset.user;<br>  dob = el.dataset.dateOfBirth; <span class="ls-1">// Получаем значение атрибута data-date-of-birth</span><br>  el.dataset.ban = 'Нет';       <span class="ls-1">// Назначаем новое значение атрибута data-ban</span><br>  console.log(user);            <span class="ls-1">// Выводим в консоль значение переменной user</span><br>  console.log(dob);             <span class="ls-1">// Выводим в консоль значение переменной dob</span><br>&lt;/script></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="dir"><a href="#">dir</a></h2>
+	<p>Задаёт направление и отображение текста — слева направо или справа налево.</p>
+	<p>Браузеры обычно самостоятельно различают направление текста, если он задан в кодировке Юникод, но с помощью атрибута <samp class="sin">dir</samp> можно указать, в каком направлении отображать текст. Для арабских и еврейских символов приоритетным является направление, заложенное в Юникод, поэтому на них атрибут <samp class="sin">dir</samp> действовать не будет.</p>
+	<pre class="item2"><code>dir="<abbr title="Текст отображается как обычно — слева направо. Значение по умолчанию.">ltr</abbr> | <abbr title="Текст инвертируется и отображается справа налево.">rtl</abbr>"</code></pre>
+
+	<fieldset class="prm mt20">
+		<legend class="point" onclick='pr2.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr2" onclick="event.stopPropagation()">
+			<p dir="rtl">שבת — суббота</p>
+			<p>В ашкеназском произношении звучит как «ша́бос» (идиш «ша́бес»), а в сефардском — как «шаба́т».</p>
+
+			<pre class="item2"><code>&lt;p dir="rtl">שבת — суббота&lt;/p><br>&lt;p>В ашкеназском произношении звучит как «ша́бос» <br>   (идиш «ша́бес»), а в сефардском — как «шаба́т».&lt;/p></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="draggable"><a href="#">draggable</a></h2>
+	<p>Указывает, можно ли перетаскивать элемент используя Drag and Drop API.</p>
+	<pre class="item2"><code>draggable="<abbr title="Разрешает перетаскивание элемента.">true</abbr> | <abbr title="Запрещает перетаскивание элемента.">false</abbr> | <abbr title="Задаёт поведение браузера по умолчанию. Значение по умолчанию.">auto</abbr>"</code></pre>
+
+
+	<style>
+		#pr3 .ptrash {border:1px solid #929292; height:160px; padding:10px; text-align:center; margin-bottom:1rem;
+			background:url(help/img/trash.png) no-repeat 50% 50%;}
+		#pr3 img {cursor:move; height:160px;}
+	</style>
+	<script>
+		function allowDrop(ev) { ev.preventDefault(); }
+		function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+			}
+	</script>
+	<fieldset class="prm mt20">
+		<legend class="point" onclick='pr3.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr3" onclick="event.stopPropagation()">
+			<p>Переместите картинку в прямоугольник.</p>
+			<div class="ptrash" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<img src="help/img/fig.jpg" draggable="true" alt="" ondragstart="drag(event)" id="photo">
+			<pre class="item2"><code>&lt;style><br>  .ptrash {<br>    border:1px solid #929292; height:160px; padding:10px;<br>    text-align:center; margin-bottom:1rem;<br>    background:url(help/img/trash.png) no-repeat 50% 50%;}<br><br>  img {cursor:move; height:160px;}<br>&lt;/style>
+			<br>&lt;script><br>  function allowDrop(ev) {ev.preventDefault();}<br>  function drag(ev) {ev.dataTransfer.setData("text", ev.target.id);}<br>  function drop(ev) {<br>    ev.preventDefault();<br>    var data = ev.dataTransfer.getData("text");<br>    ev.target.appendChild(document.getElementById(data));<br>  }<br>&lt;/script>
+			<br>&lt;p>Переместите картинку в прямоугольник.&lt;/p><br>&lt;div class="ptrash"<br>     ondrop="drop(event)" ondragover="allowDrop(event)">&lt;/div><br>&lt;img src="help/img/fig.jpg" alt="" id="photo"<br>     draggable="true" ondragstart="drag(event)"></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="dropzone"><a href="#">dropzone</a></h2>
+	<p>Определяет, что делать с перетаскиваемыми пользователем данными — скопировать их, перетащить или связать — в момент, когда данные бросаются на элемент.</p>
+	<pre class="item2"><code>dropzone="<abbr title="Копирование перетаскиваемых пользователем данных. Значение по умолчанию">copy</abbr> | <abbr title="">link</abbr> | <abbr title="Перетаскиваемые пользователем данных будут скопированы и связаны со своим исходником.">move</abbr>"</code></pre>
+	<div class="no">Атрибут <samp class="sin">dropzone</samp> был удален в HTML 5.2; поддержку в браузеры так и не завезли.</div>
+</div>
+
+
+<div class="item"><h2 class="sin" id="hidden"><a href="#">hidden</a></h2>
+	<p>Скрывает содержимое элемента от просмотра. Такой элемент не отображается на странице, но доступен через скрипты.</p>
+	<pre class="item2"><code>hidden</code></pre>
+	<p>В качестве значения можно указать <samp class="lsin">hidden</samp> (<samp class="sin">hidden="<samp class="lsin">hidden</samp>"</samp>) или оставить атрибут пустым (<samp class="sin">hidden=""</samp> или <samp class="sin">hidden</samp>). По умолчанию атрибут выключен.</p>
+	<div class="no">Если через стили установлено свойство <samp class="sin">display</samp> отличное от <samp class="lsin">none</samp>, то не скрывает. Если <samp class="sin">display</samp> не установлено, то скрывает.</div>
+
+	<fieldset class="prm mt20 anp">
+		<style>
+			#pr4 #link {cursor:pointer; color:blue; text-decoration:underline;}
+		</style>
+		<script>
+			function showForm() {
+				document.getElementById("auth").hidden = false;
+				document.getElementById("link").hidden = true;
+			}
+		</script>
+		<legend class="point" onclick='pr4.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr4" onclick="event.stopPropagation()">
+			<p id="link" onclick="showForm()">Авторизация на сайте</p>
+			<form id="auth" hidden>
+				<p><label>Логин: <input name="user" required></label></p>
+				<p><label>Пароль: <input name="pass" type="password" required></label></p>
+				<p><input type="submit" value="Войти"></p>
+			</form>
+			<pre class="item2"><code>&lt;style><br>  #pr4 #link {cursor:pointer; color:blue; text-decoration:underline;}<br>&lt;/style><br><br>&lt;script><br>  function showForm() {<br>    document.getElementById("auth").hidden = false;<br>    document.getElementById("link").hidden = true;<br>  }<br>&lt;/script><br><br>&lt;p id="link" onclick="showForm()">Авторизация на сайте&lt;/p><br>&lt;form id="auth" hidden><br>  &lt;p>&lt;label>Логин: &lt;input name="user" required>&lt;/label>&lt;/p><br>  &lt;p>&lt;label>Пароль: &lt;input name="pass" type="password">&lt;/label>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Войти">&lt;/p><br>&lt;/form></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="id"><a href="#">id</a></h2>
+	<p>Задаёт стилевой идентификатор — уникальное имя элемента, которое используется для изменения его стиля и обращения к нему через скрипты. Идентификатор в коде документа должен быть в единственном экземпляре, иными словами, встречаться только один раз.</p>
+	<pre class="item2"><code>id="идентификатор"</code></pre>
+	<p>Идентификатор состоит по меньшей мере из одного символа и не должен содержать пробел. В имя идентификатора допустимо включать цифры, символ подчёркивания, дефис и др.</p>
+	<div class="no">В HTML4 идентификатор не должен начинаться с цифры и содержать другие символы, кроме дефиса, подчёркивания и точки. Придерживайтесь этих правил, если вам требуется взаимодействие идентификаторов с JavaScript или совместимость со старыми браузерами.</div>
+</div>
+
+
+<div class="item"><h2 class="sin" id="itemid"><a href="#">itemid</a></h2>
+	<p>Определяет уникальный глобальный идентификатор элемента для микроданных.</p>
+	<p>Применяется только к таким элементам, у которых одновременно заданы атрибуты <samp class="sin">itemscope</samp> и <samp class="sin">itemtype</samp>. Кроме того, <samp class="red">itemid</samp> допустимо использовать со словарями, поддерживающих глобальные идентификаторы. К примеру, для словаря <span class="sin">http://schema.org/Book</span>, который описывает книги, в качестве идентификатора может служить <samp class="sin">ISBN</samp> — уникальный международный номер книжного издания.</p>
+	<pre class="item2"><code>itemid="адрес"</code></pre>
+	<p>В качестве значения указывается относительный или абсолютный адрес документа, который служит идентификатором. Кроме того, допустимо задавать и обычный текст.</p>
+
+	<fieldset class="prm mt20 anp">
+		<legend class="point" onclick='pr5.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr5" onclick="event.stopPropagation()">
+			<div itemscope itemtype="http://schema.org/Book" itemid="isbn:978-5-17-075250-8">
+				<h2 itemprop="name" style="text-align:left;font-size:22px;margin-top:0">Игра престолов</h2>
+				<div itemprop="author">Джордж Мартин</div>
+				<div itemprop="bookFormat">Твёрдый переплёт</div>
+				<div itemprop="description">Эпическая, чеканная сага о мире Семи Королевств...</div>
+			</div>
+			<pre class="item2"><code>&lt;div itemscope itemtype="http://schema.org/Book"<br>               itemid="isbn:978-5-17-075250-8"><br>  &lt;h2 itemprop="name">Игра престолов&lt;/h2><br>  &lt;div itemprop="author">Джордж Мартин&lt;/div><br>  &lt;div itemprop="bookFormat">Твёрдый переплёт&lt;/div><br>  &lt;div itemprop="description"><br>    Эпическая, чеканная сага о мире Семи Королевств...<br>  &lt;/div><br>&lt;/div></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="itemprop"><a href="#">itemprop</a></h2>
+	<p>Используется для добавления свойств словаря микроданных к элементу. Имя свойства определяется значением <samp class="sin">itemprop</samp>, а значение свойства определяется содержимым HTML-элемента, к примеру, текстом который располагается внутри элемента.</p>
+	<pre class="item2"><code>itemprop="свойство"</code></pre>
+	<div><span class="lsin">Свойство</span> определяется словарём данных. К примеру, на <samp class="sin tdu"><a href="https://schema.org/docs/schemas.html" target="_blank">Schema.org</a></samp>, которую поддерживает Яндекс и Google, перечислены словари с их возможными свойствами.</div>
+
+	<fieldset class="prm mt20 anp">
+		<style>
+			#pr60 a{color:#009; text-decoration:underline;}
+		</style>
+		<legend class="point" onclick='pr60.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr60" onclick="event.stopPropagation()">
+			<article itemscope itemtype="http://schema.org/Movie" class="mb40">
+				<div>
+					<h1 itemprop="name">Облачный атлас </h1>
+					<span itemprop="alternativeHeadline">Cloud Atlas</span>
+				</div>
+				<p class="mt10"><span>
+					<a itemprop="director" href="/name/23330/">Лана Вачовски</a>,
+					<a itemprop="director" href="/name/26439/">Том Тыквер</a>,
+					<a itemprop="director" href="/name/23329/">Энди Вачовски</a>
+				</span>
+				<span>
+					<a itemprop="producer" href="/name/26437/">Штефан Арндт</a>,
+					<a itemprop="producer" href="/name/31351/">Грант Хилл</a>,
+					<a itemprop="producer" href="/name/26439/">Том Тыквер</a>,
+					<a href="/film/464484/cast/#producer">и другие</a>.
+				</span>
+				<span>
+					<a itemprop="musicBy" href="/name/312865/">Райнхольд Хайль</a>,
+					<a itemprop="musicBy" href="/name/608605/">Джонни Клаймек</a>,
+					<a itemprop="musicBy" href="/name/26439/">Том Тыквер</a>.
+				</span><br>
+				<span>
+					<a itemprop="genre" href="/level/10/m_act%5Bgenre%5D/2/">фантастика</a>,
+					<a itemprop="genre" href="/level/10/m_act%5Bgenre%5D/8/">драма</a>,
+					<a itemprop="genre" href="/level/10/m_act%5Bgenre%5D/17/">детектив</a>,
+				</span></p>
+				<p class="mt20"><span class="title">В главных ролях:</span></p>
+				<div class="mb10">
+					<a itemprop="actor" href="/name/9144/">Том Хэнкс</a>
+					<a itemprop="actor" href="/name/1179/">Холли Берри</a>
+					<a itemprop="actor" href="/name/38704/">Джим Броудбент</a>
+				</div>
+				<span itemprop="description">Шесть историй — пять реинкарнаций, происходящих в разное время,тесно переплетаются между собой…</span>
+			</article>
+			<samp class="point red bold" onclick='pr61.classList.toggle("hiden");' title="свернуть/развернуть">HTML</samp>
+			<pre class="hiden item2" id="pr61" onclick="event.stopPropagation()"><code>&lt;article itemscope itemtype="http://schema.org/Movie"><br>  &lt;div><br>    &lt;h1 itemprop="name">Облачный атлас &lt;/h1><br>    &lt;span itemprop="alternativeHeadline">Cloud Atlas&lt;/span><br>  &lt;/div><br>  &lt;p class="mt10">&lt;span><br>    &lt;a itemprop="director" href="/name/23330/">Лана Вачовски&lt;/a>,<br>    &lt;a itemprop="director" href="/name/26439/">Том Тыквер&lt;/a>,<br>    &lt;a itemprop="director" href="/name/23329/">Энди Вачовски&lt;/a><br>  &lt;/span><br>  &lt;span><br>    &lt;a itemprop="producer" href="/name/26437/">Штефан Арндт&lt;/a>,<br>    &lt;a itemprop="producer" href="/name/31351/">Грант Хилл&lt;/a>,<br>    &lt;a itemprop="producer" href="/name/26439/">Том Тыквер&lt;/a>,<br>    &lt;a href="/film/464484/cast/#producer">и другие&lt;/a>.<br>  &lt;/span><br>  &lt;span><br>    &lt;a itemprop="musicBy" href="/name/312865/">Райнхольд Хайль&lt;/a>,<br>    &lt;a itemprop="musicBy" href="/name/608605/">Джонни Клаймек&lt;/a>,<br>    &lt;a itemprop="musicBy" href="/name/26439/">Том Тыквер&lt;/a>.<br>  &lt;/span><br>  &lt;span><br>    &lt;a itemprop="genre" href="/level/m_act%5Bgenre%5D/2/">фантастика&lt;/a>,<br>    &lt;a itemprop="genre" href="/level/m_act%5Bgenre%5D/8/">драма&lt;/a>,<br>    &lt;a itemprop="genre" href="/level/m_act%5Bgenre%5D/17/">детектив&lt;/a>,<br>  &lt;/span>&lt;/p><br>  &lt;p class="mt20">&lt;span class="title">В главных ролях:&lt;/span>&lt;/p><br>  &lt;div class="mb10"><br>    &lt;a itemprop="actor" href="/name/9144/">Том Хэнкс&lt;/a><br>    &lt;a itemprop="actor" href="/name/1179/">Холли Берри&lt;/a><br>    &lt;a itemprop="actor" href="/name/38704/">Джим Броудбент&lt;/a><br>  &lt;/div><br>  &lt;span itemprop="description">Шесть историй — пять реинкарнаций,<br>  происходящих в разное время,тесно переплетаются между собой…&lt;/span><br>&lt;/article></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="itemref"><a href="#">itemref</a></h2>
+	<p>Связывает свойства элемента с атрибутом <samp class="sin">itemscope</samp>. В значении данного атрибута указывается список идентификаторов элементов, которые содержат дополнительные свойствами в других местах документа. Атрибут <samp class="red">itemref</samp> может быть указан только для элементов, которые содержат атрибут <samp class="sin">itemscope</samp>.</p>
+	<p>Атрибут <samp class="red">itemref</samp> не является частью модели микроданных. Это всего лишь синтаксическая конструкция, помогающая авторам добавлять аннотацию на страницу, которая не содержит удобную древовидную структуру.</p>
+	<pre class="item2"><code>itemref="идентификатор"</code></pre>
+	<div>Значения - oдно или несколько значений атрибута <samp class="red">id</samp> разделённых пробелом.</div>
+
+	<fieldset class="prm mt20 anp">
+		<legend class="point" onclick='pr7.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr7" onclick="event.stopPropagation()">
+			<div itemscope itemtype="" itemref="name thumb description"></div>
+			<!-- <div itemscope itemtype="http://schema.org/Product" itemref="name thumb description"></div> -->
+			<h2 itemprop="name" id="name" style="text-align:left">Iphone 6 plus 16 GB</h2>
+			<!-- <img src="http://imageexample.com/iphone6plus.jpg" itemprop="image" id="thumb"> -->
+			<img src="" itemprop="image" id="thumb">
+			<div itemprop="description" id="description">iPhone 6 не просто больше. Он лучше...</div>
+			<pre class="item2 mt20"><code>&lt;div itemscope itemtype="http://schema.org/Product"<br>               itemref="name thumb description">&lt;/div><br><br>&lt;h1 itemprop="name" id="name">Iphone 6 plus 16 GB&lt;/h1><br>&lt;img src="img/iphone6plus.jpg" itemprop="image" id="thumb"><br>&lt;div itemprop="description" id="description"><br>  iPhone 6 не просто больше. Он лучше...<br>&lt;/div></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="itemscope"><a href="#">itemscope</a></h2>
+	<p>Задаёт область действия словаря в структуре данных. Как правило, работает совместно с атрибутом <samp class="sin">itemtype</samp> и задаёт пределы, где <samp class="sin">itemtype</samp> будет активен.</p>
+	<pre class="item2"><code>itemscope</code></pre>
+	<div>Значения - у этого атрибута нет значений.</div>
+
+	<fieldset class="prm mt20 anp">
+		<legend class="point" onclick='pr8.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class="hiden anp" id="pr8" onclick="event.stopPropagation()">
+			<div itemscope itemtype="http://schema.org/Organization">
+				<span itemprop="name">Яндекс</span> Контакты:
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					Адрес:
+					<span itemprop="streetAddress">ул. Льва Толстого, 16</span>
+					<span itemprop="postalCode"> 119021</span>
+					<span itemprop="addressLocality">Москва</span>,
+				</div>
+				Телефон: <span itemprop="telephone">+7 495 739–70–00</span><br>
+				Факс: <span itemprop="faxNumber">+7 495 739–70–70</span><br>
+				Электронная почта: <span itemprop="email">pr@yandex-team.ru</span>
+			</div>
+			<pre class="item2"><code>&lt;div itemscope itemtype="http://schema.org/Organization"><br>  &lt;span itemprop="name">Яндекс&lt;/span> Контакты:<br>  <span class="ls-1">&lt;div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"></span><br>    Адрес:<br>    &lt;span itemprop="streetAddress">ул. Льва Толстого, 16&lt;/span><br>    &lt;span itemprop="postalCode"> 119021&lt;/span><br>    &lt;span itemprop="addressLocality">Москва&lt;/span>,<br>  &lt;/div><br>  Телефон: &lt;span itemprop="telephone">+7 495 739–70–00&lt;/span>&lt;br><br>  Факс: &lt;span itemprop="faxNumber">+7 495 739–70–70&lt;/span>&lt;br><br>  Электронная почта: &lt;span itemprop="email">pr@yandex-team.ru&lt;/span><br>&lt;/div></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="itemtype"><a href="#">itemtype</a></h2>
+	<p>Атрибут <samp class="red">itemtype</samp> указывает адрес словаря, который будет применяться для определения свойств элемента в структуре данных. Яндекс и Google поддерживают стандарт разметки <samp class="sin">Schema.org</samp>, соответственно, в качестве значения <samp class="red">itemtype</samp> указывается адрес словаря на этом сайте. К примеру, для разметки организаций используется значение <samp class="sin">http://schema.org/Organization.</samp>.</p>
+	<pre class="item2"><code>itemtype="адрес"</code></pre>
+
+	<fieldset class="prm mt20 anp">
+		<legend class="point" onclick='pr9.classList.toggle("hiden");' title="свернуть/развернуть"></legend>
+		<div class=" anp" id="pr9" onclick="event.stopPropagation()">
+			<div itemscope itemtype="http://schema.org/Organization">
+				<span itemprop="name">Яндекс</span> Контакты:
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					Адрес:
+					<span itemprop="streetAddress">ул. Льва Толстого, 16</span>
+					<span itemprop="postalCode"> 119021</span>
+					<span itemprop="addressLocality">Москва</span>,
+				</div>
+				Телефон: <span itemprop="telephone">+7 495 739–70–00</span><br>
+				Факс: <span itemprop="faxNumber">+7 495 739–70–70</span><br>
+				Электронная почта: <span itemprop="email">pr@yandex-team.ru</span>
+			</div>
+			<pre class="item2"><code>&lt;div itemscope itemtype="http://schema.org/Organization"><br>  &lt;span itemprop="name">Яндекс&lt;/span> Контакты:<br>  <span class="ls-1">&lt;div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"></span><br>    Адрес:<br>    &lt;span itemprop="streetAddress">ул. Льва Толстого, 16&lt;/span><br>    &lt;span itemprop="postalCode"> 119021&lt;/span><br>    &lt;span itemprop="addressLocality">Москва&lt;/span>,<br>  &lt;/div><br>  Телефон: &lt;span itemprop="telephone">+7 495 739–70–00&lt;/span>&lt;br><br>  Факс: &lt;span itemprop="faxNumber">+7 495 739–70–70&lt;/span>&lt;br><br>  Электронная почта: &lt;span itemprop="email">pr@yandex-team.ru&lt;/span><br>&lt;/div></code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+<div class="item"><h2 class="sin" id="lang"><a href="#">lang</a></h2>
+	<p>Браузер использует значение атрибута для правильного отображения некоторых национальных символов. Текст документа может быть набран как на одном языке, так и содержать вставки на других языках, которые могут различаться по своим правилам оформления текста. Например, для русского, немецкого и английского языка характерны разные кавычки, в которые берется цитата. Чтобы указать язык, на котором написан текст внутри текущего элемента и применяется атрибут <samp class="red">lang</samp>.</p>
+	<div class="item2 anp">
+		<pre><code>lang="<a href="lang-code.html" class="tdu">код языка</a>"</code></pre>
+		<pre><code><br><br>&lt;style><br>  q:lang(de) {quotes:"\201E" "\201C"} /* Вид кавычек для немецкого языка */<br>  q:lang(en) {quotes:"\201C" "\201D"} /* Вид кавычек для английского языка */<br>  q:lang(fr) {quotes:"\0AB" "\0BB"}   /* Вид кавычек для французского языка*/<br>&lt;/style><br><br>&lt;p>Цитата на французском языке: &lt;q lang="fr">Ce que femme veut...&lt;/q>.&lt;/p><br>&lt;p>Цитата на немецком: &lt;q lang="de">Der Mensch, versuche...&lt;/q>.&lt;/p><br>&lt;p>Цитата на английском: &lt;q lang="en">То be or not to be&lt;/q>.&lt;/p></code></pre>
+		<style>
+			q:lang(de) {quotes: "\201E" "\201C"} /* Вид кавычек для немецкого языка */
+			q:lang(en) {quotes: "\201C" "\201D"} /* Вид кавычек для английского языка */
+			q:lang(fr) {quotes: "\0AB" "\0BB"}   /* Вид кавычек для французского языка*/
+		</style>
+		<p class="mt20">Цитата на французском языке: <q lang="fr">Ce que femme veut...</q>.</p>
+		<p>Цитата на немецком: <q lang="de">Der Mensch, versuche...</q>.</p>
+		<p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
+	</div>
+</div>
+
+
+<div class="item"><h2 class="sin" id="spellcheck"><a href="#">spellcheck</a></h2>
+	<p>Указывает браузеру проверять или нет правописание и грамматику в тексте. Хотя атрибут можно устанавливать практически для всех элементов, результат будет заметен только для полей форм (<samp class="red">&lt;input></samp>, <samp class="red">&lt;textarea></samp>), а также редактируемых элементов (у них установлен атрибут <samp class="sin">contenteditable</samp>). При включении проверки слова с ошибками подчёркиваются красной волнистой линией.</p>
+	<div class="no">Браузер может не поддерживать проверку орфографии или она может быть отключена.</div>
+
+	<pre class="item2 mt20"><code>spellcheck="<abbr title="Включает режим проверки правописания.">true</abbr> | <abbr title="Отключает проверку.">false</abbr>"</code></pre>
+	<p>Вместо <samp class="grin">true</samp> допустимо указывать пустое значение (<samp class="sin">spellcheck=""</samp>) или вообще его не писать (<samp class="sin">spellcheck</samp>). Значение по умолчанию - зависит от настроек браузера.</p>
+	<p class="mt20">В мобильных браузерах отключение проверки орфографии spellcheck="false" не даёт эффекта, слова с ошибками подчёркиваются красной волнистой линией.</p>
+</div>
+
+
+<div class="item"><h2 class="sin" id="style"><a href="#">style</a></h2>
+	<p>Применяется для определения стиля элемента с помощью правил CSS.</p>
+	<pre class="item2"><code>style="правила описания стилей"</code></pre>
+	<p>В качестве значений указываются стилевые правила: вначале следует имя стилевого свойства, затем через двоеточие его значение. Стилевые свойства разделяются между собой точкой с запятой.</p>
+</div>
+
+
+<div class="item"><h2 class="sin" id="tabindex"><a href="#">tabindex</a></h2>
+	<p>Устанавливает порядок получения фокуса при переходе между элементами с помощью клавиши <b>Tab</b>. Переход происходит от меньшего значения к большему, например от <b>1</b> к <b>2</b>, затем к <b>3</b> и так далее. При этом строгая последовательность не важна, допускается пропускать какие-то числа и начинать с любой цифры. Если значения <samp class="sin">tabindex</samp> у элементов совпадают, тогда учитывается их порядок появления в коде. Заблокированные элементы (у которых установлен атрибут <samp class="sin">disabled</samp>) не участвуют в переходе и фокус не получают.</p>
+	<pre class="item2 mt20"><code>tabindex="Любое целое число"</code></pre>
+
+	<p class="mt20">Отрицательное значение говорит, что элемент может получить фокус, но к нему нельзя перейти с помощью клавиатуры.</p>
+	<p>Ноль, неверное значение или когда атрибут <samp class="sin">tabindex</samp> не задан означает, что к элементу можно перейти с помощью клавиатуры, но переход происходит после всех «нумерованных» элементов в том порядке, как они указаны в коде. Ноль - значение по умолчанию</p>
+	<p>Положительное значение определяет порядок элемента в последовательности перехода через клавиатуру: чем больше число, тем больше раз требуется нажать <b>Tab</b> для перехода к элементу.</p>
+	<p>Любой элемент (не только интерактивные: <samp class="red">&lt;a></samp>, <samp class="red">&lt;input></samp> и т.п.) может получать фокус, если у него прописан <samp class="sin">tabindex</samp> атрибут.</p>
+	<div class="no">Максимальное значение не должно превышать 32767.</div>
+	<div class="no">Порядок получения фокуса начинает действовать с элемента у которого уже получен фокус. Например, места последнего клика мышкой, даже игнорируя <samp class="sin">tabindex</samp> последовательность.</div>
+	<p>Если идет запрос к странице по хешу, например: <samp class="sin">site.ru/#blabla</samp> и на странице есть элемент с <samp class="red">id</samp> равным <samp class="sin">"blabla"</samp>, то при нажатии на на клавиатуре клавиши <b>tab</b> порядок получения фокуса изменится. Фокус получит ближайший элемент возле элемента с этим <samp class="red">id</samp>.</p>
+	<div class="no">Как изменить цвет рамки по умолчанию при фокусировке на кнопке с помощью tab'а?
+		<br>Используйте <samp class="sin"><a class="tdu" href="help/psevdo-klass.html#pk-focus">:focus</a></samp>
+	</div>
+</div>
+
+
+<div class="item"><h2 class="sin" id="title"><a href="#">title</a></h2>
+	<p>Добавляет всплывающую подсказку с текстом, которая появляется при наведении курсора на элемент. Вид такой подсказки зависит от браузера, настроек операционной системы и не может быть изменён напрямую с помощью HTML-кода или стилей.</p>
+	<pre class="item2"><code>title="текст"</code></pre>
+	<div class="no mb10">Значение этого атрибута, по крайней мере в контексте элемента <samp class="red">&lt;a></samp>, индексируется поисковиком <samp class="red">Yandex</samp>.</div>
+</div>
+
+
+<div class="item"><h2 class="sin" id="translate"><a href="#">translate</a></h2>
+	<p>Разрешает или запрещает перевод текста внутри элемента.</p>
+	<!-- <p>Принимаемые значения: yes/no.</p> -->
+	<pre class="item2"><code>translate="yes | no"</code></pre>
+</div>
+
+</body></html>

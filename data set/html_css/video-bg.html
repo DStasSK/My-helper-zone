@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>Видео в качестве фона для сайта</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<style>
+	#video-bg {
+		position:fixed; top:0; right:0; bottom:0; left:0;
+		overflow:hidden;
+		z-index:1;
+		background:url(video-bg/bg/daisy-stock-poster.jpg) no-repeat #94a233;
+		background-size:cover;}
+	#video-bg > video {position:absolute; top:0; left:0; min-width:100%; min-height:100%; width:auto; height:auto;}
+	/* директива @supports проверяет - поддерживает ли браузер свойство object-fit.
+	Если да, то фон принимает значение cover и пропорционально отображается при разных размерах экрана.*/
+	@supports (object-fit: cover) {#video-bg > video {top:0; left:0; width:100%; height:100%; object-fit:cover;}}
+</style>
+
+<div id="video-bg">
+	<video width="100%" height="auto" preload="auto" autoplay="autoplay"
+	loop="loop" poster="video-bg/bg/daisy-stock-poster.jpg">
+		<source src="video-bg/bg/daisy-stock-h264-video.mp4" type="video/mp4"></source>
+		<source src="video-bg/bg/daisy-stock-webm-video.webm" type="video/webm"></source>
+	</video>
+</div>
+
+<style>
+	*{box-sizing:border-box;}
+	.maneq{position:absolute; top:0;left:0; min-width:calc(100% - 30px); min-height:100%; width:auto; height:auto; z-index:2; margin:-5px 0; color:#0af;}
+	.maneq .item2{background:rgba(240,240,240,.2);}
+	.maneq h2{color:#fff;}
+</style>
+<div class="maneq anp">
+	<div class="item">
+	<h2>Видео в качестве фона для сайта</h2>
+	<p>Если вы твердо убеждены, что хотите установить видео для фона на сайте, необходимо знать кое-какие нюансы:</p>
+	<ol>
+		<li><p>Во-первых, нужно обязательно помнить о том, что видеоролик имеет довольно большой вес. Это может негативно сказаться на скорости загрузки страницы, особенно если у пользователя медленный интернет. Поэтому выбирайте не слишком продолжительные по времени видеоролики. В случае, когда требуется использовать довольно длинное видео, будьте готовы либо к работе над уменьшением его веса, либо к тому, что придется жертвовать частью аудитории.</li>
+		<li><p>Во-вторых, избегайте автовоспроизведения звука из видео. Используйте либо ролики без аудио, либо добавьте возможность пользователю самому включить звук, если ему это понадобится. Автоматическое воспроизведение звука при открытии сайта считается очень дурным тоном.</li>
+		<li><p>В-третьих, нужно позаботиться о кроссбраузерности и корректном отображении и воспроизведении видео на всех устройствах, а также предоставить альтернативу видео (для тех случаев, если оно не воспроизведется). Ниже в нашем примере мы покажем, как это сделать.</li>
+		<li><p>И в-четвертых, стоит хорошо подумать, уместен ли видеофон на том сайте, где вы захотели его установить, поскольку очень легко переступить грань между оригинальностью и бесполезностью данной затеи. Видео ни в коем случае не должно отвлекать пользователя от его главной цели, по причине которой он пришел на сайт. Устанавливая видео-фон под текстовым содержимым, не забудьте проверить, насколько читабельным стал текст. Например, он может слиться с фоном в определенный момент проигрывания видеоролика (белый текст на белом фоне, черный на черном и т. п.).</li>
+	</ol>
+
+	<style>
+		.sp label {cursor:pointer;}
+		.sp input {display:none;}
+		.sp pre {display:none;}
+		.sp :checked ~ pre {display:block;}
+		.sp span, .sp samp{background-color:#eee;}
+		.sp samp{padding:0 5px;}
+	</style>
+	<div class="sp item2 br0">
+		<input type="checkbox" id="sp1">
+		<label for="sp1"><samp class="red">HTML</samp></label>
+		<pre><code class="html"><span>&lt;div id="video-bg">
+  &lt;video width="100%" height="auto" preload="auto" autoplay="autoplay"
+  loop="loop" poster="video-bg/bg/daisy-stock-poster.jpg">
+    &lt;source src="video-bg/bg/daisy-stock-h264-video.mp4"
+    type="video/mp4">&lt;/source>
+    &lt;source src="video-bg/bg/daisy-stock-webm-video.webm"
+    type="video/webm">&lt;/source>
+  &lt;/video>
+&lt;/div></span></code></pre>
+		<br><pre><code class="css"><span><samp class="red">CSS</samp>
+#video-bg {
+  position:fixed; top:0; right:0; bottom:0; left:0;
+  overflow:hidden;
+  z-index:1;
+  background:url(video-bg/bg/daisy-stock-poster.jpg) no-repeat #94a233;
+  background-size:cover;}
+#video-bg > video {
+  position:absolute; top:0; left:0;
+  min-width:100%; min-height:100%;
+  width:auto; height:auto;}
+/* директива  @supports  проверяет  -  поддерживает  ли  браузер
+   свойство object-fit. Если да, то фон принимает значение cover
+   и пропорционально отображается при разных размерах экрана. */
+@supports (object-fit: cover) {
+  #video-bg > video {
+    top:0; left:0; width:100%; height:100%; object-fit:cover;}}</span></code></pre>
+	</div>
+</div>
+</body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html><html><head><title>Меню на вкладках</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.item0 {background-color:#fea0ae;}
+</style></head>
+<body>
+
+<h2 class="sin" style="margin:7px 0">Меню на вкладках <samp>input & label</samp></h2>
+
+<!-- пример №1 -->
+<div class="item item0">
+	<style>
+		.menuq {position:relative; padding-top:36px; width:700px; margin:0 auto; line-height:1.4;}
+		.menuq .tab input {display:none;}
+		.menuq .content {border:1px solid #666; padding:10px; width:calc(700px - 22px);
+			display:none; margin:0 auto; background-color:#fff;}
+		.menuq .tab-title {display:block; background:#ccc; font-size:18px; text-align:center;
+			width:140px; padding:5px 10px; border:1px solid #666; border-bottom:none;
+			position:absolute; top:0px; z-index:2;}
+		.menuq .tt1{left:0;}
+		.menuq .tt2{left:179px;}
+		.menuq .tt3{left:359px;}
+		.menuq .tt4{left:538px;}
+		.menuq .tab :checked ~ .content {display:inline-block;}
+		.menuq .tab :checked ~ .tab-title {background:#fff;}
+		.menuq .tab :checked ~ .tab-title:before {content:""; width:100%; height:1px; background-color:#fff; position:absolute; left:0; bottom:-1px; z-index:3;}
+	</style>
+
+	<div class="menuq">
+		<div class="tab">
+			<input type="radio" id="tab1" name="menu">
+			<label for="tab1" class="tab-title tt1">Раздел №1 <samp class="red">HTML</samp></label>
+			<section class="content">
+				<pre><code>&lt;div class="menu"><br>  &lt;div class="tab"><br>    &lt;input type="radio" id="tab1" name="menu" checked /><br>    &lt;section class="content">1&lt;/section><br>    &lt;label for="tab1" class="tab-title t1">Раздел №1&lt;/label><br>  &lt;/div><br>  &lt;div class="tab"><br>    &lt;input type="radio" id="tab2" name="menu" /><br>    &lt;section class="content">2&lt;br>2&lt;/section><br>    &lt;label for="tab2" class="tab-title t2">Раздел №2&lt;/label><br>  &lt;/div><br>  &lt;div class="tab"><br>    &lt;input type="radio" id="tab3" name="menu" /><br>    &lt;section class="content">3&lt;br>3&lt;br>3&lt;/section><br>    &lt;label for="tab3" class="tab-title t3">Раздел №3&lt;/label><br>  &lt;/div><br>  &lt;div class="tab"><br>    &lt;input type="radio" id="tab4" name="menu" /><br>    &lt;section class="content">4&lt;br>4&lt;br>4&lt;/section><br>    &lt;label for="tab4" class="tab-title t4">Раздел №4&lt;/label><br>  &lt;/div><br>&lt;/div></code></pre>
+			</section>
+		</div>
+		<div class="tab">
+			<input type="radio" id="tab2" name="menu">
+			<label for="tab2" class="tab-title tt2">Раздел №2 <samp class="red">CSS</samp></label>
+			<section class="content">
+				<pre><code class="css">.menu {<br>  line-height:1.4;<br>  position:relative;<br>  padding-top:36px;<br>  width:700px; margin:0 auto;}<br>.tab input {display:none;}<br>.content {<br>  border:1px solid #666;<br>  padding:10px; width:calc(700px - 22px); margin:0 auto;<br>  display:none;<br>  background-color:#fff;}<br>.tab-title {<br>  display:block;<br>  background:#ccc;<br>  font-size:18px; text-align:center;<br>  width:140px; padding:5px 10px;<br>  border:1px solid #666;<br>  border-bottom:none;<br>  position:absolute; top:0px; z-index:2;}<br>.t1{left:0;}<br>.t2{left:179px;}<br>.t3{left:359px;}<br>.t4{left:538px;}<br>.tab :checked ~ .content {display:inline-block;}<br>.tab :checked ~ .tab-title {background:#fff;}<br>.tab :checked ~ .tab-title:before {<br>  content:"";<br>  width:100%; height:1px;<br>  background-color:#fff;<br>  position:absolute; left:0; bottom:-1px;<br>  z-index:3;}</code></pre>
+			</section>
+		</div>
+		<div class="tab">
+			<input type="radio" id="tab3" name="menu" checked>
+			<label for="tab3" class="tab-title tt3">Раздел №3 <samp class="red">Js</samp></label>
+			<section class="content"><span>В данном шаблоне язык программирования не применялся.</span></section>
+		</div>
+		<div class="tab">
+			<input type="radio" id="tab4" name="menu">
+			<label for="tab4" class="tab-title tt4">Раздел №4</label>
+			<section class="content"><span>Для заметок.</span></section>
+		</div>
+	</div>
+</div><!-- /item -->
+
+
+
+<!-- пример №2 -->
+<div class="item item01">
+	<style>
+		.item01 {background-color:#eee;}
+
+		.menu2 {position:relative; padding-top:36px; width:700px; margin:0 auto; line-height:1.4;}
+		.menu2 .tab input {display:none;}
+		.menu2 .tab .content {padding:10px; width:calc(700px - 22px);
+			display:none; margin:0 auto; background-color:#fff; z-index:100; position:relative;}
+
+		.menu2 .tab label {display:block; background:#FFE4B5; font-size:18px; text-align:center;
+			width:144px; padding:6px 11px; position:absolute; top:0px; z-index:2;
+			border-radius:20px 20px 0px 0px; cursor:pointer;}
+		.menu2 .tab label:before{position:absolute; display:block; left:-36px; top:0px; content:"";
+			width:36px; height:36px; box-shadow:10px 10px 0 -5px #FFE4B5; border-radius:18px; pointer-events:none;}
+		.menu2 .tab label:after{position:absolute; display:block; top:0px; right:-36px; content:"";
+			width:36px; height:36px; box-shadow:-10px 10px 0 -5px #FFE4B5; border-radius:18px; pointer-events:none;}
+		.menu2 .tab label:hover{background:#F4A460; z-index:10;}
+		.menu2 .tab label:hover:before{box-shadow:10px 10px 0 -5px #F4A460;}
+		.menu2 .tab label:hover:after{box-shadow:-10px 10px 0 -5px #F4A460;}
+
+		.menu2 .tt1{left:0; z-index:2;}
+		.menu2 .tt2{left:174px; z-index:4;}
+		.menu2 .tt3{left:354px; z-index:6;}
+		.menu2 .tt4{left:532px; z-index:8;}
+		.menu2 .tab .tt1:before{display:none;}
+		.menu2 .tab .tt4:after{display:none;}
+		.menu2 .tab :checked ~ .content{display:inline-block;}
+		.menu2 .tab :checked ~ label{background:#fff; border-bottom:1px solid #fff; z-index:101; cursor:default;}
+		.menu2 .tab :checked ~ label:before{box-shadow:10px 10px 0 -5px #fff;}
+		.menu2 .tab :checked ~ label:after{box-shadow:-10px 10px 0 -5px #fff;}
+	</style>
+	<div class="menu2">
+		<div class="tab">
+			<input type="radio" id="tab21" name="menu2" checked>
+			<label for="tab21" class="tab-title tt1">Раздел №1</label>
+			<section class="content">border при использовании border-radius оставляет артефакты в виде полyпрозрачных окружностей</section>
+		</div>
+		<div class="tab">
+			<input type="radio" id="tab22" name="menu2">
+			<label for="tab22" class="tab-title tt2">Раздел №2</label>
+			<section class="content">
+				<samp>pointer-events:none;</samp> - убирает влияние курсора у <samp>:before & +</samp></section>
+		</div>
+		<div class="tab">
+			<input type="radio" id="tab23" name="menu2">
+			<label for="tab23" class="tab-title tt3">Раздел №3</label>
+			<section class="content"><span>В данном шаблоне язык программирования не применялся.</span></section>
+		</div>
+		<div class="tab">
+			<input type="radio" id="tab24" name="menu2">
+			<label for="tab24" class="tab-title tt4">Раздел №4</label>
+			<section class="content"><span>Для заметок.</span></section>
+		</div>
+	</div><!-- /menu -->
+</div><!-- /item -->
+
+
+
+<!-- пример №3 -->
+<div class="item item02">
+	<style>
+		.item02 {background-color:#222;}
+		
+		.menu3{position:relative; padding-top:50px; width:699px; margin:0 auto;}
+		.part input{display:none;}
+		.part .content{width:calc(100% - 16px); background:#fff; display:none;
+			padding:8px; z-index:2; position:relative;}
+		.part .title{position:absolute; top:0; font-size:20px; padding:10px; width:154px; z-index:2; font-weight:500;
+			line-height:1.5; text-align:center; border-bottom:1px solid #000; cursor:pointer; color:#fff;
+			perspective:600px; overflow:hidden; transition:color .5s; text-transform:uppercase; letter-spacing:2px;}
+		.part .title:before{z-index:-1; position:absolute; top:0; left:0; width:100%; height:104px;
+			background:#fff; content:""; transform:rotateX(90deg); transition:transform .5s;}
+		.part .title:hover{color:gold; transition:color .5s;}
+		.part .tt1{left:0;}
+		.part .tt2{left:175px;}
+		.part .tt3{left:350px;}
+		.part .tt4{left:525px;}
+		.menu3 .part :checked ~ .content{display:block;}
+		.menu3 .part :checked ~ .title:before{transform:rotateX(0deg); transition:transform .5s;}
+		.menu3 .part :checked ~ .title{color:#333; cursor:default;}
+		.menu3 .part :checked ~ .title:hover{color:#333;}
+
+	</style>
+	<div class="menu3">
+		<div class="part">
+			<input type="radio" id="part1" name="menu3">
+			<label for="part1" class="title tt1">Раздел №1</label>
+			<section class="content">border при использовании border-radius оставляет артефакты в виде полyпрозрачных окружностей</section>
+		</div>
+		<div class="part">
+			<input type="radio" id="part2" name="menu3" checked>
+			<label for="part2" class="title tt2">Раздел №2</label>
+			<section class="content">
+				<samp>pointer-events:none;</samp> - убирает влияние курсора у <samp>:before & +<br>...</samp></section>
+		</div>
+		<div class="part">
+			<input type="radio" id="part3" name="menu3">
+			<label for="part3" class="title tt3">Раздел №3</label>
+			<section class="content"><span>В данном шаблоне язык программирования <br>не применялся.</span></section>
+		</div>
+		<div class="part">
+			<input type="radio" id="part4" name="menu3">
+			<label for="part4" class="title tt4">Раздел №4</label>
+			<section class="content"><span>Для заметок.<br>...</span></section>
+		</div>
+	</div><!-- /menu -->
+</div><!-- /item -->
+
+
+
+</body>
+</html> 

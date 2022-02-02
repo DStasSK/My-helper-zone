@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>&lt;progress></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin"><samp class="t-html5">&lt;progress></samp></h2>
+
+
+<div class="item">
+	<p>Используется для отображения прогресса завершённости задачи. Изменение значения происходит через JavaScript. Вид элемента зависит от браузера и операционной системы и может довольно сильно различаться между собой.</p>
+	<pre class="item2 mt20"><code>&lt;progress value="число" max="число">Текст&lt;/progress></code></pre>
+	<ul class="list mt20">
+		<li><samp class="sin">value</samp> - текущее значение прогресса</li>
+		<li><samp class="sin">max</samp> - максимальное значение прогресса (по умолчачнию - 1)</li>
+	</ul>
+</div>
+
+
+<div class="item anp">
+<h3 class="sin">Оформление</h3>
+	<p>Для оформления элемента без заданного значения (отсутствия атрибута <samp class="lsin">value</samp>) используется псевдокласс <samp class="sin">:not()</samp></p>
+		<div class="item2">
+			<table width="100%">
+				<tr><td width="50%">
+					<pre><code>progress:not([value]) {<br>  width: 250px;<br>  height: 20px;<br>}</code></pre></td>
+					<td>
+						<style>
+							.pr11[value]{width:250px; height:20px;}
+						</style>
+						<progress class="pr11" value="10" max="50" title="измененное оформление"></progress>
+						<progress value="10" max="50" title="дефолтное оформление"></progress>
+					</td></tr>
+			</table>
+		</div>
+
+	<p class="mt20">Если у шкалы прогресса есть какое-либо значение, то:</p>
+		<div class="item2">
+			<pre><code>progress[value] {<br>  width: 250px;<br>  height: 20px;<br>}</code></pre>
+		</div>
+
+	<p class="mt20">Искажения заданных значений свойств (WebKit/Blink Browsers, Firefox, Internet Explorer)</p>
+		<div class="prm">
+			<style>
+				/*.pr11[value]{width:250px; height:20px;}*/
+				.pr12[value]{background:#00f;}
+			</style>
+			<progress value="10" max="50" title="дефолтное оформление"></progress>
+			<progress class="pr11" value="10" max="50"></progress>
+			<progress class="pr11 pr12" value="10" max="50"></progress>
+
+			<pre class="item2"><code>&lt;style><br>  .pr11[value]{width:250px; height:20px; display:block;}<br>  .pr12[value]{background:#00f;}<br>&lt;/style><br><br><div class="">&lt;progress value="10" max="50" title="дефолтное оформление">&lt;/progress><br>&lt;progress class="pr11" value="10" max="50">&lt;/progress><br>&lt;progress class="pr11 pr12" value="10" max="50">&lt;/progress></div></code></pre>
+		</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Оформление в <samp>WebKit/Blink (Chrome/Safari/Opera)</samp></h3>
+	<p class="mt20">Для оформления самой шкалы и шкалы прогресса используются псевдоклассы:</p>
+	<ul class="list l0 pl10">
+		<li><samp class="sin">::-webkit-progress-bar</samp></li>
+		<li><samp class="sin">::-webkit-progress-value</samp></li>
+	</ul>
+
+
+	<div class="prm prm111">
+		<style>
+			.prm111 progress{background:#fff; display:inline-block; vertical-align:middle;}
+			/*.pr11[value]{width:250px; height:20px;}*/
+			/*.pr12[value]{background:#00f;}*/
+			.pr13[value]::-webkit-progress-bar {
+				background-color:transparent; border-radius:10px;
+				box-shadow:0 1px 5px rgba(0, 0, 0, 0.25) inset;}
+			.pr14[value]::-webkit-progress-bar {background:red}
+			.pr17::-webkit-progress-bar {background:red}
+			.pr15[value]::-webkit-progress-value{border-radius:10px; background-color:#00f;}
+			.pr16[value]::-webkit-progress-value{
+				  border-radius: 5px; 
+				  background-size: 35px 20px, 100% 100%, 100% 100%;
+				  background-image:
+					   -webkit-linear-gradient(-45deg, 
+					                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+					                           rgba(0,0, 0, .1) 66%, transparent 66%),
+					   -webkit-linear-gradient(top, 
+					                           rgba(255, 255, 255, .25), 
+					                           rgba(0, 0, 0, .25)),
+					   -webkit-linear-gradient(left, #09c, #f44);}
+		</style>
+		<ol class="list" style="line-height:1em">
+			<li><progress value="10" max="50"></progress></li>
+			<li><progress class="pr11"           value="20" max="50"></progress></li>
+			<li><progress class="pr11 pr12"      value="30" max="50"></progress></li>
+			<li><progress class="pr11 pr13"      value="40" max="50"></progress></li>
+			<li><progress class="pr11 pr13 pr14" value="25" max="50"></progress></li>
+			<li><progress class="pr11 pr13 pr17" value="25" max="50"></progress></li>
+			<li><progress class="pr11 pr13 pr15" value="40" max="50"></progress></li>
+			<li><progress class="pr11 pr15"      value="30" max="50"></progress></li>
+			<li><progress class="pr11 pr13 pr16" value="40" max="50"></progress></li>
+		</ol>
+
+		<samp class="point red bold" onclick='ppr1.classList.toggle("hiden");'>HTML</samp>
+		<div id="ppr1" class="hiden" onclick="event.stopPropagation()">
+			<div></div>
+			<pre class="item2"><code>&lt;style><br>  .progress{background:#fff; vertical-align:middle;} /* без bg не работает */<br>  .pr11[value]{width:250px; height:20px;}<br>  .pr12[value]{background:#00f;}<br>  .pr13[value]::-webkit-progress-bar {<br>    background-color:transparent; border-radius:10px;<br>    box-shadow:0 1px 5px rgba(0, 0, 0, 0.25) inset;}<br>  .pr14[value]::-webkit-progress-bar {background:red}<br>  .pr17::-webkit-progress-bar {background:red}<br>  .pr15[value]::-webkit-progress-value<span class="ls-1">{border-radius:10px; background-color:#00f;}</span><br>  .pr16[value]::-webkit-progress-value{<br>    border-radius: 5px;<br>    background-size: 35px 20px, 100% 100%, 100% 100%;<br>    background-image:<br>      -webkit-linear-gradient(-45deg,<br>                           transparent 33%, rgba(0, 0, 0, .1) 33%,<br>                           rgba(0,0, 0, .1) 66%, transparent 66%),<br>      -webkit-linear-gradient(top,<br>                           rgba(255, 255, 255, .25),<br>                           rgba(0, 0, 0, .25)),<br>      -webkit-linear-gradient(left, #09c, #f44);}<br>&lt;/style><br><br>&lt;ol class="list" style="line-height:1em"><br><span class="ls-1">  &lt;li>1. &lt;progress value="10" max="50">&lt;/progress>&lt;/li><br>  &lt;li>2. &lt;progress class="pr11"           value="20" max="50">&lt;/progress>&lt;/li><br>  &lt;li>3. &lt;progress class="pr11 pr12"      value="30" max="50">&lt;/progress>&lt;/li><br>  &lt;li>4. &lt;progress class="pr11 pr13"      value="40" max="50">&lt;/progress>&lt;/li><br>  &lt;li>5. &lt;progress class="pr11 pr13 pr14" value="25" max="50">&lt;/progress>&lt;/li><br>  &lt;li>6. &lt;progress class="pr11 pr13 pr17" value="25" max="50">&lt;/progress>&lt;/li><br>  &lt;li>7. &lt;progress class="pr11 pr13 pr15" value="40" max="50">&lt;/progress>&lt;/li><br>  &lt;li>8. &lt;progress class="pr11 pr15"      value="30" max="50">&lt;/progress>&lt;/li><br>  &lt;li>9. &lt;progress class="pr11 pr13 pr16" value="40" max="50">&lt;/progress>&lt;/li></span><br>&lt;/ol></code></pre>
+		</div>
+	</div>
+</div>
+
+</body></html>

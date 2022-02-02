@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>&lt;html></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;html></samp></h2>
+<div class="item">
+	<p>Элемент <samp class="red">&lt;html></samp> является контейнером, который заключает в себе всё содержимое веб-страницы, включая элементы <samp class="red">&lt;head></samp> и <samp class="red">&lt;body></samp>. Открывающий и закрывающий теги <samp class="red">&lt;html></samp> в документе не обязательны, но хороший стиль диктует непременное их использование. Как правило, <samp class="red">&lt;html></samp> идёт в документе вторым, после определения типа документа (Document Type Definition, DTD), устанавливаемого через <samp class="red">&lt;!DOCTYPE></samp>. Закрывающий тег <samp class="red">&lt;html></samp> всегда стоит в документе последним.</p>
+	<pre class="item2"><code>&lt;!DOCTYPE HTML><br>&lt;html><br>  &lt;head><br>    &lt;!-- заголовoк страницы и технической информации. --><br>  &lt;/head><br><br>  &lt;body><br>    &lt;!-- тo, что видно на странице. --><br>  &lt;/body><br>&lt;/html></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Атрибуты.</a></h3>
+	<table class="t1">
+		<tr><td>manifest</td><td>Указывает файл манифеста, необходимый для создания оффлайнового приложения. <span class="no">устарел</span></td></tr>
+		<tr><td>version</td><td>Задаёт версию DTD. Данный атрибут не нужен и избыточен, версия определяется через <samp class="red">&lt;!DOCTYPE></samp>. <span class="no">устарел</span></td></tr>
+		<tr><td>xmlns</td><td>Указывает пространство имён для XHTML-документов.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Атрибут <samp>manifest</samp></a></h3>
+	<p>Атрибут <samp class="red">manifest</samp> реализует механизм кэширования, который позволяет создавать офлайновые приложения, т. е. работающие в автономном режиме без непосредственного подключения к Интернету. При первой загрузке страницы браузер обычно просит сохранить данные для своей работы, а затем уже обращается к ним при необходимости.</p>
+	<pre class="item2"><code>&lt;html manifest="адрес"></code></pre>
+	<div class="no">Данный атрибут удалён из спецификации HTML, его использование не рекомендуется.</div>
+
+	<p>В качестве значения атрибута <samp class="red">manifest</samp> указывается относительный или абсолютный путь к текстовому файлу, он называется «файл манифеста» или просто «манифест». Имя и расположение файла может быть любым, но он должен отдаваться сервером с заголовком <samp class="sin">text/cache-manifest</samp>. Например, для веб-сервера Apache в файле <samp class="sin">.htaccess</samp> расположенным в корне сайта следует прописать такую строку.</p>
+	<pre class="item2"><code>AddType text/cache-manifest .cache</code></pre>
+	<p> этом случае файл манифеста имеет расширение cache. Сам манифест информирует браузер о том, какие ресурсы необходимо сохранить в локальном кэше. Этот список может содержать HTML и CSS-файлы, изображения, скрипты. Имена файлов перечисляются внутри секций описанных в таблице.</p>
+
+	<table class="t1 tcc tb mt20">
+		<caption>Разделы манифеста</caption>
+		<tr><th>Раздел</th><th>Описание</th></tr>
+		<tr><td>CACHE MANIFEST</td><td>Этой обязательной строкой должен начинаться любой манифест.</td></tr>
+		<tr><td>CACHE:</td><td>Содержит перечень ресурсов, которые браузер должен кэшировать. Данный раздел используется по умолчанию, если его не указать и нет других разделов, то записи в манифесте причисляются к этому разделу.</td></tr>
+		<tr><td>NETWORK:</td><td>Список ресурсов, которые доступны только при подключении к сети. Обычно в этот раздел входят программы выполняемые на стороне сервера.</td></tr>
+		<tr><td>FALLBACK:</td><td>Список замещающих файлов, которые будут использоваться при отсутствии подключения к сети. Допустимо использовать символ * для обозначения всех файлов. Например, <samp class="sin">*.php /offline.html</samp> означает, что вместо любого файла с расширением php будет показана страница <samp class="sin">offline.html</samp>.</td></tr>
+	</table>
+	<div class="mt20">
+		<pre class="item2"><code>&lt;html manifest="/example/22.cache"><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>...&lt;/title><br>    &lt;link href="css/22.css" rel="stylesheet"><br>  &lt;/head><br>  &lt;body><br>  ...<br>  &lt;/body><br>&lt;/html></code></pre>
+	</div>
+	<div>Содержимое файла 22.cache</div>
+	<pre class="item2"><code>CACHE MANIFEST<br># Версия 1.0<br><br>CACHE:<br>22.css<br>22.js<br>../image/old.png</code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Атрибут <samp>xmlns</samp></a></h3>
+	<p>Используется в XHTML для объявления пространства имён — совокупности наименований элементов и атрибутов, предназначенных для сохранения уникальности имён. Значением атрибута <samp class="sin">xmlns</samp> выступает адрес файла объявляющего требуемое пространство имён, для XHTML значение всегда равно <samp class="lsin">http://www.w3.org/1999/xhtml</samp>. Этот атрибут также является частью синтаксиса <samp>XML</samp>, поэтому может использоваться для добавления префикса, чтобы объявить дополнительное пространство имён для документа. К примеру <samp class="sin">xmlns:my</samp> задаёт адрес файла для элементов с префиксом <samp class="sin">my</samp>.</p>
+
+	<pre class="item2"><code>&lt;html xmlns="http://www.w3.org/1999/xhtml"></code></pre>
+
+	<div class="no">Данный атрибут обязателен для XHTML и по желанию может добавляться в HTML5.</div>
+	<p>В качестве значения указывается полный адрес документа с описанием пространства имён. Для XHTML значение всегда <samp class="lsin">http://www.w3.org/1999/xhtml</samp>.</p>
+
+	<pre class="item2"><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" <br>  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><br>&lt;html xmlns="http://www.w3.org/1999/xhtml"><br>  &lt;head><br>    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><br>    &lt;title>HTML, атрибут xmlns&lt;/title><br>  &lt;/head><br>  &lt;body><br>    &lt;p>Корректный XHTML-документ.&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
+</div>
+
+
+</body></html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html><html><head><title>&lt;button></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.html5::after{margin:4px 0;}
+</style>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;button></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#z0">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#autofocus" class="t-html5">autofocus</a></span>
+				<span><a href="#disabled">disabled</a></span>
+				<span><a href="#form" class="t-html5">form</a></span>
+				<span><a href="#formaction" class="t-html5">formaction</a></span>
+				<span><a href="#formenctype" class="t-html5">formenctype</a></span>
+				<span><a href="#formmethod" class="t-html5">formmethod</a></span>
+				<span><a href="#formnovalidate" class="t-html5">formnovalidate</a></span>
+				<span><a href="#formtarget" class="t-html5">formtarget</a></span>
+				<span><a href="#name">name</a></span>
+				<span><a href="#type">type</a></span>
+				<span><a href="#value">value</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;button></samp> (от англ. button — кнопка) создаёт на веб-странице кнопки и по своему действию напоминает результат, получаемый с помощью <samp class="red">&lt;input></samp> (с атрибутом <samp class="sin">type="<samp class="lsin">button | reset | submit</samp>"</samp>). В отличие от этого элемента, <samp class="red">&lt;button></samp> предлагает расширенные возможности по созданию кнопок. Например, на подобной кнопке можно размещать любые элементы HTML, в том числе изображения. Используя стили можно определить вид кнопки путём изменения шрифта, цвета фона, размеров и других параметров.</p>
+	<div class="prm">
+		<button></button>
+		<button>Кнопка с текстом</button>
+		<button><img src="img/umbrella.gif" style="vertical-align:middle"> Кнопка с рисунком</button>
+		<pre class="item2"><code>&lt;button>&lt;/button><br><br>&lt;button>Кнопка с текстом&lt;/button><br><br>&lt;button><br>  &lt;img src="img/umbrella.gif" style="vertical-align:middle"><br>  Кнопка с рисунком<br>&lt;/button></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Атрибуты</h3>
+	<table class="t1 tb t2">
+		<tr><td id="autofocus"><a href="#">autofocus <span class="html5"></span></a></td>
+			<td>Устанавливает, что кнопка получает фокус после загрузки страницы. Такую кнопку можно нажать сразу без перевода на неё фокуса, например, с помощью клавиатуры.
+			<pre class="item2"><code>&lt;button autofocus>text&lt;/button> <button>text</button></code></pre>
+			</td></tr>
+		<tr id="disabled"><td><a href="#">disabled</a></td>
+			<td>Блокирует доступ и изменение элемента. Она в таком случае отображается серым цветом и недоступна для активации пользователем. Кроме того, такая кнопка не может получить фокус путём нажатия на клавишу Tab, мышью или другим способом. Тем не менее, такое состояние кнопки можно изменять через скрипты. Значение блокированной кнопки не передаётся на сервер.
+			<pre class="item2"><code>&lt;button disabled>text&lt;/button> <button disabled>text</button></code></pre>
+			</td></tr>
+		<tr id="form"><td><a href="#">form <span class="html5"></span></a></td>
+			<td>Связывает между собой форму и кнопку. Такая связь необходима в случае, когда кнопка располагается не внутри элемента <samp class="sin">&lt;form></samp>, например, при создании её программно.
+			<br>Идентификатор - значение атрибута <samp class="red">id</samp> элемента <samp class="sin">&lt;form></samp>
+			<pre class="item2"><code>&lt;button form="идентификатор">text&lt;/button></code></pre>
+			<div class="no">IE не поддерживает данный параметр.</div></td></tr>
+		<tr id="formaction"><td><a href="#">formaction <span class="html5"></span></a></td>
+			<td>Задаёт адрес, на который пересылаются данные формы при нажатии на кнопку. Определяет адрес обработчика формы — это программа, которая получает данные формы и производит с ними желаемые действия. Атрибут formaction по своему действию аналогичен атрибуту <samp class="sin"><a href="../form.html#action">action</a></samp> элемента <samp class="red"><a href="../form.html">&lt;form></a></samp>. Если одновременно указать <samp class="sin"><a href="../form.html#action">action</a></samp> и <samp class="sin">formaction</samp>, то при нажатии на кнопку атрибут <samp class="sin"><a href="../form.html#action">action</a></samp> игнорируется и данные пересылаются по адресу, указанному в <samp class="sin">formaction</samp>.
+			<pre class="item2"><code>&lt;button formaction="адрес">text&lt;/button></code></pre>
+			</td></tr>
+		<tr id="formenctype"><td><a href="#">formenctype <span class="html5"></span></a></td>
+			<td>Устанавливает способ кодирования данных формы при их отправке на сервер. Обычно явно указывается в случае, когда используется поле для отправки файла (<samp class="red">input</samp> <samp class="sin">type="<samp class="lsin">file</samp>"</samp>). Этот атрибут по своему действию аналогичен атрибуту <samp class="sin"><a href="../form.html#enctype">enctype</a></samp> элемента <samp class="red"><a href="../form.html">&lt;form></a></samp>.
+			<pre class="item2"><code>&lt;button formenctype="значение">text&lt;/button></code></pre>
+
+			<div style="color:#009; margin:15px 0 5px"><samp><b>значения:</b></samp></div>
+			<div><samp><b>application/x-www-form-urlencoded</b></samp>
+				<br>Значение по умолчанию. Вместо пробелов ставится +, символы вроде русских букв кодируются их шестнадцатеричными значениями (например, <samp>%D0%90%D0%BD%D1%8F</samp> вместо Аня).</div>
+			<div class="mt10"><samp><b>multipart/form-data</b></samp>
+				<br>Данные не кодируются. Это значение применяется при отправке файлов.</div>
+			<div class="mt10"><samp><b>text/plain</b></samp>
+				<br>Пробелы заменяются знаком +, буквы и другие символы не кодируются.</div>
+			<div class="prm mt20">
+				<form style="border:1px solid; padding:10px; display:inline-block; margin:10px 0">
+					<p>Ваше имя: <input name="user"></p>
+					<p>Файл для заявки: <input name="file" type="file"></p>
+					<p><button formaction="handler.php" formmethod="post" formenctype="multipart/form-data">Отправить</button>
+				</form>
+				<pre class="item2"><code>&lt;form><br>&lt;p>Ваше имя: &lt;input name="user">&lt;/p><br>&lt;p>Файл для заявки: &lt;input name="file" type="file">&lt;/p><br>&lt;p>&lt;button formaction="handler.php"<br>           formmethod="post"<br>           formenctype="multipart/form-data"><br>           Отправить&lt;/button><br>&lt;/form></code></pre>
+			</div></td></tr>
+		<tr id="formmethod"><td><a href="#">formmethod <span class="html5"></span></a></td>
+			<td>Указывает метод пересылки данных формы.
+			<pre class="item2"><code>&lt;button formmethod="get | post">text&lt;/button></code></pre>
+			<table class="t1">
+				<tr><td>get</td><td>Этот метод предназначен для передачи данных формы непосредственно в адресной строке в виде пар «имя=значение», которые добавляются к адресу страницы после вопросительного знака и разделяются между собой амперсандом (символ &). Объём данных в методе ограничен <span class="red">4 Кб</span>.</td></tr>
+				<tr><td>post</td><td>Посылает на сервер данные в запросе браузера, объём пересылаемых данных ограничен лишь настройками сервера.</td></tr>
+			</table>
+			</td></tr>
+		<tr id="formnovalidate"><td><a href="#"><span style="letter-spacing:-1px;">formnovalidate</span> <span class="html5"></span></a></td>
+			<td>Отменяет встроенную проверку данных введённых пользователем в форме на корректность при нажатии на кнопку. Такая проверка делается браузером автоматически при отправке формы на сервер для полей <samp class="red">&lt;input <span class="sin">type="<span class="lsin">email</span>"</span>></samp>, <samp class="red">&lt;input <span class="sin">type="<span class="lsin">url</span>"</span>></samp>, а также при наличии атрибута <samp class="sin">pattern</samp> или <samp class="sin">required</samp> у элемента <samp class="red">&lt;input></samp>.
+			<div class="prm">
+				<form action="handler.php" style="display:inline-block; border:1px solid; padding:10px;">
+					<p><input required placeholder="Имя"></p>
+					<p><input type="email" required placeholder="Ваш email"></p>
+					<p><input type="url" required placeholder="Сайт"></p>
+					<p><button formnovalidate>Отправить без проверки</button></p>
+				</form>
+				<pre class="item2"><code><br>&lt;form action="handler.php"><br>  &lt;p>&lt;input required placeholder="Имя">&lt;/p><br>  &lt;p>&lt;input type="email"<br>                  required placeholder="Ваш email">&lt;/p><br>  &lt;p>&lt;input type="url"<br>                  required placeholder="Сайт">&lt;/p><br>  &lt;p>&lt;button formnovalidate><br>    Отправить без проверки&lt;/button>&lt;/p><br>&lt;/form></code></pre>
+			</div></td></tr>
+		<tr id="formtarget"><td><a href="#">formtarget <span class="html5"></span></a></td>
+			<td>Открывает результат отправки формы в новом окне или фрейме.
+			<pre class="item2"><code>&lt;button formtarget="параметры">text&lt;/button></code></pre>
+
+			<div style="margin:15px 0 5px"><samp class="sin bold">значения:</samp></div>
+			<p>В качестве значения используется имя фрейма, заданное атрибутом <samp class="sin">name</samp> элемента <samp class="red">&lt;iframe></samp>. Если установлено несуществующее имя, то будет открыта новая вкладка. В качестве зарезервированных значений можно указывать следующие.</p>
+			<table class="t1">
+				<tr><td>_blank</td><td>Загружает страницу в новую вкладку браузера.</td></tr>
+				<tr><td>_self</td><td>Загружает страницу в текущую вкладку. <i>(Значение по умолчанию.)</i></td></tr>
+				<tr><td>_parent</td><td>Загружает страницу во фрейм-родитель; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+				<tr><td>_top</td><td>Отменяет все фреймы и загружает страницу в окне браузера; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+			</table>
+			</td></tr>
+		<tr id="name"><td><a href="#">name</a></td>
+			<td>Определяет уникальное имя кнопки. В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к элементу по имени соблюдайте ту же форму написания, что и в атрибуте <samp class="sin">name</samp>.
+			<pre class="item2"><code>&lt;button name="имя">text&lt;/button></code></pre>
+			</td></tr>
+		<tr id="type"><td><a href="#">type</a></td>
+			<td>Определяет тип кнопки, который устанавливает её поведение в форме. По внешнему виду кнопки разного типа никак не различаются, но у каждой такой кнопки свои функции.
+			<div style="margin:15px 0 5px"><samp class="sin bold">значения:</samp></div>
+			<table class="t1">
+				<tr><td>button</td><td>Обычная кнопка.</td></tr>
+				<tr><td>reset</td><td>Кнопка для очистки введённых данных формы и возвращения значений в первоначальное состояние.</td></tr>
+				<tr><td>submit</td><td>Кнопка для отправки данных формы на сервер. <i>значение по умолчанию</i></td></tr>
+				<tr><td>menu</td><td>Открывает меню, созданное с помощью элемента <samp class="red">&lt;menu></samp>.</td></tr>
+			</table>
+			<div class="prm">
+				<form action="handler.php" style="display:inline-block; border:1px solid; padding:10px;">
+					<p><input type="text" name="user"></p>
+					<p><button type="reset">Очистить</button> 
+					<button type="submit">Отправить</button></p>
+				</form>
+				<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;input type="text" name="user">&lt;/p><br>  &lt;p>&lt;button type="reset">Очистить&lt;/button><br>     &lt;button type="submit">Отправить&lt;/button>&lt;/p><br>&lt;/form></code></pre>
+			</div>
+			</td></tr>
+		<tr id="value"><td><a href="#">value</a></td>
+			<td>Значение кнопки, которое будет отправлено на сервер или прочитано с помощью скриптов. На сервер отправляется пара «имя=значение», где имя задаётся атрибутом <samp class="sin">name</samp> элемента <samp class="red">&lt;button></samp>, а значение — атрибутом <samp class="sin">value</samp>. Значение может как совпадать с текстом на кнопке, так быть и самостоятельным. Также атрибут <samp class="sin">value</samp> применяется для доступа к данным через скрипты.
+			<div class="prm">
+				<form action="handler.php" style="display:inline-block; border:1px solid; padding:10px;">
+					<p><input type="text" name="user"></p>
+					<p><button value="11111010101" name="hidden" type="submit">Отправить форму</button></p>
+				</form>
+				<pre class="item2"><code><br>&lt;form action="handler.php"><br>  &lt;p>&lt;input type="text" name="user">&lt;/p><br>  &lt;p>&lt;button value="11111010101"<br>             name="hidden"<br>             type="submit">Отправить форму&lt;/button>&lt;/p><br>&lt;/form></code></pre>
+			</div>
+			<div class="no">Internet Explorer до версии 7 включительно отправляет на сервер не значение <samp class="sin">value</samp>, а текст, расположенный внутри контейнера <samp class="red">&lt;button></samp>.</div></td></tr>
+	</table>
+</div>
+
+</body></html>

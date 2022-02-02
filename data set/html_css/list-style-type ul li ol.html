@@ -1,0 +1,468 @@
+<!DOCTYPE html><html><head><title>list-style-type: ul, li, ol</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.pad{margin-bottom:15px;}
+
+	li{margin-left:48px}
+	.list-disc, .list-circle, .list-square, .list-marker{line-height:18px;letter-spacing:2px;}
+	.list-disc li {list-style-type:disc;}
+	.list-circle li {list-style-type:circle;}
+	.list-square li {list-style-type:square;}
+	.list-marker li{text-indent:24px; margin-left:20px; list-style-type:none;;
+		background-repeat:no-repeat; background-image:url(img/arrow.gif);}
+	.big-latin li {list-style-type:upper-alpha;}
+	.small-latin li {list-style-type:lower-alpha;}
+	.small-greek li {list-style-type:lower-greek;}
+	.big-roman li {list-style-type:upper-roman;}
+	.small-roman li {list-style-type:lower-roman;}
+	.list-zero li {list-style-type:decimal-leading-zero;}
+</style></head>
+<body>
+
+<div class="item">
+<h2 class="sin" id="list-style-type">list-style-type</h2>
+	<p>Изменяет вид маркера для каждого элемента списка. Это свойство используется только в случае, когда значение <samp class="sin">list-style-image</samp> установлено как <samp class="lsin">none</samp>. Маркеры различаются для маркированного списка (элемент <samp class="red">&lt;ul></samp>) и нумерованного (элемент <samp class="red">&lt;ol></samp>).</p>
+
+	<p>Списки на html страницах по умолчанию выводятся с маркерами, которые задаются параметрами <samp class="grin">«disc»</samp> для тега <samp class="red">&lt;ul></samp> и <samp class="grin">«decimal»</samp> для тега <samp class="red">&lt;ol></samp>.</p>
+
+	<p>Применяется	К элементам <samp class="red">&lt;li></samp>, <samp class="red">&lt;ol></samp> и <samp class="red">&lt;ul></samp>, а также ко всем элементам, у которых указано <samp class="sin dib">display: <samp class="lsin">list-item</samp></samp></p>
+
+	<pre class="item2 sin ls-05">list-style-type:<span class="lsin">circle | disc | square | armenian | decimal | decimal-leading-zero<br>                georgian | lower-alpha | lower-greek | lower-latin | lower-roman<br>                upper-alpha | upper-latin | upper-roman | none</span></pre>
+
+	<style>.ttl1{padding:3px;}</style>
+	<table class="t1 tc t3 ttl1 mt20">
+		<caption class="ls1">Маркированный список</caption>
+		<tr><td width="60px">circle</td><td>Маркер в виде кружка.</td></tr>
+		<tr><td>disc</td><td>Маркер в виде точки.</td></tr>
+		<tr><td>square</td><td>Маркер в виде квадрата.</td></tr>
+		<tr><td>none</td><td>Отменяет маркеры для списка.</td></tr>
+	</table>
+	<table class="t1 tc t3 mt20 ttl1">
+		<caption class="ls1">Нумерованный список</caption>
+		<tr><td width="145px">armenian</td><td>Традиционная армянская нумерация.</td></tr>
+		<tr><td>decimal</td><td>Арабские числа (1, 2, 3, 4,...).</td></tr>
+		<tr><td class="ls-1">decimal-leading-zero</td><td>Арабские числа с нулем впереди для цифр меньше десяти (01, 02...).</td></tr>
+		<tr><td>georgian</td><td>Традиционная грузинская нумерация.</td></tr>
+		<tr><td>lower-alpha</td><td>Строчные латинские буквы (a, b, c, d,...).</td></tr>
+		<tr><td>lower-greek</td><td>Строчные греческие буквы (α, β, γ, δ,...).</td></tr>
+		<tr><td>lower-latin</td><td>Это значение аналогично lower-alpha.</td></tr>
+		<tr><td>lower-roman</td><td>Римские числа в нижнем регистре (i, ii, iii, iv, v,...).</td></tr>
+		<tr><td>upper-alpha</td><td>Заглавные латинские буквы (A, B, C, D,...).</td></tr>
+		<tr><td>upper-latin</td><td>Это значение аналогично upper-alpha.</td></tr>
+		<tr><td>upper-roman</td><td>Римские числа в верхнем регистре (I, II, III, IV, V,...).</td></tr>
+		<tr><td>none</td><td>Отменяет маркеры для списка.</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="list-style-position">
+<h2 class="sin"><a href="#" title="наверх"><samp>list-style-position</samp></a></h2>
+	<p>Определяет, как будет размещаться маркер относительно текста - маркер обтекается текстом или вынесен за границу элемента списка</p>
+	<pre class="item2 sin">list-style-position: <samp class="lsin">inside | outside</samp></pre>
+	<table class="t1 mb0">
+		<tr><td>inside</td><td>Маркер является частью текстового блока и отображается в элементе списка. Pазмещает маркер списка в первой строке элемента <samp class="red">&lt;li></samp> и позволяет содержимому обтекать маркер при необходимости.</td></tr>
+		<tr><td>outside</td><td>Текст выравнивается по левому краю, а маркеры размещаются за пределами текстового блока.</td></tr>
+	</table>
+
+	<div class="no">В браузере Internet Explorer 6 при использовании нумерованного списка <samp class="red">&lt;ol></samp> и значения <samp class="lsin">inside</samp> свойства <samp class="sin">list-style-position</samp>, числа идущие с <b>10</b>, начинают накладываться на текст списка.</div>
+</div>
+
+
+<div class="item" id="list-style-image">
+<h2 class="sin"><a href="#" title="наверх"><samp>list-style-image</samp></a></h2>
+	<p>Устанавливает адрес изображения, которое служит в качестве маркера списка. Это свойство наследуется, поэтому для отдельных элементов списка для восстановления маркера используется значение <samp class="lsin">none</samp>.</p>
+	<pre class="item2 sin">list-style-image: <sapm class="lsin">none | url(<адрес>)</sapm></pre>
+
+	<table class="t1">
+		<tr><td>none</td><td>Значение по умолчанию. Отменяет изображение в качестве маркера для родительского элемента.</td></tr>
+		<tr><td>url</td><td>Относительный или абсолютный путь к графическому файлу. Значение можно указывать в одинарных, двойных кавычках или без них.
+		<div class="no">Картинка будет выводиться исходного размера! Для обхода этого "ограничения" убирают сами маркеры а картинку <a href="#lstimg" class="sin tdu">помещают</a> через <samp class="pur">::before</samp> или <samp class="sin">background</samp> элеметна <samp class="red">&lt;li></samp>.</div></td></tr>
+	</table>
+
+	<div class="no">
+		<ul class="list">
+			<li>В разных браузерах расстояние между изображением и текстом может различаться.</li>
+			<li>В Internet Explorer до версии 7 включительно не отображаются маркеры, если для списка добавлено свойство <samp class="sin tdu"><a href="float.html">float</a></samp>.</li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="item" id="list-style">
+<h2 class="sin"><a href="#" title="наверх">Универсальное свойство <samp>list-style</samp></a></h2>
+	<p>Свойства списка <samp class="sin">list-style-type</samp> и <samp class="sin">list-style-position</samp>, могут быть объединены в одно универсальное свойство <samp class="red">list-style</samp>. В этом свойстве мы можем использовать одно или все значения свойств списка одновременно.</p>
+	<pre class="item2 sin ls-05">list-style: <span class="lsin">list-style-type || list-style-position || list-style-image</span></pre>
+	<p>Любые комбинации трёх значений определяющих стиль маркеров, они разделяются между собой пробелом. Комбинации значений должны следовать в указанном порядке: вначале идёт тип маркера, затем положение и картинка. Ни одно значение не является обязательным, поэтому неиспользуемые можно опустить.</p>
+	<pre class="item2 br0"><code>ul {list-style: circle inside}<br>ol {list-style: lower-roman}</code></pre>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin">Значения тегов по умолчанию</h2>
+	<pre class="item2"><code>ul {padding-left: 40px; margin-top: 1em; margin-bottom: 1em;}<br>ol {padding-left: 40px; margin-top: 1em; margin-bottom: 1em;}<br>dl {margin-top: 1em; margin-bottom: 1em;}</code></pre>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><a href="#" title="наверх">Атрибуты тега <samp class="red">&lt;ol></samp></a></h2>
+	<table class="t1 tb">
+		<tr><td width="70px">reversed</td>
+			<td><p>задает отображение списка в обратном порядке (например, 9, 8, 7…).</p>
+				<p>Атрибут <samp class="lsin">reversed</samp> является логическим атрибутом, он может быть истиной, либо ложью. Ложь является значением по умолчанию, значение становится истинным, когда атрибут <samp class="lsin">reversed</samp> появляется у элемента <samp class="red">&lt;ol></samp>.</p>
+				<pre class="item2 br0"><code>&lt;ol reversed></code></pre></td></tr>
+		<tr><td>start</td>
+			<td><p>задает начальное значение, от которого пойдет отсчет нумерации.</p>
+				<pre class="item2 br0"><code>&lt;ol start="10"></code></pre>
+				первому пункту присвоит порядковый номер <b>«10»</b>.</td></tr>
+		<tr><td>type</td>
+			<td><p>задает вид маркера для использования в списке (в виде букв или цифр).<br>принимаемые значения:</p>
+				<div class="item2 br0">
+					<pre><p>1 — значение по умолчанию, десятичная нумерация<br>A — нумерация списка заглавными буквами (A, B, C, D).<br>a — нумерация списка строчными буквами (a, b, c, d).<br>I — нумерация римскими заглавными цифрами (I, II, III, IV).<br>i — нумерация римскими строчными цифрами (i, ii, iii, iv).</p></pre>
+					<pre><code>&lt;ol type="I"></code></pre>
+				</div></td></tr>
+		<tr><td>value</td>
+			<td><p>атрибут <samp class="lsin">value</samp> может применяться к отдельным элементам <samp class="red">&lt;li></samp> в нумерованном списке, чтобы изменить его значение в списке. Номер любого пункта списка, который появляется ниже пункта списка с атрибутом <samp class="lsin">value</samp>, будет пересчитан соответственно.</p>
+				<p>В качестве примера, если у второго пункта списка атрибут <samp class="lsin">value</samp> задан как <samp class="red">9</samp>, номер этого пункта списка будет выводиться, как если бы он был девятым. Все последующие пункты списка будут пронумерованы от <samp class="red">9</samp>.</p>
+				<div class="item2 br0" style="margin-bottom:0">
+					<style>
+						.t21{margin:0 5px; padding:0} 
+						.t21 td{padding:0}
+						.t21 ol{margin:5px 0}
+					</style>
+					<table class="t21"><tr>
+						<td><pre><code>&lt;ol><br>  &lt;li>Пункт №1&lt;/li><br>  &lt;li value="9">Пункт №2&lt;/li><br>  &lt;li>Пункт №3&lt;/li><br>&lt;/ol></code></pre></td>
+						<td><ol><li>Пункт №1</li><li value="9">Пункт №2</li><li>Пункт №3</li></ol></td>
+					</tr></table>
+				</div>
+			</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Пример простого списка</span></a></h3>
+	<ul>
+		<li>маркированный список</li>
+		<li>выравнивание списка</li>
+		<li>маркеры с помощью тегов</li>
+	</ul>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;ul><br>  &lt;li>маркированный список&lt;/li><br>  &lt;li>выравнивание списка&lt;/li><br>  &lt;li>маркеры с помощью тегов&lt;/li><br>&lt;/ul></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Маркеры в виде диска</span></a></h3>
+	<div class="list-disc">
+		<ul>
+			<li>маркеры в виде диска</li>
+			<li>маркеры списков</li>
+			<li>списки с дисковыми маркерами</li>
+		</ul>
+	</div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="list-disc"><br>  &lt;ul><br>    &lt;li>маркеры в виде диска&lt;/li><br>    &lt;li>маркеры списков&lt;/li><br>    &lt;li>списки с дисковыми маркерами&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.list-disc {line-height:18px; letter-spacing:2px;}<br>.list-disc li {list-style-type: disc;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Маркеры в виде окружности</span></a></h3>
+	<div class="list-circle">
+		<ul>
+			<li>создание списков</li>
+			<li>кольцевые маркеры</li>
+			<li>оформление списка</li>
+		</ul>
+	</div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="list-circle"><br>  &lt;ul><br>    &lt;li>создание списков&lt;/li><br>    &lt;li>кольцевые маркеры&lt;/li><br>    &lt;li>оформление списка&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.list-circle li {list-style-type: circle;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Квадратные маркеры</span></a></h3>
+	<div class="list-square">
+		<ul>
+			<li>списки с маркерами</li>
+			<li>квадратные маркеры</li>
+			<li>списки с квадратными маркерами</li>
+		</ul>
+	</div>
+	<div class="item2"><samp class="red">HTML</samp>
+		<pre><code>&lt;div class="list-square"><br>  &lt;ul><br>    &lt;li>списки с маркерами&lt;/li><br>    &lt;li>квадратные маркеры&lt;/li><br>    &lt;li>списки с квадратными маркерами&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.list-square li {list-style-type: square;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item anp" id="lstimg">
+<h3><a href="#" title="наверх"><span class="sin">Маркеры в виде картинки</span></a></h3>
+	<p>Чаще всего это делается путём размещения фонового изображения для элемента <samp class="red">&lt;li></samp>.</p>
+	<p>Процесс включает в себя удаление любого значения свойства <samp class="sin">list-style-type</samp> по умолчанию и добавление фонового изображения и полей для элемента <samp class="red">&lt;li></samp>.</p>
+
+	<p class="mt20">Итак:
+	<br>- значение <samp class="lsin">none</samp> свойства <samp class="sin">list-style-type</samp> удалит существующие маркеры списка.
+	<br>- cвойство <samp class="sin">background</samp> задаст фоновое изображение вместе.
+	<br>- cвойство <samp class="sin">padding</samp> обеспечит пространство слева от текста для фоновой картинки.</p>
+
+	<div class="list-marker">
+		<ul>
+			<li>маркеры списков в виде картинки</li>
+			<li>картинки в виде маркеров</li>
+			<li>оформление списка красивыми маркерами</li>
+		</ul>
+	</div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="list-marker"><br>  &lt;ul><br>    &lt;li>маркеры списков в виде картинки&lt;/li><br>    &lt;li>картинки в виде маркеров&lt;/li><br>    &lt;li>оформление списка красивыми маркерами&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.list-marker li {<br>  text-indent: 24px;<br>  margin-left: 20px;<br>  list-style-type: none;<br>  background-repeat: no-repeat;<br>  background-image: url(img/arrow.gif);<br>}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Большие латинские буквы</span></a></h3>
+	<div class="big-latin">
+		<ul>
+			<li>прописные латинские буквы</li>
+			<li>большие латинские буквы</li>
+			<li>маркировка прописными латинскими буквами</li>
+		</ul>
+	</div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="big-latin"><br>  &lt;ul><br>    &lt;li>прописные латинские буквы&lt;/li><br>    &lt;li>большие латинские буквы&lt;/li><br>    &lt;li>маркировка прописными латинскими буквами&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.big-latin li {list-style-type: upper-alpha;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Маленькие латинские буквы</span></a></h3>
+	<div class="small-latin"><ul>
+		<li>строчные латинские буквы</li>
+		<li>маленькие латинские буквы</li>
+		<li>маркировка строчными латинскими буквами</li>
+	</ul></div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="small-latin"><br>  &lt;ul><br>    &lt;li>строчные латинские буквы&lt;/li><br>    &lt;li>маленькие латинские буквы&lt;/li><br>    &lt;li>маркировка строчными латинскими буквами&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.small-latin li {list-style-type: lower-alpha;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Маленькие греческие буквы</span></a></h3>
+	<div class="small-greek"><ul>
+		<li>строчные греческие буквы</li>
+		<li>маленькие греческие буквы</li>
+		<li>маркировка строчными греческими буквами</li>
+	</ul></div>
+	<div class="item2"><samp class="red">HTML</samp>
+		<pre><code>&lt;div class="small-greek"><br>  &lt;ul><br>    &lt;li>строчные греческие буквы&lt;/li><br>    &lt;li>маленькие греческие буквы&lt;/li><br>    &lt;li>маркировка строчными греческими буквами&lt;/li><br>  &lt;/ul><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.small-greek li {list-style-type: lower-greek;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Нумерованный список: Пример простого списка</span></a></h3>
+	<ol>
+		<li>простой список с номерами</li>
+		<li>нумерованный список</li>
+		<li>список с нумерацией</li>
+	</ol>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;ol><br>  &lt;li>простой список с номерами&lt;/li><br>  &lt;li>нумерованный список&lt;/li><br>  &lt;li>список с нумерацией&lt;/li><br>&lt;/ol></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Нумерованный список: Большие римские числа</span></a></h3>
+	<div class="big-roman"><ol>
+		<li>прописные римские числа</li>
+		<li>большие римские числа</li>
+		<li>маркировка прописными римскими числами</li>
+	</ol></div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="big-roman"><br>  &lt;ol><br>    &lt;li>прописные римские числа&lt;/li><br>    &lt;li>большие римские числа&lt;/li><br>    &lt;li>маркировка прописными римскими числами&lt;/li><br>  &lt;/ol><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.big-roman li {list-style-type: upper-roman;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Нумерованный список: Маленькие римские числа</span></a></h3>
+	<div class="small-roman"><ol>
+		<li>строчные римские числа</li>
+		<li>маленькие римские числа</li>
+		<li>маркировка строчными римскими числами</li>
+	</ol></div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="small-roman"><br>  &lt;ol><br>    &lt;li>строчные римские числа&lt;/li><br>    &lt;li>маленькие римские числа&lt;/li><br>    &lt;li>маркировка строчные римскими числами&lt;/li><br>  &lt;/ol><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.small-roman li {list-style-type: lower-roman;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3><a href="#" title="наверх"><span class="sin">Нумерация списка цифрами с нулём впереди</span></a></h3>
+	<div class="list-zero"><ol>
+		<li>простой список с нумерацией</li>
+		<li>арабские цифры с нулём впереди</li>
+		<li>нумерация арабскими цифрами</li>
+	</ol></div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="list-zero"><br>  &lt;ol><br>    &lt;li>простой список с нумерацией&lt;/li><br>    &lt;li>арабские цифры с нулём впереди&lt;/li><br>    &lt;li>нумерация арабскими цифрами&lt;/li><br>  &lt;/ol><br>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.list-zero li {list-style-type: decimal-leading-zero;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="content">
+<h3><a href="#" title="наверх"><span class="sin">Нумерованный список: список со счетчиком</span></a></h3>
+	<p>В нумерованном списке номер каждого пункта выводится с точкой. При этом как-то изменить вид числа, к примеру, убрать точку или поставить скобку, напрямую нельзя. Поэтому вообще убирают исходную нумерацию и выводят свою с помощью псевдоэлемента <samp class="sin">::before</samp> и свойства <samp class="sin">content</samp>. Чтобы нумерация работала и увеличивалась с каждым пунктом, нужно добавить свойство <samp class="sin">counter-reset</samp> с произвольным именем счётчика для его инициализации и <samp class="sin">counter-increment</samp> для приращения счётчика.</p>
+	<p>Поскольку мы сами выводим число, то можем легко его стилизовать, изменив цвет, сделав жирным, курсивным и др.</p>
+
+	<style>
+		.sch {list-style-type:none; counter-reset:countera;} 
+		.sch li:before {content:counter(countera) ")"; counter-increment:countera; margin-right:10px;}
+	</style>
+	<ol class="sch">
+		<li>простой список с номерами</li>
+		<li>нумерованный список</li>
+		<li>список с нумерацией</li>
+	</ol>
+	<div class="item2"><samp class="red">HTML</samp>
+		<pre><code>&lt;ol><br>  &lt;li>простой список с номерами&lt;/li><br>  &lt;li>нумерованный список&lt;/li><br>  &lt;li>список с нумерацией&lt;/li><br>&lt;/ol></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>ol {<br>  list-style-type: none;          /* Убираем исходные маркеры */<br>  counter-reset: counter1;        /* Задаём имя счетчика */<br>}<br>li::before {<br>  content: counter(counter1) ")"; /* Выводим число и скобку */<br>  counter-increment: counter1;    /* Увеличиваем значение счётчика */<br>  margin-right: 10px;             /* Расстояние от цифры до текста */<br>}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h2><a href="#" title="наверх"><span class="sin">Многоуровневый нумерованный список</span></a></h2>
+	<p>Многоуровневый список используется для отображения элементов списка на разных уровнях с различными отступами.</p>
+
+	<div class="mt20">Чтобы сделать вложенную нумерацию, нужно использовать следующие свойства:</div>
+	<ul class="list mb20">
+		<li><samp class="sin">counter-reset</samp> сбрасывает один или несколько счётчиков, задавая значение для сброса;</li>
+		<li><samp class="sin">counter-increment</samp> задаёт значение приращения счётчика, т.е. с каким шагом будет нумероваться каждый последующий пункт;</li>
+		<li><samp class="sin">content</samp> генерируемое содержимое, в данном случае отвечает за вывод номера перед каждым пунктом списка.</li>
+	</ul>
+
+	<style type="text/css">
+		.multi-namber ol {
+			/* убираем стандартную нумерацию */
+			list-style: none; 
+			/* Идентифицируем счетчик и даем ему имя li. Значение счетчика не указано - по умолчанию оно равно 0 */ 
+			counter-reset: li;}
+		.multi-namber li:before {
+			/* Определяем элемент, который будет нумероваться — li. Псевдоэлемент before указывает, что содержимое, вставляемое при помощи свойства content, будет располагаться перед пунктами списка. Здесь же устанавливается значение приращения счетчика (по умолчанию равно 1). */
+			counter-increment: li; 
+			/* С помощью свойства content выводится номер пункта списка. counters() означает, что генерируемый текст представляет собой значения всех счетчиков с таким именем. Точка в кавычках добавляет разделяющую точку между цифрами, а точка с пробелом добавляется перед содержимым каждого пункта списка */
+			content: counters(li,".") ". ";}
+		.multi-namber ol, .multi-namber li {border:1px solid #000; margin:0px; padding-left:20px;}
+	</style>
+	<div class="multi-namber"><ol>
+		<li>пункт</li> <!--1.-->
+		<li>пункт
+			<ol>
+				<li>пункт</li> <!--2.1.-->
+				<li>пункт</li> <!--2.2.-->
+				<li>пункт
+					<ol>
+						<li>пункт</li> <!--2.3.1.-->
+						<li>пункт</li> <!--2.3.2.-->
+						<li>пункт</li> <!--2.3.3.-->
+					</ol>
+				</li> <!-2.3.->
+				<li>пункт</li> <!--2.4.-->
+			</ol>
+		</li> <!-2.->
+		<li>пункт</li> <!--3.-->
+		<li>пункт</li> <!--4.-->
+	</ol></div>
+
+	<div class="item2"><samp class="red">HTML</samp>
+		<pre><code>&lt;div class="multi-namber">&lt;ol><br>  &lt;li>пункт&lt;/li> &lt;!--1.--><br>  &lt;li>пункт<br>    &lt;ol><br>      &lt;li>пункт&lt;/li> &lt;!--2.1.--><br>      &lt;li>пункт&lt;/li> &lt;!--2.2.--><br>      &lt;li>пункт<br>        &lt;ol><br>          &lt;li>пункт&lt;/li> &lt;!--2.3.1.--><br>          &lt;li>пункт&lt;/li> &lt;!--2.3.2.--><br>          &lt;li>пункт&lt;/li> &lt;!--2.3.3.--><br>        &lt;/ol><br>      &lt;/li> &lt;!--2.3.--><br>      &lt;li>пункт&lt;/li> &lt;!--2.4.--><br>    &lt;/ol><br>  &lt;/li> &lt;!--2.--><br>  &lt;li>пункт&lt;/li> &lt;!--3.--><br>  &lt;li>пункт&lt;/li> &lt;!--4.--><br>&lt;/ol>&lt;/div></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.multi-namber ol {<br>  <abbr title="убираем стандартную нумерацию">list-style: none;</abbr><br>  <abbr title="Идентифицируем счетчик и даем ему имя li. Значение счетчика не указано - по умолчанию оно равно 0">counter-reset: li;</abbr>}<br>.multi-namber li:before {<br>  <abbr title="Определяем элемент, который будет нумероваться — li. Псевдоэлемент before указывает, что содержимое, вставляемое при помощи свойства content, будет располагаться перед пунктами списка. Здесь же устанавливается значение приращения счетчика (по умолчанию равно 1).">counter-increment: li;</abbr><br>  <abbr title="С помощью свойства content выводится номер пункта списка. counters() означает, что генерируемый текст представляет собой значения всех счетчиков с таким именем. Точка в кавычках добавляет разделяющую точку между цифрами, а точка с пробелом добавляется перед содержимым каждого пункта списка">content: counters(li,".") ". ";</abbr>}<br>.multi-namber ol, .multi-namber li {<br>  border: 1px solid #000;<br>  margin:0px;<br>  padding-left: 20px;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3 id="#dl"><a href="#" title="наверх"><span class="sin">Список определений: Пример простого списка</span></a></h3>
+	<style type="text/css">
+		.dl1 dt{background-color:#e0e0e0;}
+		.dl1 dd{background-color:#f8f8f8;}
+		.dl1 dl{background-color:red;}
+	</style>
+	<div class="dl1">
+		<dl>
+			<dt>Режиссер:</dt>
+				<dd>Петр Точилин</dd>
+			<dt>В ролях:</dt>
+				<dd>Андрей Гайдулян</dd>
+				<dd>Алексей Гаврилов</dd>
+				<dd>Виталий Гогунский</dd>
+		</dl>
+	</div>
+	<div class="item2">
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;dl><br>  &lt;dt>Режиссер:&lt;/dt><br>    &lt;dd>Петр Точилин&lt;/dd><br>  &lt;dt>В ролях:&lt;/dt><br>    &lt;dd>Андрей Гайдулян&lt;/dd><br>    &lt;dd>Алексей Гаврилов&lt;/dd><br>    &lt;dd>Виталий Гогунский&lt;/dd><br>&lt;/dl></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>dt {background-color:#e0e0e0;}<br>dd {background-color:#f8f8f8;}<br>dl {background-color:red;} /* иначе будет по умолчанию (белый/прозрачный) */</code></pre>
+	</div>
+</div>
+</body>
+</html>

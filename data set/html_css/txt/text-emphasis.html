@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>text-emphasis</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.tt1 td{vertical-align:middle}
+	.tt1 tr td:nth-child(1){text-align:center !important;}
+	.tt1 tr td:nth-child(3){text-align:center; font-size:30px; line-height:1.1}
+	.tt3 {text-emphasis-style:triangle; -webkit-text-emphasis-style:triangle;
+		text-emphasis-color:#008000; -webkit-text-emphasis-color:#008000;}
+	.tt4 {text-emphasis:"@" red; -webkit-text-emphasis:"@" red;}
+
+	.a2 {-webkit-text-emphasis-style:filled;}
+	.a3 {-webkit-text-emphasis-style:open;}
+	.a4 {-webkit-text-emphasis-style:dot;}
+	.a5 {-webkit-text-emphasis-style:circle;}
+	.a6 {-webkit-text-emphasis-style:double-circle;}
+	.a7 {-webkit-text-emphasis-style:triangle;}
+	.a8 {-webkit-text-emphasis-style:sesame;}
+	.a9 {-webkit-text-emphasis-style:"!";}
+	</style>
+</head>
+<body>
+
+<h2 class="sin"><samp>text-emphasis</samp></h2>
+
+<div class="item">
+	<p>Устанавливает маркеры над каждым символом текста. Такие маркеры обычно используются в азиатских языках чтобы показать, как произносится слово. Для русского языка аналогом является знак ударения, который ставится над гласной буквой.</p>
+	<p>Edge, Chrome, Opera, Android поддерживают свойство <samp class="sin">-webkit-text-emphasis</samp>, IE и Hrome - не поддерживают.</p>
+</div>
+
+
+
+<div class="item anp">
+<h2 class="sin"><samp>text-emphasis-style</samp></h2>
+	<p>Устанавливает вид маркеров над каждым символом текста.</p>
+	<pre class="item2"><code>text-emphasis-style: none | значение<br><br>span {<br>  text-emphasis-style: double-circle;<br>  -webkit-text-emphasis-style: double-circle;<br>}</code></pre>
+
+	<table class="t1 tb mt10 tt1">
+		<tr><td width="130px">none</td><td>Маркеры не выводятся.</td><td width="80px">сл<span class="a1">о</span>во</td></tr>
+		<tr><td>filled</td><td>Маркеры будут залиты однотонным цветом.</td><td>сл<span class="a2">о</span>во</td></tr>
+		<tr><td>open</td><td>Маркеры будут пустыми внутри.</td><td>сл<span class="a3">о</span>во</td></tr>
+		<tr><td>dot</td><td>Точка.</td><td>сл<span class="a4">о</span>во</td></tr>
+		<tr><td>circle</td><td>Кружок.</td><td>сл<span class="a5">о</span>во</td></tr>
+		<tr><td>double-circle</td><td>Двойной кружок.</td><td>сл<span class="a6">о</span>во</td></tr>
+		<tr><td>triangle</td><td>Треугольник.</td><td>сл<span class="a7">о</span>во</td></tr>
+		<tr><td>sesame</td><td>Апостроф.</td><td>сл<span class="a8">о</span>во</td></tr>
+		<tr><td>"строка"</td><td>Произвольный символ, пишется в кавычках.</td><td>сл<span class="a9">о</span>во</td></tr>
+	</table>
+	<p>Значения <samp class="lsin">filled</samp> и <samp class="lsin">open</samp> можно комбинировать с другими значениями, к примеру, <samp class="lsin">triangle</samp>. В этом случае мы получим сплошной или контурный треугольник.</p>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><samp>text-emphasis-position</samp></h2>
+	<p>Устанавливает положение маркеров, отображаемых с помощью свойства <samp class="sin">text-emphasis-style</samp>.</p>
+	<b>Значения:</b>
+	<table class="t1 mb20">
+		<tr><td width="70px">over</td><td>Маркеры выводятся над текстом при его горизонтальном написании.</td></tr>
+		<tr><td>under</td><td>Маркеры выводятся под текстом при его горизонтальном написании.</td></tr>
+		<tr><td>right</td><td>Маркеры выводятся справа от текста при его вертикальном написании.</td></tr>
+		<tr><td>left</td><td>Маркеры выводятся слева от текста при его вертикальном написании.</td></tr>
+	</table>
+
+	<pre class="item2"><code>span {<br>  text-emphasis-style: triangle;<br>  -webkit-text-emphasis-style: triangle;<br>  text-emphasis-position: over;<br>  -webkit-text-emphasis-position: over;<br>}</code></pre>
+
+	<p>Edge, Chrome, Opera, Android поддерживают свойство <samp class="sin">-webkit-text-emphasis-position</samp>.</p>
+	<p>Браузеры не поддерживают значения <samp class="sin">left</samp> и <samp class="sin">right</samp>.</p>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin"><samp>text-emphasis-color</samp></h2>
+	<p>Устанавливает цвет маркеров, отображаемых с помощью свойства <samp class="sin">text-emphasis-style</samp>.</p>
+	<div style="text-align:center; font-size:30px">w<span class="tt3">o</span>rd</div>
+	<pre class="item2"><code>span {<br>  text-emphasis-style: triangle;<br>  -webkit-text-emphasis-style: triangle;<br>  text-emphasis-color: #008000;<br>  -webkit-text-emphasis-color: #008000;<br>}</code></pre>
+	<p>Edge, Chrome, Opera, Android поддерживают свойство <samp class="sin">-webkit-text-emphasis-position</samp>.</p>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><samp>text-emphasis</samp></h2>
+	<p>Сокращённое свойство, позволяющее установить значения свойств <samp class="sin">text-emphasis-style</samp> и <samp class="sin">text-emphasis-color</samp> одновременно.</p>
+	<div style="text-align:center; font-size:30px">w<span class="tt4">o</span>rd</div>
+	<pre class="item2"><code>span {<br>  text-emphasis:"@" red;<br>  -webkit-text-emphasis:"@" red;<br>}</code></pre>
+	<p>Если одно из двух значений отсутствует, то принимается значение по умолчанию.</p>
+</div>
+
+</body>
+</html>

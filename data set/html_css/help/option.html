@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head><title>&lt;option></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp>&lt;option></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#attributs">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#disabled" title="Заблокировать для доступа элемент списка.">disabled</a></span>
+				<span><a href="#label" title="Указание метки пункта списка.">label</a></span>
+				<span><a href="#selected" title="Заранее устанавливает определённый пункт списка выделенным.">selected</a></span>
+				<span><a href="#value" title="Значение пункта списка, которое будет отправлено на сервер или прочитано с помощью скриптов.">value</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;option></samp> (от англ. option — вариант, выбор) определяет отдельные пункты списка, создаваемого с помощью контейнера <samp class="red tdu"><a href="select.html">&lt;select></a></samp>. Ширина списка определяется самым широким текстом, указанным в <samp class="red">&lt;option></samp>, а также может изменяться с помощью стилей. Если планируется отправлять данные списка на сервер, то требуется поместить элемент <samp class="red">&lt;select></samp> внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.</p>
+	<p>Eсли требуется выделить сразу несколько пунктов списка через атрибут <samp class="sin tdu"><a href="#selected">selected</a></samp>, то для <samp class="red">&lt;select></samp> следует добавить атрибут <samp class="sin">multiple</samp>, иначе это всё работать не будет.</p>
+
+	<pre class="item2"><code>&lt;select><br>   &lt;option>Пункт 1&lt;/option><br>   &lt;option>Пункт 2&lt;/option><br>&lt;/select></code></pre>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<table class="t1 t3 tb mt20">
+		<tr><td id="disabled"><a href="#">disabled</a></td>
+			<td>Блокирует элемент списка для его выбора.
+				<pre class="item2"><code>&lt;option disabled>...&lt;/option></code></pre></td></tr>
+		<tr><td id="label"><a href="#">label</a></td>
+			<td>Атрибут предназначен для указания метки пункта списка, сокращённой по сравнению с текстом внутри <samp class="red">&lt;option></samp>. Если атрибут label присутствует, то текст внутри <samp class="red">&lt;option></samp> игнорируется и в списке выводится значение <samp class="sin">label</samp>.
+				<div class="no">Не поддерживается FireFox</div>
+				<fieldset class="prm">
+					<legend></legend>
+					<select name="question">
+						<option label="Бах" value="1">Иоганн Себастьян Бах</option>
+						<option label="Бетховен" value="2">Людвиг ван Бетховен</option>
+						<option label="Шопен" value="3">Фредерик Шопен</option>
+						<option label="Огинский" value="4">Михаил Клеофас Огинский</option>
+					</select>
+					<pre class="item2"><code>&lt;select name="question"><br>  &lt;option label="Бах" value="1">Иоганн Себастьян Бах&lt;/option><br>  <span class="ls-1">&lt;option label="Бетховен" value="2">Людвиг ван Бетховен&lt;/option></span><br>  &lt;option label="Шопен" value="3">Фредерик Шопен&lt;/option><br>  <span class="ls-1">&lt;option label="Огинский" value="4">Михаил Клеофас Огинский&lt;/option></span><br>&lt;/select></code></pre>
+				</fieldset>
+			</td></tr>
+		<tr><td id="selected"><a href="#">selected</a></td>
+			<td>Заранее устанавливает определённый пункт списка выделенным. Если к элементу <samp class="red">&lt;select></samp> добавлен атрибут <samp class="sin">multiple</samp>, то можно выделять более одного пункта списка.
+				<pre class="item2"><code>&lt;option selected>...&lt;/option></code></pre></td></tr>
+		<tr><td id="value"><a href="#">value</a></td>
+			<td>Значение пункта списка, которое будет отправлено на сервер или прочитано с помощью скриптов. На сервер отправляется пара «имя=значение», где имя задаётся атрибутом name элемента <samp class="red">&lt;select></samp>, а значение — атрибутом <samp class="sin">value</samp> выделенных пунктов списка. Значение может как совпадать с текстом пункта, так быть и самостоятельным. Также атрибут <samp class="sin">value</samp> применяется для получения значений данных через скрипты. Значения - любая текстовая строка.
+				<pre class="item2"><code>&lt;option value="текст">...&lt;/option></code></pre></td></tr>
+	</table>
+</div>
+
+</body></html>

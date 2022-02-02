@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>&lt;link></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;link></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#z0">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#charset" title="Кодировка связываемого документа.">charset</a></span>
+				<span><a href="#crossorigin" title="Кодировка связываемого документа.">crossorigin</a></span>
+				<span><a href="#href" title="Путь к связываемому файлу.">href</a></span>
+				<span><a href="#hreflang" title="Задает язык связанного ресурса.">hreflang</a></span>
+				<span><a href="#media" title="Определяет устройство, для которого следует применять стилевое оформление.">media</a></span>
+				<span><a href="#rel" title="Определяет отношения между текущим документом и файлом, на который делается ссылка.">rel</a></span>
+				<span><a href="#rev" title="Описывает обратное отношение текущего документа к связываемому документу, как определено атрибутом href.">rev</a></span>
+				<span><a href="#referrerpolicy" title="Указывает URL источника запроса при переходе с одной страницы на другую.">referrerpolicy</a></span>
+				<span><a href="#sizes" title="Указывает размер иконок для визуального отображения.">sizes</a></span>
+				<span><a href="#type" title="MIME-тип данных подключаемого файла.">type</a></span>
+				<span><a href="#title" title="Устанавливает заголовок ссылки, альтернативное имя таблицы стилей.">title</a></span>
+				<span></span>
+			</div>
+		</li>
+		<li><a href="#media2">Пример: медиа-запросы для подключения каскадных таблиц стиля.</a></li>
+	</ul>
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;link></samp> (от англ. link — ссылка) обычно размещается внутри контейнера <samp class="red">&lt;head></samp> и не создаёт ссылку, в отличие от элемента <samp class="red">&lt;a></samp>. Устанавливает связь с внешним документом вроде файла со стилями или со шрифтами.</p>
+	<pre class="item2"><code>&lt;head><br>  &lt;link href="адрес"><br>&lt;/head></code></pre>
+	<pre class="item2"><code>&lt;head><br>  &lt;link rel="icon" href="favicon.ico"><span class="t-html5"></span><br>  &lt;link rel="shortcut icon" href="/img/logo.png" type="image/png"> <span class="no">HTML4</span><br>  &lt;link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> <span class="no">HTML4</span><br>  &lt;link rel="stylesheet" type="text/css" href="main.css"><br>  &lt;link rel='stylesheet' type='text/css'<br>        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,<br>              600&subset=latin,cyrillic'><br>  &lt;link rel="alternate" type="application/rss+xml" <br>        title="Статьи с сайта webref.ru" href="https://webref.ru/rss.xml"><br>&lt;/head></code></pre>
+
+	<p>В данном примере подключается внешний файл со стилями с помощью атрибута <samp class="sin">rel="<samp class="lsin">stylesheet</samp>"</samp> элемента <samp class="red">&lt;link></samp>, указывается RSS-документ текущего сайта (<samp class="sin">rel="<samp class="lsin">alternate</samp>" type="<samp class="lsin">application/rss+xml</samp>"</samp>) и устанавливается иконка сайта в адресной строке браузера (<samp class="sin">link rel="<samp class="lsin">icon</samp>"</samp>).</p>
+
+	<p>Файл, который будет подключён к HTML-странице, может располагаться в назначенной директории или в корне сайта.</p>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Атрибуты.</a></h3>
+	<table class="t1 ts tb">
+		<tr id="charset"><td><a href="#">charset</a></td>
+			<td>Указывает кодировку документа на который ссылается элемент <samp class="red">&lt;link></samp>.
+				<br><span class="no">Данный атрибут устарел, не используйте его.</span>
+				<pre class="item2"><code>&lt;link charset="кодировка"><br>&lt;link href="okinawa.html" rel="parent" charset="euc-jp"><br><br>&lt;meta charset="utf-8"></code></pre></td></tr>
+		<tr id="crossorigin"><td><a href="#">crossorigin</a></td>
+			<td>Описывает,
+			 как элемент обрабатывает CORS-запросы, предназначен для использования со ссылками на внешние ресурсы.</td></tr>
+		<tr id="href"><td><a href="#">href</a></td>
+			<td>Путь к файлу, на который делается ссылка.
+			<pre class="item2"><code>&lt;link href="адрес"></code></pre></td></tr>
+		<tr id="hreflang"><td><a href="#">hreflang</a></td>
+			<td>Задает язык связанного ресурса.
+			</td></tr>
+		<tr id="media"><td><a href="#">media</a></td>
+			<td>Определяет устройство, для которого следует применять стилевое оформление. Это позволяет сделать разный стиль для отображения документа на экране монитора и при его печати. Допускается писать несколько значений через запятую.
+			<pre class="item2"><code>&lt;link media="all | print | screen | speech"></code></pre>
+			<table class="t2 tgr">
+				<tr><td>all</td><td>Все устройства (значение по умолчанию).</td></tr>
+				<tr><td>print</td><td>Печатающее устройство вроде принтера.</td></tr>
+				<tr><td>screen</td><td>Экран монитора.</td></tr>
+				<tr><td>speech</td><td>Речевые синтезаторы, а также программы для воспроизведения текста вслух. Сюда же входят речевые браузеры.</td></tr>
+			</table>
+			<div class="no">В HTML5 в качестве значений могут быть указаны <a href="@media.html" class="sin tdu">медиа-запросы</a>. <a href="#media2" class="sin tdu">Пример.</a></div>
+			</td></tr>
+		<tr id="rel"><td><a href="#">rel</a></td>
+			<td>Определяет отношения между текущим документом и файлом, на который делается ссылка. Это необходимо, чтобы браузер знал, как использовать подключаемый документ.
+			<pre class="item2"><code>&lt;link rel="тип"></code></pre>
+			<table class="t2 tgr">
+				<tr><td>alternate</td><td>Альтернативный тип, используется, к примеру, для указания ссылки на файл в формате XML для описания ленты новостей, анонсов статей.</td></tr>
+				<tr><td>author</td><td>Указывает ссылку на автора текущего документа или статьи.</td></tr>
+				<tr><td>help</td><td>Указывает ссылку на контекстно-зависимую справку.</td></tr>
+				<tr><td>icon</td><td>Адрес картинки, которая символизирует текущий документ или сайт.</td></tr>
+				<tr><td>license</td><td>Сообщает, что основное содержание текущего документа распространяется по лицензии, описанной в указанном документе.</td></tr>
+				<tr><td>next</td><td>Сообщает, что текущий документ является частью связанных между собой документов, а ссылка указывает на следующий документ.</td></tr>
+				<tr><td>prev</td><td>Сообщает, что текущий документ является частью связанных между собой документов, а ссылка указывает на предыдущий документ.</td></tr>
+				<tr><td>search</td><td>Указывает ссылку на ресурс, который применяется для поиска по документу или сайту.</td></tr>
+				<tr><td>stylesheet</td><td>Определяет, что подключаемый файл хранит таблицу стилей (CSS).</td></tr>
+			</table>
+			</td></tr>
+		<tr id="rev"><td><a href="#">rev</a></td>
+			<td>Описывает обратное отношение текущего документа к связываемому документу, как определено атрибутом <samp class="sin">href</samp>.
+			</td></tr>
+		<tr id="referrerpolicy"><td><a href="#">referrerpolicy</a></td>
+			<td>Указывает URL источника запроса при переходе с одной страницы на другую.
+			</td></tr>
+		<tr id="sizes"><td><a href="#">sizes</a></td>
+			<td>Указывает размер иконок для визуального отображения. <span class="html5"></span>
+			<br>Вначале указывается ширина иконки в пикселах без указания единиц (например - 16), затем пишется латинская буква x в верхнем (X) или нижнем регистре (x), после чего идёт высота иконки. Если в файле хранится сразу несколько иконок, можно задавать их размеры через пробел. Ключевое слово <samp class="sin">any</samp> указывает, что иконка может масштабироваться в любой размер, к примеру, если она хранится в векторном формате SVG.
+			<pre class="item2"><code>&lt;link rel="icon" sizes="ширинаXвысота"><br>&lt;link rel="icon" <br>      sizes="ширина1Xвысота1 ширина2Xвысота2 | any"><br>&lt;link rel="icon" sizes="48x48" <br>      href="android.ico" type="image/x-icon"><br>&lt;link rel="icon" sizes="16x16" <br>      href="android.png" type="image/png"></code></pre></td></tr>
+		<tr id="type"><td><a href="#">type</a></td>
+			<td><a href="../MIME.html" class="tdu sin">MIME</a>-тип данных подключаемого файла. Для подключаемых таблиц связанных стилей применяется тип <samp class="sin">text/css</samp>. Значение по умолчанию - <samp class="sin">text/css</samp>.
+			<pre class="item2"><code>&lt;link type="MIME-тип"><br>&lt;link rel="stylesheet" type="text/css" href="css/webref.css"></code></pre></td></tr>
+		<tr id="title"><td><a href="#">title</a></td>
+			<td>Устанавливает заголовок ссылки, альтернативное имя таблицы стилей.
+			</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="media2">
+	<h3 class="sin"><a href="#">Медиа-запросы для подключения каскадных таблиц стиля.</a></h3>
+	<pre class="item2 mt20"><code>&lt;link rel="stylesheet" href="all.css" media="all" /><br>&lt;link rel="stylesheet" href="small.css" media="(min-width: 20em)" /><br>&lt;link rel="stylesheet" href="medium.css" media="(min-width: 64em)" /><br>&lt;link rel="stylesheet" href="large.css" media="(min-width: 90em)" /><br>&lt;link rel="stylesheet" href="extra-large.css" media="(min-width: 120em)" /><br>&lt;link rel="stylesheet" href="print.css" media="print" /></code></pre>
+</div>
+
+</body></html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head><title>Border radius CSS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.cc{text-align/*:*/center;}
+	/*.left{margin-left:20px;}*/
+
+	.box{width:150px;height:150px;border:3px solid #444;background-color:#fC0;margin:20px;}
+	.box2{height:100px;}
+	.box3{height:300px;}
+
+	.itm{display:flex; justify-content:center;}
+	.rad1{-webkit-border-radius:20px;-moz-border-radius:20px;border-radius:20px;}
+	.rad2{-webkit-border-radius:40px 20px;-moz-border-radius:40px 20px;border-radius:40px 20px;}
+	.rad3{-webkit-border-radius:10px 40px 20px;
+		-moz-border-radius:10px 40px 20px;
+		border-radius:10px 40px 20px;}
+	.rad4{-webkit-border-radius:0px 10px 20px 40px;
+		-moz-border-radius:0px 10px 20px 40px;
+		border-radius:0px 10px 20px 40px;}
+	.rad5{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;}
+	.rad6{margin-left:0; -webkit-border-top-left-radius:40px 20px;
+		-moz-border-radius-topleft:40px 20px; border-top-left-radius:40px 20px;
+
+		-webkit-border-bottom-left-radius:20px 40px; -moz-border-radius-bottomleft:20px 40px;
+		border-bottom-left-radius:20px 40px;
+
+		-webkit-border-top-right-radius:40px; -moz-border-radius-topright:40px;
+		border-top-right-radius:40px;
+
+		-webkit-border-bottom-right-radius:40px 30px; -moz-border-radius-bottomright:40px 30px;
+		border-bottom-right-radius:40px 30px;}
+
+</style></head>
+<body>
+
+<h2 class="sin"><samp>border-radius</samp></h2>
+<div class="item">
+	<p>Свойство позволяет закруглить углы строчных и блочных элементов. Кривая для каждого угла определяется с помощью одного или двух радиусов, определяющих его форму - круга или эллипса. Радиус распространяется на весь фон, даже если элемент не имеет границ, точное положение секущей определяется с помощью свойства <samp class="sin">background-clip</samp>.</p>
+
+	<p>Свойство <samp class="sin">border-radius</samp> позволяет закруглить все углы одновременно, а с помощью свойств <samp class="sin">border-top-left-radius</samp>, <samp class="sin">border-top-right-radius</samp>, <samp class="sin">border-bottom-right-radius</samp>, <samp class="sin">border-bottom-left-radius</samp> можно закруглить каждый угол отдельно.</p>
+
+	<p>Если задать два значения для свойства <samp class="sin">border-radius</samp>, то первое значение закруглит верхний левый и нижний правый угол, а второе - верхний правый и нижний левый.</p>
+	<p>Значения, заданные через <samp class="red"> / </samp>, определяют горизонтальные и вертикальные радиусы. Свойство не наследуется.</p>
+	<p>Чтобы радиус отображался в других браузерах, запись производится с дополнительными префиксами:</p>
+
+	<pre class="item2"><code>.box {<br>  -webkit-border-radius: 20px;<br>  -moz-border-radius: 20px;<br>  border-radius: 20px;<br>}</code></pre>
+
+	<samp class="lsin">-moz-</samp> записывается для отображения в браузере <samp class="pur">Firefox</samp>
+	<br><samp class="lsin">-webkit-</samp> для <samp class="pur">Safari</samp> и <samp class="pur">Google Chrome</samp>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Задание радиуса для разных углов.</h3>
+	<img src="img/border-radius1.png" width="100%">
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box box3 rad6"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:20px"><code>.box{<br>  -webkit-border-top-left-radius:40px 20px;<br>  -moz-border-radius-topleft:40px 20px;<br>  border-top-left-radius:40px 20px;<br><br>  -webkit-border-bottom-left-radius:20px 40px;<br>  -moz-border-radius-bottomleft:20px 40px;<br>  border-bottom-left-radius:20px 40px;<br><br>  -webkit-border-top-right-radius:40px;<br>  -moz-border-radius-topright:40px;<br>  border-top-right-radius:40px;<br><br>  -webkit-border-bottom-right-radius:40px 30px;<br>  -moz-border-radius-bottomright:40px 30px;<br>  border-bottom-right-radius:40px 30px;<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Вариант задания радиуса</h3>
+	<style>
+		.rr0 {display:flex; flex-wrap:wrap; justify-content:space-around;}
+		.r0 {width:100px; height: 100px; border: 4px solid; display:inline-block; color:rgba(0,0,0,.7);
+			font-size:40px; padding:26px 0; line-height:1; text-align:center; box-sizing:border-box; margin:5px 8px;}
+		.r1 {border-radius: 0 0 20px 20px; border-color:rgb(116, 195, 219);}
+		.r2 {border-radius: 0 10px 20px; border-color:rgb(168, 215, 199);}
+		.r3 {border-radius: 10px 20px; border-color:rgb(243, 212, 147);}
+		.r4 {border-radius: 10px/20px; border-color:rgb(218, 88, 39);}
+		.r5 {border-radius: 5px 10px 15px 30px/30px 15px 10px 5px; border-color:rgb(198, 13, 23);}
+		.r6 {border-radius: 10px 20px 30px 40px/30px; border-color:rgb(155, 8, 91);}
+		.r7 {border-radius: 50%;border-color:rgb(81, 129, 163);}
+		.r8 {border-top: none; border-bottom: none; border-radius: 30px/90px; border-color:rgb(175, 182, 183);}
+		.r9 {border-bottom-left-radius: 100px; border-color:rgb(119, 106, 100);}
+		.r10 {border-radius: 0 100%;border-color:rgb(226, 216, 107);}
+		.r11 {border-radius: 0 50% 50% 50%;border-color:rgb(144, 215, 233);}
+		.r12 {border-top-left-radius: 100% 20px;  border-bottom-right-radius: 100% 20px; border-color:rgb(232, 34, 33);}
+	</style>
+	<div class="rr0">
+		<div class="r0 r1" onclick="alert('border-color :rgb(116, 195, 219);');">.r1</div>
+		<div class="r0 r2" onclick="alert('border-color :rgb(168, 215, 199);');">.r2</div>
+		<div class="r0 r3" onclick="alert('border-color :rgb(243, 212, 147);');">.r3</div>
+		<div class="r0 r4" onclick="alert('border-color :rgb(218, 88, 39);');">.r4</div>
+		<div class="r0 r5" onclick="alert('border-color :rgb(198, 13, 23);');">.r5</div>
+		<div class="r0 r6" onclick="alert('border-color :rgb(155, 8, 91);');">.r6</div>
+		<div class="r0 r7" onclick="alert('border-color :rgb(81, 129, 163);');">.r7</div>
+		<div class="r0 r8" onclick="alert('border-color :rgb(175, 182, 183);');">.r8</div>
+		<div class="r0 r9" onclick="alert('border-color :rgb(119, 106, 100);');">.r9</div>
+		<div class="r0 r10" onclick="alert('border-color :rgb(226, 216, 107);');">.r10</div>
+		<div class="r0 r11" onclick="alert('border-color :rgb(144, 215, 233);');">.r11</div>
+		<div class="r0 r12" onclick="alert('border-color :rgb(232, 34, 33);');">.r12</div>
+	</div>
+	<div class="item2">
+		<pre><code>.r1 {border-radius:0 0 20px 20px;}<br>.r2 {border-radius:0 10px 20px;}<br>.r3 {border-radius:10px 20px;}<br>.r4 {border-radius:10px/20px;}<br>.r5 {border-radius:5px 10px 15px 30px/30px 15px 10px 5px;}<br>.r6 {border-radius:10px 20px 30px 40px/30px;}<br>.r7 {border-radius:50%;}<br>.r8 {border-top:none; border-bottom:none; border-radius:30px/90px;}<br>.r9 {border-bottom-left-radius:100px;}<br>.r10 {border-radius:0 100%;}<br>.r11 {border-radius:0 50% 50% 50%;}<br>.r12 {border-top-left-radius:100% 20px; border-bottom-right-radius:100% 20px;}</code></pre>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin">Одинаковый радиус для всех углов</h2>
+	<p>Для того чтобы установить одинаковый радиус для всех углов блока нужно указать одно значение</p>
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box rad1"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:20px;"><code>.box {width:150px; height:150px;<br>	border:3px solid #444;<br>	background-color:#fC0;<br>	-webkit-border-radius: 20px;<br>	-moz-border-radius: 20px;<br>	border-radius: 20px;}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Одинаковые радиусы по диагонали</h2>
+	<p>Свойство <span class="sin">border-radius</span> с двумя значениями отображает одинаковые радиусы по диагонали. Первое значение задаёт верхний левый и нижний правый радиус, а второе верхний правый и нижний левый.</p>
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box rad2"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:20px;"><code>.box{<br>  -webkit-border-radius: 40px 20px;<br>  -moz-border-radius: 40px 20px;<br>  border-radius: 40px 20px;<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Два равных радиуса по диагонали и два по отдельности</h3>
+	<p>У свойства <span class="sin">border-radius</span> с тремя значениями первый параметр отображает радиус верхнего левого угла, второй верхнего правого и нижнего левого, а третий нижнего правого.</p>
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box rad3"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:20px;"><code>.box{<br>  -webkit-border-radius: 10px 40px 20px;<br>  -moz-border-radius: 10px 40px 20px;<br>  border-radius: 10px 40px 20px;<br>}</code></pre>
+			<br>1. Верхний левый - 10px
+			<br>2. Верхний правый и нижний левый - 40px
+			<br>3. Нижний-правый - 20px
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Каждый радиус задаётся в отдельности</h2>
+	<p>Свойство <span class="sin">border-radius</span> с четырьмя значениями указывает на то, что каждое закругление угла задаётся по отдельности. Первое значение задаёт верхний левый радиус, второй верхний правый, третий нижний правый, четвёртый нижний левый.</p>
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box rad4"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:20px;"><code>.box{<br>  -webkit-border-radius: 0px 10px 20px 40px;<br>  -moz-border-radius: 0px 10px 20px 40px;<br>  border-radius: 0px 10px 20px 40px;<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Круг из квадратного блока</h2>
+	<p>Для того чтобы получился круг из квадратного блока ( это относится и к изображению ) нужно чтобы высота и ширина были одинаковы а значение свойства <span class="sin">border-radius</span> должно быть пятьдесят процентов.</p>
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box rad5"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:20px;"><code>.box {<br>  -webkit-border-radius: 50%;<br>  -moz-border-radius: 50%;<br>  border-radius: 50%;<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Блок с закруглениями (элипс)</h2>
+	<p>Для того чтобы получить эллипс из квадратного элемента или картинки высота и ширина должны быть разными, а значение свойства <span class="sin">border-radius</span> должно быть пятьдесят процентов.</p>
+	<div class="item2 itm">
+		<div style="width:30%;">
+			<div class="box box2 rad5"></div>
+		</div>
+		<div style="width:60%;">
+			<pre style="padding-top:5px;"><code>.box {<br>  width: 150px;<br>  height: 100px;<br>  -webkit-border-radius: 50%;<br>  -moz-border-radius: 50%;<br>  border-radius: 50%;<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

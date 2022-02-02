@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><title>&lt;body></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;body></samp></h2>
+<div class="item">
+	<p>Тег <samp class="red">&lt;body></samp> предназначен для размещения содержания на web-странице, которое будет отображаться в окне браузера. Именно внутри контейнера <samp class="red">&lt;body>&lt;/body></samp> следует размещать необходимую информацию. В состав такого содержимого входит различные изображения, текст, а так же всевозможные коды, например <samp class="sin">JavaScript</samp> и тому подобное.</p>
+
+	<pre class="item2"><code>&lt;html><br>    &lt;head><br>        &lt;!-- Этот сектор предназначен для заголовка страницы, а так же<br>         для дополнительной информации. --><br>    &lt;/head><br>    &lt;body><br>        &lt;!-- В этой части размещаются все,<br>         что необходимо увидеть на web-странице. --><br>    &lt;/body><br>&lt;/html></code></pre>
+
+	<p class="mt20">Открывающий и закрывающий теги <samp class="red">&lt;body></samp> на веб-странице не являются обязательными, однако хорошим стилем считается их использование, чтобы определить начало и конец HTML-документа.</p>
+
+	<p class="mt20">Часто <samp class="red">&lt;body></samp> используется для размещения обработчика событий, например, <samp class="sin tdu"><a href="../ivents.html#window">onload</a></samp>, которое выполняется после того, как документ завершил загрузку в текущее окно или фрейм.</p>
+	<pre class="item2"><code>&lt;body onload="alert('Документ загружен')"><br>   &lt;p>...&lt;/p><br>&lt;/body></code></pre>
+	<p class="mb0"><i>При использовании события onload элемента <samp class="red">&lt;body></samp> выполняется скрипт, написанный на языке <samp class="sin">JavaScript</samp>, в данном случае он выводит сообщение, что документ загружен.</i></p>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<div class="no">Все данные атрибуты устарели, взамен их необходимо использовать стили.</div>
+	<pre class="item2"><code>&lt;body alink="red" background="image/snow.gif" bgcolor="#A0BEC4"
+      bgproperties="fixed" scroll="yes | no" text="maroon" vlink="#660066"></code></pre>
+	<table class="t1 tb" style="margin-top:15px; margin-bottom:5px;">
+		<tr><td id="alink" width="120px"><a href="#">alink</a></td>
+			<td>Устанавливает цвет активной ссылки.</td></tr>
+		<tr><td id="background"><a href="#">background</a></td>
+			<td>Задает фоновый рисунок на веб-странице.</td></tr>
+		<tr><td id="bgcolor"><a href="#">bgcolor</a></td>
+			<td>Цвет фона веб-страницы.</td></tr>
+		<tr><td id="bgproperties"><a href="#">bgproperties</a></td>
+			<td>Определяет, прокручивать фон совместно с текстом или нет. Существует только одно значение <samp class="lsin">fixed</samp>, которое фиксирует фон. Если требуется, чтобы фон не фиксировался, удалите <samp class="sin">bgproperties</samp> у <samp class="red">&lt;body></samp> или установите пустое значение.</td></tr>
+		<tr><td id="bottommargin"><a href="#">bottommargin</a></td>
+			<td>Отступ от нижнего края окна браузера до контента. Значения - целое положительное число, которое устанавливает отступ в пикселях. Поддерживается не всеми браузерами.</td></tr>
+		<tr><td id="leftmargin"><a href="#">leftmargin</a></td>
+			<td>Отступ по горизонтали от левого края окна браузера до контента.</td></tr>
+		<tr><td id="link"><a href="#">link</a></td>
+			<td>Цвет ссылок на веб-странице.</td></tr>
+		<tr><td id="rightmargin"><a href="#">rightmargin</a></td>
+			<td>Отступ от правого края окна браузера до контента.</td></tr>
+		<tr><td id="scroll"><a href="#">scroll</a></td>
+			<td>Устанавливает, отображать полосы прокрутки или нет. Для запрета полос прокрутки используйте стилевое свойство <samp class="sin">overflow</samp> со значением <samp class="lsin">hidden</samp>, применяя его к селектору <samp class="red">body</samp>.</td></tr>
+		<tr><td id="text"><a href="#">text</a></td>
+			<td>Цвет текста в документе.</td></tr>
+		<tr><td id="topmargin"><a href="#">topmargin</a></td>
+			<td>Отступ от верхнего края окна браузера до контента.</td></tr>
+		<tr><td id="vlink"><a href="#">vlink</a></td>
+			<td>Цвет посещённых ссылок.</td></tr>
+	</table>
+</div>
+
+</body></html>

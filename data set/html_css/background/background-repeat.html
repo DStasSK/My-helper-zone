@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><title>background-repeat</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">background-repeat</h2>
+<div class="item">
+	<p>Свойство <span class="sin">background-repeat</span> устанавливает характер повторения фонового изображения выводимого с помощью свойства <span class="sin">background-image</span>. С помощью данного свойства можно установить направление, в котором будет повторяться рисунок. Повторение фонового изображения возможно только по горизонтали или по вертикали, а так же в обе стороны.</p>
+
+	<pre class="item2"><code>background-repeat: repeat;<br>background-repeat: repeat-x;<br>background-repeat: repeat-y;<br>background-repeat: space;<br>background-repeat: inherit;<br>background-repeat: no-repeat;</code></pre>
+
+	<span class="lsin">repeat</span> – фоновый рисунок будет повторяться по горизонтали и вертикали.
+	<br><span class="lsin">repeat-x</span> – значение задающее повторение только по горизонтали.
+	<br><span class="lsin">repeat-y</span> – значение задающее повторение только по вертикали.
+	<br><span class="lsin">space</span> – параметр задаёт повторение пока не заполнится свободная область.
+	<br><span class="lsin">inherit</span> – наследует значение.
+	<br><span class="lsin">no-repeat</span> – запрет на повторение фонового изображения.
+
+
+<div class="item2" style="padding-left:80px; background-color:#fff; background-image:url(img/bg_line.jpg); background-repeat:repeat-y;">
+	<pre><code>&lt;div style="<br>  background-image: url(img/bg_line.jpg);<br>  background-repeat: repeat-y;"></code></pre>
+</div>
+</body></html>

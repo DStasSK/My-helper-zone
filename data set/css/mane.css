@@ -1,0 +1,321 @@
+body {font-size:18px; line-height:1.3; margin:0; text-align:justify; color:#333}
+h1, h2, h3, h4, h5, h6 {margin:8px 0; text-align:center; letter-spacing:1px}
+p {margin:0 0 8px}
+p:last-child {margin:0}
+div > p:first-letter{margin-left:30px}
+.anp p,p.anp:first-letter{margin-left:0}
+
+
+pre {margin:0px; font-size:16px; line-height:1.1}
+.code{font-size:18px; margin:10px 0}
+
+
+textarea, input[type="text"], input[type="password"], input[name] {background:#fffffe}
+textarea[disabled], input[type="submit"], input[type="button"], input[type="reset"] {background-color:buttonface}
+textarea.nr{resize:none}
+progress{display:block; margin-top:5px; margin-bottom:5px; padding:0}
+
+
+
+/* основные блоки */
+.item{border:1px solid grey; padding:10px 20px; margin:15px 10px; border-radius:8px;
+	box-shadow: 0px 2px 6px rgba(45, 45, 45, .2)}
+.item2{border:1px solid grey; padding:5px 10px; margin:5px 0; border-radius:5px;
+	background-color:#eee; overflow-x:auto}
+td .item2:last-child{margin-bottom:0}
+.br0{border-radius:0}
+.cf:after {display:block; content:""; clear:both}
+
+.pr{position:relative}
+.pa{position:absolute}
+
+
+
+/* ссылки */
+a{text-decoration:none}
+a:link, a:visited, a:active{color:inherit}
+.tdu{text-decoration:underline}
+
+
+
+/* выделение цветом и чертой слева */
+.no {background:#fff3d9; position:relative; border-left:3px solid #ff0000; color:#333;
+	padding:10px; list-style-type:none; text-align:justify; margin-top:20px; margin-bottom:20px}
+pre .no, td .no{margin-top:0; margin-bottom:0; padding:3px 10px 4px 6px}
+h3 .no{margin-top:0; margin-bottom:0; padding:3px 10px 4px 6px; font-family:monospace; font-weight:400}
+.no1{border-color:#009; background:#cef}
+div:last-child.no{margin-bottom:10px}
+div:first-child.no{margin-top:10px}
+td > div:last-child.no{margin-bottom:0}
+
+
+
+/* <hr> черта из div */
+.hr30{width:30%; height:2px; background-color:#333; margin:20px auto}
+.hr2{width:100%; height:2px; background-color:#333; padding:0; margin:15px 0 5px}
+
+
+
+/* для "спойлера" на onclick */
+.point, .hover{cursor:pointer}
+.hiden{display:none}
+.yel{padding:2px 5px 5px; background-color:yellow; margin-top:15px; display:inline-block; cursor:pointer}
+
+
+
+/* оформление примеров */ /*
+	<fieldset class="prm">
+		<legend></legend>
+
+	<fieldset class="prm phtm z-a leg1 prm2">
+		<legend class="point" onclick='id.classList.toggle("hiden");' title="показать/скрыть"></legend>
+		<div id="id" class="hiden" onclick="event.stopPropagation()">
+
+		</div>
+	</fieldset>*/
+.prm {border:1px solid #aaa; padding:5px 10px; margin:5px 0; width:calc(100% - 22px); display:block}
+.prm legend{font-style:italic; color:#777; display:block; padding:0 5px 4px; margin-bottom:-4px; font-size:18px}
+.prm legend::before{content:'пример'}
+.prm.phtm > legend::before{content:'HTML'; font-style:normal; font-family:monospace}
+.prm.phtm > legend{margin-bottom:-8px; padding-bottom:0; line-height:1}
+.prm.leg1 > legend::before{content:'показать/скрыть'}
+.prm.z-a > legend::before{content:'значения'; letter-spacing:1px}
+.prm.bn{border:none}
+.prm2{padding:0;margin:0; width:100%}
+.prm3{padding:5px 0;margin:5px 0; width:100%}
+
+
+
+/* оглавления на странице */
+/* основное */
+.ogl{margin-top:-10px; margin-bottom:-10px; margin-left:0; margin-right:0;
+	padding:0 40px; font-size:16px; letter-spacing:1px; color:#555}
+.ogl li{margin-top:0; margin-bottom:0; margin-left:0; margin-right:0; padding:0}
+.ogl a:hover{color:#000; letter-spacing:2px}
+
+/* дополнительное  <form><iframe> */
+.ogl2 {display:flex; flex-wrap:wrap; justify-content:space-between; padding:0;
+	margin-top:20px; margin-bottom:-10px; margin-left:10px; margin-right:10px}
+.ogl2 span{padding:2px 5px; margin:5px; background:#eee; font-family:monospace; border-radius:3px;
+	display:inline-block; font-size:14px; letter-spacing:1px}
+.ogl2 span:hover {background:#ccc}
+.ogl2 a:hover {letter-spacing:1px}
+.ogl2 span:last-child {font-size:0; flex:1; background:transparent; padding:0; margin:0}
+.ogl2 .span-block{background:#aaa; color:#fff}
+
+.ogl2c{justify-content:center}
+.ogl2c span:last-child {flex:0; background:#eee; font-size:16px; padding:2px 5px; margin:10px}
+.ogl2c span:last-child:hover {background:#ccc}
+.ogl2c span {font-size:16px; padding:2px 5px; margin:10px}
+
+.off{position:relative}
+.off::before{position:absolute; top:50%; opacity:.4;
+	content:''; display:block; background:red; height:1.5px; width:100%}
+
+.ogl21 {margin:0 -15px 0 -7px}
+.ogl22 {margin:0 -5px 10px -5px}
+
+
+
+
+/* таблицы */
+/* занятые локально
+t21  tt5  tt6 th5 tt1
+*/
+table{max-width:1200px; border:0; border-collapse:collapse}
+.t1{width:100%; min-width:450px}
+.t0{min-width:auto; width:auto}
+.tw{width:100%}
+.tb{margin-bottom:5px}
+.tm{margin:5px 0}
+
+.t1 th{padding:8px 5px; background:#f5f5f5}
+.t1 td{padding:8px 5px; text-align:justify; vertical-align:top}
+.t1c td{vertical-align:middle; text-align:center}
+.t1 > tbody > tr > td:nth-child(1){font-weight:700; color:#009; font-family:monospace; text-align:left}
+.tgr > tbody > tr > td:nth-child(1){color:#009d4b; font-family:monospace; font-weight:400}
+
+.t2 td{padding:5px 8px}
+.t22 td{padding:5px 10px}
+.t3 td{padding:5px}
+.t4 td{padding:8px 8px 8px 5px}
+.t5 td{text-align:justify; vertical-align:top}
+
+.todd tr:nth-child(odd){background:#f5f5f5}
+.thov > tbody > tr:hover{background-color:#f3f3f3}
+
+.tbr > tbody > tr {border:1px solid #bbb}
+.tb > tbody > tr > td {border:1px solid #aaa}
+.tb > tbody > tr > th {border:1px solid #aaa}
+.tb2 > tbody > tr > td {border:1px solid #aaa}
+
+.tc caption {font-weight:700; font-size:20px; padding:5px; text-align:left}
+.tc1 caption {font-size:22px; letter-spacing:2px; padding-bottom:5px}
+.tcc caption {font-weight:700; font-size:20px; padding:5px; text-align:center}
+
+.th1 th{font-weight:600; font-size:18px; letter-spacing:1px; text-align:center}
+.th2 th{padding:8px 5px; background:#f5f5f5}
+
+
+
+/* оформление пункта со значением атрибута - вне таблицы */
+.attr{font-family:monospace; color:#009; text-align:left; margin-bottom:4px}
+.attr2{margin:25px 0 5px -25px}
+
+/* установка текста "HTML5" - для новых параметров из html5 */
+.html5::after{
+	content:'HTML5'; display:inline-block; background:#eee; border-left:2px solid red;
+	padding:0 5px 0 7px; margin-left:10px;
+	font-weight:400; letter-spacing:1px; color:red; text-indent:0; font-family:monospace; font-size:18px}
+
+
+
+/* статичное меню [home|end]:
+ help CSS; HTML help; Псевдоклассы и псевдоэлементы */
+.menu-help{position:fixed; top:5px; right:5px; color:#fff; text-align:center; opacity:.3;  z-index:10}
+.menu-help a{display:inline-block; min-width:50px; padding:2px 5px; margin:3px; background:#777}
+.menu-help:hover{opacity:1; transition:all .2s}
+.menu-help a:hover{background:#444}
+
+
+
+/* CSS и HTML справочники; Селекторы (CSS_helper.html; html_helper.html; selektors.html) */
+.helper-title{letter-spacing:2px}
+.helper ul{list-style:none; columns:3; column-gap:0px; margin:0; padding:0px; color:#07f; font-family:monospace}
+.helper li{margin:0 0 2px; padding:0; letter-spacing:-1px}
+
+/* выделение заполненной ссылки */
+.helper-content a:not([href*="html"]) {background:#f5f0e6; padding:2px 5px; border-radius:3px}
+
+.helper-menu{display:flex; flex-wrap:wrap; justify-content:space-between; margin:0px -10px; letter-spacing:0}
+.helper-menu li{margin:4px 6px; background-color:#eee; color:#333; border-radius:3px}
+.helper-menu li a{padding:2px 10px; display:inline-block}
+.helper-menu li:hover{background-color:#ccc; color:#000}
+.helper-content h2{margin:40px 0 8px}
+.helper-content h3{margin:40px 0 8px}
+.helper-content ul a:hover{background-color:#eee; padding:0 2px; color:#009; border-radius:3px}
+
+
+
+/* ul li */
+.list{margin:0; padding:0 0 0 25px}
+.list li{margin:5px 0; padding:0}
+.list.l3 li{margin:3px 0; padding:0}
+.list.l1 li{margin:1px 0; padding:0}
+.list.l0{list-style:none}
+
+
+
+/* маргины, паддинги и пр. */
+	.dib {display:inline-block}
+	.bold{font-weight:700}
+	.m0a{margin:0 auto}
+	.m10-0{margin:10px 0}
+	.m20-0{margin:20px 0}
+	.mt0{margin-top:0}
+	.mt10{margin-top:10px !important}
+	.mat{margin-top:15px}
+	.mt20{margin-top:20px !important}
+	.mt30{margin-top:30px !important}
+	.mt40{margin-top:40px !important}
+	.ml-10{margin-left:-10px}
+	.ml5{margin-left:5px}
+	.ml10{margin-left:10px}
+	.ml30{margin-left:30px}
+	.ml40{margin-left:40px}
+	.mb0{margin-bottom:0 !important}
+	.mb10{margin-bottom:10px}
+	.mb20{margin-bottom:20px !important}
+	.mab{margin-bottom:15px}
+	.mb40{margin-bottom:40px}
+	.pl10{padding-left:10px}
+	.dib{display:inline-block}
+	.ls0{letter-spacing:0px}
+	.ls1{letter-spacing:1px}
+	.ls2{letter-spacing:2px}
+	.ls-1{letter-spacing:-1px}
+	.ls-05{letter-spacing:-.5px}
+	.lh0{line-height:0}
+	.lh1{line-height:1}
+	.lh2{line-height:2}
+
+
+
+/* цвета для текста */
+	.sin{color:#009 !important}
+	.grin{color:#009d4b}
+	.red{color:#f00 !important}
+	.lsin{color:#07f !important}
+	.pur{color:#E01E45}
+
+
+
+/* шрифт иконками - fontello */
+	@font-face{
+		font-family:fontello;
+		src:
+		url(../font/fontello.woff2) format("woff2"),
+		url(../font/fontello.woff) format("woff"),
+		url(../font/fontello.ttf) format("truetype"),
+		url(../font/fontello.svg) format("svg");
+		font-weight:400; font-style:normal}
+	.t-search::after,.t-ie::after,.t-ios::after,.t-warning::after,.t-chrome::after,.t-popup::after,.t-jsfiddle::after,
+	.t-rss::after,.t-codepen::after,.t-tag::after,.t-android::after,.t-play::after,.t-html5::after,.t-github::after,
+	.t-trash::after,.t-book::after,.t-gear::after,.t-safari::after,.t-opera::after,.t-layout::after,.t-calendar::after,
+	.t-googleplus::after,.t-firefox::after,.t-pencil::after,.t-doc-text::after,.t-user::after,.t-users::after,
+	.t-ok::after,.t-cancel::after,.t-help::after,.t-mobile::after,.t-twitter::after,.t-horizontal-split::after,
+	.t-right-open::after,.t-left-open::after,.t-vertical-split::after,.t-facebook::after,.t-vk::after,
+	.t-linkedin::after,.t-email::after,.t-home::after,.t-css3::after,.t-edge::after,.t-bookmark::after,
+	.t-youtube::after,.t-desktop::after,.t-copy::after{font-family:fontello; font-style:normal; margin-left:10px}
+	.t-search::after{content:'\e800'}
+	.t-ie::after{content:'\e801'}
+	.t-ios::after{content:'\e802'}
+	.t-warning::after{content:'\e803'}
+	.t-chrome::after{content:'\e804'}
+	.t-popup::after{content:'\e805'}
+	.t-jsfiddle::after{content:'\e806'}
+	.t-rss::after{content:'\e807'}
+	.t-codepen::after{content:'\e808'}
+	.t-tag::after{content:'\e809'}
+	.t-android::after{content:'\e80a'}
+	.t-play::after{content:'\e80b'}
+	.t-html5::after{content:'\e80c'}
+	.t-github::after{content:'\e80d'}
+	.t-trash::after{content:'\e80e'}
+	.t-book::after{content:'\e80f'}
+	.t-gear::after{content:'\e810'}
+	.t-safari::after{content:'\e811'}
+	.t-opera::after{content:'\e812'}
+	.t-layout::after{content:'\e813'}
+	.t-calendar::after{content:'\e814'}
+	.t-googleplus::after{content:'\e815'}
+	.t-firefox::after{content:'\e816'}
+	.t-pencil::after{content:'\e817'}
+	.t-doc-text::after{content:'\e818'}
+	.t-user::after{content:'\e819'}
+	.t-users::after{content:'\e81a'}
+	.t-ok::after{content:'\e81b'}
+	.t-cancel::after{content:'\e81c'}
+	.t-help::after{content:'\e81d'}
+	.t-mobile::after{content:'\e81e'}
+	.t-twitter::after{content:'\e81f'}
+	.t-horizontal-split::after{content:'\e820'}
+	.t-right-open::after{content:'\e821'}
+	.t-left-open::after{content:'\e822'}
+	.t-vertical-split::after{content:'\e823'}
+	.t-facebook::after{content:'\e824'}
+	.t-vk::after{content:'\e825'}
+	.t-linkedin::after{content:'\e826'}
+	.t-email::after{content:'\e827'}
+	.t-home::after{content:'\e829'}
+	.t-css3::after{content:'\e82a'}
+	.t-edge::after{content:'\e82b'}
+	.t-bookmark::after{content:'\e82c'}
+	.t-youtube::after{content:'\e82d'}
+	.t-desktop::after{content:'\e82e'}
+	.t-copy::after{content:'\f0c5'}
+
+	/* цвет для иконок */
+	.t-html5:after{color:#ec642a}
+	.t-trash:after{color:#555}
+/* шрифт иконками - fontello */

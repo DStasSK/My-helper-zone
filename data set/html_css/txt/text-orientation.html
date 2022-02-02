@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><title>text-orientation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	#tt1 td {padding:8px; vertical-align:middle; height:60px}
+	#tt1 tr td:nth-child(1){text-align:center; width:60px}
+	#tt1 tr td:nth-child(3){text-align:center; font-family:monospace; color:red; font-weight:600; letter-spacing:2px; padding:0; width:80px}
+	.t1 .tta{writing-mode:vertical-lr; text-orientation:mixed;}
+	.t1 .ttb{writing-mode:vertical-lr; text-orientation:upright; letter-spacing:-3px;}
+</style>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>text-orientation</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">text-orientation</samp> устанавливает ориентацию текстовых символов в строке и применяется только к вертикальному тексту (когда свойство <a href="writing-mode.html"><samp class="sin tdu">writing-mode</samp></a> задано как <samp class="lsin">vertical-lr</samp> или <samp class="lsin">vertical-rl</samp>).</p>
+
+	<b>Значения:</b>
+	<table class="t1 tb" id="tt1">
+		<tr><td>mixed</td>
+			<td>Cимволы разворачиваются на 90° по часовой стрелке.
+				<pre class="item2 mt10"><code>div{writing-mode:vertical-lr; text-orientation:mixed}</code></pre></td>
+			<td><span class="tta">word</span></td></tr>
+		<tr><td>upright</td>
+			<td>Cимволы размещаются естественным путём друг под другом.
+				<pre class="item2 mt10"><code>div{writing-mode:vertical-lr; text-orientation:upright}</code></pre></td>
+			<td><span class="ttb">word</span></td></tr>
+	</table>
+
+	<pre class="item2"><code>div {<br>  writing-mode: vertical-lr;<br>  text-orientation: upright;<br>}</code></pre>
+</div>
+</body></html>

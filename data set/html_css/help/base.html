@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>&lt;base></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp>&lt;base></samp></h2>
+<div class="item">
+	<p>Элемент <samp class="red">&lt;base></samp> (от англ. base — база, основание) указывается внутри <samp class="red">&lt;head></samp> и инструктирует браузер относительно полного базового адреса текущего документа.</p>
+	<pre class="item2"><code>&lt;head><br>  &lt;base href="" target=""><br>&lt;/head></code></pre>
+
+	<p><samp class="red">&lt;base></samp> предназначен для документов, в которых используется относительный адрес и эти документы могут переноситься в другую папку или даже на другой компьютер без потери связи. Браузер ищет элемент <samp class="red">&lt;base></samp>, определяет полный адрес документа и корректно загружает его.</p>
+	<div class="item2 mt10">
+		Например, если адрес документа указан как
+		<pre><code class="code">&lt;base href="http://www.megasite.ru/hzchd/"></code></pre>
+		то при добавлении рисунков достаточно использовать относительный адрес
+		<pre><code class="code">&lt;img src="images/labuda.gif"></code></pre>
+		При этом полный путь к изображению будет
+		<pre><code class="code">&lt;img src="http://www.megasite.ru/hzchd/images/labuda.gif"></code></pre>
+		что позволяет браузеру всегда находить графический файл, независимо от того, где находится текущая веб-страница. Также можно применять и иерархическую систему пути с двумя точками. Так, если изображение добавляется как
+		<pre><code class="code">&lt;img src="../images/labuda.gif"></code></pre>
+		то полный путь к файлу будет
+		<pre><code class="code">&lt;img src="http://www.megasite.ru/images/labuda.gif"></code></pre>
+	</div>
+	<p class="mt20">Второе применение элемента <samp class="red">&lt;base></samp> — задание целевого окна для всех ссылок на текущей странице.</p>
+	<p>Если на странице встречается несколько элементов <samp class="red">&lt;base></samp>, то берётся значение атрибутов только у первого элемента, остальные игнорируются.</p>
+</div>
+
+
+
+<div class="item anp">
+<h2 class="sin">Атрибуты</h2>
+	<pre class="item2"><code class="code">&lt;base href="" target=""></code></pre>
+	<div class="mt20"><samp class="sin">href</samp></div>
+	<p>Адрес, который должен использоваться для указания полного пути к файлам. Обычно это типичный путь к текущему документу, но он может быть задан и другим, если это необходимо для организации файлов на сайте.</p>
+
+	<div class="mt20"><samp class="sin">target</samp></div>
+	<p>Определяет имя фрейма, в котором будут открываться все ссылки. Имя определяется атрибутом <samp class="sin">name</samp> элемента <samp class="red">&lt;iframe></samp>. В качестве значения также можно использовать ключевое слово, которое будет открывать ссылки в новой вкладке. Если установлено несуществующее имя, то будет открыта новая вкладка. В качестве зарезервированных имён используются следующие.</p>
+	<div class="ml40">
+		<table class="t1">
+			<tr><td>_blank</td><td>Загружает страницу в новую вкладку браузера.</td></tr>
+			<tr><td>_self</td><td>Загружает страницу в текущую вкладку (<i>Значение по умолчанию</i>).</td></tr>
+			<tr><td>_parent</td><td>Загружает страницу во фрейм-родитель; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+			<tr><td>_top</td><td>Отменяет все фреймы и загружает страницу в полном окне браузера; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+		</table>
+	</div>
+	<div class="no">Если для элемента <samp class="red">&lt;base></samp> установлен <samp class="sin">target="<samp class="lsin">_blank</samp>"</samp>, можно сделать чтобы ссылка открывалась в текущем окне, если добавить к элементу <samp class="red">&lt;a></samp> атрибут <samp class="sin">target="<samp class="lsin">_self</samp>"</samp></div>
+</div>
+
+</body></html>

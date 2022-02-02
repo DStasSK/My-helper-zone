@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>&lt;source></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.html5::after{margin:4px 0;}
+	.attr{font-size:22px; line-height:22px; font-weight:700}
+</style>
+
+</head>
+<body>
+
+<h2 class="sin t-html5"><samp>&lt;source></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#z0">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#media" title="Определяет устройство, для которого будет воспроизводиться файл.">media</a></span>
+				<span><a href="#sizes" title="Задаёт размеры изображений для разных макетов страницы.">sizes</a></span>
+				<span><a href="#src" title="Адрес медиа-файла.">src</a></span>
+				<span><a href="#srcset" title="Изображения, которые используются в разных ситуациях (для экранов планшетов, для экранов ретина и др.).">srcset</a></span>
+				<span><a href="#type" title="MIME-тип медийного источника.">type</a></span>
+				<span></span>
+			</div>
+		</li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Вставляет звуковой или видеофайл для элементов <samp class="red">&lt;audio></samp> и <samp class="red">&lt;video></samp>. Обобщённо такие файлы называются медийными. Также применяется для добавления изображений в контейнере <samp class="red">&lt;picture></samp>.</p>
+	<p>Когда располагается внутри <samp class="red">&lt;audio></samp> или <samp class="red">&lt;video></samp>, элемент <samp class="red">&lt;source></samp> должен идти после медийных файлов, но до <samp class="red">&lt;track></samp>. Внутри <samp class="red">&lt;picture></samp> он должен идти перед <samp class="red">&lt;img></samp>.</p>
+	<pre class="item2"><code>&lt;audio><br>  &lt;source src="адрес"><br>&lt;/audio><br><br>&lt;video><br>  &lt;source src="адрес"><br>&lt;/video><br><br>&lt;picture><br>  &lt;source srcset="..."><br>&lt;/picture></code></pre>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin"><a href="#">Атрибуты</a></h2>
+<p id="media" class="attr ls1"><a href="#">media</a></p>
+	<p>Определяет <a href="@media.html" class="sin tdu">медиа-запрос</a>, согласно которому будет выводиться изображение (Определяет устройство, для которого будет воспроизводиться файл).</p>
+	<div class="no">Работает только внутри элемента <samp class="red">&lt;picture></samp>.</div>
+	<picture>
+		<source srcset="img/mushroom_landscape.jpg" media="screen and (orientation: landscape)">
+		<source srcset="img/mushroom_portrait.jpg" media="screen and (orientation: portrait)">
+		<img src="img/mushroom.jpg" class="mt40" alt="" style="margin:auto; max-width:400px; display:block; max-height:200px">
+	</picture>
+	<pre class="item2"><code>&lt;picture><br>  &lt;source srcset="img/mushroom_landscape.jpg"<br>          media="screen and (orientation: landscape)"><br>  &lt;source srcset="img/mushroom_portrait.jpg"<br>          media="screen and (orientation: portrait)"><br>  &lt;img src="img/mushroom.jpg" alt=""<br>       style="margin:auto; max-width:400px; display:block; max-height:200px"><br>&lt;/picture></code></pre>
+	<p style="font-style:italic;">В данном примере применяется два изображения — одно отображается при альбомной ориентации экрана, второе при портретной ориентации. Чтобы заметить эффект на настольном компьютере, достаточно изменить размеры окна браузера, задав ему разные пропорции.</p>
+</div>
+
+
+<div class="item">
+<p id="sizes" class="attr ls1"><a href="#">sizes</a></p>
+	<p>Задаёт размеры изображений для разных макетов страницы.</p>
+	<div class="no">Атрибут <samp class="sin">sizes</samp> работает только, когда элемент <samp class="red">&lt;source></samp> расположен внутри элемента <samp class="red">&lt;picture></samp>.</div>
+	<pre class="item2"><code>&lt;picture><br>  &lt;source sizes="размер &lt;значение>,<br>                (медиа-запрос &lt;значение>) размер &lt;значение>"><br>&lt;/picture></code></pre>
+	<div><i><samp class="lsin">&lt;значение></samp> не допускает проценты, используйте только единицы <samp class="sin tdu"><a href="unit css.html" title="ширина в процентах от области просмотра (переход к единицам CSS)">vw</a></samp>.</i></div>
+
+	<h3 class="sin mt40">Примеры</h3>
+	<div>Одно значение ширины.</div>
+	<pre class="item2"><code>sizes="100vw"</code></pre>
+
+	<div class="mt20">Медиа-запрос с одним значением ширины. В качестве контрольной точки задано <abbr title="Точки останова принято указывать в em"><samp class="sin">40em</samp></abbr>.</div>
+	<pre class="item2"><code>sizes="(min-width: 40em) 100vw"</code></pre>
+
+	<div class="mt20">Список размеров, перечисленный через запятую. В значениях можно указывать медиа-запросы и функцию <samp class="sin">calc()</samp>.</div>
+	<pre class="item2 ls-1"><code>sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"</code></pre>
+</div>
+
+
+<div class="item">
+<p id="src" class="attr ls1"><a href="#">src</a></p>
+	<p>Адрес аудио или видеофайла, который будет воспроизводиться на веб-странице.</p>
+	<pre class="item2"><code>&lt;audio><br>  &lt;source src="адрес"><br><br>&lt;/audio><br><br>&lt;video><br>  &lt;source src="адрес"><br>&lt;/video></code></pre>
+</div>
+
+
+<div class="item">
+<p id="srcset" class="attr ls1"><a href="#">srcset</a></p>
+	<p>Список из одной или нескольких строк, разделённых запятыми, указывающих набор возможных изображений для отображения в браузере. Каждая строка может состоять их следующих частей:</p>
+	<ul class="list">
+		<li>адрес изображения;</li>
+		<li>дескриптор ширины, который представляет собой целое положительное число, за которым следует <samp class="red bold">w</samp> (например: 600w). Дескриптор подсказывает браузеру, для какой контрольной точки использовать данное изображение;</li>
+		<li>дескриптор плотности пикселей, представляет собой положительное десятичное число, за которым сразу следует <samp class="red bold">х</samp>.</li>
+	</ul>
+	<p class="mt40">Каждая строка в списке должна содержать по крайней мере дескриптор ширины или плотности пикселей. Браузер выбирает наиболее подходящее изображение для отображения в данный момент времени.</p>
+	<p>Атрибут <samp class="sin">srcset</samp> имеет эффект только тогда, когда элемент <samp class="red">&lt;source></samp> располагается непосредственно внутри элемента <samp class="red">&lt;picture></samp>.</p>
+
+	<picture class="prm mt40">
+		<source srcset="img/mushroom_landscape.jpg, img/mushroom_retina.jpg 2x" media="(min-width: 30em)">
+		<img src="img/mushroom.jpg" alt="" style="display:block;margin:auto;max-height:200px">
+	</picture>
+	<pre class="item2"><code>&lt;picture><br>  &lt;source srcset="image/mushroom_landscape.jpg, <br>                  image/mushroom_retina.jpg 2x"<br>                  media="(min-width: 30em)"><br>  &lt;img src="image/mushroom.jpg" alt=""<br>       style="display:block; margin:auto; max-height:200px"><br>&lt;/picture></code></pre>
+	<p style="font-style:italic;">В данном примере применяется два изображения — одно отображается при обычной плотности пикселей, второе при плотности пикселей <b>х2</b>. При минимальной ширине экрана менее <b>30em</b> - загрузится изображение из <samp class="red">&lt;img></samp></p>
+</div>
+
+
+<div class="item">
+<p id="type" class="attr ls1"><a href="#">type</a></p>
+	<p>Задаёт <a href="../MIME.html" class="tdu sin">MIME-тип</a> источника, а также аудио и видеокодек — так называется алгоритм хранения воспроизводимых данных.</p>
+	<p>Вначале указывается <a href="../MIME.html" class="tdu sin">MIME-тип</a>, затем после точки с запятой пишется ключевое слово <samp class="sin">codecs</samp> и ему присваивается через запятую значение видео и аудиокодека. Если предполагается использовать только звук, видеокодек не пишется.</p>
+	<pre class="item2"><code>&lt;audio><br>  &lt;source src="адрес" type='MIME-тип; codecs="кодек"'><br>&lt;/audio><br><br>&lt;video><br>  &lt;source src="адрес" type='MIME-тип; codecs="кодек"'><br>&lt;/video></code></pre>
+	<div class="no">Bажно сохранять именно такую последовательность кавычек - сначала одинарная, потом двойная в <samp class="sin">codecs</samp>, иначе видео не загрузится.</div>
+	<table class="t0 todd tb t1c tw t2 th1 tcc mt40">
+		<caption>Значение атрибута <samp class="sin">type</samp> в зависимости от кодеков</caption>
+		<tr style="background:#dadada;"><th>Видео-<br>кодек</th><th>Аудио-<br>кодек</th><th>Контейнер</th><th>Атрибут <samp class="sin">type</samp></th></tr>
+		<tr><td></td><td>Vorbis</td><td>Ogg</td><td>type='audio/ogg; codecs=vorbis'</td></tr>
+		<tr><td></td><td>Speex</td><td>Ogg</td><td>type='audio/ogg; codecs=speex'</td></tr>
+		<tr><td></td><td>FLAC</td><td>Ogg</td><td>type='audio/ogg; codecs=flac'</td></tr>
+		<tr><td></td><td>MP3</td><td></td><td>type="audio/mpeg"</td></tr>
+		<tr><td>H.264</td><td>AAC</td><td>MP4</td><td>type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'</td></tr>
+		<tr><td>Theora</td><td>Vorbis</td><td>Ogg</td><td>type='video/ogg; codecs="theora, vorbis"'</td></tr>
+		<tr><td>Theora</td><td>Speex</td><td>Ogg</td><td>type='video/ogg; codecs="theora, speex"'</td></tr>
+		<tr><td>Theora</td><td>Vorbis</td><td>Matroska</td><td>type='video/x-matroska; codecs="theora, vorbis"'</td></tr>
+		<tr><td>VP8</td><td>Vorbis</td><td>WebM</td><td>type='video/webm; codecs="vp8, vorbis"'</td></tr>
+	</table>
+</div>
+
+</body></html>

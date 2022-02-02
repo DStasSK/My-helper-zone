@@ -1,0 +1,100 @@
+<!DOCTYPE html><html><head><title>&lt;template></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><samp class="t-html5">&lt;template></samp></h2>
+<div class="item">
+	<p>Элемент <samp class="red">&lt;template></samp> представляет собой механизм для хранения содержимого на стороне клиента, которое не отображается в процессе загрузки страницы, но впоследствии может быть заполнено с помощью JavaScript.</p>
+	<p>Содержимое <samp class="red">&lt;template></samp> — это шаблон для фрагмента HTML, который может быть клонирован и вставлен в документ через скрипты. Обычно применяется для элементов с повторяющейся структурой, вроде списков, таблиц, списков <samp class="red">&lt;select></samp> и др.</p>
+	<p class="no">Внутри <samp class="red">&lt;template></samp> располагаются пустые элементы, образующие требуемый шаблон. Повторение этих элементов и их заполнение содержимым берут на себя скрипты.</p>
+
+	<div class="prm">
+		<table class="tb t1c th1 th2 m0a mt10">
+			<tbody><tr>
+				<th width="120">Твёрдость по Моосу</th>
+				<th width="120">Эталонный минерал</th>
+				<th>Обрабатываемость</th>
+			</tr></tbody>
+			<tbody>
+				<template id="row">
+					<tr><td><td><td>
+				</template>
+			</tbody>
+		</table>
+
+		<script>
+			var data = [
+				{ hardness: 1, mineral: 'Тальк', workability: 'Царапается ногтём'},
+				{ hardness: 2, mineral: 'Гипс', workability: 'Царапается ногтём'},
+				{ hardness: 3, mineral: 'Кальцит', workability: 'Царапается медью'},
+				{ hardness: 4, mineral: 'Флюорит', workability: 'Легко царапается ножом, оконным стеклом'},
+				{ hardness: 5, mineral: 'Апатит', workability: 'С усилием царапается ножом, оконным стеклом'},
+				{ hardness: 6, mineral: 'Ортоклаз', workability: 'Царапает стекло. Обрабатывается напильником'},
+				{ hardness: 7, mineral: 'Кварц', workability: 'Поддаётся обработке алмазом, царапает стекло'},
+				{ hardness: 8, mineral: 'Топаз', workability: 'Поддаётся обработке алмазом, царапает стекло'},
+				{ hardness: 9, mineral: 'Корунд', workability: 'Поддаётся обработке алмазом, царапает стекло'},
+				{ hardness: 10, mineral: 'Алмаз', workability: 'Царапает стекло'}
+			];
+			var template = document.querySelector('#row');
+			for (var i = 0; i < data.length; i++) {
+				var mohs = data[i];
+				var clone = template.content.cloneNode(true);
+				var cells = clone.querySelectorAll('td');
+				cells[0].textContent = mohs.hardness;
+				cells[1].textContent = mohs.mineral;
+				cells[2].textContent = mohs.workability;
+				template.parentNode.appendChild(clone);
+				}
+		</script>
+
+
+		<pre class="item2"><code>&lt;table class="tb t1c th1 th2 m0a mt10">
+  &lt;tbody>&lt;tr>
+    &lt;th width="120">Твёрдость по Моосу&lt;/th>
+    &lt;th width="120">Эталонный минерал&lt;/th>
+    &lt;th>Обрабатываемость&lt;/th>
+  &lt;/tr>&lt;/tbody>
+  &lt;tbody>
+    &lt;template id="row">
+      &lt;tr>&lt;td>&lt;td>&lt;td>
+    &lt;/template>
+  &lt;/tbody>
+&lt;/table>
+
+&lt;script>
+  var data = [<span class="ls-1">
+    { hardness: 1, mineral: 'Тальк', workability: 'Царапается ногтём'},
+    { hardness: 2, mineral: 'Гипс', workability: 'Царапается ногтём'},
+    { hardness: 3, mineral: 'Кальцит', workability: 'Царапается медью'},
+    { hardness: 4, mineral: 'Флюорит', workability: 'Легко царапается ножом, оконным стеклом'},
+    { hardness: 5, mineral: 'Апатит', workability: 'С усилием царапается ножом, оконным стеклом'},
+    { hardness: 6, mineral: 'Ортоклаз', workability: 'Царапает стекло. Обрабатывается напильником'},
+    { hardness: 7, mineral: 'Кварц', workability: 'Поддаётся обработке алмазом, царапает стекло'},
+    { hardness: 8, mineral: 'Топаз', workability: 'Поддаётся обработке алмазом, царапает стекло'},
+    { hardness: 9, mineral: 'Корунд', workability: 'Поддаётся обработке алмазом, царапает стекло'},
+    { hardness: 10, mineral: 'Алмаз', workability: 'Царапает стекло'}</span>
+  ];
+  var template = document.querySelector('#row');
+  for (var i = 0; i &lt; data.length; i++) {
+    var mohs = data[i];
+    var clone = template.content.cloneNode(true);
+    var cells = clone.querySelectorAll('td');
+    cells[0].textContent = mohs.hardness;
+    cells[1].textContent = mohs.mineral;
+    cells[2].textContent = mohs.workability;
+    template.parentNode.appendChild(clone);
+  }
+&lt;/script></code></pre>
+	</div>
+</div>
+
+</body></html>

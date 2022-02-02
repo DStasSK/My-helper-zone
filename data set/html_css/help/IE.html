@@ -1,0 +1,279 @@
+<!DOCTYPE html><html><head><title>Internet Explorer</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*ul,li{margin:0;font-size:18px;line-height:1.2;}*/
+	.t1 th {background:transparent;}
+	.t0 td {text-align:center; font-size:16px;}
+	.t0 td:nth-child(1){font-size:20px; font-weight:700;}
+	.t0 td:nth-child(2){text-align:left;}
+
+	.sampli samp{color:red; font-size:15px}
+</style>
+</head>
+<body>
+
+<h2 class="sin" id="ie0"><samp>Internet Explorer</samp></h2>
+<ul class="ogl mt10">
+	<li><a href="#ie1">Условные комментарии</a></li>
+	<li><a href="#ie2">Операторы, применяемые в условных комментариях</a></li>
+	<li><a href="#ie3">Хаки для IE10 и IE11</a></li>
+	<li><a href="#ie3a">Перевод браузера IE в режим 7.0.</a></li>
+	<li><a href="#ie4">hasLayout</a></li>
+	<li><a href="#ie5">Ошибки IE8</a></li>
+	<li><a href="#ie6">Ошибки IE7</a></li>
+</ul>
+
+
+
+<div class="item">
+<h3 id="ie1" class="sin"><a href="#" title="наверх">Условные комментарии</a></h3>
+	<p>Из-за возможных различий в отображении браузерами одного и того же кода возникает проблема идентификации браузера и его версии, чтобы «подсунуть» ему персональный код. Браузер IE поддерживает специальную технологию определения версии под названием «условные комментарии». Синтаксис их применения следующий.</p>
+
+	<pre class="item2 br0"><code class="html">&lt;!--[if условие]> невидимый HTML-код &lt;![endif]--><br>&lt;![if условие]> видимый HTML-код &lt;![endif]></code></pre>
+
+	<p>В первом случае синтаксис схож с обычными комментариями HTML имеющими вид <samp class="sin">&lt;!-- --></samp>. Такая мимикрия обеспечивает валидность кода, поскольку всё, что находится внутри любой браузер кроме IE считает обычным комментарием. Они не выводятся на странице и не интерпретируются как код, поэтому могут содержать любые, даже ошибочные теги и текст.</p>
+	<p>Во втором случае всё с точностью наоборот, это уже не комментарий, а специфический тег, как его воспринимают браузеры. Поэтому применение указанного синтаксиса приведёт к ошибке валидации кода. Зато IE при соблюдении условий позволяет выводить любой текст и теги.</p>
+	<p>В силу практичности и соблюдения валидности кода в дальнейшем будем включать только синтаксис вида <samp class="sin">&lt;!--[if условие]> &lt;![endif]--></samp>.</p>
+	<p>Условие работает аналогично языкам программирования. Если оно истинно (true), то браузер выполняет HTML-код, если условие ложно (false), то код не выполняется и пропускается.</p>
+
+	<style>
+		.iet1 {width:300px;margin:0 auto; border-collapse:collapse; margin-bottom:20px;}
+		.iet1 td {border:1px solid black; padding: 5px; text-align:center;}
+		.iet1 th {padding:0px 25px;}
+	</style>
+	<div><table class="t0 tb2 t3 m0a t1c th1 iet1">
+		<tr><th>Значение</th><th>Браузер</th></tr>
+		<tr><td>IE</td><td>Любая версия IE</td></tr>
+		<tr><td>IE 6</td><td>Internet Explorer 6.0</td></tr>
+		<tr><td>IE 7</td><td>Internet Explorer 7.0</td></tr>
+		<tr><td>IE 8</td><td>Internet Explorer 8.0</td></tr>
+		<tr><td>IE 9</td><td>Internet Explorer 9.0</td></tr>
+	</table></div>
+	
+	<div class="mt40">Условные комментарии для изменения стиля для браузера IE7:</div>
+	<pre class="item2 br0"><code>&lt;head><br>  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><br>  &lt;title>Условные комментарии&lt;/title><br>  &lt;style type="text/css"><br>   p { 
+    color: green; /* Для всех браузеров, кроме IE7 */<br>   }<br>  &lt;/style><br>  &lt;!--[if IE 7]><br>  &lt;style type="text/css"><br>    P {color: red;}  /* Для браузера IE7 */<br>  &lt;/style><br>  &lt;![endif]--><br>&lt;/head></code></pre>
+
+	<p class="mt20">Стили для IE правильнее выделить в отдельный CSS-файл, который будет загружаться только при необходимости. Для всех браузеров подключается файл <b>style.cs</b>s, а для IE версии 7.0 и ниже ещё один файл <b>ie.css</b>. При этом остальные браузеры этот файл будут игнорировать и не загружают.</p>
+	<pre class="item2 br0"><code>&lt;link href="style.css" rel="stylesheet" type="text/css" /><br>&lt;!--[if lte IE 7]>&lt;link href="ie.css"<br>    rel="stylesheet" type="text/css" />&lt;![endif]--></code></pre>
+
+	<p class="mt20">Также для браузера Internet Explorer, чтобы он понимал стиль для новых элементов, придется включить скрипт через условные комментарии.</p>
+	<pre class="item2 br0"><code class="html">&lt;head><br>  &lt;!--[if IE]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--><br>&lt;/head></code></pre>
+</div>
+
+
+
+<div class="item">
+<h3 id="ie2" class="sin"><a href="#" title="наверх">Операторы, применяемые в условных комментариях</a></h3>
+	<table class="t0 th1 tb th2">
+		<tr><th>Оператор</th><th width="310px">Описание</th><th>Пример</th><th width="100px">Комментарий</th></tr>
+		<tr><td>()</td><td><b>Группирование дополнительных условий</b><br>Используется для создания сложных запросов с логическими операторами.</td><td>[if !(IE 6) & (lt IE 9)]</td><td>Все версии, кроме IE6 и IE9.</td></tr>
+		<tr><td>!</td><td><b>Логическое НЕ</b><br>Условие истинно, если условие следующее за ! не выполняется.</td><td>[if !(IE 7)]</td><td>Все версии, кроме IE7.</td></tr>
+		<tr><td>&</td><td><b>Логическое И</b><br>Предназначено для объединения нескольких условий. Возвращает true, если все условия выполняются.</td><td>[if (gte IE 6) & (lt IE 8)]</td><td>IE6, IE7.</td></tr>
+		<tr><td>|</td><td><b>Логическое ИЛИ</b><br>Возвращает true, если хотя бы одно из условий выполняется.</td><td>[if (IE 6) | (IE 7)]</td><td>IE6 или IE7.</td></tr>
+		<tr><td>lt</td><td><b>«Меньше»</b><br>Условие истинно, если версия младше указанной.</td><td>[if lt IE 9]</td><td>Все версии младше IE9.</td></tr>
+		<tr><td>lte</td><td><b>«Меньше или равно»</b><br>Условие истинно, если версия младше указанной или совпадает с ней.</td><td>[if lte IE 8]</td><td>Все версии младше IE9.</td></tr>
+		<tr><td>gt</td><td><b>«Больше»</b><br>Условие истинно, если версия старше указанной.</td><td>[if gt IE 7]</td><td>Все версии старше IE7.</td></tr>
+		<tr><td>gte</td><td><b>«Больше или равно»</b><br>Условие истинно, если версия старше указанной или совпадает с ней.</td><td>[if gte IE 7]</td><td>IE7, IE8, IE9</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+<h3 id="ie3"><a href="#" title="наверх"><span class="sin">Хаки для IE10 и IE11</span></a></h3>
+	<p>Компания Microsoft заявила, что <samp class="red">IE10</samp> (а также будущие версии) более не поддерживают условные комментарии. С их стороны это очень рискованный шаг. На протяжении многих лет веб-разработчики использовали условные комментарии, хаки и комбинацию данных способов для отделения браузеров <samp class="red">IE</samp> от всех остальных. Без условных комментариев в <samp class="red">IE10</samp> невозможно решить многие проблемы <samp class="red">CSS</samp> с которыми сталкиваются веб-разработчики в своих проектах, но способы все-таки есть.</p>
+	<!-- стили только для IE9 - IE10 -->
+	<pre class="item2"><code class="css">@media screen and (min-width:0\0) {<br>    /* стили только для IE9 - IE10 */<br>}<br><br>@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {<br>    /* стили только для IE10 */<br>}</code></pre>
+</div>
+
+
+
+<div class="item">
+<h3 id="ie3a" class="sin"><a href="#" title="наверх">Одна из этих строк насильно переводят браузер IE в режим 7.0.</a></h3>
+	<pre class="item2"><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><br>&lt;meta http-equiv="X-UA-Compatible" content="IE=7" /></code></pre>
+	</div>
+
+
+
+<div class="item">
+<h3 id="ie4" class="sin"><a href="#" title="наверх">hasLayout</a></h3>
+	<p>Для отображения элементов и учёта их взаимодействия между собой, разработчики <samp class="red">IE</samp> внедрили в этот браузер уникальное свойство <samp class="sin">hasLayout</samp>, значением которого выступает <samp class="lsin">true</samp> или <samp class="lsin">false</samp>. «Установить <samp class="sin">hasLayout</samp>» означает задать ему значение <samp class="lsin">true</samp>, а «убрать <samp class="sin">hasLayout</samp>» говорит о том, что это свойство не задано или у него значение <samp class="lsin">false</samp>.</p>
+
+	<p>Большинство имеющихся ошибок в <samp class="red">IE6</samp>, <samp class="red">IE7</samp> связано, так или иначе, именно со свойством <samp class="sin">hasLayout</samp>. В <samp class="red">IE8</samp> оно было снято, что с одной стороны хорошо, но с другой повлияло на то, что <samp class="red">IE</samp> разных версий отображают одну и ту же страницу совершенно по-своему. Поэтому важно понимать, как работает это свойство и какую роль выполняет.</p>
+
+
+	<p class="mt20">Свойство <samp class="sin">hasLayout</samp> оказывает различные воздействие на элементы веб-страницы; неполный список особенностей и неприятностей <samp class="sin">hasLayout</samp>:</p>
+	<ul class="list mb10 l3">
+		<li>вызывает проблемы с плавающими элементами.</li>
+		<li>отменяет схлопывание отступов.</li>
+		<li>приводит к различным проблемам при отображении списков.</li>
+		<li>увеличивает использования памяти из-за большего количества операций по вычислению.</li>
+		<li>высота слоя независимо от установленного значения <samp class="sin">height</samp> подстраивается под контент.</li>
+	</ul>
+	<div class="no mb40">Большинство проблем связанных с этим свойством можно исправить его установкой, добавляя в стилях элементу <samp class="sin">zoom:</samp><samp class="lsin">1</samp> или <samp class="sin">height:</samp><samp class="lsin">1%</samp>.</div>
+
+
+	<p class="mb20">Напрямую задать это свойство через стили невозможно, потому что оно разрабатывалось для внутренних целей, фактически в CSS его нет. Но можно это сделать косвенно, причём у некоторых элементов оно уже стоит по умолчанию, а у других нет.</p>
+	Элементы, у которых всегда установлено свойство <samp class="sin">hasLayout</samp>:
+	<ul class="list l3 mb40 sampli">
+		<li>изображения (тег <samp>&lt;img></samp>);</li>
+		<li>таблицы (<samp>&lt;table></samp>), их строки (<samp>&lt;tr></samp>) и ячейки (<samp>&lt;td>, &lt;th></samp>);</li>
+		<li>линии (<samp>&lt;hr></samp>);</li>
+		<li>структурные элементы (<samp>&lt;html>, &lt;body></samp>);</li>
+		<li>фреймы (<samp>&lt;frameset>, &lt;frame>, &lt;iframe></samp>);</li>
+		<li>некоторые элементы форм (<samp class="ls-1">&lt;button>, &lt;fieldset>, &lt;input>, &lt;legend>, &lt;select>, &lt;textarea></samp>);</li>
+		<li>объекты (<samp>&lt;embed>, &lt;object></samp>) и апплеты (<samp>&lt;applet></samp>);</li>
+		<li>тег <samp>&lt;marquee></samp>;</li>
+	</ul>
+
+	В IE7 кроме перечисленных свойств <samp class="sin">hasLayout</samp> устанавливают следующие:
+	<ul class="list l3 mb40">
+		<li><samp class="sin">position:</samp> <samp class="lsin">fixed</samp>;</li>
+		<li><samp class="sin">overflow:</samp> <samp class="lsin">hidden | scroll | auto</samp>;</li>
+		<li><samp class="sin">overflow-x:</samp> <samp class="lsin">hidden | scroll | auto</samp>;</li>
+		<li><samp class="sin">overflow-y:</samp> <samp class="lsin">hidden | scroll | auto</samp>;</li>
+		<li><samp class="sin">min-width:</samp> любое значение кроме <samp class="lsin">auto</samp>;</li>
+		<li><samp class="sin">max-width:</samp> любое значение кроме <samp class="lsin">auto</samp>;</li>
+		<li><samp class="sin">min-height:</samp> любое значение кроме <samp class="lsin">auto</samp>;</li>
+		<li><samp class="sin">max-height:</samp> любое значение кроме <samp class="lsin">auto</samp>;</li>
+	</ul>
+
+	Убрать <samp class="sin">hasLayout</samp> можно добавлением к элементу одного из следующих свойств и значений:
+	<ul class="list l3 mb40">
+		<li><samp class="sin">position:</samp> <samp class="lsin">static</samp>;</li>
+		<li><samp class="sin">float:</samp> <samp class="lsin">none</samp>;</li>
+		<li><samp class="sin">width:</samp> <samp class="lsin">auto</samp>;</li>
+		<li><samp class="sin">height:</samp> <samp class="lsin">auto</samp>;</li>
+		<li><samp class="sin">overflow:</samp> <samp class="lsin">visible</samp>;</li>
+		<li><samp class="sin">writing-mode:</samp> <samp class="lsin">lr-tb | rl-tb | bt-rl</samp>;</li>
+		<li><samp class="sin">zoom:</samp> <samp class="lsin">normal</samp>;</li>
+	</ul>
+
+	<p class="mt40"><samp class="sin">hasLayout</samp> устанавливается автоматически, если для элемента задано одно из следующих свойств и значений:
+	<pre style="margin-left:5px; line-height:24px; font-size:18px"><code>display: inline-block;<br>position: absolute;<br>float: left | right;<br>width: любое значение кроме auto;<br>height: любое значение кроме auto;<br>writing-mode: tb-rl;<br>zoom: 1;</code></pre></p>
+</div>
+
+
+
+<div class="item anp">
+<h3 id="ie5" class="sin"><a href="#" title="наверх">Ошибки IE8</a></h3>
+	<p><b>Шрифты в формате TTF</b></p>
+		<p class="mb40">IE8 не поддерживает загрузку шрифтов в формате <samp class="sin">TTF</samp> для <samp class="red">@font-face</samp> (это правило применяется для загрузки специфичного шрифта на компьютер пользователя для последующего отображения текста этим шрифтом). Если в IE8 и младше задать шрифт через <samp class="red">@font-face</samp> в формате <samp class="sin">TTF</samp>, то текст будет отображаться шрифтом, заданным в браузере по умолчанию.
+		</p>
+	<p><b>Ограничение на число стилей</b></p>
+		<p class="mb40">В IE6–8 существует ограничение в <span class="red">31</span> стиль, включаемый на страницу через <samp class="red">&lt;style></samp>, <samp class="red">&lt;link></samp> или <samp class="red">@import</samp>. Тридцать второй стиль и последующие будут игнорироваться. Кажется, что 32 стиля никогда не понадобится, но в некоторых системах управления сайтом свой стилевой файл включает каждый модуль. В итоге некоторые страницы могут отображаться некорректно.
+		</p>
+	<p><b>favicon.ico</b></p>
+		<p>IE6–8 в обязательном порядке запрашивает файл <samp class="red">favicon.ico</samp>, находящийся в корне сайта. Если его там нет, в логи ошибок сервера пишется «404 файл не найден». <samp class="red">favicon.ico</samp> - иконка сайта, она появляется возле адреса сайта и в закладках браузера.
+		<p class="mb40">IE6–8 не поддерживает иконку в формате PNG или любом другом графическом формате, только ICO.
+		<br>Решение: cоздать иконку в формате ICO и скопировать файл с именем favicon.ico в корень сайта.
+		</p>
+	<p><b>Сдвиг фона на кнопках</b></p>
+		<p class="mb40">Фон, установленный для кнопок, созданных с помощью тегов <samp class="red">&lt;button></samp> или <samp class="red">&lt;input></samp> сдвигается в момент нажатия на кнопку.
+		</p>
+	<p><b>Не отображается фон, заданный через background</b></p>
+		<p>В некоторых случаях фоновый рисунок, который устанавливается с помощью свойства <samp class="sin">background</samp>, не выводится в IE6–8. Это связано с тем, что в значении между <samp class="red">url</samp> и другими параметрами вроде <samp class="lsin">no-repeat</samp> нет пробела.</p>
+		<pre class="item2 br0"><code class="css">body {background:url(images/ie.png)no-repeat;}</code></pre>
+	<p class="mt40"><b>Применение float к :first-letter</b></p>
+		<p>Сочетание свойств <samp class="sin">float</samp>, <samp class="sin">text-transform</samp> со значением <samp class="sin">capitalize</samp> и псевдокласса <samp class="sin">:first-letter</samp> работает некорректно. Значение <samp class="sin">capitalize</samp> превращает первый символ каждого слова в предложении в заглавный. Остальные символы свой вид не меняют. Добавление <samp class="sin">float</samp> к псевдоклассу <samp class="sin">:first-letter</samp> приводит к появлению ошибки - вместо одного заглавными становятся два символа.
+		</p>
+</div>
+
+
+
+<div class="item anp">
+<h3 id="ie6"><a href="#" title="наверх"><span class="sin">Ошибки IE7</span></a></h3>
+<p class="red"><b>Стили не работающие в IE7</b></p>
+	<style>
+		.u2 ul li{margin-left:-25px;}
+		.u2 details{font-size:16px;}
+		.u2 details p:last-child{padding-bottom:12px;}
+		.u2 summary::-webkit-details-marker {display:none;}
+		.u2 summary::-moz-list-bullet {list-style-type:none;}
+		.u2 summary::marker {display:none;}
+		.u2 summary {display:inline-block; cursor:pointer; font-size:18px;}
+		.u2 summary:hover{color:#009;}
+		.u2 summary:focus{outline:none;}
+	</style>
+	<div class="u2 anp pad"><ul>
+		<li><details><summary>Псевдоэлементы :before и :after</summary>
+			<p>Используются для вывода определённого контента до и после элемента.</p>
+			</details></li>
+		<li><details><summary>Свойство content</summary>
+			<p>Позволяет вставлять генерируемое содержание в текст веб-страницы, которое первоначально в тексте отсутствует. Применяется совместно с псевдоэлементами :after и :before.</p>
+			</details></li>
+		<li><details><summary>Свойство caption-side</summary>
+			<p>Определяет положение заголовка таблицы, который задаётся с помощью тега &lt;caption>, относительно самой таблицы. Свойство caption-side выводит заголовок до или после таблицы.</p>
+			</details></li>
+		<li><details><summary>Свойства counter-increment и counter-reset</summary>
+			<p>Стилевое свойство counter-increment предназначено для увеличения значения счетчика приращений, который задаётся свойством counter-reset. Такой счетчик подсчитывает количество отображений элементов на странице и может выводиться с помощью свойства content и псевдоэлементов :after и :before. Это позволяет создавать списки (в том числе многоуровневые), в которых нумерация и вид задаются через стили, а также делать автоматическую нумерацию заголовков, изображений, таблиц и др.</p>
+			<style type="text/css">
+				#pr1 {counter-reset: heading;} /* Инициируем счетчик */
+				#pr1 p:before {counter-increment: heading;   /* Указываем идентификатор счетчика */
+					content: "Глава " counter(heading) ". ";}/* Выводим текст перед содержимым тега <h2> */
+				#pr1 p{margin:0; padding:2px 5px; background:#F0FFFF;}
+			</style>
+			<pre class="item2 br0" id="pr1"><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" <br>  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><br>&lt;html xmlns="http://www.w3.org/1999/xhtml"><br> &lt;head><br>  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><br>  &lt;title>counter-increment&lt;/title><br>  &lt;style type="text/css"><br>   body {<br>    counter-reset: heading; /* Инициируем счетчик */<br>   }<br>   h2:before {<br>    counter-increment: heading; /* Указываем идентификатор счетчика */<br>    content: "Глава " counter(heading) ". "; <br>              /* Выводим текст перед содержимым тега &lt;h2> */<br>   }<br>  &lt;/style><br> &lt;/head><br> &lt;body><br>  &lt;h2>Теория ловли льва в пустыне&lt;/h2><br>  &lt;h2>Методы инверсной кинематики&lt;/h2><br>  &lt;h2>Ловля льва численными методами&lt;/h2><br> &lt;/body><br>&lt;/html><br><br><p>Теория ловли льва в пустыне</p><p>Методы инверсной кинематики</p><p>Ловля льва численными методами</p></code></pre>
+			<p class="mb20">Из-за того, что IE7 не понимает используемые в стиле свойства, заголовки будут выведены как обычно, без текста впереди.</p>
+			</details></li>
+		<li><details><summary>Свойство empty-cells</summary>
+			<p>Задаёт отображение границ и фона в ячейке, если она пустая. При одновременном добавлении к таблице свойства border-collapse со значением collapse, свойство empty-cells игнорируется.</p>
+			</details></li>
+		<li><details><summary>Псевдокласс :focus</summary>
+			<p>Определяет стиль для элемента получающего фокус. Например, им может быть текстовое поле формы, в которое устанавливается курсор.</p>
+			</details></li>
+		<li><details><summary>Свойство outline</summary>
+			<p>Универсальное свойство, одновременно устанавливающее цвет, стиль и толщину внешней границы на всех четырёх сторонах элемента. В отличие от линии, задаваемой через border, свойство outline не влияет на положение блока и его ширину. В IE7 также не поддерживаются и производные свойства outline-color, outline-style и outline-width.</p>
+			</details></li>
+		<li><details><summary>Свойство quotes</summary>
+			<p>Устанавливает тип кавычек, который применяется в тексте документа.</p>
+			</details></li>
+	</ul></div>
+<p class="red"><b>Ошибки в IE7</b></p>
+	<div class="u2 anp"><ul>
+		<li><details><summary>@import</summary>
+			<p>Не поддерживает типы носителей при импорте стилевого файла. Более того, при добавлении типа носителя стилевой файл вообще не загружается.</p>
+			<pre class="item2 br0"><code>&lt;style type="text/css"><br>  @import "style/main.css" screen;<br>&lt;/style></code></pre>
+			</details></li>
+		<li><details><summary>Границы</summary>
+			<p>Линия, у которой стиль задан как dotted, превращается в dashed для толщины 2px и более.</p>
+			</details></li>
+		<li><details><summary>button</summary>
+			<p>Любое значение в стиле <samp class="sin">button[value="x"]</samp> приводит к краху браузера!</p>
+			<pre class="item2 br0"><code class="css">button[value="1"] { color: red; }</code></pre>
+			</details></li>
+		<li><details><summary>display</summary>
+			<p class="pad">В IE7 не поддерживаются следующие значения свойства <samp class="red">display</samp>: <samp class="grin">inline-table, run-in, table, table-caption, table-cell, table-column, table-column-group, table-footer-group, table-header-group, table-row, table-row-group</samp>.</p>
+			<p>Для тега <samp class="sin">&lt;li></samp> значение <samp class="grin">block</samp> понимается как <samp class="grin">list-item</samp>, а значение <samp class="grin">inline-block</samp> работает только для строчных элементов.</p>
+			</details></li>
+		<li><details><summary>overflow и position: fixed</summary>
+			<p>Сочетание свойства <samp class="sin">overflow</samp> со значением <samp class="grin">auto</samp> или <samp class="grin">scroll</samp> и свойства <samp class="sin">position</samp>: <samp class="grin">fixed</samp> приводит к серьёзной нагрузке на процессор и в итоге к нарушению работы браузера и операционной системы!</p>
+			</details></li>
+		<li><details><summary>:first-letter и letter-spacing</summary>
+			<p>Cвойство letter-spacing, когда оно применяется к псевдоэлементу :first-letter, игнорируется.</p>
+			</details></li>
+		<li><details><summary>Свойство line-height</summary>
+			<p>Неправильно вычисляется высота строк для изображений и элементов форм.</p>
+			</details></li>
+		<li><details><summary>list-style-image и float</summary>
+			<p>Для списка не отображаются картинки-маркеры, если задано свойство list-style-image одновременно с float.</p>
+			</details></li>
+		<li><details><summary>Ошибка с выравниванием</summary>
+			<p style="padding-bottom:0;">Свойство text-align выравнивает не только текст, но и блоки.</p>
+			</details></li>
+	</ul></div>
+</div>
+
+
+
+</body>
+</html>

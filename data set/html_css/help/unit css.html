@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>Единицы CSS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 th{font:28px monospace; text-align:left; background:transparent;}
+	.t1 tr td:nth-child(1){text-align:center}
+</style>
+</head>
+<body>
+
+<div class="item">
+<h2 class="sin"><samp>Единицы CSS</samp></h2>
+
+	<table class="t1 t3 tb2 mb20">
+		<tr><th colspan="2">Размер</th></tr>
+		<tr id="ch"><td width="60px">ch</td>
+			<td><p>Единица <samp class="sin">ch</samp> определяет ширину нулевого символа (<samp class="red">0</samp>). Если браузер не может вычислить размеры этого символа (к примеру, для пользовательского шрифта), тогда ширина символа принимается равной <b>0.5em</b>, а высота <b>1em</b>.</p>
+				<p>Для моноширинного шрифта (например, Courier), в котором ширина всех символов одинакова, <samp class="sin">1ch</samp> равен ширине одного произвольного символа. Для остальных шрифтов (Times, Helvetica и др.) любой символ может оказаться у́же или шире <samp class="red">нуля</samp>.</p>
+				<p><samp class="sin">ch</samp> - ширина в символах "0"</p>
+				<p>Internet Explorer некорректно считает ширину нулевого символа, в итоге 1ch оказывается меньше, чем ширина символа 0.</p></td></tr>
+		<tr id="cm"><td>cm</td>
+			<td><p>Единица <samp class="sin">cm</samp> определяет размер в сантиметрах. Часто используется для определения размеров при печати документа.</p>
+				<p><samp>1cm = 10mm</samp></p>
+				<div class="item2">размер листа бумаги при печати и границы печати.<br><br>
+					<pre><code>@media print {<br>  body {<br>    width: 210mm; /* Ширина листа */<br>    height: 297mm; /* Высота листа */<br>    margin: 2cm 1.5cm 2cm 3cm; /* Границы печати */<br>    color: black;<br>  }</code></pre></div></td></tr>
+		<tr id="em"><td>em</td>
+			<td><p>Единица <samp class="sin">em</samp> соответствует значению свойства <b>font-size</b> элемента. Если это значение не задано, тогда берётся значение <b>font-size</b> родителя.</p></td></tr>
+		<tr id="ex"><td>ex</td>
+			<td><p>Единица <samp class="sin">ex</samp> определяет высоту буквы <b>«x»</b> в нижнем регистре.</p></td></tr>
+		<tr id="in"><td>in</td>
+			<td><p>Единица <samp class="sin">in</samp> определяет размер в дюймах.</p>
+				<p><samp>1in = 2.54cm = 25.4mm (= 96px)</samp></p></td></tr>
+		<tr id="mm"><td>mm</td>
+			<td><p>Единица <samp class="sin">mm</samp> определяет размер в миллиметрах. Часто используется для определения размеров при печати документа.</p></td></tr>
+		<tr id="pc"><td>pc</td>
+			<td><p>Единица <samp class="sin">pc</samp> определяет размер в типографских пиках.</p>
+				<p><samp>1pc = 12pt = 1/6 дюйма</samp></p></td></tr>
+		<tr id="pt"><td>pt</td>
+			<td><p>Единица <samp class="sin">pt</samp> определяет размер в типографских пунктах. Один пункт равен 1/72 дюйма. Пункты часто применяются в текстовых редакторах, вроде Microsoft Word, LibreOffice Writer, Apple Pages и др.</p></td></tr>
+		<tr id="px"><td>px</td>
+			<td><p>Единица <samp class="sin">px</samp> определяет размер в пикселях. Обычно один пиксель соответствует одной точке экрана, но для принтеров и дисплеев высокого разрешения (таких как Apple Retina или экраны смартфонов) один пиксель может содержать несколько точек.</p></td></tr>
+		<tr id="rem"><td>rem</td>
+			<td><p>Единица <samp class="sin">rem</samp> соответствует значению свойства <b>font-size</b> корневого элемента <samp>&lt;html></samp>. Если <samp class="sin">rem</samp> добавляется непосредственно к <b>font-size</b> для <samp>&lt;html></samp> или стиль для <samp>&lt;html></samp> не задан, тогда <samp class="sin">1rem</samp> принимается равным исходному значению <b>font-size</b>. В браузерах по умолчанию <b>1rem = 16px</b>.</p></td></tr>
+		<tr id="vh"><td>vh</td>
+			<td><p>Единица <samp class="sin">vh</samp> соответствует <b>1%</b> от высоты области просмотра браузера, таким образом, <b>100vh</b> равно всей высоте области просмотра.</p>
+				<p>Элементы, высота которых задана в единицах <samp class="sin">vh</samp> будут менять свой размер при изменении размеров окна браузера.</p></td></tr>
+		<tr id="vmax"><td>vmax</td>
+			<td><p>Определяется как большее значение из <samp>vw</samp> и <samp>vh</samp>.</p>
+				<p>К примеру, <samp>10vmax</samp> сравнивает между собой размер <samp>10vh</samp> (10% от высоты области просмотра) и <samp>10vw</samp> (10% от ширины области просмотра), после чего выбирает большее значение.</p>
+				<p class="no">Internet Explorer и Edge поддерживают нестандартные единицы vm.</p></td></tr>
+		<tr id="vmin"><td>vmin</td>
+			<td><p>Определяется как меньшее значение из <samp>vw</samp> и <samp>vh</samp>.</p>
+				<p>К примеру, <samp>10vmin</samp> сравнивает между собой размер <samp>10vh</samp> (10% от высоты области просмотра) и <samp>10vw</samp> (10% от ширины области просмотра), после чего выбирает меньшее значение.</p>
+				<p class="no">Internet Explorer и Edge поддерживают нестандартные единицы vm.</p></td></tr>
+		<tr id="vw"><td>vw</td>
+			<td><p>Единица <samp class="sin">vw</samp> соответствует 1% от ширины области просмотра браузера, таким образом, <b>100vw</b> равно всей ширине области просмотра.</p>
+				<p>Элементы, размер которых задан в единицах <samp class="sin">vw</samp> будут менять свой размер при изменении размеров окна браузера.</p></td></tr>
+	</table>
+
+	<table id="angle" class="t1 t3 tb2 mb20">
+		<tr><th colspan="2">Угол</th></tr>
+		<tr id="deg"><td>deg</td>
+			<td><p>Единица <samp class="sin">deg</samp> определяет угол в градусах.</p>
+				<p>Прямой угол равен 90°, полный оборот соответствует 360°. Допустимо использовать отрицательное значение (-90deg), нулевое (0deg) и дробное (36.6deg).</p></td></tr>
+		<tr id="grad"><td>grad</td>
+			<td><p>Единица <samp class="sin">grad</samp> используется для определения угла в <b>градах.</b></p>
+				<p>Прямой угол равен 100 град, полный оборот соответствует 400 град. Допустимо использовать отрицательное значение (-100grad), нулевое (0grad) и дробное (36.6grad).</p></td></tr>
+		<tr id="rad"><td>rad</td>
+			<td><p>Единица <samp class="sin">rad</samp> применяется для обозначения угла в радианах.</p>
+				<p>Один радиан получается при длине дуги, равной радиусу окружности. Поскольку длина окружности непосредственно связана с числом <b><samp class="red">π</samp></b>, то для пересчёта радиан в градусы и обратно используются следующие формулы:</p>
+				<p><samp>deg = (rad * 360)/2π</samp></p>
+				<p><samp>rad = (deg * π)/180</samp></p></td></tr>
+		<tr id="turn"><td>turn</td>
+			<td><p>Единица <samp class="sin">turn</samp> определяет угол в оборотах.</p>
+				<p><samp class="sin">1turn</samp> равен одному обороту или 360°. <samp class="sin">turn</samp> удобно использовать в анимации и трансформации элементов, когда требуется повернуть элемент на один или несколько оборотов.</p>
+				<p><samp>0.25turn = 90deg = 100grad ≈ 1.5708rad</samp></p>
+				<p><samp>1turn = 360deg = 400grad ≈ 6.2832rad</samp></p>
+				<p><samp>-0.25turn = -90deg = -100grad ≈ -1.5708rad</samp></p></td></tr>
+	</table>
+
+	<table class="t1 t3 tb2 mb20">
+		<tr><th colspan="2">Время</th></tr>
+		<tr id="s"><td>s</td>
+			<td><p>Единица <samp class="sin">s</samp> определяет время в секундах. Допустимо указывать дробные значения, к примеру, 0.5s или 3.2s.</p>
+				<p><samp>1s = 1000ms</samp></p></td></tr>
+		<tr id="ms"><td>ms</td>
+			<td><p>Единица <samp class="sin">ms</samp> определяет время в миллисекундах.</p></td></tr>
+	</table>
+
+	<table class="t1 t3 tb2">
+		<tr><th colspan="2">Разрешение</th></tr>
+		<tr id="dpi"><td>dpi</td>
+			<td><p>Единица <samp class="sin">dpi</samp> применяется для обозначения количества точек на дюйм.</p>
+				<p><samp class="sin">dpi</samp> может использоваться для определения экранов смартфонов и дисплеев высокого разрешения.</p>
+				<pre class="item2"><code>/* для экранов с разрешением не менее 200dpi устанавливается<br>фоновая картинка высокого разрешения */<br>body {<br>  background: url(/image/mushroom_land.jpg) center/cover fixed;<br>}<br>@media screen and (min-resolution: 200dpi) {<br>  body {<br>    background: url(/image/mushroom.jpg) center/cover fixed;<br>  }<br>}</code></pre></td></tr>
+		<tr id="dpcm"><td>dpcm</td>
+			<td><p>Единица <samp class="sin">dpcm</samp> применяется для обозначения количества точек на сантиметр.</p>
+				<p><samp class="sin">dpcm</samp> может использоваться для определения экранов смартфонов и дисплеев высокого разрешения.</p></td></tr>
+		<tr id="dppx"><td>dppx</td>
+			<td><p>Единица <samp class="sin">dppx</samp> применяется для обозначения количества точек на пиксель.</p>
+				<p><samp class="sin">dppx</samp> может использоваться для определения экранов смартфонов и дисплеев высокого разрешения.</p>
+				<p><samp>1dppx = 96dpi</samp></p></td></tr>
+	</table>
+</div>
+
+</body>
+</html>

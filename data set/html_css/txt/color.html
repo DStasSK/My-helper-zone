@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>color</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin"><samp>color</samp></h2>
+	<p>CSS свойство <samp class="sin">color</samp> определяет цвет текста элемента. Значения свойства, заданное как <samp class="lsin">transparent</samp>, устанавливает прозрачный цвет.</p>
+	<p>Цвет в стилях можно задавать разными способами: по <a href="#c16" class="sin tdu">шестнадцатеричному значению</a>, по <a href="../color.html" class="sin tdu">названию</a>, в формате <a href="#rgb" class="sin tdu">RGB</a>, <a href="#rgba" class="sin tdu">RGBA</a>, <a href="#hsl" class="sin tdu">HSL</a>, <a href="#hsla" class="sin tdu">HSLA</a>.</p>
+	<pre class="item2"><code>div {<br>  color:#000;  /* черный текст */<br>}</code></pre>
+</div>
+
+
+<div class="item">
+<h2 class="sin"><samp>currentColor</samp></h2>
+	<p>Ключевое слово <samp class="sin">currentColor</samp> соответствует значению свойства <samp class="sin">color</samp> для текущего элемента. Это позволяет использовать значение цвета для свойств, которые не получают его по умолчанию. Например можно установить цвет тени  у блока.</p>
+	<style>
+		.cc1{background:#f0f0f0; color:#3b4d81; padding:10px; border:1px solid; transition:1s;
+			border-radius:5px; box-shadow:0 0 5px currentColor;} /* Параметры тени - currentColor*/
+		.cc1:hover {color: #009d4b;}
+	</style>
+	<div class="item2 cc1">
+		<pre>.cc1{<br>  background:#f0f0f0; /* Цвет фона */<br>  color:#3b4d81;      /* Синий цвет текста */<br>  padding:10px;<br>  border:1px solid;<br>  border-radius:5px;<br>  box-shadow:0 0 5px currentColor; /* Параметры тени - currentColor*/<br>  transition:1s;<br>}<br>.cc1:hover {color: #009d4b;} /* Зелёный цвет текста */</pre>
+	</div>
+	<p>Цвет рамки явно не указан, поскольку он по умолчанию задаётся таким же, как и значение color. При наведении указателя на блок, цвет текста, рамки и тени меняется на зелёный.</p>
+</div>
+
+
+<div class="item" id="c16">
+<h2 class="sin"><a href="#">По шестнадцатеричному значению</a></h2>
+	<p>Цвета задаются числами в шестнадцатеричном коде. Шестнадцатеричная система, в отличие от десятичной системы, базируется, как следует из её названия, на числе 16. Цифры будут следующие: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Цифры от 10 до 15 заменены латинскими буквами. Числа больше 15 в шестнадцатеричной системе образуются объединением двух чисел в одно. Например, числу <b>255</b> в десятичной системе соответствует число <b>FF</b> в шестнадцатеричной системе.</p>
+	<p>Чтобы не возникало путаницы в определении системы счисления, перед шестнадцатеричным числом ставят символ решетки <samp class="red">#</samp>, например <b>#666999</b>.</p>
+
+	<p>Каждый из трёх цветов — красный, зелёный и синий — может принимать значения от <samp class="sin">00</samp> до <samp class="sin">FF</samp>. Таким образом, обозначение цвета разбивается на три составляющие <samp class="lsin">#rrggbb</samp>, где первые два символа отмечают красную компоненту цвета, два средних — зелёную, а два последних — синюю.</p>
+	<p>Допускается использовать сокращенную форму вида <samp class="lsin">#rgb</samp>, где каждый символ следует удваивать. Так, запись <samp class="lsin">#fe0</samp> следует расценивать как <samp class="lsin">#ffee00</samp>.</p>
+</div>
+
+
+<div class="item" id="rgb">
+<h2 class="sin"><a href="#"><samp>RGB</samp> формат</a></h2>
+	<p>Можно определить цвет, используя значения красной, зелёной и синей составляющей в десятичном исчислении. Каждая из трёх компонент цвета принимает значение от <b>0</b> до <b>255</b>. Также допустимо задавать цвет в процентном отношении, при этом <b>100%</b> будет соответствовать числу <b>255</b>.</p>
+	<p>Вначале указывается ключевое слово <samp class="red">rgb</samp>, а затем в скобках, через запятую указываются компоненты цвета, например:<br><samp>rgb(255, 128, 128)</samp><br><samp>rgb(100%, 50%, 50%)</samp></p>
+</div>
+
+
+<div class="item" id="rgba">
+<h2 class="sin"><a href="#"><samp>RGBA</samp> формат</a></h2>
+	<p><samp class="red">RGBA</samp> формат - <samp class="sin">Red, Green, Blue, Alpha</samp>. Все параметры кроме прозрачности аналогичны RGB. При выборе значения прозрачности равным 0.5, элемент становится полупрозрачным, 0 делает объект полностью прозрачным, а 1 отменяет прозрачность.</p>
+</div>
+
+
+<div class="item" id="hsl">
+<h2 class="sin"><a href="#" style="border:none"><samp>HSL</samp> формат</a></h2>
+	<p><samp class="red">HSL</samp> формат - <samp class="sin">Hue</samp> (оттенок), <samp class="sin">Saturation</samp> (насыщенность), <samp class="sin">Lightness</samp> (осветление). Оттенок это значение цвета на цветовом круге и задаётся в градусах. <samp class="red">0°</samp> соответствует красному цвету, <samp class="grin">120°</samp> - зелёному, а <samp class="sin">240°</samp> - синему. Значение оттенка может изменяться от <b>0</b> до <b>359</b>.</p>
+	<p>Насыщенностью называется интенсивность цвета, измеряется в процентах от 0% до 100%. Значение 0% обозначает отсутствие цвета и оттенок серого, 100% максимальное значение насыщенности.</p>
+	<p>Светлота задает, насколько цвет яркий и указывается в процентах от 0% до 100%. Малые значения делают цвет темнее, а высокие светлее, крайние значения 0% и 100% соответствуют чёрному и белому цвету.</p>
+	<center><img src="img/12.png"></center>
+</div>
+
+
+<div class="item" id="hsla">
+<h2 class="sin"><a href="#" style="border:none"><samp>HSLA</samp> формат</a></h2>
+	<p><samp class="red">HSLA</samp> формат - <samp class="sin">Hue, Saturation, Lightness, Alpha</samp> (альфа-канал). Цветовое значение в формате HSLA аналогично HSL, но с добавлением регулировки прозрачности как в RGBA.</p>
+</div>
+
+</body>
+</html>

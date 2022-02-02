@@ -1,0 +1,285 @@
+<!DOCTYPE html><html><head><title>&lt;meta></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	body {font-size:18px; line-height:1.4 ;margin:0;}
+	h1, h2, h3, h4, h5, h6 {margin:10px 0; text-align:center; letter-spacing:2px;}
+	p {margin:0px 0px; text-align:justify; z-index:2;}
+	p:first-letter {margin-left:30px;}
+	pre {margin:0px; font-size:15px; line-height:1.1;}
+
+	.sin{color:#000099;font-weight:600;}
+	.grin{color:green;font-weight:600;}
+	.red{color:red;font-weight:600;}
+	.lsin{color:#4169E1; letter-spacing:1px;}
+	.anp p:first-letter {margin:0;}
+	.mb{margin-bottom:15px;}
+	.mt{margin-top:15px;}
+
+	.item{border:1px solid grey;padding:10px 20px 10px 20px;margin:15px 10px;border-radius:8px;
+		box-shadow: 0px 2px 6px rgba(25, 25, 25, .3);}
+	.item2{border:1px solid grey; padding:10px 15px; margin:5px 0; border-radius:5px;
+		background-color:#eeeeee; overflow-x:auto;}
+	.br0{border-radius:0;}
+
+	.met1 li{margin:0; padding:0px;}
+	.met1 li q{letter-spacing:1px; font-style:monospace; color:#4169E1;}
+	.met1 {padding:0px 20px; margin:5px 5px 15px 5px;}
+	details{padding-left:20px; margin:5px 0;}
+	summary::-webkit-details-marker {display:none;}
+	summary::-moz-list-bullet {list-style-type:none;}
+	summary::marker {display:none;}
+	summary{padding:0px 0 0px 20px; margin-left:-20px; outline:none; cursor:pointer;
+		color:#4169E1; background:#eee; letter-spacing:3px; display:block; font-size:20px;}
+
+</style></head>
+<body>
+<h2 class="sin">Стандарт <samp>Open Graph</samp></h2>
+<div class="item">
+	<p>Стандарт Open Graph разработан социальной сетью Facebook. Он позволяет контролировать превью, которое формируется при публикации ссылки на сайт в социальных сетях, и передавать информацию другим интернет-сервисам.</p>
+	<p>Кроме построения превью, стандарт Open Graph могут использовать разработчики приложений для публикации действий пользователей в Facebook. В таких публикациях можно указывать действующее лицо (пользователя), объект, действие с этим объектом и название приложения, с помощью которого это действие было произведено.</p>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="m1">Основные метатеги</h3>
+	<p>В стандарте Open Graph одна страница описывает только один объект — человека, компанию или продукт. Для этого объекта и указываются все данные. Чтобы передать информацию сервисам, необходимо в HTML-код (в элемент head) добавить следующие обязательные метатеги:</p>
+	<ul class="met1">
+		<li><q>og:title</q> - название объекта.</li>
+		<li><q>og:type</q> - тип объекта, например, video.movie (фильм). Если у вас несколько объектов на странице, выберите один из них (главный). В зависимости от типа можно указать дополнительные свойства.</li>
+		<li><q>og:image</q> - URL изображения, описывающего объект.</li>
+		<li><q>og:url</q> - канонический URL объекта, который будет использован в качестве постоянного идентификатора.</li>
+	</ul>
+	<div class="item2 br0">
+		<pre><code>&lt;meta property="og:title" content="Мэрилин Монро" /><br>&lt;meta property="og:description" content="Американская киноактриса и певица" /><br>&lt;meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/<br>humb/2/27/Marilyn_Monroe_-_publicity.JPG/210px-Marilyn_Monroe_-_publicity.JPG" /><br>&lt;meta property="og:type" content="profile" /><br>&lt;meta property="og:url" content= "https://ru.wikipedia.org/wiki/Мэрилин_Монро" /></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="m2">Дополнительные метатеги</h3>
+	<ul class="met1">
+		<li><q>og:audio</q> — URL звукового файла, который относится к описываемому объекту.</li>
+		<li><q>og:description</q> — краткое описание объекта.</li>
+		<li><q>og:determiner</q> — слово (артикль), которое должно быть перед названием объекта в предложении. Может быть указано как: a, an, the, "", auto. Если в значении будет указано auto, сервис, распознающий разметку, будет выбирать между значениями a и an. Если значение не указано, перед названием объекта артикль будет отсутствовать.</li>
+		<li><q>og:locale</q> — язык описания объекта в формате язык_страна. По умолчанию используется значение en_US.</li>
+		<li><q>og:locale:alternate</q> — массив дополнительных языков, на которых доступно описание объекта.</li>
+		<li><q>og:site_name</q> — название сайта, на котором размещена информация об объекте.</li>
+		<li><q>og:video</q> — URL видео файла, который относится к описываемому объекту.</li>
+	</ul>
+	<div class="item2 br0">
+		<pre><code>&lt;meta property="og:audio" content="http://example.com/bond/theme.mp3" /><br>&lt;meta property="og:description" <br>  content="Sean Connery found fame and fortune as the<br>           suave, sophisticated British agent, James Bond." /><br>&lt;meta property="og:determiner" content="the" /><br>&lt;meta property="og:locale" content="en_GB" /><br>&lt;meta property="og:locale:alternate" content="fr_FR" /><br>&lt;meta property="og:locale:alternate" content="es_ES" /><br>&lt;meta property="og:site_name" content="IMDb" /><br>&lt;meta property="og:video" content="http://example.com/bond/trailer.swf" /></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="m3">Структурированные метатеги</h3>
+	<p>Некоторые метатеги могут иметь дополнительные (необязательные) метаданные. Такие метатеги содержат дополнительный знак : (двоеточие).</p>
+	<span style="display:block; padding-top:10px;">Например, <span class="lsin">og:image</span> может содержать следующие метаданные:</span>
+	<ul class="met1">
+		<li><q>og:image:url</q> - URL изображения, описывающего объект (соответствует og:image).</li>
+		<li><q>og:image:secure_url</q> - дополнительный URL, если страница открывается по протоколу HTTPS.</li>
+		<li><q>og:image:type</q> - MIME-тип изображения (формат изображения стандарта MIME).</li>
+		<li><q>og:image:width</q> - ширина изображения в пикселах.</li>
+		<li><q>og:image:height</q> - высота изображения в пикселах.</li>
+	</ul>
+	<div class="item2 br0"><pre><code>&lt;meta property="og:image" content="http://example.com/ogp.jpg" /><br>&lt;meta property="og:image:secure_url" content="https://secure.example.com/ogp.jpg" /><br>&lt;meta property="og:image:type" content="image/jpeg" /><br>&lt;meta property="og:image:width" content="400" /><br>&lt;meta property="og:image:height" content="300" /></code></pre>
+	</div>
+	<span class="lsin">og:video</span> может содержать такие же метаданные, как и <span class="lsin">og:image</span>. Например:
+	<div class="item2 br0"><pre><code>&lt;meta property="og:video" content="http://example.com/movie.swf" /><br>&lt;meta property="og:video:secure_url" content="https://secure.example.com/movie.swf" /><br>&lt;meta property="og:video:type" content="application/x-shockwave-flash" /><br>&lt;meta property="og:video:width" content="400" /><br>&lt;meta property="og:video:height" content="300" /></code></pre>
+	</div>
+	<span class="lsin">og:audio</span> содержит только некоторые метаданные из вышеперечисленных:
+	<div class="item2 br0"><pre><code>&lt;meta property="og:audio" content="http://example.com/sound.mp3" /><br>&lt;meta property="og:audio:secure_url" content="https://secure.example.com/sound.mp3" /><br>&lt;meta property="og:audio:type" content="audio/mpeg" /></code></pre></div>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Массивы</h3>
+	<p>Если метатег может содержать несколько значений, добавьте дополнительные meta-элементы на страницу. При возникновении конфликтов будут учитываться данные, указанные в первом элементе <span class="lsin">meta</span> (сверху вниз).</p>
+	<div class="item2 br0"><pre><code>&lt;meta property="og:image" content="http://example.com/rock.jpg" /><br>&lt;meta property="og:image" content="http://example.com/rock2.jpg" /></code></pre></div>
+	Укажите структурированные метатеги после основного метатега.
+	<div class="item2 br0"><pre><code>&lt;meta property="og:image" content="http://example.com/rock.jpg" /><br>&lt;meta property="og:image:width" content="300" /><br>&lt;meta property="og:image:height" content="300" /><br>&lt;meta property="og:image" content="http://example.com/rock2.jpg" /><br>&lt;meta property="og:image" content="http://example.com/rock3.jpg" /><br>&lt;meta property="og:image:height" content="1000" /></code></pre></div>
+	где разметка означает, что на странице размещены 3 изображения: первое имеет размер 300x300, для второго изображения размер не указан, третье — 1000 пикселей в высоту.
+</div>
+
+
+<div class="item">
+<h3 class="sin">Объекты</h3>
+	<p>Чтобы передать данные об объекте, необходимо указать его тип с помощью метатега <span class="lsin">og:type:</span></p>
+	<div class="item2 br0"><pre><code>&lt;meta property="og:type" content="website" /></code></pre></div>
+	<p>В этом примере указан один из глобальных (общепризнанных) типов. Остальные типы указываются согласно синтаксису <a href="http://en.wikipedia.org/wiki/CURIE">CURIE</a></p>
+	<div class="item2 br0"><pre><code>&lt;head prefix="my_namespace: http://example.com/ns"><br>  &lt;meta property="og:type" content="my_namespace:my_type" /><br>&lt;/head></code></pre></div>
+	<br>
+	<hr>
+	<br>
+	<p>Глобальные типы объектов группируются в вертикали. Каждая вертикаль имеет свое пространство имен. Значение метатега <span class="lsin">og:type</span> для пространства имен всегда состоит из названия типа объекта и уточнения (<samp><тип объекта:уточнение></samp>). Это позволяет избежать путаницы с типами, которые задаются пользователем и содержат знак : (двоеточие).</p>
+
+	<details class="anp"><summary>Музыка</summary>
+		<h3 style="padding:5px 0; margin:0;">Значения метатега <span class="lsin">og:type</span>:</h3>
+		<p><b>music.song</b></p>
+			<ul class="met1">
+				<li><q>music:duration (integer >=1)</q> — длительность песни в секундах.</li>
+				<li><q>music:album (music.album, массив)</q> — название альбома.</li>
+				<li><q>music:album:disc (integer >=1)</q> — номер диска.</li>
+				<li><q>music:album:track (integer >=1)</q> — номер трека.</li>
+				<li><q>music:musician (profile, массив)</q> — имя исполнителя.</li>
+			</ul>
+			<div class="item2 mb">
+				<pre><code>&lt;html prefix="og: http://ogp.me/ns#br<br>              video: http://ogp.me/ns/music#<br>              ya: http://example.com/vocabularies/" ><br>&lt;head><br>&lt;meta property="og:type" content="music.song"/><br>&lt;meta property="music:song" content="Favorite song"/><br><br>&lt;!--Длительность песни в секундах--><br>&lt;meta property="music:duration" content="185"/><br>&lt;/head><br>...<br>&lt;/html></code></pre>
+			</div>
+
+		<p><b>music.album</b></p>
+			<ul class="met1 mb">
+				<li><q>music:song - music.song</q> - название песни.</li>
+				<li><q>music:song:disc (integer >=1)</q> — номер диска (соответствует значению music:album:disc).</li>
+				<li><q>music:song:track (integer >=1)</q> — номер трека (соответствует значению music:album:track).</li>
+				<li><q>music:musician (profile)</q> — исполнитель песни.</li>
+				<li><q>music:release_date (datetime)</q> — дата выпуска альбома.</li>
+			</ul>
+		<p><b>music.playlist</b></p>
+			<ul class="met1 mb">
+				<li><q>music:song</q> — соответствует значению music.song, которое указано в music.album.</li>
+				<li><q>music:song:disc</q></li>
+				<li><q>music:song:track</q></li>
+				<li><q>music:creator</q> — автор плейлиста.</li>
+			</ul>
+		<p><b>music.radio_station</b></p>
+			<ul class="met1 mb">
+				<li><q>music:creator</q> — автор радио-станции.</li>
+			</ul>
+	</details>
+
+
+
+	<details class="anp"><summary>Видео</summary>
+		<h3 style="padding:5px 0; margin:0;">Значения свойства <span class="lsin">og:type</span>:</h3>
+		<p><b>video.movie</b></p>
+			<ul class="met1 mb">
+				<li><q>video:actor (profile, массив)</q> — актеры.</li>
+				<li><q>video:actor:role (string)</q> — роли, которые исполняют актеры.</li>
+				<li><q>video:director (profile, массив)</q> — режиссер.</li>
+				<li><q>video:writer (profile, массив)</q> — сценарист.</li>
+				<li><q>video:duration (integer >=1)</q> — длительность фильма в секундах.</li>
+				<li><q>video:release_date (datetime)</q> — дата выхода фильма в прокат.</li>
+				<li><q>video:tag (string, массив)</q> — теги (слова, фразы), связанные с фильмом.</li>
+			</ul>
+			<div class="item2">
+				<pre><code>&lt;html prefix="og: http://ogp.me/ns#<br>              video: http://ogp.me/ns/video#<br>              ya: http://example.com/vocabularies/" ><br>&lt;head><br>&lt;meta property="og:type" content="video.movie"/><br>&lt;meta property="video:tag" content="webmaster"/><br>&lt;meta property="video:duration" content="205"/>&lt;!--Длительность видео в секундах--><br>&lt;/head><br>...<br>&lt;/html></code></pre>
+			</div>
+		<p><b>video.episode</b></p>
+			<ul class="met1 mb">
+				<li><q>video:actor</q> — соответствует значению video.movie.</li>
+				<li><q>video:actor:role</q></li>
+				<li><q>video:director</q></li>
+				<li><q>video:writer</q></li>
+				<li><q>video:duration</q></li>
+				<li><q>video:release_date</q></li>
+				<li><q>video:tag</q></li>
+				<li><q>video:series (video.tv_show)</q> — серия.</li>
+			</ul>
+		<p><b>video.tv_show</b></p>
+			<p style="padding-left:20px;" class="mb">ТВ-шоу. Разметка соответствует значению video.movie.</p>
+		<p><b>video.other</b></p>
+			<p style="padding-left:20px;" class="mb">Видео, которое не относится к перечисленным категориям. Разметка соответствует значению video.movie.</p>
+	</details>
+
+
+
+	<details class="anp"><summary>Другие</summary>
+		<h3 style="padding:5px 0; margin:0;">Значения метатега <span class="lsin">og:type</span>:</h3>
+		<div class="mb">Далее описаны объекты, которые не включены в вертикали, но поддерживаются.</div>
+		<p><b>article</b></p>
+			<ul class="met1 mb">
+				<li><q>article:published_time (datetime)</q> — дата публикации статьи.</li>
+				<li><q>article:modified_time ( datetime)</q> — дата последнего изменения статьи.</li>
+				<li><q>article:expiration_time (datetime)</q> — дата, после которой статья считается устаревшей.</li>
+				<li><q>article:author (profile, массив)</q> — автор статьи.</li>
+				<li><q>article:section (string)</q> — тема (раздел), к которой относится статья.</li>
+				<li><q>article:tag (string, массив)</q> — теги (слова, фразы), связанные с этой статьей.</li>
+			</ul>
+		<p><b>book</b></p>
+			<ul class="met1 mb">
+				<li><q>book:author (profile, массив)</q> — автор книги.</li>
+				<li><q>book:isbn (string)</q> — уникальный номер книги (ISBN).</li>
+				<li><q>book:release_date (datetime)</q> — дата публикации книги.</li>
+				<li><q>book:tag (string, массив)</q> — теги (слова, фразы), связанные с этой книгой.</li>
+			</ul>
+		<p><b>profile</b></p>
+			<ul class="met1 mb">
+				<li><q>profile:first_name (string)</q> — имя.</li>
+				<li><q>profile:last_name (string)</q> — фамилия.</li>
+				<li><q>profile:username (string)</q> — ник (имя пользователя, под которым он зарегистрирован).</li>
+				<li><q>profile:gender (enum)</q> — пол (male, female).</li>
+			</ul>
+		<p><b>website</b></p>
+			<p style="padding-left:20px;" class="mb">Не имеет значений, кроме основных. Любая неразмеченная страница определяется как объект website.</p>
+	</details>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Типы объектов</h3>
+	<div class="met2">
+		<style>
+			.met2 table {border-collapse:collapse; width:100%; min-width:600px;}
+			.met2 th{background:#f5f5f5; border:1px solid #ccc; padding:4px;}
+			.met2 td{border:1px solid #ccc; padding:5px;}
+			.met2 tr td:nth-child(1){text-align:center;}
+			.met2 tr td:nth-child(2){text-align:justify;}
+			.met2 tr td:last-child{text-align:center;}
+		</style>
+		<table>
+			<tr><th width="100px">Тип</th>
+				<th width="300px">Описание</th>
+				<th>Примеры значений</th></tr>
+			<tr><td>Boolean</td>
+				<td>Может принимать значения true или false, 1 или 0</td>
+				<td>true, false, 1, 0</td></tr>
+			<tr><td>DateTime</td>
+				<td>Временная величина. Может содержать дату (год, месяц, день) и время (часы, минуты) согласно стандарту ISO 8601</td>
+				<td>2015-07-15, 15:05</td></tr>
+			<tr><td>Enum</td>
+				<td>Состоит из ограниченного множества постоянных строковых значений</td>
+				<td>male, female</td></tr>
+			<tr><td>Float</td>
+				<td>64-битное число с плавающей точкой</td>
+				<td>1.234, -1.234, 1.2e3, -1.2e3, 7E-10</td></tr>
+			<tr><td>Integer</td>
+				<td>32-битное целое число. Может содержать все символы, которые соответствуют следующим форматам: 1234, -123</td>
+				<td>5, 15, 180</td></tr>
+			<tr><td>String</td>
+				<td>Последовательность символов стандарта Unicode</td>
+				<td>webmaster</td></tr>
+			<tr><td>URL</td>
+				<td>Все действительные URL, которые доступны по HTTP- или HTTPS-протоколу</td>
+				<td>http://www.example.com</td></tr>
+		</table>
+	</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin">Пример использования</h3>
+	<p class="mb">Чтобы добавить информацию для формирования сниппетов, в HTML-коде страниц внутри элемента head укажите заголовок страницы и название сайта в свойствах <samp class="lsin">og:title</samp> и <samp class="lsin">og:site_name</samp>.</p>
+	<div class="item2 br0">
+		<pre><code>&lt;head><br>  &lt;meta property="og:site_name" <br>  content="Словари и энциклопедии на Академике" /><br>&lt;/head></code></pre>
+	</div>
+	<img src="img/meta1.png" style="margin-bottom:10px">
+
+	<div class="item2 br0">
+		<pre><code>&lt;head><br>  &lt;meta property="og:title" <br>  content="Файлы / Обновленный русификатор для Far Cry 4 / PlayGround.ru" /><br>&lt;/head></code></pre>
+	</div>
+	<img src="img/meta2.png">
+
+</div>
+</body></html>

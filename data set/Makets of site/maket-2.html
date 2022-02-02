@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><title>Hавигация слева</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin">Hавигация слева, <samp>float</samp> только на одной колонке.</h2>
+
+	<style type="text/css">
+		.conteiner{width:700px; margin:auto; font:Arial, Helvetica, sans-serif; font-size:1em;
+			background:#00f;}    /* цвет фона левой колонки */
+		.header{padding:10px; background:#f00; text-align:center;}
+		.sidebar{float:left; width:120px; padding:10px 15px;}
+		.content{width:520px; padding:10px 15px; margin-left:150px;
+			background:#ff0;}    /* Цвет фона правой колонки */
+		.footer{background:#32CD32; padding:10px 20px 15px;
+			clear:both;}         /* отмена обтекания */
+	</style>
+	<div class="conteiner">
+		<div class="header">Заголовок</div>
+		<div class="sidebar">ссылки</div>
+		<div class="content">содержание<br>контента<br>тут</div>
+		<div class="footer">&copy; фу-у-тер</div>
+	</div>
+
+	<p class="mt20">Создание двух колонок происходит с помощью стилевого свойства <samp class="sin">float</samp> со значением <samp class="lsin">left</samp>, которое применяется для левой колонки. При этом одновременно следует установить отступ слева для правой колонки через <samp class="sin">margin-left</samp>, значение которого равно ширине левой колонки плюс расстояние между ними, иначе текст заедет под ссылки.</p>
+	<p>Чтобы макет располагался по центру веб-страницы, добавляют слой с именем <samp class="red">container</samp> и колонки распологают внутри него. Для самого <samp class="red">container</samp> устанавливают ширину (<samp class="sin">width</samp>) и выравнивание по центру (<samp class="sin">margin:</samp><samp class="lsin"> 0 auto</samp>).</p>
+	<p>Для футера задают отмену обтекания через <samp class="sin">clear:</samp><samp class="lsin">both</samp>. Иначе он может "наехить" на верхние колонки.</p>
+	<p>Также для браузера Internet Explorer, чтобы он понимал стиль для новых элементов, придется включить скрипт через условные комментарии.</p>
+
+	<div class="item2 br0">
+		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
+		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code class="html">&lt;head><br>  &lt;!--[if IE]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--><br>&lt;/head><br><br>&lt;div class="conteiner"><br>  &lt;div class="header">Заголовок&lt;/div><br>  &lt;div class="sidebar">ссылки&lt;/div><br>  &lt;div class="content">содержание&lt;br>контента&lt;br>тут&lt;/div><br>  &lt;div class="footer">&copy; фу-у-тер&lt;/div><br>&lt;/div></code></pre>
+		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>.conteiner{<br>  width:700px; margin:auto;<br>  font:Arial, Helvetica, sans-serif;<br>  font-size:1em;<br>  background:#00f;}    /* цвет фона левой колонки */<br>.header{<br>  padding:10px;<br>  background:#f00;<br>  text-align:center;}<br>.sidebar{<br>  float:left;<br>  width:120px;         /* ширина левой колонки с учетоем padding 15px */<br>  padding:10px 15px;}<br>.content{<br>  width:520px;         /* правой левой колонки с учетоем padding 15px */<br>  padding:10px 15px;<br>  margin-left:150px;<br>  background:#ff0;}    /* Цвет фона правой колонки */<br>.footer{<br>  background:#32CD32;<br>  padding:10px 20px 15px;<br>  clear:both;}         /* отмена обтекания */</code></pre>
+	</div>
+</div><!-- /item -->
+</body>
+</html>

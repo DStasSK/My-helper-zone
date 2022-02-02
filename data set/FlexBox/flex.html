@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>flex</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">flex</h2>
+
+<div class="item">
+	<p>Сокращённое свойство, которое позволяет указать параметры элемента, чтобы он эффективно заполнял доступное пространство. Элементы могут быть растянуты пропорционально с учётом заданного соотношения или сжаты, чтобы целиком вместить все элементы без переносов в одну строку. Применяется к флекс-элементам, анимируется, не наследуется.</p>
+	<p>Значение по умолчанию: <samp class="lsin">flex-grow: 0, flex-shrink: 1, flex-basis: auto</samp></p>
+
+	<pre class="item2"><code>.fl {<br>  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */<br>  -moz-box-flex: 1;         /* OLD - Firefox 19- */<br>  width: ***;               /* For old syntax, otherwise collapses. */<br>  -webkit-flex: 1;          /* Chrome */<br>  -ms-flex: 1;              /* IE 10 */<br>  flex: 1;}</code></pre>
+	<pre class="item2"><code>flex: none | auto | [ flex-grow flex-shrink? || flex-basis ]</code></pre>
+
+	<p><samp class="lsin">none</samp> - cоответствует значению <samp class="lsin">0 0 auto</samp></p>
+	<p><samp class="lsin">auto</samp> - cоответствует значению <samp class="lsin">1 1 auto</samp></p>
+</div>
+</body></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><title>Hавигация справа</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin">Hавигация справа, <samp>float</samp> на обеих колонках.</h2>
+
+	<style type="text/css">
+		.conteiner{width:700px; margin:auto; font:Arial, Helvetica, sans-serif; font-size:1em;
+			background:#00f;}    /* цвет фона левой колонки */
+		.header{padding:10px; background:#f00; text-align:center;}
+		.sidebar{float:left; width:120px; padding:10px 15px;}
+		.content{float:left; width:520px; padding:10px 15px;
+			background:#ff0;}    /* Цвет фона правой колонки */
+		.footer{background:#32CD32; padding:10px 20px 15px;
+			clear:both;}         /* отмена обтекания */
+	</style>
+	<div class="conteiner">
+		<div class="header">Заголовок</div>
+		<div class="content">содержание<br>контента<br>тут</div>
+		<div class="sidebar">ссылки</div>
+		<div class="footer">&copy; фу-у-тер</div>
+	</div>
+
+	<p class="mt20">Несмотря на видимую простоту, есть несколько подводных камней. Во-первых, при уменьшении окна браузера на ширину, меньше суммарной ширины слоев, правая колонка «перескакивает» вниз. Во-вторых, после слоев продолжает действовать свойство <samp class="sin">float</samp>, поэтому текст будет отображаться не под колонками, как нам требуется, а рядом с ними. От этих недостатков избавит добавление слоя с именем <samp class="red">container</samp>, внутри которых и будут располагаться остальные слои, а также использование свойства <samp class="sin">clear</samp>.</p>
+	<p>Удобство использования <samp class="sin">float</samp> состоит еще в том, что если для слоя <samp class="red">sidebar</samp> поставить <samp class="sin">float:</samp><samp class="lsin">right</samp> вместо значения <samp class="lsin">left</samp>, то колонки поменяются местами без дополнительной модификации кода. Также нет необходимости в добавлении колонкам свойства <samp class="sin">marign</samp> для предотвращения съезда текста под колонку.</p>
+	<p>Также для браузера Internet Explorer, чтобы он понимал стиль для новых элементов, придется включить скрипт через условные комментарии.</p>
+
+	<div class="item2 br0">
+		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
+		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code class="html">&lt;head><br>  &lt;!--[if IE]><br>    &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>  &lt;![endif]--><br>&lt;/head><br><br>&lt;div class="conteiner"><br>  &lt;div class="header">Заголовок&lt;/div><br>  &lt;div class="content">содержание&lt;br>контента&lt;br>тут<br>  &lt;div class="sidebar">ссылки&lt;/div>&lt;/div><br>  &lt;div class="footer">&copy; фу-у-тер&lt;/div><br>&lt;/div></code></pre>
+		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>.conteiner{<br>  width:700px; margin:auto;<br>  font:Arial, Helvetica, sans-serif;<br>  font-size:1em;<br>  background:#00f;}    /* цвет фона левой колонки */<br>.header{<br>  padding:10px;<br>  background:#f00;<br>  text-align:center;}<br>.sidebar{<br>  float:left;<br>  width:120px;         /* ширина левой колонки с учетоем padding 15px */<br>  padding:10px 15px;}<br>.content{<br>  width:520px;         /* правой левой колонки с учетоем padding 15px */<br>  padding:10px 15px;<br>  float:left;<br>  background:#ff0;}    /* Цвет фона правой колонки */<br>.footer{<br>  background:#32CD32;<br>  padding:10px 20px 15px;<br>  clear:both;}         /* отмена обтекания */</code></pre>
+	</div>
+</div><!-- /item -->
+</body>
+</html>

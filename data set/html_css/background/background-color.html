@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><title>background-color</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">background-color</h2>
+<div class="item">
+	<p>Для того чтобы задать цвет фона какого либо элемента или всего <span class="sin">HTML</span>-документа в <span class="sin">CSS</span> предусмотрено свойство <span class="sin">background-color</span> параметрами которого являются цвета, в формате шестнадцатеричного кода, форматов <span class="sin">RGB, RGBA, HSL, HSLA</span> и других стандартных значений.</p>
+</div>
+
+<div class="item">
+	<div class="item2">
+		<pre><code>background-color: black;<br>background-color: transparent;<br>background-color: inherit;<br>background-color: #006699;<br>background-color: rgb(249, 201, 16);><br>background-color: rgba(163, 110, 29, 0.8);<br>background-color: hsl(212, 56%, 31%);<br>background-color: hsla(129, 60%, 19%, 0.8);</code></pre>
+		<pre class="css"><code><a href="background-gradient.html" class="sin tdu">background: linear-gradient(to bottom, #f38181, #fce38a);</a></code></pre>
+	</div>
+
+	<span class="lsin">black</span> – имя цвета.
+	<br><span class="lsin">transparent</span> – прозрачный фон.
+	<br><span class="lsin">inherit</span> – наследование.
+	<br><span class="red">#</span><span class="lsin">006699</span> – Шестнадцатеричный код.
+	<br><span class="lsin">rgb(249, 201, 16)</span> – Аддитивное смешение цветов.
+	<br><span class="lsin">rgba(163, 110, 29, 0.8)</span> – Аддитивное смешение цветов с добавленным альфа-каналом.
+	<br><span class="lsin">hsl(212, 56%, 31%)</span> – формат цвета <span class="sin">HSL</span>
+	<br><span class="lsin">hsla(129, 60%, 19%, 0.8)</span> – формат цвета <span class="sin">HSLA</span>
+
+	<div style="background: linear-gradient(to left, #f38181, #fce38a);" title="задавать для background, а не для background-color"><span class="lsin">linear-gradient(to left, #f38181, #fce38a);</span> – переход цветов от/до (to left - влево)</div>
+
+
+	<div class="item2 mt20">
+		<p><span class="red">RGB</span> формат - <span class="sin">Red, Green, Blue</span> – красный, зелёный, синий. Цифры, записанные в скобках через запятую, указывают на величину цветового потока (в данном случае 249 единиц - красный, 201 - зелёный, 16 - синий).</p>
+		<p><span class="red">RGBA</span> формат - <span class="sin">Red, Green, Blue, Alpha</span>. Все параметры кроме прозрачности аналогичны RGB. При выборе значения прозрачности равным 0.5, элемент становится полупрозрачным, 0 делает объект полностью прозрачным, а 1 отменяет прозрачность.</p>
+		<p><span class="red">HSL</span> формат - <span class="sin">Hue</span> (оттенок), <span class="sin">Saturation</span> (насыщенность), <span class="sin">Lightness</span> (осветление). Значение 212 - оттенок в градусах ( 0 - 360 ), 56% - насыщенность, 31% - осветление.</p>
+		<p><span class="red">HSLA</span> формат - <span class="sin">Hue, Saturation, Lightness, Alpha</span> (альфа-канал). Цветовое значение в формате HSLA аналогично HSL, но с добавлением регулировки прозрачности как в RGBA.</p>
+	</div>
+</div>
+</body></html>

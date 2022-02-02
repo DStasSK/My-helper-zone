@@ -1,0 +1,226 @@
+<!DOCTYPE html><html><head><title>writing-mode</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<div class="item">
+<h2 class="sin"><samp>writing-mode</samp></h2>
+	<div>Устанавливает направление текста на странице - по горизонтали или вертикали.</div>
+	<div class="no anp">
+		<p>Internet Explorer 6 поддерживает нестандартные значения lr-tb и tb-rl, Internet Explorer 7 поддерживает значения lr-tb, rl-tb, tb-rl, bt-rl.</p>
+		Chrome до версии 48, Opera до версии 35, Safari и Android поддерживают свойство <samp class="sin">-webkit-writing-mode</samp>.
+	</div>
+
+	<style>
+		.tab table{width:100%; min-width:600px; border-collapse:collapse;}
+		.tab td{padding:10px; border:1px solid #aaa; height:60px;}
+		.tab tr td:nth-child(1){text-align:center; font-family:monospace; color:#009; font-weight:600;}
+		.tab tr td:nth-child(3){text-align:center; font-family:monospace; color:red; font-weight:600; padding:0;}
+		.tt1{-webkit-writing-mode:horizontal-tb;}
+		.tt2{-webkit-writing-mode:vertical-rl;}
+		.tt3{-webkit-writing-mode:vertical-lr;}
+		.tt4{-webkit-writing-mode:sideways-rl;}
+		.tt5{-webkit-writing-mode:sideways-lr;}
+	</style>
+	<div class="tab"><b>Значения:</b>
+		<table>
+			<tr>
+				<td width="140px">horizontal-tb</td><td>Устанавливает направление текста по горизонтали слева направо и сверху вниз.</td><td width="80px"><span class="tt1">word 1<br>word 2<br>word 3</span></td></tr>
+			<tr>
+				<td>vertical-rl</td><td>Задаёт направление текста по вертикали сверху вниз и справа налево.</td><td><span class="tt2">word 1<br>word 2<br>word 3</span></td></tr>
+			<tr>
+				<td>vertical-lr</td><td>Задаёт направление текста по вертикали сверху вниз и слева направо.</td><td><span class="tt3">word 1<br>word 2<br>word 3</span></td></tr>
+			<tr>
+				<td>sideways-rl</td><td>Firefox</td><td><span class="tt4">word 1<br>word 2<br>word 3</span></td></tr>
+			<tr>
+				<td>sideways-lr</td><td>Firefox</td><td><span class="tt5">word 1<br>word 2<br>word 3</span></td></tr>
+		</table>
+	</div>
+
+	<pre class="item2 mt20"><code>div {<br>  writing-mode: horizontal-tb;<br>  -webkit-writing-mode: horizontal-tb;<br>}</code></pre>
+	<p>Свойство <a href="text-orientation.html"><samp class="sin tdu">text-orientation</samp></a> устанавливает ориентацию текстовых символов в строке и применяется только к вертикальному тексту (когда свойство <samp class="sin">writing-mode</samp> задано как <samp class="lsin">vertical-lr</samp> или <samp class="lsin">vertical-rl</samp>).</p>
+</div>
+
+
+<div class="item" id="block-size">
+<h2 class="sin"><samp>block-size</samp></h2>
+	<p>Определяет размер элемента по блочной оси, направление которой зависит от значения свойства <samp class="sin">writing-mode</samp>.</p>
+	<p>Для горизонтального письма (<samp class="sin">writing-mode: </samp><samp class="lsin">horizontal-tb</samp>) блочная ось будет вертикальной и <samp class="sin">block-size</samp> устанавливает высоту элемента.</p>
+	<p>Для вертикального направления письма (<samp class="sin">writing-mode: </samp><samp class="lsin">vertical-lr</samp> и <samp class="sin">writing-mode: </samp><samp class="lsin">vertical-rl</samp>) блочная ось будет горизонтальной и <samp class="sin">block-size</samp> устанавливает ширину элемента.</p>
+	<p>В качестве значений принимаются любые единицы длины, принятые в CSS — например, пиксели (px), дюймы (in), пункты (pt) и др. При использовании процентной записи размер элемента вычисляется в зависимости от размера родительского элемента. Значение <b>auto</b> устанавливает размер, исходя из типа и содержимого элемента.</p>
+</div>
+
+
+<div class="item" id="inline-size">
+<h2 class="sin"><samp>inline-size</samp></h2>
+	<p>Определяет размер элемента по строчной оси, направление которой зависит от значения свойства <samp class="sin">writing-mode</samp>.</p>
+	<p>Для горизонтального письма (<samp class="sin">writing-mode: </samp><samp class="lsin">horizontal-tb</samp>) строчная ось будет горизонтальной и <samp class="sin">inline-size</samp> устанавливает ширину элемента.</p>
+	<p>Для вертикального направления письма (<samp class="sin">writing-mode:</samp><samp class="lsin"> vertical-lr</samp> и <samp class="sin">writing-mode: </samp><samp class="lsin">vertical-rl</samp>) строчная ось будет вертикальной и <samp class="sin">inline-size</samp> устанавливает высоту элемента.</p>
+	<p>В качестве значений принимаются любые единицы длины, принятые в CSS — например, пиксели (px), дюймы (in), пункты (pt) и др. При использовании процентной записи размер элемента вычисляется в зависимости от размера родительского элемента. auto - устанавливает размер, исходя из типа и содержимого элемента.</p>
+</div>
+
+
+
+
+<div class="item" id="padding-block">
+<h2 class="sin"><samp>padding-block</samp></h2>
+	<p>Универсальное свойство, которое одновременно задаёт начальный и конечный внутренние отступы элемента по блочной оси. Направление оси зависит от значения свойства <samp class="sin dib">writing-mode</samp>. Для горизонтального письма (<samp class="sin dib">writing-mode: <samp class="lsin">horizontal-tb</samp></samp>) блочная ось будет вертикальной и <samp class="sin dib">padding-block</samp> устанавливает отступы сверху и снизу. Для вертикального направления письма (<samp class="sin dib">writing-mode: <samp class="lsin">vertical-lr</samp></samp> и <samp class="sin dib">writing-mode: <samp class="lsin">vertical-rl</samp></samp>) блочная ось будет горизонтальной и <samp class="sin">padding-block</samp> устанавливает отступы слева и справа.</p>
+
+	<p>Допустимо использовать одно или два значения, разделяя их пробелом. Одно значение устанавливает одинаковый внутренний отступ с двух сторон элемента; если указано два значения, то первое устанавливает <samp class="sin dib">padding-block-start</samp>, а второе <samp class="sin dib">padding-block-end</samp>.</p>
+
+	<pre class="item2"><code>padding-block: размер | проценты</code></pre>
+
+	<div class="no">IE, Hrome, Safari и мобильные браузеры не поддерживают данное свойство.</div>
+</div>
+
+
+<div class="item" id="padding-block-start">
+<h2 class="sin"><samp>padding-block-start</samp></h2>
+	<p>Определяет начальный внутренний отступ элемента по блочной оси. В зависимости от значения свойства <samp class="sin dib">writing-mode</samp>, свойство <samp class="sin dib">padding-block-start</samp> может соответствовать свойству <samp class="sin dib">padding-top</samp>, <samp class="sin dib">padding-right</samp>, <samp class="sin dib">padding-left</samp>.</p>
+
+	<pre class="item2 sin">padding-block-start: <samp class="lsin">размер | проценты</samp></pre>
+
+	<style>
+		.tp0 th{letter-spacing:normal; padding:3px; background:#eee;}
+		.tp0 tr td:last-child{color:#009; font-family:monospace; text-align:center;}
+		.tp1 td div{min-height:90px; max-height:100px; width:190px; overflow:hidden; border: 1px solid #333; padding:5px; text-align:left !important; margin:0 auto}
+		.tp1 .dd1{padding-block-start:20px;}
+		.tp1 .dd2{padding-block-start:20px; writing-mode:vertical-rl;}
+		.tp1 .dd3{padding-block-start:20px; writing-mode:vertical-lr;}
+	</style>
+	<table class="t0 tw t3 tb tp1 th1 mt20 tp0">
+		<tr><th width="220px">Код CSS</th><th>Вид</th><th width="160px">Значение<br>padding-block-start</th></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border: 1px solid #333;<br> padding-block-start:20px;<br>}</code></pre></td>
+			<td><div class="dd1">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-top</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border: 1px solid #333;<br> padding-block-start:20px;<br> writing-mode:vertical-rl;<br>}</code></pre></td>
+			<td><div class="dd2">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-right</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border: 1px solid #333;<br> padding-block-start:20px;<br> writing-mode:vertical-lr;<br>}</code></pre></td>
+			<td><div class="dd3">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-left</td></tr>
+	</table>
+	<div class="no">IE не поддерживают данное свойство.</div>
+</div>
+
+
+<div class="item" id="padding-block-end">
+<h2 class="sin"><samp>padding-block-end</samp></h2>
+	<p>Определяет конечный внутренний отступ элемента по блочной оси. В зависимости от значения свойства <samp class="sin dib">writing-mode</samp>, свойство <samp class="sin dib">padding-block-end</samp> может соответствовать свойству <samp class="sin dib">padding-bottom</samp>, <samp class="sin dib">padding-right</samp>, <samp class="sin dib">padding-left</samp>.</p>
+
+	<pre class="item2 sin">padding-block-end: <samp class="lsin">размер | проценты</samp></pre>
+
+	<style>
+		.tp2 td div{min-height:105px; max-height:115px; width:200px; border: 1px solid #333; padding:5px; text-align:left !important; margin:0 auto; overflow:auto;}
+		.tp2 .dd4{padding-block-end:30px;}
+		.tp2 .dd5{padding-block-end:30px; writing-mode:vertical-rl}
+		.tp2 .dd6{padding-block-end:30px; writing-mode:vertical-lr}
+	</style>
+	<table class="t0 tw t3 tb tp2 th1 mt20 tp0">
+		<tr><th width="220px">Код CSS</th><th>Вид</th><th width="160px">Значение<br>padding-block-end</th></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border: 1px solid #333;<br> padding-block-end:20px;<br>}</code></pre></td>
+			<td><div class="dd4">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-bottom</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border: 1px solid #333;<br> padding-block-end:20px;<br> writing-mode:vertical-rl;<br>}</code></pre></td>
+			<td><div class="dd5">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-left</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border: 1px solid #333;<br> padding-block-end:20px;<br> writing-mode:vertical-lr;<br>}</code></pre></td>
+			<td><div class="dd6">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-right</td></tr>
+	</table>
+	<div class="no">IE не поддерживают данное свойство.</div>
+</div>
+
+
+
+
+
+<div class="item" id="padding-inline">
+<h2 class="sin"><samp>padding-inline</samp></h2>
+	<p>Универсальное свойство, которое одновременно задаёт начальный и конечный внутренние отступы элемента по строчной оси. Направление оси зависит от значения свойства <samp class="sin dib">writing-mode</samp>. Для горизонтального письма (<samp class="sin dib">writing-mode: <samp class="lsin">horizontal-tb</samp></samp>) строчная ось будет горизонтальной и padding-inline устанавливает отступы слева и справа. Для вертикального направления письма (<samp class="sin dib">writing-mode: <samp class="lsin">vertical-lr</samp></samp> и <samp class="sin dib">writing-mode: <samp class="lsin">vertical-rl</samp></samp>) строчная ось будет вертикальной и <samp class="sin">padding-inline</samp> устанавливает отступы сверху и снизу.</p>
+	<p>Допустимо использовать одно или два значения, разделяя их пробелом. Одно значение устанавливает одинаковый внутренний отступ с двух сторон элемента; если указано два значения, то первое устанавливает <samp class="sin div">padding-inline-start</samp>, а второе <samp class="sin dib">padding-inline-end</samp>.</p>
+
+	<pre class="item2"><code>padding-inline: размер | проценты</code></pre>
+
+	<div class="no">IE, Hrome, Safari и мобильные браузеры не поддерживают данное свойство.</div>
+</div>
+
+
+<div class="item" id="padding-inline-start">
+<h2 class="sin"><samp>padding-inline-start</samp></h2>
+	<p>Определяет начальный внутренний отступ элемента по строчной оси. В зависимости от значения свойства <samp class="sin dib">writing-mode</samp> и <samp class="sin">direction</samp>, свойство <samp class="sin dib">padding-inline-start</samp> может соответствовать свойству <samp class="sin dib">padding-top</samp>, <samp class="sin dib">padding-right</samp>, <samp class="sin dib">padding-bottom</samp>, <samp class="sin dib">padding-left</samp>.</p>
+
+	<pre class="item2 sin">padding-inline-start: <samp class="lsin">размер | проценты</samp></pre>
+
+	<style>
+		.tp0 th{letter-spacing:normal; padding:3px; background:#eee;}
+		.tp0 tr td:last-child{color:#009; font-family:monospace; text-align:center;}
+		.ti3 td div{min-height:90px; max-height:100px; width:190px; overflow:hidden; border: 1px solid #333; padding:5px; text-align:left !important; margin:0 auto}
+		.ti3 .di1{padding-inline-start:30px;}
+		.ti3 .di2{padding-inline-start:30px; direction: rtl;}
+		.ti3 .di3{padding-inline-start:30px; writing-mode:vertical-lr;}
+		.ti3 .di4{padding-inline-start:30px; writing-mode:vertical-rl; direction:rtl;}
+	</style>
+	<table class="t0 tw t3 tb ti3 th1 mt20 tp0">
+		<tr><th width="220px">Код CSS</th><th>Вид</th><th width="160px">Значение<br>padding-inline-start</th></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-start:30px;<br>}</code></pre></td>
+			<td><div class="di1">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-left</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-start:30px;<br> direction:rtl;<br>}</code></pre></td>
+			<td><div class="di2">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-right</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-start:30px;<br> writing-mode:vertical-lr;<br>}</code></pre></td>
+			<td><div class="di3">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-top</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-start:30px;<br> writing-mode:vertical-rl;<br> direction:rtl;<br>}</code></pre></td>
+			<td><div class="di4">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-bottom</td></tr>
+	</table>
+	<div class="no">IE не поддерживают данное свойство.</div>
+</div>
+
+
+<div class="item" id="padding-inline-end">
+<h2 class="sin"><samp>padding-inline-end</samp></h2>
+	<p>Определяет начальный внутренний отступ элемента по строчной оси. В зависимости от значения свойства <samp class="sin dib">writing-mode</samp> и <samp class="sin">direction</samp>, свойство <samp class="sin dib">padding-inline-end</samp> может соответствовать свойству <samp class="sin dib">padding-top</samp>, <samp class="sin dib">padding-right</samp>, <samp class="sin dib">padding-bottom</samp>, <samp class="sin dib">padding-left</samp>.</p>
+
+	<pre class="item2 sin">padding-inline-end: <samp class="lsin">размер | проценты</samp></pre>
+
+	<style>
+		.tp0 th{letter-spacing:normal; padding:3px; background:#eee;}
+		.tp0 tr td:last-child{color:#009; font-family:monospace; text-align:center;}
+		.ti4 td div{min-height:90px; max-height:100px; width:190px; overflow:hidden; border: 1px solid #333; padding:5px; text-align:left !important; margin:0 auto}
+		.ti4 .di1{padding-inline-end:30px;}
+		.ti4 .di2{padding-inline-end:30px; direction: rtl;}
+		.ti4 .di3{padding-inline-end:30px; writing-mode:vertical-lr;}
+		.ti4 .di4{padding-inline-end:30px; writing-mode:vertical-rl; direction:rtl;}
+	</style>
+	<table class="t0 tw t3 tb ti4 th1 mt20 tp0">
+		<tr><th width="220px">Код CSS</th><th>Вид</th><th width="160px">Значение<br>padding-inline-end</th></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-end:30px;<br>}</code></pre></td>
+			<td><div class="di1">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-right</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-end:30px;<br> direction:rtl;<br>}</code></pre></td>
+			<td><div class="di2">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-left</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-end:30px;<br> writing-mode:vertical-lr;<br>}</code></pre></td>
+			<td><div class="di3">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-bottom</td></tr>
+		<tr><td><pre class="ls-05"><code>div {<br> border:1px solid #333;<br> padding-inline-end:30px;<br> writing-mode:vertical-rl;<br> direction:rtl;<br>}</code></pre></td>
+			<td><div class="di4">lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</div></td>
+			<td>padding-top</td></tr>
+	</table>
+	<div class="no">IE не поддерживают данное свойство.</div>
+</div>
+
+
+</body>
+</html>

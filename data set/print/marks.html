@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>marks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">marks</h2>
+
+<div class="item">
+	<p>Отображает специальные метки на странице при печати документа, предназначенные для дальнейшего обрезания страницы или для ровного соединения нескольких листов между собой. Значение по умолчанию <samp class="red">none</samp>, не наследуется, применяется к печатной странице.</p>
+	<pre class="item2"><code>marks: [ crop || cross ] | none</code></pre>
+
+	<table class="t1 t3">
+		<tr><td>crop</td><td>Выводит метки для дальнейшего обрезания страницы после её печати.</td></tr>
+		<tr><td>cross</td><td>Выводит метки, по которым происходит совмещение с другими страницами, например, при печати большой картинки на нескольких листах.</td></tr>
+		<tr><td>none</td><td>Никакие метки не отображаются.</td></tr>
+	</table>
+
+	<div class="no">Данное свойство не поддерживается браузерами - рабочий проект.</div>
+</div>
+
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>flexs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.nav-link {color:rgb(32, 123, 189); font-size:24px; margin-top:20px}
+	.text {text-align:justify}
+	.no li{margin:5px 0; text-align:justify}
+</style></head>
+<body>
+<h2 class="sin">Флексы</h2>
+<!-- оглавление -->
+	<ul class="ogl">
+		<li><a href="#z1">Свойства flex-контейнера</a></li>
+		<li><a href="#z2">Свойства flex-элементов</a></li>
+	</ul><!-- /оглавление -->
+
+<div class="item">
+	<p>Флексбоксы (Flexbox, от flexible box — гибкие блоки; или Flexible Box Layout Module) дают веб-разработчикам контроль над расположением элементов, их выравниванием и размерами внутри контейнера. Это позволяет выравнивать элементы по вертикали и горизонтали; менять порядок их появления; задавать направление, в котором выкладываются все элементы, и многое другое.</p>
+	<p>Прежде чем мы начнём с описания свойств flexbox, давайте немного ознакомимся с этой моделью. Она состоит из родительского контейнера, называемого <b>flex-контейнером</b>, и его непосредственными дочерними элементами, которые называются <b>flex-элементами</b>.</p>
+
+	<img src="img/CSS3-Flexbox-Model.png" style="margin:0 auto; width:90%; display:block;">
+	<p class="mt10">На картинке выше вы можете увидеть свойства и терминологию, используемые для описания flex-контейнера и его дочерних элементов.</p>
+
+	<p style="margin-top:30px; margin-bottom:0">Чтобы использовать flexbox, просто установите свойство <samp class="sin">display</samp> для родительского элемента:</p>
+
+	<pre class="item2"><code>.page-wrap {<br>  display: -webkit-box;      /* iOS 6-, Safari 3.1-6 */<br>  display: -moz-box;         /* Firefox 19- */<br>  display: -ms-flexbox;      /* IE 10 */<br>  display: -webkit-flex;     /* Chrome */<br>  display: flex;<br>}</code></pre>
+
+	<div>Eсли вы хотите отобразить его как строчный элемент, то:</div>
+	<pre class="item2"><code>.flex-container {display: inline-flex;}</code></pre>
+
+	<p>Это единственное свойство, которое необходимо установить для родительского контейнера, и все его непосредственные дочерние элементы автоматически станут flex-элементами и, следовательно, размещаются с учётом модели флекс-вёрстки.</p>
+
+	<div class="no"><ul class="list">
+		<li>Все свойства <samp class="sin">column-*</samp> не оказывают влияния на flex-контейнер.</li>
+		<li>Псевдоэлементы <span class="sin">::first-line</span> и <span class="sin">::first-letter</span> не применяются к flex-контейнерам.</li>
+		<li>Свойства <samp class="sin">float, clear</samp> и <samp class="sin">vertical-align</samp> не оказывают влияния на flex-элемент и не вырывают его из потока.</li>
+	</ul></div>
+</div>
+
+
+
+<div class="item">
+<h2 id="z1"><a href="#">Свойства flex-контейнера</a></h2>
+	<div class="nav-link"><a href="align-content.html">align-content</a></div>
+	<div class="text">Выравнивает строки внутри флекс-контейнера при наличии свободного пространства по поперечной оси.</div>
+
+	<div class="nav-link"><a href="align-items.html">align-items</a></div>
+	<div class="text">Выравнивает флекс-элементы внутри контейнера в перпендикулярном направлении.</div>
+
+	<div class="nav-link"><a href="flex-direction.html">flex-direction</a></div>
+	<div class="text">Свойство flex-direction определяет, как флексы располагаются в контейнере относительно основных осей и их направление.</div>
+
+	<div class="nav-link"><a href="flex-flow.html">flex-flow</a></div>
+	<div class="text">Является сокращённым свойством для отдельных свойств flex-direction и flex-wrap.</div>
+
+	<div class="nav-link"><a href="flex-wrap.html">flex-wrap</a></div>
+	<div class="text">Указывает, следует ли флексам располагаться в одну строку или можно занять несколько строк.</div>
+
+	<div class="nav-link"><a href="justify-content.html">justify-content</a></div>
+	<div class="text">Определяет, как браузер распределяет пространство вокруг флекс-элементов вдоль главной оси контейнера.</div>
+
+	<div class="nav-link"><a href="place-content.html">place-content</a></div>
+	<div class="text">Сокращённое свойство place-content одновременно устанавливает значения свойств align-content и justify-content.</div>
+</div>
+
+
+
+<div class="item">
+<h2 id="z2"><a href="#">Свойства flex-элементов</a></h2>
+	<div class="nav-link"><a href="align-self.html">align-self</a></div>
+	<div class="text">Задаёт выравнивание отдельного элемента в контейнере по поперечной оси.</div>
+
+	<div class="nav-link"><a href="flex.html">flex</a></div>
+	<div class="text">Сокращённое свойство, которое позволяет указать параметры элемента, чтобы он эффективно заполнял доступное пространство.</div>
+
+	<div class="nav-link"><a href="flex-basis.html">flex-basis</a></div>
+	<div class="text">Свойство flex-basis определяет основу флекса, которая является начальным размером элемента.</div>
+
+	<div class="nav-link"><a href="flex-grow.html">flex-grow</a></div>
+	<div class="text">Определяет, сколько пространства может занимать флекс внутри контейнера.</div>
+
+	<div class="nav-link"><a href="flex-shrink.html">flex-shrink</a></div>
+	<div class="text">Определяет коэффициент сжатия флексов в контейнере.</div>
+
+	<div class="nav-link"><a href="order.html">order</a></div>
+	<div class="text">Определяет порядок вывода флексов внутри флекс-контейнера.</div>
+</div>
+</body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html><html><head><title>border-image</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.box0 {display:flex; justify-content:space-around; flex-wrap:wrap;}
+	.box0 > div {box-shadow:0 0 0 1px #888; margin:10px 5px;}
+	.box0 samp {font-size:13px; text-align:center; display:table-cell; vertical-align:middle; width:200px;}
+
+	.b1 + samp {height:54px;}
+	.b2 + samp {height:70px;}
+
+	.box  {width:200px; height:200px; background:green; box-sizing:border-box;
+		color:#fff; line-height:120px; text-align:center; font-size:40px;
+		border:40px solid transparent;}
+	.box1 {border-image:url(img/border1.png);}
+	.box2 {border-image:url(img/border1.png) 20;}
+	.box3 {border-image:url(img/border1.png) 40 fill;}
+	.box4 {border-image:url(img/border1.png) 59;}
+	.box5 {border-image:url(img/border1.png) 60;}
+	.box6 {border-image:url(img/border1.png) 100 fill;}
+
+	.bou1 {border-image:url(img/border2.png) 40; border-image-outset:0px}
+	.bou2 {border-image:url(img/border2.png) 40 / 20px; border-image-outset:-20px}
+	.bou3 {border-image:url(img/border2.png) 20 / 0.25 / 0.25em;}
+
+	.br1{border-image-repeat:stretch;}
+	.br2{border-image-repeat:repeat;}
+	.br3{border-image-repeat:round;}
+	.br4{border-image-repeat:space;}
+</style></head>
+<body>
+
+<h2 class="sin"><samp>border-image</samp></h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#bi-source" title="Путь к графическому файлу.">border-image-source</a></li>
+			<li><a href="#bi-slice" title="Размер частей рамки">border-image-slice</a> <a href="#pr1">(пример)</a></li>
+			<li><a href="#bi-width" title="Устанавливает ширину рамки">border-image-width</a></li>
+			<li><a href="#bi-outset" title="Смещение рамки-изображения">border-image-outset</a> <a href="#pr2">(пример)</a></li>
+			<li><a href="#bi-repeat" title="Повтор рамки-изображения">border-image-repeat</a> <a href="#pr3">(пример)</a></li>
+			<li><a href="#bi-lg">Градиентная рамка</a> <a href="#pr4">(пример)</a></li>
+		</ul><!-- /оглавление -->
+
+<div class="item">
+	<p>Используется для отображения рисованной рамки вокруг элемента. Толщина рамки задаётся свойством <samp class="sin">border</samp>, при этом если указано <samp class="sin">border: </samp><samp class="lsin">0</samp>, то рамка не выводится. При других значениях <samp class="sin">border</samp> рисунок всегда имеет приоритет. Фон, если он задан через свойство <samp class="sin">background</samp>, отображается под рамкой.</p>
+
+	<p>Устанавливает рамку-изображение с помощью одного свойства, являющегося краткой записью свойств <b>border-image-source, border-image-slice, border-image-width, border-image-outset</b> и <b>border-image-repeat</b>.</p>
+
+	<p>Значения свойств умолчанию: <samp class="lsin">none 100% 1 0 stretch</samp>, не наследуется, применяется ко всем элементам, за исключением тех, у кого <samp class="sin">border-collapse</samp> задан как <samp class="lsin">collapse</samp>.</p>
+
+	<pre class="item2"><code>.box {<br> border-image:none |<br>              border-image-source  /* Путь к графическому файлу. */<br>              border-image-slice   /* Размер частей рамки, px не пишется */<br>              border-image-width   /* Устанавливает ширину рамки */<br>              border-image-outset  /* Смещение рамки-изображения */<br>              border-image-repeat; /* Повтор рамки-изображения */<br>}<br><br>/* Значения свойств по умолчанию: none 100% 1 0 stretch */</code></pre>
+
+	<div class="no">Firefox до v15.0 поддерживает свойство <samp class="sin">-moz-border-image</samp>
+		<br>Safari до v6.0, Chrome до v15.0 поддерживают свойство <samp class="sin">-webkit-border-image</samp>
+		<br>Opera до v15.0 поддерживает свойство <samp class="sin">-o-border-image</samp>
+	</div>
+</div>	
+
+
+
+<div class="item">
+<h2 class="sin" id="bi-source"><samp><a href="#">border-image-source</a></samp></h2>
+	<p>Свойство задаёт путь к изображению, которое будет использоваться для оформления границ блока. Значение по умолчанию - <samp class="lsin">none</samp>.</p>
+	<pre class="item2"><code>div {border-image-source: url(img/border1.png);}</code></pre>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin" id="bi-slice"><samp><a href="#">border-image-slice</a></samp></h2>
+	<p>Свойство определяет размер частей изображения, используемых для оформления границ элемента и делит изображение на девять частей: четыре угла, четыре края между углами и центральную часть.</p>
+	<pre class="item2"><code>div {border-image-slice: значение;}</code></pre>
+
+	<table class="t1 tb tc">
+		<caption>Значения</caption>
+		<tr><td>число</td>
+			<td><p>Одно, два, три или четыре значения, которые указывают размеры частей изображения в пикселях, задавая тем самым области деления. Сами единицы не пишутся, только число (10, а не 10px).</p>
+			<p>Одно значение устанавливает границы одинакового размера для каждой стороны элемента.</p>
+			<p>Два значения: первое определяет размер верхней и нижней границы, второе — правой и левой.</p>
+			<p>Три значения: первое определяет размер верхней границы, второе — правой и левой, а третье — нижней границы.</p>
+			<p>Четыре значения: определяет размеры верхней, правой, нижней и левой границы.</p>
+			<pre class="item2"><code>div {<br>  border-image-slice:40;<br>  или<br>  border-image:url(..) 40;<br>}</code></pre></td></tr>
+		<tr><td>%</td>
+			<td>Аналогично <samp class="sin">числу</samp>, но значения задаются в процентах. Размеры границ рассчитываются относительно размера изображения. Горизонтальные относительно ширины, вертикальные — относительно высоты.</td></tr>
+		<tr><td>fill</td>
+			<td>Значение указывается вместе с числом или процентным значением. Если оно задано, изображение не обрезается внутренним краем рамки, а заполняет также область внутри рамки. Если задано только <samp class="sin">fill</samp> без числа то рамка не отрисовывается.
+			<pre class="item2"><code>div {border-image-slice:fill;}     /* рамки не будет */<br>div {border-image-slice: 40 fill;} /* рамка и заполнение будет */</code></pre></td></tr>
+		<tr><td>initial</td>
+			<td>Устанавливает это свойство в значение по умолчанию.</td></tr>
+		<tr><td>inherit</td>
+			<td>Наследует значение этого свойства от родительского элемента.</td></tr>
+	</table>
+
+	<h2 class="sin" style="margin-top:40px;" id="pr1">
+	<a href="#">Пример</a></h2>
+		<div class="cf anp">
+			<img src="img/border1.png" style="float:left; padding:0 20px 10px 0;">
+			<p>Данное изображение будет использано в качестве рамки. Ширина и высота изображения - 120px.</p>
+			<p>Если параметр <samp class="sin">border-image-source</samp> не задан, то рамка исказится - заполнятся только углы, см. <b>bg-1</b>.</p>
+			<p>Если параметр <samp class="sin">border-image-source</samp> равен или больше половине от размеры картинки, используемой в качестве рамки - то рамка будет не полная (см. <b>bg-5</b> и <b>bg-6</b>), а также параметр <samp class="lsin">fill</samp> эффекта давать не будет (см. <b>bg-3</b> vs <b>bg-6</b>).</p>
+		</div>
+		<div class="box0" style="margin-top:20px;">
+			<div><div class="box b1 box1">bg-1</div><samp>border-image: url(img/border1.png); (100%)</samp></div>
+			<div><div class="box b1 box2">bg-2</div><samp>border-image: url(img/border1.png) 20;</samp></div>
+			<div><div class="box b1 box3">bg-3</div><samp>border-image: url(img/border1.png) 40 fill;</samp></div>
+			<div><div class="box b1 box4">bg-4</div><samp>border-image: url(img/border1.png) 59;</samp></div>
+			<div><div class="box b1 box5">bg-5</div><samp>border-image: url(img/border1.png) 60;</samp></div>
+			<div><div class="box b1 box6">bg-6</div><samp>border-image: url(img/border1.png) 100 fill;</samp></div>
+		</div>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin" id="bi-width"><samp><a href="#">border-image-width</a></samp></h2>
+	<p>Свойство задаёт ширину изображения для границы элемента. Если ширина не задана, то по умолчанию она равна 1.</p>
+	<p>Через слэш пишется одно, два, три или четыре значения толщины границы на каждой стороне элемента. Является аналогом <samp class="sin">border-width</samp> и использует тот же синтаксис.</p>
+	<p>Если задать <samp class="sin">border-image-width <samp class="red"><</samp> border-image-slice</samp>, то от исходной картинки отрежется фрагмент согласно <samp class="sin">border-image-slice</samp> и смасштабируется в размер, заданный через <samp class="sin">border-image-width</samp>.</p>
+	<pre class="item2"><code>div {border-image-width: значение;}</code></pre>
+
+	<table class="t1 tb tc">
+		<caption>Значения</caption>
+		<tr><td>размер</td>
+			<td>Устанавливает ширину рамки в единицах длины - px / em. Можно задавать от одной до четырех значений одновременно. Если задано одно значение, то ширина всех сторон рамки одинакова, два значения задают ширину верхней-нижней и правой-левой и т.д.</td></tr>
+		<tr><td>число</td>
+			<td>Числовое значение, на которое умножается значение <samp class="sin">border-width</samp></td></tr>
+		<tr><td>%</td>
+			<td>Ширина рамки элемента вычисляется относительно размера изображения. Горизонтальные относительно ширины, вертикальные — относительно высоты.</td></tr>
+		<tr><td>auto</td>
+			<td>Соответствует значению <samp class="sin">border-image-slice</samp></td></tr>
+		<tr><td>initial</td>
+			<td>Устанавливает это свойство в значение по умолчанию.</td></tr>
+		<tr><td>inherit</td>
+			<td>Наследует значение этого свойства от родительского элемента.</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin" id="bi-outset"><samp><a href="#">border-image-outset</a></samp></h2>
+	<p>Свойство позволяет переместить изображение-рамку за пределы границ элемента на указанную длину. Может задаваться как с помощью одного, так и четырёх значений.</p>
+	<pre class="item2"><code>div {border-image-outset: 10px;}</code></pre>
+
+	<table class="t1 tb tc">
+		<caption>Значения</caption>
+		<tr><td>размер</td>
+			<td>Отступ рамки-изображения задается с помощью любого положительного числа, указанного в px / em</td></tr>
+		<tr><td>число</td>
+			<td>Числовое значение, на которое умножается значение <samp class="sin">border-width</samp></td></tr>
+		<tr><td>initial</td>
+			<td>Устанавливает это свойство в значение по умолчанию.</td></tr>
+		<tr><td>inherit</td>
+			<td>Наследует значение этого свойства от родительского элемента.</td></tr>
+	</table>
+
+	<h2 class="sin" style="margin-top:40px;" id="pr2">
+	<a href="#">Пример</a></h2>
+		<div class="cf anp">
+			<img src="img/border2.png" style="float:left; padding:0 20px 10px 0;">
+			<p>Данное изображение будет использано в качестве рамки. Ширина и высота изображения - 120px.</p>
+			<p>Oтрицательные значения - не допускаются, параметр будет игнорироваться.</p>
+		</div>
+		<div class="box0" style="margin-top:20px;">
+			<div><div class="box b2 bou1">bg-1</div><samp>border-image:url(img/border2.png) 40;<br>border-image-outset:0px;</samp></div>
+			<div><div class="box b2 bou2">bg-2</div><samp>border-image:url(img/border2.png) 40 / <abbr title="ширина рамки">20px;</abbr><br><span class="red" title="параметр игнорируется">border-image-outset:-20px;</span></samp></div>
+			<div><div class="box b2 bou3">bg-3</div><samp>border-image:url(img/border2.png) 20 / 0.25 / <span class="red" title="border-image-outset: 0.25em;">0.25em</span>;</samp></div>
+		</div>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin" id="bi-repeat"><samp><a href="#">border-image-repeat</a></samp></h2>
+	<p>Свойство управляет заполнением фоновым изображением пространства между углами рамки. Можно задавать как с помощью одного значения, так и с помощью пары значений.</p>
+	<pre class="item2"><code>div {border-image-repeat: значение;}</code></pre>
+
+	<table class="t1 tb tc">
+		<caption>Значения</caption>
+		<tr><td>stretch</td>
+			<td>Растягивает изображение на все пространство. Значение по умолчанию.</td></tr>
+		<tr><td>repeat</td>
+			<td>Повторяет заполняющую часть изображения, при этом видны места стыков с угловой частью.</td></tr>
+		<tr><td>round</td>
+			<td>Повторяет рисунок и масштабирует его так, чтобы на стороне элемента оказалось целое число изображений.</td></tr>
+		<tr><td>space</td>
+			<td>Что-то среднее между <samp class="sin">round</samp> и <samp class="sin">stretch</samp>, при этом может образовать пустое пространство (разрывы) между частями рамки.</td></tr>
+		<tr><td>initial</td>
+			<td>Устанавливает это свойство в значение по умолчанию.</td></tr>
+		<tr><td>inherit</td>
+			<td>Наследует значение этого свойства от родительского элемента.</td></tr>
+	</table>
+
+	<h2 class="sin" style="margin-top:40px; margin-bottom:-10px" id="pr3">
+	<a href="#">Пример</a></h2>
+		<div class="box0" style="margin-top:20px;">
+			<div><div class="box b1 bou1 br1">stretch</div><samp>border-image:url(img/border2.png) 40;</samp></div>
+			<div><div class="box b1 bou2 br2">repeat</div><samp>border-image:url(img/border2.png) 40 / <abbr title="ширина рамки">20px;</abbr></samp></div>
+			<div><div class="box b1 bou3 br3">round</div><samp>border-image:url(img/border2.png) 20 / 0.25 / <span class="red" title="border-image-outset: 0.5em;">0.25em</span>;</samp></div>
+
+			<div><div class="box b1 bou1 br4">space</div><samp>border-image:url(img/border2.png) 40;</samp></div>
+			<div><div class="box b1 bou2 br4">space</div><samp>border-image:url(img/border2.png) 40 / <abbr title="ширина рамки">20px;</abbr></samp></div>
+			<div><div class="box b1 bou3 br4">space</div><samp>border-image:url(img/border2.png) 20 / 0.25 / <span class="red" title="border-image-outset: 0.5em;">0.25em</span>;</samp></div>
+
+			<div><div class="box b1 bou1 br3">round</div><samp>border-image:url(img/border2.png) 40;</samp></div>
+			<div><div class="box b1 bou2 br3">round</div><samp>border-image:url(img/border2.png) 40 / <abbr title="ширина рамки">20px;</abbr></samp></div>
+			<div><div class="box b1 bou3 br2">repeat</div><samp>border-image:url(img/border2.png) 20 / 0.25 / <span class="red" title="border-image-outset: 0.5em;">0.25em</span>;</samp></div>
+		</div>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin" id="bi-lg"><samp><a href="#">Градиентная рамка</a></samp></h2>
+	<p>Значением <samp class="sin">border-image</samp> может выступать не только изображение, но и градиентная заливка.</p>
+	<pre class="item2"><code>div {border-image: linear-gradient(...);}</code></pre>
+
+	<h2 class="sin" style="margin-top:40px; margin-bottom:-10px" id="pr4">
+	<a href="#">Пример</a></h2>
+		<style>
+			.bg1{border-image: radial-gradient(#fff, #fff 50%, #d3e8c7 65%, #1255c7);}
+			.bg2{border-image: radial-gradient(#fff, #fff 50%, #d3e8c7 65%, #1255c7) 40;}
+			.bg3{border-image: radial-gradient(#fff, #fff 50%, #d3e8c7 65%, #1255c7) 40 fill;}
+			.bg4{border-image: linear-gradient(to right, transparent 0%, #ADF2F7 100%) 1 / 10px;}
+			.bg5{border-image: linear-gradient(to right, transparent 0%, #ADF2F7 100%) 1;}
+			.bg6{border-image: linear-gradient(to right, transparent 0%, #ADF2F7 100%) 1 fill / 1px;}
+			.bg7{border: 10px solid transparent;
+				border-image: 10 repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px, transparent 30px, transparent 40px);}
+			.bg8{border: 10px solid transparent;
+				border-image: repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px, transparent 30px, transparent 40px) 14/10px;}
+			.bg9{border: 10px solid transparent;
+				border-image: repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px, transparent 30px, transparent 40px) 1 fill/20px;}
+		</style>
+		<div class="box0" style="margin-top:20px;">
+			<div><div class="box b2 bg1">bg1</div><samp>border-image: radial-gradient(#fff, #fff 50%, #d3e8c7 65%, #1255c7);</samp></div>
+			<div><div class="box b2 bg2">bg2</div><samp>border-image: radial-gradient(#fff, #fff 50%, #d3e8c7 65%, #1255c7) <abbr class="red" title="border-image-slice: 40;">40</abbr>;</samp></div>
+			<div><div class="box b2 bg3">bg3</div><samp>border-image: radial-gradient(#fff, #fff 50%, #d3e8c7 65%, #1255c7) <abbr class="red" title="border-image-slice: 40 fill;">40 fill</abbr>;</samp></div>
+
+			<div><div class="box b2 bg4">bg4</div><samp>border-image: linear-gradient(to right, transparent 0%, #ADF2F7 100%) <abbr class="red" title="border-image-slice: 1; - 1px растягивается на всю ширину рамки">1</abbr> / <abbr class="red" title="border-image-width: 10px;">10px</abbr>;</samp></div>
+			<div><div class="box b2 bg5">bg5</div><samp>border-image: linear-gradient(to right, transparent 0%, #ADF2F7 100%) <abbr class="red" title="border-image-slice: 1; - 1px растягивается на всю ширину рамки">1</abbr>;</samp></div>
+			<div><div class="box b2 bg6">bg6</div><samp>border-image: linear-gradient(to right, transparent 0%, #ADF2F7 100%) 1 fill / 1px;</samp></div>
+
+			<div><div class="box bg7">bg7</div><samp>border: 10px solid transparent;<br><br>border-image: <span class="red">10</span> repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px, transparent 30px, transparent 40px);</samp></div>
+			<div><div class="box bg8">bg8</div><samp>border: 10px solid transparent;<br><br>border-image: repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px, transparent 30px, transparent 40px) <span class="red">14/10px</span>;</samp></div>
+			<div><div class="box bg9">bg9</div><samp>border: 10px solid transparent;<br>border-image: repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px, transparent 30px, transparent 40px) <span class="red">1 fill/20px</span>;</samp></div>
+		</div>
+</div>
+
+</body>
+</html>

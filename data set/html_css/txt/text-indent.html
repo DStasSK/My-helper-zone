@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><title>text-indent</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">text-indent</h2>
+
+<div class="item">
+	<p>Для установки величины отступа первой строки текста используются каскадные таблицы стилей,<span class="sin"></span> в которых задаётся отступ и его величина. Воздействия на все последующие строки, при установке отступа, не оказывается.</p>
+	<pre class="item2"><code>text-indent: 2px;<br>text-indent: 1em;<br>text-indent: inherit;</code></pre>
+
+	<span class="lsin">2px;</span> - отступ два пикселя
+	<br><span class="lsin">1em;</span> - отступ 1em (1em = размер шрифта)
+	<br><span class="lsin">inherit;</span> - наследует параметры родителя
+</div>
+
+<div class="item" style="background:#eee">
+	<div style="text-indent:36px; font-size:18px">Отступ первой строки <span class="sin">36px; font-size:18px;</span> <i>Для установки величины отступа первой строки текста используются каскадные таблицы стилей, в которых задаётся отступ и его величина.</i></div>
+	<br>
+	<div style="text-indent:4em; font-size:18px">Отступ первой строки <span class="sin">4em; font-size:18px;</span> <i>Для установки величины отступа первой строки текста используются каскадные таблицы стилей, в которых задаётся отступ и его величина.</i></div>
+</div>
+
+</body>
+</html>

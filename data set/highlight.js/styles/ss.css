@@ -1,0 +1,88 @@
+
+
+pre code {display:block; color:#333;
+}
+
+
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .doctype,
+pre .pi,
+pre .lisp .string,
+pre .javadoc {font-style:italic; color:grey; color:#888;}
+
+
+
+pre .keyword,
+pre .winutils,
+pre .method,
+pre .addition,
+pre .css .tag,
+pre .request,
+pre .status,
+pre .nginx .title {
+color:#cc2244; 
+color:red;}
+
+
+
+pre .number,
+pre .command,
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula,
+pre .regexp,
+pre .hexcolor {color:green; color:#0077ff;}
+
+
+
+pre .title,
+pre .localvars,
+pre .chunk,
+pre .decorator,
+pre .built_in,
+pre .identifier,
+pre .vhdl .literal,
+pre .id {color:#268bd2;
+ color:red;}
+
+
+
+pre .attribute,
+pre .variable,
+pre .lisp .body,
+pre .smalltalk .number,
+pre .constant,
+pre .class .title,
+pre .parent,
+pre .haskell .type {color:#b58900;color:#00008B;
+}
+
+
+
+pre .preprocessor,
+pre .preprocessor .keyword,
+pre .shebang,
+pre .symbol,
+pre .symbol .string,
+pre .diff .change,
+pre .special,
+pre .attr_selector,
+pre .important,
+pre .subst,
+pre .cdata,
+pre .clojure .title {color:#cb4b16;
+}
+
+
+
+pre .deletion {color:#dc322f;
+}
+
+
+
+pre .tex .formula {background:#eee8d5;
+}

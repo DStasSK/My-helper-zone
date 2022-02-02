@@ -1,0 +1,916 @@
+<!DOCTYPE html><html><head><title>&lt;input></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t-html5::after, .t-trash::after{margin-left:3px}
+</style>
+</head>
+<body>
+<h2><samp class="sin">&lt;input></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#z0">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#accept" title="Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов.">accept</a></span>
+				<span><a href="#align" title="Определяет выравнивание изображения." class="t-trash">align</a></span>
+				<span><a href="#alt" title="Альтернативный текст для кнопки с изображением.">alt</a></span>
+				<span><a href="#autocomplete" title="Включает или отключает автозаполнение." class="t-html5">autocomplete</a></span>
+				<span><a href="#autofocus" title="Устанавливает фокус в поле формы." class="t-html5">autofocus</a></span>
+				<span><a href="#border" title="Толщина рамки вокруг изображения." class="t-trash">border</a></span>
+				<span><a href="#checked" title="Предварительно активированный переключатель или флажок.">checked</a></span>
+				<span><a href="#dirname" title="Параметр, который передаёт на сервер направление текста." class="t-html5">dirname</a></span>
+				<span><a href="#disabled" title="Блокирует доступ и изменение элемента." class="t-html5">disabled</a></span>
+				<span><a href="#form" title="Связывает поле с формой по её идентификатору." class="t-html5">form</a></span>
+				<span><a href="#formaction" title="Определяет адрес обработчика формы." class="t-html5">formaction</a></span>
+				<span><a href="#formenctype" title="Устанавливает способ кодирования данных формы при их отправке на сервер." class="t-html5">formenctype</a></span>
+				<span><a href="#formmethod" title="Сообщает браузеру каким методом следует передавать данные формы на сервер." class="t-html5">formmethod</a></span>
+				<span><a href="#formnovalidate" title="Отменяет встроенную проверку данных на корректность." class="t-html5">formnovalidate</a></span>
+				<span><a href="#formtarget" title="Определяет окно или фрейм в которое будет загружаться результат, возвращаемый обработчиком формы." class="t-html5">formtarget</a></span>
+				<span><a href="#list" title="Указывает на список вариантов, которые можно выбирать при вводе текста." class="t-html5">list</a></span>
+				<span><a href="#max" title="Верхнее значение для ввода числа или даты." class="t-html5">max</a></span>
+				<span><a href="#maxlength" title="Максимальное количество символов разрешённых в тексте.">maxlength</a></span>
+				<span><a href="#min" title="Нижнее значение для ввода числа или даты." class="t-html5">min</a></span>
+				<span><a href="#minlength" title="Минимальное количество символов разрешённых в тексте." class="t-html5">minlength</a></span>
+				<span><a href="#multiple" title="Позволяет загрузить несколько файлов одновременно." class="t-html5">multiple</a></span>
+				<span><a href="#name" title="Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.">name</a></span>
+				<span><a href="#pattern" title="Устанавливает шаблон ввода." class="t-html5">pattern</a></span>
+				<span><a href="#placeholder" title="Выводит подсказывающий текст." class="t-html5">placeholder</a></span>
+				<span><a href="#readonly" title="Устанавливает, что поле не может изменяться пользователем.">readonly</a></span>
+				<span><a href="#required" title="Обязательное для заполнения поле." class="t-html5">required</a></span>
+				<span><a href="#size" title="Ширина текстового поля.">size</a></span>
+				<span><a href="#src" title="Адрес графического файла для поля с изображением.">src</a></span>
+				<span><a href="#step" title="Шаг приращения для числовых полей." class="t-html5">step</a></span>
+				<span><a href="#type" title="Сообщает браузеру, к какому типу относится элемент формы." class="sin bold">type</a></span>
+				<span><a href="#type5" title="Сообщает браузеру, к какому типу относится элемент формы." class="sin bold t-html5">type</a></span>
+				<span><a href="#value" title="Значение элемента.">value</a></span>
+				<span></span>
+			</div>
+		</li>
+		<li class="mt10">
+			<a href="#pclass">Псевдоклассы</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#disabled2" title="используется для применения стиля к заблокированным элементам форм">:disabled</a></span>
+				<span><a href="#in-range" title="применяется к элементам форм, у которых введённое пользователем значение находится в заданном диапазоне">:in-range</a></span>
+				<span><a href="#out-of-range" title="применяется к полям форм, у которых введённое пользователем значение выходит из заданного диапазона">:out-of-range</a></span>
+				<span><a href="#invalid" title="применяется к полям формы, содержимое которых не соответствует указанному типу">:invalid</a></span>
+				<span><a href="#valid" title="применяется к полям формы, содержимое которых соответствует указанному типу">:valid</a></span>
+				<span><a href="#read-only" title="применяется к полям формы, у которых задан атрибут readonly">:read-only</a></span>
+				<span><a href="#read-write" title="применяется к полям формы, доступных для изменения">:read-write</a></span>
+				<span><a href="#optional" title="применяет стилевые правила к элементу &lt;input&rt;, у которого не задан атрибут required">:optional</a></span>
+				<span><a href="#required2" title="применяет стилевые правила к элементу &lt;input&rt;, у которого установлен атрибут required">:required</a></span>
+				<span></span>
+			</div>
+		</li>
+		<li class="mt10"><a href="#prm1">Пример простой формы</a></li>
+		<li><a href="#prm2">Пример адаптивновти на флексах</a></li>
+		<li><a href="#prm3">Прячем текст-подсказку при фокусе поля ввода</a></li>
+	</ul>
+
+
+<div class="item">
+	<p><samp class="red">&lt;input></samp> (от англ. input — ввод) является одним из разносторонних элементов формы и позволяет создавать разные части интерфейса и обеспечивать взаимодействие с пользователем. Главным образом <samp class="red">&lt;input></samp> предназначен для создания текстовых полей, различных кнопок, переключателей и флажков.</p>
+	<p>Основной атрибут <samp class="red">&lt;input></samp>, определяющий вид элемента - <samp class="sin">type</samp>. Он позволяет задавать следующие элементы формы: текстовое поле (<samp class="lsin">text</samp>), поле с паролем (<samp class="lsin">password</samp>), переключатель (<samp class="lsin">radio</samp>), флажок (<samp class="lsin">checkbox</samp>), скрытое поле (<samp class="lsin">hidden</samp>), кнопка (<samp class="lsin">button</samp>), кнопка для отправки формы (<samp class="lsin">submit</samp>), кнопка для очистки формы (<samp class="lsin">reset</samp>), поле для отправки файла (<samp class="lsin">file</samp>), кнопка с изображением (<samp class="lsin">image</samp>) и др.</p>
+	<p>Для каждого элемента существует свой список атрибутов, которые определяют его вид и характеристики. Кроме того, в HTML5 добавлено ещё более десятка новых элементов. Закрывающий тег - не требуется.</p>
+</div>
+
+
+<div class="item" id="z0">
+<h3 class="sin">Атрибуты</h3>
+	<table class="t1 tb">
+		<tr><td><a href="#accept">accept</a></td><td>Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов.</td></tr>
+		<tr><td><a href="#align">align</a></td><td>Определяет выравнивание изображения.<span class="no ml10">устарел</span></td></tr>
+		<tr><td><a href="#alt">alt</a></td><td>Альтернативный текст для кнопки с изображением.</td></tr>
+		<tr><td><a href="#autocomplete">autocomplete</a></td><td>Включает или отключает автозаполнение.<span class="html5"></span></td></tr>
+		<tr><td><a href="#autofocus">autofocus</a></td><td>Устанавливает фокус в поле формы.<span class="html5"></span></td></tr>
+		<tr><td><a href="#border">border</a></td><td>Толщина рамки вокруг изображения.<span class="no ml10">устарел</span></td></tr>
+		<tr><td><a href="#checked">checked</a></td><td>Предварительно активированный переключатель или флажок.</td></tr>
+		<tr><td><a href="#dirname">dirname</a></td><td>Параметр, который передаёт на сервер направление текста.<span class="html5"></span></td></tr>
+		<tr><td><a href="#disabled">disabled</a></td><td>Блокирует доступ и изменение элемента.<span class="html5"></span></td></tr>
+		<tr><td><a href="#form">form</a></td><td>Связывает поле с формой по её идентификатору.<span class="html5"></span></td></tr>
+		<tr><td><a href="#formaction">formaction</a></td><td>Определяет адрес обработчика формы.<span class="html5"></span></td></tr>
+		<tr><td><a href="#formenctype">formenctype</a></td><td>Устанавливает способ кодирования данных формы при их отправке на сервер.<span class="html5"></span></td></tr>
+		<tr><td><a href="#formmethod">formmethod</a></td><td>Сообщает браузеру каким методом следует передавать данные формы на сервер.<span class="html5"></span></td></tr>
+		<tr><td class="ls-1"><a href="#formnovalidate">formnovalidate</a></td><td>Отменяет встроенную проверку данных на корректность.<span class="html5"></span></td></tr>
+		<tr><td><a href="#formtarget">formtarget</a></td><td>Определяет окно или фрейм в которое будет загружаться результат, возвращаемый обработчиком формы.<span class="html5"></span></td></tr>
+		<tr><td><a href="#list">list</a></td><td>Указывает на список вариантов, которые можно выбирать при вводе текста.<span class="html5"></span></td></tr>
+		<tr><td><a href="#max">max</a></td><td>Верхнее значение для ввода числа или даты.<span class="html5"></span></td></tr>
+		<tr><td><a href="#maxlength">maxlength</a></td><td>Максимальное количество символов разрешённых в тексте.</td></tr>
+		<tr><td><a href="#min">min</a></td><td>Нижнее значение для ввода числа или даты.<span class="html5"></span></td></tr>
+		<tr><td><a href="#minlength">minlength</a></td><td>Минимальное количество символов разрешённых в тексте.<span class="html5"></span></td></tr>
+		<tr><td><a href="#multiple">multiple</a></td><td>Позволяет загрузить несколько файлов одновременно.<span class="html5"></span></td></tr>
+		<tr><td><a href="#name">name</a></td><td>Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.</td></tr>
+		<tr><td><a href="#pattern">pattern</a></td><td>Устанавливает шаблон ввода.<span class="html5"></span></td></tr>
+		<tr><td><a href="#placeholder">placeholder</a></td><td>Выводит подсказывающий текст.<span class="html5"></span></td></tr>
+		<tr><td><a href="#readonly">readonly</a></td><td>Устанавливает, что поле не может изменяться пользователем.</td></tr>
+		<tr><td><a href="#required">required</a></td><td>Обязательное для заполнения поле.<span class="html5"></span></td></tr>
+		<tr><td><a href="#size">size</a></td><td>Ширина текстового поля.</td></tr>
+		<tr><td><a href="#src">src</a></td><td>Адрес графического файла для поля с изображением.</td></tr>
+		<tr><td><a href="#step">step</a></td><td>Шаг приращения для числовых полей.<span class="html5"></span></td></tr>
+		<tr><td><a href="#type">type</a></td><td>Сообщает браузеру, к какому типу относится элемент формы.</td></tr>
+		<tr><td><a href="#value">value</a></td><td>Значение элемента.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="accept"><a href="#z0">Атрибут - <samp class="grin">accept</samp></a></h3>
+	<p>Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов. Если файл не подходит под установленный фильтр, он не показывается в окне выбора файлов. Применяется к полю для отправки файла.</p>
+	<pre class="item2"><code>&lt;input type="file" accept="MIME-тип | значение"></code></pre>
+	<div class="attr mt20">Значения:</div>
+	<ul class="list">
+		<li>расширение файла с точкой впереди (например: <samp class="sin">.jpg</samp>).</li>
+		<li>имя <samp class="sin tdu"><a href="mime.html">MIME</a></samp>-типа (например: <samp class="sin">image/jpeg</samp>).</li>
+		<li>несколько значений перечисляются через запятую (<samp class="sin">image/jpeg, image/png</samp>).</li>
+		<!-- <li>В HTML5 также допустимо в качестве значения указывать</li> -->
+		<li><samp class="sin">audio/*</samp> для выбора всех звуковых файлов<span class="html5"></span></li>
+		<li><samp class="sin">video/*</samp> для видеофайлов<span class="html5"></span></li>
+		<li><samp class="sin">image/*</samp> для всех графических файлов<span class="html5"></span></li>
+	</ul>
+	<div class="no">Edge и мобильные браузеры не поддрерживают данный атрибут.</div>
+	<fieldset class="prm anp">
+		<legend></legend>
+		<form action="handler.php">
+			<p><strong>Укажите картинку в формате JPEG, PNG или GIF</strong></p>
+			<p><input type="file" name="img" accept="image/jpeg,image/png,image/gif">
+			<input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;strong>Укажите картинку в формате JPEG, PNG или GIF&lt;/strong>&lt;/p><br>  &lt;p>&lt;input type="file" name="img" accept="image/jpeg,image/png,image/gif"><br>  &lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="align"><a href="#z0">Атрибут - <samp class="grin">align</samp><span class="no ml10">устарел</span></a></h3>
+	<p>Определяет, как выравнивать поле с изображением относительно текста или других элементов формы.</p>
+	<pre class="item2"><code>&lt;input type="image" align="<abbr title="Выравнивание нижней границы изображения по окружающему тексту.">bottom</abbr> | <abbr title="Выравнивание изображения по левому краю окна.">left</abbr> | <abbr title="Выравнивание середины изображения по базовой линии текущей строки.">middle</abbr> | <abbr title="Выравнивание изображения по правому краю окна.">right</abbr> | <abbr title="Верхняя граница изображения выравнивается по самому высокому элементу текущей строки.">top</abbr>"></code></pre>
+
+	<fieldset class="prm anp">
+		<legend></legend>
+		<form method="post" action="handler.php" class="cf">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+			<p><input src="img/imgbutton.gif" type="image" align="right"></p>
+		</form>
+		<pre class="item2"><code>&lt;form method="post" action="handler.php" class="cf anp"><br>  &lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit...&lt;/p><br>  &lt;p>&lt;input src="img/imgbutton.gif" type="image" align="right">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="alt"><a href="#z0">Атрибут - <samp class="grin">alt</samp></a></h3>
+	<p>Устанавливает альтернативный текст для поля с изображением. Такой текст позволяет получить текстовую информацию о рисунке при отключенной в браузере загрузке изображений, а также предназначен для поисковых систем.</p>
+	<pre class="item2"><code>&lt;input type="image" alt="текст"></code></pre>
+	Значения - любая подходящая текстовая строка.
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="autocomplete"><a href="#z0">Атрибут - <samp class="grin">autocomplete</samp><span class="html5"></span></a></h3>
+	<p>Этот атрибут помогает заполнять поля форм текстом, который был введён в них ранее. Значения сохраняет и подставляет браузер, при этом автозаполнение по соображениям безопасности может отключаться пользователем в настройках браузера и не может в таком случае управляться атрибутом <samp class="sin">autocomplete</samp>.</p>
+	<p>При вводе первых букв текста выводится список сохранённых ранее значений, из которого можно выбрать необходимое. Автозаполнение поля формы привязывается к его атрибуту <samp class="sin">name</samp> и при его смене - теряется.</p>
+	<pre class="item2"><code>&lt;input type="text" autocomplete="on | off"><br>&lt;input type="password" autocomplete="on | off"><br>&lt;input type="email" autocomplete="on | off"><br>&lt;input type="search" autocomplete="on | off"><br>&lt;input type="url" autocomplete="on | off"><br>&lt;input type="tel" autocomplete="on | off"></code></pre>
+	<div class="no">Значение по умолчанию - зависит от настроек браузера</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="autofocus"><a href="#z0">Атрибут - <samp class="grin">autofocus</samp><span class="html5"></span></a></h3>
+	<p>Автоматически устанавливает фокус в поле формы. В таком поле можно сразу набирать текст без явного щелчка по нему курсором мыши (например - для поисковых систем). По умолчанию атрибут <samp class="sin">autofocus</samp> не установлен.</p>
+	<pre class="item2"><code>&lt;input autofocus></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="border"><a href="#z0">Атрибут - <samp class="grin">border</samp><span class="no ml10">устарел</span></a></h3>
+	<p>Браузеры обрабатывают изображения, добавленные через элемент <samp class="red">&lt;input></samp>, подобно рисункам, созданным с помощью элемента <samp class="red">&lt;img></samp>. В том числе вокруг изображения можно добавить рамку, цвет которой совпадает с цветом текста.</p>
+	<pre class="item2"><code>&lt;input type="image" border="<abbr title="целое положительное число (в пикселях)">число</abbr>"></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="checked"><a href="#z0">Атрибут - <samp class="grin">checked</samp></a></h3>
+	<p>Этот атрибут определяет, помечен ли заранее такой элемент формы, как флажок или переключатель. В случае использования переключателей (<samp class="lsin">radiobutton</samp>) может быть отмечен только один элемент группы, для флажков (<samp class="lsin">checkbox</samp>) допустимо пометить хоть все элементы.</p>
+	<pre class="item2"><code>&lt;input type="radio" checked><br>&lt;input type="checkbox" checked></code></pre>
+
+	<fieldset class="prm anp">
+		<legend class="point" onclick='prchecked.classList.toggle("hiden");'></legend>
+		<form method="post" action="input5.php" class="hiden" id="prchecked">
+			<p><b>С какими операционными системами вы знакомы?</b></p>
+			<p><input type="checkbox" name="option1" value="a1" checked>Windows 95/98<Br>
+			<input type="checkbox" name="option2" value="a2">Windows 2000<Br>
+			<input type="checkbox" name="option3" value="a3">System X<Br> 
+			<input type="checkbox" name="option4" value="a4">Linux<Br> 
+			<input type="checkbox" name="option5" value="a5">X3-DOS</p>
+			<p><input type="submit" value="Отправить"></p>
+			<pre class="item2"><code>&lt;form method="post" action="input5.php"><br>  &lt;p>&lt;b>С какими операционными системами вы знакомы?&lt;/b>&lt;/p><br>  &lt;p>&lt;input type="checkbox" name="op1" value="a1" checked>Windows 98&lt;br><br>  &lt;input type="checkbox" name="op2" value="a2">Windows 2000&lt;br><br>  &lt;input type="checkbox" name="op3" value="a3">System X&lt;br><br>  &lt;input type="checkbox" name="op4" value="a4">Linux&lt;br><br>  &lt;input type="checkbox" name="op5" value="a5">X3-DOS&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+		</form>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="dirname"><a href="#z0">Атрибут - <samp class="grin">dirname</samp><span class="html5"></span></a></h3>
+	<p>При наличии атрибута <samp class="sin">dirname</samp> на сервер отправляется пара имя/значение, где имя задаётся атрибутом <samp class="sin">dirname</samp>, а значение подставляется браузером. Для текста, идущего слева направо, значение будет <samp class="lsin">ltr</samp>, а для текста справа налево (арабского, к примеру) значение будет <samp class="lsin">rtl</samp>.</p>
+	<p>Значения - произвольная текстовая строка, которая служит именем параметра. Чтобы показать, что этот параметр указывает направление текста, обычно в конце строки добавляют <samp class="lsin">.dir</samp>.</p>
+	<pre class="item2"><code>&lt;input type="text" dirname="строка"><br>&lt;input type="search" dirname="строка">
+	<br><br>&lt;form action="handler.php"><br>  &lt;p><br>    &lt;label>Комментарий: <br>      &lt;input name="comment" dirname="comment.dir" required><br>    &lt;/label><br>  &lt;/p><br>  &lt;p>&lt;button type="submit">Отправить&lt;/button>&lt;/p><br>&lt;/form></code></pre>
+	<div class="no">Данный атрибут не поддерживается <samp class="sin">IE</samp>, <samp class="sin">Enge</samp>, <samp class="red">Firefox</samp></div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="disabled"><a href="#z0">Атрибут - <samp class="grin">disabled</samp></a></h3>
+	<p>Блокирует доступ и изменение поля формы. Оно в таком случае отображается серым и недоступным для активации пользователем. Кроме того, такое поле не может получить фокус путем нажатия на клавишу <samp>Tab</samp>, мышью или другим способом. Тем не менее, такое состояние поля можно менять с помощью скриптов. Заблокированное в поле значение не передаётся на сервер.</p>
+	<pre class="item2"><code>&lt;input disabled></code></pre>
+	<fieldset class="prm anp">
+		<legend></legend>
+		<form  action="handler.php">
+			<p><input type="text" size="30" onFocus="this.form.submit.disabled=0"></p>
+			<p><input type="submit" name="submit" value="Отправить" disabled></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;input type="text" size="30" onFocus="this.form.submit.disabled=0"><br>  &lt;br>&lt;input type="submit" name="submit" value="Отправить" disabled><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="form"><a href="#z0">Атрибут - <samp class="grin">form</samp><span class="html5"></span></a></h3>
+	<p>Связывает поле с формой по её идентификатору. Такая связь необходима в случае, когда поле располагается за пределами <samp class="red">&lt;form></samp>, например, при создании её программно или по соображениям дизайна. В качестве значения выступает идентификатор формы (значение атрибута <samp class="sin">id</samp> элемента <samp class="red">&lt;form></samp>).</p>
+	<pre class="item2"><code>&lt;form id="data" action="handler.php">&lt;/form><br>&lt;input placeholder="Ваше имя" name="user" form="data"><br>&lt;input type="submit" value="Отправить форму" form="data"></code></pre>
+	<div class="no mb10"><samp class="sin">IE</samp> и <samp class="sin">Edge</samp> не поддерживают этот атрибут.</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="formaction"><a href="#z0">Атрибут - <samp class="grin">formaction</samp><span class="html5"></span></a></h3>
+	<p>Определяет адрес обработчика формы — это программа, которая получает данные формы и производит с ними желаемые действия. Атрибут <samp class="sin">formaction</samp> по своему действию аналогичен атрибуту <samp class="sin">action</samp> элемента <samp class="red">&lt;form></samp>. Если указаны оба атрибута, то атрибут <samp class="sin">action</samp> имеет преимущество.</p>
+	<pre class="item2"><code>&lt;form><br>  &lt;input placeholder="Ваше имя" name="user">&lt;br><br>  &lt;input type="submit" formaction="handler.php" value="Отправить"><br>&lt;/form></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="formenctype"><a href="#z0">Атрибут - <samp class="grin">formenctype</samp><span class="html5"></span></a></h3>
+	<p>Устанавливает способ кодирования данных формы при их отправке на сервер. Обычно явно указывается в случае, когда используется поле для отправки файла (<samp class="lsin">input type="<samp class="grin">file</samp>"</samp>). Этот атрибут по своему действию аналогичен атрибуту <samp class="sin">enctype</samp> элемента <samp class="red">&lt;form></samp>; при совместном использовании <samp class="sin">formenctype</samp> и <samp class="sin">enctype</samp> последний игнорируется.</p>
+	<div class="no mt0"><samp class="sin">formenctype</samp> нельзя задавать для <samp class="lsin">input type="<samp class="grin">file</samp>"</samp>, только на кнопку для отправки формы.</div>
+	<pre class="item2"><code>&lt;input type="submit"<br>       formenctype="application/x-www-form-urlencoded |<br>                    multipart/form-data | text/plain"></code></pre>
+	<table class="t1">
+		<tr><td width="210px">application/x-www-form-urlencoded</td><td>Значение по умолчанию. Вместо пробелов ставится +, символы вроде русских букв кодируются их шестнадцатеричными значениями (например, вместо Аня - %D0%90%D0%BD%D1%8F).</td></tr>
+		<tr><td>multipart/form-data</td><td>Данные не кодируются. Это значение применяется при отправке файлов.</td></tr>
+		<tr><td>text/plain</td><td>Пробелы заменяются знаком +, буквы и другие символы не кодируются.</td></tr>
+	</table>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<form>
+			<p>Ваше имя: <input name="user"></p>
+		 	<p>Файл для заявки: <input name="file" type="file"></p>
+			<p><input type="submit" formaction="handler.php" formmethod="post" formenctype="multipart/form-data" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form><br>  &lt;p>Ваше имя: &lt;input name="user">&lt;/p><br>  &lt;p>Файл для заявки: &lt;input name="file" type="file">&lt;/p><br>  &lt;p>&lt;input type="submit" formaction="handler.php" formmethod="post" <br>    formenctype="multipart/form-data" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="formmethod"><a href="#z0">Атрибут - <samp class="grin">formmethod</samp><span class="html5"></span></a></h3>
+	<p>Атрибут сообщает браузеру, каким методом следует передавать данные формы на сервер. Значение по умолчанию - get.</p>
+	<pre class="item2"><code>&lt;input type="submit" formmethod="get | post"></code></pre>
+	<table class="t1">
+		<tr><td>get</td><td><p>Этот метод является одним из самых распространённых и предназначен для получения требуемой информации и передачи данных в адресной строке. Пары «имя=значение» присоединяются в этом случае к адресу после вопросительного знака и разделяются между собой амперсандом (символ &). Полный адрес к примеру будет <samp class="lsin">http://site.ru/doc/?name=Vasya&password=pup</samp>.</p>
+			<p class="no">Объём данных в методе ограничен 4 Кб.</p></td></tr>
+		<tr><td>post</td><td>Метод <b>post</b> посылает на сервер данные в запросе браузера, объём пересылаемых данных ограничен лишь настройками сервера.</td></tr>
+	</table>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<form>
+			<p>Ваше имя: <input name="user"></p>
+			<p>Файл для заявки: <input name="file" type="file"></p>
+			<p><input type="submit" formaction="handler.php" formmethod="post" formenctype="multipart/form-data" value="Отправить">
+		</form>
+		<pre class="item2"><code>&lt;form><br>  &lt;p>Ваше имя: &lt;input name="user">&lt;/p><br>  &lt;p>Файл для заявки: &lt;input name="file" type="file">&lt;/p><br>  &lt;p>&lt;input type="submit" formaction="handler.php" formmethod="post" <br>            formenctype="multipart/form-data" value="Отправить"><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="formnovalidate"><a href="#z0">Атрибут - <samp class="grin">formnovalidate</samp><span class="html5"></span></a></h3>
+	<p>Отменяет встроенную проверку данных введённых пользователем в форме на корректность перед отправкой формы. <samp class="red">&lt;input <samp class="sin">type="email"</samp>></samp>, <samp class="red">&lt;input <samp class="sin">type="url"</samp>></samp>, а также при наличии атрибута <samp class="sin">pattern</samp> или <samp class="sin">required</samp> у <samp class="red">&lt;input></samp>.</p>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p><input required placeholder="Имя"></p>
+			<p><input type="email" required placeholder="Ваш email"></p>
+			<p><input type="url" required placeholder="Сайт"></p>
+			<p><input type="submit" formnovalidate value="Отправить без проверки"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;input required placeholder="Имя">&lt;/p><br>  &lt;p>&lt;input type="email" required placeholder="Ваш email">&lt;/p><br>  &lt;p>&lt;input type="url" required placeholder="Сайт">&lt;/p><br>  &lt;p>&lt;input type="submit" formnovalidate value="Отправить без проверки">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="formtarget"><a href="#z0">Атрибут - <samp class="grin">formtarget</samp><span class="html5"></span></a></h3>
+	<p>Определяет имя фрейма, в которое будет загружаться результат, возвращаемый обработчиком формы в виде HTML-документа. В качестве значения используется имя фрейма, заданное атрибутом <samp class="sin">name</samp>. Если установлено несуществующее имя, то будет открыта новая вкладка.</p>
+	<pre class="item2"><code>&lt;input type="submit" <br>       formtarget="имя фрейма | _blank | _self | _parent | _top"></code></pre>
+	<table class="t1 t3">
+		<tr><td>_blank</td><td>Загружает страницу в новую вкладку браузера.</td></tr>
+		<tr><td>_self</td><td>Загружает страницу в текущую вкладку. <i>(Значение по умолчанию.)</i></td></tr>
+		<tr><td>_parent</td><td>Загружает страницу во фрейм-родитель; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+		<tr><td>_top</td><td>Отменяет все фреймы и загружает страницу в окне браузера; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="list"><a href="#z0">Атрибут - <samp class="grin">list</samp><span class="html5"></span></a></h3>
+	<p>Указывает на список вариантов, созданный с помощью элемента <samp class="red">&lt;datalist></samp>, которые можно выбирать при наборе текста. Изначально этот список скрыт и становится доступным при получении полем фокуса.</p>
+	<input list="ff1">
+	<datalist id="ff1">
+		<option value="Текст1">
+		<option value="Текст2">
+		<option value="Текст3">
+	</datalist>
+	<pre class="item2"><code>&lt;input list="идентификатор"><br>&lt;datalist id="идентификатор"><br>  &lt;option value="Текст1"><br>  &lt;option value="Текст2"><br>  &lt;option value="Текст3"><br>&lt;/datalist></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="max"><a href="#z0">Атрибут - <samp class="grin">max</samp><span class="html5"></span></a></h3>
+	<p>Устанавливает верхнее значение для ввода числа или даты в поле формы.</p>
+	<pre class="item2"><code>&lt;input type="number" max="число"><br>&lt;input type="range"  max="число"><br>&lt;input type="date"   max="дата"></code></pre>
+	<div class="attr">Значения:</div>
+	Целое положительное или отрицательное число (для type="number", type="range").
+	<br>Дата в формате ГГГГ-ММ-ДД (например: 2012-12-22) для type="date".
+
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p>Укажите вашу температуру в градусах Цельсия</p>
+			<input type="number" min="35" max="41" value="36.6" step="0.1"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>Укажите вашу температуру в градусах Цельсия&lt;/p><br>  &lt;input type="number" min="35" max="41" <br>         value="36.6" step="0.1">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="maxlength"><a href="#z0">Атрибут - <samp class="grin">maxlength</samp></a></h3>
+	<p>Устанавливает максимальное число символов, которое может быть введено пользователем в текстовом поле. Когда это количество достигается при наборе, дальнейший ввод становится невозможным.</p>
+	<pre class="item2"><code>&lt;input type="text" maxlength="число"><br>&lt;input type="password" maxlength="число"></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="min"><a href="#z0">Атрибут - <samp class="grin">min</samp><span class="html5"></span></a></h3>
+	<p>Устанавливает нижнее значение для ввода числа или даты в поле формы.</p>
+	<pre class="item2"><code>&lt;input type="number" min="число"><br>&lt;input type="range"  min="число"><br>&lt;input type="date"   min="дата"></code></pre>
+	<div class="attr">Значения:</div>
+	Целое положительное или отрицательное число (для type="number", type="range").
+	<br>Дата в формате ГГГГ-ММ-ДД (например: 2012-12-22) для type="date".
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="minlength"><a href="#z0">Атрибут - <samp class="grin">minlength</samp><span class="html5"></span></a></h3>
+	<p>Задаёт минимальное число символов, которое может быть введено пользователем в текстовом поле. Если число символов меньше указанного значения, то браузер выдаёт сообщение об ошибке и не отправляет форму.</p>
+	<pre class="item2"><code>&lt;input type="text" minlength="число"><br>&lt;input type="password" minlength="число"></code></pre>
+	<div class="no"><samp class="sin">IE</samp> и <samp class="sin">Android WebView</samp> не поддерживает данный атрибут.</div>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p>Введите пароль</p>
+			<p><input type="password" size="30" minlength="6" required></p>
+			<p><input type="submit" name="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>Введите пароль&lt;/p><br>  &lt;p>&lt;input type="password" size="30" minlength="6" required>&lt;/p><br>  &lt;p>&lt;input type="submit" name="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="multiple"><a href="#z0">Атрибут - <samp class="grin">multiple</samp><span class="html5"></span></a></h3>
+	<p>Позволяет указывать одновременно несколько файлов в поле для загрузки файлов, а также несколько адресов электронной почты. При использовании двух и более почтовых адресов они должны перечисляться через запятую.</p>
+	<pre class="item2"><code>&lt;input type="file" multiple><br>&lt;input type="email" multiple></code></pre>
+	<div class="no">Opera 10.62, Firefox 3.6 и Safari поддерживают <samp class="red">multiple</samp> только для <samp class="sin">type="<samp class="lsin">file</samp>"</samp>.</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="name"><a href="#z0">Атрибут - <samp class="grin">name</samp></a></h3>
+	<p>Определяет уникальное имя элемента формы. Как правило, это имя используется при отправке данных на сервер или для доступа к введённым данным поля через скрипты. В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к элементу по имени соблюдайте ту же форму написания, что и в атрибуте <samp class="sin">name</samp>.</p>
+	<p>Атрибут <samp class="sin">name</samp> также определяет в одну группу ряд переключателей (<samp class="red">&lt;input <samp class="sin">type="<samp class="lsin">radio</samp>" name=""</samp>></samp>) или флажков (<samp class="red">&lt;input <samp class="sin">type="<samp class="lsin">checkbox</samp>" name=""</samp>></samp>)</p>
+	<pre class="item2"><code>&lt;input name="имя"></code></pre>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<form>
+			<script>function dataField(f) {alert("Вы ввели: " + f.comment.value);}</script>
+			<p><b>Введите текст</b></p>
+			<p><input type="text" name="comment">
+				<input type="button" value="ОК" onClick="dataField(this.form)"></p>
+		</form>
+		<pre class="item2"><code>&lt;form><br>  &lt;script><br>    function dataField(f) {alert("Вы ввели: " + f.comment.value);}<br>  &lt;/script><br>  &lt;p>&lt;b>Введите текст&lt;/b>&lt;/p><br>  &lt;p>&lt;input type="text" name="comment"><br>     &lt;input type="button" value="ОК" onClick="dataField(this.form)">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="pattern"><a href="#z0">Атрибут - <samp class="grin">pattern</samp><span class="html5"></span></a></h3>
+	<p>Указывает регулярное выражение, согласно которому требуется вводить и проверять данные в поле формы. Если присутствует атрибут <samp class="sin">pattern</samp>, то форма не будет отправляться, пока поле не будет заполнено правильно.</p>
+	<pre class="item2"><code>&lt;input type="email"  pattern="выражение"><br>&lt;input type="tel"    pattern="выражение"><br>&lt;input type="text"   pattern="выражение"><br>&lt;input type="search" pattern="выражение"><br>&lt;input type="url"    pattern="выражение"></code></pre>
+	<div class="no"><samp class="red">Safari</samp> не поддерживает данный атрибут.</div>
+	<div class="attr mt40 ls1" style="text-align:center;font-size:20px">Регулярные выражения</div>
+	<table class="t1 todd t3 tb mb10">
+		<tr><td width="40%">\d [0-9]</td><td>Одна цифра от 0 до 9.</td></tr>
+		<tr><td>\D [^0-9]</td><td>Любой символ кроме цифры.</td></tr>
+		<tr><td>\s</td><td>Пробел.</td></tr>
+		<tr><td>[A-Z]</td><td>Только заглавная латинская буква.</td></tr>
+		<tr><td>[A-Za-z]</td><td>Только латинская буква в любом регистре.</td></tr>
+		<tr><td>[А-Яа-яЁё]</td><td>Только русская буква в любом регистре.</td></tr>
+		<tr><td>[A-Za-zА-Яа-яЁё]</td><td>Любая буква русского и латинского алфавита.</td></tr>
+		<tr><td>[0-9]{3}</td><td>Три цифры.</td></tr>
+		<tr><td>[A-Za-z]{6,}</td><td>Не менее шести латинских букв.</td></tr>
+		<tr><td>[A-Za-zА-Яа-яЁё]{2,}</td><td>Не менее двух символов.</td></tr>
+		<tr><td>[0-9]{,3}</td><td>Не более трёх цифр.</td></tr>
+		<tr><td>[0-9]{5,10}</td><td>От пяти до десяти цифр.</td></tr>
+		<tr><td>^[a-zA-Z]+$</td><td>Любое слово на латинице.</td></tr>
+		<tr><td>^[А-Яа-яЁё\s]+$</td><td>Любое слово на русском включая пробелы.</td></tr>
+		<tr><td>^[ 0-9]+$</td><td>Любое число.</td></tr>
+		<tr><td>[0-9]{6}</td><td>Почтовый индекс.</td></tr>
+		<tr><td>\d+(,\d{2})?</td><td>Число в формате 1,34 (разделитель запятая).</td></tr>
+		<tr><td>\d+(\.\d{2})?</td><td>Число в формате 2.10 (разделитель точка).</td></tr>
+		<tr><td style="font-size:16px">\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}</td><td>от 0.0.0.0 до 999.999.999.999 (IP-адрес)</td></tr>
+		<tr><td style="font-size:15px; letter-spacing:-1px;">^(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$</td><td>от 0.0.0.0 до 255.255.255.255 (ipv4)</td></tr>
+	</table>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p>Введите телефон в формате 2-xxx-xxx, где вместо <b>x</b> должна быть цифра:</p>
+			<p><input type="tel" pattern="2-[0-9]{3}-[0-9]{3}"></p>
+			<p><input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>Введите телефон в формате 2-xxx-xxx, где вместо x <br>     должна быть цифра:&lt;/p><br>  &lt;p>&lt;input type="tel" pattern="2-[0-9]{3}-[0-9]{3}">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="placeholder"><a href="#z0">Атрибут - <samp class="grin">placeholder</samp><span class="html5"></span></a></h3>
+	<p>Выводит текст внутри поля формы, который исчезает при получении фокуса или при наборе текста. Обычно отображается серым цветом. В качестве значения используется текстовая строка или слово. Если внутри строки предполагается пробел, её необходимо брать в двойные или одинарные кавычки.</p>
+	<pre class="item2"><code>&lt;input placeholder="текст"></code></pre>
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p><input type=search placeholder="Введите текст для поиска" size="40">
+			<input type="submit" value="Искать"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;input type=search placeholder="Введите текст для поиска"><br>  &lt;input type="submit" value="Искать">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="readonly"><a href="#z0">Атрибут - <samp class="grin">readonly</samp></a></h3>
+	<p>Когда к элементу <samp class="red">&lt;input></samp> добавляется атрибут <samp class="sin">readonly</samp>, текстовое поле не может изменяться пользователем, в том числе вводиться новый текст или модифицироваться существующий. Тем не менее, состояние и содержимое поля можно менять с помощью скриптов и данные отправляются на сервер.</p>
+	<pre class="item2"><code>&lt;input type="text" readonly><br>&lt;input type="password" readonly></code></pre>
+	<p>Браузеры Firefox и Internet Explorer позволяют в поле для чтения установить курсор и выделять текст с помощью клавиатуры. Opera, Chrome и Safari допускают выделение только мышью.</p>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="required"><a href="#z0">Атрибут - <samp class="grin">required</samp><span class="html5"></span></a></h3>
+	<p>Устанавливает поле формы обязательным для заполнения перед отправкой формы на сервер. Если обязательное поле пустое, браузер выведет сообщение об ошибке, а форма отправлена не будет. Вид и содержание сообщения зависит от браузера и меняться пользователем не может.</p>
+	<pre class="item2"><code>&lt;input required></code></pre>
+	<div class="prm mt20">
+		<p><i>А можно как-то повлиять на цвет подсветки рамки, ту что включает сам браузер (в хроме желтый, в firefox красный) когда поле не заполнено?</i></p>
+		<pre><code>input:invalid {box-shadow: none;}</code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="size"><a href="#z0">Атрибут - <samp class="grin">size</samp></a></h3>
+	<p>Ширина текстового поля, которое определяется числом символов моноширинного шрифта. Иными словами, ширина задаётся количеством близстоящих букв одинаковой ширины по горизонтали. Если размер шрифта изменяется с помощью стилей, ширина также соответственно меняется. Значение по умолчанию - 20 символов.</p>
+	<pre class="item2"><code>&lt;input type="text" size="число"><br>&lt;input type="password" size="число"></code></pre>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="src"><a href="#z0">Атрибут - <samp class="grin">src</samp></a></h3>
+	<p>Адрес графического файла, который будет отображаться на веб-странице в поле с изображением. В качестве значения принимается полный или относительный путь к файлу.</p>
+	<pre class="item2"><code>&lt;input type="image" src="адрес"></code></pre>
+	<div class="no">
+		<i>Это не поле ввода, а что-то типа графической кнопки для отправки формы на сервер. Соответственно, подходит в ограниченных случаях. Т.е. соответствует:</i>
+		<pre class="mt10"><code>&lt;input type="submit" value="Отправить"></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="step"><a href="#z0">Атрибут - <samp class="grin">step</samp><span class="html5"></span></a></h3>
+	<p>Устанавливает шаг изменения числа для ползунков и полей ввода чисел. Значение - любое целое или дробное число; по умолчанию - 1.</p>
+	<pre class="item2"><code>&lt;input type="number" step="число"><br>&lt;input type="range" step="число"></code></pre>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<form action="handler.php">
+			<p><input type="range" min="0" max="10" step="2"></p>
+			<p>Введите произвольное значение от 0 до 1:
+			<input type="number" value="0" min="0" max="1" step="0.1"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;input type="range" min="0" max="10" step="2">&lt;/p><br>  &lt;p>Введите произвольное значение от 0 до 1:<br>     &lt;input type="number" value="0" min="0" max="1" step="0.1">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="type"><a href="#z0">Атрибут - <samp class="grin">type</samp></a></h3>
+	<p>Сообщает браузеру, к какому типу относится элемент формы. Значение по умолчанию - text.</p>
+	<pre class="item2"><code>&lt;input type="button | checkbox | file | hidden | image | <br>             password | radio | reset | submit | text"></code></pre>
+
+	<table class="t1 t3 tb mt30">
+		<tr><td><pre><code>&lt;input type="text"></code></pre>
+			<input type="text"></td>
+			<td>Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</td></tr>
+		<tr><td><pre><code>&lt;input type="password"></code></pre>
+			<input type="password"></td>
+			<td>Обычное текстовое поле, но отличается от него тем, что все символы показываются звездочками. Предназначено для того, чтобы никто не подглядел вводимый пароль.</td></tr>
+		<tr><td><pre><code>&lt;input type="checkbox"></code></pre>
+			<input type="checkbox" name="f1"><input type="checkbox" name="f1"><input type="checkbox" name="f1"></td>
+			<td>Флажки. Позволяют выбрать более одного варианта из предложенных.</td></tr>
+		<tr><td><pre><code>&lt;input type="radio"<br>       name="radio"></code></pre>
+			<input type="radio" name="f2"><input type="radio" name="f2"><input type="radio" name="f2"></td>
+			<td>Переключатели. Используются, когда следует выбрать один вариант из нескольких предложенных.<br>Переключатели объединяются в группы при помощи задания атрибута <samp class="sin">name="<samp class="lsin">имя группы</samp>"</samp> с одинаковым значением.</td></tr>
+		<tr><td><pre><code>&lt;input type="button"<br>       value="текст"></code></pre>
+			<input type="button" value="текст"></td>
+			<td>Кнопка.
+			<br>Атрибуты <samp class="red">input</samp> которые дополняют тип <samp class="lsin">button</samp>
+			<table class="t1 t3">
+				<tr><td>name</td><td>Имя кнопки, предназначено для того, чтобы обработчик формы мог её идентифицировать.</td></tr>
+				<tr><td>disabled</td><td>Блокирует кнопку и не позволяет на неё нажимать.</td></tr>
+				<tr><td>form</td><td>Идентификатор формы для связывания кнопки с элементом <samp class="red">&lt;form></samp>.</td></tr>
+				<tr><td>type</td><td>Для обычной кнопки значением является <samp class="lsin">button</samp>.</td></tr>
+				<tr><td>value</td><td>Надпись на кнопке.</td></tr>
+				<tr><td>autofocus</td><td>Кнопка получает фокус после загрузки документа.</td></tr>
+			</table></td></tr>
+		<tr><td><pre class="ls-1"><code>&lt;input type="file" <br>style="<abbr title="дефолтное значение для Opera">font-size:13.3333px;</abbr><br>letter-spacing:-7.5px"></code></pre>
+			<input type="file" size="14" style="letter-spacing:-.5625em;font-size:13.3333px"></td>
+			<td><p>Поле для ввода имени файла, который пересылается на сервер.</p>
+				<input type="file" style="border:1px solid red"> - без <samp class="sin">letter-spacing</samp></td></tr>
+		<tr><td><pre><code>&lt;input type="reset"></code></pre>
+			<input type="reset"></td>
+			<td>Кнопка для возвращения данных формы в первоначальное значение.</td></tr>
+		<tr><td><pre><code>&lt;input type="submit"></code></pre>
+			<input type="submit"></p>
+			<pre><code>&lt;input type="submit"<br>       value="Искать"></code></pre>
+			<input type="submit" value="Искать"></td>
+			<td>Кнопка для отправки данных формы на сервер.</td></tr>
+		<tr><td><pre class="ls-1"><code>&lt;input type="image" src=""></code></pre>
+			<input type="image" src=""></td>
+			<td>Поле с изображением. При нажатии на рисунок данные формы отправляются на сервер.</td></tr>
+		<tr><td><pre><code>&lt;input type="hidden"></code></pre>
+			<input type="hidden"></td>
+			<td>Скрытое поле. Оно никак не отображается на веб-странице.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="type5"><a href="#z0">Значения <samp class="grin">type</samp> в <samp class="red ls1">HTML5</samp></a></h3>
+	<table class="t1 t3 tb mt20">
+		<tr><td><pre><code>&lt;input type="color"><br><input type="color"></td>
+			<td>Виджет для выбора цвета.</td></tr>
+		<tr><td><pre><code>&lt;input type="date"><br><input type="date"></td>
+			<td>Поле для выбора календарной даты.</td></tr>
+		<tr><td><pre><code>&lt;input type="datetime"><br><input type="datetime"></td>
+			<td>Указание даты и времени.</td></tr>
+		<tr><td><pre class="ls-1"><code>&lt;input type="datetime-local"><br><input type="datetime-local"></td>
+			<td>Указание местной даты и времени.</td></tr>
+		<tr><td><pre><code>&lt;input type="email"><br><input type="email"></td>
+			<td>Для адресов электронной почты.</td></tr>
+		<tr><td><pre><code>&lt;input type="number"><br><input type="number"></td>
+			<td>Ввод чисел.<br><div class="no">Android для типа <samp class="sin">number</samp> не поддерживает атрибуты <smap class="sin">step, min</smap> и <samp class="sin">max</samp>.</div></td></tr>
+		<tr><td><pre><code>&lt;input type="range"<br>min="50" max="100"<br>value="50"><br><input type="range" min="50" max="100" value="50"></td>
+			<td>Ползунок для выбора чисел в указанном диапазоне.</td></tr>
+		<tr><td><pre><code>&lt;input type="search"><br>&lt;input type="submit"<br>       value="Искать"></code></pre><input type="search"><input type="submit" value="Искать"></td>
+			<td>Поле для поиска.</td></tr>
+		<tr><td><pre><code>&lt;input type="tel"><br><input type="tel"></td>
+			<td>Для телефонных номеров.</td></tr>
+		<tr><td><pre><code>&lt;input type="time"><br><input type="time"></td>
+			<td>Для времени.</td></tr>
+		<tr><td><pre><code>&lt;input type="url"><br><input type="url"></td>
+			<td>Для веб-адресов.</td></tr>
+		<tr><td><pre><code>&lt;input type="month"><br><input type="month"></td>
+			<td>Выбор месяца.</td></tr>
+		<tr><td><pre><code>&lt;input type="week"><br><input type="week"></td>
+			<td>Выбор недели.</td></tr>
+	</table>
+
+
+
+	<style type="text/css">
+		.th5 {margin:5px auto 10px; color:#333;}
+		.th5 td:nth-child(n+2){background:#cee2d3; width:70px;}
+		.th5 span::before{content:'\e81b'; padding-right:5px; font-family:fontello; color:#4b846a;}
+
+		.th5 .no{background:#f2c8c8 !important}
+		.th5 .no span::before{content:'\e81c'; color:#ce3045; padding-right:0;}
+
+		.th5 .br td{background-color:#FAF3D2 !important}
+		.th5 .br td:nth-child(n+2) span{font-size:24px; margin-left:-10px}
+		.th5 .br td:nth-child(n+2) span::before{content:''}
+	</style>
+
+	<h3 class="sin point mt30" onclick='typehtml5.classList.toggle("hiden");' title="скрыть/показать">Поддержка браузерами значений HTML5 (на 24.03.2018)</h3>
+		<table class="t1 t0 tb todd hiden th5 t1c" id="typehtml5" onclick="event.stopPropagation()">
+			<tr class="br"><td style="text-align:center; color:#333;">Значение</td><td><span class="t-ie" title="Internet Explorer"></span></td><td><span class="t-edge" title="Edge"></span></td><td><span class="t-chrome" title="Chrome"></span></td><td><span class="t-opera" title="Opera"></span></td><td><span class="t-safari" title="Safari"></span></td><td><span class="t-firefox" title="Firefox"></span></td></tr>
+			<tr><td>color</td><td class="no"><span></span></td><td><span>14</span></td><td><span>20</span></td><td><span>11.5</span></td><td><span>11</span></td><td><span>29</span></td></tr>
+			<tr><td>date</td><td class="no"><span></span></td><td><span>13</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td><span>57</span></td></tr>
+			<tr><td>datetime</td><td class="no"><span></span></td><td><span>11</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td class="no"><span></span></td></tr>
+			<tr><td>datetime-local</td><td class="no"><span></span></td><td><span>11</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td class="no"><span></span></td></tr>
+			<tr><td>email</td><td><span>10</span></td><td><span>11</span></td><td><span>5</span></td><td><span>10.1</span></td><td><span>5</span></td><td><span>4</span></td></tr>
+			<tr><td>month</td><td class="no"><span></span></td><td><span>13</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td class="no"><span></span></td></tr>
+			<tr><td>number</td><td><span>10</span></td><td><span>11</span></td><td><span>6</span></td><td><span>10.1</span></td><td><span>5</span></td><td><span>29</span></td></tr>
+			<tr><td>range</td><td><span>10</span></td><td><span>11</span></td><td><span>4</span></td><td><span>10.1</span></td><td><span>3.1</span></td><td><span>23</span></td></tr>
+			<tr><td>search</td><td><span>10</span></td><td><span>11</span></td><td><span>5</span></td><td><span>10.1</span></td><td><span>5</span></td><td><span>4</span></td></tr>
+			<tr><td>tel</td><td><span>10</span></td><td><span>11</span></td><td><span>5</span></td><td><span>10.1</span></td><td><span>5</span></td><td><span>4</span></td></tr>
+			<tr><td>time</td><td class="no"><span></span></td><td><span>13</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td><span>57</span></td></tr>
+			<tr><td>url</td><td><span>10</span></td><td><span>11</span></td><td><span>8</span></td><td><span>15</span></td><td><span>6</span></td><td><span>4</span></td></tr>
+			<tr><td>week</td><td class="no"><span></span></td><td><span>13</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td class="no"><span></span></td></tr>
+		</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="value"><a href="#z0">Атрибут - <samp class="grin">value</samp></a></h3>
+	<p>Определяет значение элемента формы, которое будет отправлено на сервер или получено с помощью клиентских скриптов. На сервер отправляется пара «имя=значение», где имя задаётся атрибутом <samp class="sin">name</samp> элемента <samp class="red">&lt;input></samp>, а значение — атрибутом <samp class="sin">value</samp>.</p>
+	<pre class="item2"><code>&lt;input value="текст"></code></pre>
+	<div class="mt30">В зависимости от типа элемента атрибут <samp class="sin">value</samp> выступает в следующей роли:</div>
+	<ul class="list">
+		<li>для файлового поля (<samp>input type="file"</samp>) не оказывает влияние.</li>
+		<li>для кнопок (<samp>input type="button | reset | submit"</samp>) устанавливает текстовую надпись на них;</li>
+		<li>для текстовых полей (<samp>input type="password | text"</samp>) указывает предварительно введённую строку. Пользователь может стирать текст и вводить свои символы, но при использовании в форме кнопки Reset пользовательский текст очищается и восстанавливается введённый в атрибуте value;</li>
+		<li>для флажков и переключателей (<samp>input type="checkbox | radio"</samp>) уникально определяет каждый элемент, с тем, чтобы клиентская или серверная программа могла однозначно установить, какой пункт выбрал пользователь.</li>
+	</ul>
+	<fieldset class="prm mt30">
+		<legend></legend>
+		<form action="handler.php">
+			<p><b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?</b></p>
+			<p><input type="radio" name="answer" value="a1">Офицерский состав
+				<br><input type="radio" name="answer" value="a2">Операционная система
+				<br><input type="radio" name="answer" value="a3">Большой полосатый мух</p>
+			<p><input type="submit"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?&lt;/b>&lt;/p><br>  &lt;p>&lt;input type="radio" name="answer" value="a1">Офицерский состав&lt;br><br>    &lt;input type="radio" name="answer" value="a2">Операционная система&lt;br><br>    &lt;input type="radio" name="answer" value="a3">Большой полосатый мух&lt;/p><br>  &lt;p>&lt;input type="submit">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+
+
+<h2 class="sin mb40 mt40" id="pclass"><a href="#">Псевдоклассы</a></h2>
+
+
+<div class="item" id="disabled2">
+<p><samp class="sin"><a href="#">:disabled</a></samp></p>
+	<p>используется для применения стиля к заблокированным элементам форм. Такие элементы не могут получить фокус, быть нажатыми или активированы, в текстовых полях нельзя набирать текст.</p>
+	<div class="item2"><pre><code>Селектор:disabled  { ... }</code></pre></div>
+	<style type="text/css">
+		.ta3 {width:300px; height:30px; resize:none; background:#fcfcfc; display:inline-block;}
+		#f1 textarea:disabled::placeholder{color:red;}
+		.ta4{background:#eee;}
+	</style>
+	<form class="mt40 prm" id="f1">
+		<textarea class="ta3" placeholder="введите текст"></textarea>
+		<textarea class="ta3 ta4" placeholder="заблокированно" disabled></textarea>
+	</form>
+	<pre class="item2"><code>&lt;style type="text/css"><br>  .ta3 {width:300px; height:30px; resize:none; background:#fcfcfc; display:inline-block;}<br>  .ta4 {background:#eee;}<br>  #f1 textarea:disabled::placeholder {color:red;}<br>&lt;/style><br><br>&lt;form id="f1"><br>  &lt;textarea class="ta3" placeholder="введите текст">&lt;/textarea><br>  &lt;textarea class="ta3 ta4" placeholder="заблокированно" disabled>&lt;/textarea><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="in-range">
+<p><samp class="sin"><a href="#">:in-range</a></samp></p>
+	<p>Применяется к элементам форм, у которых введённое пользователем значение находится в заранее заданном диапазоне. Сам диапазон устанавливается с помощью атрибутов min и max, они, соответственно, задают минимальное и максимальное значение.</p>
+	<style>
+		.f4 input:in-range {background: #e2edc1;}
+		.f4 input:out-of-range {background: #f9c3d2;}
+	</style>
+	<form class="f4 prm mt40">
+		<p>Введите число от 1 до 10</p>
+		<p><input type="number" min="1" max="10" value="1"></p>
+	</form>
+	<pre class="item2"><code>&lt;style><br>  .f4 input:in-range {background: #e2edc1;}<br>  .f4 input:out-of-range {background: #f9c3d2;}<br>&lt;/style><br><br>&lt;form class="f4"><br>  &lt;p>Введите число от 1 до 10&lt;/p><br>  &lt;p>&lt;input type="number" min="1" max="10" value="1">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="out-of-range">
+<p><samp class="sin"><a href="#">:out-of-range</a></samp></p>
+	<p>Псевдокласс применяется к полям форм, у которых введённое пользователем значение выходит из заданного диапазона. Псевдокласс работает только для тех полей, где пользователь может сам ввести значение, даже несмотря на ограничения наложенные атрибутами min и max.</p>
+	<style>
+		.f6 input:in-range {background:#e2edc1;}
+		.f6 input:out-of-range {background:#f9c3d2;}
+		.f6 label {height:1em;}
+		.f6 input:out-of-range + label::after {content:'Неверное число'; color:#ec008c; margin-left:0.5em;}
+	</style>
+	<form class="f6 prm mt40">
+		<p>Введите число от 1 до 10</p>
+		<p><input type="number" id="dec" min="1" max="10" value="1">
+		<label for="dec"></label></p>
+	</form>
+	<pre class="item2"><code>&lt;style><br>  .f6 input:in-range {background:#e2edc1;}<br>  .f6 input:out-of-range {background:#f9c3d2;}<br>  .f6 <abbr title="label по высоте нулевой, поэтому текст выводится, но не виден. Добавьте height: 1em к label.">label {height:1em;}</abbr><br>  .f6 input:out-of-range + label::after {content:'Неверное число'; color:#ec008c; margin-left:0.5em;}<br>&lt;/style><br><br>&lt;form class="f6"><br>  &lt;p>Введите число от 1 до 10&lt;/p><br>  &lt;p>&lt;input type="number" id="dec" min="1" max="10" value="1"><br>  &lt;label for="dec">&lt;/label>&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="invalid">
+<p><samp class="sin"><a href="#">:invalid</a></samp></p>
+	<p>Применяется к полям формы, содержимое которых не соответствует указанному типу. Например, для <b>type="number"</b> должно вводиться число, а не буквы, для <b>type="email"</b> корректный адрес электронной почты.</p>
+	<style>
+		.f5 input:invalid {background: #fdd;} /* Красный цвет фона */
+		.f5 input:valid {background: #dfd;}   /* Зелёный цвет фона */
+		.f50 {background:#ccc;}
+		#f51 {background:#ccc;}
+	</style>
+	<form class="f5 prm mt40">
+		<p>Адрес сайта</p>
+		<p><input type="url" required></p>
+		<p>Адрес электронной почты</p>
+		<p><input type="email" required></p>
+		<p><input type="submit" value="Отправить" id="f51"></p>
+		<p><input type="submit" value="Отправить" class="f50"></p>
+	</form>
+	<pre class="item2"><code>&lt;style><br>  .f5 input:invalid {background: #fdd;} /* Красный цвет фона */<br>  .f5 input:valid {background: #dfd;}   /* Зелёный цвет фона */<br>  .f50 {background:#ccc;}<br>  #f51 {background:#ccc;}<br>&lt;/style><br><br>&lt;form class="f5"><br>  &lt;p>Адрес сайта&lt;/p><br>  &lt;p>&lt;input type="url" required>&lt;/p><br>  &lt;p>Адрес электронной почты&lt;/p><br>  &lt;p>&lt;input type="email" required>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить" id="f51">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить" class="f50">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="valid">
+<p><samp class="sin"><a href="#">:valid</a></samp></p>
+	<p>Применяется к полям формы, содержимое которых проходит проверку в браузере на соответствие указанному типу. Например, для <samp class="sin">type="<samp class="lsin">number</samp>"</samp> вводится число, а не буквы, для <samp class="sin">type="<samp class="lsin">email</samp>"</samp> корректный адрес электронной почты.</p>
+	<pre class="item2"><code>Селектор:valid { ... }</code></pre>
+</div>
+
+
+
+<div class="item" id="read-only">
+<p><samp class="sin"><a href="#">:read-only</a></samp></p>
+	<p>Псевдокласс применяется к полям формы, у которых задан атрибут <samp class="sin">readonly</samp>. Такое поле не может быть модифицировано, при этом оно получает фокус, а данные в таком поле можно выделить и скопировать.</p>
+	<p>Firefox поддерживает псевдокласс <samp class="red">:-moz-read-only</samp>.</p>
+	<div class="item2"><pre><code>input:-moz-read-only { ... }<br>input:read-only { ... }</code></pre></div>
+	<style>
+		#f7 input:read-only {opacity:0.3;} /* Полупрозрачность */	
+	</style>
+	<form action="handler.php" id="f7" class="prm mt40">
+		<p><input type="text" name="comment" size="40" value="Введенный текст не может изменяться" readonly></p>
+		<p><input type="submit" value="Отправить"></p>
+	</form>
+	<pre class="item2"><code>&lt;style><br>  #f7 input:read-only {opacity:0.5;} /* Полупрозрачность */<br>&lt;/style><br><br>&lt;form action="handler.php" id="f7"><br>  &lt;p>&lt;input type="text" name="comment" size="40"<br>  value="Введенный текст не может изменяться" readonly>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="read-write">
+<p><samp class="sin"><a href="#">:read-write</a></samp></p>
+	<p>Псевдокласс применяется к полям формы, доступных для изменения. Псевдокласс <samp class="red">:read-write</samp> является противоположным по своему действию <samp class="red">:read-only</samp>, который применяется к полям с атрибутом <samp class="sin">readonly</samp> (только для чтения).</p>
+	<div class="no">Firefox поддерживает псевдокласс <samp class="red">:-moz-read-write</samp>.</div>
+	<div class="item2"><pre><code>input:-moz-read-write { ... }<br>input:read-write { ... }</code></pre></div>
+	<style>
+		#f8 input:read-only {border: 3px solid grey;}
+		#f8 input:read-write {border: 3px solid green;}
+	</style>
+	<form action="handler.php" id="f8" class="prm mt40">
+		<p><input type="text" size="40" value="Введенный текст не может изменяться" readonly></p>
+		<p><input type="text" size="40" value="Заранее введенный текст"></p>
+		<p><input type="text" size="40" value="disabled" disabled></p>
+		<p><input type="submit" value="Отправить"></p>
+	</form>
+	<p>Как видно из примера элемнт <samp class="red">&lt;input></samp> с параметром <samp class="sin">disabled</samp> применяет на себя параметры заданные псевдоклассом <samp class="sin">:read-write</samp>.</p>
+	<pre class="item2"><code>&lt;style><br>  #f8 input:read-only {border: 3px solid grey;}<br>  #f8 input:read-write {border: 3px solid green;}<br>&lt;/style><br><br>&lt;form action="handler.php" id="f8"><br>  &lt;p>&lt;input type="text" size="40" value="Введенный текст не может изменяться" readonly>&lt;/p><br>  &lt;p>&lt;input type="text" size="40" value="Заранее введенный текст">&lt;/p><br>  &lt;p>&lt;input type="text" size="40" value="disabled" disabled>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="optional">
+<p><samp class="sin"><a href="#">:optional</a></samp></p>
+	<p>Псевдокласс применяет стилевые правила к элементу <samp class="red">&lt;input></samp>, у которого не задан атрибут <b>required</b>, он позволяет выделять поля обязательные к заполнению перед отправкой формы. Таким образом <samp class="sin">:optional</samp> применяется к необязательным полям формы.</p>
+	<pre class="item2"><code>input:optional { ... }</code></pre>
+</div>
+
+
+
+<div class="item" id="required2">
+<p><samp class="sin"><a href="#">:required</a></samp></p>
+	<p>Псевдокласс применяет стилевые правила к элементу <samp class="red">&lt;input></samp>, у которого установлен атрибут <samp class="sin">required</samp>, он позволяет выделять поля обязательные к заполнению перед отправкой формы.</p>
+	<div class="item2"><pre><code>input:required {  ...  }</code></pre></div>
+	<style>
+		#f9 label {width:110px; float:left; text-align:right; padding-right:10px;}
+		#f9 input[type="text"], #f9 textarea {width: 320px; background:#fefefe;}
+		#f9 input:required {border:2px solid red;}
+	</style>
+	<form action="handler.php" id="f9" class="prm mt40 mb10">
+		<p><label for="user">Имя</label>
+		<input id="user" type="text" required></p>
+		<p><label for="email">E-mail</label><input id="email" type="text"></p>
+		<p><label for="text">Комментарий</label>
+			<textarea cols="40" rows="10" id="text"></textarea></p>
+		<p><label>&nbsp;</label><input type="submit" id="send" value="Отправить"></p>
+	</form>
+	<pre class="item2"><code>&lt;style><br>  #f9 p {margin: 0 0 5px;}<br>  #f9 label {width:110px; float:left; text-align:right; padding-right:10px;}<br>  #f9 input[type="text"], #f9 textarea {width:320px;}<br>  #f9 input:required {border:2px solid red;}<br>&lt;/style><br><br>&lt;form action="handler.php" id="f9"><br>  &lt;p>&lt;label for="user">Имя&lt;/label><br>  &lt;input id="user" type="text" required>&lt;/p><br>  &lt;p>&lt;label for="email">E-mail&lt;/label>&lt;input id="email" type="text">&lt;/p><br>  &lt;p>&lt;label for="text">Комментарий&lt;/label><br>     &lt;textarea cols="40" rows="10" id="text">&lt;/textarea>&lt;/p><br>  &lt;p>&lt;label>&nbsp;&lt;/label>&lt;input type="submit" id="send" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+
+
+
+
+<div class="item" id="prm1">
+<h3 class="sin"><a href="#">Пример простой формы</a></h3>
+	<form style="border:1px solid #333;padding:5px;">
+		<div><label for="nickname">Ваше имя:</label></div>
+		<div><input type="text" id="nickname" name="nickname" /></div>
+		<div><label for="user-email">Ваш e-mail:</label></div>
+		<div><input type="email" id="user-email" name="user-email" required="required" /></div>
+		<div><label for="content">Содержание:</label></div>
+		<div><textarea rows="10" cols="50" id="content" name="content" placeholder="Введите текст"></textarea></div>
+		<div><input type="submit" value="Добавить" /></div>
+	</form>
+	<pre class="item2"><code>&lt;form style="border:1px solid #333; padding:5px;"><br>  &lt;div>&lt;label for="nickname">Ваше имя:&lt;/label>&lt;/div><br>  &lt;div>&lt;input type="text" id="nickname" name="nickname" />&lt;/div><br><br>  &lt;div>&lt;label for="user-email">Ваш e-mail:&lt;/label>&lt;/div><br>  &lt;div>&lt;input type="email" id="user-email" name="user-email"<br>       <abbr title="Ещё один очень полезный атрибут это required, который добавляется к элементам формы без какого-либо значения. Если теперь мы оставим это поле пустым, то при отправке формы увидим ошибку." style="font-weight:800;"><samp class="red">required</samp>="required"</abbr> />&lt;/div><br><br>  &lt;div>&lt;label for="content">Содержание:&lt;/label>&lt;/div><br>  &lt;div>&lt;textarea rows="10" cols="50" id="content" name<="content"<br>       placeholder="Введите комментарий">&lt;/textarea>&lt;/div><br><br>  &lt;div>&lt;input type="submit" value="Добавить" />&lt;/div><br>&lt;/form></code></pre>
+</div>
+
+
+
+<div class="item" id="prm2">
+<h3 class="sin"><a href="#">Пример адаптивновти на флексах</a></h3>
+	<style>
+		.primf1 p {display:flex;}
+		.primf1 label {margin-right:10px;}
+		.primf1 input {background-color:#fffffe; border:1px solid;}
+		.fl1 {flex-grow:1;}
+		.mr {margin-right:10px;}
+		.fl3 {flex-grow:3;}
+	</style>
+	<div class="primf1">
+		<p style="margin-bottom:10px">
+			<label>Имя:</label>
+			<input name="name" id="name" class="fl1" placeholder="flex-grow:1;">
+		</p>
+		<p style="margin-bottom:10px">
+			<label>Имя:</label>
+			<input name="name1" id="name1" class="fl1 mr" placeholder="flex-grow:1;">
+			<input name="name13" id="name13" class="fl3" placeholder="flex-grow:3;">
+		</p>
+		<p>
+			<label>Имя:</label>
+			<input name="name2" id="name2" placeholder="flex-grow:0;">
+		</p>
+	</div>
+	<pre class="item2"><code>&lt;style><br>  p {display:flex;}<br>  label {margin-right:10px;}<br>  .fl1 {flex-grow:1;}<br>  .mr {margin-right:10px;}<br>  .fl3 {flex-grow:3;}<br>&lt;/style><br><br>&lt;p><br>  &lt;label>Имя:&lt;/label><br>  &lt;input name="name" id="name" class="fl1" placeholder="flex-grow:1;">&lt;/p><br>&lt;p><br>  &lt;label>Имя:&lt;/label><br>  &lt;input name="name1" id="name1" class="fl1 mr" placeholder="flex-grow:1;"><br>  &lt;input name="name13" id="name13" class="fl3" placeholder="flex-grow:3;"><br>&lt;/p><br>&lt;p><br>  &lt;label>Имя:&lt;/label><br>  &lt;input name="name2" id="name2" placeholder="flex-grow:0;"><br>&lt;/p></code></pre>
+</div>
+
+
+
+<div class="item" id="prm3">
+<h3 class="sin"><a href="#">Прячем текст-подсказку при фокусе поля ввода</a></h3>
+	<style type="text/css">
+		/*.f1 input {color:#000; outline:none;}*/
+		/*.f1 input:placeholder-shown {-webkit-text-fill-color:lightgrey;}*/
+		.f1 input:focus:placeholder-shown {-webkit-text-fill-color:transparent;}
+		.ta1:focus:placeholder-shown {-webkit-text-fill-color:transparent;}
+		.ta1 {resize:none; background:#fcfcfc; margin:10px 0;}
+	</style>
+	<form class="f1">
+		<input type="text" name="aaaa" placeholder="Логин">
+		<input type="password" name="bbbb" placeholder="Пароль">
+	</form>
+	<textarea class="ta1" rows="4" cols="43" placeholder="resize: none;"></textarea>
+	<pre class="item2"><code>&lt;style type="text/css"><br>  .f1 input:focus:placeholder-shown {-webkit-text-fill-color:transparent;}<br><br>  .ta1:focus:placeholder-shown {-webkit-text-fill-color:transparent;}<br>  .ta1 {resize:none; background:#fcfcfc; margin:10px 0;}<br>&lt;/style><br><br>&lt;form class="f1"><br>  &lt;input type="text" name="aaaa" placeholder="Логин"><br>  &lt;input type="password" name="bbbb" placeholder="Пароль"><br>&lt;/form><br><br>&lt;textarea class="ta1" rows="4" cols="43" placeholder="resize: none;">&lt;/textarea></code></pre>
+</div>
+
+
+
+<div class="item">
+<p><samp class="sin"><a href="#">resize</a></samp></p>
+	<p>Указывает, можно ли пользователю изменять размеры текстового поля. Применяется к <samp class="red">&lt;textarea></samp> или к любому элементу, у которого значение свойства <samp class="sin">overflow</samp> отличается от <samp class="lsin">visible</samp>.</p>
+	<div class="ls1 mt10"><b>значения:</b></div>
+	<table class="t1 t0 t3" style="margin-left:-5px">
+		<tr><td>none</td>
+			<td>размеры элемента не изменяются.</td></tr>
+		<tr><td>both</td>
+			<td>можно изменять размеры элемента по горизонтали и вертикали.</td></tr>
+		<tr><td>horizontal</td>
+			<td>можно изменять размеры элемента только по горизонтали.</td></tr>
+		<tr><td>vertical</td>
+			<td>можно изменять размеры элемента только по вертикали.</td></tr>
+	</table>
+</div>
+
+</body>
+</html>

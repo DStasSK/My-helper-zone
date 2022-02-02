@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>align-self</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 caption {font-size:24px; font-weight:700; letter-spacing:1px;}
+	.t1 td:nth-child(1) {width:90px}
+	.t1 td:nth-child(2) {width:90px}
+	.box {display:flex; flex-wrap:wrap; width:80px; height:60px; margin:0 auto;
+		outline:1px solid #ddd; box-sizing:border-box; background-color:#ddd;
+		text-align:center; font-size:14px; color:#fff;}
+	.box div {width:16px; margin:2px; background-color:rgb(100, 84, 195); padding: 0 0 8px;}
+	.box div:nth-child(odd) {padding:0 0 16px 0; font-size:18px;}
+	.box {align-items:stretch;}
+	.asa {align-self:auto;}
+	.asfs {align-self:flex-start;}
+	.asc {align-self:center;}
+	.asfe {align-self:flex-end;}
+	.asb {align-self:baseline;}
+	.ass {align-self:stretch;}
+</style></head>
+<body>
+<h2 class="sin">align-self</h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">align-self</samp> выравнивает флекс-элементы текущей строки, переписывая значение <samp class="sin">align-items</samp>. Применяется к флекс-элементу, не наследуется, не анимируется. Значение по умолчанию: <samp class="lsin">auto</samp>.</p>
+
+	<pre class="item2 css"><code>.fl {align-self: auto | flex-start | flex-end | center | baseline | stretch }</code></pre>
+
+	<div class="no">Safari до версии 9 поддерживает свойство <samp class="sin">-webkit-align-self</samp></div>
+
+	<table class="t1 t3 tcc th1 tb">
+		<caption>Параметры</caption>
+		<tr><th>Значение</th><th>Положение</th><th>Описание</th></tr>
+		<tr><td>auto</td>
+			<td><div class="box"><div>1</div><div class="asa">2</div><div>3</div><div>4</div></div></td>
+			<td>Берёт родительское значение <samp class="sin">align-items</samp> или <samp class="lsin">stretch</samp>, если нет родителя.</td></tr>
+		<tr><td>flex-start</td>
+			<td><div class="box"><div>1</div><div class="asfs">2</div><div>3</div><div>4</div></div></td>
+			<td>Элемент выравнивается в начале поперечной оси контейнера.</td></tr>
+		<tr><td>center</td>
+			<td><div class="box"><div>1</div><div class="asc">2</div><div>3</div><div>4</div></div></td>
+			<td>Элемент выравнивается по центральной линии на поперечной оси.</td></tr>
+		<tr><td>flex-end</td>
+			<td><div class="box"><div>1</div><div class="asfe">2</div><div>3</div><div>4</div></div></td>
+			<td>Элемент выравнивается в конце поперечной оси контейнера.</td></tr>
+		<tr><td>stretch</td>
+			<td><div class="box"><div>1</div><div class="ass">2</div><div>3</div><div>4</div></div></td>
+			<td>Элемент растягивается таким образом, чтобы занять всё свободное пространство контейнера по поперечной оси.</td></tr>
+		<tr><td>baseline</td>
+			<td><div class="box"><div>1</div><div class="asb">2</div><div>3</div><div>4</div></div></td>
+			<td>Элемент выравнивается по базовой линии текста.</td></tr>
+	</table>
+
+
+</div>
+</body></html>

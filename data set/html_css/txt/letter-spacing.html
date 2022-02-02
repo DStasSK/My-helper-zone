@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>letter-spacing</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.box{width:600px; font-size:22px; border:2px solid #000; margin:5px auto;}
+	.box td{padding:5px 0 5px 15px;}
+	.pr1{background-color:#9d223c; margin:3px 0; color:#fff; padding:.2em 0; font-weight:300; font-size:1.4em;
+		text-transform:uppercase; text-align:center; letter-spacing:.5em;}
+	.pr2{padding-left:.5em;}
+</style></head>
+<body>
+
+<h2 class="sin">letter-spacing</h2>
+<div class="item">
+	<p>С помощью <samp class="sin">CSS</samp> можно задать интервал между символами в пределах выбранного элемента. Как правило, браузеры выводят символы с интервалом, установленным по умолчанию, характерным для вида и типа, а так же других индивидуальных параметров шрифта. Значение по умолчанию <samp class="lsin">normal</samp>, наследуется, анимируется</p>
+</div>
+
+
+<div class="item">
+	<pre class="item2"><code>letter-spacing: 2px;<br>letter-spacing: 1em;<br>letter-spacing: inherit;<br>letter-spacing: normal;</code></pre>
+	<samp class="lsin">px</samp> – расстояние в пикселях
+	<br><samp class="lsin">em</samp> – расстояние в em 
+	(<samp class="red">1em;</samp> = размеру шрифта в <samp class="red">px;</samp>)
+	<br><samp class="lsin">inherit</samp> – наследует родительское значение
+	<br><samp class="lsin">normal</samp> – устанавливает стандартный интервал шрифта
+</div>
+
+
+<div class="item">
+	<p>Свойства <samp class="sin">letter-spacing</samp> и <samp class="sin">text-align</samp> плохо сочетаются вместе, потому что пустой промежуток добавляется справа к каждой букве. Чтобы компенсировать это, когда указанные свойства используются совместно, добавляют <samp class="sin">padding-left</samp> со значением, соответствующим <samp class="sin">letter-spacing</samp> (в данном случае <samp class="lsin">0.5em</samp>).</p>
+	<div class="pr1">пример letter-spacing</div>
+	<div class="pr1 pr2">пример letter-spacing</div>
+	<div class="item2">
+		<pre><code><samp class="red">CSS</samp><br>.pr1 {<br>   background-color:#9d223c;<br>   margin:3px 0; padding:.2em 0;<br>   color:#fff; font-weight:300; font-size:1.4em;<br>   text-transform:uppercase; text-align:center;<br>   letter-spacing:.5em;}<br>.pr2 {padding-left:.5em;}</code></pre>
+		<pre><code><br><samp class="red">HTML</samp><br>&lt;div class=".pr2">пример letter-spacing&lt;/div><br>&lt;div class=".pr2 .pr2">пример letter-spacing&lt;/div></code></pre>
+	</div>
+</div>
+
+
+<div class="item">
+	<div class="box">
+		<table border="1" style="width:100%;">
+		<tr><td width="230px"><span class="sin">letter-spacing:</span> <span class="lsin">normal;</span></td>
+			<td><span style="letter-spacing:normal" class="red">слово</span>. <samp>(font-size: 22px;)</samp></td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">0.5em;</span></td>
+			<td><span style="letter-spacing:0.5em;" class="red">слово</span>.</td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">1em;</span></td>
+			<td><span style="letter-spacing:1em;" class="red">слово</span>.</td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">2em;</span></td>
+			<td><span style="letter-spacing:2em;" class="red">слово</span>.</td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">11px;</span></td>
+			<td><span style="letter-spacing:11px;" class="red">слово</span>.</td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">22px;</span></td>
+			<td><span style="letter-spacing:22px;" class="red">слово</span>.</td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">44px;</span></td>
+			<td><span style="letter-spacing:44px;" class="red">слово</span>.</td></tr>
+		<tr><td><span class="sin">letter-spacing:</span> <span class="lsin">-3px;</span></td>
+			<td><span style="letter-spacing:-3px;" class="red">слово</span>.</td></tr>
+		</table>
+	</div>
+</div>
+</body>
+</html>

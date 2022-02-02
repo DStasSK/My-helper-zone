@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>line-clamp</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<div class="item">
+<h2 class="sin"><samp>line-clamp</samp></h2>
+	<p>Ограничивает текст заданным числом строк. Если текст превышает указанное число строк, то текст обрезается и в конце добавляется многоточие. Браузеры поддерживают свойство <samp class="sin">-webkit-line-clamp.</samp>.</p>
+	<style>
+		.tab table{width:100%; min-width:600px; border-collapse:collapse;}
+		.tab td{padding:10px; border:1px solid #aaa; height:60px;}
+		.tab tr td:nth-child(1){text-align:center; font-family:monospace; color:#009; font-weight:600;}
+		.tab tr td:nth-child(3){text-align:center; font-family:monospace; color:red; font-weight:600; padding:0;}
+		.tt1{}
+		.tt2{-webkit-line-clamp:2;
+			display:-webkit-box;         /* Включаем флексбоксы - устаревшее */
+			-webkit-box-orient:vertical; /* Вертикальная ориентация */
+			overflow:hidden;}
+	</style>
+	<div class="mt mb tab"><b>Значения:</b>
+		<table>
+			<tr><td width="140px">none</td><td>Содержимое никак не ограничивается.</td><td width="80px"><span class="tt1">word 1<br>word 2<br>word 3</span></td></tr>
+			<tr><td><samp><число></samp></td><td>Содержимое ограничивается указанным числом строк.</td><td><span class="tt2">word 1<br>word 2<br>word 3</span></td></tr>
+		</table>
+	</div>
+
+	<pre class="item2"><code>.t2 p {<br>  -webkit-line-clamp:2;<br>  display:-webkit-box;         /* Включаем флексбоксы - устаревшее */<br>  -webkit-box-orient:vertical; /* Вертикальная ориентация */<br>  overflow:hidden;<br>}</code></pre>
+</div>
+
+
+<div class="item">
+<h2 class="sin">Как обрезать текст и добавить в конце многоточие?</h2>
+	<p>Иногда приходится ограничивать длинный текст, к примеру, в блоке с фиксированными размерами, чтобы текст не выходил за пределы этого блока. Часто делается так: текст, который не помещается в заданные размеры, обрезается, а в конце текста добавляется многоточие. Оно подсказывает пользователю, что текст отображается лишь частично.</p>
+
+	<p class="mb0 mt40"><b>Однострочный текст</b></p>
+		<p>Для одной строки есть специальное свойство <a href="text-overflow.html">text-overflow</a> со значением <samp class="sin">ellipsis</samp>, которое добавляет многоточие в конце текста. Чтобы это свойство работало, нужно соблюсти ещё два условия. Текст должен выводиться в одну строку без переносов. Для запрета переносов мы используем свойство <a href="white-space.html">white-space</a> со значением nowrap. Текст за пределами блока скрывается от просмотра с помощью свойства overflow со значением <samp class="sin">hidden</samp>.
+		</p>
+
+	<p class="mb0 mt40"><b>Многострочный текст</b></p>
+		<p>Ограничение нескольких строк представляет собой более сложную задачу, которая потребует применения целого набора нестандартных и устаревших свойств.</p>
+		<style>
+			.itt li{padding:2px; margin:0;}
+			.itt ol{margin:0;}
+		</style>
+		<div class="itt">
+			<ol>
+				<li>Свойство <b>-webkit-line-clamp</b>, которое ограничивает число строк. Значение 3 отобразит три строки, значение 4 — четыре строки.</li>
+				<li>Свойство <b>display</b> со значением <b>-webkit-box</b>.</li>
+				<li>Свойство <b>-webkit-box-orient</b> со значением <b>vertical</b>.</li>
+				<li>Свойство <b>overflow</b> со значением <b>hidden</b>, оно скрывает текст за пределами блока.</li>
+			</ol>
+		</div>
+
+		<p class="mt20">Свойство display: -webkit-box в настоящий момент устарело, при вёрстке сейчас используется display: flex. Аналогично устарело и -webkit-box-orient: vertical, сейчас вместо него применяется flex-direction: column. При этом нельзя просто заменить устаревшие свойства современными, перестанет работать ограничение строк.</p>
+		<p>Также есть проблема и с высотой блока — при добавлении padding его значение прибавляется к высоте строк, в итоге отображается часть лишней строки. Чтобы этого избежать можно явно задать высоту блока или вложить один блок внутрь другого.</p>
+
+	<p class="mb0 mt40"><b>Использование JavaScript</b></p>
+		<p>Если не хочется связываться с устаревшими свойствами, всегда можно воспользоваться JavaScript для решения нашей задачи. Библиотека <a href="https://github.com/josephschmitt/Clamp.js/" class="sin tdu">Clamp.js</a> позволяет выбрать алгоритм работы - с помощью -webkit-line-clamp</p>
+
+		<div class="item2 br0 truncate">
+			<p style="margin:0;">На улицах и пустырях мальчики запускают воздушных змеев, а девочки играют деревянными ракетками с многоцветными рисунками в ханэ. Кроме этого, здесь есть ценнейшие коллекции мексиканских масок, бронзовые и каменные статуи из Индии и Цейлона, бронзовые барельефы и изваяния, созданные мастерами Экваториальной Африки пять-шесть веков назад.</p>
+			<br><samp class="red">HTML</samp>
+			<pre class="ls-05"><code>&lt;div class="truncate"><br>  &lt;p>На улицах и пустырях мальчики запускают воздушных змеев, а девочки <br>  играют деревянными ракетками с многоцветными рисунками в ханэ. Кроме этого,<br>  здесь есть ценнейшие коллекции мексиканских масок, бронзовые и каменные <br>  статуи из Индии и Цейлона, бронзовые барельефы и изваяния, созданные <br>  мастерами Экваториальной Африки пять-шесть веков назад.&lt;/p><br>&lt;/div>
+			<br>&lt;!-- &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Clamp.js/0.5.1/clamp.min.js"><br>&lt;/script> --><br>&lt;script src="js/clamp.min.js">&lt;/script><br>  &lt;script><br>    // Выбираем все элементы &lt;p> внутри класса .truncate<br>    var truncate = document.querySelector(".truncate p");<br>    $clamp(truncate, {<br>    clamp: 3, // Число строк<br>    useNativeClamp: false // НЕ используем -webkit-line-clamp<br>  });<br>&lt;/script></code></pre>
+		</div>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Clamp.js/0.5.1/clamp.min.js"></script> -->
+		<script src="js/clamp.min.js"></script>
+		<script>
+			// Выбираем все элементы <p> внутри класса .truncate
+			var truncate = document.querySelector(".truncate p");
+			$clamp(truncate, {
+			clamp: 3, // Число строк
+			useNativeClamp: false // НЕ используем -webkit-line-clamp
+			});
+		</script>
+
+		<p class="mt20">Обратите внимание на параметр <samp class="sin">useNativeClamp</samp>. По умолчанию его значение равно <samp class="lsin">true</samp>, в этом случае к элементу добавляется свойство <b>-webkit-line-clamp</b>. Если же указать значение <samp class="lsin">false</samp>, тогда строка обрезается явно. Между этими алгоритмами <b>Clamp.js</b> есть небольшая разница, заметная при изменении размера окна браузера. Использование <samp class="sin">useNativeClamp:</samp><samp class="lsin">true</samp> обрезает строку лишь при необходимости, когда она превышает три строки. <samp class="sin">useNativeClamp:</samp><samp class="lsin">false</samp> обрезает всегда и при изменении размеров блока строка так и остаётся обрезанной.</p>
+</div>
+
+</body>
+</html>

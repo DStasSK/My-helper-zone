@@ -1,0 +1,499 @@
+<!DOCTYPE html><html><head><title>transform</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style type="text/css">
+/*.tt1 ... .tt7*/
+
+	.ls1{margin:20px 0; padding:0; list-style-type:none;}
+	.ls1 li{margin:5px 0; padding:0;}
+	.ls1 samp:first-child{padding-right:5px;}
+	.ls1 a{color:#009}
+
+	.ls2 samp{width:140px; display:inline-block;}
+
+	.ls3 li{margin:0}
+	.ls3 {margin-bottom:40px; margin-top:5px}
+
+	.tr2{background:#ddd; padding:1px 7px 4px 9px; display:inline-block; margin-bottom:10px; margin-top:50px; letter-spacing:2px; font-size:22px; border-radius:2px}
+
+	.tm1{font-size:20px; line-height:20px; letter-spacing:2px; margin:50px 0 10px;}
+</style>
+
+</head>
+<body>
+<h2 class="sin">transform</h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#z0">префиксы</a></li>
+			<li><a href="#z1">влияние порядка функций преобразования</a></li>
+			<li><a href="#z2">transform-origin</a></li>
+			<li><a href="#z3">transform-style</a></li>
+			<li><a href="#z4">функции трансформации</a> (<a href="#z41">rotate</a>, <a href="#z42">scale</a>, <a href="#z43">skew</a>, <a href="#z44">translate</a>)</li>
+
+			<li><a href="#z7">perspective-origin</a></li>
+			<li><a href="#z6">perspective</a></li>
+			<li><a href="#z8" style="color:#d00">backface-visibility</a></li>
+			<li><a href="#z-index">z-index</a></li>
+			<li><a href="#zoom">zoom</a></li>
+			<li><a href="#z5">matrix (матрица преобразований)</a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item cf">
+	<img src="img/koord.png" width="200px" style="float:left; padding:10px 30px 10px 0">
+	<p>Трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций, перечисляя функции трансформации через пробел.</p>
+	<p>Функций трансформаций довольно много и они делятся по следующим группам: поворот, масштабирование, наклон и сдвиг, а также на двумерные и трёхмерные трансформации. Последние обозначаются добавлением <b>3d</b> к имени функции. Кроме того, с помощью этих трансформаций можно делать отражение элемента, задавая отрицательные значения параметров у некоторых функций. Все функции комбинируются между собой, позволяя тем самым получить множество новых фигур.</p>
+	<p>Любая трансформация происходит относительно центральной точки элемента, её положение можно задать с помощью свойства <samp class="sin tdu"><a href="#z2">transform-origin</a></samp>.</p>
+	<p>Координатные оси: оси <b>X</b> и <b>Y</b> находятся в плоскости экрана, а ось <b>Z</b> ему перпендикулярна.</p>
+
+	<div class="item2" id="z0">
+		Разные браузеры поддерживают разные префиксы:
+		<pre class="mt10"><code>.block{<br>  -webkit-transform-style: preserve-3d;<br>     -moz-transform-style: preserve-3d;<br>          transform-style: preserve-3d;<br><br>  -webkit-transform: translateY(100px);<br>     -moz-transform: translateY(100px);<br>      -ms-transform: translateY(100px);<br>       -o-transform: translateY(100px);<br>          transform: translateY(100px);<br>}</code></pre>
+	</div>
+</div>
+
+
+<div class="item" id="z1"><!-- Влияние порядка функций преобразования -->
+	<style>
+		.tt1 caption{text-transform:uppercase; letter-spacing:2px; font-weight:700;}
+		.tt1 tr:nth-child(1) td{font-size:16px; font-family:monospace; background:#eee;}
+		.tt1 tr:nth-child(2) {height:201px;}
+		.tt1 img{display:block; line-height:0px; width:200px; margin:0 auto; transition:all 1s;}
+		.tt1 tr td:nth-child(1) img:hover{transform:rotateZ(90deg) scaleX(.5); transition:all 1s;}
+		.tt1 tr td:nth-child(2) img:hover{transform:scaleX(.5) rotateZ(90deg); transition:all 1s;}
+	</style>
+	<table class="t0 tw tcc tt1 t1c tb t2">
+		<caption><a href="#" title="наверх" style="color:#d22">Влияние порядка функций преобразования</a></caption>
+		<tr><td><pre><code>transform: rotateZ(90deg) scaleX(.5);</code></pre></td>
+			<td><pre><code>transform: scaleX(.5) rotateZ(90deg);</code></pre></td></tr>
+		<tr><td><img src="img/winnie.png"></td><td><img src="img/winnie.png"></td></tr>
+	</table>
+</div><!-- /Влияние порядка функций преобразования -->
+
+
+<div class="item" id="z2">
+<h2 class="sin"><a href="#" title="наверх">transform-origin</a></h2>
+	<div class="item2" style="position:relative;">
+		<pre><code>.block{<br>  -webkit-transform-origin: 100% 0;<br>     -moz-transform-origin: 100% 0;<br>      -ms-transform-origin: 100% 0;<br>       -o-transform-origin: 100% 0;<br>          transform-origin: 100% 0;<br>}<br><br>.block:hover{transform:rotateZ(-20deg); transition:all 1s;}</code></pre>
+		<style>
+			.pr1{position:absolute; top:20px; right:20px; padding:10px 15px; transition:all 1s;
+				transform-origin:100% 0; background:#ddd; border:1px solid; font-size:25px;}
+			.pr1:hover{transform:rotateZ(-20deg); transition:all 1s;}
+		</style>
+		<div class="pr1">пример</div>
+	</div>
+
+	<p>Устанавливает координаты точки, относительно которой будет происходить трансформация элемента. Отсчёт координат ведётся от левого верхнего угла элемента, по умолчанию точка трансформации находится в его центре. При использовании процентов они берутся от размеров элемента.</p>
+	<pre class="item2 mt10 sin">transform-origin: <samp class="lsin">&lt;x> &lt;y> &lt;z></samp></pre>
+
+	<table class="t1 t3">
+		<tr><td>&lt;x></td>
+			<td>- координата по оси X. <pre class="dib">(<span class="lsin"><размер> | <проценты> | left | center | right</span>)</pre></td></tr>
+		<tr><td>&lt;y></td>
+			<td> - координата по оси Y. <pre class="dib">(<span class="lsin"><размер> | <проценты> | top | center | bottom</span>)</pre></td></tr>
+		<tr><td>&lt;z></td>
+			<td>координата по оси Z. <pre class="dib">(только <span class="lsin"><размер></span>, <span class="red">без процентов</span>)</pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="z3">
+<h2 class="sin"><a href="#" title="наверх">transform-style</a></h2>
+	<p>Определяет, как дочерние элементы будут отображаться в 3D-пространстве. Это свойство должно использоваться совместно с <samp class="sin">transform</samp>. Значение по умолчанию <samp class="lsin">flat</samp>; применяется к трансформируемым элементам.</p>
+	<pre class="item2 mt10"><code>transform-style: flat | preserve-3d</code></pre>
+
+	<div class="no">Свойство <samp class="sin">transform-style</samp> со значением <samp class="red">preserve-3d</samp> задает новую систему координат для дочерних элементов. Это значит, что любые дочерние элементы с <samp class="sin">position:fixed</samp> будут привязываться НЕ к окну браузера, а к родителю с <samp class="sin">transform-style:preserve-3d</samp>!</div>
+
+	<ul class="ls1 ls2">
+		<li><samp class="lsin">flat</samp>дочерние элементы лежат в плоскости экрана.</li>
+		<li><samp class="lsin">preserve-3d</samp>дочерние элементы будут отображаться в 3D-пространстве.</li>
+	</ul>
+</div>
+
+
+<div class="item anp" id="z4">
+<h2 class="sin"><a href="#" title="наверх">Функции трансформации</a></h2>
+	<div class="ogl2 ogl22 ogl2c">
+		<span><a href="#z41" title="Поворачивает элемент в двумерном пространстве на заданный угол относительно точки трансформации">rotate</a></span>
+		<span><a href="#z42" title="Позволяет изменить визуальный размер элемента">scale</a></span>
+		<span><a href="#z43" title="Используется для искажения элементов по горизонтальной оси, вертикальной оси или двум осям сразу">skew</a></span>
+		<span><a href="#z44" title="Tолкает и тянет элемент в разных направлениях, не прерывая обычного потока документа">translate</a></span>
+	</div>
+
+	<p>Можно трансформировать элементы различными способами, одним или сразу несколькими:</p>
+	<p> - поворачивать их относительно оси (одной или нескольких)
+	<br> - изменять размер - масштабировать
+	<br> - искажать элемент на заданный угол (например: из квадарата сделать ромб)
+	<br> - добавлять дополнительный эффект 3D - перспективу</p>
+
+	<p class="sin" id="z41"><a href="#z4" class="tr2">rotate()</a></p>
+		<p class="mt0">Поворачивает элемент в двумерном пространстве на заданный угол относительно точки трансформации, задаваемой свойством <samp class="sin tdu"><a href="#z2">transform-origin</a></samp>.</p>
+		<p>Положительное значение поворачивает элемент по часовой стрелке, а отрицательное - поворачивает элемент против часовой стрелки. По умолчанию точкой поворота является центр элемента.</p>
+
+		<ul class="ls1">
+			<li><samp class="sin">rotateX()</samp> поворачивает элемент на заданный угол относительно оси X.</li>
+			<li><samp class="sin">rotateY()</samp> поворачивает элемент на заданный угол относительно оси Y.</li>
+			<li><samp class="sin">rotateZ()</samp> поворачивает элемент на заданный угол относительно оси Z.</li>
+			<li><samp class="sin">rotate3d  </samp>поворачивает элемент в трёхмерном пространстве.</li>
+		</ul>
+
+		<style>
+			.tt2 td{width:33.33%; position:relative}
+			.tt2 tr:nth-child(1) td{font-size:16px; font-family:monospace; background:#eee; padding:5px 0}
+			.tt2 tr:nth-child(2){height:150px}
+			.tt2 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+			.tt2 tr td:nth-child(1) img{transform: rotateX(180deg)}
+			.tt2 tr td:nth-child(2) img{transform: rotateY(180deg)}
+			.tt2 tr td:nth-child(3) img{transform: rotateZ(5deg)}
+
+			.tt2 tr td samp:before{content:""; display:block; background:red; position:absolute}
+			.tt2 tr td:nth-child(1) samp:before{width:100%; height:2px; top:50%;}
+			.tt2 tr td:nth-child(2) samp:before{width:2px; height:100%; left:50%; top:0}
+			.tt2 tr td:nth-child(3) samp:before{width:10px; height:10px; left:calc(50% - 5px); top:calc(50% - 5px); border-radius:50%}
+		</style>
+		<table class="t0 tw t1c tb tt2 mt20">
+			<tr><td><pre><code>transform: rotateX(180deg);</code></pre></td>
+				<td><pre><code>transform: rotateY(180deg);</code></pre></td>
+				<td><pre><code>transform: rotateZ(5deg);</code></pre></td></tr>
+			<tr><td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td></tr>
+		</table>
+	<!-- /rotate -->
+
+
+	<p class="sin" id="z42"><a href="#z4" class="tr2">scale()</a></p>
+		<p style="margin-top:0">Использование значения <samp class="lsin">scale</samp> в свойстве <samp class="sin">transform</samp> позволяет изменить визуальный размер элемента. Значение масштаба по умолчанию равно <b>1</b>, поэтому любое значение от <b>0.99</b> до <b>0.01</b> визуально уменьшает элемент, в то время как любое значение больше или равное <b>1.01</b> визуально его увеличивает.</p>
+
+		<p>Можно масштабировать только высоту или ширину элемента, используя значения <samp class="sin">scaleX</samp> и <samp class="sin">scaleY</samp>. Значение <samp class="sin">scaleX</samp> будет масштабировать ширину элемента, в то время как значение <samp class="sin">scaleY</samp> будет масштабировать его высоту. Для масштабирования высоты и ширины элемента, но с разными размерами, могут быть одновременно установлены значения по оси <b>х</b> и <b>у</b>. Для этого используя декларацию <samp class="lsin">scale</samp>, задав сперва значение по оси <b>x</b>, затем через запятую значение по оси <b>y</b>.</p>
+
+		<ul class="ls1">
+			<li><samp class="sin">scaleX()</samp> масштабирует элемент по горизонтали.</li>
+			<li><samp class="sin">scaleY()</samp> масштабирует элемент по вертикали.</li>
+			<li><samp class="sin">scaleZ()</samp> масштабирует элемент по оси Z.</li>
+			<li><samp class="sin">scale3d  </samp> масштабирует элемент в трёхмерном пространстве <samp class="ls-1" style="font-size:16px">[scale3d(sx, sy, sz)]</samp>.</li>
+		</ul>
+
+		<style>
+			.tt3 td{width:33.3%; position:relative;}
+			.tt3 tr:nth-child(1) td{padding:5px 0; font-size:16px; font-family:monospace; background:#eee;}
+			.tt3 tr:nth-child(2){height:140px;}
+			.tt3 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+			.tt3 tr td:nth-child(1) img{transform: scaleX(.7)}
+			.tt3 tr td:nth-child(2) img{transform: scaleY(.7)}
+			.tt3 tr td:nth-child(3) img{transform: scale(.7)}
+
+			.tt3 td samp:before{content:""; display:block; background:red; position:absolute;}
+			.tt3 tr td:nth-child(1) samp:before{width:100%; height:2px; top:50%;}
+			.tt3 tr td:nth-child(2) samp:before{width:2px; height:100%; left:50%; top:0}
+			.tt3 tr td:nth-child(3) samp:before{width:100%; height:2px; top:50%;}
+			.tt3 tr td:nth-child(3) samp:after{content:""; display:block; width:2px; height:100%; background:red; position:absolute; left:50%; top:0}
+		</style>
+		<table class="t0 tw tb t1c tt3 mb20">
+			<tr><td><pre><code>transform: scaleX(.7);</code></pre></td>
+				<td><pre><code>transform: scaleY(.7);</code></pre></td>
+				<td><pre><code>transform: scale(.7);</code></pre></td></tr>
+			<tr><td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td></tr>
+		</table>
+
+		<div id="flips">Частные случаи трансформации:</div>
+		<ul class="ls1 ls3">
+			<li><samp class="sin">transform: scale(-1, 1)</samp> - отражение по горизонтали;</li>
+			<li><samp class="sin">transform: scale(1, -1)</samp> - отражение по вертикали;</li>
+			<li><samp class="sin">transform: scale(-1, -1) или scale(-1)</samp> - отражение по Г и В;</li>
+			<li><samp class="sin">transform: scaleX(-1)</samp> - отражение по горизонтали;</li>
+			<li><samp class="sin">transform: scaleY(-1)</samp> - отражение по вертикали;</li>
+			<li><samp class="sin">transform: scaleX(-1) scaleY(-1)</samp> - одновременное отражение по Г и В.</li>
+		</ul>
+
+		<p>При использовании <samp class="sin">scaleZ</samp> для трёхмерных преобразованиях элементы могут масштабироваться по оси <b>z</b>. Это не очень интересно, когда никаких других трёхмерных преобразований нет, так как нечего, в частности, и масштабировать. В демонстрации ниже масштаб элементов увеличивается и уменьшается по оси <b>z</b>, при этом добавляется значение <samp class="sin">rotateX</samp>, чтобы увидеть поведение <samp class="sin">scaleZ</samp>. При удалении <samp class="sin">rotateX</samp> элементы будут выглядеть не изменёнными.</p>
+		<div style="perspective:500px; width:420px; margin:0 auto;">
+			<img src="img/winnie.png" style="transform:scaleZ(2) rotateX(20deg); width:180px;">
+			<img src="img/winnie.png" style="transform:scaleZ(.5) rotateX(20deg); width:180px; padding-left:50px">
+			<p><pre>     scaleZ(2)                  scaleZ(.5)</pre></p>
+		</div>
+	<!-- /scale -->
+
+
+	<p class="sin" id="z43"><a href="#z4" class="tr2">skew()</a></p>
+		<p class="mt0">Используется для искажения элементов по горизонтальной оси, вертикальной оси или двум осям сразу. Синтаксис очень похож на значения <samp class="sin">scale</samp> и <samp class="sin">translate</samp>. Применение значения <samp class="sin">skewX</samp> деформирует элемент по горизонтальной оси, в то время как значение <samp class="sin">skewY</samp> деформирует элемент по вертикальной оси. Чтобы исказить элемент по двум осям, используется значение <samp class="sin">skew</samp>, сперва задаётся значение по оси <b>х</b>, затем через запятую значение по оси <b>у</b>.</p>
+		<p>Значение <samp class="sin">skew</samp> измеряется в градусах. Единицы длины, такие как пиксели или проценты, здесь не применимы.</p>
+
+		<ul class="ls1">
+			<li><samp class="sin">skewX()</samp> наклоняет элемент на заданный угол по горизонтали.</li>
+			<li><samp class="sin">skewY()</samp> наклоняет элемент на заданный угол по вертикали.</li>
+			<li><samp class="sin">skew() </samp> наклоняет элемент на заданный угол по двум осям.</li>
+		</ul>
+
+		<style>
+			.tt4 td{width:33%; position:relative;}
+			.tt4 tr:nth-child(1) td{padding:5px 0; font-size:15px; font-family:monospace; background:#eee;}
+			.tt4 tr:nth-child(2){height:150px;}
+			.tt4 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+			.tt4 tr td:nth-child(1) img{transform: skewX(-10deg)}
+			.tt4 tr td:nth-child(2) img{transform: skewY(5deg)}
+			.tt4 tr td:nth-child(3) img{transform: skew(-10deg, 5deg)}
+
+			.tt4 td samp:before{content:""; display:block; background:red; position:absolute;}
+			.tt4 tr td:nth-child(1) samp:before{width:100%; height:2px; top:50%;}
+			.tt4 tr td:nth-child(2) samp:before{width:2px; height:100%; left:50%; top:0}
+			.tt4 tr td:nth-child(3) samp:before{width:100%; height:2px; top:50%;}
+			.tt4 tr td:nth-child(3) samp:after{content:""; display:block; width:2px; height:100%; background:red; position:absolute; left:50%; top:0}
+		</style>
+		<table class="t0 tw tb t1c tt4 mt20">
+			<tr><td><pre><code>transform: skewX(-10deg);</code></pre></td>
+				<td><pre><code>transform: skewY(5deg);</code></pre></td>
+				<td><pre><code>transform: skew(-10deg,5deg);</code></pre></td></tr>
+			<tr><td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td></tr>
+		</table>
+	<!-- /skew -->
+
+
+	<p class="sin" id="z44"><a href="#z4" class="tr2">translate()</a></p>
+		<p class="mb0">Значение <samp class="sin">translate</samp> работает несколько похоже на относительное позиционирование, толкает и тянет элемент в разных направлениях, не прерывая обычного потока документа. Использование значения <samp class="sin">translateX</samp> изменит положение элемента по горизонтальной оси, значение <samp class="sin">translateY</samp> изменит положение элемента по вертикальной оси.</p>
+
+		<p>Как и со значением <samp class="sin">scale</samp>, чтобы одновременно установить значения по осям <b>х</b> и <b>y</b>, воспользуйтесь значением <samp class="sin">translate</samp> и сперва укажите значение по оси <b>х</b>, затем через запятую значение по оси <b>y</b>.</p>
+
+		<p>Значения расстояния, используемые внутри <samp class="sin">translate</samp>, могут быть любыми основными единицами длины, наиболее часто применяются пиксели или проценты. Положительные значения толкают элемент вниз и вправо от позиции по умолчанию, а отрицательные значения тянут элемент вверх и влево.</p>
+
+		<ul class="ls1">
+			<li><samp class="sin">translateX()</samp> cдвигает элемент по горизонтали на указанное значение.</li>
+			<li><samp class="sin">translateY()</samp> cдвигает элемент по вертикали на указанное значение.</li>
+			<li><samp class="sin">translateZ()</samp> cдвигает элемент по оси Z на указанное значение.</li>
+			<li><samp class="sin">translate3d </samp> cдвигает элемент на заданное значение в пространстве 3D.</li>
+		</ul>
+
+		<p>Элементы могут также передвигаться по оси <b>z</b> с помощью значения <samp class="sin">translateZ</samp>. Отрицательное значение будет толкать элемент дальше по оси <b>z</b>, что приводит к уменьшению элемента. Положительное значение будет тянуть элемент ближе по оси <b>z</b>, что приводит к увеличению элемента.</p>
+
+		<style>
+			.tt5 td{width:33.3%; position:relative;}
+			.tt5 tr:nth-child(1) td{padding:5px 0; background:#eee;}
+			.tt5 tr:nth-child(1) td pre{font-size:14px;}
+			.tt5 tr:nth-child(2){height:140px;}
+			.tt5 img{display:block; line-height:0px; width:160px; margin:0 auto; transition:all 1s;}
+			.tt5 tr td:nth-child(1) img{transform: translateX(20px)}
+			.tt5 tr td:nth-child(2) img{transform: translateY(10px)}
+			.tt5 tr td:nth-child(3) img{transform: translate(-20px, 10px)}
+			.tt5 tr td samp:before{content:""; display:block; width:164px; height:112px; background:#999; position:absolute; top:calc(50% - 56px); left:calc(50% - 82px); z-index:-1}
+		</style>
+		<table class="t0 tw tb t1c mt20 tt5">
+			<tr><td><pre><code>transform: translateX(20px);</code></pre></td>
+				<td><pre><code>transform: translateY(10px);</code></pre></td>
+				<td><pre><code>transform: translate(-20px,10px);</code></pre></td></tr>
+			<tr><td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td>
+				<td><img src="img/winnie.png"><samp></samp></td></tr>
+		</table>
+	<!-- /translate -->
+</div>
+
+
+<div class="item" id="z7">
+<h2 class="sin"><a href="#">perspective-origin</a></h2>
+	<p>Задаёт координаты точки, куда смотрит наблюдатель. Это свойство работает совместно со свойством <samp class="sin">perspective</samp> и определяет точку сходимости линий при перспективе.</p>
+	<p>Как и в случае установки <samp class="sin">transform-origin</samp> можно задать и <samp class="sin">perspective-origin</samp>. Те же значения, используемые для свойства <samp class="sin">transform-origin</samp>, могут быть использованы в свойстве <samp class="sin">perspective-origin</samp> и оказывают такое же влияние на элемент. Но есть большая разница между этими двумя подходами — точка трансформации определяет координаты, используемые для расчёта изменения трансформации, тогда как начало перспективы определяет координаты точки схода преобразования.</p>
+	<p><samp class="sin">perspective-origin</samp> нужно задавать к родителю элемента, как и глубину перспективы.</p>
+
+	<div class="item2" style="position:relative;">
+		<pre><code>&lt;style><br>  .box {<br>    perspective-origin:0 0;<br>    perspective:300px;<br>  }<br>  img {<br>    transform:rotateX(20deg);<br>  }<br>&lt;/style><br><br>&lt;div class="box"><br>  &lt;img src="img/winnie.png"><br>&lt;/div></code></pre>
+
+		<div style="perspective-origin:0 0; perspective:300px; position:absolute; top:35px; right:60px">
+			<img src="img/winnie.png" style="transform:rotateX(20deg);">
+		</div>
+	</div>
+
+	<style>
+		.tt6 td{width:33.3%; position:relative;}
+		.tt6 tr:nth-child(1) td{padding:5px 0; font-size:16px; font-family:monospace; background:#eee;}
+		.tt6 tr:nth-child(2){height:150px;}
+		.tt6 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+		.tt6 td {perspective:300px;}
+		.tt6 img{transform: rotateX(20deg)}
+		.tt6 tr td:nth-child(1) {perspective-origin:0 0;}
+		.tt6 tr td:nth-child(2) {perspective-origin:50% 0;}
+		.tt6 tr td:nth-child(3) {perspective-origin:100% 0;}
+	</style>
+	<table class="t0 tw tb t1c mt20 tt6">
+		<tr><td><pre><code>perspective-origin:0 0;</code></pre></td>
+			<td><pre><code>perspective-origin:50% 0;</code></pre></td>
+			<td><pre><code>perspective-origin:100% 0;</code></pre></td></tr>
+		<tr><td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="z6">
+<h2 class="sin"><a href="#">perspective</a></h2>
+	<p>Чтобы трёхмерные преобразования работали, элементы нуждаются в перспективе, относительно которой происходит трансформация. Перспектива для каждого элемента может быть представлена как точка схождения, подобно тому, что можно увидеть в трёхмерных чертежах.</p>
+	<p>Перспектива для элемента может быть задана двумя разными способами. Один из них включает в себя использование значения <samp class="sin">perspective</samp> в свойстве <samp class="sin">transform</samp> для отдельных элементов, а другой включает в себя использование свойства <samp class="sin">perspective</samp> для родительского элемента, внутри которого трансформируются дочерние элементы.</p>
+	<p>Использование значения <samp class="sin">perspective</samp> в свойстве <samp class="sin">transform</samp> прекрасно работает для преобразования одного элемента относительно единичной уникальной перспективы. Если вы желаете преобразовать группу элементов с одинаковой перспективой или точкой схода, то применяйте свойство <samp class="sin">perspective</samp> для их родительского элемента.</p>
+
+	<pre class="item2"><code>div {<br>  transform: perspective(none | длина);<br>  perspective: none | длина;<br>}</code></pre>
+
+	<p>В качестве значения перспективы может быть задано <samp class="sin">none</samp> или <b>длина</b>. Значение <samp class="sin">none</samp> отключает любую перспективу, в то время как значение длины установит глубину перспективы. Чем выше значение, тем дальше вид перспективы, создавая тем самым перспективу довольно низкой интенсивности и небольшое трёхмерное изменение. Низкое значение приближает вид перспективы, тем самым создавая перспективу высокой интенсивности и большое трёхмерное изменение.</p>
+
+	<style>
+		.tt7 td{width:33%; position:relative;}
+		.tt7 tr:nth-child(1) td{padding:5px 0; font-size:16px; font-family:monospace; background:#eee;}
+		.tt7 tr:nth-child(2){height:150px;}
+		.tt7 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+		.tt7 img{transform: rotateX(20deg)}
+		.tt7 tr td:nth-child(1) {perspective:200px;}
+		.tt7 tr td:nth-child(2) {perspective:800px;}
+		.tt7 tr td:nth-child(3) {perspective:2000px;}
+	</style>
+	<table class="t0 tw ttb tb t1c mt10 mb10 tt7">
+		<tr><td><pre><code>perspective:200px;</code></pre></td>
+			<td><pre><code>perspective:800px;</code></pre></td>
+			<td><pre><code>perspective:2000px;</code></pre></td></tr>
+		<tr><td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td></tr>
+	</table>
+	<div class="no"><samp class="sin">IE10</samp> не поддерживает параметр <samp class="red">preserve-3d</samp> для создания 3D слоев.</div>
+</div>
+
+
+<div class="item" id="z8">
+<h2 class="sin"><a href="#">backface-visibility</a></h2>
+	<p>При работе с трёхмерными преобразованиями, элементы время от времени трансформируются таким образом, что их поверхность отворачивается от экрана. Это может быть вызвано установкой значения <samp class="sin">rotateY(180deg)</samp>, к примеру. По умолчанию эти элементы показываются с обратной стороны. Так что если вы не желаете видеть эти элементы вообще, установите свойство <samp class="sin">backface-visibility</samp> как <samp class="red">hidden</samp>, и вы спрячете элемент всякий раз, когда он отворачивается от экрана.</p>
+	<p>Другим значением для <samp class="sin">backface-visibility</samp> является значение по умолчанию <samp class="red">visible</samp>, оно всегда показывая элемент, независимо от того, в каком направлении он смотрит.</p>
+	<p>Свойство backface-visibility имеет более важное значение при использовании анимации. Так при повороте одна картинка может заменяться на другую, заранее развернутую на 180 градусов.</p>
+	<p>Для корректной работы необходимо также задать свойство? <br><samp class="sin">transform-style:preserve-3d;</samp></p>
+
+	<div class="item2" style="position:relative;">
+		<pre><code>.box {<br>  -webkit-backface-visibility: hidden;<br>     -moz-backface-visibility: hidden;<br>          backface-visibility: hidden;<br>              transform-style: preserve-3d;<br>                    transform: rotateY(180deg);<br>}<br> </code></pre>
+		<style>
+			.box11 {position:absolute; top:15px; right:20px; width:180px}
+			.bv1 {perspective:500px; transform-style:preserve-3d; transition:all 2s; position:relative;}
+			.bv1:hover{transform:rotateY(180deg);}
+			.bv1 img {width:180px; position:absolute; backface-visibility:hidden;}
+			.bv1 div {text-align:center; background:#fff; padding:46px 0; font-size:31px; line-height:31px;
+				transform:rotateY(180deg); backface-visibility:hidden;}
+		</style>
+		<div class="box11">
+			<div class="bv1">
+				<img src="img/winnie.png">
+				<div>404 ой</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="item2">
+		<samp class="point red" onclick='bv12.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="bv12" onclick="event.stopPropagation()">
+			<pre><code>&lt;style><br>  .bv1 {<br>    perspective:500px;<br>    transform-style:preserve-3d;<br>    position:relative;<br>  }<br>  .bv1:hover{<br>    transform:rotateY(180deg);<br>  }<br>  .bv1 img {<br>    width:180px;<br>    position:absolute;<br>    backface-visibility:hidden;<br>  }<br>  .bv1 div {<br>    transform:rotateY(180deg);<br>    backface-visibility:hidden;<br>  }<br>&lt;/style><br><br>&lt;div class="bv1"><br>  &lt;img src="img/winnie.png"><br>  &lt;div>404 ой&lt;/div><br>&lt;/div></code></pre>
+			<span class="yel" onclick='bv12.classList.toggle("hiden");'>Свернуть</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="item" id="z-index">
+<h2 class="sin"><a href="#">z-index</a></h2>
+	<p>Любые позиционированные элементы на веб-странице могут накладываться друг на друга в определенном порядке, имитируя тем самым третье измерение, перпендикулярное экрану. Каждый элемент может находиться как ниже, так и выше других объектов веб-страницы, их размещением по <b>z</b>-оси и управляет <samp class="sin">z-index</samp>.</p>
+	<p>Это свойство работает только для элементов, у которых значение <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp>, <samp class="lsin">fixed</samp> или <samp class="lsin">relative</samp>. Значение по умолчанию <samp class="lsin">auto</samp>, не наследуется, анимируется.</p>
+
+	<pre class="item2 sin">z-index: <span class="lsin"><число> | auto</span></pre>
+	<table class="t1 t3">
+		<tr><td><число></td>
+			<td>В качестве значения используются целые числа (положительные, отрицательные и ноль). Чем больше значение, тем выше находится элемент по сравнению с теми элементами, у которых оно меньше. При равном значении <samp class="sin">z-index</samp>, на переднем плане находится тот элемент, который в коде HTML описан ниже.</td></tr>
+		<tr><td>auto</td>
+			<td>порядок элементов строится автоматически, исходя из их положения в коде HTML и принадлежности к родителю, поскольку дочерние элементы имеют тот же номер, что их родительский элемент.</td></tr>
+	</table>
+
+	<div class="no">
+		<ul class="list">
+			<li>Список, созданный с помощью <samp class="red">&lt;select></samp>, в браузере Internet Explorer до версии 6.0 включительно всегда отображается поверх других элементов, несмотря на значение <samp class="sin">z-index</samp>.</li>
+			<li>Internet Explorer до версии 7.0 включительно интерпретирует <samp class="lsin">auto</samp> как <samp class="lsin">0</samp>.</li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="item" id="zoom">
+<h2 class="sin"><a href="#">zoom</a></h2>
+	<div class="no mt10 mb10">Это нестандартное свойство, вместо него используйте <samp class="sin">transform</samp>.</div>
+	<div>Изменяет масштаб объекта согласно заданному значению.</div>
+
+	<pre class="item2 sin">zoom: <span class="lsin"><число> | <проценты> | normal</span></pre>
+	<table class="t1 t3">
+		<tr><td><число></td>
+			<td>Число с плавающей запятой, значение 1.0 соответствует normal. Значения больше 1.0 увеличивают масштаб объекта, значения меньше 1.0 уменьшают масштаб.</td></tr>
+		<tr><td><проценты></td>
+			<td>Целое число, заданное в процентах. Указывает изменение масштаба относительно 100%, которое соответствует значению <samp class="lsin">normal</samp>.</td></tr>
+		<tr><td>normal</td>
+			<td>Значение по умолчанию. Объект имеет исходный масштаб.</td></tr>
+	</table>
+</div>
+
+
+
+
+
+<div class="item" id="z5">
+<h2 class="sin"><a href="#">Матрица преобразований (<samp>matrix</samp>)</a></h2>
+	<p>Матрица преобразований предназначена для вычисления новых координат элемента с целью его трансформации и позволяет установить множество преобразований одновременно. Различают двумерную и трёхмерную матрицу, они отличаются друг от друга размером и пространством, на которое ориентированы.</p>
+
+	<p class="sin tm1">Двумерная матрица</p>
+	<p>Преобразование с помощью двумерной матрицы происходит в плоскости экрана, при этом соблюдается условие, что линии всегда остаются параллельными, поэтому в качестве трансформации допустимы поворот, масштабирование, наклон и изменение положения, но никак не перспектива или нечто подобное. Это уже область работы трёхмерной матрицы.</p>
+	<p>Сама матрица имеет размер 3х3 и в общем виде записывается так:</p>
+	<center><img src="img/matrix-f1.png"></center>
+	<p>Для матрицы преобразований применяется функция <samp class="sin">matrix()</samp>, внутри скобок перечисляются коэффициенты.</p>
+	<pre class="item2"><code>transform: matrix(a, b, c, d, tx, ty);</code></pre>
+
+	<style>
+		.tm2 td{padding:6px; height:70px !important}
+		.tm2 tr td:nth-child(1){width:100px; text-align:center !important; vertical-align:middle}
+		.tm2 tr td:nth-child(2){width:120px; vertical-align:middle}
+
+		.m3{position:relative; width:50px; margin:0 auto; top:3px;}
+		.m3 span{display:inline-block; width:50px; height:50px; position:relative; background:green;}
+		.m3 samp{position:absolute; z-index:2; content:""; left:0; top:0;
+			width:46px; height:46px; border:2px dashed red;}
+	</style>
+	<table class="t1 tb tm2 mt20">
+		<tr><td>a</td><td><div class="m3"><span style="transform:scaleX(1.7);"></span><samp></samp></div></td><td>Изменение масштаба по горизонтали. Значение больше 1 расширяет элемент, меньше 1, наоборот, сжимает.<br>Для отражение элемента по горизонтали следует установить <samp>a = -1</samp>.<br><i>aналог <samp class="sin"><a href="#z42">scaleX()</a></samp></i></td></tr>
+		<tr><td>b</td><td><div class="m3"><span style="transform:skewY(20deg);"></span><samp></samp></div></td><td>Наклон по вертикали. Положительное значение наклоняет вверх, отрицательное вниз.<br><i>аналог <samp class="sin"><a href="#z43">skewY()</a></samp></i></td></tr>
+		<tr><td>c</td><td><div class="m3"><span style="transform:skewX(20deg);"></span><samp></samp></div></td><td>Наклон по горизонтали. Положительное значение наклоняет влево, отрицательное вправо.<br><i>аналог <samp class="sin"><a href="#z43">skewX()</a></samp></i></td></tr>
+		<tr><td>d</td><td><div class="m3"><span style="transform:scaleY(1.5);"></span><samp></samp></div></td><td>Изменение масштаба по вертикали. Значение больше 1 расширяет элемент, меньше 1 - сжимает. Для отражение элемента по вертикали следует установить <samp>d = -1</samp>.<br><i>аналог <samp class="sin"><a href="#z42">scaleY()</a></samp></i></td></tr>
+		<tr><td>tx</td><td><div class="m3"><span style="transform:translateX(15px);"></span><samp></samp></div></td><td>Смещение по горизонтали в пикселях. Положительное значение сдвигает элемент вправо на заданное число пикселей, отрицательное значение сдвигает влево.<br><i>аналог <samp class="sin"><a href="#z44">translateX()</a></samp></i></td></tr>
+		<tr><td>ty</td><td><div class="m3"><span style="transform:translateY(15px);"></span><samp></samp></div></td><td>Смещение по вертикали в пикселях. При положительном значении элемент опускается на заданное число пикселей вниз или вверх при отрицательном значении.<br><i>аналог <samp class="sin"><a href="#z44">translateY()</a></samp></i></td></tr>
+		<tr><td>-</td><td><div class="m3"><span style="transform: matrix(1, 0, 0, 1, 0, 0);"></span><samp></samp></div></td><td>значение по умолчанию:<br><samp class="sin">transform: matrix(1, 0, 0, 1, 0, 0);</samp></td></tr>
+		<tr><td>-</td><td><div class="m3"><span style="transform: matrix(1.2, 0, 0, 1, 0, 10);"></span><samp></samp></div></td><td><samp class="sin">transform: matrix(1.2, 0, 0, 1, 0, 10);</samp></td></tr>
+		<tr><td>-</td><td><div class="m3"><span style="transform: matrix(1, .5, 0, 1, 10, 0);"></span><samp></samp></div></td><td><samp class="sin">transform: matrix(1, .5, 0, 1, 10, 0);</samp></td></tr>
+		<tr><td>-</td><td><div class="m3"><span style="transform: matrix(.8, 0.5, 0.5, .8, 0, 0);"></span><samp></samp></div></td><td><samp class="sin">transform: matrix(.8, 0.5, 0.5, .8, 0, 0);</samp></td></tr>
+	</table>
+
+	<p class="sin tm1">Поворот</p>
+	<p>Поворот является комбинацией масштабирования и наклона, но чтобы сохранить исходные пропорции элемента преобразования должны подчиняться строгим вычислениям с использование синусов и косинусов.</p>
+	<center><img src="img/matrix-f7.png"></center>
+	<p>Сам поворот происходит по часовой стрелке, <samp class="red">α</samp> задаёт угол поворота в градусах.</p>
+
+	<p class="sin tm1">Трёхмерная матрица <samp>(matrix3d)</samp></p>
+	<p>Название «трёхмерная» лишь отражает тот факт, что матрица предназначена для работы в 3d-пространстве. Трёхмерная матрица имеет размер 4х4 и применяется для преобразования координат элемента в трёхмерном пространстве.	В общем виде она выглядит так:<br>
+
+	<center><img src="img/matrix-f8.png"></center></p>
+	<p><samp>a1 b1 c1 d1 a2 b2 c2 d2 a3 b3 c3 d3</samp> - describing the linear transformation.</p>
+	<p><samp>a4 b4 c4 d4</samp> - describing the translation to apply.</p>
+
+	<pre  class="item2 mb20"><code>.item {<br>  <span class="ls-05">transform: matrix3d(</span><span class="ls-1">a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4);</span><br>}<br><br> /* или */<br><br>.item {<br>  transform:matrix3d(<br>    a1, b1, c1, d1,<br>    a2, b2, c2, d2,<br>    a3, b3, c3, d3,<br>    a4, b4, c4, d4<br>  );<br>}</code></pre>
+
+	<p>В чистом виде эта матрица применяется редко из-за своей сложности и наличия удобных функций для трансформации в пространстве. Если вам интересна тригонометрия и формулы преобразований одних координат в другие, то почитайте этот материал.</p>
+	<samp class="sin tdu"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function</a></samp>
+</div>
+
+</body>
+</html>

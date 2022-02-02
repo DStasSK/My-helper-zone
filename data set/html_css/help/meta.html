@@ -1,0 +1,324 @@
+<!DOCTYPE html><html><head><title>&lt;meta></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.t-html5::after, .t-trash::after{margin-left:3px}
+</style>
+</head>
+
+<body>
+<h2 class="sin"><samp>&lt;meta></samp></h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li>
+			<a href="#attributs">Атрибуты</a>
+			<div class="ogl2 ogl21">
+				<span><a href="#charset" title="Задаёт кодировку документа." class="t-html5">charset</a></span>
+				<span><a href="#content" title="Устанавливает значение атрибута, заданного с помощью name или http-equiv.">content</a></span>
+				<span><a href="#http-equiv" title="Предназначен для конвертирования метатега в заголовок HTTP.">http-equiv</a></span>
+				<span><a href="#name" title="Имя метатега, также косвенно устанавливает его предназначение. Устанавливает название/имя метаданных документа.">name</a></span>
+				<span></span>
+			</div>
+		</li>
+		<li><a href="#refresh">META-переадресация (<samp>http-equiv="<samp class="lsin">Refresh</samp>"</samp>)</a></li>
+		<li><a href="#robots">Индексация страниц (<samp>name="<samp class="lsin">Robots</samp>"</samp>)</a></li>
+		<li><a href="#view">Высота и ширина области просмотра (<samp>name="<samp class="lsin">viewport</samp>"</samp>)</a></li>
+		<li><a href="#scale">Масштабирование области просмотра (для мобильников)</a></li>
+		<li><a href="#device">Разрешение области просмотра</a></li>
+		<li><a href="#Cache-Control">Управление кэшированием (<samp>http-equiv="<samp class="lsin">Cache-Control</samp>"</samp>)</a></li>
+		<li><a href="#content-language">Язык для всего документа (<samp>http-equiv="<samp class="lsin">Content-Language</samp>"</samp>)</a></li>
+		<li><a href="#referrer">Отслеживание перемещения пользователей между страницами</a></li>
+		<li><a href="#viewport2"><i>Правило <samp class="red">@viewport</samp></i></a></li>
+	</ul>
+
+
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;meta></samp> (от англ. metadata — метаданные) определяет данные (они называются ещё метатеги), которые используются для хранения информации, предназначенной для браузеров и поисковых систем. Например, механизмы поисковых систем обращаются к метатегам для получения описания сайта, ключевых слов и других данных.</p>
+
+	<p>Разрешается использовать более чем один метатег, все они размещаются в контейнере <samp class="red">&lt;head></samp>. Как правило, атрибуты любого метатега сводятся к парам «имя=значение», имена которых определяются ключевыми словами <samp class="lsin">content</samp>, <samp class="lsin">name</samp> или <samp class="lsin">http-equiv</samp>.</p>
+
+	<p>Одновременно использовать атрибуты <samp class="lsin">name</samp> и <samp class="lsin">http-equiv</samp> в одном тэге <samp class="red">&lt;meta></samp> не допускается.</p></p>
+
+	<pre class="item2"><code>&lt;head><br>   &lt;meta><br>   &lt;meta />  &lt;!-- XTHML --><br>&lt;/head></code></pre>
+
+	<div class="no mb10">
+		<p>Контекст, в котором этот элемент может быть использован: если для элемента указаны атрибуты <samp class="lsin">charset</samp> и <samp class="lsin">http-equiv</samp>, то в элементе <samp class="red">&lt;head></samp>. Если значением атрибута не является <samp class="lsin">content-type</samp>, то внутри элемента <samp class="red">&lt;noscript></samp>, являющимся дочерним элементом <samp class="red">&lt;head></samp>. Если присутствует атрибут <samp class="lsin">name</samp> — там, где ожидаются метаданные.</p>
+	</div>
+</div>
+
+
+
+<div class="item" id="attributs">
+<h2 class="sin"><a href="#" title="наверх">Атрибуты</a></h2>
+	<table class="t1 t3">
+		<tr><td width="110px"><a href="#charset">charset</a><span class="t-html5"></span></td>
+			<td>Задаёт кодировку документа. В документе должен быть один элемент <samp class="red">&lt;meta></samp> с атрибутом <samp class="lsin">charset</samp>.</td></tr>
+		<tr><td><a href="#content">content</a></td>
+			<td>Устанавливает значение атрибута, заданного с помощью <samp class="lsin">name</samp> или <samp class="lsin">http-equiv</samp>.</td></tr>
+		<tr><td><a href="#http-equiv">http-equiv</a></td>
+			<td>Предназначен для конвертирования метатега в заголовок HTTP. Задает прагма директиву.</td></tr>
+		<tr><td><a href="#name">name</a></td>
+			<td>Имя метатега, также косвенно устанавливает его предназначение. Устанавливает название/имя метаданных документа.</td></tr>
+	</table>
+	<p class="mt20">Для элемента обязательно должен быть определен один из атрибутов — <samp class="lsin">name</samp>, <samp class="lsin">http-equiv</samp> или <samp class="lsin">charset</samp>. Если указан атрибут <samp class="lsin">name</samp> или <samp class="lsin">http-equiv</samp>, также должен присутствовать атрибут <samp class="lsin">content</samp> (или пропущен, если нет соответствующих значений).</p>
+</div>
+
+
+
+<div class="item" id="charset">
+<h2 class="sin"><a href="#" title="наверх">Атрибут <samp class="lsin">charset</samp></a></h2>
+	<p>Указывает кодировку документа. Атрибут введён в HTML5 и предназначен для сокращения формы <samp class="red">&lt;meta></samp>, которая задавала кодировку в предыдущих версиях HTML и XHTML.</p>
+
+	<pre class="item2"><code>&lt;!-- было --><br>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br><br>&lt;!-- стало --><br>&lt;meta charset="кодировка"></code></pre>
+</div>
+
+
+
+<div class="item" id="content">
+<h2 class="sin"><a href="#" title="наверх">Атрибут <samp class="lsin">content</samp></a></h2>
+	<p><samp class="sin">content</samp> устанавливает значение атрибута, заданного с помощью <samp class="lsin">name</samp> или <samp class="lsin dib">http-equiv</samp>. Атрибут <samp class="sin">content</samp> может содержать более одного значения, в этом случае они разделяются запятыми или точкой с запятой.</p>
+
+	<!-- <pre class="item2"><code>&lt;meta content="..."><br>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"></code></pre> -->
+
+	<h3 class="sin mt40"><a href="#" title="наверх">Значения <samp class="lsin">content</samp> для <samp class="red">&lt;meta <samp class="sin">name="<samp class="lsin">robots</samp>"</samp>></samp></a></h3>
+		<table class="t1 t3 tb">
+			<tr><td>index</td>
+				<td>Разрешает роботу индексировать данную страницу.
+				<pre class="item2"><code>&lt;meta name="robots" content="index,follow" /><br>&lt;meta name="robots" content="all" /></code></pre></td></tr>
+			<tr><td>noindex</td>
+				<td>Запрещает роботу индексировать текущую страницу. Она не попадает в базу поисковика и её невозможно будет найти через поисковую систему.
+				<pre class="item2"><code>&lt;meta name="robots" content="noindex" /></code></pre></td></tr>
+			<tr><td>follow</td>
+				<td>Разрешает роботу переходить по ссылкам на данной странице.
+				<pre class="item2"><code>&lt;meta name="robots" content="follow" /></code></pre></td></tr>
+			<tr><td>nofollow</td>
+				<td>Запрещает роботу переходить по ссылкам на данной странице. При этом всем ссылкам не передаётся ТИЦ (тематический индекс цитирования) и PageRank.
+				<pre class="item2"><code>&lt;meta name="robots" content="nofollow" /></code></pre></td></tr>
+			<tr><td>noarchive</td>
+				<td>Запрещает роботу кэшировать данную страницу.
+				<pre class="item2"><code>&lt;meta name="robots" content="noarchive" /></code></pre></td></tr>
+		</table>
+		<div><i>Некоторые значения атрибута <samp class="sin">content</samp> для <samp class="sin">name="<samp class="lsin">robots</samp>"</samp>, предназначенных для поисковых роботов. Подробнее <a href="#robots" class="sin tdu">тут</a>.</i></div>
+
+	<h3 class="sin mt40" id="viewport"><a href="#" title="наверх">Значения <samp class="lsin">content</samp> для <samp class="red">&lt;meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>></samp></a></h3>
+		<style>
+			#tz tr td:nth-child(1){font-weight:400; letter-spacing:-1px; width:121px}
+			#tz tr td:nth-child(2){text-align:left;}
+		</style>
+		<table class="t1 t3 tb" id="tz">
+			<tr><td>width</td>
+				<td><samp class="lsin ls-1">device-width</samp> или целое положительное число</td>
+				<td><p>Устанавливает ширину области просмотра в пикселях.</p>
+					<samp class="lsin">device-width</samp> соответствует <samp class="sin tdu"><a href="unit css.html#vw">100vw</a></samp>
+					<pre class="item2"><code>&lt;meta name="viewport" <br>      content="width=device-width"></code></pre></td></tr>
+			<tr><td>height</td>
+				<td><samp class="lsin ls-1">device-height</samp> или целое положительное число</td>
+				<td><p>Устанавливает высоту области просмотра в пикселях.</p>
+					<samp class="lsin">device-height</samp> соответствует <samp class="sin tdu"><a href="unit css.html#vh">100vh</a></samp>
+					</td></tr>
+			<tr><td>initial-scale</td>
+				<td>Число от 0.0 до 10.0</td>
+				<td>Устанавливает соотношение между шириной устройства (<samp class="lsin">device-width</samp> в портретном режиме или <samp class="lsin">device-height</samp> в ландшафтном режиме) и размером области просмотра.
+					<pre class="item2"><code>&lt;meta name="viewport" <br>      content="initial-scale=1"></code></pre></td></tr>
+			<tr><td>maximum-scale</td>
+				<td>Число от 0.0 до 10.0</td>
+				<td>Задаёт максимальное значение масштаба. Должно быть больше или равно <samp class="lsin">minimum-scale</samp>, в противном случае игнорируется.</td></tr>
+			<tr><td>minimum-scale</td>
+				<td>Число от 0.0 до 10.0</td>
+				<td>Задаёт минимальное значение масштаба. Должно быть меньше или равно <samp class="lsin">maximum-scale</samp>, в противном случае игнорируется.</td></tr>
+			<tr><td>user-scalable</td>
+				<td><samp class="lsin">yes</samp> или <samp class="lsin">no</samp></td>
+				<td>Если указано <samp class="lsin">no</samp>, то пользователь не сможет масштабировать веб-страницу.
+					<br>По умолчанию используется <samp class="lsin">yes</samp>.</td></tr>
+		</table>
+		<div><i>Некоторые значения атрибута <samp class="sin">content</samp> для <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>, предназначенных для управления просмотром сайта на мобильных устройствах. Подробнее <a href="#view" class="sin tdu">тут</a>.</i></div>
+</div>
+
+
+
+<div class="item" id="http-equiv">
+<h2 class="sin"><a href="#" title="наверх">Атрибут <samp class="lsin">http-equiv</samp></a></h2>
+	<p>Браузеры преобразовывают значение атрибута <samp class="lsin">http-equiv</samp>, заданное с помощью <samp class="lsin">content</samp>, в формат заголовка ответа HTTP и обрабатывают их, как будто они прибыли непосредственно от сервера.</p>
+	<p>Когда атрибут <samp class="lsin">http-equiv</samp> указан в элементе <samp class="red">&lt;meta></samp>, элемент <samp class="red">&lt;meta></samp> является прагма директивой, которая предоставляет дополнительную информацию о документе.</p>
+
+	<pre class="item2"><code>&lt;meta http-equiv="значение" content="..."></code></pre>
+	<div class="ml5 ls2 mt20 mb10"><b>Значения:</b></div>
+	<table class="t1">
+		<tr><td width="145px">Content-Type</td><td>Тип кодировки документа.</td></tr>
+		<tr><td>expires</td><td>Устанавливает дату и время, после которой информация в документе будет считаться устаревшей.</td></tr>
+		<tr><td>pragma</td><td>Способ кэширования документа.</td></tr>
+		<tr><td>refresh</td><td>Загружает другой документ в текущее окно браузера. Подробнее <a href="#refresh" class="sin tdu">тут</a></td></tr>
+		<tr><td>default-style</td><td>Задает имя альтернативной таблицы стилей, используемой по умолчанию.</td></tr>
+		<tr><td>Cache-Control</td><td>Управление <a class="sin tdu" href="#Cache-Control">кэшированием.</a></td></tr>
+		<tr><td class="ls-1">content-language</td><td>Тег <a class="sin tdu" href="#content-language">позволяет указать</a> основной язык для всего документа.</td></tr>
+	</table>
+	<pre class="item2 mt20"><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br>&lt;meta http-equiv="expires" content="Sun, 01 Jan 2013 07:01:00 GMT"><br>&lt;meta http-equiv="refresh" content="300"> &lt!-- обновление каждые 5 минут --><br>&lt;meta http-equiv="refresh" content="20; url=page4.html"> &lt!-- переход по url --><br>&lt;meta http-equiv="default-style" content="default"></code></pre>
+</div>
+
+
+<div class="item" id="name">
+<h2 class="sin"><a href="#" title="наверх">Атрибут <samp class="lsin">name</samp></a></h2>
+	<p>Устанавливает идентификатор метатега для пары «<b>имя=значение</b>». Одновременно использовать атрибуты <samp class="lsin">name</samp> и <samp class="lsin">http-equiv</samp> в одном тэге <samp class="red">&lt;meta></samp> не допускается.</p>
+
+	<pre class="item2"><code>&lt;meta name="значение" content="..."></code></pre>
+
+	<div class="ml5 ls2 mt20 mb10"><b>Значения:</b></div>
+	<table class="t1 t3 tb">
+		<tr><td>author</td>
+			<td>Имя автора документа. Значение должно быть строкой произвольной формы с указанием имени одного из авторов страницы.</td></tr>
+		<tr><td>description</td>
+			<td>Описание текущего документа. Значение должно быть строкой произвольной формы, описывающей страницу. Значение должно быть подходящим для использования в каталоге страниц, например, в поисковой системе.</td></tr>
+		<tr><td>generator</td>
+			<td><p>Значение должно быть строкой произвольной формы, которая идентифицирует один из пакетов программного обеспечения, использованных для создания документа. Это значение не должно использоваться на страницах, разметка которых не создается программным обеспечением, например на страницах, разметка которых была написана пользователем в текстовом редакторе.</p>
+			<pre class="item2"><code>&lt;meta name="generator" content="WordPress 5.2" /></code></pre></td></tr>
+		<tr><td>keywords</td>
+			<td><p>Список ключевых слов, встречающихся на странице. Значение должно быть набором разделенных запятыми ключевых слов, относящихся к странице. Многие поисковые системы не рассматривают такие ключевые слова, потому что эта функция исторически использовалась ненадежно и спамила результаты поиска.</p>
+			<pre class="item2"><code>&lt;meta name="keywords" content="слова,для,поисковых,систем" /></code></pre></td></tr>
+		<tr><td>viewport</td>
+			<td>Управляет просмотром сайта на мобильных устройствах. Смотри <a href="#viewport" class="sin tdu">выше</a>.</td></tr>
+		<tr><td>robots</td>
+			<td>Значения атрибута, предназначенных для поисковых <a href="#content" class="sin tdu">роботов</a>.</td></tr>
+		<tr><td>referrer</td>
+			<td>Позволяет отслеживать перемещения пользователей между страницами. Подробнее <a href="#referrer" class="sin tdu">тут</a>.</td></tr>
+		<tr><td>url</td>
+			<td><p>Прекращает индексацию страницы поисковой системой, и перенаправляет робота поисковой машины по указанной ссылке. Применяется для отмены индексации «зеркала» и генерируемых страниц.</p>
+			<pre class="item2"><code>&lt;meta name="url" content="http://ru.wikipedia.org/" /></code></pre></td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="refresh">
+<h3 class="sin"><a href="#" title="наверх">META-переадресация - <samp>http-equiv="<samp class="lsin">Refresh</samp>"</samp></a></h3>
+	<p>С помощью тега <samp class="red">&lt;meta></samp> можно осуществить автоматическую переадресацию на указанный документ через определённый промежуток времени. Для этого используется тег <samp class="red">&lt;meta></samp> и значение <samp class="sin">Refresh</samp> атрибута <samp class="sin">http-equiv.</samp></p>
+	<p>Указание браузеру автоматически перейти на другой адрес через указанное количество секунд. <i class="red">Если параметр url не указан, обновить страницу без использования кэша</i>. Из-за массовых злоупотреблений с целью перевода пользователей на незатребованный ресурс, откровенного мошеннечества и использования этой особенности при распространении вредоносного ПО, практически все современные браузеры по умолчанию игнорируют инструкцию указанную в теле страницы. В современных браузерах, в том числе мобильных, имеются более технологичные средства для обновления данных на странице: AJAX, Push уведомления, WebSockets, Web Workers, …. На сегодня — малоприменим, практически бессмысленный и затратный, как для клиента, так для сервера.</p>
+	<pre class="item2"><code class="html">&lt;meta http-equiv="refresh" content="5; URL=http://htmlbook.ru" /><br><br>&lt;!-- После url= кавычек нет! --><br>&lt;meta http-equiv="refresh" content="5; url=http://www.example.com/" /><br><br>&lt;!-- обновлять каждые 5 секунд --><br>&lt;meta http-equiv="refresh" content="5;" /></code></pre>
+	<p>Переадресация может применяться <b>в чатах для обновления текущего документа</b> или перенаправления на новый адрес. Но также используется и со злым умыслом, например, с целью частого показа контекстной рекламы или баннеров.</p>
+</div>
+
+
+<div class="item" id="robots">
+<h3 class="sin"><a href="#" title="наверх">Индексация страниц (<samp>name="<samp class="lsin">Robots</samp>"</samp>)</a></h3>
+	<p>Тег формирует информацию о гипертекстовых документах, которая поступает к роботам поисковых систем. Значения тега могут быть следующими: Index (страница должна быть проиндексирована), Noindex (документ не индексируется), Follow (гиперссылки на странице отслеживаются), Nofollow (гиперссылки не прослеживаются), All (включает значения index и follow, включен по умолчанию), None (включает значения noindex и nofollow). Впервые предложен поисковиком Google, но очень быстро стал учитываться другими крупными поисковиками. Правильное применение очень положительно влияет на индексацию и ранжирование всеми крупными поисковиками, как и ошибки применения могут сильно повредить.</p>
+	<ul class="list">
+		<li>
+			<div>Разрешить индексирование страницы и использование размещённых на ней ссылок для последующей индексации.</div>
+			<pre class="item2"><code>&lt;meta name="robots" content="index,follow" /><br>&lt;meta name="robots" content="all" /></code></pre>
+		</li>
+		<li>
+			<div>Запретить индексирование страницы, разрешить использование размещённых на ней ссылок для последующей индексации.</div>
+			<pre class="item2"><code>&lt;meta name="robots" content="noindex,follow" /></code></pre>
+		</li>
+		<li>
+			<div>Разрешить индексирование страницы, запретить использование размещённых на ней ссылок для последующей индексации.</div>
+			<pre class="item2"><code>&lt;meta name="robots" content="index,nofollow" /></code></pre>
+		</li>
+		<li>
+			<div>Запретить индексирование страницы и использование размещённых на ней ссылок для последующей индексации.</div>
+			<pre class="item2"><code>&lt;meta name="robots" content="noindex,nofollow" /><br>&lt;meta name="robots" content="none" /></code></pre>
+		</li>
+	</ul>
+</div>
+
+
+<div class="item" id="view">
+<h3 class="sin"><a href="#" title="наверх">Высота и ширина области просмотра<br>(<samp>name="<samp class="lsin">viewport</samp>"</samp>)</a></h3>
+	<p>Использование метатега <samp class="red">viewport</samp> со значениями <b>height</b> или <b>width</b> будет определять, соответственно, высоту или ширину области просмотра. Каждое значение принимает либо положительное целое число, либо ключевое слово. Для свойства <b>height</b> принимается ключевое слово <samp class="sin">device-height</samp>, а для свойства <b>width</b> принимается ключевое слово <samp class="sin">device-width</samp>. С помощью этих ключевых слов будет наследоваться ширина и высота устройства по умолчанию.</p>
+	<p>Для достижения наилучших результатов и красиво выглядящего сайта рекомендуется использовать значения устройства по умолчанию путём применения <samp class="sin">device-height</samp> и <samp class="sin">device-width</samp>.</p>
+	<pre class="item2"><code>&lt;meta name="viewport" content="width=device-width"></code></pre>
+	
+	<h3 class="sin mt40"><a href="#">Комбинация значений</a></h3>
+	<p>Метатег <samp class="red">viewport</samp> принимает отдельные значения наряду с множеством значений, позволяя установить несколько свойств за раз. Установка нескольких значений требует разделения запятыми в значении атрибута content. Одно из рекомендованных значений приведено ниже, в котором используются свойства <b>width</b> и <b>initial-scale</b>.</p>
+	<pre class="item2"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"></code></pre>
+</div>
+
+
+
+<div class="item" id="scale">
+<h3 class="sin"><a href="#" title="наверх">Масштабирование области просмотра<br><small>(для мобильников)</small></a></h3>
+	<p>Для управления масштабированием сайта на мобильном устройстве и насколько пользователи могут его масштабировать, применяются свойства <samp class="sin">minimum-scale, maximum-scale, initial-scale</samp> и <samp class="sin">user-scalable</samp>.</p>
+	<p><samp class="sin">initial-scale</samp> для сайта должно быть установлен в <b>1</b>, так как это определяет соотношение между высотой устройства в портретной ориентации и размером области просмотра. Если устройство находится в альбомном режиме, то это будет соотношение между шириной устройства и размером области просмотра. Значением <samp class="sin">initial-scale</samp> всегда должно быть положительное целое число от <b>0</b> до <b>10</b>. <i>Использование целого числа больше <b>1</b> будет увеличить сайт больше, чем масштаб по умолчанию.</i></p>
+	<p>Значения <samp class="sin">minimum-scale</samp> и <samp class="sin">maximum-scale</samp> определяют, насколько область просмотра может масштабироваться в меньшую и большую стороны. При использовании <samp class="sin">minimum-scale</samp> значение должно быть положительным целым числом меньше или равным <samp class="sin">initial-scale</samp>. Используя те же рассуждения, значение <samp class="sin">maximum-scale</samp> должно быть положительным целым числом больше или равным <samp class="sin">initial-scale</samp>. Оба значения также должны быть от <b>0</b> до <b>10</b>.</p>
+	<p>Вообще говоря, эти значения не должны быть установлены на то же значение, что и <samp class="sin">initial-scale</samp>. Это позволит отключить любое масштабирование, которое может быть выполнено взамен применения значения <samp class="sin">user-scalable</samp>. Установка значения <samp class="sin">user-scalable</samp> в <samp class="red">no</samp> отключит любое масштабирование. В качестве альтернативы, установив значение <samp class="sin">user-scalable</samp> в <samp class="red">yes</samp> мы включим масштабирование.</p>
+	<p>Выключение возможности масштабирования сайта является плохой идеей. Это вредит доступности и удобству, мешая людям с ограниченными возможностями просматривать сайт по желанию.</p>
+	<pre class="item2"><code>&lt;!-- Tell the browser to be responsive to screen width --><br>&lt;meta content="<br>  width=device-width,<br>  initial-scale=1,<br>  maximum-scale=1,<br>  user-scalable=no"<br>  name="viewport"></code></pre>
+</div>
+
+
+
+<div class="item" id="device">
+<h3 class="sin"><a href="#" title="наверх">Разрешение области просмотра</a></h3>
+	<p>Давая браузеру решать, как масштабировать сайт основываясь на любых значений масштаба области просмотра, обычно делают один трюк. Когда требуется больше контроля, в частности, над разрешением устройства, может быть использовано значение <samp class="sin">target-densitydpi</samp>. <samp class="sin">target-densitydpi</samp> принимает несколько значений, включая <samp class="grin">device-dpi</samp>, <samp class="grin">high-dpi</samp>, <samp class="grin">medium-dpi</samp>, <samp class="grin">low-dpi</samp> или конкретное число точек на дюйм.</p>
+	<p>Значение <samp class="sin">target-densitydpi</samp> применяется редко, но оно чрезвычайно полезно, когда необходим попиксельный контроль.</p>
+	<pre class="item2"><code>&lt;meta name="viewport" content="target-densitydpi=device-dpi"></code></pre>
+</div>
+
+
+
+<div class="item" id="Cache-Control">
+<h3 class="sin"><a href="#" title="наверх">Управление кэшированием (<samp>http-equiv="<samp class="lsin">Cache-Control</samp>"</samp>)</a></h3>
+	<p>Управление кэшированием. Должно давать четкие указанию браузеру и промежуточным серверам как вести кэширование этой страницы. Инструкции не чувствительны к регистру и имеют необязательный аргумент, который может быть указан как в кавычках, так и без них. Несколько инструкций разделяются запятыми.</p>
+	<table class="t1 t2 tb">
+		<tr><td width="160px">public</td><td>документ кэшируется во всех доступных кэшах</td></tr>
+		<tr><td>no-store</td><td>может быть кэширован, но не сохраняется в архиве</td></tr>
+		<tr><td><span class="dib">max-age=time,</span> <span class="dib">must-revalidate</span></td><td>указывает браузеру сколько секунд хранить документ в кэше</td></tr>
+		<tr><td>private</td><td>кэшируется браузером, не кэшируется proxy-сервером</td></tr>
+		<tr><td>no-cache</td><td>запрет на кэширование (браузер и proxy-сервер документ не кэшируют)</td></tr>
+		<tr><td><span class="dib">max-age=time,</span> <span class="dib">proxy-revalidate</span></td><td>указывает сколько секунд хранить документ в кэше proxy-серверу</td></tr>
+	</table>
+
+	<pre class="item2 mt10"><code>&lt;!-- для динамических страниц типа результатов поиска --><br>&lt;meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><br>&lt;!-- для публичных страниц типа статей блога --><br>&lt;meta http-equiv="Cache-Control" content="public, max-age=31536000"></code></pre>
+
+	<div class="no">Полный <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"><span class="sin tdu">список</span></a> возможных значений.</div>
+</div>
+
+
+<div class="item" id="content-language">
+<h3 class="sin"><a href="#" title="наверх">Язык для всего документа (<samp>http-equiv="<samp class="lsin">Content-Language</samp>"</samp>)</a></h3>
+	<p>Тег позволяет указать основной язык для всего документа. Широко используется браузерами, поисковиками, системами чтения вслух, системами анализа текстов и автоматического перевода. Важен для правильного выбора алгоритмов автоматического определения кодировок для любого языка, в том числе английского. Частая ошибка при создании новой страницы из шаблона, где по умолчанию установлен один язык (чаще всего английский), устанавливается выбор кодировки для другого может привести к низкому ранжированию в поисковиках, к ложным срабатываниям автоматических систем перевода, встроенных в современные браузеры и множеству других мелких неудобств. Наиболее значимым становится при использовании кодировок Unicode, в частности самой используемой UTF-8</p>
+	<pre class="item2"><code>&lt;meta http-equiv="content-language" content="ru" /><br><br>&lt;!-- В HTML5 указание языка упрощено: --><br>&lt;html lang="ru"></code></pre>
+</div>
+
+
+<div class="item" id="referrer">
+<h3 class="sin"><a href="#" title="наверх">Отслеживание перемещения пользователей между страницами (<samp>name="<samp class="lsin">referrer</samp>"</samp>)</a></h3>
+	<p>Необязательное поле заголовка HTTP, которое позволяет отслеживать перемещения пользователей между страницами в инструментах аналитики, а также понять происхождение входящего трафика. Реферер передаётся при переходе с <b>http</b> на любой тип сайта, при переходе с <b>https</b> на <b>https</b>, и не передаётся при переходе с <b>https</b> на <b>http</b>.</p>
+	<p>В наиболее распространенной ситуации это означает, что когда пользователь щелкает гиперссылку в браузере, на сервер отправляется запрос, содержащий целевую веб-страницу. Запрос может содержать поле <samp class="lsin">referrer</samp>, в котором указана последняя страница, на которой был пользователь (то есть та, на которой он щелкнул ссылку).</p>
+
+	<pre class="item2"><code>&lt;meta name="referrer" content="origin-when-cross-origin" /></code></pre>
+
+	<div class="ls1 mt20 mb10"><b>Значения атрибута <samp class="lsin">content</samp>:</b></div>
+	<table class="t1 t3 tb">
+		<tr><td width="220px">no-referrer</td><td>не передает никакую информацию о реферере.</td></tr>
+		<tr><td class="ls-1">no-referrer-when-downgrade</td><td>передает реферальные данные только сайтам на HTTPS. Поведение браузера по умолчанию, если не указано иное.</td></tr>
+		<tr><td>unsafe-url</td><td>всегда передает полный URL реферера.</td></tr>
+		<tr><td class="ls-1">origin-when-cross-origin</td><td>отправляет полный URL при переходе на страницы в рамках одного сайта, вне зависимости от протокола, а на все остальные — только базовый домен/поддомен.</td></tr>
+	</table>
+</div>
+
+
+
+
+<div class="item">
+	<pre class="item2"><code>&lt;meta property="og:type" content="website"><br>&lt;meta property="og:image" content="/img/posters/1601120919.jpg"/></code></pre>
+</div>
+
+
+<div class="item" id="viewport2">
+<h2 class="sin"><a href="#" title="наверх">Правило <samp class="red">@viewport</samp></a></h2>
+	<p>Поскольку метатег <samp class="sin">viewport</samp> вращается преимущественно вокруг установки стилей, которые определяют как должен отображаться сайт, то рекомендуем переместить его из <samp class="red">HTML</samp> в правило <samp class="sin tdu"><a href="@-rules.html#viewport">@viewport</a></samp> в <samp class="red">CSS</samp>. Это помогает сохранить стиль отдельно от содержания, обеспечивая более семантический подход.</p>
+	<p>В настоящее время в некоторых браузерах уже реализовано правило <samp class="red">@viewport</samp>, однако поддержка не так повсеместна. Ранее рекомендованный метатег <samp class="sin">viewport</samp> будет выглядеть следующим правилом в <samp class="red">CSS</samp>.</p>
+	<p>Позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров. Является аналогом <samp class="red">&lt;meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>></samp>, но переносит параметры из HTML в правила CSS.</p>
+	<pre class="item2"><code>@viewport {<br>  width: device-width;<br>  zoom: 1;<br>}</code></pre>
+	<div class="no mb10">Это свойство поддерживается токлько Internet Explorer и Edge</div>
+</div>
+
+</body></html>

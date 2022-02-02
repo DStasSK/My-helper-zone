@@ -1,0 +1,133 @@
+<!DOCTYPE html><html><head><title>Атрибуты событий</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t-html5::after{margin:0}
+	.t1{font-size:16px;}
+	.t1 tr td:nth-child(3){text-align:justify;}
+</style>
+</head>
+<body>
+<h2 class="sin ls2">Атрибуты событий</h2>
+<!-- Оглавление -->
+	<ul class="ogl">
+		<li><a href="#mous">События Мыши и Клавиатуры</a></li>
+		<li><a href="#window">События Объекта Window</a></li>
+		<li><a href="#form">События Форм</a></li>
+		<li><a href="#media">Медиа События</a></li>
+	</ul>
+
+<div class="item anp">
+	<p><i><a href="https://webref.ru/html/attr/event" class="sin tdu">https://webref.ru/html/attr/event</a></i></p>
+	<p><i><a href="http://www.wisdomweb.ru/HTML5d/event.php" class="sin tdu">http://www.wisdomweb.ru/HTML5d/event.php</a></i></p>
+	<p class="mt20">Все тэги в HTML5 поддерживают атрибуты событий находящиеся в таблицах ниже.</p>
+</div>
+
+
+<div class="item" id="mous">
+<h3 class="sin"><a href="#">События Мыши и Клавиатуры</a></h3>
+	<table class="t1 tb todd t3 tm mt20 th1 t1c">
+		<tr><th>Атрибут</th><th>Значение</th><th>Описание</th><th>Статус</th></tr>
+		<tr><td>onclick</td><td>код скрипта</td><td>Код скрипта будет выполнен после щелчка мыши.</td><td>-</td></tr>
+		<tr><td>oncontextmenu</td><td>код скрипта</td><td>Код скрипта будет выполнен при вызове контекстного меню.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondblclick</td><td>код скрипта</td><td>Код скрипта будет выполнен после двойного щелчка мыши.</td><td>-</td></tr>
+		<tr><td>ondrag</td><td>код скрипта</td><td>Код скрипта будет выполнен при перетаскивании элемента.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondragend</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда закончится перетаскивание элемента.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondragenter</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда перетаскиваемый элемент будет заведен в область, которая принимает его.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondragleave</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда перетаскиваемый элемент покинет пределы области, которая принимает его.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondragstart</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда перетаскивание элемента начнется.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondrop</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда элемент будет перетащен в область, которая принимает его.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onmousedown</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда будет нажата клавиша мыши.</td><td>-</td></tr>
+		<tr><td>onmousemove</td><td>код скрипта</td><td>Код скрипта будет выполнятся при передвижении курсора мыши.</td><td>-</td></tr>
+		<tr><td>onmouseout</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда курсор мыши покинет пределы границ элемента.</td><td>-</td></tr>
+		<tr><td>onmouseover</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда курсор мыши будет заведен в пределы границ элемента.</td><td>-</td></tr>
+		<tr><td>onmouseup</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда нажатая клавиша мыши будет отпущена.</td><td>-</td></tr>
+		<tr><td>onmousewheel</td><td>код скрипта</td><td>Код скрипта будет выполнен при прокрутке колесика мыши.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onscroll</td><td>код скрипта</td><td>Код скрипта будет выполнен при прокрутке полосы прокрутки элемента.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onkeydown</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда клавиша на клавиатуре будет нажата.</td><td>-</td></tr>
+		<tr><td>onkeypress</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда клавиша на клавиатуре будет нажата и отпущена.</td><td>-</td></tr>
+		<tr><td>onkeyup</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда нажатая на клавиатуре клавиша будет отпущена.</td><td>-</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="window">
+<h3 class="sin"><a href="#">События Объекта Window</a></h3>
+	<table class="t1 tb todd t3 tm mt20 th1 t1c">
+		<tr><th>Атрибут</th><th>Значение</th><th>Описание</th><th>Статус</th></tr>
+		<tr><td>onafterprint</td><td>код скрипта</td><td>Код скрипта будет выполнен после того, как документ будет распечатан.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onbeforeprint</td><td>код скрипта</td><td>Код скрипта будет выполнен перед тем, как документ будет распечатан.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onbeforeonload</td><td>код скрипта</td><td>Код скрипта будет выполнен перед тем, как документ будет загружен.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onblur</td><td>код скрипта</td><td>Код скрипта будет выполнен после того, как документ станет неактивным.</td><td>-</td></tr>
+		<tr><td>onerror</td><td>код скрипта</td><td>Код скрипта будет выполнен если при загрузке документа произойдет ошибка.</td><td>-</td></tr>
+		<tr><td>onfocus</td><td>код скрипта</td><td>Код скрипта будет выполнен после того, как документ станет активным.</td><td>-</td></tr>
+		<tr><td>onhaschange</td><td>код скрипта</td><td>Код скрипта будет выполнен если содержимое документа изменится.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onload</td><td>код скрипта</td><td>Код скрипта будет выполнен при загрузке документа.</td><td>-</td></tr>
+		<tr><td>onmessage</td><td>код скрипта</td><td>Код скрипта будет выполнен при получении документом сообщения.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onoffline</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда документ будет отключен от интернета.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ononline</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда документ будет подключен к интернету.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onpagehide</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда окно с документом будет скрыто.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onpageshow</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда окно с документом будет отображено.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onpopstate</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда история (список посещенных в данном окне браузера страниц) документа будет изменена.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onredo</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда будет совершен переход на следующую страницу в истории документа.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onresize</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда размеры окна документа будут изменены.</td><td>-</td></tr>
+		<tr><td>onundo</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда будет совершен переход на предыдущую страницу в истории документа.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onunload</td><td>код скрипта</td><td>Код скрипта будет выполнен при закрытии окна браузера с документом.</td><td><span class="t-html5"></span></td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="form">
+<h3 class="sin"><a href="#">События Форм</a></h3>
+	<table class="t1 tb todd t3 tm mt20 th1 t1c">
+		<tr><th>Атрибут</th><th>Значение</th><th>Описание</th><th>Статус</th></tr>
+		<tr><td>onblur</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда форма станет неактивной.</td><td>-</td></tr>
+		<tr><td>onchange</td><td>код скрипта</td><td>Код скрипта будет выполнен при изменении содержимого формы.</td><td>-</td></tr>
+		<tr><td>onfocus</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда форма станет активной.</td><td>-</td></tr>
+		<tr><td>onformchange</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда содержимое формы изменится.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onforminput</td><td>код скрипта</td><td>Код скрипта будет выполнен при введении пользователем информации в форму.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>oninput</td><td>код скрипта</td><td>Код скрипта будет выполнен при введении пользователем информации в элемент.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onselect</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда элемент будет выбран.</td><td>-</td></tr>
+		<tr><td>onsubmit</td><td>код скрипта</td><td>Код скрипта будет выполнен при отправке формы.</td><td>-</td></tr>
+		<tr><td>onreset</td><td>код скрипта</td><td>Событие <samp class="sin">onreset</samp> возникает при очистке формы, происходящей при нажатии на кнопку <pre><code>&lt;input type="reset"></code></pre></td><td>-</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="media">
+<h3 class="sin"><a href="#">Медиа События</a></h3>
+	<table class="t1 tb todd t3 tm mt20 th1 t1c">
+		<tr><th>Атрибут</th><th>Значение</th><th>Описание</th><th>Статус</th></tr>
+		<tr><td>onabort</td><td>код скрипта</td><td>Код скрипта будет выполнен если загрузка файла будет прервана.</td><td>-</td></tr>
+		<tr><td>oncanplay</td><td>код скрипта</td><td>Код скрипта будет выполнен если файл был загружен достаточно для начала воспроизведения.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>oncanplaythrough</td><td>код скрипта</td><td>Код скрипта будет выполнен если файл был загружен достаточно для воспроизведения до конца без остановок для подгрузки.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ondurationchange</td><td>код скрипта</td><td>Код скрипта будет выполнен при изменении длины файла.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onemptied</td><td>код скрипта</td><td>Код скрипта будет выполнен если файл станет недоступен.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onended</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда файл будет воспроизведен до конца.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onerror</td><td>код скрипта</td><td>Код скрипта будет выполнен если при загрузке файла произойдет ошибка.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onloadeddata</td><td>код скрипта</td><td>Код скрипта будет выполнен при загрузке данных.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onloadedmetadata</td><td>код скрипта</td><td>Код скрипта будет выполнен при загрузке мета данных.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onloadstart</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда загрузка файла начнется.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onpause</td><td>код скрипта</td><td>Код скрипта будет выполнен если воспроизведение файла остановится либо с помощью кнопки пауза, либо программно через JavaScript.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onplay</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда медиа файл будет готов к воспроизведению.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onplaying</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда проигрывание медиа файла начнется.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onprogress</td><td>код скрипта</td><td>Код скрипта будет выполнен при считывании мета данных файла.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onratechange</td><td>код скрипта</td><td>Код скрипта будет выполнен если скорость воспроизведения медиа файла изменится.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onreadystatechange</td><td>код скрипта</td><td>Код скрипта будет выполнен при изменении состояния медиа файла.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>ontimeupdate</td><td>код скрипта</td><td>Код скрипта будет выполнен при перемотки воспроизведения медиа файла.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onvolumechange</td><td>код скрипта</td><td>Код скрипта будет выполнен при изменении громкости медиа файла.</td><td><span class="t-html5"></span></td></tr>
+		<tr><td>onwaiting</td><td>код скрипта</td><td>Код скрипта будет выполнен, когда воспроизведение медиа файла будет остановлено.</td><td><span class="t-html5"></span></td></tr>
+	</table>
+</div>
+
+</body></html>

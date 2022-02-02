@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><title>page-break-before</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">page-break-before</h2>
+
+<div class="item">
+	<p>Добавляет разрыв страницы при печати документа перед заданным элементом. Значение по умолчанию <samp class="red">auto</samp>, не наследуется, применяется к блочным элементам.</p>
+	<pre class="item2"><code>page-break-after: always | auto | avoid | left | right</code></pre>
+
+	<table class="t1 t3">
+		<tr><td>always</td><td>Всегда добавляет разрыв страницы перед элементом.</td></tr>
+		<tr><td>auto</td><td>Вставляет разрыв страницы при необходимости.</td></tr>
+		<tr><td>avoid</td><td>Запрещает разрыв страницы перед элементом.</td></tr>
+		<tr><td>left</td><td>Пропускает одну или две страницы перед элементом, чтобы следующая страница при печати была чётной.</td></tr>
+		<tr><td>right</td><td>Пропускает одну или две страницы перед элементом, чтобы следующая страница при печати была нечётной.</td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>page-break-before&lt;/title><br>    &lt;style><br>      @media print {   /* медиазапросы не поддерживется в IE8 */<br>        .more {page-break-before: always;}<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>    &lt;h2>Мусорные пакеты&lt;/h2><br>    &lt;p>...&lt;/p><br>    &lt;p class="more">Читать дальше&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
+</div>
+</body></html>
