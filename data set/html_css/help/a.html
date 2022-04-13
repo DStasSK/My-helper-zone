@@ -34,6 +34,7 @@
 			<li><a href="#z7">Как добавить рисунок к внешним ссылкам</a></li>
 			<li><a href="#z8">Как сделать ссылку для скачивания (<samp>download</samp>)</a></li>
 			<li><a href="#z9">Как указать язык сайта по ссылке</a></li>
+			<li><a href="#z10">Как отключить переход по ссылке</a></li>
 			<li><a href="#z0"><samp>Uniform Resource Locator</samp></a></li>
 		</ul><!-- /оглавление -->
 
@@ -101,20 +102,20 @@
 			</td></tr>
 		<tr><td id="hreflang" class="ls-05">hreflang</td>
 			<td>Определяет язык связанного веб-документа. Используется только вместе с атрибутом <samp class="sin">href</samp>. Принимаемые значения - аббревиатура, состоящая из пары букв, обозначающих <a href="../lang-code.html" class="tdu sin">код языка</a>, например:
-			<pre class="item2 br0"><code>&lt;a href="http://www.anysite.ru" hreflang="en">Anysite&lt;/a></code></pre></td></tr>
+			<pre class="item2 br0"><code>&lt;a href="http://www.anysite.ru"<br>        hreflang="en">Anysite&lt;/a></code></pre></td></tr>
 		<tr><td class="ls-05" id="download">download<br>
 			<span class="html5" style="margin:0 0 0 -10px;"></span></td>
 			<td>Дополняет атрибут <samp class="sin">href</samp> и сообщает браузеру, что ресурс должен быть загружен в момент, когда пользователь щелкает по ссылке, вместо того, чтобы, например, предварительно открыть его (как PDF-файл). Задавая имя для атрибута, мы таким образом задаем имя загружаемому объекту.
 			<br>Разрешается использовать атрибут без указания его значения:
-			<pre class="item2 br0"><code>&lt;a href="/images/logo.png" download><br>   &lt;img src="/images/logo.png" alt="logo"><br>&lt;/a><br><br>&lt;a href="/images/logo.png" download="logo"><br>   &lt;img src="/images/logo.png" alt="logo"><br>&lt;/a><br><br>&lt;a href="files/20022014.pdf" download="Отчет Февраль 2014.pdf"><br>   Загрузить отчет за Февраль 2014<br>&lt;/a></code></pre></td></tr>
+			<pre class="item2 br0"><code>&lt;a href="/images/logo.png"<br>        download><br>   &lt;img src="/images/logo.png" alt="logo"><br>&lt;/a><br><br>&lt;a href="/images/logo.png"<br>        download="logo"><br>   &lt;img src="/images/logo.png" alt="logo"><br>&lt;/a><br><br>&lt;a href="files/20022014.pdf"<br>        download="Отчет Февраль 2014.pdf"><br>   Загрузить отчет за Февраль 2014<br>&lt;/a></code></pre></td></tr>
 		<tr><td id="media">media</td>
-			<td>Определяет, для каких типов устройств файл будет оптимизирован. 
+			<td>Определяет, для каких типов устройств файл будет оптимизирован.
 			Значением может быть любой медиа-запрос.</td></tr>
 		<tr><td id="ping">ping</td>
 			<td>Отслеживает URL-адреса ресурсов, по которым переходил пользователь.</td></tr>
 		<tr><td id="rel">rel</td>
 			<td>Дополняет атрибут <samp class="sin">href</samp> информацией об отношении между текущим и связанным документом.
-			<pre class="item2"><code>&lt;a href="#" rel="nofollow">site&lt;/a></code></pre>
+			<pre class="item2"><code>&lt;a href="#"<br>        rel="nofollow">site&lt;/a></code></pre>
 
 			<div class="mt20">Принимаемые значения:</div>
 			<table class="t1 t3" style="margin:0 -5px -8px -5px;">
@@ -135,7 +136,7 @@
 					<td>- указывает связь между отдельными URL. Благодаря этой разметке Google может определить, что содержание данных страниц связано в логической последовательности.</td></tr>
 				<tr><td>nofollow</td>
 					<td>- запрещает поисковой системе переходить по ссылкам на данной странице или по конкретной ссылке. Указывает, что по ней не нужно переходить и заниматься индексацией страницы, на которую она указывает. Эти ссылки обычно не используются для ранжирования, обхода или индексирования.
-					<pre class="item2"><code>&lt;a href="#" rel="nofollow">site&lt;/a></code></pre></td></tr>
+					<pre class="item2"><code>&lt;a href="#" <br>        rel="nofollow">site&lt;/a></code></pre></td></tr>
 				<tr><td>sponsored</td>
 					<td>- для рекламных или спонсорских ссылок. Также сюда будут входить партнерские ссылки, хотя Google явно не сказал.</td></tr>
 				<tr><td>ugc</td>
@@ -153,7 +154,7 @@
 
 		<tr><td id="target">target</td>
 			<td>Указывает на то, в каком окне должен открываться документ, к которому ведет ссылка. Принимает следующие значения:
-			<pre class="item2 br0"><samp class="lsin">_self</samp>   — страница загружается в текущее окно;<br><samp class="lsin">_blank</samp>  — страница открывается в новом окне браузера;<br><samp class="lsin">_parent</samp> — страница загружается во фрейм-родитель;<br><samp class="lsin">_top</samp>    — страница загружается в полное окно браузера.</pre>
+			<pre class="item2 br0"><samp class="lsin">_self</samp>   — загружается в текущее окно;<br><samp class="lsin">_blank</samp>  — в новом окне браузера;<br><samp class="lsin">_parent</samp> — во фрейм-родитель;<br><samp class="lsin">_top</samp>    — в полное окно браузера.</pre>
 			<p class="no">Также, используя псевдокласс <samp class="sin tdu"><a href="psevdo-klass.html#pk-target">:target</samp></a>, дополнительно можно стилизовать объект к которому переходят по ссылке, например заголовок.</p></td></tr>
 
 		<tr><td id="type">type</td>
@@ -319,7 +320,18 @@
 		<a href="https://www.android.com/intl/ru_ru/" hreflang="ru">Android</a> — официальный сайт.
 		<br><a href="https://www.android.com/intl/en_us/" hreflang="en">Android</a> — official website.
 		<pre class="item2"><code>&lt;style><br>  a[hreflang="en"] {<br>    background: url(/example/image/flag_en.png) no-repeat 100% 50%;<br>    padding-right:30px;}<br>  a[hreflang="ru"]:after {<br>    content:" (rus.)";<br>    font-size:0.8em; color:#666;}<br>&lt;/style><br><br>&lt;a href="https://www.android.com/intl/ru_ru/"<br>  hreflang="ru">Android&lt;/a> — официальный сайт.<br>&lt;a href="https://www.android.com/intl/en_us/"<br>  hreflang="en">Android&lt;/a> — official website.</code></pre>
-	</div>	
+	</div>
+</div>
+
+
+
+<div class="item" id="z10">
+<h2 class="sin"><a href="#">Как отключить переход по ссылке</a></h2>
+	<p>Иногда требуется чтобы при клике на ссылку перехода не состоялось, для этого с помощью <samp class="red">JS</samp> отключают действие по умолчанию для события <samp class="sin">onclick</samp>.</p>
+	<div class="prm lg">
+		<a href="#" onclick="return false;" class="lsin tdu">ссылка</a>
+		<pre class="item2"><code>&lt;a href="#" onclick="return false;">ссылка&lt;/a></code></pre>
+	</div>
 </div>
 
 

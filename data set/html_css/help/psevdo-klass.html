@@ -48,7 +48,7 @@
 	<p>Для перехода к выбранному фрагменту документа, в адресе пишется символ <samp class="red"><b>#</b></samp> и указывается имя идентификатора. К примеру, в адресе <i class="lsin">http://www.w3.org/TR/css3-selectors/<samp class="red">#</samp>target-pseudo</i> происходит переход к элементу, атрибут <samp class="red">id</samp> которого задан как <samp class="sin">target-pseudo</samp>. Такая запись адреса называется <u>«целевой элемент»</u>.</p>
 	<p>Псевдокласс <samp class="sin">:target</samp> применяется к целевому элементу, иными словами, к идентификатору, который указан в адресной строке браузера.</p>
 	<p>Также этот псевдокласс стилизует «целевые элементы» при переходе внутри страницы по ссылкам (анкор).</p>
-	
+
 	<style>
 		#f10 {border:1px solid #ccc; background:#fafafa; padding:10px}
 		#f10 h3:target {background:#fc0;}
@@ -177,12 +177,12 @@
 
 
 <div class="item">
-<samp class="sin" id="pk-nth-child">:nth-child()</samp> - элементы на основе их индекса (в порядке очереди) 
+<samp class="sin" id="pk-nth-child">:nth-child()</samp> - элементы на основе их индекса (в порядке очереди)
 	<br><samp class="sin">:nth-child(-n+3)</samp> - выбрать только первые три элемента (3, 2, 1)
 	<br><samp class="sin">:nth-child(n+2):nth-child(-n+4)</samp> - выбрать (2, 3, 4)
 	<br><samp class="sin">:nth-child(even)</samp> - каждый четный элемент (2, 4, 6, 8, и т.д.)
 	<br><samp class="sin">:nth-child(odd)</samp> - каждый нечетный элемент (1, 3, 5, 7, и т.д.)
-	<br>Использование <samp class="sin">:nth-child(2)</samp> без указания селектора выберет второй элемент любого типа 
+	<br>Использование <samp class="sin">:nth-child(2)</samp> без указания селектора выберет второй элемент любого типа
 	<br>
 	<br><samp class="sin">:nth-of-type()</samp> - элементы одного типа на основе их индекса внутри контейнера
 	<br><samp class="sin">img:nth-of-type(2n) {float: left;}</samp> - установит обтекание по левому краю каждой четной картинке, при условии, что каждая из них не обёрнута другим блоком.
@@ -224,21 +224,21 @@
 
 	<pre class="item2 css"><code>Селектор::backdrop { ... }</code></pre>
 
-	<p style="float:left; margin-top:20px">Применяется со скриптами. Пример: 
+	<p style="float:left; margin-top:20px">Применяется со скриптами. Пример:
 		<style>
 			.primer-dialog {display:inline-block; margin-left:10px; margin-top:20px;}
 			.primer-dialog dialog {width:300px;}
 			.primer-dialog dialog::backdrop {background: rgba(0,0,0,0.7);}
 		</style>
 		<div class="primer-dialog">
-			<button id="openDialog">Вход на сайт</button> 
+			<button id="openDialog">Вход на сайт</button>
 			<dialog>
 				<form id="authentication" action="handler.php">
 					<p><input name="login" required autofocus placeholder="Логин"></p>
 					<p><input type="password" name="pass" required placeholder="Пароль"></p>
-					<p><button type="submit">Войти</button> 
+					<p><button type="submit">Войти</button>
 					<button id="closeDialog">Закрыть окно</button></p>
-				</form> 
+				</form>
 			</dialog>
 			<script>
 				var dialog = document.querySelector('dialog');
@@ -463,7 +463,7 @@
 	<p>Псевдоэлемент, с помощью которого задаётся стилевое оформление подсказывающего текста, созданного атрибутом <samp class="sin">placeholder</samp>. Допускается использовать свойства для изменения вида текста, например, задать шрифт и цвет.</p>
 	<pre class="item2"><code>&lt;style><br>  input[type="search"]::-moz-placeholder          {color:#009}<br>  input[type="search"]:-moz-placeholder          {color:#009}<br>  input[type="search"]::-webkit-input-placeholder {color:#009}<br>  input[type="search"]:-ms-input-placeholder      {color:#009} /* не ошибка */<br>  input[type="search"]::-ms-input-placeholder     {color:#009} /* их два */<br>  input[type="search"]::placeholder               {color:#009}<br>&lt;/style></code></pre>
 	<style type="text/css">
-		.ta {width:500px; height:30px; color:red; resize:none; background:#fcfcfc;}
+		.ta {max-width:500px; height:30px; color:red; resize:none; background:#fcfcfc; width:100%;}
 		.ta::placeholder{color:#009;}
 	</style>
 	<textarea class="ta" placeholder="введите красный текст"></textarea>
@@ -482,7 +482,7 @@
 	<p>Так же можно прятать текст подсказки при фокусе поля ввода - задавая ей цвет как transparent;</p>
 	<pre class="item2"><code>input:focus:placeholder-shown {-webkit-text-fill-color:transparent;}</code></pre>
 	<style type="text/css">
-		.ta2 {width:500px; height:30px; color:red; resize:none; background:#fcfcfc;}
+		.ta2 {max-width:500px; height:30px; color:red; resize:none; background:#fcfcfc; width:100%}
 		.ta2:focus:placeholder-shown {-webkit-text-fill-color:transparent;}
 		.ta2::placeholder{color:#009;}
 	</style>
@@ -498,7 +498,7 @@
 
 	<style>
 		#f7 {border:1px solid; padding:5px 8px 8px}
-		#f7 input:read-only {opacity:0.3;} /* Полупрозрачность */	
+		#f7 input:read-only {opacity:0.3;} /* Полупрозрачность */
 	</style>
 	<form action="handler.php" id="f7">
 		<p><input type="text" name="comment" size="40" value="Введенный текст не может изменяться" readonly></p>

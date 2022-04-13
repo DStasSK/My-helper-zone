@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><title>contenteditable</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.wrap{white-space:normal; text-align:left}
+	.tal{text-align:left}
+</style></head>
+
+<body>
+<h2 class="sin"><samp>contenteditable</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">contenteditable</samp> сообщает, что элемент доступен для редактирования пользователем — можно удалять текст и вводить новый. Также работают стандартные команды вроде отмены, вставки текста из буфера и др. По умолчанию наследует значение родителя.</p>
+
+	<div class="no">Внесенные корректировки текста не сохраняются в коде страницы и после её обновления они исчезнут.</div>
+
+	<pre class="item2 sin mt40">contenteditable: <samp class="lsin">true | false</samp><br><pre><code>&lt;p contenteditable="true">текст&lt;/p></code></pre></pre>
+
+	<table class="t1 mb40">
+		<tr><td>true</td>
+			<td><p class="tal">Включает режим редактирования. Вместо <samp class="lsin">true</samp> допустимо указывать пустое значение <samp class="sin dib">contenteditable=""</samp>.</td></tr>
+		<tr><td>false</td>
+			<td>Запрещает редактирование элемента - действует по умолчанию.</td></tr>
+	</table>
+
+	<p class="anp">Применяется к тегам:</p>
+	<pre class="item2 sin wrap"><code>&lt;a>, &lt;abbr>, &lt;address>, &lt;area>, &lt;b>, &lt;basefont>, &lt;bdo>, &lt;blockquote>, &lt;body>, &lt;button>, &lt;caption>, &lt;cite>, &lt;code>, &lt;col>, &lt;colgroup>, &lt;dd>, &lt;del>, &lt;dfn>, &lt;dir>, &lt;div>, &lt;dl>, &lt;dt>, &lt;em>, &lt;fieldset>, &lt;form>, &lt;h1>, &lt;h2>, &lt;h3>, &lt;h4>, &lt;h5>, &lt;h6>, &lt;i>, &lt;iframe>, &lt;input>, &lt;ins>, &lt;kbd>, &lt;label>, &lt;legend>, &lt;li>, &lt;menu>, &lt;ol>, &lt;option>, &lt;p>, &lt;pre>, &lt;q>, &lt;samp>, &lt;select>, &lt;span>, &lt;strong>, &lt;sub>, &lt;sup>, &lt;table>, &lt;tbody>, &lt;td>, &lt;textarea>, &lt;tfoot>, &lt;th>, &lt;thead>, &lt;tr>, &lt;ul>, &lt;var></code></pre>
+
+
+
+</div>
+
+</body>
+</html>
