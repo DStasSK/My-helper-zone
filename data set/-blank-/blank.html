@@ -1,110 +1,7 @@
 <!DOCTYPE html><html><head><title>blank</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/mane.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-	body{
-		width:100%;
-		height:100%;
-		margin:0;
-		padding:0;
-		overflow:hidden;
-	}
-	body::before{
-		position:absolute;
-		width:100%;
-		height:100%;
-		content:'';
-		display:block;
-		z-index:100;
-	}
-	:root {
-		/* переменные для настройки размера куба */
-		--cube-width: 80vh; /* width:var(--cube-width); */
-		--cube-half: 40vh;
-		--cube-margin-top: 10vh;  /* (100-80)/2 */
-	}
-	.box{
-		position: absolute;
-		top:0;
-		left:0;
-		right:0;
-		bottom:0;
-		perspective:2000px;
-	}
-	.cube{
-		width:var(--cube-width);
-		margin:var(--cube-margin-top) auto;
-		transform-style:preserve-3d;
-		transform-origin:var(--cube-half) var(--cube-half) 0;
-		animation:spincube 30s ease-in-out infinite;
-	}
-	.cube__item{
-		position:absolute;
-		width:var(--cube-width);
-		height:var(--cube-width);
-		background:rgba(255,255,255,0.9);
-		line-height:var(--cube-width);
-		text-align:center;
-		font-size:calc(var(--cube-width) - 10vh);
-		color:#55BEDE;
-		overflow:hidden;
-		z-index:5;
-	}
-
-	.cube__item_face1 {transform:translateZ(var(--cube-half));}
-	.cube__item_face2 {transform:rotateY(90deg) translateZ(var(--cube-half));}
-	.cube__item_face3 {transform:rotateY(90deg) rotateX(90deg) translateZ(var(--cube-half));}
-	.cube__item_face4 {transform:rotateY(180deg) rotateZ(90deg) translateZ(var(--cube-half));}
-	.cube__item_face5 {transform:rotateY(-90deg) rotateZ(90deg) translateZ(var(--cube-half));}
-	.cube__item_face6 {transform:rotateX(-90deg) translateZ(var(--cube-half));}
-
-	@-webkit-keyframes spincube {
-		0   {transform:rotateX(0deg)    rotateY(0deg)    rotateZ(0deg);}   /* 1 */
-		16% {transform:rotateX(0deg)    rotateY(-90deg)  rotateZ(0deg);}   /* 2 */
-		33% {transform:rotateX(0deg)    rotateY(-90deg)  rotateZ(90deg);}  /* 3 */
-		50% {transform:rotateX(0deg)    rotateY(-180deg) rotateZ(90deg);}  /* 4 */
-		66% {transform:rotateX(-90deg)  rotateY(-180deg) rotateZ(90deg);}  /* 5 */
-		83% {transform:rotateX(-90deg)  rotateY(-180deg) rotateZ(180deg);} /* 6 */
-		100%{transform:rotateX(-180deg) rotateY(-180deg) rotateZ(180deg);} /* 1 */
-	}
-
-	@media screen and (orientation: portrait){
-		:root{
-			--cube-width: 80vw;
-			--cube-half: 40vw;
-		}
-		.box{top:calc(50% - var(--cube-half));}
-		.cube{margin:0 auto;}
-	}
-
-
-	.item__frame{
-		box-shadow:inset 0 0 20px #8ECBDE;
-		width:calc(100% + 2px);  /* прячем border на скролле */
-		height:calc(100% + 2px); /* у внутреннего фрейма */
-		margin:0;
-		padding:0;
-		overflow:hidden;
-		position:relative;
-		top:-2px;
-		left:-2px;
-	}
-	.item__frame_img{
-		margin:20px;
-		width:calc(100% - 40px);
-		height:calc(100% - 40px);
-	}
-	.img2{
-		background:url("img/Monitor_Standards.svg") no-repeat;
-		background-size:3000px auto;
-		border:1px solid #333;
-		border-width:0 1px 1px 0;
-	}
-	.img4{
-		background:url("img/font-sizes.gif") 50% 50% / contain no-repeat;
-	}
-</style>
 </head>
 
 <body>
@@ -119,7 +16,7 @@
 				</div>
 			</div>
 			<div class="cube__item cube__item_face3">
-				<iframe src="../animation/animated_properties.html" class="item__frame"></iframe>
+				<iframe src="../Animation/animated_properties.html" class="item__frame"></iframe>
 			</div>
 			<div class="cube__item cube__item_face4">
 				<div class="item__frame">
