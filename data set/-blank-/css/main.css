@@ -91,11 +91,11 @@ body::before{
    height:calc(100% - 40px);
 }
 .img2{
-   background:url("img/Monitor_Standards.svg") no-repeat;
+   background:url("../img/Monitor_Standards.svg") no-repeat;
    background-size:3000px auto;
    border:1px solid #333;
    border-width:0 1px 1px 0;
 }
 .img4{
-   background:url("img/font-sizes.gif") 50% 50% / contain no-repeat;
+   background:url("../img/font-sizes.gif") 50% 50% / contain no-repeat;
 }
