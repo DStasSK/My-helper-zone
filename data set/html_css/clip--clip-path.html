@@ -11,40 +11,26 @@
 <style type="text/css">
 	.upper{font:18px; letter-spacing:3px; color:#555; font-style:italic;
 		border-bottom:1px dashed red; display:inline-block; padding-bottom:2px;}
-	q{font-style:italic;}
-	li{margin:0; padding:0;}
-	ul{margin:-5px 0 0 0; padding:0 10px 0 20px;}
-
-	.ogl{margin:10px 0; padding-left:20px;}
-	.ogl ul, .ogl li{margin:0; font-size:16px; letter-spacing:1px; padding:0px;}
-	.ogl li{display:block; color:#555; position:relative;}
-	.ogl li:before{position:absolute; content:"•"; margin-left:-15px; display:block;}
-	.ogl li:hover{color:#000;}
-	.ogl ul{padding:0 20px;}
-	.ogl summary::-webkit-details-marker {display:none;}
-	.ogl summary::-moz-list-bullet {list-style-type:none;}
-	.ogl summary::marker {display:none;}
-	.ogl summary{display:inline-block; outline:none; cursor:pointer; color:#555; letter-spacing:2px;}
 </style>
 </head>
 <body>
-
-<details class="ogl"><!-- оглавление -->
-	<summary>оглавление:</summary>
-	<ul>
+	<!-- оглавление -->
+	<ul class="ogl" style="margin-top: 10px">
 		<li><a href="#z1">clip</a></li>
 		<li><a href="#z2">clip-path</a></li>
 		<li><a href="#z3">Два способа использования clip-path.</a></li>
 		<li><a href="#z4">Cинтаксис clip-path</a></li>
 		<li><a href="#z5">"Анимация" базовых фигур через transition, особенности.</a></li>
-		<li><a href="#p1">Пример 1 - многоугольник</a></li>
-		<li><a href="#p2">Пример 2 - шестиугольник</a></li>
-		<li><a href="#p3">Пример 3 - звезда <samp>-></samp> квадрат (<samp class="red">shape-inside</samp>)</a></li>
-		<li><a href="#p4">Пример 4 - трапеция (<samp class="red">shape-inside</samp>)</a></li>
-		<li><a href="#p5">Пример 5 - границы</a></li>
-		<li><a href="#p6">Пример 6</a></li>
+		<li>Примеры:</li>
+		<ol style="font-size:16px; padding-left:20px">
+			<li><a href="#p1">многоугольник</a></li>
+			<li><a href="#p2">шестиугольник</a></li>
+			<li><a href="#p3">звезда <samp>-></samp> квадрат (<samp class="red">shape-inside</samp>)</a></li>
+			<li><a href="#p4">трапеция (<samp class="red">shape-inside</samp>)</a></li>
+			<li><a href="#p5">границы</a></li>
+			<li><a href="#p6">группа элементов</a></li>
+		</ol>
 	</ul>
-</details><!-- /оглавление -->
 
 
 <div class="item" id="z1">
@@ -108,7 +94,7 @@
 	<p>Значение по умолчанию - <samp class="lsin">auto</samp>, свойство не наследуется, применяется к блочным элементам, анимируется</p>
 
 	<p><samp class="sin">clip-path</samp> можно использовать совмесно с SVG графикой.</p>
-	<p>Отсечение с помощью свойства <samp class="sin">clip-path</samp> похоже на вырезание фигуры (например, круга или пятиугольника) из прямоугольного листа бумаги. Свойство относится к спецификации <a href="http://www.w3.org/TR/css-masking-1" class="sin tdu">«CSS Masking Module Level 1»</a>. Спецификация заявляет: <q>Маскирование <b>CSS</b> предлагает два средства для частичного или полного сокрытия частей визуальных элементов: маскирование и отсечение.</q></p>
+	<p>Отсечение с помощью свойства <samp class="sin">clip-path</samp> похоже на вырезание фигуры (например, круга или пятиугольника) из прямоугольного листа бумаги. Свойство относится к спецификации <a href="http://www.w3.org/TR/css-masking-1" class="sin tdu">«CSS Masking Module Level 1»</a>. Спецификация заявляет: <q><i>Маскирование <b>CSS</b> предлагает два средства для частичного или полного сокрытия частей визуальных элементов: маскирование и отсечение.</i></q></p>
 
 	<p>Первая часть, то есть маскирование, связана с использованием графического элемента, такого как изображения <b>PNG</b>, градиента на <b>CSS</b> или элемента <b>SVG</b>, в качестве маски для сокрытия разделов другого элемента.</p>
 	<p>Вторая часть, то есть <samp class="sin">clip-path</samp>, включает замкнутый векторный контур, который может быть базовой фигурой, определённой в <b>CSS</b> или <b>SVG</b> с использованием тега <b>clipPath</b>. Область внутри этого контура отображается, а всё, что находится за её пределами или снаружи, будет обрезано.</p>
@@ -207,7 +193,7 @@
 				-webkit-transition:all 0.2s ease-in; transition:all 0.2s ease-in;}
 		</style>
 		<div class="clip-content">
-			<div class="clip-t"></div> 
+			<div class="clip-t"></div>
 		</div>
 
 		<svg class="clip-svg">
@@ -251,7 +237,7 @@
 		<div class="cont">
 			<div class="clip-block">
 				<section id="clipSection1" class="clip-s1">1 - SVG</section>
-			</div><!-- 
+			</div><!--
 		 --><div class="clip-block">
 				<section id="clipSection2" class="clip-s2">2 - not SVG</section>
 			</div>
@@ -366,7 +352,7 @@
 			shape-padding:10px;
 			-webkit-transition:all 2s ease; transition:all 2s ease; font-size:14px;
 			-webkit-clip-path:polygon(50% 0, 70% 34%, 100% 36%, 76% 64%, 90% 100%, 50% 84%, 10% 100%, 24% 64%, 0 36%, 30% 34%);}
-		.element3:hover{ 
+		.element3:hover{
 			shape-inside:polygon(50% 0, 100% 0, 100% 36%, 100% 64%, 100% 100%, 50% 100%, 0 100%, 0 64%, 0 36%, 0 0);
 			-webkit-clip-path:polygon(50% 0, 100% 0, 100% 36%, 100% 64%, 100% 100%, 50% 100%, 0 100%, 0 64%, 0 36%, 0 0);}
 	</style>

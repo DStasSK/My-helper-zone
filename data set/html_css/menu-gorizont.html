@@ -8,37 +8,28 @@
 <script src="../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<style type="text/css">
-	.ogll{margin:-10px 0; padding-left:20px;}
-	.ogll ul, .ogll li{margin:0; font-size:16px; letter-spacing:1px; padding:0px;}
-	.ogll ul{padding:0 20px;}
-	.ogll summary::-webkit-details-marker {display:none;}
-	.ogll summary::-moz-list-bullet {list-style-type:none;}
-	.ogll summary::marker {display:none;}
-	.ogll summary{display:inline-block; outline:none; cursor:pointer; color:#555; letter-spacing:2px;}
-	.ogll .oglml{margin-left:20px;}
-</style></head>
+</head>
 <body>
 
 <h2 class="sin">Горизонтальное меню для сайта</h2>
-	<details class="ogll"><!-- оглавление -->
-		<summary title="свернуть/развернуть">оглавление:</summary>
-		<ul>
-			<li><a href="#mm1">Способ 1. &nbsp; <samp>li {display: inline;}</samp></a></li>
-			<li><a href="#mm2">Способ 2. &nbsp; <samp>li {float: left;}</samp></a></li>
-			<li><a href="#mm3">Способ 3. &nbsp; <samp>li {display: inline-block;}</samp></a></li>
-			<li><a href="#mm4">Способ 4. &nbsp; <samp>ul {display: flex;}</samp></a></li>
-			<li>Примеры:</li>
-			<li class="oglml"><a href="#mm5">1. Адаптивное меню с эффектом подчёркивания при наведении на ссылку</a></li>
-			<li class="oglml"><a href="#mm6">2. Адаптивное меню</a></li>
-			<li class="oglml"><a href="#mm7">3. Адаптивное меню с фестонами</a></li>
-			<li class="oglml"><a href="#mm8">4. Адаптивное меню на ленточке</a></li>
-			<li class="oglml"><a href="#mm9">5. Адаптивное меню с логотипом по середине</a></li>
-			<li class="oglml"><a href="#mm10">6. Адаптивное меню с логотипом слева</a></li>
-			<li class="oglml"><a href="#mm11">7. Выпадающее меню</a></li>
-			<li class="oglml"><a href="#mm12">8. Простое меню</a></li>
-		</ul>
-	</details>
+	<!-- оглавление -->
+	<ul class="ogl">
+		<li><a href="#mm1">Способ 1. &nbsp; <samp>li {display: inline}</samp></a></li>
+		<li><a href="#mm2">Способ 2. &nbsp; <samp>li {float: left}</samp></a></li>
+		<li><a href="#mm3">Способ 3. &nbsp; <samp>li {display: inline-block}</samp></a></li>
+		<li><a href="#mm4">Способ 4. &nbsp; <samp>ul {display: flex}</samp></a></li>
+		<li>Примеры:</li>
+		<ol style="padding-left:30px; font-size:16px">
+			<li><a href="#mm5">Адаптивное меню с эффектом подчёркивания при наведении на ссылку</a></li>
+			<li><a href="#mm6">Адаптивное меню</a></li>
+			<li><a href="#mm7">Адаптивное меню с фестонами</a></li>
+			<li><a href="#mm8">Адаптивное меню на ленточке</a></li>
+			<li><a href="#mm9">Адаптивное меню с логотипом по середине</a></li>
+			<li><a href="#mm10">Адаптивное меню с логотипом слева</a></li>
+			<li><a href="#mm11">Выпадающее меню</a></li>
+			<li><a href="#mm12">Простое меню: &nbsp; <samp>a {display: inline-block}</samp></a></li>
+		</ol>
+	</ul>
 
 	<div class="item">
 		<p>Горизонтальное меню представляет собой список разделов сайта, поэтому логичнее разметить внутри элемента <samp class="red">&lt;ul></samp>, а затем применить CSS-стили к его элементам. Такое расположение меню является наиболее распространенным в силу очевидных преимуществ в его позиционировании на веб-странице.</p>
@@ -58,11 +49,10 @@
 	<p>Делаем элементы списка строчными. В результате они располагаются по горизонтали, с правой стороны между ними добавляется промежуток, равный <samp class="sin">0.4em</samp> (вычисляется относительно размера шрифта). Чтобы убрать его, добавляем для <samp class="red">li</samp> отрицательное правое поле <samp class="sin">li {margin-right: -4px;}</samp>. Дальше стилизуем ссылки по своему желанию.</p>
 
 	<style type="text/css">
-		nav {display:block;width:100%;margin:0 auto 10px;}
-		.one ul {padding:1em 0;background:#ECDAD6;list-style:none;margin:0 auto;}
+		nav {display:block; width:100%; margin:0 auto 10px;}
+		.one ul {padding:1em 0; background:#ECDAD6; list-style:none; margin:0 auto;}
 		.one li {display:inline;}
-		.one a {padding:1em; background:rgba(177, 152, 145, .3);border-right:1px solid #b19891;
-			color:#695753;text-decoration:none;transition:.5s linear;}
+		.one a {padding:1em; background:rgba(177, 152, 145, .3); border-right:1px solid #b19891; color:#695753; text-decoration:none; text-align: center; transition:.5s linear; display:inline-block; width:calc(20% - 2em - 5px)}
 		.one a:hover {background:#b19891;}
 	</style>
 	<nav class="one" style="text-align:right;">
@@ -74,13 +64,13 @@
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
-	<span class="red">(настроить ширину блока меню через width не удалось)</span>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pre1.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pre1.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pre1" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="one"><br>  &lt;ul><br>    &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Blog&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.one ul {<br>   padding: 1em 0;<br>   background: #ECDAD6;<br>   list-style: none;<br>   margin: 0 auto;}<br>.one a {<br>   padding: 1em;<br>   background: rgba(177, 152, 145, .3);<br>   border-right: 1px solid #b19891;<br>   color: #695753;<br>   text-decoration: none;<br>   transition: .5s linear;}<br>.one a:hover {background: #b19891;}<br>.one li {display: inline;}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.one ul {<br>   padding: 1em 0;<br>   background: #ECDAD6;<br>   list-style: none;<br>   margin: 0 auto;}<br>.one a {<br>   padding: 1em;<br>   background: rgba(177, 152, 145, .3);<br>   border-right: 1px solid #b19891;<br>   color: #695753; text-align: center;<br>   text-decoration: none;<br>   transition: .5s linear;<br>   display:inline-block;<br>   width:calc(20% - 2em - 5px)}<br>.one a:hover {background: #b19891;}<br>.one li {display: inline;}</code></pre>
 			<span class="yel" onclick='pre1.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -110,10 +100,11 @@
 	</nav>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pre2.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pre2.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pre2" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="two"><br>  &lt;ul><br>    &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Blog&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.two ul {<br>   background: #D4E7EE;<br>   overflow: hidden;<br>   list-style: none;<br>   margin: 0 auto;<br>   padding: 0;}<br>.two li {<br>   <span class="red">float: left;</span><br>   <span class="red">width: 20%;</span><br>   margin: 0;<br>   text-align: center;}<br>.two a {<br>   display: block;<br>   text-decoration: none;<br>   transition: .5s linear;<br>   padding: 1em 0;<br>   border-right: 1px solid #ADC0CE;<br>   background: rgba(173, 192, 206, .3);<br>   color: #29838C;}<br>.two a:hover {background: #ADC0CE}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.two ul {<br>   background: #D4E7EE;<br>   overflow: hidden;<br>   list-style: none;<br>   margin: 0 auto;<br>   padding: 0;}<br>.two li {<br>   <span class="red">float: left;</span><br>   <span class="red">width: 20%;</span><br>   margin: 0;<br>   text-align: center;}<br>.two a {<br>   display: block;<br>   text-decoration: none;<br>   transition: .5s linear;<br>   padding: 1em 0;<br>   border-right: 1px solid #ADC0CE;<br>   background: rgba(173, 192, 206, .3);<br>   color: #29838C;}<br>.two a:hover {background: #ADC0CE}</code></pre>
 			<span class="yel" onclick='pre2.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -144,10 +135,11 @@
 	</nav>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pre3.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pre3.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pre3" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="three"><br>  &lt;ul><br>    &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Blog&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.three ul {<br>   list-style: none;<br>   margin: 0 auto;<br>   padding: 0;<br>   background: #E4EFD1;}<br>.three li {<br>   display: inline-block;<br>   width:15%;<br>   text-align:center;}<br>.three a {<br>   text-decoration: none;<br>   transition: .5s linear;<br>   padding: 1em;<br>   display: block;<br>   color: #74924C;<br>   border-right: 1px solid #BAD78B;<br>   background: rgba(186, 215, 139, .3);}<br>.three a:hover {background: #BAD78B}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.three ul {<br>   list-style: none;<br>   margin: 0 auto;<br>   padding: 0;<br>   background: #E4EFD1;}<br>.three li {<br>   display: inline-block;<br>   width:15%;<br>   text-align:center;}<br>.three a {<br>   text-decoration: none;<br>   transition: .5s linear;<br>   padding: 1em;<br>   display: block;<br>   color: #74924C;<br>   border-right: 1px solid #BAD78B;<br>   background: rgba(186, 215, 139, .3);}<br>.three a:hover {background: #BAD78B}</code></pre>
 		<span class="yel" onclick='pre3.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -178,10 +170,11 @@
 	</nav>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pre4.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pre4.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pre4" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="four"><br>  &lt;ul><br>    &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Blog&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.four ul {<br>   <span class="red">display: -webkit-flex; </span><br>   <span class="red">display: flex;</span><br>   list-style: none; <br>   margin: 0 auto;<br>   background: #FFD7A7;<br>   padding-left: 0;}<br>.four li {<br>   width:15%;<br>   line-height:60px;<br>   text-align:center;}<br>.four a {<br>   text-decoration: none;<br>   transition: .5s linear;<br>   padding: 0;<br>   display: block;<br>   color: #9B4222;<br>   border-right: 1px solid #FFAB51;<br>   background: rgba(255, 171, 81, .3);}<br>.four a:hover {<br>   font-size: 24px;<br>   background: #FFAB51}<br></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>nav {<br>   display: block;<br>   width:100%;<br>   margin: 0 auto 30px;<br>   text-align: right;}<br>.four ul {<br>   <span class="red">display: -webkit-flex; </span><br>   <span class="red">display: flex;</span><br>   list-style: none; <br>   margin: 0 auto;<br>   background: #FFD7A7;<br>   padding-left: 0;}<br>.four li {<br>   width:15%;<br>   line-height:60px;<br>   text-align:center;}<br>.four a {<br>   text-decoration: none;<br>   transition: .5s linear;<br>   padding: 0;<br>   display: block;<br>   color: #9B4222;<br>   border-right: 1px solid #FFAB51;<br>   background: rgba(255, 171, 81, .3);}<br>.four a:hover {<br>   font-size: 24px;<br>   background: #FFAB51}<br></code></pre>
 			<span class="point yel" onclick='pre4.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -206,7 +199,7 @@
 		.menu-main1 a:after {content:""; position:absolute; height:4px; top:auto; right:50%;
 			bottom:-5px; left:50%; background:#feb386; transition:.8s;}
 		.menu-main1 a:hover:before, .menu-main1 .current1:before {left:0;}
-		.menu-main1 a:hover:after, .menu-main1 .current1:after {right:0;}   
+		.menu-main1 a:hover:after, .menu-main1 .current1:after {right:0;}
 
 		@media (max-width:550px) {
 			.menu-main1 {padding-top:0;}
@@ -222,10 +215,11 @@
 	</ul>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pr1.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pr1.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr1" onclick="event.stopPropagation()">
 			<pre><code>&lt;ul class="menu-main"><br>  &lt;li>&lt;a href="" class="current">Work&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="">About&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="">Blog&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="">Contact&lt;/a>&lt;/li><br>&lt;/ul></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');<br>.menu-main {<br>  list-style: none;<br>  margin: 40px 0 5px;<br>  padding: 25px 0 5px;<br>  text-align: center;<br>  background: white;<br>}<br>.menu-main li {display: inline-block;}<br>.menu-main li:after {<br>  content: "|";<br>  color: #606060;<br>  display: inline-block;<br>  vertical-align:top;<br>}<br>.menu-main li:last-child:after {content: none;}<br>.menu-main a {<br>  text-decoration: none;<br>  font-family: 'Ubuntu Condensed', sans-serif;<br>  letter-spacing: 2px;<br>  position: relative;<br>  padding-bottom: 20px;<br>  margin: 0 34px 0 30px;<br>  font-size: 17px;<br>  text-transform: uppercase;<br>  display: inline-block;<br>  transition: color .2s;<br>}<br>.menu-main a, .menu-main a:visited {color: #9d999d;}<br>.menu-main a.current, .menu-main a:hover{color: #feb386;}<br>.menu-main a:before,<br>.menu-main a:after {<br>  content: "";<br>  position: absolute;<br>  height: 4px;<br>  top: auto;<br>  right: 50%;<br>  bottom: -5px;<br>  left: 50%;<br>  background: #feb386;<br>  transition: .8s;<br>}<br>.menu-main a:hover:before, .menu-main .current:before {left: 0;}<br>.menu-main a:hover:after, .menu-main .current:after {right: 0;}<br> @media (max-width: 550px) {<br>  .menu-main {padding-top: 0;}<br>  .menu-main li {display: block;}<br>  .menu-main li:after {content: none;}<br>  .menu-main a {padding: 25px 0 20px; margin: 0 30px;}<br>}<br></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');<br>.menu-main {<br>  list-style: none;<br>  margin: 40px 0 5px;<br>  padding: 25px 0 5px;<br>  text-align: center;<br>  background: white;<br>}<br>.menu-main li {display: inline-block;}<br>.menu-main li:after {<br>  content: "|";<br>  color: #606060;<br>  display: inline-block;<br>  vertical-align:top;<br>}<br>.menu-main li:last-child:after {content: none;}<br>.menu-main a {<br>  text-decoration: none;<br>  font-family: 'Ubuntu Condensed', sans-serif;<br>  letter-spacing: 2px;<br>  position: relative;<br>  padding-bottom: 20px;<br>  margin: 0 34px 0 30px;<br>  font-size: 17px;<br>  text-transform: uppercase;<br>  display: inline-block;<br>  transition: color .2s;<br>}<br>.menu-main a, .menu-main a:visited {color: #9d999d;}<br>.menu-main a.current, .menu-main a:hover{color: #feb386;}<br>.menu-main a:before,<br>.menu-main a:after {<br>  content: "";<br>  position: absolute;<br>  height: 4px;<br>  top: auto;<br>  right: 50%;<br>  bottom: -5px;<br>  left: 50%;<br>  background: #feb386;<br>  transition: .8s;<br>}<br>.menu-main a:hover:before, .menu-main .current:before {left: 0;}<br>.menu-main a:hover:after, .menu-main .current:after {right: 0;}<br> @media (max-width: 550px) {<br>  .menu-main {padding-top: 0;}<br>  .menu-main li {display: block;}<br>  .menu-main li:after {content: none;}<br>  .menu-main a {padding: 25px 0 20px; margin: 0 30px;}<br>}<br></code></pre>
 			<span class="point yel" onclick='pr1.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -266,10 +260,11 @@
 	</nav>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pr2.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pr2.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr2" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="top-menu"><br>  &lt;ul class="menu-main"><br>    &lt;li>&lt;a href="" class="current">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Blog&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>@import url('https://fonts.googleapis.com/css?family=PT+Sans');<br>.top-menu {<br>  position: relative; <br>  background: #fff;<br>  box-shadow: inset 0 0 10px #ccc;}<br>.top-menu:before,<br>.top-menu:after {<br>  content: "";<br>  display: block;<br>  height: 1px;<br>  border-top: 3px solid #575350;<br>  border-bottom: 1px solid #575350;<br>  margin-bottom: 2px;}<br>.top-menu:after {<br>  border-bottom: 3px solid #575350;<br>  border-top: 1px solid #575350;<br>  box-shadow: 0 2px 7px #ccc;<br>  margin-top: 2px;}<br>.menu-main {<br>  list-style: none;<br>  padding: 0 30px;<br>  margin: 0;<br>  font-size: 18px;<br>  text-align: center;<br>  position: relative;}<br>.menu-main:before,<br>.menu-main:after {<br> <span class="red"> content: "\25C8";</span><br>  line-height: 1;<br>  position: absolute;<br>  top: 50%;<br>  transform: translateY(-50%);}<br>.menu-main:before {left: 15px;}<br>.menu-main:after {right: 15px;}<br>.menu-main li { display: inline-block; padding: 5px 0;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: inline-block;<br>  margin: 2px 5px;<br>  padding: 6px 15px;<br>  font-family: 'PT Sans', sans-serif;<br>  font-size: 16px;<br>  color: #777777;<br>  border-bottom: 1px solid transparent;<br>  transition: .3s linear;}<br>.menu-main .current, .menu-main a:hover {<br>  border-radius: 3px;<br>  background: #f3ece1;<br>  color: #313131;<br>  text-shadow: 0 1px 0 #fff;<br>  border-color: #c6c6c6;}<br>@media (max-width: 500px) {.menu-main li {display: block;}}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>@import url('https://fonts.googleapis.com/css?family=PT+Sans');<br>.top-menu {<br>  position: relative; <br>  background: #fff;<br>  box-shadow: inset 0 0 10px #ccc;}<br>.top-menu:before,<br>.top-menu:after {<br>  content: "";<br>  display: block;<br>  height: 1px;<br>  border-top: 3px solid #575350;<br>  border-bottom: 1px solid #575350;<br>  margin-bottom: 2px;}<br>.top-menu:after {<br>  border-bottom: 3px solid #575350;<br>  border-top: 1px solid #575350;<br>  box-shadow: 0 2px 7px #ccc;<br>  margin-top: 2px;}<br>.menu-main {<br>  list-style: none;<br>  padding: 0 30px;<br>  margin: 0;<br>  font-size: 18px;<br>  text-align: center;<br>  position: relative;}<br>.menu-main:before,<br>.menu-main:after {<br> <span class="red"> content: "\25C8";</span><br>  line-height: 1;<br>  position: absolute;<br>  top: 50%;<br>  transform: translateY(-50%);}<br>.menu-main:before {left: 15px;}<br>.menu-main:after {right: 15px;}<br>.menu-main li { display: inline-block; padding: 5px 0;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: inline-block;<br>  margin: 2px 5px;<br>  padding: 6px 15px;<br>  font-family: 'PT Sans', sans-serif;<br>  font-size: 16px;<br>  color: #777777;<br>  border-bottom: 1px solid transparent;<br>  transition: .3s linear;}<br>.menu-main .current, .menu-main a:hover {<br>  border-radius: 3px;<br>  background: #f3ece1;<br>  color: #313131;<br>  text-shadow: 0 1px 0 #fff;<br>  border-color: #c6c6c6;}<br>@media (max-width: 500px) {.menu-main li {display: block;}}</code></pre>
 			<span class="point yel" onclick='pr2.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -293,7 +288,7 @@
 		.menu-main3 a:after {right: 5px;}
 		.menu-main3 a.current3:before,
 		.menu-main3 a.current3:after,
-		.menu-main3 a:hover:before, 
+		.menu-main3 a:hover:before,
 		.menu-main3 a:hover:after {opacity: 1;}
 		.menu-main3 a.current3,
 		.menu-main3 a:hover {color: #F58262;}
@@ -307,10 +302,11 @@
 	</ul>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pr3.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pr3.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr3" onclick="event.stopPropagation()">
 			<pre><code>&lt;ul class="menu-main"><br>  &lt;li>&lt;a href="" class="current">Work&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="">About&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="">Blog&lt;/a>&lt;/li><br>  &lt;li>&lt;a href="">Contact&lt;/a>&lt;/li><br>&lt;/ul></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');<br>.menu-main {<br>  list-style: none;<br>  padding: 0 30px;<br>  margin: 0;<br>  font-size: 18px;<br>  text-align: center;<br>  position: relative;<br>  background: white;}<br>.menu-main:after {<br>  content: "";<br>  position: absolute;<br>  width: 100%;<br>  height: 20px;<br>  left: 0;<br>  bottom: -20px;<br>  background: radial-gradient(white 0%, white 70%,<br>    rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%) 0 -10px;<br>  background-size: 20px 20px;<br>  background-repeat: repeat-x;}<br>.menu-main li {display: inline-block;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: inline-block;<br>  margin: 0 15px;<br>  padding: 10px 30px;<br>  font-family: 'PT Sans Caption', sans-serif;<br>  color: #777777;<br>  transition: .3s linear;<br>  position: relative;}<br>.menu-main a:before,<br>.menu-main a:after{<br>  content: "";<br>  position: absolute;<br>  top: calc(50% - 3px);<br>  width: 6px;<br>  height: 6px;<br>  border-radius: 50%;<br>  background: #F58262;<br>  opacity: 0;<br>  transition: .5s ease-in-out;}<br>.menu-main a:before {left: 5px;}<br>.menu-main a:after {right: 5px;}<br>.menu-main a.current:before,<br>.menu-main a.current:after,<br>.menu-main a:hover:before,<br>.menu-main a:hover:after {opacity: 1;}<br>.menu-main a.current,<br>.menu-main a:hover {color: #F58262;}<br>@media(max-width:680px) {.menu-main li {display: block;}}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');<br>.menu-main {<br>  list-style: none;<br>  padding: 0 30px;<br>  margin: 0;<br>  font-size: 18px;<br>  text-align: center;<br>  position: relative;<br>  background: white;}<br>.menu-main:after {<br>  content: "";<br>  position: absolute;<br>  width: 100%;<br>  height: 20px;<br>  left: 0;<br>  bottom: -20px;<br>  background: radial-gradient(white 0%, white 70%,<br>    rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%) 0 -10px;<br>  background-size: 20px 20px;<br>  background-repeat: repeat-x;}<br>.menu-main li {display: inline-block;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: inline-block;<br>  margin: 0 15px;<br>  padding: 10px 30px;<br>  font-family: 'PT Sans Caption', sans-serif;<br>  color: #777777;<br>  transition: .3s linear;<br>  position: relative;}<br>.menu-main a:before,<br>.menu-main a:after{<br>  content: "";<br>  position: absolute;<br>  top: calc(50% - 3px);<br>  width: 6px;<br>  height: 6px;<br>  border-radius: 50%;<br>  background: #F58262;<br>  opacity: 0;<br>  transition: .5s ease-in-out;}<br>.menu-main a:before {left: 5px;}<br>.menu-main a:after {right: 5px;}<br>.menu-main a.current:before,<br>.menu-main a.current:after,<br>.menu-main a:hover:before,<br>.menu-main a:hover:after {opacity: 1;}<br>.menu-main a.current,<br>.menu-main a:hover {color: #F58262;}<br>@media(max-width:680px) {.menu-main li {display: block;}}</code></pre>
 			<span class="point yel" onclick='pr3.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -323,17 +319,17 @@
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
 		.top-menu4 {margin:0 30px; position:relative; background:#5A394E;
-			box-shadow: 
-				inset 1px 0 0 rgba(255,255,255,.1), 
-				inset -1px 0 0 rgba(255,255,255,.1), 
-				inset 150px 0 150px -150px rgba(255,255,255,.12), 
+			box-shadow:
+				inset 1px 0 0 rgba(255,255,255,.1),
+				inset -1px 0 0 rgba(255,255,255,.1),
+				inset 150px 0 150px -150px rgba(255,255,255,.12),
 				inset -150px 0 150px -150px rgba(255,255,255,.12);}
 		.top-menu4:before,
 		.top-menu4:after {content:"";position:absolute;z-index:4;left:0;width:100%;height:3px;}
 		.top-menu4:before {top: 0;border-bottom: 1px dashed rgba(255,255,255,.2);}
 		.top-menu4:after {bottom: 0; border-top: 1px dashed rgba(255,255,255,.2);}
 		.menu-main4 {list-style: none;padding: 0;margin: 0;text-align: center;}
-		.menu-main4:before, 
+		.menu-main4:before,
 		.menu-main4:after {content:"";position:absolute;width:50px;height:0;top:8px;border-top:18px solid #5A394E;
 			border-bottom:18px solid #5A394E;transform:rotate(360deg);z-index:-1;}
 		.menu-main4:before {left:-30px;border-left:12px solid rgba(255, 255, 255, 0);}
@@ -347,7 +343,7 @@
 		@media(max-width:680px) {
 			.top-menu4 {margin:0;}
 			.menu-main4 li{display:block;margin-right:0;}
-			.menu-main4:before, 
+			.menu-main4:before,
 			.menu-main4:after {content:none;}
 			.menu-main4 a {display:block}}
 	</style>
@@ -362,10 +358,11 @@
 	<p>При задании цвета фона, элементы before и after с отрицательным z-index могут "пропадать" - уходить за фон.</p>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pr4.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pr4.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr4" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="top-menu"><br>  &lt;ul class="menu-main"><br>    &lt;li>&lt;a href="" class="current">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Blog&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');<br>.top-menu {<br>  margin: 0 60px;<br>  position: relative;<br>  background: #5A394E;<br>  box-shadow:<br>    inset 1px 0 0 rgba(255,255,255,.1),<br>    inset -1px 0 0 rgba(255,255,255,.1),<br>    inset 150px 0 150px -150px rgba(255,255,255,.12),<br>    inset -150px 0 150px -150px rgba(255,255,255,.12);}<br>.top-menu:before,<br>.top-menu:after {<br>  content: "";<br>  position: absolute;<br>  z-index: 2;<br>  left: 0;<br>  width: 100%;<br>  height: 3px;}<br>.top-menu:before {<br>  top: 0;<br>  border-bottom: 1px dashed rgba(255,255,255,.2);}<br>.top-menu:after {<br>  bottom: 0;<br>  border-top: 1px dashed rgba(255,255,255,.2);}<br>.menu-main {<br>  list-style: none;<br>  padding: 0;<br>  margin: 0;<br>  text-align: center;}<br>.menu-main:before, <br>.menu-main:after {<br>  content: "";<br>  position: absolute;<br>  width: 50px; height: 0;<br>  top: 8px;<br>  border-top: 18px solid #5A394E;<br>  border-bottom: 18px solid #5A394E;<br>  transform: rotate(360deg);<br>  z-index: -1;}<br>.menu-main:before {<br>  left: -30px;<br>  border-left: 12px solid rgba(255, 255, 255, 0);}<br>.menu-main:after {<br>  right: -30px;<br>  border-right: 12px solid rgba(255, 255, 255, 0);}<br>.menu-main li {display: inline-block; margin-right: -4px;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: inline-block;<br>  padding: 15px 30px;<br>  font-family: 'PT Sans Caption', sans-serif;<br>  color: white;<br>  transition: .3s linear;}<br>.menu-main a.current,<br>.menu-main a:hover {background: rgba(0,0,0,.2);}<br><br>@media (max-width: 680px) {<br>  .top-menu {margin: 0;}<br>  .menu-main li {display: block;margin-right: 0;}<br>  .menu-main:before, <br>  .menu-main:after {content: none;}<br>  .menu-main a {display: block;}}<br></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');<br>.top-menu {<br>  margin: 0 60px;<br>  position: relative;<br>  background: #5A394E;<br>  box-shadow:<br>    inset 1px 0 0 rgba(255,255,255,.1),<br>    inset -1px 0 0 rgba(255,255,255,.1),<br>    inset 150px 0 150px -150px rgba(255,255,255,.12),<br>    inset -150px 0 150px -150px rgba(255,255,255,.12);}<br>.top-menu:before,<br>.top-menu:after {<br>  content: "";<br>  position: absolute;<br>  z-index: 2;<br>  left: 0;<br>  width: 100%;<br>  height: 3px;}<br>.top-menu:before {<br>  top: 0;<br>  border-bottom: 1px dashed rgba(255,255,255,.2);}<br>.top-menu:after {<br>  bottom: 0;<br>  border-top: 1px dashed rgba(255,255,255,.2);}<br>.menu-main {<br>  list-style: none;<br>  padding: 0;<br>  margin: 0;<br>  text-align: center;}<br>.menu-main:before, <br>.menu-main:after {<br>  content: "";<br>  position: absolute;<br>  width: 50px; height: 0;<br>  top: 8px;<br>  border-top: 18px solid #5A394E;<br>  border-bottom: 18px solid #5A394E;<br>  transform: rotate(360deg);<br>  z-index: -1;}<br>.menu-main:before {<br>  left: -30px;<br>  border-left: 12px solid rgba(255, 255, 255, 0);}<br>.menu-main:after {<br>  right: -30px;<br>  border-right: 12px solid rgba(255, 255, 255, 0);}<br>.menu-main li {display: inline-block; margin-right: -4px;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: inline-block;<br>  padding: 15px 30px;<br>  font-family: 'PT Sans Caption', sans-serif;<br>  color: white;<br>  transition: .3s linear;}<br>.menu-main a.current,<br>.menu-main a:hover {background: rgba(0,0,0,.2);}<br><br>@media (max-width: 680px) {<br>  .top-menu {margin: 0;}<br>  .menu-main li {display: block;margin-right: 0;}<br>  .menu-main:before, <br>  .menu-main:after {content: none;}<br>  .menu-main a {display: block;}}<br></code></pre>
 			<span class="point yel" onclick='pr4.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -406,10 +403,11 @@
 	</div>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pr5.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pr5.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr5" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="top-menu"><br>  &lt;ul class="menu-main"><br>    &lt;li class="left-item">&lt;a href="">Work&lt;/a>&lt;/li><br>    &lt;li class="left-item">&lt;a href="">About&lt;/a>&lt;/li><br>    &lt;li class="left-item">&lt;a href="">Story&lt;/a>&lt;/li><br>    &lt;li class="right-item">&lt;a href="">Contact&lt;/a>&lt;/li><br>    &lt;li class="right-item">&lt;a href="">Shop&lt;/a>&lt;/li><br>    &lt;li class="right-item">&lt;a href="">Gallery&lt;/a>&lt;/li><br>&lt;/ul><br>  &lt;a class="navbar-logo" href="">&lt;img src="img/lily-logo.png">&lt;/a><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>@import url('https://fonts.googleapis.com/css?family=Arimo');<br>.top-menu {<br>  position: relative;<br>  background: rgba(34,34,34,.2);}<br>.menu-main {list-style:none; margin:0; padding:0;}<br>.menu-main:after {<br>  content: "";<br>  display: table;<br>  clear: both;}<br>.left-item {float: left;}<br>.right-item {float: right;}<br>.navbar-logo {<br>  position:absolute; left:50%; top:50%;<br>  transform: translate(-50%,-50%);}<br>.menu-main a {<br>  text-decoration: none;<br>  display: block;<br>  line-height: 80px;<br>  padding: 0 20px;<br>  font-size: 18px;<br>  letter-spacing: 2px;<br>  font-family: 'Arimo', sans-serif;<br>  font-weight: bold;<br>  color: white;<br>  transition: .3s linear;}<br>.menu-main a:hover {background: rgba(0,0,0,.3);}<br><br>@media (max-width: 830px) {<br>  .menu-main {padding-top:90px; text-align:center;}<br>  .navbar-logo {<br>    position: absolute;<br>    left: 50%;<br>    top: 10px;<br>    transform: translateX(-50%);}<br>  .menu-main li {float:none; display:inline-block;}<br>  .menu-main a {<br>    line-height: normal;<br>    padding: 20px 15px;<br>    font-size: 16px;}<br>}<br>@media (max-width: 630px) {.menu-main li {display: block;}}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>@import url('https://fonts.googleapis.com/css?family=Arimo');<br>.top-menu {<br>  position: relative;<br>  background: rgba(34,34,34,.2);}<br>.menu-main {list-style:none; margin:0; padding:0;}<br>.menu-main:after {<br>  content: "";<br>  display: table;<br>  clear: both;}<br>.left-item {float: left;}<br>.right-item {float: right;}<br>.navbar-logo {<br>  position:absolute; left:50%; top:50%;<br>  transform: translate(-50%,-50%);}<br>.menu-main a {<br>  text-decoration: none;<br>  display: block;<br>  line-height: 80px;<br>  padding: 0 20px;<br>  font-size: 18px;<br>  letter-spacing: 2px;<br>  font-family: 'Arimo', sans-serif;<br>  font-weight: bold;<br>  color: white;<br>  transition: .3s linear;}<br>.menu-main a:hover {background: rgba(0,0,0,.3);}<br><br>@media (max-width: 830px) {<br>  .menu-main {padding-top:90px; text-align:center;}<br>  .navbar-logo {<br>    position: absolute;<br>    left: 50%;<br>    top: 10px;<br>    transform: translateX(-50%);}<br>  .menu-main li {float:none; display:inline-block;}<br>  .menu-main a {<br>    line-height: normal;<br>    padding: 20px 15px;<br>    font-size: 16px;}<br>}<br>@media (max-width: 630px) {.menu-main li {display: block;}}</code></pre>
 			<span class="point yel" onclick='pr5.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -440,22 +438,23 @@
 		@media (max-width: 600px) {.menu-main6 li {display: block;}}
 	</style>
 	<div class="top-menu6">
-	  <a class="navbar-logo6" href=""><img src="img/lily-logo.png"></a>
-	  <ul class="menu-main6">
-	    <li><a href="">Work</a></li>
-	    <li><a href="">About</a></li>
-	    <li><a href="">Story</a></li>
-	    <li><a href="">Shop</a></li>
-	    <li><a href="">Gallery</a></li>
-	    <li><a href="">Contact</a></li>
-	  </ul>
+		<a class="navbar-logo6" href=""><img src="img/lily-logo.png"></a>
+		<ul class="menu-main6">
+			<li><a href="">Work</a></li>
+			<li><a href="">About</a></li>
+			<li><a href="">Story</a></li>
+			<li><a href="">Shop</a></li>
+			<li><a href="">Gallery</a></li>
+			<li><a href="">Contact</a></li>
+		</ul>
 	</div>
 
 	<div class="item2">
-		<pre><span class="red point" onclick='pr6.classList.toggle("hiden");'>HTML</span></pre>
+		<samp class="red point" onclick='pr6.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr6" onclick="event.stopPropagation()">
 			<pre><code>&lt;nav class="top-menu"><br>  &lt;a class="navbar-logo" href="">&lt;img src="img/lily-logo.png">&lt;/a><br>  &lt;ul class="menu-main"><br>    &lt;li>&lt;a href="">Work&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">About&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Story&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Shop&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Gallery&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="">Contact&lt;/a>&lt;/li><br>  &lt;/ul><br>&lt;/nav></code></pre>
-			<pre class="mab"><code><br><span class="red">CSS</span><br>@import url('https://fonts.googleapis.com/css?family=Arimo');<br>.top-menu {<br>  background: rgba(255,255,255,.5);<br>  box-shadow: 3px 0 7px rgba(0,0,0,.3);<br>  padding: 20px;}<br>.top-menu:after {<br>  content: "";<br>  display: table;<br>  clear: both;}<br>.navbar-logo {display: inline-block;}<br>.menu-main {<br>  list-style: none;<br>  margin: 0;<br>  padding: 0;<br>  float: right;}<br>.menu-main li {display: inline-block;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: block;<br>  position: relative;<br>  line-height: 61px;<br>  padding-left: 20px;<br>  font-size: 18px;<br>  letter-spacing: 2px;<br>  font-family: 'Arimo', sans-serif;<br>  font-weight: bold;<br>  color: #F73E24;<br>  transition:.3s linear;}<br>.menu-main a:before {<br>  content: "";<br>  width: 9px;<br>  height: 9px;<br>  background: #F73E24;<br>  position: absolute;<br>  left: 50%;<br>  transform: rotate(45deg) translateX(6.5px);<br>  opacity: 0;<br>  transition: .3s linear;}<br>.menu-main a:hover:before {opacity: 1;}<br>@media (max-width: 660px) {<br>  .menu-main {float: none; padding-top: 20px;}<br>  .top-menu {text-align: center; padding: 20px 0 0 0;}<br>  .menu-main a {padding: 0 10px;}<br>  .menu-main a:before {transform: rotate(45deg) translateX(-6px);}}<br>@media (max-width: 600px) {.menu-main li {display: block;}}</code></pre>
+			<br><span class="red">CSS</span>
+			<pre><code>@import url('https://fonts.googleapis.com/css?family=Arimo');<br>.top-menu {<br>  background: rgba(255,255,255,.5);<br>  box-shadow: 3px 0 7px rgba(0,0,0,.3);<br>  padding: 20px;}<br>.top-menu:after {<br>  content: "";<br>  display: table;<br>  clear: both;}<br>.navbar-logo {display: inline-block;}<br>.menu-main {<br>  list-style: none;<br>  margin: 0;<br>  padding: 0;<br>  float: right;}<br>.menu-main li {display: inline-block;}<br>.menu-main a {<br>  text-decoration: none;<br>  display: block;<br>  position: relative;<br>  line-height: 61px;<br>  padding-left: 20px;<br>  font-size: 18px;<br>  letter-spacing: 2px;<br>  font-family: 'Arimo', sans-serif;<br>  font-weight: bold;<br>  color: #F73E24;<br>  transition:.3s linear;}<br>.menu-main a:before {<br>  content: "";<br>  width: 9px;<br>  height: 9px;<br>  background: #F73E24;<br>  position: absolute;<br>  left: 50%;<br>  transform: rotate(45deg) translateX(6.5px);<br>  opacity: 0;<br>  transition: .3s linear;}<br>.menu-main a:hover:before {opacity: 1;}<br>@media (max-width: 660px) {<br>  .menu-main {float: none; padding-top: 20px;}<br>  .top-menu {text-align: center; padding: 20px 0 0 0;}<br>  .menu-main a {padding: 0 10px;}<br>  .menu-main a:before {transform: rotate(45deg) translateX(-6px);}}<br>@media (max-width: 600px) {.menu-main li {display: block;}}</code></pre>
 			<span class="point yel" onclick='pr6.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>
@@ -497,7 +496,7 @@
 		</div>
 		<div>пункт2<span><p><a href="#">menu</a></p><p><a href="#">menu</a></p><p><a href="#">menu</a></p></span></div><div>пункт3<span><p><a href="#">menu</a></p><p><a href="#">menu</a></p><p><a href="#">menu</a></p></span></div><div>пункт4<span><p><a href="#">menu</a></p><p><a href="#">menu</a></p><p><a href="#">menu</a></p></span></div><div>пункт5<span><p><a href="#">menu</a></p><p><a href="#">menu</a></p><p><a href="#">menu</a></p></span></div>
 	</div>
-	<div class="item2 mab">
+	<div class="item2">
 		<samp class="red point" onclick='pr7.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden item3" id="pr7" onclick="event.stopPropagation()">
 			<pre style="margin-bottom:15px;"><code>&lt;div class="pr1"><br>  &lt;div>пункт1<br>    &lt;span><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>    &lt;/span><br>  &lt;/div><br>  &lt;div>пункт2<br>    &lt;span><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>    &lt;/span><br>  &lt;/div><br>  &lt;div>пункт3<br>    &lt;span><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>    &lt;/span><br>  &lt;/div><br>  &lt;div>пункт4<br>    &lt;span><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>    &lt;/span><br>  &lt;/div><br>  &lt;div>пункт5<br>    &lt;span><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>      &lt;p>&lt;a href="#">menu&lt;/a>&lt;/p><br>    &lt;/span><br>  &lt;/div><br> </code></pre>
@@ -533,7 +532,8 @@
 		<samp class="red point" onclick='pr8.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="pr8" onclick="event.stopPropagation()">
 			<pre><code>&lt;div class="menu8"><br>  &lt;a href="#">пункт 1&lt;/a><br>  &lt;a href="#">пункт 2&lt;/a><br>  &lt;a href="#">пункт 3&lt;/a><br>  &lt;a href="#">пункт 4&lt;/a><br>  &lt;a href="#">пункт 5&lt;/a><br>&lt;/div></code></pre>
-			<pre class="mab"><code><br><samp class="red">CSS</samp><br>.menu8{display:block; margin:5px auto; text-align:center;}<br>.menu8 a{<br>  display:inline-block;<br>  width:12%; padding:15px 10px; margin:10px 5px;<br>  text-decoration:none; color:#555;<br>  text-transform:uppercase; font-size:18px;<br>  position:relative;<br>  transition:color .6s;}<br>.menu8 a:before{<br>  background:#ddE4C4;<br>  width:100%; height:100%;<br>  z-index:-2; content:"";<br>  display:block;<br>  position:absolute; left:0; top:0;}<br>.menu8 a:after{<br>  position:absolute; bottom:0; left:0;<br>  transition:height .9s;<br>  width:100%; height:3px;<br>  background:red;<br>  z-index:-1; content:"";}<br>.menu8 a:hover:after{height:55px; transition:height .3s;}<br>.menu8 a:hover{color:#fff; transition:color .3s;}</code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>.menu8{display:block; margin:5px auto; text-align:center;}<br>.menu8 a{<br>  display:inline-block;<br>  width:12%; padding:15px 10px; margin:10px 5px;<br>  text-decoration:none; color:#555;<br>  text-transform:uppercase; font-size:18px;<br>  position:relative;<br>  transition:color .6s;}<br>.menu8 a:before{<br>  background:#ddE4C4;<br>  width:100%; height:100%;<br>  z-index:-2; content:"";<br>  display:block;<br>  position:absolute; left:0; top:0;}<br>.menu8 a:after{<br>  position:absolute; bottom:0; left:0;<br>  transition:height .9s;<br>  width:100%; height:3px;<br>  background:red;<br>  z-index:-1; content:"";}<br>.menu8 a:hover:after{height:55px; transition:height .3s;}<br>.menu8 a:hover{color:#fff; transition:color .3s;}</code></pre>
 			<span class="point yel" onclick='pr8.classList.toggle("hiden");'>свернуть</span>
 		</div>
 	</div>

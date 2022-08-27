@@ -3,115 +3,73 @@
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-	.t0 tr td:nth-child(2){text-align:center; font-family:monospace; color:#009;}
-	.t0 {width:450px; margin:0 auto}
+
+	h2{margin:0; line-height:30px;}
+	.ul_menu{
+		display:flex;
+		height:40px;
+		width:100%;
+		margin:5px 0;
+		padding:0;
+		justify-content:center;
+	}
+	.ul_menu a{
+		padding:2px 7px 3px;
+		margin-right:5px;
+		height:25px;
+		line-height:25px;
+		font-size:20px;
+		background:#dadada;
+		border-radius:5px;
+		transition:.2s;
+	}
+	.ul_menu a:last-child{margin:0}
+	.ul_menu a:hover{
+		background:#bbb;
+		transition:.2s;
+	}
+	a.active{
+		background:#777 !important;
+		color:#fafafa;
+		transition:.2s;
+	}
+	.lang{
+		width:100%;
+		height:calc(100vh - 140px);
+	}
 </style>
 </head>
 <body>
 
-<div class="item">
+<div class="item" style="min-width:822px">
 <h2 class="sin">Коды языков</h2>
-	<table class="t0 tb todd th1 t3 th2 mt20">
-		<tr><th>Язык</th><th>Код</th></tr>
-		<tr><td>Абхазский</td><td>ab</td></tr>
-		<tr><td>Азербайджанский</td><td>az</td></tr>
-		<tr><td>Аймарский</td><td>ay</td></tr>
-		<tr><td>Албанский</td><td>sq</td></tr>
-		<tr><td>Английский</td><td>en</td></tr>
-		<tr><td>Американский английский</td><td>en-us</td></tr>
-		<tr><td>Арабский</td><td>ar</td></tr>
-		<tr><td>Армянский</td><td>hy</td></tr>
-		<tr><td>Ассамский</td><td>as</td></tr>
-		<tr><td>Африкаанс</td><td>af</td></tr>
-		<tr><td>Башкирский</td><td>ba</td></tr>
-		<tr><td>Белорусский</td><td>be</td></tr>
-		<tr><td>Бенгальский</td><td>bn</td></tr>
-		<tr><td>Болгарский</td><td>bg</td></tr>
-		<tr><td>Бретонский</td><td>br</td></tr>
-		<tr><td>Валлийский</td><td>cy</td></tr>
-		<tr><td>Венгерский</td><td>hu</td></tr>
-		<tr><td>Вьетнамский</td><td>vi</td></tr>
-		<tr><td>Галисийский</td><td>gl</td></tr>
-		<tr><td>Голландский</td><td>nl</td></tr>
-		<tr><td>Греческий</td><td>el</td></tr>
-		<tr><td>Грузинский</td><td>ka</td></tr>
-		<tr><td>Гуарани</td><td>gn</td></tr>
-		<tr><td>Датский</td><td>da</td></tr>
-		<tr><td>Зулу</td><td>zu</td></tr>
-		<tr><td>Иврит</td><td>iw</td></tr>
-		<tr><td>Идиш</td><td>ji</td></tr>
-		<tr><td>Индонезийский</td><td>in</td></tr>
-		<tr><td>Интерлингва (искусственный язык)</td><td>ia</td></tr>
-		<tr><td>Ирландский</td><td>ga</td></tr>
-		<tr><td>Исландский</td><td>is</td></tr>
-		<tr><td>Испанский</td><td>es</td></tr>
-		<tr><td>Итальянский</td><td>it</td></tr>
-		<tr><td>Казахский</td><td>kk</td></tr>
-		<tr><td>Камбоджийский</td><td>km</td></tr>
-		<tr><td>Каталанский</td><td>ca</td></tr>
-		<tr><td>Кашмирский</td><td>ks</td></tr>
-		<tr><td>Кечуа</td><td>qu</td></tr>
-		<tr><td>Киргизский</td><td>ky</td></tr>
-		<tr><td>Китайский</td><td>zh</td></tr>
-		<tr><td>Корейский</td><td>ko</td></tr>
-		<tr><td>Корсиканский</td><td>co</td></tr>
-		<tr><td>Курдский</td><td>ku</td></tr>
-		<tr><td>Лаосский</td><td>lo</td></tr>
-		<tr><td>Латвийский, латышский</td><td>lv</td></tr>
-		<tr><td>Латынь</td><td>la</td></tr>
-		<tr><td>Литовский</td><td>lt</td></tr>
-		<tr><td>Малагасийский</td><td>mg</td></tr>
-		<tr><td>Малайский</td><td>ms</td></tr>
-		<tr><td>Мальтийский</td><td>mt</td></tr>
-		<tr><td>Маори</td><td>mi</td></tr>
-		<tr><td>Македонский</td><td>mk</td></tr>
-		<tr><td>Молдавский</td><td>mo</td></tr>
-		<tr><td>Монгольский</td><td>mn</td></tr>
-		<tr><td>Науру</td><td>na</td></tr>
-		<tr><td>Немецкий</td><td>de</td></tr>
-		<tr><td>Непальский</td><td>ne</td></tr>
-		<tr><td>Норвежский</td><td>no</td></tr>
-		<tr><td>Пенджаби</td><td>pa</td></tr>
-		<tr><td>Персидский</td><td>fa</td></tr>
-		<tr><td>Польский</td><td>pl</td></tr>
-		<tr><td>Португальский</td><td>pt</td></tr>
-		<tr><td>Пуштунский</td><td>ps</td></tr>
-		<tr><td>Ретороманский</td><td>rm</td></tr>
-		<tr><td>Румынский</td><td>ro</td></tr>
-		<tr><td>Русский</td><td>ru</td></tr>
-		<tr><td>Самоанский</td><td>sm</td></tr>
-		<tr><td>Санскрит</td><td>sa</td></tr>
-		<tr><td>Сербский</td><td>sr</td></tr>
-		<tr><td>Словацкий</td><td>sk</td></tr>
-		<tr><td>Словенский</td><td>sl</td></tr>
-		<tr><td>Сомали</td><td>so</td></tr>
-		<tr><td>Суахили</td><td>sw</td></tr>
-		<tr><td>Суданский</td><td>su</td></tr>
-		<tr><td>Тагальский</td><td>tl</td></tr>
-		<tr><td>Таджикский</td><td>tg</td></tr>
-		<tr><td>Тайский</td><td>th</td></tr>
-		<tr><td>Тамильский</td><td>ta</td></tr>
-		<tr><td>Татарский</td><td>tt</td></tr>
-		<tr><td>Тибетский</td><td>bo</td></tr>
-		<tr><td>Тонга</td><td>to</td></tr>
-		<tr><td>Турецкий</td><td>tr</td></tr>
-		<tr><td>Туркменский</td><td>tk</td></tr>
-		<tr><td>Узбекский</td><td>uz</td></tr>
-		<tr><td>Украинский</td><td>uk</td></tr>
-		<tr><td>Урду</td><td>ur</td></tr>
-		<tr><td>Фиджи</td><td>fj</td></tr>
-		<tr><td>Финский</td><td>fi</td></tr>
-		<tr><td>Французский</td><td>fr</td></tr>
-		<tr><td>Фризский</td><td>fy</td></tr>
-		<tr><td>Хауса</td><td>ha</td></tr>
-		<tr><td>Хинди</td><td>hi</td></tr>
-		<tr><td>Хорватский</td><td>hr</td></tr>
-		<tr><td>Чешский</td><td>cs</td></tr>
-		<tr><td>Шведский</td><td>sv</td></tr>
-		<tr><td>Эсперанто (искусственный язык)</td><td>eo</td></tr>
-		<tr><td>Эстонский</td><td>et</td></tr>
-		<tr><td>Яванский</td><td>jw</td></tr>
-		<tr><td>Японский</td><td>ja</td></tr>
-	</table>
+	<div class="ul_menu">
+		<a class="min active" target="lang" href="lang-code-min.html">min версия</a>
+		<a class="iso" target="lang" href="lang-code-iso639.html">ISO 639</a>
+		<a class="all" target="lang" href="lang-code-all.html">Все теги</a>
+		<a class="reg" target="lang" href="lang-code-regions.html">Коды регионов</a>
+		<a class="var" target="lang" href="lang-code-add.html">Добавочные + variant</a>
+		<a class="old" target="lang" href="lang-code-old.html">Устаревшие</a>
+		<a class="script" target="lang" href="lang-code-script.html">Script</a>
+	</div>
+	<iframe src="lang-code-min.html" frameborder="0" class="lang" name="lang"></iframe>
+</div>
+
+<script>
+	const ul = document.querySelector('.ul_menu').children;
+
+	for (let el of ul){
+		el.addEventListener('click', addActive);
+	}
+
+	function addActive(e) {
+		for(let el of ul){
+			el.classList.remove('active');
+			if(el==e.target){
+				el.classList.add('active');
+			}
+		}
+	}
+</script>
 
 </body></html>

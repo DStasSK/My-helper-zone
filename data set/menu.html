@@ -1,25 +1,23 @@
 <!DOCTYPE html><html><head><title>Menu</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- для мобильников --><meta name="robots" content="nofollow" />
 
 <style type="text/css">
 	body{margin:0; padding:5px 0 0 0; font-size:16px; color:#222; background-color:#e8e8e8}
 	a{text-decoration:none}
-	a:link, a:visited, a:hover, a:active, a:focus {text-decoration:none} /* правильный порядок правил для ссылок */
+	a:link, a:visited, a:hover, a:active, a:focus {text-decoration:none}
 	a:link, a:visited, a:active{color:#222}
 	ul{margin:0 0 0 5px; padding:0}
 	li{margin:0 0 0 16px; padding:0; list-style-type:disc; cursor:default}
 	li ul{margin: 0 0 0 -5px}
+	.lsn{list-style:none}
 
-	.point{cursor:pointer}
-	.hiden{display:none}
 	.o7{opacity:.7}
 	.ls-1{letter-spacing:-1px}
 	.sin,a.sin{color:#33d}
 
 	.hov:hover{color:#009; font-weight:700; background-color:#c8c8c8}
-	.hov.hov0:hover{letter-spacing:-0.7px}
+	.hov.hov0:hover{letter-spacing:-1.1px; font-weight:600}
 
 	/* first red */
 	.fr{display:inline-block}
@@ -30,29 +28,42 @@
 	.teg::before,.teg::after{content:'<'; color:#f00; display:inline}
 	.teg::after{content:'>'}
 
-	/* HTML */
+	/* для выпадающих списков */
+	.point{cursor:pointer}
+	.hiden{display:none}
+
+	/* в разделе HTML */
 	.input{width:100px; height:14px; line-height:1; font-size:12px; outline:none; position:relative; top:-1px; background:#fff; border:1px solid #888}
 	.marquee{width:100px; position:absolute; left:85px; top:0px}
 
 	/* шаблоны сайтов */
-	li table{display:inline-block; width:18px; border:0; border-collapse:collapse;
+	.table{display:inline-block; width:18px; border:0; border-collapse:collapse;
 		background:#fff; position:relative; top:3px}
-	li tr{height:4px}
-	li td{width:6px}
+	.table tr{height:4px}
+	.table td{width:6px}
 	.br{background:#ff0000} /* red         header  */
 	.by{background:#ffff00} /* Yellow      section */
 	.bs{background:#0000ff} /* Blue        section */
 	.bc{background:#D2691E} /* Chocolate   section */
 	.bl{background:#32CD32} /* LimeGreen   footer  */
 	.bg{background:#808080} /* Gray */
+
+	/* знак stop */
+	.stop{position:relative; display:inline; padding:0; margin:0}
+	.stop:before{position:absolute; content:''; display:inline-block; width:12px; height:12px; border:2px solid red; border-radius:50%; left:3.5px; top:1px}
+	.stop:after {position:absolute; content:''; display:inline-block; width:2px; height:14px; transform:rotateZ(45deg); background:red; left:11px; top:1.8px}
+
 </style>
 </head>
 <body>
 
-<ul>
+<ul class="big_ul">
+
 	<!-- menu -->
 	<!-- <li><a class="hov" href="menu.html">refresh menu</a></li> -->
+
 	<li><a class="hov" href="html_css/special_symbol.html" target="mane">специальные символы</a></li>
+		<li><a class="hov" href="html_css/help/unit css.html" target="mane">единицы CSS</a></li>
 		<li><a class="hov" href="html_css/color.html" target="mane">коды цветов</a></li>
 		<li><a class="hov" href="html_css/lang-code.html" target="mane">коды языков</a></li>
 		<li><a class="hov" href="html_css/lсd.html" target="mane">размеры экранов мониторов</a></li>
@@ -62,19 +73,19 @@
 		<li><a class="hov" href="html_css/ivents.html" target="mane">атрибуты событий</a></li>
 
 
-
 	<!-- HTML -->
-	<li><samp class="hov point fr" onclick='htm.classList.toggle("hiden");'>HTML</samp>
-		<ul class="hiden" id="htm" onclick="event.stopPropagation()">
+	<li><samp class="hov point fr">HTML</samp>
+		<ul class="hiden">
 			<li><a class="hov" href="html_css/html_helper.html" target="mane">Справочник HTML</a></li>
 			<li><a class="hov fr" href="html_css/help/HTML help.html" target="mane">help (edit)</a></li>
 
-			<li><samp class="hov point fr" onclick='tegs.classList.toggle("hiden");'>Тэги документа</samp>
-				<ul class="hiden" id="tegs" onclick="event.stopPropagation()">
+
+			<li><samp class="hov point fr">Тэги документа</samp>
+				<ul class="hiden">
 					<li><a class="hov teg sin" href="html_css/help/doctype.html" target="mane">!doctype</a></li>
 					<li><a class="hov teg sin" href="html_css/help/html.html" target="mane">html</a></li>
 					<li><a class="hov teg sin" href="html_css/help/head.html" target="mane">head</a></li>
-					<li style="list-style:none;">
+					<li class="lsn">
 						<ul>
 							<li><a class="hov teg sin" href="html_css/help/base.html" target="mane">base</a></li>
 							<li><a class="hov teg sin" href="html_css/help/HTML help.html#basefont" target="mane">basefont</a></li>
@@ -90,7 +101,7 @@
 					</li>
 					<li><a class="hov teg sin" href="html_css/help/body.html" target="mane">body</a>
 					</li>
-					<li style="list-style:none;">
+					<li class="lsn">
 						<ul>
 							<li><a class="hov teg sin o7" href="html_css/help/HTML help.html#header" target="mane">header</a></li>
 							<li><a class="hov teg sin o7" href="html_css/help/HTML help.html#nav" target="mane">nav</a></li>
@@ -104,8 +115,9 @@
 				</ul>
 			</li>
 
-			<li><samp class="hov point fr" onclick='audio.classList.toggle("hiden");'>audio/<span class="fr">video</span>/<span class="fr">img<span></samp>
-				<ul class="hiden" id="audio" onclick="event.stopPropagation()">
+
+			<li><samp class="hov point fr">audio/<span class="fr">video</span>/<span class="fr">img<span></samp>
+				<ul class="hiden">
 					<li><a class="hov teg sin" href="html_css/help/audio.html" target="mane">audio</a></li>
 					<li><a class="hov teg sin" href="html_css/help/video.html" target="mane">video</a></li>
 					<li><a class="hov teg sin" href="html_css/help/track.html" target="mane">track</a></li>
@@ -118,8 +130,9 @@
 				</ul>
 			</li>
 
-			<li><samp class="hov point fr" onclick='form.classList.toggle("hiden");'>Формы</samp>
-				<ul class="hiden" id="form" onclick="event.stopPropagation()">
+
+			<li><samp class="hov point fr">Формы</samp>
+				<ul class="hiden">
 					<li><a class="hov teg sin" href="html_css/form.html" target="mane">form</a></li>
 					<li><a class="hov teg sin" href="html_css/fieldset.html" target="mane">fieldset</a></li>
 					<li><a class="hov teg sin" href="html_css/fieldset.html#legend" target="mane">legend</a></li>
@@ -135,7 +148,7 @@
 
 
 			<li><a class="hov" href="html_css/help/a.html" target="mane">
-				<samp class="teg sin">a</samp> (параметры ссылки)</a></li>
+			<samp class="teg sin">a</samp> (параметры ссылки)</a></li>
 			<li><a class="hov teg sin" href="html_css/help/embed.html" target="mane" title="используется для загрузки и отображения объектов (например, видеофайлов, флэш-роликов, некоторых звуковых файлов и т. д.), которые исходно браузер не понимает">embed</a></li>
 			<li><a class="hov teg sin" href="html_css/help/object.html" target="mane">object</a></li>
 			<li><a class="hov teg sin" href="html_css/help/iframe.html" target="mane">iframe</a></li>
@@ -146,235 +159,235 @@
 				<marquee class="marquee" behavior="scroll" direction="left" scrolldelay="200">бегущая строка</marquee>
 			</li>
 			<li><a class="hov sin" href="html_css/help/table1.html" target="mane">
-				<samp class="teg">table</samp> <samp>(td, tr, col)</samp></a></li>
+			<samp class="teg">table</samp> <samp>(td, tr, col)</samp></a></li>
 			<li><a class="hov teg sin" href="html_css/help/time.html" target="mane">time</a></li>
 		</ul>
 	</li>
 
 
-
 	<!-- CSS -->
-	<li><samp class="hov point fr" onclick='css.classList.toggle("hiden");'>CSS</samp>
-		<ul class="hiden" id="css" onclick="event.stopPropagation()">
-		<li><a class="hov" href="html_css/CSS_helper.html" target="mane">Справочник CSS</a></li>
-		<li><a class="hov fr" href="html_css/help/help.html" target="mane">help (edit)</a></li>
-
-		<!-- Help CSS -->
-		<li><samp class="hov point fr" onclick='hlp.classList.toggle("hiden");'>Разное</samp>
-			<ul class="hiden" id="hlp" onclick="event.stopPropagation()">
-				<li><a class="hov" href="html_css/BEM.html" target="mane" title="Блок, Элемент, Модификатор.">
-					БЭМ</a></li>
-				<li><a class="hov" href="html_css/help/unit css.html" target="mane">
-					единицы CSS</a></li>
-				<li><a class="hov" href="html_css/css-reset.html" target="mane">
-					сбросс CSS</a></li>
-				<li><a class="hov" href="html_css/selektors.html" target="mane">
-					cелекторы</a></li>
-				<li><a class="hov" href="html_css/help/psevdo-klass.html" target="mane">
-					псевдоклассы</a></li>
-				<li><a class="hov" href="html_css/help/kaskad.html" target="mane">
-					каскадирование</a></li>
-				<li><a class="hov" href="html_css/vspisok.html" target="mane">
-					выпадающий список</a></li>
-				<li><a class="hov" href="html_css/menu-gorizont.html" target="mane">
-					горизонтальное меню</a></li>
-				<li><a class="hov" href="html_css/menu-na-vkladkah.html" target="mane">
-					меню на вкладках</a></li>
-				<li><a class="hov" href="html_css/zagol.html" target="mane">
-					оформление заголовка</a></li>
-				<li><a class="hov" href="html_css/scrolls.html" target="mane"
-					title="полоса прокрутки">
-					скроллбар в <span class="fr">css</span></a></li>
-				<li><a class="hov" href="html_css/video-bg.html" target="mane"
-					 title="Видео в качестве фона для сайта">
-					видео на фон</a></li>
-				<li><a class="hov fr" href="html_css/help/IE.html" target="mane">
-					Internet <span class="fr">Explorer</span></a></li>
-				<li><a class="hov" href="html_css/help/@-rules.html" target="mane">
-					<span style="color:red">@</span>-правила</a></li>
-				<li><a class="hov" href="html_css/help/@media.html" target="mane">
-					<span style="color:red">@</span>media</a></li>
-			</ul>
-		</li><!-- /Help CSS -->
-
-		<!-- TXT -->
-		<li><samp class="hov point fr" onclick='txt2.classList.toggle("hiden");'>Txt</samp>
-			<ul class="hiden" id="txt2" onclick="event.stopPropagation()">
-				<li><a class="hov fr" href="html_css/txt/tegs.html" target="mane"
-					title="перечень некоторых тегов для форматирования текста">
-					тэги</a></li>
-				<li><a class="hov fr" href="html_css/txt/color.html" target="mane"
-					 title="задание цвета текста">
-					color, <span class="fr">current<span class="fr">Color</span></span></a></li>
-				<li><a class="hov fr ls-1" href="html_css/txt/direction.html" target="mane"
-					title="смена направления текста">
-					direction, <span class="fr">unicode-bidi, <samp class="teg sin">bdo</samp></a></li>
-				<li><a class="hov fr" href="html_css/txt/first-letter.html" target="mane"
-					title="первый символ">
-					first-letter</a></li>
-				<li><a class="hov fr" href="html_css/txt/font.html" target="mane"
-					title="задание типа шрифта, размера и стиля написания символов">
-					font / <span class="fr">@font-face</span></a></li>
-				<li><a class="hov fr" href="html_css/txt/letter-spacing.html" target="mane"
-					title="межсимвольный интервaл">
-					letter-spacing</a></li>
-				<li><a class="hov fr" href="html_css/txt/line-clamp.html" target="mane"
-					title="количество отображаемых строк текста">
-					line-clamp</a></li>
-				<li><a class="hov fr" href="html_css/txt/line-height.html" target="mane"
-					title="межстрочный интервaл">
-					line-height</a></li>
-				<li><a class="hov fr" href="html_css/mix-blend-mode.html" target="mane"
-					title="инвертирование цвета относительно фона">
-					mix-blend-mode</a></li>
-				<li><a class="hov fr" href="html_css/txt/hyphens.html" target="mane"
-					title="автоматический перенос слов">
-					hyphens</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-aling.html" target="mane">
-					text-align</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-decoration.html" target="mane"
-					title="линии над, под, в словах">
-					text-decoration</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-indent.html" target="mane"
-					title="отступ первой строки текста">
-					text-indent</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-overflow.html" target="mane"
-					title="обрезать текст">
-					text-overflow</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-shadow.html" target="mane"
-					title="тень">
-					text-shadow</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-transform.html" target="mane"
-					title="управление регистрами символов">
-					text-transform</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-emphasis.html" target="mane"
-					title="устанавливает маркеры над каждым символом текста">
-					text-emphasis</a></li>
-				<li><a class="hov fr" href="html_css/txt/text-orientation.html" target="mane"
-					title="устанавливает ориентацию текстовых символов в вертикальной строке">
-					text-orientation</a></li>
-				<li><a class="hov fr" href="html_css/txt/user-select.html" target="mane"
-					title="Управляет поведением выделения текста">
-					user-select</a></li>
-				<li><a class="hov fr" href="html_css/txt/writing-mode.html" target="mane" title="Устанавливает направление текста на странице — по горизонтали или вертикали.">
-					writing-mode/<span class="fr">block-size</span></a></li>
-				<li><a class="hov fr" href="html_css/txt/word-break.html" target="mane"
-					title="перенос длинных слов">
-					word-break / <span class="fr">word-wrap</span></a></li>
-				<li><a class="hov fr" href="html_css/txt/word-spacing.html" target="mane"
-					title="дистанция между словами">
-					word-spacing</a></li>
-				<li><a class="hov fr" href="html_css/txt/white-space.html" target="mane"
-					title="характер отображения пробелов между словами">
-					white-space</a></li>
-				<li><a class="hov fr" href="html_css/txt/vertical-align.html" target="mane">
-					vertical-align</a></li>
-			</ul>
-		</li><!-- /TXT -->
-
-		<!-- background -->
-		<li><samp class="hov point fr" onclick='bg1.classList.toggle("hiden");'>Background</samp>
-			<ul class="hiden" id="bg1" onclick="event.stopPropagation()">
-				<li><a class="hov fr" href="html_css/background/background.html" target="mane">
-					background</a></li>
-				<li><a class="hov fr" href="html_css/background/background-attachment.html" target="mane"
-					title="фиксация фонового изображения">
-					background-attachment</a></li>
-				<li><a class="hov fr" href="html_css/background/background-blend-mode.html" target="mane"
-					title="Определяет режим наложения фоновых цветов">
-					background-blend-mode</a></li>
-				<li><a class="hov fr" href="html_css/background/background-clip.html" target="mane"
-					 title="расположение фона относительно границ">
-					background-clip</a></li>
-				<li><a class="hov fr" href="html_css/background/background-color.html" target="mane"
-					title="цвет фона какого либо элемента или всего документа">
-					background-color</a></li>
-				<li><a class="hov fr" href="html_css/background/background-image.html" target="mane">
-					background-image</a></li>
-				<li><a class="hov fr" href="html_css/background/background-gradient.html" target="mane"
-					title="цвет фона в виде перехода цветов">
-					background-gradient</a></li>
-				<li><a class="hov fr" href="html_css/background/background-origin.html" target="mane"
-					 title="расположение фоновой картинки относительно границ">
-					background-origin</a></li>
-				<li><a class="hov fr" href="html_css/background/background-position.html" target="mane"
-					title="расположение фонового изображения">
-					background-position</a></li>
-				<li><a class="hov fr" href="html_css/background/background-repeat.html" target="mane"
-					title="повторение фонового изображения">
-					background-repeat</a></li>
-				<li><a class="hov fr" href="html_css/background/background-size.html" target="mane"
-					title="масштабирует фоновое изображение">
-					background-size</a></li>
-			</ul>
-		</li><!-- /background -->
+	<li><samp class="hov point fr">CSS</samp>
+		<ul class="hiden">
+			<li><a class="hov" href="html_css/CSS_helper.html" target="mane">Справочник CSS</a></li>
+			<li><a class="hov fr" href="html_css/help/help.html" target="mane">help (edit)</a></li>
 
 
-		<li><a class="hov" href="html_css/checked.html" target="mane">
-			:checked</a></li>
-		<li><a class="hov" href="html_css/hover.html" target="mane" title="примеры оформления">
-			:hover</a></li>
-		<li><a class="hov" href="html_css/root.html" target="mane" title="задание переменных">
-			:root</a></li>
-		<li><a class="hov fr" href="html_css/all.html" target="mane"
-			title="сброс параметров CSS для выбранного селектора">
-			all</a></li>
-		<li><a class="hov fr" href="html_css/border & outline.html" target="mane">
-			border / <span class="fr">outline</span></a></li>
-		<li><a class="hov fr" href="html_css/border-image.html" target="mane">
-			border-image</a></li>
-		<li><a class="hov fr" href="html_css/border-radius-css.html" target="mane">
-			border-radius</a></li>
-		<li><a class="hov fr" href="html_css/box-shadow.html" target="mane" title="тень">
-			box-shadow</a></li>
-		<li><a class="hov fr" href="html_css/clip--clip-path.html" target="mane">
-			clip / <span class="fr">clip-path</span></a></li>
-		<li><a class="hov fr" href="html_css/content.html" target="mane">
-			content</a></li>
-		<li><a class="hov fr" href="html_css/contenteditable.html" target="mane">
-			contenteditable</a></li>
-		<li><a class="hov fr" href="html_css/columns.html" target="mane" title="колонки">
-			columns</a></li>
-		<li><a class="hov fr" href="html_css/cursor.html" target="mane">
-			cursor</a></li>
-		<li><a class="hov fr" href="html_css/help/datetime.html" target="mane">
-			datetime</a></li>
-		<li><a class="hov fr" href="html_css/display.html" target="mane">
-			display</a></li>
-		<li><a class="hov fr" href="html_css/filter.html" target="mane"
-			title="backdrop-filter, blur(), brightness(), contrast(), drop-shadow(), grayscale(), hue-rotate(), invert(), opacity(), saturate(), sepia()">
-			filter</a></li>
-		<li><a class="hov fr" href="html_css/float.html" target="mane" title="обтекание элемента">
-			float / <span class="fr">clear</span></a></li>
-		<li><a class="hov fr" href="html_css/list-style-type ul li ol.html" target="mane"
-			 title="маркированный список в HTML">
-			list-style-type (ul ol li)</a></li>
-		<li><a class="hov fr" href="html_css/overflow.html" target="mane"
-			 title="как будет отображаться содержание блока">
-			overflow и скроллбар</a></li>
-		<li><a class="hov fr" href="html_css/opacity.html" target="mane"
-			 title="прозрачность элемента">
-			opacity</a></li>
-		<li><a class="hov fr" href="html_css/position.html" target="mane">
-			position</a></li>
-		<li><a class="hov fr" href="html_css/CSS Shapes.html" target="mane">
-			shapes</a></li>
-		<li><a class="hov fr" href="html_css/transition.html" target="mane"
-			 title="длительность изменения элемента">
-			transition</a></li>
-		<li><a class="hov fr" href="html_css/transform.html" target="mane"
-			 title="изменение элемента">
-			transform</a></li>
-		<li><a class="hov fr" href="html_css/visibility.html" target="mane" title="c помощью свойства visibility можно скрыть или отобразить любой элемент">
-			visibility</a></li>
+			<!-- Help CSS -->
+			<li><samp class="hov point fr">Разное</samp>
+				<ul class="hiden">
+					<li><a class="hov" href="html_css/BEM.html" target="mane" title="Блок, Элемент, Модификатор.">
+						БЭМ</a></li>
+					<li><a class="hov" href="html_css/css-reset.html" target="mane">
+						сбросс CSS</a></li>
+					<li><a class="hov" href="html_css/selektors.html" target="mane">
+						cелекторы</a></li>
+					<li><a class="hov" href="html_css/help/psevdo-klass.html" target="mane">
+						псевдоклассы</a></li>
+					<li><a class="hov" href="html_css/help/kaskad.html" target="mane">
+						каскадирование</a></li>
+					<li><a class="hov" href="html_css/vspisok.html" target="mane">
+						выпадающий список</a></li>
+					<li><a class="hov" href="html_css/menu-gorizont.html" target="mane">
+						горизонтальное меню</a></li>
+					<li><a class="hov" href="html_css/menu-na-vkladkah.html" target="mane">
+						меню на вкладках</a></li>
+					<li><a class="hov" href="html_css/zagol.html" target="mane">
+						оформление заголовка</a></li>
+					<li><a class="hov" href="html_css/scrolls.html" target="mane"
+						title="полоса прокрутки">
+						скроллбар в <span class="fr">css</span></a></li>
+					<li><a class="hov" href="html_css/video-bg.html" target="mane"
+						 title="Видео в качестве фона для сайта">
+						видео на фон</a></li>
+					<li><a class="hov fr" href="html_css/help/IE.html" target="mane">
+						Internet <span class="fr">Explorer</span></a></li>
+					<li><a class="hov" href="html_css/help/@-rules.html" target="mane">
+						<span style="color:red">@</span>-правила</a></li>
+					<li><a class="hov" href="html_css/help/@media.html" target="mane">
+						<span style="color:red">@</span>media</a></li>
+				</ul>
+			</li>
+			<!-- /Help CSS -->
+
+			<!-- TXT -->
+			<li><samp class="hov point fr">Txt</samp>
+				<ul class="hiden">
+					<li><a class="hov fr" href="html_css/txt/tegs.html" target="mane"
+						title="перечень некоторых тегов для форматирования текста">
+						тэги</a></li>
+					<li><a class="hov fr" href="html_css/txt/color.html" target="mane"
+						 title="задание цвета текста">
+						color, <span class="fr">current<span class="fr">Color</span></span></a></li>
+					<li><a class="hov fr ls-1" href="html_css/txt/direction.html" target="mane"
+						title="смена направления текста">
+						direction, <span class="fr">unicode-bidi, <samp class="teg sin">bdo</samp></a></li>
+					<li><a class="hov fr" href="html_css/txt/first-letter.html" target="mane"
+						title="первый символ">
+						first-letter</a></li>
+					<li><a class="hov fr" href="html_css/txt/font.html" target="mane"
+						title="задание типа шрифта, размера и стиля написания символов">
+						font / <span class="fr">@font-face</span></a></li>
+					<li><a class="hov fr" href="html_css/txt/letter-spacing.html" target="mane"
+						title="межсимвольный интервaл">
+						letter-spacing</a></li>
+					<li><a class="hov fr" href="html_css/txt/line-clamp.html" target="mane"
+						title="количество отображаемых строк текста">
+						line-clamp</a></li>
+					<li><a class="hov fr" href="html_css/txt/line-height.html" target="mane"
+						title="межстрочный интервaл">
+						line-height</a></li>
+					<li><a class="hov fr" href="html_css/mix-blend-mode.html" target="mane"
+						title="инвертирование цвета относительно фона">
+						mix-blend-mode</a></li>
+					<li><a class="hov fr" href="html_css/txt/hyphens.html" target="mane"
+						title="автоматический перенос слов">
+						hyphens</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-aling.html" target="mane">
+						text-align</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-decoration.html" target="mane"
+						title="линии над, под, в словах">
+						text-decoration</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-indent.html" target="mane"
+						title="отступ первой строки текста">
+						text-indent</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-overflow.html" target="mane"
+						title="обрезать текст">
+						text-overflow</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-shadow.html" target="mane"
+						title="тень">
+						text-shadow</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-transform.html" target="mane"
+						title="управление регистрами символов">
+						text-transform</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-emphasis.html" target="mane"
+						title="устанавливает маркеры над каждым символом текста">
+						text-emphasis</a></li>
+					<li><a class="hov fr" href="html_css/txt/text-orientation.html" target="mane"
+						title="устанавливает ориентацию текстовых символов в вертикальной строке">
+						text-orientation</a></li>
+					<li><a class="hov fr" href="html_css/txt/user-select.html" target="mane"
+						title="Управляет поведением выделения текста">
+						user-select</a></li>
+					<li><a class="hov fr" href="html_css/txt/writing-mode.html" target="mane" title="Устанавливает направление текста на странице — по горизонтали или вертикали.">
+						writing-mode/<span class="fr">block-size</span></a></li>
+					<li><a class="hov fr" href="html_css/txt/word-break.html" target="mane"
+						title="перенос длинных слов">
+						word-break / <span class="fr">word-wrap</span></a></li>
+					<li><a class="hov fr" href="html_css/txt/word-spacing.html" target="mane"
+						title="дистанция между словами">
+						word-spacing</a></li>
+					<li><a class="hov fr" href="html_css/txt/white-space.html" target="mane"
+						title="характер отображения пробелов между словами">
+						white-space</a></li>
+					<li><a class="hov fr" href="html_css/txt/vertical-align.html" target="mane">
+						vertical-align</a></li>
+				</ul>
+			</li>
+			<!-- /TXT -->
+
+			<!-- background -->
+			<li><samp class="hov point fr">Background</samp>
+				<ul class="hiden">
+					<li><a class="hov fr" href="html_css/background/background.html" target="mane">
+						background</a></li>
+					<li><a class="hov fr" href="html_css/background/background-attachment.html" target="mane"
+						title="фиксация фонового изображения">
+						background-attachment</a></li>
+					<li><a class="hov fr" href="html_css/background/background-blend-mode.html" target="mane"
+						title="Определяет режим наложения фоновых цветов">
+						background-blend-mode</a></li>
+					<li><a class="hov fr" href="html_css/background/background-clip.html" target="mane"
+						 title="расположение фона относительно границ">
+						background-clip</a></li>
+					<li><a class="hov fr" href="html_css/background/background-color.html" target="mane"
+						title="цвет фона какого либо элемента или всего документа">
+						background-color</a></li>
+					<li><a class="hov fr" href="html_css/background/background-image.html" target="mane">
+						background-image</a></li>
+					<li><a class="hov fr" href="html_css/background/background-gradient.html" target="mane"
+						title="цвет фона в виде перехода цветов">
+						background-gradient</a></li>
+					<li><a class="hov fr" href="html_css/background/background-origin.html" target="mane"
+						 title="расположение фоновой картинки относительно границ">
+						background-origin</a></li>
+					<li><a class="hov fr" href="html_css/background/background-position.html" target="mane"
+						title="расположение фонового изображения">
+						background-position</a></li>
+					<li><a class="hov fr" href="html_css/background/background-repeat.html" target="mane"
+						title="повторение фонового изображения">
+						background-repeat</a></li>
+					<li><a class="hov fr" href="html_css/background/background-size.html" target="mane"
+						title="масштабирует фоновое изображение">
+						background-size</a></li>
+				</ul>
+			</li>
+			<!-- /background -->
+
+
+			<li><a class="hov" href="html_css/checked.html" target="mane">
+				:checked</a></li>
+			<li><a class="hov" href="html_css/hover.html" target="mane" title="примеры оформления">
+				:hover</a></li>
+			<li><a class="hov" href="html_css/root.html" target="mane" title="задание переменных">
+				:root</a></li>
+			<li><a class="hov fr" href="html_css/all.html" target="mane"
+				title="сброс параметров CSS для выбранного селектора">
+				all</a></li>
+			<li><a class="hov fr" href="html_css/border & outline.html" target="mane">
+				border / <span class="fr">outline</span></a></li>
+			<li><a class="hov fr" href="html_css/border-image.html" target="mane">
+				border-image</a></li>
+			<li><a class="hov fr" href="html_css/border-radius-css.html" target="mane">
+				border-radius</a></li>
+			<li><a class="hov fr" href="html_css/box-shadow.html" target="mane" title="тень">
+				box-shadow</a></li>
+			<li><a class="hov fr" href="html_css/clip--clip-path.html" target="mane">
+				clip / <span class="fr">clip-path</span></a></li>
+			<li><a class="hov fr" href="html_css/content.html" target="mane">
+				content</a></li>
+			<li><a class="hov fr" href="html_css/contenteditable.html" target="mane">
+				contenteditable</a></li>
+			<li><a class="hov fr" href="html_css/columns.html" target="mane" title="колонки">
+				columns</a></li>
+			<li><a class="hov fr" href="html_css/cursor.html" target="mane">
+				cursor</a></li>
+			<li><a class="hov fr" href="html_css/help/datetime.html" target="mane">
+				datetime</a></li>
+			<li><a class="hov fr" href="html_css/display.html" target="mane">
+				display</a></li>
+			<li><a class="hov fr" href="html_css/filter.html" target="mane"
+				title="backdrop-filter, blur(), brightness(), contrast(), drop-shadow(), grayscale(), hue-rotate(), invert(), opacity(), saturate(), sepia()">
+				filter</a></li>
+			<li><a class="hov fr" href="html_css/float.html" target="mane" title="обтекание элемента">
+				float / <span class="fr">clear</span></a></li>
+			<li><a class="hov fr" href="html_css/list-style-type ul li ol.html" target="mane"
+				 title="маркированный список в HTML">
+				list-style-type (ul ol li)</a></li>
+			<li><a class="hov fr" href="html_css/overflow.html" target="mane"
+				 title="как будет отображаться содержание блока">
+				overflow и скроллбар</a></li>
+			<li><a class="hov fr" href="html_css/opacity.html" target="mane"
+				 title="прозрачность элемента">
+				opacity</a></li>
+			<li><a class="hov fr" href="html_css/position.html" target="mane">
+				position</a></li>
+			<li><a class="hov fr" href="html_css/CSS Shapes.html" target="mane">
+				shapes</a></li>
+			<li><a class="hov fr" href="html_css/transition.html" target="mane"
+				 title="длительность изменения элемента">
+				transition</a></li>
+			<li><a class="hov fr" href="html_css/transform.html" target="mane"
+				 title="изменение элемента">
+				transform</a></li>
+			<li><a class="hov fr" href="html_css/visibility.html" target="mane" title="c помощью свойства visibility можно скрыть или отобразить любой элемент">
+				visibility</a></li>
 		</ul>
 	</li><!-- /CSS -->
 
 
-
 	<!-- Animation -->
-	<li><samp class="hov point fr" onclick='ani.classList.toggle("hiden");'>Animation</samp>
-		<ul class="hiden" id="ani" onclick="event.stopPropagation()">
+	<li><samp class="hov point fr">Animation</samp>
+		<ul class="hiden">
 			<li><a class="hov fr" href="Animation/index.html" target="mane">
 				Animation</a></li>
 			<li><a class="hov fr" href="Animation/animated_properties.html" target="mane">
@@ -387,10 +400,9 @@
 	</li>
 
 
-
 	<!-- FLEXBOX -->
-	<li><samp class="hov point fr" onclick='flex.classList.toggle("hiden");'>FlexBox</samp>
-		<ul class="hiden" id="flex" onclick="event.stopPropagation()">
+	<li><samp class="hov point fr">FlexBox</samp>
+		<ul class="hiden">
 			<li><a class="hov fr" href="FlexBox/flexs.html" target="mane">
 				Флексы</a></li>
 			<li><a class="hov fr" href="FlexBox/align-content.html" target="mane" title="Задаёт тип выравнивания строк внутри флекс-контейнера по поперечной оси при наличии свободного пространства">
@@ -419,25 +431,177 @@
 				order</a></li>
 			<li><a class="hov fr" href="FlexBox/place-content.html" target="mane" title="одновременно устанавливает значения свойств align-content и justify-content.">
 				place-content</a></li>
+
 		</ul>
 	</li><!-- /FLEXBOX -->
 
 
+	<!-- SCRIPTS -->
+	<!-- <li><samp class="hov point fr">Scripts</samp><p class="stop" title="вход закрыт - идут работы"></p>
+		<ul class="hiden">
+
+			<li><a class="hov fr sin o7" href="scripts/help js.html" target="mane">
+				help (edit)</a></li>
+
+			<li><samp class="hov point fr">DOM</samp>
+				<ul class="hiden">
+					<li><a class="hov hov0 ls-1" href="scripts/doc-model.html" target="mane" title="DOM">
+						Объектная модель документа</a></li>
+
+					<li><a class="hov" href="scripts/dom-css.html" target="mane">
+						DOM и CSS</a></li>
+
+					<li><a class="hov" href="scripts/element.html" target="mane" title="получение, создание, вставка, удаление">
+						Элементы <samp>html</samp></a></li>
+
+					<li><a class="hov" href="scripts/element-child.html" target="mane">
+						Вложенные элементы</a></li>
+
+					<li><a class="hov" href="scripts/element-txt.html" target="mane">
+						Текст и тег элемента</a></li>
+
+					<li><a class="hov" href="scripts/element-attribute.html" target="mane">
+						Атрибуты элемента</a></li>
+
+					<li><a class="hov" href="scripts/element-css.html" target="mane">
+						CSS классы элемента</a></li>
+
+					<li><a class="hov" href="scripts/element-table.html" target="mane">
+						Таблицы и их элементы</a></li>
+
+					<li><a class="hov" href="scripts/dialog-windows.html" target="mane" title="alert, confirm, prompt">
+						Диалоговые окна</a></li>
+
+					<li><samp class="fr">
+						Метрики</samp>
+						<ul>
+							<li><a class="hov sin o7" href="scripts/dimension/monitor-size.html" target="mane">
+								Размеры монитора</a></li>
+							<li><a class="hov sin o7" href="scripts/dimension/program-window.html" target="mane">
+								Окно браузера</a></li>
+							<li><a class="hov sin o7" href="scripts/dimension/document-size.html" target="mane">
+								Окно документа</a></li>
+							<li><a class="hov sin o7" href="scripts/dimension/element-size.html" target="mane">
+								Позиция элемента</a></li>
+						</ul></li>
+
+					<li><a class="hov sin" href="html_css/ivents.html" target="mane" title="события связанные с действиями пользователя">
+						События</a></li>
+
+
+				</ul>
+			</li>
+
+
+			<li><samp class="hov point fr">Разное</samp>
+				<ul class="hiden">
+					<li><a class="hov" href="scripts/peremnnie.html" target="mane">
+						Переменные</a></li>
+
+					<li><a class="hov" href="scripts/expression.html" target="mane">
+						Выражения, инструкции</a></li>
+
+					<li><a class="hov" href="scripts/interval.html" target="mane">
+						Таймеры, интервалы</a></li>
+
+					<li><a class="hov" href="scripts/function/Number.html" target="mane" title="методы для работы с числами">
+						Методы <samp class="fr ls-05">Number</samp>, <samp class="fr ls-05">Math</samp></a></li>
+
+					<li><a class="hov" href="scripts/function/String.html" target="mane" title="методы для работы со строками">
+						Методы <samp class="fr">String</samp></a></li>
+
+					<li><a class="hov" href="scripts/function/Array.html" target="mane" title="методы для работы с массивами">
+						Методы <samp class="fr">Array</samp></a></li>
+
+					<li><a class="hov" href="scripts/function/object.html" target="mane" title="методы для работы с объектами">
+						Методы <samp class="fr">Object</samp></a></li>
+
+
+					<li><a class="hov sin" href="scripts/function/Error.html" target="mane">
+						Конструктор <samp class="fr">Error</samp></a></li>
+
+
+					<li><a class="hov sin teg o7" href="scripts/canvas.html" target="mane" title="примеры">canvas</a></li>
+
+					<li><a class="hov sin teg o7" href="scripts/output.html" target="mane" title="примеры">output</a></li>
+
+				</ul>
+			</li>
+
+
+			<li><samp class="hov point fr">window & <span class="fr">document</span></samp>
+				<ul class="hiden">
+
+					<li><a class="hov" href="scripts/document/cookie.html" target="mane" title="примеры">cookie</a></li>
+
+					<li><a class="hov" href="scripts/document/forms.html" target="mane">
+						forms</a></li>
+
+					<li><a class="hov" href="scripts/document/localStorage.html" target="mane" title="примеры">localStorage</a></li>
+
+				</ul>
+			</li>
+
+
+			<li><a class="hov" href="scripts/stop-word.html" target="mane">
+				Зарезервированные слова</a></li>
+
+			<li><a class="hov" href="scripts/datatype.html" target="mane">
+				Типы данных</a></li>
+
+			<li><a class="hov" href="scripts/json.html" target="mane">
+				JSON</a></li>
+
+
+			<li><a class="hov" href="scripts/operents.html" target="mane" title="Операторы, выражения, инструкции">Операторы</a></li>
+
+			<li><a class="hov" href="scripts/logical-shema.html" target="mane">
+				Циклы (if, else, for, ...)</a></li>
+
+			<li><a class="hov" href="scripts/Array.html" target="mane" title="Массив">
+				Массивы (<samp class="fr">Array</samp>)</a></li>
+
+			<li><a class="hov sin" href="scripts/function.html" target="mane">
+				Функции</a></li>
+
+
+
+			<li><a class="hov" href="scripts/object.html" target="mane">
+				Объекты</a></li>
+
+			<li><a class="hov" href="scripts/function/Date.html" target="mane" title="методы для работы с датой и временем">
+				Конструктор <samp class="fr">Date()</samp></a></li>
+
+
+			<li><a class="hov sin o7" href="scripts/class.html" target="mane">
+			Классы</a></li>
+			<li><a class="hov sin o7" href="#" target="mane">
+			Прототипы</a></li>
+			<li><a class="hov sin o7" href="#" target="mane">
+			Promise</a></li>
+			<li><a class="hov sin o7" href="#" target="mane">
+			ASYNC/AWAIT</a></li>
+
+		</ul>
+	</li> -->
+	<!-- /SCRIPTS -->
+
 
 	<!-- Шаблоны сайтов -->
-	<li><samp class="hov point fr" onclick='siteshab.classList.toggle("hiden");'>Макеты сайтов</samp>
-		<ul class="hiden" id="siteshab" onclick="event.stopPropagation()">
+	<li><samp class="hov point fr">Макеты сайтов</samp>
+		<ul class="hiden">
 			<li><a class="hov" href="Makets of site/maket-1.html" target="mane" title="Слой по центру веб-страницы">
 				макет №1</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3"></td></tr>
 					<tr><td></td><td class="bg"></td><td></td></tr>
 					<tr><td></td><td class="bg"></td><td></td></tr>
-					<tr><td colspan="3"></td></tr></table>
+					<tr><td colspan="3"></td></tr>
+				</table>
 			</li>
 			<li><a class="hov" href="Makets of site/maket-2.html" target="mane" title="Hавигация слева, float только на одной колонке.">
 				макет №2</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="by"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="by"></td></tr>
@@ -446,7 +610,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-3.html" target="mane" title="Hавигация справа, float на обеих колонках.">
 				макет №3</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="by"></td><td class="by"></td><td class="bs"></td></tr>
 					<tr><td class="by"></td><td class="by"></td><td class="bs"></td></tr>
@@ -455,7 +619,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-4.html" target="mane" title="Hавигация справа, float + margin">
 				макет №4</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="by"></td><td class="by"></td><td class="bs"></td></tr>
 					<tr><td class="by"></td><td class="by"></td><td></td></tr>
@@ -464,7 +628,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-5.html" target="mane" title="Hавигация справа, позиционирование">
 				макет №5</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="by"></td><td class="by"></td><td class="bs"></td></tr>
 					<tr><td class="by"></td><td class="by"></td><td></td></tr>
@@ -473,7 +637,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-6.html" target="mane" title="Резиновая ширина, навигация слева, float + margin">
 				макет №6</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="by"></td></tr>
 					<tr><td class=""></td><td class="by"></td><td class="by"></td></tr>
@@ -482,7 +646,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-7.html" target="mane" title="Фиксированная ширина, три колонки, float + margin">
 				макет №7</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="bc"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="bc"></td></tr>
@@ -491,7 +655,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-7-flex.html" target="mane" title="Макет сайта на флексбоксах">
 				макет №8</a>
-				<table>
+				<table class="table">
 					<tr><td colspan="3" class="br"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="bc"></td></tr>
 					<tr><td class="bs"></td><td class="by"></td><td class="bc"></td></tr>
@@ -500,7 +664,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/maket-8.html" target="mane" title="фиксированный футер">
 				Фиксированный подвал</a>
-				<table>
+				<table class="table">
 					<tr><td></td><td class="bs"></td><td></td></tr>
 					<tr><td></td><td class="bs"></td><td></td></tr>
 					<tr><td></td><td></td><td></td></tr>
@@ -509,7 +673,7 @@
 			</li>
 			<li><a class="hov" href="Makets of site/sticky-footer.html" target="mane">
 				Прижатый подвал</a>
-				<table width="18px">
+				<table width="18px" class="table">
 					<tr><td></td><td></td><td></td></tr>
 					<tr><td></td><td></td><td></td></tr>
 					<tr><td></td><td></td><td></td></tr>
@@ -521,8 +685,8 @@
 
 
 	<!-- Print -->
-	<li><samp class="hov point fr" onclick='prin.classList.toggle("hiden");'>Print</samp>
-		<ul class="hiden" id="prin" onclick="event.stopPropagation()">
+	<li><samp class="hov point fr">Print</samp>
+		<ul class="hiden">
 			<li><a class="hov fr" href="print/@page.html" target="mane" title="поля при печати">
 				@page</a></li>
 			<li><a class="hov fr" href="print/marks.html" target="mane">marks</a></li>
@@ -536,6 +700,29 @@
 			<li><a class="hov fr" href="print/widows.html" target="mane">widows</a></li>
 		</ul>
 	</li><!-- /Print -->
+
+
+
+<!-- для выпадающих списков -->
+<script>
+	let listCLick = document.querySelectorAll('.point');
+	let listHiden = document.querySelectorAll('.hiden');
+	let ul = document.querySelector('.big_ul').onclick = showUL;
+
+	function showUL(e) {
+		let k = 0;
+		let g = false;
+		for(let el of listCLick){
+			if(e.target === el){
+				g = true;
+				break;
+			}
+			k++;
+		}
+		if (g) listHiden[k].classList.toggle('hiden');
+	}
+</script>
+
 </ul>
 </body>
 </html>

@@ -1,23 +1,29 @@
-<html><head><meta charset="utf-8"><title>HTML-CSS</title>
+<html><head><meta charset="utf-8"><title>HTML-CSS-JS</title>
 <link rel="shortcut icon" href="data set/i.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  *{transition:.3s}
-  body,iframe{height:100vh; border:0; padding:0; margin:0}
-  .burger{width:10px; height:40px; position:absolute; z-index:10; left:250px; top:0; line-height:37px; color:#999; background:#eee; opacity:0; cursor:pointer}
-  .burger::before{content:'<<'; letter-spacing:-6px; display:block; font-size:15px; font-family:monospace; width:100%; height:100%; cursor:pointer}
-  .burger:hover{background:#ccc; color:#333; opacity:1}
-  #menu{width:247px; float:left; border-right:3px solid #000}
-  #menu:hover ~ .burger{opacity:1}
-  #book{width:calc(100% - 250px)}
-  .menu-off #menu{margin-left:-250px}
-  .menu-off #book{width:100%}
-  .menu-off .burger{left:0; background:#aaa; color:#000; opacity:1}
-  .menu-off .burger::before{content:'>>'}
+	*{transition:.3s}
+	body,iframe{height:100vh; border:0; padding:0; margin:0}
+	.burger{width:10px; height:40px; position:absolute; z-index:10; left:250px; top:0; line-height:37px; color:#999; background:#eee; opacity:0; cursor:pointer}
+	.burger::before{content:'<<'; letter-spacing:-6px; display:block; font-size:15px; font-family:monospace; width:100%; height:100%; cursor:pointer}
+	.burger:hover{background:#ccc; color:#333; opacity:1}
+
+	#menu{width:247px; float:left; border-right:3px solid #000}
+	#menu:hover ~ .burger{opacity:1}
+	#book{width:calc(100% - 250px)}
+
+	.menu-off #menu{margin-left:-250px}
+	.menu-off #book{width:100%}
+	.menu-off .burger{left:0; background:#aaa; color:#000; opacity:1}
+	.menu-off .burger::before{content:'>>'}
 </style>
 </head>
 <body id="body" class="">
-<iframe src="data set/menu.html" id="menu"></iframe>
-<iframe src="data set/-blank-/blank.html" id="book" name="mane"></iframe>
-<div onclick='body.classList.toggle("menu-off");' title="показать/скрыть меню" class="burger"></div>
+	<iframe src="data set/menu.html" id="menu"></iframe>
+	<iframe src="data set/-blank-/blank.html" id="book" name="mane"></iframe>
+	<div
+		onclick='body.classList.toggle("menu-off");'
+		title="показать/скрыть меню"
+		class="burger"
+	></div>
 </body></html>
