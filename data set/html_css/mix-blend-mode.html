@@ -24,24 +24,24 @@
 </style>
 </head>
 <body>
+
 <h2 class="sin">mix-blend-mode</h2>
 <!-- оглавление -->
 	<ul class="ogl">
-		<li><a href="#z1">Синтаксис.</a></li>
-		<li><a href="#z2">Значения.</a></li>
+		<!-- <li><a href="#z1">Синтаксис.</a></li> -->
+		<!-- <li><a href="#z2">Значения.</a></li> -->
 		<li><a href="#z3">Песочница.</a></li>
 		<li><a href="#p1">Пример 1.</a></li>
 		<li><a href="#p2">Пример 2.</a></li>
 	</ul><!-- /оглавление -->
 
+<div class="item anp">
+ 	<p>CSS свойство <samp class="sin">mix-blend-mode</samp> определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение.</p>
+
+	<pre class="item2"><code>.elem {<br>  mix-blend-mode: normal | multiply | screen | overlay | darken |<br>                  lighten | color-dodge | color-burn | hard-light |<br>                  soft-light | difference | exclusion | hue | saturation |<br>                  color | luminosity<br>}</code></pre>
 
 
-<div class="item anp" style="overflow:hidden">
-	<p>Определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение.</p>
-
-	<p id="z1" class="mt20"><b>Синтаксис:</b></p>
-		<pre class="item2"><code>p{<br> mix-blend-mode: normal | multiply | screen | overlay | darken |<br>                 lighten | color-dodge | color-burn | hard-light |<br>                 soft-light | difference | exclusion | hue | saturation |<br>                 color | luminosity<br>}</code></pre>
-	<p id="z2" class="mt20"><b>Значения:</b></p>
+  <h3 id="z2" class="mt20 sin">Значения.</h3>
 
 	<table class="t1 tb tt1 t3">
 		<tr><td>normal</td><td>Обычный. Не используется смешивание цветов. Режим по умолчанию.</td></tr>
@@ -61,149 +61,158 @@
 		<tr><td>color</td><td>Цвет. Создаётся результирующий цвет с яркостью основного цвета и с цветовым тоном и насыщенностью накладываемого цвета. Этот режим сохраняет уровни серого в изображении и может применяться для раскрашивания монохромных изображений и добавления оттенков к цветным изображениям.</td></tr>
 		<tr><td>luminosity</td><td>Яркость. В этом режиме создаётся результирующий цвет с цветовым тоном и насыщенностью основного цвета и яркостью накладываемого цвета. Этот режим создаёт эффект инверсии цвета.</td></tr>
 	</table>
-
-	<!-- Песочница. -->
-		<style>
-			.pec{line-height:29px; display:block; padding:0; margin:0; min-width:700px; max-width:800px;
-				position:relative; width:100%; border:1px solid #777;}
-			.pec input{float:left; margin-right:8px;}
-			.pec label{display:block; margin-top:-5px; font-family:monospace; font-size:15px;}
-			.pec img{position:absolute; width:200px;}
-			.d1{position:relative; top:-381px; left:130px; background:#C8EAF5;
-				height:380px; width:calc(100% - 130px); margin-bottom:-381px; clear:both;}
-			.d0{position:absolute; top:6px; right:36%;}
-			.pec .d1 img:nth-child(1){top:15px; left:8%;}
-			.pec .d1 img:nth-child(2){top:205px; left:8%;}
-			.pec .d0 img:nth-child(1){top:15px;}
-			.pec .d0 img:nth-child(2){top:205px;}
-			.pec .d2 p{display:block; margin:0; font-family:monospace; font-size:15px;}
-			.pec .d2 p:nth-child(1){position:absolute; top:-3px; left:140px; font-size:12px; display:none;}
-			.pec .d2 p:nth-child(2){position:absolute; top:345px; left:140px;}
-			.pec .d2 p:nth-child(3){position:absolute; top:345px; left:440px;}
-			.s1:after{color:red;}
-
-			.pec #r1:checked ~ .d2 .s1:after{content:"normal"}
-			.pec #r2:checked ~ .d2 .s1:after{content:"multiply"}
-			.pec #r3:checked ~ .d2 .s1:after{content:"screen"}
-			.pec #r4:checked ~ .d2 .s1:after{content:"overlay"}
-			.pec #r5:checked ~ .d2 .s1:after{content:"darken"}
-			.pec #r6:checked ~ .d2 .s1:after{content:"lighten"}
-			.pec #r7:checked ~ .d2 .s1:after{content:"color-dodge"}
-			.pec #r8:checked ~ .d2 .s1:after{content:"color-burn"}
-			.pec #r9:checked ~ .d2 .s1:after{content:"hard-light"}
-			.pec #r10:checked ~ .d2 .s1:after{content:"soft-light"}
-			.pec #r11:checked ~ .d2 .s1:after{content:"difference"}
-			.pec #r12:checked ~ .d2 .s1:after{content:"exclusion"}
-			.pec #r13:checked ~ .d2 .s1:after{content:"hue"}
-			.pec #r14:checked ~ .d2 .s1:after{content:"saturation"}
-			.pec #r15:checked ~ .d2 .s1:after{content:"color"}
-			.pec #r16:checked ~ .d2 .s1:after{content:"luminosity"}
-
-			.pec #r1:checked ~ .d1 img{mix-blend-mode: normal;}
-			.pec #r2:checked ~ .d1 img{mix-blend-mode: multiply;}
-			.pec #r3:checked ~ .d1 img{mix-blend-mode: screen;}
-			.pec #r4:checked ~ .d1 img{mix-blend-mode: overlay;}
-			.pec #r5:checked ~ .d1 img{mix-blend-mode: darken;}
-			.pec #r6:checked ~ .d1 img{mix-blend-mode: lighten;}
-			.pec #r7:checked ~ .d1 img{mix-blend-mode: color-dodge;}
-			.pec #r8:checked ~ .d1 img{mix-blend-mode: color-burn;}
-			.pec #r9:checked ~ .d1 img{mix-blend-mode: hard-light;}
-			.pec #r10:checked ~ .d1 img{mix-blend-mode: soft-light;}
-			.pec #r11:checked ~ .d1 img{mix-blend-mode: difference;}
-			.pec #r12:checked ~ .d1 img{mix-blend-mode: exclusion;}
-			.pec #r13:checked ~ .d1 img{mix-blend-mode: hue;}
-			.pec #r14:checked ~ .d1 img{mix-blend-mode: saturation;}
-			.pec #r15:checked ~ .d1 img{mix-blend-mode: color;}
-			.pec #r16:checked ~ .d1 img{mix-blend-mode: luminosity;}
-
-			.d3 p{font-size:20px; font-weight:700; font-family:monospace; text-transform:uppercase; letter-spacing:1px;}
-			.d3 p{position:absolute; background:#fff; line-height:1.1; padding:2px 5px;}
-			.d3 p:nth-child(1){color:#fff; top:50px; right:10%; background:#000;}
-			.d3 p:nth-child(2){color:#000; top:80px; right:10%;}
-			.d3 p:nth-child(3){color:#fff; top:230px; right:15%; background:#000;}
-			.d3 p:nth-child(4){color:#000; top:270px; right:15%;}
-
-			.pec #r1:checked ~ .d3 p{mix-blend-mode: normal;}
-			.pec #r2:checked ~ .d3 p{mix-blend-mode: multiply;}
-			.pec #r3:checked ~ .d3 p{mix-blend-mode: screen;}
-			.pec #r4:checked ~ .d3 p{mix-blend-mode: overlay;}
-			.pec #r5:checked ~ .d3 p{mix-blend-mode: darken;}
-			.pec #r6:checked ~ .d3 p{mix-blend-mode: lighten;}
-			.pec #r7:checked ~ .d3 p{mix-blend-mode: color-dodge;}
-			.pec #r8:checked ~ .d3 p{mix-blend-mode: color-burn;}
-			.pec #r9:checked ~ .d3 p{mix-blend-mode: hard-light;}
-			.pec #r10:checked ~ .d3 p{mix-blend-mode: soft-light;}
-			.pec #r11:checked ~ .d3 p{mix-blend-mode: difference;}
-			.pec #r12:checked ~ .d3 p{mix-blend-mode: exclusion;}
-			.pec #r13:checked ~ .d3 p{mix-blend-mode: hue;}
-			.pec #r14:checked ~ .d3 p{mix-blend-mode: saturation;}
-			.pec #r15:checked ~ .d3 p{mix-blend-mode: color;}
-			.pec #r16:checked ~ .d3 p{mix-blend-mode: luminosity;}
-
-			.bgg{display:block; position:absolute; top:12px; width:15px; height:15px;
-				border:1px solid #888; z-index:5; cursor:pointer;}
-			#bg1,#bg2,#bg3,#bg4,#bg5,#bg6{display:none;}
-			.g1{background:#fff; left:140px}
-			.g2{background:#C8EAF5; left:156px;}
-			.g3{background:#f00; left:172px;}
-			.g4{background:#0f0; left:188px}
-			.g5{background:#00f; left:204px}
-			.g6{background:#000; left:220px}
-			.pec #bg1:checked ~ .d1{background:#fff;}
-			.pec #bg2:checked ~ .d1{background:#C8EAF5;}
-			.pec #bg3:checked ~ .d1{background:#f00;}
-			.pec #bg4:checked ~ .d1{background:#0f0;}
-			.pec #bg5:checked ~ .d1{background:#00f;}
-			.pec #bg6:checked ~ .d1{background:#000;}
-
-		</style>
-		<b style="letter-spacing:2px;" id="z3">песочница:</b>
-		<div class="pec anp">
-			<input type="radio" name="bg" id="bg1"><label for="bg1" class="bgg g1"></label>
-			<input type="radio" name="bg" id="bg2" checked><label for="bg2" class="bgg g2"></label>
-			<input type="radio" name="bg" id="bg3"><label for="bg3" class="bgg g3"></label>
-			<input type="radio" name="bg" id="bg4"><label for="bg4" class="bgg g4"></label>
-			<input type="radio" name="bg" id="bg5"><label for="bg5" class="bgg g5"></label>
-			<input type="radio" name="bg" id="bg6"><label for="bg6" class="bgg g6"></label>
-
-			<input type="radio" name="ra" id="r1" checked><label for="r1">normal</label>
-			<input type="radio" name="ra" id="r2"><label for="r2">multiply</label>
-			<input type="radio" name="ra" id="r3"><label for="r3">screen</label>
-			<input type="radio" name="ra" id="r4"><label for="r4">overlay</label>
-			<input type="radio" name="ra" id="r5"><label for="r5">darken</label>
-			<input type="radio" name="ra" id="r6"><label for="r6">lighten</label>
-			<input type="radio" name="ra" id="r7"><label for="r7">color-dodge</label>
-			<input type="radio" name="ra" id="r8"><label for="r8">color-burn</label>
-			<input type="radio" name="ra" id="r9"><label for="r9">hard-light</label>
-			<input type="radio" name="ra" id="r10"><label for="r10">soft-light</label>
-			<input type="radio" name="ra" id="r11"><label for="r11">difference</label>
-			<input type="radio" name="ra" id="r12"><label for="r12">exclusion</label>
-			<input type="radio" name="ra" id="r13"><label for="r13">hue</label>
-			<input type="radio" name="ra" id="r14"><label for="r14">saturation</label>
-			<input type="radio" name="ra" id="r15"><label for="r15">color</label>
-			<input type="radio" name="ra" id="r16"><label for="r16">luminosity</label>
-			<div class="d1">
-				<img src="txt/img/animate-bg3.png">
-				<img src="txt/img/aquaria.jpg">
-			</div>
-			<div class="d0">
-				<img src="txt/img/animate-bg3.png">
-				<img src="txt/img/aquaria.jpg">
-			</div>
-			<div class="d2">
-				<p><span class="red">div</span> {background: #C8EAF5;}</p>
-				<p><span class="red">img</span> {mix-blend-mode: <span class="s1"></span>}</p>
-				<p><span class="red">p</span> {mix-blend-mode: <span class="s1"></span>}</p>
-			</div>
-			<div class="d3">
-				<p>Воздушный шар</p>
-				<p>Воздушный шар</p>
-				<p>Аквариум</p>
-				<p>Аквариум</p>
-			</div>
-		</div>
-	<!-- /Песочница. -->
 </div>
+
+
+
+<!-- Песочница. -->
+<div class="item">
+  <h3 class="sin" style="letter-spacing:2px;" id="z3"><a href="#" title="навер">Песочница.</a></h3>
+
+  <style>
+		.pec{line-height:29px; display:block; padding:0; margin:0 auto; min-width:700px; max-width:800px; position:relative; width:100%; border:1px solid #777;
+    overflow:hidden;
+    }
+		.pec input{float:left; margin-right:8px;}
+		.pec label{display:block; margin-top:-5px; font-family:monospace; font-size:15px;}
+		.pec img{position:absolute; width:200px;}
+		.d1{position:relative; top:-384px; left:130px; background:#C8EAF5;
+			height:385px; width:calc(100% - 130px); margin-bottom:-384px; clear:both;}
+		.d0{position:absolute; top:0px; right:36%;}
+		.pec .d1 img:nth-child(1){top:15px; left:8%;}
+		.pec .d1 img:nth-child(2){top:205px; left:8%;}
+		.pec .d0 img:nth-child(1){top:15px;}
+		.pec .d0 img:nth-child(2){top:205px;}
+		.pec .d2 p{display:block; margin:0; font-family:monospace; font-size:15px; background:transparent; color:#333}
+		.pec .d2 p:nth-child(1){position:absolute; top:-3px; left:160px; font-size:12px; display:none;}
+		.pec .d2 p:nth-child(2){position:absolute; top:345px; left:160px;}
+		.pec .d2 p:nth-child(3){position:absolute; top:345px; left:auto; right:8%;}
+		.s1:after{color:red;}
+
+		.pec #r1:checked ~ .d2 .s1:after{content:"normal"}
+		.pec #r2:checked ~ .d2 .s1:after{content:"multiply"}
+		.pec #r3:checked ~ .d2 .s1:after{content:"screen"}
+		.pec #r4:checked ~ .d2 .s1:after{content:"overlay"}
+		.pec #r5:checked ~ .d2 .s1:after{content:"darken"}
+		.pec #r6:checked ~ .d2 .s1:after{content:"lighten"}
+		.pec #r7:checked ~ .d2 .s1:after{content:"color-dodge"}
+		.pec #r8:checked ~ .d2 .s1:after{content:"color-burn"}
+		.pec #r9:checked ~ .d2 .s1:after{content:"hard-light"}
+		.pec #r10:checked ~ .d2 .s1:after{content:"soft-light"}
+		.pec #r11:checked ~ .d2 .s1:after{content:"difference"}
+		.pec #r12:checked ~ .d2 .s1:after{content:"exclusion"}
+		.pec #r13:checked ~ .d2 .s1:after{content:"hue"}
+		.pec #r14:checked ~ .d2 .s1:after{content:"saturation"}
+		.pec #r15:checked ~ .d2 .s1:after{content:"color"}
+		.pec #r16:checked ~ .d2 .s1:after{content:"luminosity"}
+
+		.pec #r1:checked ~ .d1 img{mix-blend-mode: normal;}
+		.pec #r2:checked ~ .d1 img{mix-blend-mode: multiply;}
+		.pec #r3:checked ~ .d1 img{mix-blend-mode: screen;}
+		.pec #r4:checked ~ .d1 img{mix-blend-mode: overlay;}
+		.pec #r5:checked ~ .d1 img{mix-blend-mode: darken;}
+		.pec #r6:checked ~ .d1 img{mix-blend-mode: lighten;}
+		.pec #r7:checked ~ .d1 img{mix-blend-mode: color-dodge;}
+		.pec #r8:checked ~ .d1 img{mix-blend-mode: color-burn;}
+		.pec #r9:checked ~ .d1 img{mix-blend-mode: hard-light;}
+		.pec #r10:checked ~ .d1 img{mix-blend-mode: soft-light;}
+		.pec #r11:checked ~ .d1 img{mix-blend-mode: difference;}
+		.pec #r12:checked ~ .d1 img{mix-blend-mode: exclusion;}
+		.pec #r13:checked ~ .d1 img{mix-blend-mode: hue;}
+		.pec #r14:checked ~ .d1 img{mix-blend-mode: saturation;}
+		.pec #r15:checked ~ .d1 img{mix-blend-mode: color;}
+		.pec #r16:checked ~ .d1 img{mix-blend-mode: luminosity;}
+
+		.d3 p{font-size:20px; font-weight:700; font-family:monospace; text-transform:uppercase; letter-spacing:1px;}
+		.d3 p{position:absolute; background:#fff; line-height:1.1; padding:2px 5px;}
+		.d3 p:nth-child(1){color:#fff; top:50px; right:10%; background:#000;}
+		.d3 p:nth-child(2){color:#000; top:80px; right:10%;}
+		.d3 p:nth-child(3){color:#fff; top:230px; right:15%; background:#000;}
+		.d3 p:nth-child(4){color:#000; top:270px; right:15%;}
+
+		.pec #r1:checked ~ .d3 p{mix-blend-mode: normal;}
+		.pec #r2:checked ~ .d3 p{mix-blend-mode: multiply;}
+		.pec #r3:checked ~ .d3 p{mix-blend-mode: screen;}
+		.pec #r4:checked ~ .d3 p{mix-blend-mode: overlay;}
+		.pec #r5:checked ~ .d3 p{mix-blend-mode: darken;}
+		.pec #r6:checked ~ .d3 p{mix-blend-mode: lighten;}
+		.pec #r7:checked ~ .d3 p{mix-blend-mode: color-dodge;}
+		.pec #r8:checked ~ .d3 p{mix-blend-mode: color-burn;}
+		.pec #r9:checked ~ .d3 p{mix-blend-mode: hard-light;}
+		.pec #r10:checked ~ .d3 p{mix-blend-mode: soft-light;}
+		.pec #r11:checked ~ .d3 p{mix-blend-mode: difference;}
+		.pec #r12:checked ~ .d3 p{mix-blend-mode: exclusion;}
+		.pec #r13:checked ~ .d3 p{mix-blend-mode: hue;}
+		.pec #r14:checked ~ .d3 p{mix-blend-mode: saturation;}
+		.pec #r15:checked ~ .d3 p{mix-blend-mode: color;}
+		.pec #r16:checked ~ .d3 p{mix-blend-mode: luminosity;}
+
+		.bgg{display:block; position:absolute; top:12px; width:15px; height:15px;
+			border:1px solid #888; z-index:5; cursor:pointer;}
+		#bg1,#bg2,#bg3,#bg4,#bg5,#bg6{display:none;}
+		.g1{background:#fff; left:140px}
+		.g2{background:#C8EAF5; left:156px;}
+		.g3{background:#f00; left:172px;}
+		.g4{background:#0f0; left:188px}
+		.g5{background:#00f; left:204px}
+		.g6{background:#000; left:220px}
+		.pec #bg1:checked ~ .d1{background:#fff;}
+		.pec #bg2:checked ~ .d1{background:#C8EAF5;}
+		.pec #bg3:checked ~ .d1{background:#f00;}
+		.pec #bg4:checked ~ .d1{background:#0f0;}
+		.pec #bg5:checked ~ .d1{background:#00f;}
+		.pec #bg6:checked ~ .d1{background:#000;}
+	</style>
+	<div class="pec anp">
+		<input type="radio" name="bg" id="bg1"><label for="bg1" class="bgg g1"></label>
+		<input type="radio" name="bg" id="bg2" checked><label for="bg2" class="bgg g2"></label>
+		<input type="radio" name="bg" id="bg3"><label for="bg3" class="bgg g3"></label>
+		<input type="radio" name="bg" id="bg4"><label for="bg4" class="bgg g4"></label>
+		<input type="radio" name="bg" id="bg5"><label for="bg5" class="bgg g5"></label>
+		<input type="radio" name="bg" id="bg6"><label for="bg6" class="bgg g6"></label>
+
+		<input type="radio" name="ra" id="r1" checked><label for="r1">normal</label>
+		<input type="radio" name="ra" id="r2"><label for="r2">multiply</label>
+		<input type="radio" name="ra" id="r3"><label for="r3">screen</label>
+		<input type="radio" name="ra" id="r4"><label for="r4">overlay</label>
+		<input type="radio" name="ra" id="r5"><label for="r5">darken</label>
+		<input type="radio" name="ra" id="r6"><label for="r6">lighten</label>
+		<input type="radio" name="ra" id="r7"><label for="r7">color-dodge</label>
+		<input type="radio" name="ra" id="r8"><label for="r8">color-burn</label>
+		<input type="radio" name="ra" id="r9"><label for="r9">hard-light</label>
+		<input type="radio" name="ra" id="r10"><label for="r10">soft-light</label>
+		<input type="radio" name="ra" id="r11"><label for="r11">difference</label>
+		<input type="radio" name="ra" id="r12"><label for="r12">exclusion</label>
+		<input type="radio" name="ra" id="r13"><label for="r13">hue</label>
+		<input type="radio" name="ra" id="r14"><label for="r14">saturation</label>
+		<input type="radio" name="ra" id="r15"><label for="r15">color</label>
+		<input type="radio" name="ra" id="r16"><label for="r16">luminosity</label>
+
+  	<div class="d1">
+			<img src="txt/img/animate-bg3.png">
+			<img src="txt/img/aquaria.jpg">
+		</div>
+
+		<div class="d0">
+			<img src="txt/img/animate-bg3.png">
+			<img src="txt/img/aquaria.jpg">
+		</div>
+
+		<div class="d2">
+			<p><span class="red">div</span> {background: #C8EAF5;}</p>
+			<p><span class="red">img</span> {mix-blend-mode: <span class="s1"></span>}</p>
+			<p><span class="red">p</span> {mix-blend-mode: <span class="s1"></span>}</p>
+		</div>
+
+		<div class="d3">
+			<p>Воздушный шар</p>
+			<p>Воздушный шар</p>
+			<p>Аквариум</p>
+			<p>Аквариум</p>
+		</div>
+	</div>
+</div>
+<!-- /Песочница. -->
 
 
 
@@ -212,22 +221,21 @@
 	<p>В данном примере на фоновое изображение накладывается текст с белым фоном, который закрывает собой изображение. Режим наложения <samp class="red">lighten</samp> оставляет лишь светлые цвета и поскольку цвет текста по умолчанию чёрный, то получаются цветные буквы на белом фоне</p>
 	<style>
 		.textmode {background:url(txt/img/aquaria.jpg) center no-repeat; text-align:center;}
-		.textmode span {font:bold 3em Verdana, Helvetica, sans-serif; margin:0;
+		.textmode__header {font:bold 3em Verdana, Helvetica, sans-serif; margin:0;
 			display:block;            /* убирает фон слева и справа */
 			background:#fff;          /* Белый цвет фона */
 			mix-blend-mode: lighten;  /* Режим наложения */
 			font-size:14vw;
+			color:#000;
+			padding-bottom:20px;
 		}
 	</style>
-	<h1 class="textmode"><span>Аквариум</span></h1>
+	<h1 class="textmode"><span class="textmode__header">Аквариум</span></h1>
 	<div class="item2">
-		<samp class="red point" onclick='primer1.classList.toggle("hiden");'>HTML</samp>
-		<div class="hiden" id="primer1" onclick="event.stopPropagation()">
-			<pre><code>&lt;h1 class="textmode">&lt;span>Аквариум&lt;/span>&lt;/h1></code></pre>
-			<br><samp class="red">CSS</samp>
-			<pre class="mb"><code>.textmode {<br>  background:url(img/aquaria.jpg) center no-repeat;<br>  text-align:center;}<br>.textmode span {<br>  font:bold 3em Verdana, Helvetica, sans-serif;<br>  margin:0;<br>  display:block;            /* убирает фон слева и справа */<br>  background:#fff;          /* Белый цвет фона */<br>  mix-blend-mode: lighten;} /* Режим наложения */</code></pre>
-			<span class="yel point" onclick='primer1.classList.toggle("hiden");'>Свернуть</span>
-		</div><!-- /hiden -->
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;h1 class="textmode">&lt;span class="textmode__header">Аквариум&lt;/span>&lt;/h1></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre class="mb"><code>.textmode {<br>  background:url(img/aquaria.jpg) center no-repeat;<br>  text-align:center;<br>}<br>.textmode__header {<br>  display:block;            /* убирает фон слева и справа */<br>  background:#fff;          /* Белый цвет фона */<br>  mix-blend-mode: lighten;  /* Режим наложения */<br>  color: #000;<br>}</code></pre>
 	</div>
 </div>
 
@@ -237,19 +245,13 @@
 <h2 class="sin" style="max-width:600px;margin:0px auto;"><a href="#">CSS: Как сделать контрастный цвет тексту, который лежит на разноцветном фоне.</a></h2>
 	<div class="box1"><p>Logo of site</p></div>
 	<div class="box2"><p>Logo of site</p></div>
-	<style>
-		.u2 summary::-webkit-details-marker {display:none;}
-		.u2 summary::-moz-list-bullet {list-style-type:none;}
-		.u2 summary::marker {display:none;}
-		.u2 summary {display:inline-block; cursor:pointer; font-size:18px;}
-		.u2 summary:focus{outline:none;}
-	</style>
-	<div class="u2 item2 br0"><details>
-		<summary><samp class="red">HTML</samp></summary>
+
+	<div class="item2 mb30">
+    <samp class="red">HTML</samp>
 		<pre><code class="html">&lt;div class="box1">&lt;p>Logo of site&lt;/p>&lt;/div><br>&lt;div class="box2">&lt;p>Logo of site&lt;/p>&lt;/div></code></pre>
-		<pre><code class="css"><br><span class="red">CSS</span><br>.box1, .box2{<br>  width: 90%; height: 200px; margin: 10px auto;<br>  background: url(img/s1200.jpg) center center;<br>  background-size: cover;}<br>.box2{<br>  background: url(img/s1201.jpg) center center;<br>  background-size: cover;}<br>.box1 p, .box2 p{<br>  color: #fff; font-size: 5em; text-align: center; font-weight: 600;<br>  padding: 25px;<br>  mix-blend-mode: difference;}</code></pre>
-	</details></div>
-	<p>Это возможно сделать средствами CSS без каких-либо скриптов и предварительной обработки.</p>
+		<pre><code class="css"><br><span class="red">CSS</span><br>.box1, .box2 {<br>  width: 90%; height: 200px; margin: 10px auto;<br>  background: url(img/s1200.jpg) center center;<br>  background-size: cover;<br>}<br>.box2 {<br>  background: url(img/s1201.jpg) center center;<br>  background-size: cover;<br>}<br>.box1 p, .box2 p {<br>  color: #fff;<br>  mix-blend-mode: difference;<br>}</code></pre>
+	</div>
+
 	<p>Если внимательно читать <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode" target="_blank"><samp class="sin tdu">MDN</samp></a> можно, примерно, понять режимы смешивания и увидеть различия между ними, хотя они практически все одинаковы. Наличие белого текста над изображением дает результат, который является инвертированным изображением, где текст перекрывает его. Для простых черно-белых изображений черный в исходном изображении становится белым, где есть белый текст над ним, а белый в исходном изображении становится черным, когда над ним находится белый текст.</p>
 	<div class="no">Изображения должны быть простыми, иначе текст будет неразборчивым - размоется.</div>
 </div>

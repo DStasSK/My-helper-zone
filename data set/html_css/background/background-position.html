@@ -10,7 +10,7 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-	.qitem3 {display:flex; justify-content:space-between;}
+	.example-bg {display:flex; justify-content:space-between;}
 	.box{width:calc(50% - 0px); overflow:hidden;}
 	.bg1{background:url(img/1.gif) no-repeat #eeeeee; margin-right:10px;}
 	.bg2{background:url(img/2.gif) no-repeat #eeeeee; margin-left:10px;}
@@ -19,27 +19,48 @@
 
 <h2 class="sin">background-position</h2>
 <div class="item">
-	<p>Иногда при разработке сайта встречаются дизайнерские решения, где фоновое изображение требуется разместить в определённом месте. Для этих целей в каскадных таблицах стилей имеется свойство <samp class="sin">background-position</samp> параметрами, которого можно решить эту задачу.</p>
-	<p>В качестве параметров для свойства <samp class="sin">background-position</samp> используются слова <samp class="lsin">left, center, right, top, center, bottom</samp> или значения в процентах, пикселях или других единицах. Значение по умолчанию: <b><samp>0% 0%</samp></b>; aнимируется.</p>
-	<pre class="item2"><code>background-position: <позиция>[, <позиция>]*<br><позиция> = [background-position-x] [background-position-y]</code></pre>
+	<p>Cвойство <samp class="sin dib">background-position</samp> задаёт начальное положение фонового изображения, установленного с помощью свойства <samp class="sin dib">background-image</samp>.</p>
+
+  <p>Cвойство <samp class="sin dib">background-position</samp> имеет два значения, положение по горизонтали и вертикали - они являются сокращенной записью для свойств <samp class="sin dib">background-position-x</samp> и <samp class="sin dib">background-position-y</samp>.</p>
+
+  <p>Допустимо указывать несколько значений для каждого фона, перечисляя значения через запятую. В качестве параметров для свойства <samp class="sin dib">background-position</samp> используются слова <samp class="lsin">left, center, right, top, center, bottom</samp> или значения в процентах, пикселях или других единицах. Значения свойства применяются ко всем элементам, не наследуются, aнимируются. Значение по умолчанию: <samp>0% 0%</samp>.</p>
+  
+  <pre class="item2 mt20 mb30"><code>.elem {<br>  /* background:url(img/1.ipg) no-repeat #eee; */<br>  background-position: [background-position-x] [background-position-y], ...;<br>}</code></pre>
+
+  <div>Отношение между используемыми ключевыми словами и процентной записью следующее.</div>
+  <style>
+    .tt1 th{text-align:center}
+    .tt1 td{vertical-align:middle}
+    .tt1 td:nth-child(1){color:#009; font-family:monospace;}
+  </style>
+  <table class="t2 tb th2 tt1 mt10">
+    <tr><th>Значение свойства</th><th>Положение изображения</th></tr>
+    <tr><td>top = top center = center top = 50% 0%</td><td>сверху в центре</td></tr>
+    <tr><td>right = right center = center right = 100% 50%</td><td>справа по середине</td></tr>
+    <tr><td>bottom = bottom center = center bottom = 50% 100%</td><td>снизу в центре</td></tr>
+    <tr><td>left = left center = center left = 0% 50%</td><td>слева по середине</td></tr>
+    <tr><td>center = center center = 50% 50%</td><td>по центру элемента</td></tr>
+    <tr><td>top left = left top = 0% 0%</td><td>в левом верхнем углу</td></tr>
+    <tr><td>top right = right top = 100% 0%</td><td>в правом верхнем углу</td></tr>
+    <tr><td>bottom left = left bottom = 0% 100%</td><td>в левом нижнем углу</td></tr>
+    <tr><td>bottom right = right bottom = 100% 100%</td><td>в правом нижнем углу</td></tr>
+  </table>
 </div>
 
 
-<div class="item">
-	<div><samp class="sin">background-position-x</samp></div>
-	<div style="text-align:justify;">Задаёт положение фонового изображения внутри элемента по горизонтали. Если для элемента установлено несколько фоновых изображений, то можно изменять положение каждого изображения, перечисляя значения через запятую.
-		<pre class="item2 css"><code>background-position-x: [left | center | right | <проценты> | <размер>];</code></pre>
-	</div>
 
-	<div class="mt20"><samp class="sin">background-position-y</samp></div>
-	<div style="text-align:justify;">Задаёт положение фонового изображения внутри элемента по вертикали. Если для элемента установлено несколько фоновых изображений, то можно изменять положение каждого изображения, перечисляя значения через запятую.
-		<pre class="item2 css"><code>background-position-y: [top | center | bottom | <проценты> | <размер>];</code></pre>
-	</div>
+<div class="item">
+	<p><samp class="sin">background-position-x</samp> - задаёт положение фонового изображения внутри элемента по горизонтали. Если для элемента установлено несколько фоновых изображений, то можно изменять положение каждого изображения, перечисляя значения через запятую.</p>
+
+	<p class="mt20"><samp class="sin">background-position-y</samp> - задаёт положение фонового изображения внутри элемента по вертикали. Если для элемента установлено несколько фоновых изображений, то можно изменять положение каждого изображения, перечисляя значения через запятую.</p>
+
+  <pre class="item2 css"><code>.elem {<br>  background-position-y: [top | center | bottom | <проценты> | <размер>];<br>  background-position-x: [left | center | right | <проценты> | <размер>];<br>}</code></pre>
 </div>
 
 
-<div class="item">
-	<div class="qitem3">
+<div class="item"><h2>Примеры</h2>
+
+	<div class="example-bg">
 		<div class="box">
 			<div class="item2 bg1" style="background-position:top left;padding-top:120px;">
 				<pre><code>background-position: top left;<br><i>background-position: 0% 0%;</i><br>background-repeat: no-repeat;</code></pre>
@@ -50,10 +71,10 @@
 				<pre><code>background-position: top right;<br><i>background-position: 100% 0%;</i><br>background-repeat: no-repeat;</code></pre>
 			</div>
 		</div>
-	</div><!-- item3 -->
+	</div><!-- example-bg -->
 
 
-	<div class="qitem3">
+	<div class="example-bg">
 		<div class="box">
 			<div class="item2 bg1" style="background-position:top center;padding-top:120px;">
 				<pre><code>background-position: top center;<br><i>background-position: 50% 0%;</i><br>background-repeat: no-repeat;</code></pre>
@@ -64,10 +85,10 @@
 				<pre><code>background-position: bottom center;<br><i>background-position: 50% 100%;</i><br>background-repeat: no-repeat;</code></pre>
 			</div>
 		</div>
-	</div><!-- item3 -->
+	</div><!-- example-bg -->
 
 
-	<div class="qitem3">
+	<div class="example-bg">
 		<div class="box">
 			<div class="item2 bg1" style="background-position:bottom left;padding-bottom:120px;">
 				<pre><code>background-position: bottom left;<br><i>background-position: 0% 100%;</i><br>background-repeat: no-repeat;</code></pre>
@@ -78,10 +99,10 @@
 				<pre><code>background-position: bottom right;<br><i>background-position: 100% 100%;</i><br>background-repeat: no-repeat;</code></pre>
 			</div>
 		</div>
-	</div><!-- item3 -->
+	</div><!-- example-bg -->
 
 
-	<div class="qitem3">
+	<div class="example-bg">
 		<div class="box">
 			<div class="item2 bg1" style="background-position:center left;padding-bottom:10px; padding-top:160px">
 				<pre><code>background-position: center left;<br><i>background-position: 0% 50%;</i><br>background-repeat: no-repeat;</code></pre>
@@ -92,17 +113,17 @@
 				<pre><code>background-position: center right;<br><i>background-position: 100% 50%;</i><br>background-repeat: no-repeat;</code></pre>
 			</div>
 		</div>
-	</div><!-- item3 -->
+	</div><!-- example-bg -->
 
 
-	<div class="qitem3">
+	<div class="example-bg">
 		<div class="box" style="width:100%;">
 			<div class="item2 bg1" style="background-position:center; padding:50px 15px; width:calc(100% - 32px);">
 				<pre><code>background-position: center;<br><i>background-position: 50% 50%;</i><br>background-repeat: no-repeat;</code></pre>
 			</div>
 		</div>
-	</div><!-- item3 -->
-
+	</div><!-- example-bg -->
 
 </div><!-- item -->
+
 </body></html>

@@ -17,20 +17,23 @@
 <h2 class="sin"><samp class="t-html5">&lt;picture></samp></h2>
 
 <div class="item">
-	<p><samp class="red">&lt;picture></samp> (от англ. picture — картинка, изображение) представляет собой контейнер для хранения нескольких элементов <samp class="red tdu"><a href="source.html">&lt;source></samp></a>, которые поддерживают элемент <samp class="red tdu"><a href="img.html">&lt;img></a></samp>. Это позволяет указывать разные изображения с учётом размера экрана, плотности пикселей, формата изображения и других параметров. Элемент <samp class="red">&lt;picture></samp> может применяться для:</p>
-	<ul class="list">
+	<p><samp class="teg">picture</samp> (от англ. picture — картинка, изображение) представляет собой контейнер для хранения нескольких элементов <samp class="teg tdu"><a href="source.html">source</samp></a>, которые поддерживают элемент <samp class="teg tdu"><a href="img.html">img</a></samp>. Это позволяет указывать разные изображения с учётом размера экрана, плотности пикселей, формата изображения и других параметров.</p>
+
+  <div class="mt30">Элемент <samp class="teg">picture</samp> может применяться для:</div>
+	<ul class="list mb30">
 		<li>для экранов ретина можно показывать картинку большего размера</li>
 		<li>выводить рисунки разного размера для мобильных и настольных устройств</li>
 		<li>отображать изображения разных пропорций, учитывающих ориентацию устройства</li>
-		<li>выводить изображение в формате SVG или ином, отличном от указанном в <samp class="red">&lt;img></samp></li>
+		<li>выводить изображение в формате SVG или ином, отличном от указанном в <samp class="teg">img</samp></li>
 	</ul>
-	<pre class="item2"><code>&lt;picture><br>   &lt;source srcset="url" type="MME-тип" media=""><br>   &lt;source srcset="url" type="MME-тип" media=""><br>   &lt;img src="url" width="" height="" alt=""><br>&lt;/picture></code></pre>
 
-	<div>Внутри <samp class="red">&lt;picture></samp> содержится ноль или несколько элементов <samp class="red">&lt;source></samp>, которые идут перед одним элементом <samp class="red">&lt;img></samp>.</div>
+	<div>Внутри элемента <samp class="teg">picture</samp> может содержится от нуля и более элементов <samp class="teg">source</samp>, которые идут перед одним элементом <samp class="teg">img</samp>.</div>
+	<pre class="item2 mb30"><code>&lt;picture><br>   &lt;source srcset="url" type="MME-тип" media=""><br>   &lt;source srcset="url" type="MME-тип" media=""><br>   &lt;img src="url" width="" height="" alt=""><br>&lt;/picture></code></pre>
 
-	<div class="no">Наличие элемента <samp class="red">&lt;img></samp> <b>ОБЯЗАТЕЛЬНО</b> для работы <samp class="red">&lt;picture></samp>.</div>
 
-	<div class="no">Если использовать изображение в формате <samp class="lsin">.webp</samp> то нужно указать <samp class="sin">type=</samp><samp class="lsin">"image/webp"</samp> в теге <samp class="red">&lt;source></samp> иначе в <b>Safari</b> не будут грузиться запасные изображения.</div>
+	<div class="no">Наличие элемента <samp class="teg">img</samp> <b>ОБЯЗАТЕЛЬНО</b> для работы <samp class="teg">picture</samp>.</div>
+
+	<div class="no">Если использовать изображение в формате <samp class="lsin">.webp</samp> то нужно указать <samp class="sin">type=</samp><samp class="lsin">"image/webp"</samp> в теге <samp class="teg">source</samp> иначе в <b>Safari</b> не будут грузиться запасные изображения.</div>
 
 	<div class="no mb10">internet Explorer не поддерживает данный элемент.</div>
 </div>

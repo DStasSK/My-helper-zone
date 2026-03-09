@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><title>Псевдокласс visited</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+  .box_color{display:inline-block; height:.8em; width:.8em; margin:0 2px -2px 0}
+
+  a{color: #009}
+  a:link{color: #963}
+  a:visited{color: #a0d}
+  a:active{color: #f00}
+  a:link:after{content:' (перехода не было)'}
+  a:visited:after{content:''}
+  a:active:after{content:' (ссылка нажата)'}
+</style>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:visited</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:visited</samp> устанавливает стиль ссылки <a href="#" class="tdu"><strong>по которой был осуществлён переход</strong></a>. При использовании данного параметра, происходит замена стилей в соответствии с выбранными параметрами.</p>
+
+  <div class="no mb30">Псевдоэлемент <samp class="sin">:visited</samp> признан небезопасным псевдоэлементом и потому может быть кастомизирован очень ограниченным количеством свойств: <samp class="sin">color</samp>, <samp class="sin">background-color</samp>, <samp class="sin">border-*-color</samp>, <samp class="sin">outline-color</samp> и параметр цвета атрибутов <samp class="sin">fill</samp> и <samp class="sin">stroke</samp> у <samp class="pur">SVG</samp> изображений. Кроме того, для перечисленного списка свойств нельзя установить цвета через <samp class="sin">rgba()</samp> или <samp class="sin">hsla()</samp>; или задать им значение <samp class="lsin">transparent</samp>.</div>
+
+  <div class="item2">
+    <pre><code>&lt;a href="#">по которой был осуществлён переход&lt;/a></code></pre>
+    <pre style="line-height:1.4" class="ls-05"><code><br>a{color: <span class="box_color" style="background:#009"></span>#009}<br>a:link{color: <span class="box_color" style="background:#963"></span>#963}<br>a:visited{color: <span class="box_color" style="background:#a0d"></span>#a0d}<br>a:active{color: <span class="box_color" style="background:#f00"></span>#f00}<br><br>a:link:after{content:' (перехода не было)'}<br>a:visited:after{content:'(переход был)'}     /* этот параметр работать не будет */<br>a:active:after {content:' (ссылка нажата)'}</code></pre>
+  </div>
+  <div class="no mt30">Из примера видно, что после перехода по ссылке параметр<br><samp class="dib sin"><span class="red">a</span>:link:after {content:'<span class="lsin"> (перехода не было)</span>'}</samp><br>не сбросился, хотя цвет поменялся. Это происходит по причинам безопасности.</div>
+
+  <p class="mt40">Псевдоклассы для оформления стилей могут переопределять друг друга, чтобы избежать этого необходимо их указывать в определенном порядке, а именно:</p>
+  <pre class="no no1 mb10 mt10"><code>a:link, a:visited, a:hover, a:active, a:focus {}</code></pre>
+</div>
+</body></html>

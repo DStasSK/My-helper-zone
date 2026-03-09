@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><title>SVG введение</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.fr{float:right}
+	svg.example{
+		background-color:#fff;
+		border:1px solid #000;
+	}
+</style>
+</head>
+<body>
+<h2 class="sin"><samp>SVG</samp> введение</h2>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#tohtml">Способы вставки изображений в формате SVG на страницу.</a></li>
+			<li><a href="#size">Размеры изображений в формате SVG.</a></li>
+			<!-- <li><a href="#viewBox">Атрибут <samp class="red">viewBox</samp>.</a></li> -->
+		</ul>
+		<!-- /оглавление -->
+
+<div class="item anp">
+	<p>SVG это язык <samp class="pur">XML</samp> разметки, схожий с <samp class="pur">XHTML</samp>, который может использоваться для рисования векторной графики. Он может быть использован для создания изображения путём указания всех необходимых линий и форм, путём модификации уже существующих растровых изображений, или путём комбинации обоих. Изображения и их компоненты также могут быть трансформированы, собраны вместе, или отфильтрованы чтобы полностью изменить их внешний вид.</p>
+
+	<h3 class="sin mt40">Особенности файлов SVG.</h3>
+
+	<p>Первая важная вещь, которую следует заметить - это порядок отображения элементов. Элементы, которые отрендерились позднее, отображаются поверх предыдущих элементов. Чем дальше вниз элемент (по коду / порядку рендеринга), тем более видимым он будет.</p>
+
+	<p>Нормальные файлы SVG - это простые текстовые файлы, содержащие разметку SVG. Рекомендуется расширение ".svg" (все нижним регистром) к имени файла для этих файлов.</p>
+
+	<pre class="item2 pr"><code>&lt;svg width="200" height="140"<br>     xmlns="http://www.w3.org/2000/svg"><br><br>  &lt;rect width="100%" height="100%" fill="#3333fe" /><br><br>  &lt;circle cx="100" cy="70" r="50" fill="green" /><br><br>  &lt;text x="100" y="82" font-size="40"<br>        text-anchor="middle" fill="white">SVG&lt;/text><br>&lt;/svg></code><svg width="200" height="140" xmlns="http://www.w3.org/2000/svg"
+		class="pa" style="right:20px; top:20px">
+		<rect width="100%" height="100%" fill="#3333fe" />
+		<circle cx="100" cy="70" r="50" fill="green" />
+		<text x="100" y="82" font-size="40" text-anchor="middle" fill="white">SVG</text>
+	</svg></pre>
+</div>
+
+
+
+<div class="item anp" id="tohtml">
+<h3 class="sin"><a href="#">Способы вставки изображений в формате SVG на страницу.</a></h3>
+	<p>Файлы SVG в вебе могут быть отображены прямо в браузере или внедрены в файлы HTML посредством нескольких методов:</p>
+	<ul class="list">
+		<li>На файл SVG можно ссылаться с помощью элемента <samp class="red">object</samp>:
+			<pre><code>&lt;object data="image.svg" type="image/svg+xml" /></code></pre>
+		</li>
+		<li>Аналогично может быть использован элемент <samp class="red">iframe</samp>:
+			<pre><code>&lt;iframe src="image.svg">&lt;/iframe></code></pre>
+		</li>
+		<li>Аналогично может быть использован элемент <samp class="red">embed</samp>:
+			<pre><code>&lt;embed src="your.svg" width="199" height="200"></code></pre>
+		</li>
+		<li>Элемент <samp class="red">img</samp> тоже может быть использован (не работает в Firefox до v 4.0). При такой интеграции SVG на html странице, его содержимое недоступно для JS.
+			<pre><code>&lt;img src="image.svg"></code></pre>
+		</li>
+		<li>SVG изображение может отображаться на html странице как фон элемента, установленный через CSS (не работает в старых браузерах):
+			<pre><code>.el{<br>   background-image: url(your.png); /* PNG для IE6-8 */<br>   background-image: url(your.svg);<br>}</code></pre>
+		</li>
+		<li>Если HTML является XHTML и выводится как тип приложение/xhtml+xml, SVG может быть прямо внедрён в источник XML.</li>
+		<li>SVG может быть создан динамически с помощью JavaScript и введён в HTML DOM.</li>
+	</ul>
+
+	<div class="no no1 mt40">Начальное значение свойства <samp class="sin">display</samp> для всех элементов SVG - <samp class="lsin">inline</samp>.</div>
+</div>
+
+
+
+<div class="item anp" id="size">
+<h3 class="sin"><a href="#">Размеры изображений в формате SVG.</a></h3>
+	<p>Содержимое SVG-элемента отрисовывается на бесконечном холсте и может быть сколь угодно большого размера, но видимая часть холста соответствует размерам SVG-элемента. Эта область отрисовки называется <samp class="red">viewport</samp> (вьюпорт).</p>
+
+	<p>Если просто вставить SVG на страницу и не задавать ему никакие размеры, он отобразится размером <b>300px</b> на <b>150px</b>, что не поместилось — обрежется.</p>
+
+	<p>Шириной и высотой элемента можно управлять свойствами <samp class="sin">width</samp> и <samp class="sin">height</samp>, эти свойства можно определять как внутри SVG элемента, так и через CSS. Для размеров в пикселях, задаваемых в атрибутах, единицы измерения можно не указывать.</p>
+
+	<div class="cf item2 mt20">
+		<svg class="fr example" width="250" height="150">
+			<circle cx="100" cy="100" r="80" fill="#817" />
+		</svg>
+		<pre><code><br>&lt;svg width="250" height="150"><br><br><br>   &lt;circle cx="100" cy="100" r="80" fill="#817" /><br><br><br>&lt;/svg></code></pre>
+	</div>
+
+</div>
+
+
+<div class="item anp">
+<h3 class="sin"><samp>SVG</samp> и тег <samp class="teg sin">image</samp></h3>
+
+	<p>SVG тег <samp class="teg sin">image</samp> позволяет выводить растровые изображения внутри SVG-объектов.</p>
+
+	<div class="no no1 mt20 mb30">Спецификация запрашивает приложения для поддержки файлов формата PNG, JPEG и SVG.</div>
+
+	<pre class="item2"><code>&lt;svg width="50" height="50" version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink= "http://www.w3.org/1999/xlink">
+  &lt;image xlink:href="firefox.jpg" x="0" y="0" height="50px" width="50px"/>
+&lt;/svg></code></pre>
+
+	<div class="no mb30 mt30">
+		<ul class="list">
+			<li>Если параметры <b>x</b> или <b>y</b> (координаты верхнего левого угла изображения) не заданы, то им будут присвоены значения равные <b>0</b>.</li>
+			<li>Если параметры <samp class="sin">height</samp> или <samp class="sin">width</samp> не заданы, то им будут присвоены значения равные <b>0</b>.</li>
+			<li>Если значение любого из параметров изображения <samp class="sin">height</samp> или <samp class="sin">width</samp> равны <b>0</b>, то изображение будет <b>отключено</b>.</li>
+		</ul>
+	</div>
+
+	<div class="hr30"></div>
+
+	<p>Теги <samp class="teg sin">image</samp> и <samp class="teg sin">img</samp> практически синонимы, в процессе парсинга тег <samp class="teg sin">image</samp> заменяется на <samp class="teg sin">img</samp> всегда и во всех браузерах. Именно это свойство тега <samp class="teg sin">image</samp> позволяет использовать его для SVG картинок в браузерах, не поддерживающих SVG. Идея предельно простая: подготовим SVG-файл для хороших браузеров и обычную растровую картинку для остальных. И напишем в HTML такой код:</p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="96" height="96"><br>   &lt;image xlink:href="svg.svg" src="svg.png" width="96" height="96"/><br>&lt;/svg></code></pre>
+
+	<p>Браузеры, поддерживающие SVG, проигнорировав атрибут src - покажут красивую векторную картинку, прочитав этот код как:</p>
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="96" height="96"><br>   &lt;image xlink:href="svg.svg" width="96" height="96"/><br>&lt;/svg></code></pre>
+
+	<p>Браузеры, не поддерживающие SVG, проигнорируют неизвестный им тег <samp class="teg sin">svg</samp> и, благодаря тому что image и img — это синонимы, прочитают код как:</p>
+	<pre class="item2 mt20"><code>&lt;img src="svg.png" width="96" height="96"/></code></pre>
+
+</div>
+
+</body></html>

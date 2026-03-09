@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><title>Вставка изображений в SVG</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.fr{float: right}
+	.d-team{
+		font-size:22px; letter-spacing:1px; line-height:32px;
+		text-align:left; color:#009; font-family:monospace;
+		border-bottom:2px solid; display:inline-block;
+		/* margin-left:30px; */
+	}
+	.a a{transition:all .1s}
+	.a a:hover{background:#eee; transition:all .1s}
+
+</style>
+
+</head>
+<body>
+<h2 class="sin">Вставка изображений в <samp>SVG</samp>.</h2>
+	<!-- оглавление -->
+		<ul class="ogl mb10">
+			<li><a href="#" style="opacity:.4">Текст - <samp class="teg sin">text</samp></a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item anp" id="">
+<h3 class="sin"><a href="#"></a></h3>
+	<p><samp class="teg sin"></samp> </p>
+
+	<pre class="item2"><code></code></pre>
+
+</div>
+
+
+
+<div class="item anp" id="">
+<h3 class="sin"><a href="#"></a></h3>
+	<p></p>
+
+	<pre class="item2"><code></code></pre>
+
+	<div class="cf">
+		<svg class="fr" width="200" height="140" style="border:1px solid;">
+			<circle r="20"/>
+			<circle cx="25" cy="75" r="40"/>
+		</svg>
+		<ul class="list">
+			<li><samp class="lsin">r</samp> - радиус окружности.</li>
+		</ul>
+	</div>
+
+</div>
+
+
+
+<div class="item anp" id="">
+<h3 class="sin"><a href="#"></a></h3>
+	<p></p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;ellipse rx="50" ry="25"/><br>   &lt;ellipse cx="75" cy="75" rx="70" ry="50"/><br>&lt;/svg></code></pre>
+
+	<div class="cf">
+		<svg class="fr" width="200" height="140" style="border:1px solid;">
+			<ellipse rx="50" ry="25"/>
+			<ellipse cx="75" cy="75" rx="70" ry="50"/>
+		</svg>
+		<ul class="list">
+			<li><samp class="lsin">rx</samp> - радиус эллипса по x.</li>
+		</ul>
+	</div>
+
+</div>
+
+
+
+<div class="item anp" id="">
+<h3 class="sin"><a href="#"></a></h3>
+	<p></p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;path d="M 20 10 Q 40 115, 150 110 T 110 10"<br>         fill="none" stroke="blue" stroke-width="1" /><br>&lt;/svg></code></pre>
+
+	<div class="cf mb30">
+		<svg class="fr" width="200" height="140" style="border:1px solid; margin: 0 0 0 20px">
+			<path d="M 20 10 Q 40 115, 150 110 T 110 10" fill="none" stroke="blue" stroke-width="1" />
+		</svg>
+		<ul class="list">
+			<li><samp class="lsin">d</samp> - cписок точек и другой информации о том, как рисовать путь; содержит серию команд и параметров, используемых этими командами, каждая команда обозначается специальной буквой..</li>
+		</ul>
+	</div>
+
+	<ul class="list" id="comands">
+		<li class="mb20">Команды прямых линий:
+			<ul class="list a">
+				<li><a href="#M"><samp class="red">M</samp> - "переместиться к" (для указания точки, откуда начнётся рисование).</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+
+
+<div class="item anp">
+<h3 class="sin"><a href="#">Команды атрибута <samp class="red">d</samp> элемента <samp class="teg sin">path</samp></a></h3>
+
+
+	<div id="M" class="mb30">
+	<h3 class="d-team"><a href="#comands">Команда <span class="red">M</span>:</a></h3>
+
+		<p>Команда <samp class="red">M</samp> - "переместиться к". В качестве параметров она принимает координаты точки, к которой перемещается. Если курсор уже был где-либо на странице, между старым и новым местом линия не появится. Команда "Переместиться к" используется в начале элемента <samp class="teg sin">path</samp> для указания точки, откуда начнётся рисование.</p>
+	</div>
+
+</div>
+
+
+
+
+</body></html>

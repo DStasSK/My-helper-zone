@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>font</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<!-- <h2 class="sin">Примеры записи стилей с заданными свойствами</h2> -->
+
+<h2><samp class="sin">font-family</samp></h2>
+<div class="item">
+	<p>Для того чтобы задать тот шрифт который будет уместен при отображении на интернет ресурсе используется свойство <samp class="sin">font-family</samp>, значением которого будет название шрифта.</p>
+	<p>Запись нескольких шрифтов осуществляется через запятую и делается это для того чтобы в случае отсутствия на компьютере необходимого шрифта, который идёт первым до запятой, назначался следующий.</p>
+	<p>Таким образом, последовательность шрифтов лучше начинать с экзотических типов и заканчивать обобщенным именем, которое задает вид начертания.</p>
+
+	<pre class="item2 mb20"><code>.elem {<br>  font-family: Arial, Gadget, sans-serif;<br>  font-family: Courier New, monospace;<br>  font-family: Impact, fantasy;<br>}</code></pre>
+
+  <div>Список шрифтов обычно заканчивают ключевым словом, которое описывает тип шрифта:</div>
+  <ul class="list">
+    <li><samp class="sin">serif</samp> - шрифты с засечками (антиквенные), типа Georgia, 'Times New Roman', Times...;</li>
+    <li><samp class="sin">sans-serif</samp> - <abbr title="шрифты без засечек или гротески">рубленные шрифты</abbr> (Geneva, Arial, Helvetica...);</li>
+    <li><samp class="sin">cursive</samp> - курсивные шрифты;</li>
+    <li><samp class="sin">fantasy</samp> - декоративные шрифты;</li>
+    <li><samp class="sin">monospace</samp> - <abbr title="ширина каждого символа в таком семействе одинакова">моноширинные шрифты</abbr>, (шрифт Courier).</li>
+  </ul>
+
+</div>
+
+
+<div class="item">
+<h3><samp class="sin">Безопасные веб-шрифты</samp></h3>
+	<p>По умолчанию, есть несколько шрифтов которые заранее установлены на каждом компьютере, планшете, смартфоне или другом устройстве с браузером. Эти шрифты известны как «безопасные веб-шрифты».</p>
+
+  <ul class="list l1">
+    <li style="font-family:Arial">Arial</li>
+    <li style="font-family:Courier">Courier New, Courier</li>
+    <li style="font-family:Garamond">Garamond</li>
+    <li style="font-family:Georgia">Georgia</li>
+    <li style="font-family:Lucida">Lucida Sans, Lucida Grande, Lucida</li>
+    <li style="font-family:Palatino Linotype">Palatino Linotype</li>
+    <li style="font-family:Tahoma">Tahoma</li>
+    <li style="font-family:Times New Roman">Times New Roman, Times</li>
+    <li style="font-family:Trebuchet">Trebuchet</li>
+    <li style="font-family:Verdana">Verdana</li>
+  </ul>
+
+</div>
+
+
+</body>
+</html>

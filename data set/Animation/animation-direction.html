@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>CSS cвойство animation-direction</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>animation-direction</samp></h2>
+
+<div class="item">
+	<p>CSS cвойство <samp class="sin">animation-direction</samp> определяет, должна ли анимация воспроизводиться вперёд, назад или переменно вперёд и назад. Значение по умолчанию <samp class="lsin">normal</samp>, не наследуется, не анимируется.</p>
+
+	<pre class="item2 mt20 mb20"><code>dvi {<br>  animation-direction: normal | alternate | reverse | alternate-reverse;<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">normal</samp> - анимация проигрывается вперёд каждую итерацию, то есть, когда анимация заканчивается, она сразу сбрасывается в начальное положение и снова проигрывается. Это значение по умолчанию.</li>
+		<li><samp class="sin">reverse</samp> - анимация проигрывается с последнего положения до первого и потом снова сбрасывается в конечное положение и снова проигрывается.</li>
+		<li><samp class="sin">alternate</samp> - анимация меняет направление в каждом цикле, то есть в первом цикле она начинает с начального положения, доходит до конечного, а во втором цикле продолжает с конечного и доходит до начального и так далее, в зависимости от количества циклов анимации <a href="animation-iteration-count.html"><samp class="sin tdu dib">animation-iteration-count</samp></a>. Значение <samp class="sin">alternate</samp> также инвертирует любые функции времени при воспроизведении в обратном направлении. Если анимация использует значение <b>ease-in</b> идущее от 0% до 100%, то затем использует значение <b>ease-out</b> идущее от 100% до 0%.</li>
+		<li><samp class="sin">alternate-reverse</samp> - анимация начинает проигрываться с конечного положения и доходит до начального, а в следующем цикле продолжая с начального переходит в конечное, в зависимости от количества итераций анимации <samp class="sin tdu dib">animation-iteration-count</samp>.</li>
+	</ul>
+
+
+
+	<style>
+		.animation-box{font-size:18px; font-family:monospace; padding:5px 10px; min-width:320px; margin:20px 0}
+
+		.animation-box-elem {left:0; width:310px; margin-bottom:10px;}
+
+		.animation-block {height:20px; width:20px; position:relative; left:0;
+			animation:swipe 2s linear infinite;}
+		.normal {animation-direction:normal; background:crimson;}
+		.reverse {animation-direction:reverse; background:midnightblue;}
+		.alternate {animation-direction:alternate; background:mediumseagreen;}
+		.alternate-reverse {animation-direction:alternate-reverse; background:goldenrod;}
+
+		@keyframes swipe { 0%{left:0} 100%{left:290px} }
+	</style>
+	<div class="animation-box item2">
+		<strong>normal</strong>: 0% --&gt; 100%
+		<div class="animation-box-elem">
+			<div class="animation-block normal"></div>
+		</div>
+		<strong>reverse</strong>: 100% --&gt; 0%
+		<div class="animation-box-elem">
+			<div class="animation-block reverse"></div>
+		</div>
+		<strong>alternate</strong>: 0% &lt;--&gt; 100%
+		<div class="animation-box-elem">
+			<div class="animation-block alternate"></div>
+		</div>
+		<strong>alternate-reverse</strong>: 100% &lt;--&gt; 0%
+		<div class="animation-box-elem">
+			<div class="animation-block alternate-reverse"></div>
+		</div>
+	</div>
+
+	<div class="hr30 mt40 mb30"></div>
+
+	<div>В старом коде могут встречаться вендорные префиксы:</div>
+	<pre class="item2"><code>div {<br>  -webkit-animation-direction: normal;<br>     -moz-animation-direction: normal;<br>       -o-animation-direction: normal;<br>          animation-direction: normal;<br>}</code></pre>
+
+	<div class="no"><b>IE</b> действительно поддерживает это свойство, но <samp class="pur">calc()</samp> почему-то не работает внутри <samp class="red">@keyframes</samp>. Из-за этого и нет анимации.</div>
+</div>
+
+
+
+</body>
+</html>

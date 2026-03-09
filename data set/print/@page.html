@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>@page</title>
+<!DOCTYPE html><html><head><title>Правило CSS - @page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
@@ -15,22 +15,56 @@
 </head>
 <body>
 
-<h2 class="sin">@page</h2>
+<h2 class="sin">Правило CSS - <samp>@page</samp>.</h2>
 
 <div class="item">
-	<p>Правило <samp class="red">@page</samp> позволяет задать значение полей при печати документа или для страниц, у которых тип носителя задан как <samp class="sin">print</samp>.</p>
-	<pre class="item2"><code>@page [ { :left | :right | :first } ] { ... }</code></pre>
-	<p>Для установки полей на странице используется универсальное свойство <samp class="sin">margin</samp> или его производные - <samp class="sin">margin-top, margin-right, margin-bottom, margin-left</samp>, задающие соответственно отступ сверху, справа, снизу и слева. Отрицательное значение допускается, но часть страницы может оказаться «отрезанной». Свойства <samp class="sin">border</samp> и <samp class="sin">padding</samp> не применимы.</p>
-	<p>Ключевое слово <samp class="lsin">:left</samp> позволяет задать поля для всех левых страниц, <samp class="lsin">:right</samp> — для всех правых, а <samp class="lsin">:first</samp> — для первой страницы.</p>
+	<p>Правило CSS <samp class="red">@page</samp> используется для модификации некоторых свойств CSS при печати документа или для страниц, у которых тип носителя задан как <samp class="sin">print</samp>. Вы не можете изменить все CSS-свойства с <samp class="red">@page</samp>. Вы можете изменить только <samp class="sin">margin</samp>, <a href="orphans.html"><samp class="sin tdu">orphans</samp></a>, <a href="widows.html"><samp class="sin tdu">widows</samp></a>, и разрывы страницы документа. Попытки изменить любые другие свойства CSS будут игнорироваться.</p>
 
-	<div class="no">По поводу поддержки браузерами. <samp class="sin">IE8</samp> действительно поддерживает правило <samp class="red">@page</samp>, но не поддерживает медиазапросы <samp class="red">@media</samp>. Поддержка медиазапросов появилась только в <samp class="sin">IE9</samp>. Лучше поместить все правила в стилевой файл и подключить его через <samp class="sin">&lt;link></samp> со значением <samp class="sin">media="<samp class="lsin">print</samp>"</samp>.</div>
+	<pre class="item2 mt20"><code>@page [ { :left | :right | :first } ] {<br>   /* параметры свойств */<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="pur">:left</samp> - позволяет задать поля для всех левых страниц.</li>
+		<li><samp class="pur">:right</samp> - позволяет задать поля для всех правых страниц.</li>
+		<li><samp class="pur">:first</samp> - позволяет задать поля для первой страницы.</li>
+	</ul>
+
+	<div class="no">В качестве параметров можно использовать только абсолютные единицы измерения, определяя внешние отступы - css свойство <samp class="sin">margin</samp>. Все остальные свойства внутри правила <samp class="red">@page</samp>, такие как <samp class="sin">border</samp>, <samp class="sin">padding</samp> и пр. - будут проигнорированы.</div>
+
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td><span>8(9)</span></td><!-- IE -->
+      <td><span>12</span></td><!-- Edge -->
+      <td><span>18</span></td><!-- Chrome -->
+      <td><span>9.2</span></td><!-- Opera -->
+      <td><span>6</span></td><!-- Safari -->
+      <td><span>116</span></td><!-- FF -->
+      <td><span>4.4</span></td><!-- mobile-android -->
+      <td><span>116</span></td><!-- mobile-FF -->
+      <td><span>10.1</span></td><!-- mobile-opera -->
+      <td><span>6</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
 </div>
 
 
-<div class="item anp">
-	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>@page&lt;/title><br>    &lt;link rel="stylesheet" href="/css/print.css" media="print"><br>  &lt;/head><br>  &lt;body><br>    &lt;h1>Метод ловли льва в пустыне&lt;/h1><br>    &lt;h2>Метод последовательного перебора&lt;/h2><br>    &lt;p>...&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
 
-	<p>Сам файл <samp><b>print.css</b></samp> выглядит следующим образом.</p>
-	<pre class="item2"><code>body {font-family: Times, 'Times New Roman', serif;}<br>h1, h2, p {color: #000;}<br>@page :first {margin: 1cm;}               /* Отступы для первой страницы */<br>@page :left  {margin: 1cm 3cm 1cm 1.5cm;} /* Отступы для левых страниц */<br>@page :right {margin: 1cm 3cm 1cm 1.5cm;} /* Отступы для правых страниц */</code></pre>
+<div class="item">
+<h3 class="sin">Пример настроки полей при печати.</h3>
+	<pre class="item2 ls-05"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>@page&lt;/title><br>    &lt;link rel="stylesheet" href="/css/print.css" media="print"><br>  &lt;/head><br>  &lt;body><br>    &lt;h1>Метод ловли льва в пустыне&lt;/h1><br>    &lt;h2>Метод последовательного перебора&lt;/h2><br>    &lt;p>...&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
+
+	<div>Сам файл <samp><b>print.css</b></samp> выглядит следующим образом.</div>
+
+	<pre class="item2 ls-05"><code>body {font-family: Times, 'Times New Roman', serif;}<br>h1, h2, p {color: #000;}<br>@page :first {margin: 1cm;}               /* Отступы для первой страницы */<br>@page :left  {margin: 1cm 3cm 1cm 1.5cm;} /* Отступы для левых страниц */<br>@page :right {margin: 1cm 3cm 1cm 1.5cm;} /* Отступы для правых страниц */</code></pre>
 </div>
 </body></html>

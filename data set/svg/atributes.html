@@ -1,0 +1,419 @@
+<!DOCTYPE html><html><head><title>Атрибуты элементов фигуры SVG</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.fr{float:right}
+	svg.example{
+		background-color:#fff;
+		border:1px solid #000;
+	}
+</style>
+</head>
+<body class="anp">
+<h2 class="sin">Атрибуты элементов фигуры <samp>SVG</samp>.</h2>
+	<!-- оглавление -->
+		<div class="helper">
+			<!-- <ul class="helper-menu">
+				<li><a href="#fill">fill</a></li>
+				<li><a href="#fill-opacity">fill-opacity</a></li>
+				<li><a href="#fill-rule">fill-rule</a></li>
+
+				<li><a href="#stroke">stroke</a></li>
+				<li><a href="#stroke-opacity">stroke-opacity</a></li>
+				<li><a href="#stroke-width">stroke-width</a></li>
+				<li><a href="#stroke-dasharray">stroke-dasharray</a></li>
+				<li><a href="#stroke-dashoffset">stroke-dashoffset</a></li>
+
+				<li><a href="#stroke-linecap">stroke-linecap</a></li>
+				<li><a href="#stroke-linejoin">stroke-linejoin</a></li>
+				<li><a href="#stroke-miterlimit">stroke-miterlimit</a></li>
+
+				<li><a href="./about.html#viewBox"><samp>viewBox</samp></a></li>
+				<li><a href="#preserveAspectRatio">preserveAspectRatio</a></li>
+				<li><a href="#" style="opacity:.3">vector-effect</a></li>
+				<li><a href="#" style="opacity:.3"></a></li>
+				<li style="flex:1; background:transparent;"></li>
+			</ul> -->
+			<ul class="helper-menu">
+				<li><a href="#fill">fill</a></li>
+				<li><a href="#fill-opacity">fill-opacity</a></li>
+				<li><a href="#fill-rule">fill-rule</a></li>
+				<li style="flex:1; background:transparent;"></li>
+			</ul>
+			<ul class="helper-menu">
+				<li><a href="#stroke">stroke</a></li>
+				<li><a href="#stroke-opacity">stroke-opacity</a></li>
+				<li><a href="#stroke-width">stroke-width</a></li>
+				<li><a href="#stroke-dasharray">stroke-dasharray</a></li>
+				<li><a href="#stroke-dashoffset">stroke-dashoffset</a></li>
+				<li><a href="#stroke-linecap">stroke-linecap</a></li>
+				<li><a href="#stroke-linejoin">stroke-linejoin</a></li>
+				<li><a href="#stroke-miterlimit">stroke-miterlimit</a></li>
+				<li style="flex:1; background:transparent;"></li>
+			</ul>
+			<ul class="helper-menu">
+				<li><a href="#viewBox"><samp>viewBox</samp></a></li>
+				<li><a href="#preserveAspectRatio">preserveAspectRatio</a></li>
+				<li><a href="#" style="opacity:.3">vector-effect</a></li>
+				<li><a href="#" style="opacity:.3"></a></li>
+				<li style="flex:1; background:transparent;"></li>
+			</ul>
+		</div>
+	<!-- /оглавление -->
+
+
+<div class="item" id="fill">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">fill</samp></a></h3>
+	<p>Атрибут <samp class="pur">fill</samp> - устанавливает цвет, которым будет закрашена область SVG внутри контура линий. В качестве значений принимает как CSS-наименования цветов (например, red), rgb-значения, hex-значения, rgba-значения и т.д. Значение по умолчанию - <samp class="lsin">black</samp>.</p>
+
+	<p>Если заливка внутри замкнутого контура не требуется, то атрибуту <samp class="pur">fill</samp> присваивается значение <samp class="sin">"<samp class="lsin">none</samp>"</samp>.</p>
+
+	<div class="cf item2">
+		<svg class="fr example" width="100" height="100">
+			<path d="M20 20 H 80 V 80 H 20 z" fill="red" />
+		</svg>
+		<pre class=""><code>&lt;svg width="100" heigth="100"><br>   &lt;path d="M20 20 H 80 V 80 H 20 z" fill="red" /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="fill-opacity">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">fill-opacity</samp></a></h3>
+	<p>Атрибут <samp class="pur">fill-opacity</samp> - устанавливает величину прозрачности цвета, которым будет закрашена область SVG внутри контура линий. В качестве значений принимает значения от <samp class="lsin">0</samp> до <samp class="lsin">1</samp>, где <samp class="lsin">0</samp> - элемент будет полность прозрачным. Значение по умолчанию - <samp class="lsin">1</samp>.</p>
+
+	<div class="cf item2">
+		<svg class="fr example" width="100" height="100">
+			<path d="M20 20 H 80 V 80 H 20 z" fill="red" fill-opacity="0.8" />
+		</svg>
+		<pre class=""><code>&lt;svg width="100" heigth="100"><br>   &lt;path d="M20 20 H 80 V 80 H 20 z"<br>         fill="red"<br>         fill-opacity="0.8"<br>   /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="fill-rule">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">fill-rule</samp></a></h3>
+	<p>Атрибут <samp class="pur">fill-rule</samp> - определяет как будут заливаться сложные фигуры, имеющие пересечения внутри себя. Для простых фигур ни на что не влияет. Возможные значения: <samp class="lsin">nonzero</samp>, <samp class="lsin">evenodd</samp>.</p>
+
+	<p><samp class="lsin">nonzero</samp> определяет, является ли точка на холсте внутренней, проводя прямую линию из рассматриваемой области сквозь всю фигуру в любом направлении, а затем рассматривая места пересечений сегментов фигуры с этой линией. Начальным значением берется 0, затем прибавляется единица каждый раз, когда сегмент контура пересекает линию слева направо, и вычитается единица, когда он пересекает ее справа налево. Если после вычисления и подсчёта этих пересечений результат равен нулю, тогда точка оказывается с внешней стороны контура, иначе – внутри.</p>
+
+	<p>Значение <samp class="lsin">evenodd</samp> определяет внутреннюю область на холсте, проводя линию из этой области через всю фигуру в любом направлении, подсчитывая сегменты контура, пересекаемых линией. Если при этом получится нечетное число, то точка находится внутри, если четное — то снаружи. Направление рисования пересекаемых линий фигуры - не имеет значения.</p>
+
+	<div class="cf item2 mb30">
+		<div class="fr">
+			<svg class="example" width="200" height="210">
+				<path stroke="red" stroke-width="5" fill="gold" fill-rule="nonzero" d="M 100,20 L 50,180 180,80 20,80 150,180 z" />
+				<text x="22" y="205" font-size="20">fill-rule="nonzero"</text>
+			</svg>
+			<svg class="example" width="200" height="210">
+				<path stroke="red" stroke-width="5" fill="gold" fill-rule="evenodd" d="M 100,20 L 50,180 180,80 20,80 150,180 z" />
+				<text x="22" y="205" font-size="20">fill-rule="evenodd"</text>
+			</svg>
+		</div>
+		<pre class="ls-1"><code>&lt;svg width="200" heigth="210"><br>   &lt;path stroke="red" stroke-width="5" fill="gold"<br>         fill-rule="nonzero"<br>         d="M 100,20 L 50,180 180,80 20,80 150,180 z" /><br>&lt;/svg><br><br><br>&lt;svg width="200" heigth="210"><br>   &lt;path stroke="red" stroke-width="5" fill="gold"<br>         fill-rule="evenodd"<br>         d="M 100,20 L 50,180 180,80 20,80 150,180 z" /><br>&lt;/svg></code></pre>
+	</div>
+
+	<p><samp class="sin">fill-rule="<samp class="lsin">nonzero</samp>"</samp> интересно ведет себя для фигур из двух путей. Например, если внешний круг нарисован по часовой стрелке, а внутренний в обратном направлении, центральный круг останется без заливки (слева). Если же оба круга нарисованы в одном направлении — фигура зальется полностью (справа):</p>
+
+	<div class="cf item2">
+		<div class="fr">
+			<svg class="example" width="200" height="210" stroke="green" stroke-width="5">
+				<g fill="yellowgreen" fill-rule="nonzero">
+					<path d="M 20, 100 A20,20 0 0,1 180,100 M 20, 100 A20,20 0 0,0 180,100
+								M 150,100 A50,50 0 0,1 50, 100 M 150,100 A50,50 0 0,0 50, 100" />
+				</g>
+			</svg>
+
+			</svg>
+			<svg class="example" width="200" height="210" stroke="green" stroke-width="5">
+				<g fill="yellowgreen" fill-rule="nonzero">
+					<path d="M 20,100 A20,20 0 0,1 180,100 M 20,100 A20,20 0 0,0 180,100
+							M 50,100 A50,50 0 0,1 150,100 M 50,100 A50,50 0 0,0 150,100" />
+				</g>
+			</svg>
+		</div>
+		<pre class="ls-1"><code>&lt;svg width="200" heigth="210" stroke-width="5"><br>  &lt;g fill="#9ACD32" fill-rule="nonzero" stroke="green"><br>    &lt;path d="M 20, 100 A20,20 0 0,1 180,100<br>             M 20, 100 A20,20 0 0,0 180,100<br>             M 150,100 A50,50 0 0,1 50, 100<br>             M 150,100 A50,50 0 0,0 50, 100" /><br>  &lt;/g><br>&lt;/svg><br><br><br>&lt;svg width="200" heigth="210" stroke-width="5"><br>  &lt;g fill="#9ACD32" fill-rule="nonzero" stroke="green"><br>    &lt;path d="M 20,100 A20,20 0 0,1 180,100<br>             M 20,100 A20,20 0 0,0 180,100<br>             M 50,100 A50,50 0 0,1 150,100<br>             M 50,100 A50,50 0 0,0 150,100" /><br>  &lt;/g><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke</samp> - задаёт цвет контура линий. В качестве значений принимает как CSS-наименования цветов (например, red), rgb-значения, hex-значения, rgba-значения и т.д.</p>
+
+	<div class="cf item2">
+		<svg class="fr example" width="100" height="100">
+			<path d="M20 20 H 80 V 80 H 20 z" fill="yellow" stroke="#000" />
+		</svg>
+		<pre class=""><code>&lt;svg width="100" heigth="100"><br>   &lt;path d="M20 20 H 80 V 80 H 20 z"<br>         fill="yellow"<br>         stroke="#000"<br>   /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-opacity">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-opacity</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-opacity</samp> - устанавливает величину прозрачности цвета контура линий. В качестве значений принимает значения от <samp class="lsin">0</samp> до <samp class="lsin">1</samp>, где <samp class="lsin">0</samp> - элемент будет полность прозрачным. Значение по умолчанию - <samp class="lsin">1</samp>.</p>
+
+	<div class="cf item2">
+		<svg class="fr example" width="100" height="100">
+			<path d="M20 20 H 80 V 80 H 20 z" fill="yellow" fill-opacity="0.8" stroke="#000" stroke-opacity="0.2" />
+		</svg>
+		<pre class=""><code>&lt;svg width="100" heigth="100"><br>   &lt;path d="M20 20 H 80 V 80 H 20 z"<br>         fill="yellow"<br>         fill-opacity="0.8"<br>         stroke="#000"<br>         stroke-opacity="0.2"<br>   /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-width">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-width</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-width</samp> - устанавливает ширину контура линий. В качестве значений принимает стандартные значения - <samp class="sin">px</samp> и пр. Если внитри <samp class="red">svg</samp> значение указано в пикселях, то само обозначение <samp class="sin">px</samp> модно опустить. Значение по умолчанию - <samp class="sin">1<samp class="lsin">px</samp></samp></p>
+
+	<div class="cf item2">
+		<svg class="fr example" width="100" height="100">
+			<path d="M20 20 H 80 V 80 H 20 z" fill="green" stroke="#000" stroke-width="5" />
+			<path d="M10 90 H 90" stroke="red" />
+		</svg>
+		<pre class=""><code>&lt;svg width="100" heigth="100"><br>   &lt;path d="M20 20 H 80 V 80 H 20 z"<br>         fill="green"<br>         stroke="#000"<br>         stroke-width="5"<br>   /><br>   &lt;path d="M10 90 H 90" stroke="red" /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-dasharray">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-dasharray</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-dasharray</samp> - преобразовывает вид линии у контура SVG фигур на пунктирные линии. В качестве аргумента атрибут <samp class="pur">stroke-dasharray</samp> принимает последовательность чисел, разделённых запятой. Где числа в качестве значений - это <samp class="sin">px</samp>, при этом само обозначение <samp class="sin">px</samp> можно опустить.</p>
+
+	<p>Если количество чисел два (или четное число), то первое число определяет длину штриха, второе - длину между штрихами. Если количество указанных чисел нечетное, то рендер берёт эти числа дважды, чтобы создать чётный паттерн, т.е. длины штрихов и рассояний между ними будут чередоваться.</p>
+
+	<div class="cf item2">
+		<svg class="fr example" width="100" height="100" stroke-width="3" >
+			<line x1="10" y1="10" x2="90" y2="10" stroke="orange" />
+			<line x1="10" y1="30" x2="90" y2="30" stroke="#00f" stroke-dasharray="5 10" />
+			<path d="M10 50 H 90" stroke="red" stroke-dasharray="5 10 1" />
+			<path d="M10 70 H 90" stroke="#f0f" stroke-dasharray="3 3" />
+			<path d="M10 90 H 90" stroke="#000" stroke-dasharray="3 74" />
+		</svg>
+		<pre class=""><code>&lt;svg width="100" height="100" stroke-width="3" ><br>   &lt;line x1="10" y1="10" x2="90" y2="10" stroke="orange" /><br>   &lt;line x1="10" y1="30" x2="90" y2="30" stroke="#00f" stroke-dasharray="5 10" /><br>   &lt;path d="M10 50 H 90" stroke="red" stroke-dasharray="5 10 1" /><br>   &lt;path d="M10 70 H 90" stroke="#f0f" stroke-dasharray="3 3" /><br>   &lt;path d="M10 90 H 90" stroke="#000" stroke-dasharray="3 74" /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-dashoffset">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-dashoffset</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-dashoffset</samp> - определяет сдвиг пунктира относительно начала линии. В качестве аргумента атрибут принимает как положительные так и отрицательные значения.</p>
+
+	<div class="cf item2 mb40">
+		<svg class="fr example" width="100" height="100" stroke-width="5" >
+			<path d="M10 15 H 90" stroke="red" stroke-dasharray="20 10" stroke-dashoffset="0" />
+			<path d="M10 50 H 90" stroke="#f0f" stroke-dasharray="20 10" stroke-dashoffset="10"/>
+			<path d="M10 85 H 90" stroke="#000" stroke-dasharray="20 10" stroke-dashoffset="-10"/>
+		</svg>
+		<pre class="ls-05"><code>&lt;svg width="100" height="100" stroke-width="3" ><br>   &lt;path d="M10 10 H 90" stroke="red" stroke-dasharray="20 10" stroke-dashoffset="0" /><br>   &lt;path d="M10 50 H 90" stroke="#f0f" stroke-dasharray="20 10" stroke-dashoffset="10" /><br>   &lt;path d="M10 90 H 90" stroke="#000" stroke-dasharray="20 10" stroke-dashoffset="-10" /><br>&lt;/svg></code></pre>
+	</div>
+
+	<p>С помощью комбинаций свойств <samp class="pur">stroke-width</samp>, <samp class="pur">stroke-dasharray</samp> и <samp class="pur">stroke-dashoffset</samp> можно создавать сложные фигуры и анимации.</p>
+
+	<div class="cf item2 mb30">
+		<svg class="fr example" width="300" height="180" >
+			<!-- мячик по центру -->
+			<circle r="80" fill="#138" cx="50%" cy="50%" />
+			<circle r="40" fill="#138" cx="50%" cy="50%" stroke="#ff0" stroke-width="80" stroke-dasharray="21" />
+
+			<circle r="80" fill="red" cx="0" cy="100%" stroke="#000" stroke-width="30" stroke-dasharray="12.32" />
+			<circle r="80" fill="red" cx="100%" cy="0" stroke="#000" stroke-width="30" stroke-dasharray="4.8 20" />
+		</svg><pre class="ls-05"><code>&lt;svg width="300" height="180" stroke-width="3"><br>   &lt;!-- мячик по центру --><br>   &lt;circle r="80" fill="#138" cx="50%" cy="50%" /><br>   &lt;circle r="40" fill="#138" cx="50%" cy="50%" stroke="#ff0"<br>           stroke-width="80" stroke-dasharray="21" /><br><br>   &lt;circle r="80" fill="red" cx="0" cy="100%" stroke="#000"<br>           stroke-width="30" stroke-dasharray="12.32" /><br>   &lt;circle r="80" fill="red" cx="100%" cy="0" stroke="#000"<br>           stroke-width="30" stroke-dasharray="4.8 20" /><br>&lt;/svg></code></pre>
+	</div>
+
+	<p>При создании анимации необходимо знать длину анимируемого svg контура. Но можно взять большие пробелы (чтобы сумма чисел в <samp class="pur">stroke-dasharray</samp> была больше длины кривой), чтобы не забивать голову подсчетами при анимировании одного фрагмента на незамкнутой кривой. Но в это случае возможна небольшая визуальная задержка в анимации - пока не анимируется излишняя длинна штриха.</p>
+
+	<div class="cf item2">
+		<style>
+			.stroke{
+				fill:none;
+				stroke:brown;
+				stroke-width:10px;
+				stroke-linecap:round;
+			}
+			.ani{
+				stroke:#e8e;
+				stroke-dasharray:50 550;    /* создание пунктира */
+				stroke-dashoffset:0;   /* смещение начала пунктира */
+				animation:strani 2s linear infinite;
+			}
+			@keyframes strani{
+				0%{stroke-dashoffset:0}
+				100%{stroke-dashoffset:600}
+			}
+			.circle{
+				 stroke:red;
+				 stroke-width:50;
+				 stroke-dasharray:158;
+				 stroke-dashoffset:158;
+				 transition: all .5s linear;
+			}
+			.svg:hover .circle {
+				stroke-dashoffset:0;
+			}
+		</style>
+		<svg class="svg fr example" width="300" height="180" >
+			<rect class="stroke" x="50" y="27" width="200" height="125" rx="10%" />
+			<rect class="stroke ani" x="50" y="27" width="200" height="125" rx="10%" />
+
+			<circle r="50" fill="#138" cx="50%" cy="50%" />
+			<circle class="circle" r="25" fill="#138" cx="50%" cy="50%" />
+		</svg><pre class="ls-05"><code>&lt;style><br>   .stroke{<br>      fill:none; stroke:brown; stroke-width:10px;<br>      stroke-linecap:round;<br>   }<br>   .ani{<br>      stroke:#e8e;<br>      stroke-dasharray:50 550;    /* создание пунктира */<br>      stroke-dashoffset:0;        /* смещение начала пунктира */<br>      animation:strani 2s linear infinite;<br>   }<br>   @keyframes strani{<br>      0%{stroke-dashoffset:0}<br>      100%{stroke-dashoffset:600}<br>   }<br>   .circle{<br>      stroke:red; stroke-width:50;<br>      stroke-dasharray:158;<br>      stroke-dashoffset:158;<br>      transition: all .5s linear;<br>   }<br>   .svg:hover .circle {<br>      stroke-dashoffset:0;<br>   }<br>&lt;/style><br><br><br>&lt;svg width="300" height="180"><br>   &lt;rect class="stroke" x="50" y="27" width="200" height="125" rx="10%" /><br>   &lt;rect class="stroke ani" x="50" y="27" width="200" height="125" rx="10%" /><br><br>   &lt;circle r="50" fill="#138" cx="50%" cy="50%" /><br>   &lt;circle class="circle" r="25" fill="#138" cx="50%" cy="50%" /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-linecap">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-linecap</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-linecap</samp> - управляет отображением концов линий. Атрибут принимает три значения:</p>
+	<ul class="list mb20">
+		<li><samp class="lsin">butt</samp> - значение по умолчанию. Обрывает линию под прямым углом к направлению обводки и делает это сразу по окончании линии.</li>
+		<li><samp class="lsin">square</samp> - в основном действует также, но немного растягивает обводку по краям пути. Длина, на которую продлевается обводка - это половина заданного значения <samp class="sin">stroke-width</samp>.</li>
+		<li><samp class="lsin">round</samp> - задаёт закруглённые углы по краям обводки. Радиус этих кривых также управляется параметром <samp class="sin">stroke-width</samp>. Также немного растягивает обводку по краям пути.</li>
+	</ul>
+
+	<div class="cf item2">
+		<svg class="svg fr example" width="220" height="160" stroke-width="12">
+			<line x1="30" y1="20" x2="190" y2="20" stroke="#000" />
+			<path d="M30 60  H 190" stroke="orange" stroke-linecap="butt" />
+			<path d="M30 100 H 190" stroke="red" stroke-linecap="square" />
+			<path d="M30 140 H 190" stroke="#f0f" stroke-linecap="round" />
+		</svg><pre class=""><code>&lt;svg width="220" height="160"><br>   &lt;line x1="30" y1="20" x2="190" y2="20"  stroke="#000" /><br><br>   &lt;path d="M30 60  H 190" stroke="orange" stroke-linecap="butt" /><br><br>   &lt;path d="M30 100 H 190" stroke="red"    stroke-linecap="square" /><br><br>   &lt;path d="M30 140 H 190" stroke="#f0f"   stroke-linecap="round" /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-linejoin">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-linejoin</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-linejoin</samp> - управляет отображением соединения обводки двух сегментов линии. Атрибут принимает три значения:</p>
+	<ul class="list mb20">
+		<li><samp class="lsin">miter</samp> - значение по умолчанию. Продолжает линию обводки дальше её обычной ширины, чтобы создать единственный квадратный угол.</li>
+		<li><samp class="lsin">bevel</samp> - создаёт новый угол в месте перехода между двумя сегментами.</li>
+		<li><samp class="lsin">round</samp> - создаёт закруглённый сегмент линии.</li>
+	</ul>
+
+	<div class="cf item2">
+		<svg class="svg fr example" width="300" height="180" stroke-width="12" fill="none">
+			<path d="M30 20  H 150 L 270 40 V 20" stroke="#000" />
+			<path d="M30 60  H 150 L 270 80 V 60" stroke="orange" stroke-linecap="butt" stroke-linejoin="miter" />
+			<path d="M30 100 H 150 L 270 120 V 100" stroke="red" stroke-linecap="square" stroke-linejoin="bevel" />
+			<path d="M30 140 H 150 L 270 160 V 140" stroke="#f0f" stroke-linecap="round" stroke-linejoin="round" />
+		</svg><pre class=""><code>&lt;svg width="300" height="180" fill="none"><br>   &lt;path d="M30 20  H 150 L 270 40 V 20" stroke="#000" /><br><br>   &lt;path d="M30 60  H 150 L 270 80 V 60" stroke="orange"<br>         stroke-linecap="butt" stroke-linejoin="miter" /><br>   &lt;path d="M30 100 H 150 L 270 120 V 100" stroke="red"<br>         stroke-linecap="square" stroke-linejoin="bevel" /><br>   &lt;path d="M30 140 H 150 L 270 160 V 140" stroke="#f0f"<br>         stroke-linecap="round" stroke-linejoin="round" /><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item" id="stroke-miterlimit">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">stroke-miterlimit</samp></a></h3>
+	<p>Атрибут <samp class="pur">stroke-miterlimit</samp> - управляет отображением соединения обводки двух сегментов линии когда задан параметр <samp class="sin dib">stroke-linejoin="<samp class="lsin">miter</samp>"</samp>. Aтрибут учитывает указание того, насколько продолжается это соединение/угол.</p>
+
+	<p>Длина этого соединения названа длиной среза, и измеряется от внутреннего угла линии соединения до внешнего кончика соединения. Это значение является ограничением на отношение длины среза к <b>stroke-width</b>. 1.0 – наименьшее возможное значение для этого атрибута.</p>
+
+	<div class="cf item2">
+		<svg class="svg fr example" width="300" height="180" stroke-width="12" fill="none">
+			<path d="M50 30  L 80 140 L 110 30" stroke="orange" stroke-linejoin="miter" stroke-miterlimit="1" />
+			<path d="M190 30 L 220 140 L 250 30" stroke="#f0f" stroke-linejoin="miter" stroke-miterlimit="10" />
+		</svg><pre><code>&lt;svg width="300" height="180" fill="none"><br><br>   &lt;path d="M50 30  L 80 140 L 110 30" stroke="orange"<br>         stroke-linejoin="miter" stroke-miterlimit="1" /><br><br>   &lt;path d="M190 30 L 220 140 L 250 30" stroke="#f0f"<br>         stroke-linejoin="miter" stroke-miterlimit="10" /><br><br>&lt;/svg></code></pre>
+	</div>
+</div>
+
+
+
+<div class="item anp" id="viewBox">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">viewBox</samp>.</a></h3>
+	<p id="viewBox">Этот атрибут вырезает из SVG изображения фрагмент и растягивает/сжимает его в размеры SVG элемента, заданными параметрами <samp class="sin">width</samp> и <samp class="sin">height</samp>. При этом фрагмент изображения может как сохранять пропорции вырезанного фрагмента, чтобы поместиться целиком, так и растягиваться в размеры SVG элемента - это зависит от параметра атрибута <samp class="pur">preserveAspectRatio</samp>.</p>
+
+	<pre class="mt20 mb20 item2"><code>&lt;svg viewBox="x y width height"><br>   &lt;!-- ... --><br>&lt;/svg></code></pre>
+	<p>Первые два значения — координаты X и Y верхнего левого угла отображаемой области, последние два — ширина и высота.</p>
+
+	<div class="cf item2 mb20 mt40">
+		<div class="fr">
+			<svg class="example" width="140" height="120">
+				<circle cx="60" cy="60" r="70" fill="#817" />
+			</svg>
+			<svg class="example" width="140" height="120" viewBox="-10 -10 140 140">
+				<circle cx="60" cy="60" r="70" fill="red" />
+			</svg>
+		</div>
+		<pre class="ls-05"><code>&lt;svg width="140" height="120"><br>   &lt;circle cx="60" cy="60" r="70" fill="#817" /><br>&lt;/svg><br><br>&lt;svg width="140" height="120" viewBox="-10 -10 140 140"><br>   &lt;circle cx="60" cy="60" r="70" fill="red" /><br>&lt;/svg></code></pre>
+	</div>
+
+	<div class="no no1 mb40"><samp class="pur">viewBox</samp> задаётся только атрибутом.</div>
+
+	<div class="no">Если у SVG изображения не заданы размеры, но задан viewBox, изображение займёт собой всё доступное пространство. Это поведение может стать проблемой: если размеры у иконок задаются в стилях, а они не загрузились — страница может превратиться в парад гигантских SVG-иконок. Чтобы этого не произошло, всегда явно задавайте в атрибутах SVG ширину и высоту, их потом легко переопределить в CSS.</div>
+
+	<div class="item2">
+		<pre class="ls-05"><code>&lt;svg viewBox="-10 -10 140 140"><br>   &lt;circle cx="60" cy="60" r="70" fill="red" /><br>&lt;/svg><br><br></code></pre>
+		<svg class="example" viewBox="-10 -10 140 140">
+			<circle cx="60" cy="60" r="70" fill="red" />
+		</svg>
+	</div>
+
+</div>
+
+
+
+<div class="item" id="preserveAspectRatio">
+<h3 class="sin"><a href="#">Атрибут <samp class="red">preserveAspectRatio</samp></a></h3>
+	<p>Атрибут <samp class="pur">preserveAspectRatio</samp> - управляет отображением SVG, если у элемента задан атрибут <a href="#viewBox"><samp class="sin tdu">viewBox</samp></a>. Определяет как изменять изображение - сжимать и растягивать с сохранением или без сохранений пропорций.</p>
+
+	<div class="no mb30 mt30">Свойство <samp class="pur">preserveAspectRatio</samp> задаётся только атрибутом.</div>
+
+	<p>Возможные значения атрибута:</p>
+	<ul class="list mb20">
+		<li><samp class="lsin">none</samp> - содержимое масштабируется под размеры вьюпорта <b>не сохраняя пропорции</b>.</li>
+		<li>Остальные значения <samp class="pur">preserveAspectRatio</samp> <b>не изменяют пропорции</b> изображения и состоят из двух частей: первая задаёт выравнивание, вторая — поведение элемента относительно вьюпорта.
+			<ul class="list">
+				<li>
+					<p>Выравнивание задаётся комбинацией значений: <samp class="lsin">xMin</samp>, <samp class="lsin">YMin</samp>, <samp class="lsin">xMid</samp>, <samp class="lsin">YMid</samp>, <samp class="lsin">xMax</samp>, <samp class="lsin">YMax</samp>.</p>
+					<p><samp class="lsin">xMin</samp>, <samp class="lsin">YMin</samp> — в начале оси;<br><samp class="lsin">xMid</samp>, <samp class="lsin">YMid</samp> — в середине оси;<br><samp class="lsin">xMax</samp>, <samp class="lsin">YMax</samp> — в конце оси;</p>
+					<p>Эти значения можно комбинировать в любых сочетаниях, но порядок должен сохраняться: первым всегда идет значение для <b>x</b>, вторым для <b>Y</b>. Значение для <b>Y</b> всегда пишется с большой буквы.</p>
+				</li>
+				<li>
+					<p>Поведение элемента относительно вьюпорта определяется двумя значениями:</p>
+					<ul class="list">
+						<li><samp class="lsin">meet</samp> - содержимое стремится уместиться целиком (как фон с <samp class="sin dib">background-size: <samp class="lsin">contain</samp></samp>).</li>
+						<li><samp class="lsin">slice</samp> - содержимое заполняет всю область видимости (как <samp class="sin dib">background-size: <samp class="lsin">cover</samp></samp>).</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="cf item2">
+		<div class="fr">
+			<svg class="example" width="95" height="200" viewBox="-10 -10 140 140"  preserveAspectRatio="none">
+				<circle cx="60" cy="60" r="70" fill="#817" />
+			</svg>
+			<svg class="example" width="95" height="200" viewBox="-10 -10 140 140"  preserveAspectRatio="xMinYMax slice">
+				<circle cx="60" cy="60" r="70" fill="red" />
+			</svg>
+			<svg class="example" width="95" height="200" viewBox="-10 -10 140 140"  preserveAspectRatio="xMinYMax meet">
+				<circle cx="60" cy="60" r="70" fill="#0ff" />
+			</svg>
+		</div>
+		<pre class="ls-05"><code>&lt;svg width="95" height="200" viewBox="-10 -10 140 140"<br>     preserveAspectRatio="none"><br>   &lt;circle cx="60" cy="60" r="70" fill="#817" /><br>&lt;/svg><br>&lt;svg width="95" height="200" viewBox="-10 -10 140 140"<br>     preserveAspectRatio="xMinYMax slice"><br>   &lt;circle cx="60" cy="60" r="70" fill="red" /><br>&lt;/svg><br>&lt;svg width="95" height="200" viewBox="-10 -10 140 140"<br>     preserveAspectRatio="xMinYMax meet"><br>   &lt;circle cx="60" cy="60" r="70" fill="#0ff" /><br>&lt;/svg></code></pre>
+	</div>
+
+</div>
+
+
+
+</body></html>

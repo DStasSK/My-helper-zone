@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>Предварительная фильтрация с помощью синтаксиса of</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Предварительная фильтрация с помощью синтаксиса <samp class="pur">of</samp></h2>
+<div class="item">
+	<p>Новое в <a href="https://www.w3.org/TR/selectors-4/" class="sin tdu" target="_blank">CSS Selectors Level 4</a> - возможность опционально передавать список селекторов в <samp class="sin">:nth-child()</samp> и <samp class="sin">:nth-last-child()</samp>.</p>
+
+	<pre class="item2 mt20 mb20"><code>:nth-child(An+B [of S]?)<br>:nth-last-child(An+B [of S]?)</code></pre>
+
+	<p>Когда указано <samp class="red">of</samp> <samp class="sin">S</samp>, логика <samp class="sin">An + B</samp> применяется только к тем элементам, которые соответствуют заданному списку селекторов <samp class="sin">S</samp>. Это означает, что можно предварительно отфильтровать дочерние элементы, прежде чем <samp class="sin">An + B</samp> сделает свое дело.</p>
+
+	<p>Например, <span class="dib"><samp class="pur">:nth-child</samp><samp class="sin">(<span class="lsin">2</span> of <span class="lsin">.qqq</span>)</samp></span> выбирает второй элемент, имеющий класс <span class="lsin">qqq</span>. Другими словами: из всех дочерних элементов с классом <span class="lsin">qqq</span> выберет второй.</p>
+
+	<div class="no no1">Следует учесть, что <samp class="sin">S</samp> - это список селекторов, что означает, что он принимает несколько селекторов, разделенных запятой. Например, <b>:nth-child(4 of .qqq, .www)</b> выбирает четвертый элемент, который является либо <b>.qqq</b>, либо <b>.www</b> из множества дочерних элементов.</div>
+
+	<p>Этот способ можно использовать при оформлении строк динамических таблиц - при раскрашивании каждой второй строки, когда, например, часть строк становятся скрытыми.</p>
+
+	<pre class="item2"><code>tr:nth-child ( even of :not([hidden]) ) {  /* исключает скрытые строки */<br>   background-color: lightgrey;<br>}</code></pre>
+
+  <table class="support mt40">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>111</span></td><!-- Edge -->
+      <td><span>111</span></td><!-- Chrome -->
+      <td><span>97</span></td><!-- Opera -->
+      <td><span>9</span></td><!-- Safari -->
+      <td><span>113</span></td><!-- FF -->
+      <td><span>111</span></td><!-- mobile-android -->
+      <td><span>113</span></td><!-- mobile-FF -->
+      <td><span>75</span></td><!-- mobile-opera -->
+      <td><span>9</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+</div>
+</body></html>

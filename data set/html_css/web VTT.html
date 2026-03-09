@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><title>Формат Web Video Text Tracks (WebVTT) - титры к видео.</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+
+</style></head>
+
+<body>
+<h2 class="sin mb0">Формат Web Video Text Tracks (WebVTT).</h2>
+<h4 class="sin mt0 mb30">(титры к видео)</h4>
+	<!-- оглавление -->
+		<ul class="ogl">
+			<li><a href="#file">Структура файла с титрами (<samp>.vtt</samp>).</a></li>
+			<li><a href="#css">Стилизация титров.</a>
+				<div class="ogl2 ogl21">
+					<span><a href="#cssInFile">стилизация внутри титров</a></span>
+					<span><a href="#cue">внешний CSS файл - псевдоэлемент <samp class="lsin">::cue</samp></a></span>
+					<span></span>
+				</div>
+			</li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item">
+	<p>Формат Web Video Text Tracks (WebVTT)это формат для отображения синхронизированных текстовых треков (такие как субтитры или подписи) с помощью элементов <a href="help/track.html"><samp class="teg tdu sin">track</samp></a>. Основная цель файлов WebVTT — добавить текстовые наложения к элементам <a href="help/video.html"><samp class="teg tdu sin">video</samp></a>. WebVTT является текстовым форматом, который должен быть закодирован с использованием UTF-8 (en-US). В этих файлах вы можете использовать пробелы и табы для отступов.</p>
+
+	<div class="no no1">MIME тип файлов WebVTT — <samp class="pur">text/vtt</samp>.</div>
+
+
+	<!-- <table class="t1 tb t3">
+		<tr id=""><td width="90px"><a href="#"></a></td>
+			<td></td></tr>
+	</table> -->
+
+</div>
+
+
+
+<div class="item" id="file">
+<h3 class="sin"><samp><a href="#">Структура файла с титрами (<samp>.vtt</samp>).</a></samp></h3>
+	<p>Структура WebVTT состоит из следующих компонентов, некоторые из которых являются необязательными, в следующем порядке:</p>
+	<ul class="list mt20 mb20">
+		<li>Необязательный знак порядка байтов (BOM).</li>
+		<li>Строка <samp>"WEBVTT"</samp>.</li>
+		<li>Дополнительный текстовый заголовок справа от <samp>"WEBVTT"</samp> (должен быть хотя бы один пробел, кроме перевода строки или <samp>"-->"</samp>.).</li>
+		<li>Пустая строка, которая эквивалентна двум последовательным переводам строки.</li>
+		<li>Ноль или более реплик или комментариев.</li>
+		<li>Ноль или более пустых строк.</li>
+	</ul>
+
+	<pre class="item2 mb20"><code>WEBVTT - Этот файл содержит реплики.<br><br>00:01:14.815 --> 00:01:18.114<br>- Что?<br>- Где мы сейчас?<br><br>00:01:18.171 --> 00:01:20.991<br>- Это большая страна летучих мышей.<br><br></code></pre>
+
+	<p>Каждая реплика начинается с метки времени, которое определяет начало отображения нижележащего текста, далее идут символы <samp class="pur bold">--></samp> и вторая метка времени, которое определяет прекращения отображения связанного текста. После метки времени идут одна или несколько строк, начинающихся с дефиса (<b>-</b>), каждая из которых содержит часть текстовой дорожки для отображения.</p>
+
+	<p>Мы также можем разместить комментарии в нашем файле <b>.vtt</b>, чтобы помочь нам запомнить важную информацию о частях нашего файла. Они должны быть в отдельных строках, начинающихся со слова <samp class="pur">NOTE</samp>.</p>
+
+	<p class="no">Важно не использовать дополнительные пустые строки в реплике, например, между строкой синхронизации и текстом реплики. WebVTT использует строчные разделители, поэтому пустая строка обозначит окончание реплики.</p>
+
+	<pre class="item2"><code>WEBVTT<br><br>NOTE комментарий №1.<br><br>NOTE комментарий<br>№2.<br><br>NOTE<br>комментарий<br>№3.</code></pre>
+
+</div>
+
+
+
+<div class="item" id="css">
+<h3 class="sin"><samp><a href="#">Стилизация титров.</a></samp></h3>
+	<p>Текст, идущий в титрах к видео, можно стилизовать с теми или иными целями. В основном это делаестся для более удобного прочтения, например могут задавать цвет фона, что позволит видеть текст в независимости от цвета картинки видео (например, если цвет кадра видео совпадет с цветом текста, то прочитать текст будет затруднительно).</p>
+
+	<div class="mt30">Для стилизации текста титров доступны следующие CSS-свойства:</div>
+	<ul class="list">
+		<li><a href="background/background.html"><samp class="sin tdu">background</samp></a> и его свойства</li>
+		<li><a href="txt/color.html"><samp class="sin tdu">color</samp></a></li>
+		<li><a href="txt/font.html"><samp class="sin tdu">font</samp></a> и его свойства</li>
+		<li><a href="txt/line-height.html"><samp class="sin tdu">line-height</samp></a></li>
+		<li><a href="opacity.html"><samp class="sin tdu">opacity</samp></a></li>
+		<li><a href="border & outline.html#outline"><samp class="sin tdu">outline</samp></a></li>
+
+		<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-position"><samp class="sin tdu">ruby-position</samp></a></li>
+		<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-combine-upright"><samp class="sin tdu">text-combine-upright</samp></a></li>
+
+		<li><a href="txt/text-decoration.html"><samp class="sin tdu">text-decoration</samp></a></li>
+		<li><a href="txt/text-shadow.html"><samp class="sin tdu">text-shadow</samp></a></li>
+		<li><a href="visibility.html"><samp class="sin tdu">visibility</samp></a></li>
+		<li><a href="txt/white-space.html"><samp class="sin tdu">white-space</samp></a></li>
+	</ul>
+
+	<p class="mt20 mb40">Параметры со стилями текста могут нахожиться как в нутри файла с титрами, так и в отдельном CSS файле.</p>
+
+
+	<h3 class="sin" id="cssInFile"><samp><a href="#">Стилизация титров внутри файла с титрами.</a></samp></h3>
+		<div>При стилизации титров внитри файла сс титрами есть ряд ограничений:</div>
+
+		<ul class="list">
+			<li>блок с параметрами начинается со слов <samp class="sin">STYLE</samp>, сами параметры идут со следующей строки.</li>
+			<li>параметры стилей, находящиеся в блоке, не должны разделять пустой строкой.</li>
+			<li>блок со стилями должен идти до текста титров, не после.</li>
+			<li>блоков со стилями может быть несколько, каждый должен начинаться со слов <samp class="sin">STYLE</samp>.</li>
+			<li>блоки со стилями могут быть разделены комментариями (блок <samp class="sin">NOTE</samp>).</li>
+			<li>если нужно стилизовать отдельную текстовую дорожку, то стили можно располагать после временных интервалов (<a href="https://developer.mozilla.org/ru/docs/Web/API/WebVTT_API" class="sin tdu">параметры</a>).</li>
+			<li>...</li>
+		</ul>
+
+		<pre class="item2 mb20 mt20 ls-05"><code>WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  color: papayawhip;
+}
+
+NOTE комментарий.
+
+STYLE
+::cue(b) {
+  color: peachpuff;
+}
+
+00:00:00.000 --> 00:00:10.000
+- Hello &lt;b>world&lt;/b>.
+
+00:00:11.000 --> 00:00:14.000 position:10%,line-left align:left size:35%
+Where did he go?
+
+00:00:16.000 --> 00:00:18.500 position:90% align:right size:35%
+I think he went down this lane.
+
+00:00:05.000 --> 00:00:10.000 line:0 position:20% size:60% align:start
+Some time ago in a place rather distant....
+</code></pre>
+
+	<div class="hr40"></div>
+
+	<h3 class="sin" id="cue"><samp><a href="#">Стилизация титров во внешнем CSS файле.</a></samp></h3>
+		<p>Для стилизации текста титров во внешнем CSS файле используют Псевдоэлемент <samp class="pur">::cue</samp>, который соответствует репликам <b>WebVTT</b> в выбранном элементе. Он может быть использован для задания стилей титров и других реплик в медиа с VTT треками.</p>
+
+		<p>Заданные в CSS файле свойства применяются ко всему набору реплик, как если бы они были единым целым. Единственным исключением является <samp class="sin">background</samp> и его сокращённые свойства, которые применяются к каждой реплике отдельно, чтобы не создавать блоки, которые занимают неожиданно большие области медиа.</p>
+
+		<pre class="item2"><code>::cue {<br>  color: #fff;<br>  font-weight: bold;<br>  background-color: rgba(0, 0, 0, 0.6);<br>}<br><br>video::cue(b) {<br>  background-image: linear-gradient(to bottom, dimgray, lightgray);<br>  color: peachpuff;<br>}</code></pre>
+
+		<i>текст, выделенный жирным шрифтом с помощью элемента <samp class="teg">b</samp>, имеет цвет <samp class="lsin">peachpuff</samp> и заданный цвет фона в виде градиента.</i>
+</div>
+
+
+</body>
+</html>

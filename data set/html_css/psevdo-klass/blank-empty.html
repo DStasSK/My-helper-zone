@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>Псевдоклассы :empty и :blank</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h3 class="sin">Псевдоклассы <samp>:empty</samp> и <samp>:blank</samp></h3>
+<div class="item anp">
+	<p>Псевдокласс <samp class="sin">:empty</samp> выбирает все пустые элементы - это такие элементы, внутри которых нет дочерних элементов и текста, включая пробелы и переносы. Пустыми будут считаться следующие элементы.</p>
+	<pre class="item2 mb20"><code>&lt;style>div:empy{...}&lt;/style><br><br>&lt;div>&lt;/div><br>&lt;div>&lt;!-- Пустой --&gt;&lt;/div></code></pre>
+
+	Соответственно, к непустым относятся следующие элементы.
+	<pre class="item2 mb40"><code>&lt;div> &lt;/div> &lt;!-- Есть пробел --&gt;<br>&lt;div>&nbsp;&lt;/div> &lt;!-- Есть символ &amp;nbsp; --&gt;<br>&lt;div>Бла-бла&lt;/div> &lt;!-- Есть текст --&gt;<br>&lt;div>&lt;span>&lt;/span>&lt;/div> &lt;!-- Есть дочерний элемент --&gt;<br><br>&lt;div><br>&lt;/div> &lt;!-- Есть перенос текста --&gt;</code></pre>
+
+  <p>Псевдокласс <samp class="sin">:blank</samp> работает схожим образом - но считает пустыми элементы, содержащие пробел или перенос строк.</p>
+
+  <div class="no">Псевдокласс <samp class="sin bold">:blank</samp> не поддерживается браузерами.</div>
+</div>
+</body></html>

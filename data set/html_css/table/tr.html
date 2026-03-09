@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><title>Тэг - tr</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- автораскравка тегов внутри pre-code -->
+	<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+	<script src="../../highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Тэг <samp class="teg sin">tr</samp></h2>
+<div class="item">
+	<p>Элемент <samp class="teg sin">tr</samp> (от англ. <i>table row</i> - строка таблицы) служит контейнером для создания строки таблицы. Каждая ячейка в пределах такой строки устанавливается с помощью элемента <samp class="teg sin">th</samp> или <samp class="teg sin">td</samp>.</p>
+
+  <pre class="item2"><code>&lt;table><br>  &lt;tr><br>    &lt;td>...&lt;/td>&lt;td>...&lt;/td><br>  &lt;/tr><br>&lt;/table></code></pre>
+</div>
+
+
+
+<div class="item" id="tr_at">
+<h3 class="sin">Атрибуты тега <samp>&lt;tr></samp></h3>
+  <div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+
+  <div class="ogl2 ogl22">
+		<span><a href="#tr_align" title="Задаёт выравнивание содержимого ячеек строки по горизонтали.">align</a></span>
+		<span><a href="#tr_bgcolor" title="Устанавливает цвет фона строки таблицы.">bgcolor</a></span>
+		<span><a class="off" href="#tr_bordercolor" title="Цвет рамки.">bordercolor</a></span>
+		<span><a class="off" href="#tr_char" title="Выравнивание содержимого ячеек в строке относительно заданного символа.">char</a></span>
+		<span><a class="off" href="#tr_charoff" title="Смещение содержимого ячеек в строке относительно указанного символа.">charoff</a></span>
+		<span><a href="#tr_valign" title="Устанавливает вертикальное выравнивание содержимого ячеек в строке.">valign</a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="tr_align"><a href="#tr_at">align</a></td>
+			<td>Задаёт выравнивание содержимого ячеек строки по горизонтали. Выравнивание осуществляется для всех ячеек в пределах одной строки. Если требуется применить разное выравнивание для каждой ячейки, воспользуйтесь стилями или используйте атрибут <samp class="sin">align</samp> для элемента <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>.
+			<pre class="item2"><code>&lt;tr align="<abbr title="Выравнивание содержимого ячейки по левому краю.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краям).">justify</abbr>">...&lt;/tr></code></pre>
+			Для выравнивания содержимого ячеек внутри <samp class="red">&lt;tr></samp> используйте стилевое свойство <samp class="sin">text-align</samp>, применяя его к селектору <samp class="red">tr</samp>.</td></tr>
+		<tr><td id="tr_bgcolor"><a href="#tr_at">bgcolor</a></td>
+			<td>Устанавливает цвет фона строки таблицы.
+			<pre class="item2"><code>&lt;tr bgcolor="Цвет">...&lt;/tr></code></pre></td></tr>
+		<tr><td id="tr_bordercolor"><a href="#tr_at">bordercolor</a></td>
+			<td>Цвет рамки.
+			<pre class="item2"><code>&lt;tr bordercolor="Цвет">...&lt;/tr></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="tr_char"><a href="#tr_at">char</a></td>
+			<td>Выравнивает содержимое ячеек внутри <samp class="red">&lt;tr></samp> по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;tr align="char" char="символ">...&lt;/tr></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="tr_charoff"><a href="#tr_at">charoff</a></td>
+			<td>Смещает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;tr align="char" char="," charoff="-2">...&lt;/tr></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается браузерами.</div></td></tr>
+		<tr><td id="tr_valign"><a href="#tr_at">valign</a></td>
+			<td>Устанавливает вертикальное выравнивание содержимого ячеек в строке. По умолчанию контент ячейки располагается по ее вертикали в центре.
+			<pre class="item2"><code>&lt;th valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячейки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/th></code></pre>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">tr</samp></td></tr>
+	</table>
+</div>

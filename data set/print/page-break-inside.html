@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>page-break-inside</title>
+<!DOCTYPE html><html><head><title>CSS свойство page-break-inside</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
@@ -11,21 +11,21 @@
 
 </head>
 <body>
-<h2 class="sin">page-break-inside</h2>
+<h2 class="sin t-trash">CSS свойство <samp class="pur">page-break-inside</samp></h2>
 
-<div class="item">
+<div class="item anp">
+	<div class="no">Устаревшее свойство, вместо него лучше использовать <a href="break-inside.html"><samp class="sin tdu">break-inside</samp></a></div>
+
 	<p>Разрешает или запрещает разрыв страницы внутри элемента при печати. Значение по умолчанию <samp class="red">auto</samp>, не наследуется, применяется к блочным элементам.</p>
-	<pre class="item2"><code>page-break-inside: auto | avoid</code></pre>
+
+	<pre class="item2 mt20"><code>page-break-inside: auto | avoid</code></pre>
 
 
 	<table class="t1 t3">
 		<tr><td>auto</td><td>Вставляет разрыв страницы при необходимости.</td></tr>
 		<tr><td>avoid</td><td>Запрещает разрыв страницы внутри элемента.</td></tr>
 	</table>
-</div>
 
-
-<div class="item">
-	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>page-break-inside&lt;/title><br>    &lt;style><br>      @media print {   /* медиазапросы не поддерживется в IE8 */<br>        .more {page-break-inside: avoid;}<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>    &lt;h2>Мусорные пакеты&lt;/h2><br>    &lt;p>...&lt;/p><br>    &lt;p class="more">Читать дальше&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
+	<pre class="item2 mt40"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>page-break-inside&lt;/title><br>    &lt;style><br>      @media print {   /* медиазапросы не поддерживется в IE8 */<br>        .more {page-break-inside: avoid;}<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>    &lt;h2>Мусорные пакеты&lt;/h2><br>    &lt;p>...&lt;/p><br>    &lt;p class="more">Читать дальше&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
 </div>
 </body></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><title>Псевдоэлемент placeholder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдоэлемент <samp>::placeholder</samp></h2>
+<div class="item">
+	<p>Псевдоэлемент <samp class="sin bold">::placeholder</samp> задаёт стилевое оформление подсказывающего текста, созданного атрибутом <samp class="sin">placeholder</samp> у элемента <samp class="teg">input</samp> или <samp class="teg">textarea</samp>. К этому псевдоэлементу могут применяться только стилевые свойства, связанные со свойствами шрифта, полями, отступами, границами, цветом и фоном.</p>
+
+  <pre class="item2"><code>&lt;style><br>  textarea::-moz-placeholder          {color:#009}<br>  textarea::-webkit-input-placeholder {color:#009}<br>  textarea:-ms-input-placeholder      {color:#009} /* не ошибка */<br>  textarea::-ms-input-placeholder     {color:#009} /* их два */<br>  textarea::placeholder               {color:#009}<br>  textarea {color: red}<br>&lt;/style><br><br>&lt;textarea placeholder="введите красный текст">&lt;/textarea></code></pre>
+	<style type="text/css">
+		.examplePlaceholder {max-width:500px; height:30px; color:red; resize:none; background:#fcfcfc; width:100%;}
+		.examplePlaceholder::placeholder{color:#009;}
+	</style>
+	<textarea class="examplePlaceholder" placeholder="введите красный текст"></textarea>
+
+  <div class="no mt30 mb30">
+		Т.к. в разных браузерах цвет шрифта <samp class="sin">placeholder</samp> может быть прозрачной, то лучше дополнительно указывать параметр <samp class="sin">opacity</samp>
+
+		<pre class="item2"><code>  ::-webkit-input-placeholder {color:#f00; opacity:1;}<br>  ::-moz-placeholder          {color:#f00; opacity:1;}<br>  :-ms-input-placeholder      {color:#f00; opacity:1;}</code></pre>
+	</div>
+
+  <div><samp class="pur">Placeholder</samp> не является заменой элемента <samp class="teg">label</samp>. Без метки, которая программно связывается с формой с помощью <samp class="sin">for</samp> и <samp class="sin">id</samp> атрибутов, такие программы, как скринридеры не смогут анализировать элементы <samp class="teg">label</samp>.</div>
+
+  <div class="hr30 mt30"></div>
+
+  <ul class="list l1 mt30 mb20">
+    <li>Internet Explorer использует псевдокласс <samp class="sin">:-ms-input-placeholder</samp>.</li>
+    <li>Microsoft Edge использует псевдоэлемент <samp class="sin">::-ms-input-placeholder</samp>.</li>
+    <li>Старые версии браузеров используют псевдоэлемент <samp class="sin">::-webkit-input-placeholder</samp>.</li>
+    <li>Firefox до версии 51 использует псевдоэлемент <samp class="sin">::-moz-placeholder</samp>.</li>
+  </ul>
+
+	<div class="no">IE8 не поддерживают атрибут «placeholder» — он просто не будет отображаться. Для отображени подсказки в браузерах, которые не поддерживают атрибут, необходимо использовать скрипты.</div>
+</div>
+</body></html>

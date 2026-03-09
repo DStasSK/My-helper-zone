@@ -1,0 +1,310 @@
+<!DOCTYPE html><html><head><title>background-gradient</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+  .stop span {background:#fafafa; line-height:1.2;}
+
+	.box{width:calc(50% - 10px); min-height:100px; margin:10px; line-height:1.2; text-align:left;}
+	.boxf{padding:20px 0; text-align:center; font-size:60px;}
+	/* .boxs{width:300px; height:250px; display:block; margin:0 auto;} */
+	.box0{display:flex; justify-content:center; margin:0 -10px;}
+	.box1{background:repeating-linear-gradient(-30deg, #291810, #291810 8px, #FAAB1B 10px, #FAAB1B 14px);}
+	.box2{background:repeating-linear-gradient(-45deg, #E4E3DF, #E4E3DF 5px, #909090 6px, #909090 8px);}
+	.box3{background:linear-gradient(to left, #f38181, #fce38a);}
+	.box4-1{background:repeating-linear-gradient(0deg, #777, #777 1px, transparent 1px, transparent 20px); width:100%;height:140px;}
+	.box4-2{background:repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 20px); width:100%;height:140px;}
+</style>
+</head>
+<body>
+  
+<h2 class="sin">Функция <samp>linear-gradient()</samp></h2>
+<div class="item" id="linear">
+  <p>Стилевая функция <samp class="sin dib">linear-gradient()</samp> добавляет линейный градиент к фону элемента. Она выступает в качестве значения свойств <samp class="sin dib">background-image</samp> или <samp class="sin">background</samp>.</p>
+
+  <pre class="item2 mb30"><code>.elem {<br>  background: linear-gradient(направление, цвет1 ||, цвет2...);<br>}</code></pre>
+
+  <div class="no no1">Перед определением любого градиентного фона необходимо задать свойству <samp class="sin">background</samp> цвет по умолчанию. Такой цвет должен быть использован в качестве запасного, если браузер не поддерживает градиент.</div>
+
+  <p>Направление градиента задаётся или указанием необходимого угла наклона градиентной линии, или при помощи ключевых слов. По умолчанию направление градиента задаётся снизу - вверх.</p>
+  <ul class="list mb30">
+    <li>Угол наклона градиентной линии, который показывает направление градиента, отсчитывается от вертикальной линии. В качестве значений обычно используются градусы - <samp class="lsin">deg</samp>, при этом допускается отрицательное значение угла. Нулю градусов (или 360°) соответствует градиент снизу вверх, далее отсчёт ведётся по часовой стрелке.</li>
+    <li>При использовании ключевых слов - вначале пишется слово <samp class="pur">to</samp>, а затем добавляются ключевые слова <samp class="lsin">top</samp>, <samp class="lsin">bottom</samp>, <samp class="lsin">left</samp>, <samp class="lsin">right</samp>, а также их сочетание из двух слов. Порядок слов не важен, можно написать <samp class="lsin dib">to left top</samp> или <samp class="lsin dib">to top left</samp>. Ключевые слова указывают - в каком направлении будет производится градиентная заливка используемыми цветами.</li>
+  </ul>
+
+	<p>Например, когда мы применяем диагональный градиент под 45° в не совсем квадратном элементе, градиент не переходит напрямую из одного угла в другой. Вместо этого градиент определит абсолютный центр элемента, расчитает опорные точки, откуда он должен продвигаться (так чтобы цвета начинались и оканчивались в границах элемента) и только затем двинется в направлении угла, заданном в значении.</p>
+
+	<p>При использовании ключевых слов, если мы хотим, чтобы градиент в элементе двигался слева направо, мы можем использовать значение <samp class="sin">to right</samp> для указания направления, в котором линейный градиент должен продвигаться. Если мы хотим, чтобы градиент переходил от левой верхней до правой нижней части элемента (по диагонали), мы можем использовать значение ключевого слова <samp class="sin">to right bottom</samp>.</p>
+
+  <!-- В табл. 1 приведены разные позиции и тип получаемого градиента для цветов #fff и #000, по другому от белого к чёрному. -->
+
+  <style>
+    .view{border-collapse:collapse; margin:auto;}
+    .view td{border:1px solid #aaa; padding:8px; vertical-align:middle;}
+    .view td:nth-child(1){background:#fcfcfc; letter-spacing:-0.5px;}
+    .view td:nth-child(2){padding:0px;}
+    .el {min-width:100px; min-height:60px;}
+    .el1 {background: linear-gradient(0deg, #a0f, #fff);}
+    .el2 {background: linear-gradient(90deg, #a0f, #fff);}
+    .el3 {background: linear-gradient(to right, #a0f, #fff);}
+    .el4 {background: linear-gradient(to left, #a0f, #fff);}
+    .el5 {background: linear-gradient(to top, #a0f, #fff);}
+    .el6 {background: linear-gradient(to bottom, #a0f, #fff);}
+    .el7 {background: linear-gradient(to top left, #a0f, #fff);}
+    .el8 {background: linear-gradient(to bottom left, #a0f, #fff);}
+    .el9 {background: linear-gradient(-135deg, #a0f, #fff);}
+  </style>
+  <table class="view mt40">
+    <tr><td><pre><code>.el1 {background: linear-gradient(0deg, #a0f, #fff);}</code></pre></td><td><div class="el el1"></div></td></tr>
+    <tr><td><pre><code>.el2 {background: linear-gradient(90deg, #a0f, #fff);}</code></pre></td><td><div class="el el2"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(to right, #a0f, #fff)}</code></pre></td><td><div class="el el3"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(to left, #a0f, #fff)}</code></pre></td><td><div class="el el4"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(to top, #a0f, #fff)}</code></pre></td><td><div class="el el5"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(to bottom, #a0f, #fff)}</code></pre></td><td><div class="el el6"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(to top left, #a0f, #fff)}</code></pre></td><td><div class="el el7"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(to bottom left, #a0f, #fff)}</code></pre></td><td><div class="el el8"></div></td></tr>
+    <tr><td><pre><code>.el3 {background: linear-gradient(-135deg, #a0f, #fff)}</code></pre></td><td><div class="el el9"></div></td></tr>
+
+    <!-- <tr><td><pre><code></code></pre></td><td><div class="el "></div></td></tr> -->
+  </table>
+
+
+
+  <div class="hr40"></div>
+
+	<p>Для корректного отображения цвета фона в различных браузерах необходимо добавлять префиксы, а для Internet explorer - использовать фильтры.</p>
+
+  <ul class="list">
+    <li>Opera до версии 12.10 поддерживает -o-linear-gradient().</li>
+    <li>Firefox до версии 16 поддерживает -moz-linear-gradient().</li>
+    <li>Chrome до версии 26, Safari до версии 6.1 и Android до версии 4.4 поддерживают -webkit-linear-gradient().</li>
+  </ul>
+  
+  <div class="no">Все свойства с префиксами не используют ключевое слово <strong><samp class="sin">to</samp></strong> при задании направления градиента.</div>
+
+</div><!-- /item -->
+
+
+
+<div class="item">
+<h2 class="sin">Стоп-цвета</h2>
+	<p>Как минимум, градиентный фон переходит от одного цвета к другому, однако, мы можем добавить несколько цветов к градиенту и заставить браузер сделать по всем ним переход. Для этого мы добавим стоп-цвета в данную функцию градиента — с запятыми, которые отделяют один цвет от другого.</p>
+
+	<div class="item2 stop br0" style="background: linear-gradient(to right, #f6f1d3, #648880, #293f50);">
+		<pre><code>div{<br>  background: #648880;<br>  background:linear-gradient(to right, #f6f1d3, #648880, #293f50);<br>}</code></pre>
+	</div>
+
+	<p>По умолчанию браузер будет позиционировать каждый стоп-цвет на равном расстоянии от следующего и переходить между ними соответственно. Если требуется больше контроля над тем, как желательно расположить цвета, то их места в градиенте могут быть определены для каждого цвета. Место должно быть объявлено как значение размера и идёт после значения цвета. Если не указано иное, то первый цвет будет позиционироваться на 0%, а последний цвет на 100%.</p>
+
+	<div class="item2 br0 stop" style="background: linear-gradient(to right, #f6f1d3, #648880 85%, #293f50)">
+		<pre><code>div{<br>  background: #648880;<br>  background:linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);<br>}</code></pre>
+	</div>
+
+	<div class="item2 br0 stop mt20" style="background: linear-gradient(to right, black, #fff 10%, black)">
+		<pre><code>div{<br>  background: #648880;<br>  background:linear-gradient(to right, black, #fff 10%, black);<br>}</code></pre>
+	</div>
+
+	<div class="item2 br0 stop mt20" style="background: linear-gradient(to right, black, #fff 10%, #fff 90%, black)">
+		<pre><code>div{<br>  background: #648880;<br>  background:linear-gradient(to right, black, #fff 10%, #fff 90%, black);<br>}</code></pre>
+	</div>
+</div>
+
+
+
+
+<div class="item" id="repeating-linear-gradient">
+<h2 class="sin">Функция <samp>repeating-linear-gradient()</samp></h2>
+  <p>Стилевая функция <samp class="sin dib">repeating-linear-gradient()</samp> создаёт бесконечно повторяющийся линейный градиент, образуя тем самым фоновый узор. По своему действию похожа на функцию <samp class="sin dib">linear-gradient()</samp> и имеет те же параметры. При этом цвета последовательно сменяют друг друга, после последнего цвета в списке цветов градиента сразу же идёт первый.</p>
+
+  <p>В функции <samp class="sin dib">linear-gradient()</samp> можно использовать несколько цветов, которые будут переходить из одного в другой на протяжении элемента. В функции <samp class="sin dib">repeating-linear-gradient()</samp> есть возможность задать интервалы для того или иного цвета общая сумма которых может быть меньше размера элемента, при этом дальнейшее чередование цветов зациклено.</p>
+
+  <div class="item2 br0 stop mb20" style="background: linear-gradient(to right, #ffd, #688 40%, #345 50%)">
+		<pre class="ls-1"><code>div{<br>  background: #648880;<br>  background: linear-gradient(to right, #ffd, #688 40%, #345 50%);<br>}</code></pre>
+	</div>
+
+  <div class="item2 br0 stop mb20" style="background: linear-gradient(to right, #ffd, #688 40%, #345 50%, transparent 50%)">
+		<pre class="ls-1"><code>div{<br>  background: #648880;<br>  background: linear-gradient(to right, #ffd, #688 40%, #345 50%, transparent 50%);<br>}</code></pre>
+	</div>
+
+  <div class="item2 br0 stop mb30" style="background: repeating-linear-gradient(to right, #ffd, #688 40%, #345 50%)">
+		<pre class="ls-1"><code>div{<br>  background: #648880;<br>  background: repeating-linear-gradient(to right, #ffd, #688 40%, #345 50%);<br>}</code></pre>
+	</div>
+
+  <ul class="list">
+    <li>Chrome до версии 26, Safari до версии 6.1 и Android до версии 4.4 поддерживают -webkit-repeating-linear-gradient().</li>
+    <li>Opera до версии 12.10 поддерживает -o-repeating-linear-gradient().</li>
+    <li>Firefox до версии 16 поддерживает -moz-repeating-linear-gradient().</li>
+  </ul>
+
+    <div class="no">Все свойства с префиксами не используют ключевое слово <striong><samp class="pur">to</samp></striong> при задании направления градиента.</div>
+</div>
+
+
+
+<div class="item">
+<h2 class="sin">Примеры с градиентом</h2>
+  <!-- example_0 -->
+	<style>
+		.example_0{background:#009}
+		.example_0{border-collapse:separate; border-spacing:0; border-color:#fff;}
+		.example_0 td:nth-child(1){width:370px; background:#eee; padding:5px;}
+		.example_0 td:nth-child(2){
+      background:#fafafa;
+			background:-webkit-linear-gradient(top, transparent, #fff);
+			background:linear-gradient(to top, #fff, transparent);
+    }
+	</style>
+	<table width="100%" class="example_0 mb40">
+    <tr>
+      <td width="370px">
+        <pre><code>&lt;table class="example_0"><br>  &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>&lt;/table></code></pre>
+        <pre class="ls-05"><code class="css"><br>.example_0 {background: #009}<br>.example_0 td:nth-child(1) {<br>  background: #eee;<br>}<br>.example_0 td:nth-child(2) {<br>  background: #fafafa;<br>  background: -webkit-linear-gradient(top,<br>              transparent, #fff);<br>  background: linear-gradient(to top,<br>              #fff, transparent);<br>}</code></pre></td>
+      <td></td>
+    </tr>
+	</table>
+  <!-- /example_0 -->
+
+
+	<div><!-- box1, 2 -->
+		<div class="box0">
+			<div class="box box1 boxf"><samp style="color:aqua;">box1</samp></div>
+			<div class="box box2 boxf"><samp class="red">box2</samp></div>
+		</div>
+		<div class="box0">
+			<div class="box"><samp>.box1{background: repeating-linear-gradient(-30deg, #291810, #291810 8px, #FAAB1B 10px, #FAAB1B 14px);}</samp></div>
+			<div class="box"><samp>.box2{background: repeating-linear-gradient(-45deg, #E4E3DF, #E4E3DF 5px, #909090 6px, #909090 8px);}</samp></div>
+		</div>
+	</div>
+
+
+	<div><!-- box3, 4 -->
+		<div class="box0" style="padding-top:20px;">
+			<div class="box box3 boxf"><samp style="color:aqua;">box3</samp></div>
+			<div class="box" style="position:relative;float:none;">
+				<samp class="red boxf" style="z-index:2;position:absolute;padding-left:30%;color:#000080;">box4</samp>
+				<div style="position:absolute;top:0;left:0;z-index:1;" class="box4-1"></div>
+				<div style="position:absolute;top:0;left:0;z-index:1;" class="box4-2"></div>
+			</div>
+		</div>
+		<div class="box0">
+			<div class="box"><samp>.box3{background: linear-gradient(to left, #f38181, #fce38a);}</samp></div>
+			<div class="box"><samp>.box4-1{background: repeating-linear-gradient(0deg, #777, #777 1px, transparent 1px, transparent 20px);}<br>.box4-2{background: repeating-linear-gradient(90deg, #777, #777 1px, transparent 1px, transparent 20px);}</samp></div>
+		</div>
+	</div>
+
+
+
+	<div class="mt40 mb40"><!-- box7 -->
+		<style>
+			.box7 {
+			display:block; margin:0px auto; padding:0 20px; width:calc(50% - 10px); height:130px;
+			border-top: 20px solid #3ACFD5; /* цвет верхней границы - начало градиента */
+			border-bottom: 20px solid #3a4ed5; /* цвет нижней границы - окончание градиента */
+			border-radius:10px;
+
+			/* свойства width и height включают в себя значения полей и границ, но не отступов */
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			background-position: 0 0, 100% 0; /* положение 2-х фоновых изображений: слева и справа; */
+
+			background-repeat: no-repeat;
+			-webkit-background-size: 20px 100%;
+			-moz-background-size: 20px 100%;
+			background-size: 20px 100%;  /* размер фонового изображения */
+
+			/* само фоновое изображение, цвет начинает меняться сверху (top) */
+			/* задаётся для левого и правого backgrounda */
+			background-image: -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),
+			 -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+			background-image: -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),
+			 -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+			background-image: -o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),
+			 -o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+			background-image: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%),
+			 linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);}
+		</style>
+
+		<div class="box0" style="margin:20px 0 10px;">
+			<div class="boxf box7"><samp class="red">box7</samp></div>
+			<div class="box" style="padding:0 10px;"><b>background-image</b><br>cверху и снизу - border шириной 20px;<br>слева и справа два фоновых градиента шириной 20рх;</div>
+		</div>
+		<div class="item2">
+			<samp class="point red" onclick='b7.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="b7" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="txt box7">box7&lt;/div></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre><code>.box7 {<br>  display:block; margin:0px auto; padding:0 20px;<br>  width:300px; height:250px;<br>  border-top:20px solid #3ACFD5;    /* цвет верхней границы */<br>  border-bottom:20px solid #3a4ed5; /* цвет нижней  границы */<br>  border-radius:10px;<br><br>  /* свойства width и height включают в себя<br>     значения полей и границ, но не отступов */<br>  -webkit-box-sizing:border-box;<br>  -moz-box-sizing:border-box;<br>  box-sizing:border-box;<br><br>  /* положение 2-х фоновых изображений: слева и справа; */<br>  background-position:0 0, 100% 0;<br><br>  background-repeat:no-repeat;<br>  -webkit-background-size:20px 100%; /* размер фонового изображения */<br>  -moz-background-size:20px 100%;    /* 20px - ширина */<br>  background-size:20px 100%;         /* 100% - высота */<br><br>  /* само фоновое изображение, цвет начинает меняться сверху (top) */<br>  /* задаётся для левого и правого backgrounda */<br>  background-image:-webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),<br>   -webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  background-image:-moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),<br>   -moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  background-image:-o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%),<br>   -o-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  background-image:linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%),<br>   linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);}</code></pre>
+				<span class="yel point" onclick='b7.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div><!-- /item2 -->
+	</div>
+
+
+	<div class="mt40 mb40"><!-- box8 -->
+		<style>
+			.box8{
+				display:block; margin:0px auto; width:calc(50% - 50px); height:90px; padding:0;
+				border:20px solid transparent; /* прозрачная граница шириной в 20px */
+
+				/* наша собственная граница */
+				-moz-border-image:-moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+				-webkit-border-image:-webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);
+				border-image:linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
+				border-image-slice:1;} /* смещение фона границы */
+		</style>
+		<div class="box0" style="margin:20px 0 10px;">
+			<div class="boxf box8"><samp class="red">box8</samp></div>
+			<div class="box" style="padding:0 10px;"><b>border-image</b><br>прозрачная граница шириной 20рх;<br><br>не работает border-radius</div>
+		</div>
+		<p>Браузеры, которые поддерживают данное свойство: Chrome, Internet Explorer 11, Firefox, Safari, и Opera. Данное свойство работает только с «квадратными» блоками. То есть вы не сможете сделать закругленные углы границы с помощью свойства <samp class="sin">border-radius</samp>.</p>
+		<div class="item2">
+			<samp class="point red" onclick='b8.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="b8" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="txt box8">box8&lt;/div></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre class="mab" style="font-size:15px"><code>.box8{<br>  display:block; margin:0px auto;<br>  width:calc(50% - 50px); height:130px; padding:0;<br>  border:20px solid transparent; /* прозрачная граница в 20px */<br><br>  /* наша собственная граница */<br>  -moz-border-image:-moz-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  webkit-border-image:-webkit-linear-gradient(top, #3acfd5 0%, #3a4ed5 100%);<br>  border-image:linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);<br>  border-image-slice:1;} /* смещение фона границы */</code></pre>
+				<span class="yel point" onclick='b8.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div><!-- /item2 -->
+	</div><!-- /box8 -->
+
+
+	<div class="mt40"><!-- box9 -->
+		<style>
+			.box9{
+				width:calc(50% - 50px); height:90px; display:block; margin:0px auto;
+				padding:10px 10px 10px 40px; position:relative;
+				background:-webkit-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background:-moz-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background:-o-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background:repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);
+				background-size:100% 21px;}
+			.box9:before{
+				content:""; display:block; height:100%; width:4px; border-left:4px double #FCA1A1;
+				position:absolute; left:30px; top:0;}
+		</style>
+		<div class="box0" style="margin:20px 0px 10px;">
+			<div class="boxf box9"><samp class="red">box9</samp></div>
+			<div class="box" style="padding:0 10px;"> </div>
+		</div>
+		<div class="item2">
+			<samp class="point red" onclick='b9.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="b9" onclick="event.stopPropagation()">
+				<pre><code>&lt;div class="txt box9">box9&lt;/div></code></pre>
+				<br><samp class="red">CSS</samp>
+				<pre class="mab" style="font-size:14px"><code>.box9{<br>  width:calc(50% - 50px); height:90px;<br>  display:block; margin:0px auto;<br>  padding:10px 10px 10px 40px; position:relative;<br>  background:-webkit-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background:-moz-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background:-o-repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background:repeating-linear-gradient( 0deg, #f9f9f9, #f9f9f9 20px, #cccccc 21px);<br>  background-size:100% 21px;}<br>.box9:before{<br>  content:""; display:block;<br>  height:100%; width:4px;<br>  border-left:4px double #FCA1A1;<br>  position:absolute; left:30px; top:0;}</code></pre>
+				<span class="yel point" onclick='b9.classList.toggle("hiden");'>Свернуть</span>
+			</div><!-- /hiden -->
+		</div><!-- /item2 -->
+	</div><!-- /box9 -->
+</div><!-- /item -->
+
+</body></html>

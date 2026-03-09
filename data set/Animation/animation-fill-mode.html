@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>CSS cвойство animation-fill-mode</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>animation-fill-mode</samp></h2>
+
+<div class="item" id="z9">
+	<p>CSS cвойство <samp class="sin dib">animation-fill-mode</samp> oпределяет, какие стили должны применяться к элементу, когда анимация не проигрывается. Например, после её завершения или при остановке. По умолчанию, в момент окончания анимации стиль элемента возвращается к исходному, свойство <samp class="sin">animation-fill-mode</samp> позволяет изменить это поведение и сделать так, чтобы стиль элемента оставался как у последнего ключевого кадра. Значение по умолчанию <samp class="lsin">none</samp>, не наследуется, не анимируется.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  animation-fill-mode: none | forwards | backwards | both;<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">none</samp> - не будет применять любые стили из анимации к элементу до или после того, как анимация запущена.</li>
+		<li><samp class="sin">forwards</samp> - сохранит стили, объявленные в последнем указанном ключевом кадре. На эти стили, однако, могут повлиять значения свойств <samp class="sin">animation-direction</samp> и <samp class="sin">animation-iteration-count</samp>, определяющие окончание анимации.</li>
+		<li><samp class="sin">backwards</samp> - будет применять стили первого заданного ключевого кадра, до того, как анимация будет работать. Включает применение этих стилей в течение всего времени, что может быть задано в <samp class="sin">animation-delay</samp>. Значение <samp class="lsin">backwards</samp> также может зависеть от значения свойства <samp class="sin">animation-direction</samp>.</li>
+		<li><samp class="sin">both</samp> - применит поведение сразу от обоих значений <samp class="lsin">forwards</samp> и <samp class="lsin">backwards</samp>.</li>
+	</ul>
+
+	<style>
+		.animation-box{font-size:18px; font-family:monospace; padding:5px 10px; min-width:320px; margin:20px 0}
+
+		.animation-box-elem {left:0; width:310px; margin-bottom:10px;}
+
+		.animation-block {height:20px; width:20px; position:relative; left:0;
+			animation:swipe 2s linear 2;}
+		.afm-none {animation-fill-mode:none; background:crimson;}
+		.afm-forwards {animation-fill-mode:forwards; background:midnightblue;}
+		.afm-backwards {animation-fill-mode:backwards; background:mediumseagreen;}
+		.afm-both {animation-fill-mode:both; background:goldenrod;}
+
+		@keyframes swipe { 0%{left:0} 100%{left:290px} }
+	</style>
+	<div class="animation-box item2">
+		<samp class="sin">animation: <samp class="lsin">my_anim 2s linear 2;</samp></samp>
+		<br><samp class="sin">animation-fill-mode: <samp class="lsin">none;</samp></samp>
+		<div class="animation-box-elem">
+			<div class="animation-block afm-none"></div>
+		</div>
+		<samp class="sin">animation-fill-mode: <samp class="lsin">forwards;</samp></samp>
+		<div class="animation-box-elem">
+			<div class="animation-block afm-forwards"></div>
+		</div>
+		<samp class="sin">animation-fill-mode: <samp class="lsin">backwards;</samp></samp>
+		<div class="animation-box-elem">
+			<div class="animation-block afm-backwards"></div>
+		</div>
+		<samp class="sin">animation-fill-mode: <samp class="lsin">both;</samp></samp>
+		<div class="animation-box-elem">
+			<div class="animation-block afm-both"></div>
+		</div>
+	</div>
+
+	<div class="mt40">В старом коде могут всртечаться различные префиксы:</div>
+	<pre class="item2"><code>.box {<br>  -webkit-animation-fill-mode: forwards;<br>     -moz-animation-fill-mode: forwards;<br>       -o-animation-fill-mode: forwards;<br>          animation-fill-mode: forwards;<br>}</code></pre>
+</div>
+
+
+
+</body>
+</html>

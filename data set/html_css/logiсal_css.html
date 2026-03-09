@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>Сопоставление логических и физических свойств CSS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Сопоставление логических и физических свойств CSS.</h2>
+
+<div class="item">
+	<p>В зависимости от языка, для которого разрабатывается сайт, поток сайта - его блочная ось (определяемая свойством <a href="./txt/writing-mode.html" class="sin tdu">writing-mode</a>) в большинстве случаев будет идти сверху вниз. Но для некоторых языков блочная ось может идти справа налево (японский) или даже слева направо (монгольский). В обоих случаях у нас будет горизонтальная прокрутка, а не вертикальная, при этом конструкция сайта может быть нарушена.</p>
+	<p>Для сохранения структуры сайта при использовании на разных языках были введены некоторые дублирующие свойства, аналогичные имеющимся.</p>
+
+	<style>
+		th{height:35px; color:#333;}
+		td{font-family:monospace; color:#009; background:#fff}
+		td i{font-family:serif; color:#000;}
+		td b{font-weight:normal; color:#07f;}
+	</style>
+	<table class="tb t1c th1 tw t2 th2 todd mt30">
+		<tr>
+			<th width="50%">Старые (физические) свойства</th>
+			<th>Дублирующие (логические) свойства</th>
+		</tr>
+
+		<tr><th colspan="2" style='background:#fff'>свойства блочной модели</th></tr>
+		<tr><td>margin-top</td><td>margin-block-start</td></tr>
+		<tr><td>margin-bottom</td><td>margin-block-end</td></tr>
+		<tr><td>margin-left</td><td>margin-inline-start</td></tr>
+		<tr><td>margin-right</td><td>margin-inline-end</td></tr>
+
+		<tr><td>padding-top</td><td>padding-block-start</td></tr>
+		<tr><td>padding-bottom</td><td>padding-block-end</td></tr>
+		<tr><td>padding-left</td><td>padding-inline-start</td></tr>
+		<tr><td>padding-right</td><td>padding-inline-end</td></tr>
+
+		<tr><td>border-top</td><td>border-block-start</td></tr>
+		<tr><td>border-bottom</td><td>border-block-end</td></tr>
+		<tr><td>border-left</td><td>border-inline-start</td></tr>
+		<tr><td>border-right</td><td>border-inline-end</td></tr>
+
+		<tr><th colspan="2">обтекание блоков/элементов</th></tr>
+		<tr><td>float:<b>left</b></td><td>float:<b>inline-start</b><br><i>(для английского - LTR)</i></td></tr>
+		<tr><td>float:<b>right</b></td><td>float:<b>inline-end</b><br><i>(для английского - LTR)</i></td></tr>
+
+		<tr><th colspan="2" style='background:#fff'>размеры блоков/элементов</th></tr>
+		<tr><td>width</td><td>inline-size</td></tr>
+		<tr><td>max-width</td><td>max-inline-size</td></tr>
+		<tr><td>min-width</td><td>min-inline-size</td></tr>
+		<tr><td>height</td><td>block-size</td></tr>
+		<tr><td>max-height</td><td>max-block-size</td></tr>
+		<tr><td>min-height</td><td>min-block-size</td></tr>
+
+		<tr><th colspan="2">выравнивание текста</th></tr>
+		<tr><td>text-align:<b>left</b></td><td>text-align:<b>start</b> <i>(для английского - LTR)</i></td></tr>
+		<tr><td>text-align:<b>right</b></td><td>text-align:<b>end</b> <i>(для английского - LTR)</i></td></tr>
+
+		<tr><th colspan="2" style='background:#fff'>для тега <span class="teg">textarea</span></th></tr>
+		<tr><td>resize:<b>horizontal</b></td><td>resize:<b>inline</b></td></tr>
+		<tr><td>resize:<b>vertical</b></td><td>resize:<b>block</b></td></tr>
+
+		<tr><th colspan="2">позиционирование в CSS</th></tr>
+		<tr><td>top</td><td>inset-block-start</td></tr>
+		<tr><td>right</td><td>inset-inline-end</td></tr>
+		<tr><td>bottom</td><td>inset-block-end</td></tr>
+		<tr><td>left</td><td>inset-inline-start</td></tr>
+		<tr><td><b>top right bottom left</b></td><td>inset:<b>x x x x</b></td></tr>
+
+	</table>
+
+
+	<div class="no mt40">На сайтах, написанных под английский (или русский) языки, физические и логические свойства будут работать одинаково. Для сайтов на других языках значения сокращений, как в примере с <samp class="sin">margin</samp>, должны работать в соответствии со значением свойства <a href="./txt/direction.html" class="sin tdu">direction</a> или <a href="./txt/writing-mode.html" class="sin tdu">writing-mode</a>.</div>
+
+	<!-- <pre class="item2"><code></code></pre> -->
+</div>
+
+</body>
+</html>

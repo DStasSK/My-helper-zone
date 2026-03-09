@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>CSS cвойство animation-name</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>animation-name</samp></h2>
+
+<div class="item">
+	<p>CSS cвойство <samp class="sin dib">animation-name</samp> задаёт список анимаций, чтобы применить к элементу. Каждое имя является правилом <samp class="red">@keyframes</samp>, которое задаёт значения свойств для последовательности анимации. Значение по умолчанию <samp class="lsin">none</samp> (oтключает анимацию).</p>
+
+	<pre class="item2 mt20"><code>div {<br>  animation-name: none | custom-ident;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">none</samp> - oтключает анимацию. Может быть использовано для отключения анимации без изменения порядка других идентификаторов, или для отключения анимации, поступающей из каскада.</li>
+		<li><samp class="sin">custom-ident</samp> - идентификатор анимации - строка. Состоит из комбинации букв без учёта регистра от <b>a</b> до <b>z</b>, цифр от <b>0</b> до <b>9</b>, подчёркивания ( _ ), и/или черты ( - ). Первый символ без черты должен быть буквой (то есть, без цифры в начале, даже если перед ним стоит черта.) Кроме того, две черты запрещены в начале идентификатора. Идентификатор анимации не может быть <b>none</b>, <b>unset</b>, <b>initial</b>, или <b>inherit</b> в любой комбинации случаев.</li>
+	</ul>
+
+	<p>Использования одного свойства <samp class="sin">animation-name</samp> при этом недостаточно. Кроме того, необходимо объявить свойство <samp class="sin">animation-duration</samp>, чтобы браузер знал, как долго должна длиться анимация до завершения.</p>
+
+
+	<div class="mt40">В старом коде могут всртечаться различные префиксы:</div>
+	<pre class="item2"><code>.elem {<br>  -webkit-animation-name: slide;<br>     -moz-animation-name: slide;<br>       -o-animation-name: slide;<br>          animation-name: slide;<br>}</code></pre>
+</div>
+
+
+
+
+</body>
+</html>

@@ -20,6 +20,9 @@
 				<span><a href="#allowfullscreen" title="Разрешает для фрейма полноэкранный режим.">allowfullscreen</a></span>
 				<span><a href="#allowtransparency" title="Устанавливает прозрачный фон фрейма, через который виден фон страницы. Нестандартный">allowtransparency</a></span>
 				<span><a href="#frameborder" title="Устанавливает, отображать границу вокруг фрейма или нет. Только HTML4">frameborder</a></span>
+
+				<span><a href="#loading" title="Атрибут откладывает загрузку содержимого iframe, пока iframe не должен будет попасть во вьюпорт - т.е. пока не попадет на экран">loading</a></span>
+
 				<span><a href="#height" title="Высота фрейма.">height</a></span>
 				<span><a href="#hspace" title="Горизонтальный отступ от фрейма до окружающего контента. Устарел">hspace</a></span>
 				<span><a href="#marginheight" title="Отступ сверху и снизу от содержания до границы фрейма. Только HTML4">marginheight</a></span>
@@ -52,22 +55,58 @@
 <div class="item">
 <h3 class="sin"  id="z0"><a href="#">Атрибуты.</a></h3>
 	<table class="t1 tb mb10">
-		<tr><td><a href="#align">align</a></td><td>Определяет, как фрейм будет выравниваться по краю, а также способ обтекания его текстом.<span class="no ml10">устарел</span></td></tr>
-		<tr><td><a href="#allowfullscreen">allowfullscreen</a></td><td>Разрешает для фрейма полноэкранный режим.</td></tr>
-		<tr><td style="letter-spacing:-1px"><a href="#allowtransparency">allowtransparency</a></td><td>Устанавливает прозрачный фон фрейма, через который виден фон страницы.<span class="no ml10">нестандартный</span></td></tr>
-		<tr><td><a href="#frameborder">frameborder</a></td><td>Устанавливает, отображать границу вокруг фрейма или нет.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td></tr>
-		<tr><td><a href="#height">height</a></td><td>Высота фрейма.</td></tr>
-		<tr><td><a href="#hspace">hspace</a></td><td>Горизонтальный отступ от фрейма до окружающего контента.<span class="no ml10">устарел</span></td></tr>
-		<tr><td><a href="#marginheight">marginheight</a></td><td>Отступ сверху и снизу от содержания до границы фрейма.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td></tr>
-		<tr><td><a href="#marginwidth">marginwidth</a></td><td>Отступ слева и справа от содержимого до границы фрейма.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td></tr>
-		<tr><td><a href="#name">name</a></td><td>Имя фрейма.</td></tr>
-		<tr><td><a href="#sandbox">sandbox</a></td><td>Позволяет задать ряд ограничений на контент загружаемый во фрейме.<span class="html5"></span></td></tr>
-		<tr><td><a href="#scrolling">scrolling</a></td><td>Способ отображения полосы прокрутки во фрейме.</td></tr>
-		<tr><td><a href="#seamless">seamless</a></td><td>Определяет, что содержимое фрейма должно отображаться так, словно оно является частью документа.<span class="html5"></span></td></tr>
-		<tr><td><a href="#src">src</a></td><td>Путь к файлу, содержимое которого будет загружаться во фрейм.</td></tr>
-		<tr><td><a href="#srcdoc">srcdoc</a></td><td>Хранит содержимое фрейма непосредственно в атрибуте.<span class="html5"></span></td></tr>
-		<tr><td><a href="#vspace">vspace</a></td><td>Вертикальный отступ от фрейма до окружающего контента.<span class="no ml10">устарел</span></td></tr>
-		<tr><td><a href="#width">width</a></td><td>Ширина фрейма.</td></tr>
+		<tr>
+			<td><a href="#align">align</a></td><td>Определяет, как фрейм будет выравниваться по краю, а также способ обтекания его текстом.<span class="no ml10">устарел</span></td>
+		</tr>
+		<tr>
+			<td><a href="#allowfullscreen">allowfullscreen</a></td><td>Разрешает для фрейма полноэкранный режим.</td>
+		</tr>
+		<tr>
+			<td style="letter-spacing:-1px"><a href="#allowtransparency">allowtransparency</a></td><td>Устанавливает прозрачный фон фрейма, через который виден фон страницы.<span class="no ml10">нестандартный</span></td>
+		</tr>
+		<tr>
+			<td><a href="#frameborder">frameborder</a></td><td>Устанавливает, отображать границу вокруг фрейма или нет.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td>
+		</tr>
+		<tr>
+			<td><a href="#loading">loading</a></td><td>Атрибут откладывает загрузку содержимого <samp>iframe</samp>, пока <samp>iframe</samp> не попасдет во вьюпорт - т.е. пока не попадет на экран.
+			<div class="no">Не поддерживается в Firefox</div></td>
+		</tr>
+		<tr>
+			<td><a href="#height">height</a></td><td>Высота фрейма.</td>
+		</tr>
+		<tr>
+			<td><a href="#hspace">hspace</a></td><td>Горизонтальный отступ от фрейма до окружающего контента.<span class="no ml10">устарел</span></td>
+		</tr>
+		<tr>
+			<td><a href="#marginheight">marginheight</a></td><td>Отступ сверху и снизу от содержания до границы фрейма.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td>
+		</tr>
+		<tr>
+			<td><a href="#marginwidth">marginwidth</a></td><td>Отступ слева и справа от содержимого до границы фрейма.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td>
+		</tr>
+		<tr>
+			<td><a href="#name">name</a></td><td>Имя фрейма.</td>
+		</tr>
+		<tr>
+			<td><a href="#sandbox">sandbox</a></td><td>Позволяет задать ряд ограничений на контент загружаемый во фрейме.<span class="html5"></span></td>
+		</tr>
+		<tr>
+			<td><a href="#scrolling">scrolling</a></td><td>Способ отображения полосы прокрутки во фрейме.</td>
+		</tr>
+		<tr>
+			<td><a href="#seamless">seamless</a></td><td>Определяет, что содержимое фрейма должно отображаться так, словно оно является частью документа.<span class="html5"></span></td>
+		</tr>
+		<tr>
+			<td><a href="#src">src</a></td><td>Путь к файлу, содержимое которого будет загружаться во фрейм.</td>
+		</tr>
+		<tr>
+			<td><a href="#srcdoc">srcdoc</a></td><td>Хранит содержимое фрейма непосредственно в атрибуте.<span class="html5"></span></td>
+		</tr>
+		<tr>
+			<td><a href="#vspace">vspace</a></td><td>Вертикальный отступ от фрейма до окружающего контента.<span class="no ml10">устарел</span></td>
+		</tr>
+		<tr>
+			<td><a href="#width">width</a></td><td>Ширина фрейма.</td>
+		</tr>
 	</table>
 </div>
 
@@ -118,6 +157,25 @@
 	<pre class="item2"><code>&lt;iframe  frameborder="yes (1) | no (0)">&lt;/iframe></code></pre>
 	<div class="no">Устарел - используйте стилевое свойство <samp class="sin">border</samp>.</div>
 </div>
+
+
+
+<div class="item">
+<h3 class="sin" id="loading"><a href="#z0">Атрибут - <samp class="grin">loading</samp></a></h3>
+	<p>Атрибут откладывает загрузку содержимого <samp>iframe</samp>, пока <samp>iframe</samp> не должен будет попасть во вьюпорт - т.е. пока не попадет на экран.</p>
+
+	<div class="no">Не поддерживается в Firefox</div>
+
+	<pre class="item2"><code>&lt;iframe loading="lazy | eager">&lt;/iframe></code></pre>
+
+	<ul class="list l1">
+		<li><samp class="lsin">eager</samp> - поведение браузера по умолчанию</li>
+		<li><samp class="lsin">lazy</samp> - откладывает загрузку <b>iframe</b>, пока тот не попадет во вьюпорт</li>
+	</ul>
+</div>
+
+
+
 
 
 <div class="item" id="width">

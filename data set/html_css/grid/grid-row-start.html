@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-row-start</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-row-start</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-row-start</samp> — определяет сколько строк будет занимать элемент, или на какой строке начинается элемент в макете сетки.</p>
+
+	<p>Для того, чтобы определить на какой горизонтальной линии завершится элемент можно воспользоваться свойством <a href="grid-row-end.html" class="sin tdu"><samp>grid-row-end</samp></a>.</p>
+
+	<div class="mt40 mb40"><img src="img/grid-row.gif" alt="схема" width="" height="" class="img-c"></div>
+
+	<pre class="item2 css"><code>.item {<br>   grid-row-start: auto | line | line-name | span line | initial | inherit;<br>}</code></pre>
+
+	<table class="t1 t3 tc mt20 mb20"><caption>Значения:</caption>
+		<tr><td width="100px">auto</td><td>Значение по умолчанию. Элемент будет размещен в соответствии с потоком.</td></tr>
+		<tr><td>line</td><td>Целое число, которое соответствует начальной грани элемента в макете сетки (отсчет ведется сверху вниз от верхнего края макета). Если задано отрицательное целое число, то отсчет ведется в обратном порядке, начиная с конечного края явной сетки макета.
+		<div class="no">Значение 0 недопустимо.</div></td></tr>
+		<tr><td>line-name</td><td>Строковое значение ссылающееся на именованную строку в макете сетки. Элемент располагается от начальной грани указанного элемента.</td></tr>
+		<tr><td>span line</td><td>Ключевое слово <samp class="sin">span</samp> с целым числом, определяющее количество строк сетки элемент будет охватывать. Если целое число опущено, то по умолчанию используется значение 1.
+		<div class="no">Отрицательные значения или значение 0 недопустимы.</div></td></tr>
+		<tr><td>initial</td><td>Устанавливает свойство в значение по умолчанию.</td></tr>
+		<tr><td>inherit</td><td>Значение наследуется от родительского элемента.</td></tr>
+	</table>
+
+	<div class="grid-container mt40">
+		<div class="grid-item">A</div>
+		<div class="grid-item grid-item-b">B</div>
+		<div class="grid-item">C</div>
+		<div class="grid-item">D</div>
+		<div class="grid-item">E</div>
+		<div class="grid-item">F</div>
+		<div class="grid-item">G</div>
+	</div>
+	<style>
+		.grid-container{
+			display:grid;
+			padding: 10px;
+			grid-template: auto / auto auto auto;
+			background-color: #2196F3;
+			gap: 10px;
+		}
+		.grid-item{
+			background-color: rgba(255, 255, 255, 0.8);
+			vertical-align:middle;
+			text-align:center;
+			line-height: 40px;
+		}
+		.grid-item-b{
+			grid-column: 2 / span 2;
+			grid-row-start: 2;
+			grid-row-end: span 2;
+			background: red;
+			line-height:90px
+		}
+	</style>
+	<pre class="item2 mt20"><code>&lt;div class="grid-container">
+   &lt;div class="grid-item">A&lt;/div>
+   &lt;div class="grid-item grid-item-b">B&lt;/div>
+   &lt;div class="grid-item">C&lt;/div>
+   &lt;div class="grid-item">D&lt;/div>
+   &lt;div class="grid-item">E&lt;/div>
+   &lt;div class="grid-item">F&lt;/div>
+   &lt;div class="grid-item">G&lt;/div>
+&lt;/div>
+
+&lt;style>
+   .grid-container{
+      display:grid;
+      grid-template: auto / auto auto auto auto;
+      gap: 10px;
+   }
+   .grid-item-b{
+      grid-column: 2 / span 2;
+      grid-row-start: 2;
+      grid-row-end: span 2;
+      background: red;
+   }
+&lt;/style></code></pre>
+</div>
+</body></html>

@@ -13,19 +13,28 @@
 
 <h2 class="sin">background-repeat</h2>
 <div class="item">
-	<p>Свойство <span class="sin">background-repeat</span> устанавливает характер повторения фонового изображения выводимого с помощью свойства <span class="sin">background-image</span>. С помощью данного свойства можно установить направление, в котором будет повторяться рисунок. Повторение фонового изображения возможно только по горизонтали или по вертикали, а так же в обе стороны.</p>
+	<p>Свойство <samp class="sin">background-repeat</samp> устанавливает характер повторения фонового изображения выводимого с помощью свойства <samp class="sin dib">background-image</samp>. С помощью данного свойства можно установить направление, в котором будет повторяться рисунок. Повторение фонового изображения возможно только по горизонтали или по вертикали, а так же в обе стороны. Допустимо указывать несколько значений для каждого фона, перечисляя значения через запятую.</p>
 
-	<pre class="item2"><code>background-repeat: repeat;<br>background-repeat: repeat-x;<br>background-repeat: repeat-y;<br>background-repeat: space;<br>background-repeat: inherit;<br>background-repeat: no-repeat;</code></pre>
+	<pre class="item2 mt20"><code>.elem {<br>  background-repeat: repeat | repeat-x | repeat-y |space | round | no-repeat;<br>}</code></pre>
 
-	<span class="lsin">repeat</span> – фоновый рисунок будет повторяться по горизонтали и вертикали.
-	<br><span class="lsin">repeat-x</span> – значение задающее повторение только по горизонтали.
-	<br><span class="lsin">repeat-y</span> – значение задающее повторение только по вертикали.
-	<br><span class="lsin">space</span> – параметр задаёт повторение пока не заполнится свободная область.
-	<br><span class="lsin">inherit</span> – наследует значение.
-	<br><span class="lsin">no-repeat</span> – запрет на повторение фонового изображения.
+  <ul class="list">
+    <li><samp class="lsin">repeat</samp> – фоновый рисунок будет повторяться по горизонтали и вертикали.</li>
+    <li><samp class="lsin">repeat-x</samp> – Фоновый рисунок повторяется только по горизонтали.</li>
+    <li><samp class="lsin">repeat-y</samp> – Фоновый рисунок повторяется только по вертикали.</li>
+    <li><samp class="lsin">space</samp> – изображение повторяется столько раз, чтобы полностью заполнить область; если это не удаётся, между картинками добавляется пустое пространство.</li>
+    <li><samp class="lsin">round</samp> – изображение повторяется так, чтобы в области поместилось целое число рисунков; если это не удаётся сделать, то фоновые рисунки масштабируются.</li>
+    <li><samp class="lsin">no-repeat</samp> – запрет на повторение фонового изображения. Положение фонового изображения в элементе определяется свойством <samp class="sin dib">background-position</samp> (по умолчанию в левом верхнем углу)</li>
+    <li><samp class="lsin">inherit</samp> – наследует значение.</li>
+  </ul>
 
+  <div class="no no1 mt30 mb30">Для каждого фона допустимо указывать два значения, первое ключевое слово задаёт повторение по горизонтали, второе по вертикали: например значение <samp class="lsin dib">repeat-x</samp> аналогично <samp class="lsin dib">repeat no-repeat</samp></div>
 
-<div class="item2" style="padding-left:80px; background-color:#fff; background-image:url(img/bg_line.jpg); background-repeat:repeat-y;">
-	<pre><code>&lt;div style="<br>  background-image: url(img/bg_line.jpg);<br>  background-repeat: repeat-y;"></code></pre>
+  <div class="item2 mt20 mb20" style="padding-left:80px; background-color:#fff; background-image:url(img/bg_line.jpg); background-repeat:repeat-y;">
+    <pre><code>&lt;div class="bg">...&lt;/div></code></pre>
+	  <pre><code><br>.bg {<br>  background-image: url(img/bg_line.jpg);<br>  background-color: #fff;<br>  background-repeat: repeat-y; /* аналогично: no-repeat repeat */<br>}</code></pre>
+  </div>
+
+  <div class="item2">Сам рисунок:<br><img src="img/bg_line.jpg" alt="fon" width="610" height="20px"></div>
+
 </div>
 </body></html>

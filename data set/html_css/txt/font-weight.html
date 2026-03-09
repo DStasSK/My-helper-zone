@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><title>CSS свойство - font-weight</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS свойство - <samp>font-weight</samp></h2>
+
+<div class="item">
+  <p>Свойство <samp class="sin">font-weight</samp> устанавливает насыщенность шрифта. Значение указывается в виде чисел от 100 до 900 с шагом 100 или с помощью заданных ключевых слов. Значения свойства применяются ко всем элементам, наследуется, анимируется. Значение по умолчанию - normal.</p>
+
+  <p>Насыщенность шрифта можно задавать с помощью ключевых слов: <samp class="sin">bold</samp> - жирное начертание (700), <samp class="sin">normal</samp> - нормальное начертание (400), <samp class="sin">bolder</samp> - изменяют жирность относительно насыщенности родителя в большую сторону, <samp class="sin">lighter</samp> - изменяют жирность относительно насыщенности родителя в меньшую сторону.</p>
+
+	<pre class="item2 mt30 mb30"><code>.elem {<br>  font-weight:bold;<br>}</code></pre>
+
+  <div>Также допустимо использовать условные единицы от 100 до 900 с шагом 100:</div>
+  <ul class="list l1 mb20">
+    <li><samp class="sin">100</samp> - тонкое начертание;</li>
+    <li><samp class="sin">200</samp> - сверхсветлое;</li>
+    <li><samp class="sin">300</samp> - светлое;</li>
+    <li><samp class="sin">400</samp> - нормальное (аналогично normal);</li>
+    <li><samp class="sin">500</samp> - среднее;</li>
+    <li><samp class="sin">600</samp> - полужирное;</li>
+    <li><samp class="sin">700</samp> - жирное (аналогично bold);</li>
+    <li><samp class="sin">800</samp> - сверхжирное;</li>
+    <li><samp class="sin">900</samp> - тяжёлое.</li>
+  </ul>
+
+  <p>Необходимо также учитывать, что не все шрифты поддерживают этот набор от 100 до 900. Если указанное значение не поддерживается, то браузер приведёт шрифт к ближайшей насыщенности. К примеру, если вы указали 900 и оно не может быть показано, то браузер в действительности применит значение 700 как ближайшее, которое работает корректно.</p>
+</div>

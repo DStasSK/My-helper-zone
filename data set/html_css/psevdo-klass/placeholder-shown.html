@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><title>Псевдокласс placeholder-shown</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:placeholder-shown</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:placeholder-shown</samp> oпределяет стиль элемента <samp class="red">&lt;input></samp> или <samp class="red">&lt;textarea></samp>, который в данный момент отображает текст подсказки, заданной атрибутом <b>placeholder</b> (при этом текст в поле еще не введен).</p>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <p>Так же можно прятать текст подсказки при фокусе поля ввода - задавая ей цвет как <samp class="lsin">transparent</samp>;</p>
+
+    <style type="text/css">
+      .examplePlaceholderShown {max-width:500px; height:30px; color:red; resize:none; background:#fcfcfc; width:100%}
+      .examplePlaceholderShown::placeholder{color:#009;}
+      .examplePlaceholderShown:placeholder-shown {border-radius:10px;}
+      .examplePlaceholderShown:focus:placeholder-shown { -webkit-text-fill-color:transparent }
+    </style>
+    <textarea class="examplePlaceholderShown" placeholder="введите красный текст"></textarea>
+    <textarea class="examplePlaceholderShown"></textarea>
+
+    <div class="item2">
+      <pre style="line-height:1.4"><code>.text {color:red; resize:none; background:#fcfcfc; width:500px}<br>.text::placeholder {color:#009}<br>.text:placeholder-shown {border-radius:10px}<br>.text:focus:placeholder-shown {-webkit-text-fill-color:transparent}</code></pre>
+      <pre><code><br>&lt;textarea class="text" placeholder="введите красный текст">&lt;/textarea><br>&lt;textarea class="text">&lt;/textarea></code></pre>
+    </div>
+  </fieldset>
+</div>
+</body></html>

@@ -7,7 +7,14 @@
 <!-- <link rel="stylesheet" href="../highlight.js/styles/ss.css">
 <script src="../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script> -->
-
+<style>
+/* Оформление для темной темы брайзера */
+	:root {color-scheme: light dark;}
+	@media (prefers-color-scheme: dark) {
+		.helper-title{color:#39f}
+		h3,h2{color:#333}
+	}
+</style>
 </head>
 <body>
 
@@ -73,12 +80,12 @@
 <h3 id="C"><a href="#">C</a></h3>
 	<ul>
 	<li class="t-html5"><a href="../scripts/canvas.html" title="Создаёт область, в которой при помощи JavaScript можно рисовать и выводить изображения.">&lt;canvas></a></li>
-	<li><a href="help/table1.html#caption" title="Создаёт заголовок к таблице.">&lt;caption></a></li>
+	<li><a href="./table/caption.html" title="Создаёт заголовок к таблице.">&lt;caption></a></li>
 	<li class="t-trash"><a href="help/HTML help.html#center" title="Выравнивает содержимое контейнера по центру относительно родительского элемента.">&lt;center></a></li>
 	<li><a href="help/HTML help.html#cite" title="Представляет название произведения (книги, статьи, поэмы, сценария, фильма, песни, оперы, игры и др.).">&lt;cite></a></li>
 	<li><a href="help/HTML help.html#code" title="Предназначен для отображения текста программного кода.">&lt;code></a></li>
-	<li><a href="help/table1.html#col" title="Задаёт ширину и другие характеристики одной или нескольких колонок таблицы.">&lt;col></a></li>
-	<li><a href="help/table1.html#colgroup" title="Группирует колонки таблицы для изменения их параметров.">&lt;colgroup></a></li>
+	<li><a href="./table/colgroup.html" title="Группирует колонки таблицы для изменения их параметров.">&lt;colgroup></a></li>
+	<li><a href="./table/col.html" title="Задаёт ширину и другие характеристики одной или нескольких колонок таблицы.">&lt;col></a></li>
 	<li class="t-trash"><a href="help/HTML help.html#command" title="Создаёт команду в виде переключателя, флажка или обычной кнопки.">&lt;command></a></li>
 	<li class="t-trash"><a href="help/HTML help.html#comment2" title="Добавляет комментарий в код документа">&lt;comment></a></li>
 	</ul>
@@ -92,7 +99,7 @@
 	<li><a href="help/HTML help.html#del" title="Используется для выделения текста, который был удалён в новой версии документа.">&lt;del></a></li>
 	<li class="t-html5"><a href="help/HTML help.html#details" title="Используется для хранения информации, которую можно скрыть или показать по требованию пользователя.">&lt;details></a></li>
 	<li><a href="help/HTML help.html#dfn" title="Выделяет термин в документе.">&lt;dfn></a></li>
-	<li class="t-html5"><a href="help/HTML help.html#dialog" title="Показывает диалоговое окно, в котором можно выводить сообщение или форму, например, для входа на сайт.">&lt;dialog></a></li>
+	<li class="t-html5"><a href="dialog.html" title="Показывает диалоговое окно, в котором можно выводить сообщение или форму, например, для входа на сайт.">&lt;dialog></a></li>
 	<li class="t-trash"><a href="help/HTML help.html#dir" title="Создаёт список, содержащий названия директорий.">&lt;dir></a></li>
 	<li><a href="help/HTML help.html#div" title="Универсальный блочный элемент.">&lt;div></a></li>
 	<li><a href="help/HTML help.html#dldtdd" title="Создаёт список описаний.">&lt;dl></a></li>
@@ -183,7 +190,7 @@
 	<ul>
 	<li><a href="help/object.html" title="Сообщает браузеру, как загружать и отображать объекты, которые исходно браузер не понимает.">&lt;object></a></li>
 	<li><a href="ul ol li.html#ol" title="Устанавливает нумерованный (упорядоченный) список.">&lt;ol></a></li>
-	<li><a href="help/HTML help.html#optgroup" title="Объединяет элементы option в одну группу.">&lt;optgroup></a></li>
+	<li><a href="help/optgroup.html" title="Объединяет элементы option в одну группу.">&lt;optgroup></a></li>
 	<li><a href="help/option.html" title="Определяет отдельные пункты списка, создаваемого с помощью select.">&lt;option></a></li>
 	<li class="t-html5"><a href="../scripts/output.html" title="Определяет область для вывода, преимущественно с помощью скриптов.">&lt;output></a></li>
 	</ul>
@@ -232,13 +239,13 @@
 
 <h3 id="T"><a href="#">T</a></h3>
 	<ul>
-	<li><a href="help/table1.html" title="Создаёт таблицу.">&lt;table></a></li>
-	<li><a href="help/table1.html#thead" title="Предназначен для хранения одной или нескольких строк, которые представлены вверху таблицы.">&lt;thead></a></li>
-	<li><a href="help/table1.html#tbody" title="Предназначен для хранения одной или нескольких строк таблицы.">&lt;tbody></a></li>
-	<li><a href="help/table1.html#tfoot" title="Предназначен для хранения одной или нескольких строк, которые представлены внизу таблицы.">&lt;tfoot></a></li>
-	<li><a href="help/table1.html#th" title="Создаёт одну ячейку таблицы, которая обозначается как заголовочная.">&lt;th></a></li>
-	<li><a href="help/table1.html#tr" title="Служит контейнером для создания строки таблицы.">&lt;tr></a></li>
-	<li><a href="help/table1.html#td" title="Предназначен для создания одной ячейки таблицы.">&lt;td></a></li>
+	<li><a href="./table/table.html" title="Создаёт таблицу.">&lt;table></a></li>
+	<li><a href="./table/thead.html" title="Предназначен для хранения одной или нескольких строк, которые представлены вверху таблицы.">&lt;thead></a></li>
+	<li><a href="./table/tbody.html" title="Предназначен для хранения одной или нескольких строк таблицы.">&lt;tbody></a></li>
+	<li><a href="./table/tfoot.html" title="Предназначен для хранения одной или нескольких строк, которые представлены внизу таблицы.">&lt;tfoot></a></li>
+	<li><a href="./table/tr.html" title="Служит контейнером для создания строки таблицы.">&lt;tr></a></li>
+	<li><a href="./table/th.html" title="Создаёт одну ячейку таблицы, которая обозначается как заголовочная.">&lt;th></a></li>
+	<li><a href="./table/td.html" title="Предназначен для создания одной ячейки таблицы.">&lt;td></a></li>
 	<li class="t-html5"><a href="help/template.html" title="Задаёт шаблон для фрагмента HTML, который может быть клонирован и вставлен в документ через скрипты.">&lt;template></a></li>
 	<li><a href="help/textarea.html" title="Создаёт поле для многострочного текста.">&lt;textarea></a></li>
 	<li class="t-html5"><a href="help/time.html" title="Помечает текст внутри элемента как дату, время или оба значения.">&lt;time></a></li>

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-column</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-column</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-column</samp> — определяет с какого столбца будет начинаться элемент, сколько столбцов будет занимать элемент, или на каком столбце завершится элемент. Является сокращенным свойством для свойств <a href="grid-column-start.html" class="sin tdu"><samp>grid-column-start</samp></a> и <a href="grid-column-end.html" class="sin tdu"><samp>grid-column-end</samp></a>.</p>
+
+	<pre class="item2 css mt20 mb20"><code>.item {<br>   grid-column: grid-column-start / grid-column-end;<br>}</code></pre>
+
+	<div class="no no1">Допускается указывать одно значение, при этом будет задаваться тольно <a href="grid-column-start.html" class="sin tdu"><samp>grid-column-start</samp></a>.</div>
+
+	<pre class="item2 mt20 ls-05"><code>.item{
+   grid-column: auto / auto;  /* значения по умолчанию */
+   grid-column: 1 / 5;        /* задает блок от первой до пятой вертикальной линии */
+   grid-column: 1 / span 2;   /* охватывает два столбца */
+   grid-column: 2;            /* начинается со второй вертикальной линии */
+}</code></pre>
+</div>
+</body></html>

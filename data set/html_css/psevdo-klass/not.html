@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><title>Псевдокласс not()</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:not()</samp></h2>
+<div class="item">
+  <p>Псевдокласс-функция <samp class="sin">:not()</samp> принимает селектор в качестве аргумента и находит элементы, не соответствующие селектору, т.е. задаёт правила стилей для элементов, которые не содержат указанный селектор.</p>
+
+	<pre class="item2 mb20 css"><code>div:not(p) { color:#333 }</code></pre>
+
+	<p>В качестве селектора могут указываться единичные псевдоклассы, теги, идентификаторы, классы и селекторы атрибутов. Нельзя использовать псевдоэлементы и составные селекторы.</p>
+
+  <div class="no">Kонструкция <samp>:not( :not( ) )</samp> запрещена.</div>
+
+	<pre class="item2 mt20"><code>input:not([ type="submit" ]) {   }<br>div:not( .head ) {   }</code></pre>
+
+  <div class="no mt20">Opera Android не поддерживает Selector list argument.</div>
+</div>
+</body></html>

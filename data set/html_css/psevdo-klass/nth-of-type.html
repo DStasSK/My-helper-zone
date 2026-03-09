@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><title>Псевдокласс nth-of-type()</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:nth-of-type()</samp></h2>
+<div class="item">
+  <p>Псевдоклас <samp class="sin">:nth-of-type()</samp> находит один или более элементов с заданным тегом, основываясь на их позиции среди группы соседних элементов. Используется для добавления стиля к элементам указанного типа на основе нумерации в дереве элементов. Псевдокласс <samp class="sin">:nth-of-type()</samp> указывается с единственным аргументом, описывающим паттерн для выбора элементов.</p>
+
+  <div class="mt30">Принимаемые значения:</div>
+  <ul class="list">
+    <li><samp class="sin">odd</samp> - все нечётные номера элементов.</li>
+    <li><samp class="sin">even</samp> - все чётные номера элементов.</li>
+    <li><samp class="sin">число</samp> - порядковый номер дочернего элемента относительно своего родителя. Нумерация начинается с 1, это будет первый элемент в списке. Отрицательные значения игнорируются.</li>
+    <li>(<samp class="red dib">A<samp class="lsin">*</samp><samp class="sin">n</samp> ± B</samp>) - где <samp class="red">A</samp> и <samp class="red">B</samp> — целые числа, а <samp class="sin">n</samp> — счётчик, который автоматически принимает значение <samp class="lsin">0, 1, 2...</samp>. <samp class="red">A</samp> и <samp class="red">B</samp> могут быть отрицательными числами, в итоге некоторые результаты могут также получиться отрицательными или равными нулю. Однако на элементы оказывают влияние только положительные значения из-за того, что нумерация элементов начинается с 1. Это позволяет отбросить некоторые элементы.</li>
+  </ul>
+
+  <fieldset class="prm mt20">
+    <legend></legend>
+    <style>
+      .example_nth_oftype ol{ margin:0;}
+      .example_nth_oftype li:nth-of-type(2n+1) { color:red }
+      .example_nth_oftype li:nth-of-type(1) { color:#009 }
+    </style>
+    <div class="example_nth_oftype">
+      <ol class="lsit l1">
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+      </ol>
+      <ol class="lsit l1 mt20">
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+      </ol>
+    </div>
+    <pre class="item2"><code>li:nth-of-type(2n+1) { color:red }<br>li:nth-of-type(1) { color:#009 }</code></pre>
+  </fieldset>
+</div>
+</body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-gap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-gap</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-gap</samp> — это короткая запись значений свойств <a href="grid-row-gap.html" class="sin tdu">grid-row-gap</a> и <a href="grid-column-gap.html" class="sin tdu">grid-column-gap</a>, определяющее размер промежутка между строками и столбцами в <samp>grid</samp> макете. Значение по умолчанию - 0 0, не наследуется, анимируется.</p>
+
+	<div class="no no1">Это свойство было переименовано в CSS3 <a href="../gap.html" class="sin tdu">gap</a></div>
+
+	<pre class="item2 css"><code>div {<br>   display: grid;<br>   grid-gap: grid-row-gap grid-column-gap;<br>}</code></pre>
+
+	<table class="t1 t3 tc mt20 mb20"><caption>Значения:</caption>
+		<tr><td width="155px">grid-row-gap</td><td>размер промежутка между строками в макете</td></tr>
+		<tr><td>grid-column-gap</td><td>размер промежутка между столбцами в макете</td></tr>
+	</table>
+
+	<pre class="item2"><code>div {<br>   display: grid;<br>   grid-gap: 20px  40px;<br>}<br><br>div {<br>   display: grid;<br>   grid-gap: 40px;  /* grid-row-gap == grid-column-gap == 40px  */<br>}</code></pre>
+
+</div>
+</body></html>

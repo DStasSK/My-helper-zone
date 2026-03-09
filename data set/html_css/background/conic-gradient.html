@@ -1,0 +1,159 @@
+<!DOCTYPE html><html><head><title>conic-gradient</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+  .stop span {background:#fafafa; line-height:1.2;}
+</style>
+</head>
+<body>
+  
+<h2 class="sin">Функция <samp>conic-gradient()</samp></h2>
+<div class="item" id="radial">
+  <p>Стилевая функция <samp class="sin dib">conic-gradient()</samp> создаёт конический градиент — фоновое изображение из цветовых переходов, повёрнутых вокруг центральной точки. В коническом градиенте цвета поворачиваются по кругу вокруг центральной точки, будто стрелки часов (или как в круговой диаграмме).</p>
+
+  <pre class="item2 mb30 ls-1"><code>.elem {<br>  background: conic-gradient([from angle] [at position,] color degree, color degree...);<br>}</code></pre>
+
+  <ul class="list">
+    <li><samp class="sin">from angle</samp> - задает уголо начала конического градиента. Значение по умолчанию — 0 градусов. Необязательный параметр. По умолчанию градиент начинается на вертикальной линии идещей от центра элемента вверх. Поворот происходит по часовой стрелке.</li>
+    <li><samp class="sin">at position</samp> - указывает центр градиента конического градиента. Значение по умолчанию — <samp class="sin">center</samp>. По умолчанию градиент начинается в центре элемента.</li>
+    <li><samp class="sin">color degree</samp> - параметры цвета: состоят из значения цвета, за которым следует необязательная позиция остановки (градус от 0 до 360 или процент от 0% до 100%). Можно указывать любое количество цветов в любом доступном формате. Если цвета просто перечислять через запятую, то они равномерно распределятся по кругу, плавно переходя один в другой.</li>
+  </ul>
+
+  <div class="no no1">Перед определением любого градиентного фона необходимо задать свойству <samp class="sin">background</samp> цвет по умолчанию. Такой цвет должен быть использован в качестве запасного, если браузер не поддерживает градиент.</div>
+
+	<div class="item2 br0 stop" style="background: conic-gradient(from 0turn at 50% 50%, #6ae, #577); padding:80px 0 5px 5px;">
+		<pre><code>div{<br>  background: #689;<br>  background: conic-gradient(#689, #357);<br>  background: conic-gradient(from 0turn at 50% 50%, #689, #357);<br>}</code></pre>
+	</div>
+
+	<p>Начальную точку градиента (<samp class="sin">[at position]</samp>) можно задавать в любом месте элемента, для этого вначале указывается её позиция. Позиция точки пишется аналогично значениям свойства <a href="background-position.html" class="sin tdu dib">background-position</a> с помощью ключевых слов или доступных единиц измерения вроде пикселей или процентов, например:</p>
+
+	<style>
+		.bgul li{margin:0; padding:0px;}
+		.bgul li span{font-style:monospace; color:#4169E1; width:180px; display:inline-block;}
+		.bgul {padding:0px 20px; margin:5px 0px 15px 0px;}
+	</style>
+	<ul class="bgul">
+		<li><span>в левом верхнем углу:</span> at top left = at left top = at 0% 0%</li>
+		<li><span>по центру вверху:</span> at top = at top center = at center top = at 50% 0%</li>
+		<li><span>справа вверху:</span> at right top = at top right = at 100% 0%</li>
+		<li><span>слева в центре:</span> at left = at left center = at center left = at 0% 50%</li>
+		<li><span>по центру (defolt):</span> at center = at center center = at 50% 50%</li>
+		<li><span>справа и центру:</span> at right = at right center = at center right = at 100% 50%</li>
+		<li><span>слева внизу:</span> at bottom left = at left bottom = at 0% 100%</li>
+		<li><span>по центру внизу:</span> at bottom = at bottom center = at center bottom = at 50% 100%</li>
+		<li><span>в правом нижнем углу:</span> at bottom right = at right bottom = at 100% 100%.</li>
+	</ul>
+
+	<div class="item2 br0 stop" style="background: conic-gradient(at top right, #6ae 180deg, #577 270deg); padding:80px 0 5px 5px;">
+		<pre><code>div{<br>  background: #689;<br>  background: conic-gradient(at top right, #6ae 180deg, #577 270deg);<br>}</code></pre>
+	</div>
+
+  <style>
+    .support{margin:50px auto 10px;}
+    .support th{writing-mode:vertical-lr; transform:rotate(180deg); padding-inline:10px; padding-block:16px;}
+    .support th, .support td{border:1px solid #777;}
+    .support td{padding:6px 0; text-align:center; font-size:16px;}
+    .support tr:nth-child(3) td{padding:6px 1px;}
+  </style>
+  <table class="support">
+    <tr><th>Chrome</th><th>Edge</th><th>Firefox</th><th>Opera</th><th>Safari</th><th>Chrome Android</th><th>Firefox for Android</th><th>Opera Android</th><th>Safari on iOS</th><th>Samsung Internet</th><th>WebView Android</th><th>WebView on iOS</th></tr>
+  
+    <tr><td>v.111</td><td>v.111</td><td>v.127</td><td>v.97</td><td>v.16.2</td><td>v.111</td><td>v.125</td><td>v.75</td><td>v.16.2</td><td>v.22</td><td>v.111</td><td>v.16.2</td></tr>
+  
+    <tr><td>2023.03</td><td>2023.03</td><td>2024.06</td><td>2023.02</td><td>2022.12</td><td>2023.03</td><td>2024.06</td><td>2023.05</td><td>2022.12</td><td>2023.07</td><td>2023.03</td><td>2022.12</td></tr>
+  </table>
+</div><!-- /item -->
+
+
+
+<div class="item">
+<h2 class="sin">Стоп-цвета</h2>
+  <p>Подобно линейному градиенту можно указывать несколько цветов, устанавливать их позицию и делать резкие переходы между цветами. Для этого произвольное количество цветов перечисляется через запятую, а после значения цвета через пробел идёт его позиция, которая может быть задана в пикселях или процентах. Крайние значения 0% и 100% можно не писать, они подразумеваются автоматически.</p>
+
+  <p>По умолчанию браузер будет позиционировать каждый стоп-цвет на равном расстоянии от следующего и переходить между ними соответственно. Если требуется больше контроля над тем, как желательно расположить цвета, то их места в градиенте могут быть определены для каждого цвета. Место должно быть объявлено как значение размера и идёт после значения цвета. Если не указано иное, то первый цвет будет позиционироваться на 0%, а последний цвет на 100%.</p>
+
+  <!-- example_0 -->
+  <style>
+    .example_0{
+      display:flex; width:100%; gap:5px; color:#fff; font-size:40px;
+    }
+    .elem_00{
+      height:180px; padding:10px; flex-grow:1;
+    }
+    .elem_01{
+      background:conic-gradient(#016, #c00, #016, #c00, #016);
+    }
+    .elem_02{
+      background:conic-gradient(#016, #016 90deg, #c00 90deg, #c00 180deg, #016 180deg, #016 270deg, #c00 270deg, #c00);
+    }
+    .elem_03{
+      flex-grow:0;
+      width:180px;
+      background-size:25% 25%;
+      background-repeat:repeat;
+    }
+  </style>
+  <div class="example_0">
+    <div class="elem_00 elem_01">1</div>
+    <div class="elem_00 elem_02">2</div>
+    <div class="elem_00 elem_02 elem_03">3</div>
+  </div>
+  <div class="item2">
+    <pre><code>&lt;div class="example_0"><br>  &lt;div class="elem_00 elem_01">1&lt;/div><br>  &lt;div class="elem_00 elem_02">2&lt;/div><br>  &lt;div class="elem_00 elem_02 elem_03">3&lt;/div><br>&lt;/div></code></pre>
+    <pre><code>.elem_1 {<br>  background: conic-gradient(#016, #c00, #016, #c00, #016);<br>}<br>.elem_2 {<br>  background: conic-gradient(#016, #016 90deg, #c00 90deg, #c00 180deg,<br>                            #016 180deg, #016 270deg, #c00 270deg, #c00);<br>}<br>.elem_03{<br>  height:200px;<br>  width:200px;<br>  background-size:25% 25%;<br>  background-repeat:repeat;<br>}</code></pre>
+  </div><!-- /example_0 -->
+</div><!-- /item -->
+
+
+
+
+<div class="item" id="repeating-conic-gradient">
+  <h2 class="sin">Функция <samp>repeating-conic-gradient()</samp></h2>
+  <p>Стилевая функция <samp class="sin dib">repeating-conic-gradient()</samp> по своему действию похожа на конический градиент, который делается функцией <samp class="sin dib">conic-gradient()</samp>, и имеет с ним схожий синтаксис. Основное отличие заключается в том, что градиент будет повторять себя после границы последнего цвета.</p>
+
+  <div style="width:160px; height:160px; margin:auto; background-image:
+  repeating-conic-gradient(#00f 0deg 15deg,#ff0 15deg 30deg, #f00 30deg 45deg);"></div>
+  <pre class="item2"><code>&lt;div style="background-image:
+  repeating-conic-gradient(
+    #00f 0deg 15deg,
+    #ff0 15deg 30deg,
+    #f00 30deg 45deg
+  );">&lt;/div></code></pre>
+
+</div>
+
+
+
+
+
+<div class="item">
+<h2 class="sin">Примеры с градиентом</h2>
+  <style type="text/css">
+    .box0{display:flex; justify-content:center; margin:0 -10px;}
+    
+    .box{width:calc(50% - 10px); margin:10px; line-height:1.2; text-align:left;}
+
+    .boxf{padding:20px 0; text-align:center; font-size:60px; width:300px; height:250px; margin:0 auto;}
+    .box1{background:conic-gradient(coral 27deg, palegreen 27deg 150deg, skyblue 150deg); color:#fff;}
+    .box2{background:radial-gradient(yellow 5%,gold 31% 32%,transparent 34% 50%,lightskyblue 70%), repeating-conic-gradient(yellow 0% 1%, transparent 3% 7%, yellow 9% 10%);}
+  </style>
+	<div><!-- box5, 6 -->
+		<div class="box0">
+			<div class="box boxf box1"><samp>box1</samp></div>
+			<div class="box boxf box2"><samp>box2</samp></div>
+		</div>
+		<div class="box0">
+			<div class="box item2"><pre><code>.box1 {background:<br>  conic-gradient(<br>    coral 27deg,<br>    palegreen 27deg 150deg,<br>    skyblue 150deg<br>  );<br>}</code></pre></div>
+			<div class="box item2"><pre><code>.box2 {background:<br>  radial-gradient(<br>    yellow 5%,<br>    gold 31% 32%,<br>    transparent 34% 50%,<br>    lightskyblue 70%<br>  ),<br>  repeating-conic-gradient(<br>    yellow 0% 1%,<br>    transparent 3% 7%,<br>    yellow 9% 10%<br>  );<br>}</code></pre></div>
+		</div>
+	</div>
+</div>
+
+</body></html>

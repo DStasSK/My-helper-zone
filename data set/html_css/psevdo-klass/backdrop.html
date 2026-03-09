@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>Псевдоэлемент backdrop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдоэлемент <samp>::backdrop</samp></h2>
+<div class="item">
+	<p>Псевдоэлемент <samp class="sin">::backdrop</samp> отображается ниже самого верхнего элемента в стеке по оси Z, но выше всех остальных элементов на странице, если они имеются. Обычно <b>::backdrop</b> применяется для затемнения страницы, чтобы акцентировать внимание на фотографии или диалоговом окне, которые выводятся поверх такого затемнения.</p>
+
+  <div class="no no1">В настоящее время работает только с модальными окнами, созданными с помощью элемента <a href="../dialog.html"><samp class="teg tdu">dialog</samp></a>.</div>
+
+	<pre class="item2 mb30"><code>.elem<samp class="red">::backdrop</samp> { ... }</code></pre>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <div>Применяется со скриптами. Например:
+      <style>
+        .primer-dialog {display:inline-block; margin-left:10px;}
+        .primer-dialog dialog {width:300px;}
+        .primer-dialog dialog::backdrop {background: rgba(0,0,0,0.7);}
+      </style>
+      <div class="primer-dialog">
+        <button id="openDialog">Вход на сайт</button>
+        <dialog id="exampleDialog">
+          <form id="authentication" action="handler.php">
+            <p><input name="login" required autofocus placeholder="Логин"></p>
+            <p><input type="password" name="pass" required placeholder="Пароль"></p>
+            <p><button type="submit">Войти</button>
+            <button id="closeDialog">Закрыть окно</button></p>
+          </form>
+        </dialog>
+        <script>
+          let dialog = document.querySelector('#exampleDialog');
+          document.querySelector('#openDialog').onclick = function() {dialog.showModal();}
+          document.querySelector('#closeDialog').onclick = function() {dialog.close();}
+        </script>
+      </div>
+    </div>
+
+    <div class="item2 ls-05">
+      <pre><code>Например: &lt;button id="openDialog">Вход на сайт&lt;/button><br><br>&lt;dialog id="exampleDialog"><br>  &lt;form id="authentication" action="handler.php"><br>    &lt;p>&lt;input name="login" required autofocus placeholder="Логин">&lt;/p><br>    &lt;p>&lt;input type="password" name="pass" required placeholder="Пароль">&lt;/p><br>    &lt;p><br>      &lt;button type="submit">Войти&lt;/button><br>      &lt;button id="closeDialog">Закрыть окно&lt;/button><br>    &lt;/p><br>  &lt;/form><br>&lt;/dialog><br><br>&lt;script><br>  let dialog = document.querySelector('#exampleDialog');<br>  document.querySelector('#openDialog').onclick = function() {dialog.showModal();}<br>  document.querySelector('#closeDialog').onclick = function() {dialog.close();}<br>&lt;/script></code></pre>
+    </div>
+  </fieldset>
+
+  <div class="no mt20 mb20">Браузер Internet Explorer, а также Edge с версии 12 до 18 включительно поддерживают псевдоэлемент <samp class="sin dib">::-ms-backdrop</samp>.</div>
+
+  <div class="no">Браузер Chrome до версии 37 и браузер Opera до версии 24 поддерживают псевдоэлемент <samp class="sin dib">::-webkit-backdrop</samp>.</div>
+</div>
+</body></html>

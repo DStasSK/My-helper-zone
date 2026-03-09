@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>&lt;object></title>
+﻿<!DOCTYPE html><html><head><title>&lt;object></title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +51,9 @@
 
 <div class="item" id="attributs">
 <h3 class="sin"><a href="#">Атрибуты</a></h3>
+	<style>
+		.t1 p{background:transparent; color:#333}
+	</style>
 	<table class="t1 t3 tb mt20">
 		<tr><td id="align"><a href="#">align</a></td>
 			<td>Определяет, как объект будет выравниваться на странице и способ его обтекания текстом. <span class="no">устарел</span>
@@ -72,7 +75,7 @@
 				</fieldset>
 			</td></tr>
 		<tr><td id="archive"><a href="#">archive</a></td>
-			<td><p>Устанавливает путь к файлам, необходимым для работы объекта. 
+			<td><p>Устанавливает путь к файлам, необходимым для работы объекта.
 				<span class="no">устарел</span></p>
 				<p>Позволяет задать произвольное число файлов необходимых для корректной работы объекта или для его отображения. Файлы перечисляются через пробел вместе с полным или локальным адресом.</p>
 				<pre class="item2"><code>&lt;object archive="адрес">...&lt;/object></code></pre></td></tr>
@@ -96,7 +99,7 @@
 			<td><p>Адрес файла для его отображения в окне браузера. <span class="no no1">обязательный</span></p>
 				<p>Определяет файл, который следует отобразить в окне браузера. Для популярных форматов данных достаточно указать путь к файлу и его тип (атрибут <samp class="sin">type</samp>) для загрузки и демонстрации результата.</p>
 				<p>Путь к файлу определяется относительно папки, заданной атрибутом <samp class="sin">codebase</samp>. Если <samp class="sin">codebase</samp> не указан, тогда путь следует задавать относительно текущего документа.</p>
-				<pre class="item2"><code>&lt;object data="адрес">...&lt;/object><br><br>&lt;object data="video/duel.mp4" type="application/mpeg" <br>        width="300" height="200">&lt;/object></code></pre></td></tr>
+				<pre class="item2"><code>&lt;object data="адрес">...&lt;/object><br><br>&lt;object data="video/jane.mp4" type="application/mpeg" <br>        width="300" height="200">&lt;/object></code></pre></td></tr>
 		<tr><td id="height"><a href="#">height</a></td>
 			<td><p>Устанавливает высоту объекта. В заданные размеры входит не только само изображение, например в случае воспроизведения видеофайла, но и панель управления им, включая кнопки проигрывания, паузы, остановки и т. д. По этой причине на размер отображаемого объекта влияет тип файла и применяемый плагин.</p>
 				<p>Если используется процентная запись, то размеры объекта вычисляются относительно родительского элемента — контейнера, где находится элемент <samp class="red">&lt;object></samp>. В случае отсутствия родительского контейнера, в его качестве выступает окно браузера.</p></td></tr>
@@ -105,7 +108,7 @@
 				<br>Значения - любое целое положительное число в пикселях.
 				<pre class="item2"><code>&lt;object hspace="число">...&lt;/object></code></pre></td></tr>
 		<tr><td id="type"><a href="#">type</a></td>
-			<td><a href="../MIME.html" class="tdu sin">MIME-тип</a> объекта. 
+			<td><a href="../MIME.html" class="tdu sin">MIME-тип</a> объекта.
 				<span class="no no1">обязательный</span></td></tr>
 		<tr><td id="vspace"><a href="#">vspace</a></td>
 			<td>Вертикальный отступ от объекта до окружающего контента. <span class="no">устарел</span>

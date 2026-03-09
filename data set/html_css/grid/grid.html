@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.lh-1_3{line-height: 1.3}
+.abbr{font-family:inherit; font-weight:inherit; text-decoration: underline dotted; cursor:pointer;}
+</style>
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid</samp> — определяет количество, наименование и ширину столбцов и строк в макете сетки, задает шаблон макета сетки, ссылаясь при этом на имена областей элементов, которые задаются с помощью свойства <a href="grid-area.html"><samp class="sin dib tdu">grid-area</samp></a>, задает размер неявно созданных строк и столбцов в контейнере сетки макета, а так же позволяет указать как работает алгоритм автоматического размещения для неявно созданных элементов макета, указывая как они будут размещены в сетке макета.</p>
+
+	<div class="mt30">Является сокращенным свойством для следующих свойств:</div>
+	<ul class="list">
+		<li><a href="grid-template-rows.html" class="sin tdu">grid-template-rows<samp></samp></a> - определяет количество, наименование и размер строк в макете сетки. Значение по умолчанию - <b>none</b>.</li>
+		<li><a href="grid-template-columns.html" class="sin tdu"><samp>grid-template-columns</samp></a> - определяет количество, наименование и размер столбцов (дорожек) в макете сетки. Значение по умолчанию - <b>none</b>.</li>
+		<li><a href="grid-template-areas.html" class="sin tdu"><samp>grid-template-areas</samp></a> - определяет шаблон макета сетки, ссылаясь при этом на имена областей элементов, которые задаются с помощью свойства grid-area. Значение по умолчанию - <b>none</b>.</li>
+		<li><a href="grid-auto-rows.html" class="sin tdu"><samp>grid-auto-rows</samp></a> - задает размер неявно созданных строк в контейнере сетки макета. Значение по умолчанию - <b>auto</b>.</li>
+		<li><a href="grid-auto-columns.html" class="sin tdu"><samp>grid-auto-columns</samp></a> - задает размер неявно созданных столбцов в контейнере сетки макета. Значение по умолчанию - <b>auto</b>.</li>
+		<li><a href="grid-auto-flow.html" class="sin tdu"><samp>grid-auto-flow</samp></a> - определяет, как работает алгоритм автоматического размещения для неявно созданных элементов макета, указывая как они будут размещены в сетке макета. Значение по умолчанию - <b>row</b>.</li>
+	</ul>
+
+
+	<pre class="item2 css ls-1 mt20 lh-1_3"><code>.item {
+   grid: <b class="abbr" title="Значение по умолчанию. Нет определенного размера столбцов или строк.">none</b> |
+         <b class="abbr" title="Определяет размер(ы) столбцов и строк.">grid-template-rows / grid-template-columns</b> |
+         <b class="abbr" title="Определяет макет сетки с использованием именованных элементов.">grid-template-areas</b> |
+         <b class="abbr" title="Определяет размер (высота) строк и автоматический размер столбцов.">grid-template-rows / grid-auto-columns</b> |
+         <b class="abbr" title="Определяет автоматический размер строк и устанавливает свойство grid-template-columns.">grid-auto-rows / grid-template-columns</b> |
+         <b class="abbr" title="Определяет размер (высота) строк и способ размещения автоматически размещаемых элементов, а также автоматический размер столбцов.">grid-template-rows / grid-auto-flow grid-auto-columns</b> |
+         <b class="abbr" title="Определяет как размещать автоматически размещаемые элементы и автоматический размер строк, а также устанавливает свойство grid-template-columns.">grid-auto-flow grid-auto-rows / grid-template-columns</b> |
+         <b class="abbr" title="Устанавливает для этого свойства значение по умолчанию.">initial</b> | <b class="abbr" title="Наследует это свойство от своего родительского элемента.">inherit</b>;<br>}</code></pre>
+
+	<div class="mt40 mb40"><img src="img/grid.gif" alt="схема" width="640" height="213" class="img-c"></div>
+
+	<!-- <table class="t1 t3 tc mt20 mb30">
+		<tr><td class="ls-1" width="155px">grid-row-start</td>
+			<td>Определяет сколько строк будет занимать элемент, или на какой строке начинается элемент в макете сетки.</td></tr>
+		<tr><td class="ls-1">grid-column-start</td>
+			<td>Определяет сколько строк будет занимать элемент, или на какой строке заканчивается элемент в макете сетки.</td></tr>
+		<tr><td class="ls-1">grid-row-end</td>
+			<td>Определяет с какого столбца будет расположен элемент в макете сетки, или какое количество столбцов будет охватывать элемент.</td></tr>
+		<tr><td class="ls-1">grid-column-end</td>
+			<td>Определяет сколько столбцов будет занимать элемент, или на какой строке столбца завершится элемент.</td></tr>
+		<tr><td>item_name</td>
+			<td>Задает имя элемента сетки. <b>Нельзя использовать с <samp class="sin">grid-...</samp> свойствами</b>.</td></tr>
+	</table> -->
+
+	<!-- <div>Возможные значения <samp class="sin">grid-...</samp> свойств:</div>
+	<ul class="list">
+		<li><samp class="lsin">auto</samp> - ключевое слово, указывающее, что свойство не влияет на размещение элемента в макете сетки (автоматическое размещение, автоматический диапазон или диапазон по умолчанию равный 1). Является значением по умолчанию.</li>
+		<li>целое число, которое соответствует начальной грани элемента в макете сетки (отсчет граней в макете ведется сверху вниз от верхнего края элемента). Если задано отрицательное целое число, то отсчет ведется в обратном порядке, начиная с конечного края явной сетки макета. <b>Значение 0 недопустимо</b>.</li>
+		<li><samp class="lsin">line-name</samp> - строковое значение ссылающееся на именованную строку в макете сетки, заданный свойством <a href="grid-template.html"><samp class="sin dib tdu">grid-template</samp></a>. Элемент располагается от начальной грани указанного элемента.</li>
+		<li><samp class="lsin">span n</samp> - ключевое слово с целым числом <b>n</b>, которое определяет какое количество строк сетки элемент будет охватывать. По умолчанию используется значение 1. <b>Отрицательные значения или значение 0 недопустимы</b>.</li>
+	</ul> -->
+
+	<div class = "grid-container m0a mt40">
+		<div class = "grid-item item-a">Header</div>
+		<div class = "grid-item item-b">Main</div>
+		<div class = "grid-item item-c">Footer</div>
+		<div class = "grid-item item-d">Navigation</div>
+	</div>
+
+	<style>
+		.grid-container {display:grid; padding:10px; gap:10px; background:rgb(0,150,208);
+		grid: repeat(4, 30px) / 1fr 1fr 1fr 1fr; width:75%;}
+		.grid-item {border: 1px solid #000; text-align: center; line-height:30px;}
+		.item-a {grid-area: 1 / 1 / 2 / 5; background:red;}
+		.item-b {grid-area: 2 / 2 / 4 / 4; background:yellow;}
+		.item-c {grid-area: 4 / span 4 / 5; background:green;}
+		.item-d {grid-area: 2 / 1 / span 2 / 2; background:violet;}
+	</style>
+
+	<pre class="item2 mt20"><code>&lt;div class = "grid-container">
+   &lt;div class = "item-a">Header&lt;/div>
+   &lt;div class = "item-b">Main&lt;/div>
+   &lt;div class = "item-c">Footer&lt;/div>
+   &lt;div class = "item-d">Navigation&lt;/div>
+&lt;/div>
+
+&lt;style>
+.grid-container {
+   display: grid;
+   grid: repeat(4, 40px) / 1fr 1fr 1fr 1fr;
+}
+.item-a { grid-area: 1 / 1 / 2 / 5; }
+.item-b { grid-area: 2 / 2 / 4 / 4; }
+.item-c { grid-area: 4 / span 4 / 5; }
+.item-d { grid-area: 2 / 1 / span 2 / 2; }
+&lt;/style></code></pre>
+
+</div>
+
+
+</body></html>

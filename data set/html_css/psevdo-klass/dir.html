@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><title>Псевдокласс dir</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:dir</samp></h2>
+<div class="item">
+  <div>Псевдокласс <samp class="sin">:dir</samp> применяет стилевые правила к элементам на основе направления текста.</div>
+
+  <pre class="item2 mb20 mt20"><code>.elem:dir(ltr | rtl) { ... }</code></pre>
+
+  <p>Для указания направления текста применяется атрибут <samp class="sin">dir</samp> со значением <samp class="lsin">ltr</samp> или <samp class="lsin">rtl</samp>. Поэтому в некоторых случаях селекторы <samp class="sin">:dir(rtl)</samp> и <samp class="sin">[dir="rtl"]</samp> будут давать одинаковый результат. Однако использование псевдокласса более универсально, поскольку оно основывается на направлении текста, которое определяет браузер.</p>
+
+  <div class="item2">
+	  <pre><code>&lt;div dir="rtl"><br>  &lt;p>…&lt;/p><br>  &lt;p>…&lt;/p><br>&lt;/div></code></pre>
+    <pre class="ls-05"><code><br>p[dir="rtl"] { color:#333 }  /* не сработает т.к. у элемента &lt;p> не задан атрибут dir. */<br>p:dir(rtl)   { color:#333 }</code></pre>
+  </div>
+
+  <table class="support mt20">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td class="n"><span></span></td><!-- Edge -->
+      <td class="n"><span></span></td><!-- Chrome -->
+      <td class="n"><span></span></td><!-- Opera -->
+      <td><span>16.4</span></td><!-- Safari -->
+      <td><span>49</span></td><!-- FF -->
+      <td class="n"><span></span></td><!-- mobile-android -->
+      <td><span>115</span></td><!-- mobile-FF -->
+      <td class="n"><span></span></td><!-- mobile-opera -->
+      <td><span>16.4</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+</div>
+</body></html>

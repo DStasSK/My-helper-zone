@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><title>CSS cвойство animation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.bg_g{border-radius:3px; padding-left:2px; padding-right:2px; letter-spacing:-1px; }
+</style>
+</head>
+<body>
+
+<h2 class="sin">Сокращённое CSS cвойство - <samp>animation</samp>.</h2>
+
+<div class="item">
+	<p>CSS cвойство <samp class="sin">animation</samp> представляет из себя сокращенную форму записи свойств <samp class="bg_g">animation-name</samp>, <samp class="bg_g">animation-duration</samp>, <samp class="bg_g">animation-timing-function</samp>, <samp class="bg_g">animation-delay</samp>, <samp class="bg_g">animation-iteration-count</samp>, <samp class="bg_g">animation-direction</samp>, <samp class="bg_g">animation-fill-mode</samp>, <samp class="bg_g">animation-play-state</samp>. В качестве значений принимает любые комбинации значений определяемых свойств, разделяемых между собой пробелом.</p>
+
+	<pre class="item2 mt20"><code>.elem {<br>  animation: slide 2s ease-in-out .5s infinite alternate;<br>}</code></pre>
+
+	<div>Значения по умолчанию:</div>
+	<ul class="list l1" style="font-family:monospace; font-size:16px">
+		<li>animation-name: none;</li>
+		<li>animation-duration: 0s;</li>
+		<li>animation-timing-function: ease;</li>
+		<li>animation-delay: 0s;</li>
+		<li>animation-iteration-count: 1;</li>
+		<li>animation-direction: normal;</li>
+		<li>animation-fill-mode: none;</li>
+		<li>animation-play-state: running;</li>
+	</ul>
+
+	<div class="no no1 mt40">
+		<div>Порядок значений обычно не важен, за исключением значений <samp class="lsin">s</samp> или <samp class="lsin">ms</samp>:</div>
+		<ul class="list l1">
+			<li>первое значение <samp class="lsin">s</samp> или <samp class="lsin">ms</samp> присваивается свойству <samp class="sin">animation-duration</samp></li>
+			<li>второй такой параметр (если есть) - будет назначен свойству <samp class="sin">animation-delay</samp></li>
+		</ul>
+	</div>
+
+	<div class="mt40">В старом коде могут всртечаться различные префиксы:</div>
+	<pre class="item2"><code>.elem {<br>  -webkit-animation: slide 2s ease-in-out .5s infinite alternate;<br>     -moz-animation: slide 2s ease-in-out .5s infinite alternate;<br>       -o-animation: slide 2s ease-in-out .5s infinite alternate;<br>          animation: slide 2s ease-in-out .5s infinite alternate;<br>}<br><br>.ball:hover {animation-play-state: paused;}</code></pre>
+</div>
+
+</body>
+</html>

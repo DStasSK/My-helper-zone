@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>user-select</title>
+<!DOCTYPE html><html><head><title>CSS свойство user-select</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,33 +13,68 @@
 	.tt3 {-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; background:#eee;}
 	.tt4 {-webkit-user-select:all; -moz-user-select:all; -ms-user-select:all; user-select:all;}
 	.tt5 {-webkit-user-select:contain; -moz-user-select:contain; -ms-user-select:contain; user-select:contain;}
+	.tt6 {-webkit-user-select:element; -moz-user-select:element; -ms-user-select:element; user-select:element;}
 </style>
 
 </head>
 <body>
 
-<h1 class="sin" id="z1">user-select</h1>
+<h2 class="sin" id="z1">CSS свойство <samp>user-select</samp></h2>
 <div class="item">
-	<p>Управляет поведением выделения текста и других элементов на странице, в частности, позволяет запретить выделение текста. Обычно применяется для интерактивных элементов, на которые можно щёлкать, например, вкладки, и для которых выделение текста нежелательно. Значение по умолчанию <samp class="lsin">auto</samp>, наследуется, применяется ко всем элементам.</p>
+	<p>CSS свойство <samp class="sin">user-select</samp> управляет поведением выделения текста и других элементов на странице, в частности, позволяет запретить выделение текста. Обычно применяется для интерактивных элементов, на которые можно щёлкать, например, вкладки, и для которых выделение текста нежелательно. Значение по умолчанию <samp class="lsin">auto</samp>, наследуется, применяется ко всем элементам.</p>
 
-	<b>Синтаксис:</b>
-	<pre class="item2"><code>div {<br>  -webkit-user-select: auto | none | text | all | contain;<br>     -moz-user-select: auto | none | text | all | contain;<br>      -ms-user-select: auto | none | text | all | contain;<br>          user-select: auto | none | text | all | contain;<br>}</code></pre>
+	<pre class="item2 mt20 mb10"><code>div {<br>  -webkit-user-select: auto | none | text | all | contain;<br>     -moz-user-select: auto | none | text | all | contain;<br>      -ms-user-select: auto | none | text | all | contain;<br>          user-select: auto | none | text | all | contain;<br>}</code></pre>
 
-	<table class="t1 t2 tc tb mt20" id="tt1">
-		<caption>Значения / песочница</caption>
+	<table class="t1 t2 tb" id="tt1">
 		<tr><td>auto</td>
-			<td>Для редактируемых элементов значение принимается contain. Если у родителя значение <samp class="sin">user-select</samp> установлено как <samp class="lsin">all</samp>, то для элемента оно тоже будет <samp class="lsin">all</samp>. Если у родителя значение <samp class="sin">user-select</samp> установлено как <samp class="lsin">none</samp>, то для элемента оно тоже будет <samp class="lsin">none</samp>. Во всех остальных случаях принимается значение <samp class="lsin">text</samp>.</td></tr>
+			<td>
+				<ul class="list l1">
+					<li>Для редактируемых элементов значение принимается <samp class="lsin">contain</samp>.</li>
+					<li>Для псевдо-элементов <samp class="pur">::before</samp> и <samp class="pur">::after</samp> вычисляемое значение - <samp class="lsin">none</samp>.</li>
+					<li>Если у родителя значение <samp class="sin dib">user-select</samp> установлено как <samp class="lsin">all</samp>, то для элемента оно тоже будет <samp class="lsin">all</samp>.</li>
+					<li>Если у родителя значение <samp class="sin dib">user-select</samp> установлено как <samp class="lsin">none</samp>, то для элемента оно тоже будет <samp class="lsin">none</samp>.</li>
+					<li>Во всех остальных случаях принимается значение <samp class="lsin">text</samp>.</li>
+				</ul></td></tr>
 		<tr><td>none</td>
 			<td class="tt3">Пользователю запрещено выделять элемент.</td></tr>
 		<tr><td>text</td>
 			<td>Пользователь может выделить текст в элементе.</td></tr>
 		<tr><td>all</td>
-			<td class="tt4">Позволяет выделить текст <b>одним кликом</b> внутри элемента, включая дочерние элементы.</td></tr>
+			<td class="tt4">Позволяет выделить текст <b>одним кликом</b> внутри элемента, включая дочерние элементы, т.е. если клик или контекстный клик произошёл во вложенном элементе, будет выбрано все содержимое коренного предка с этим значением свойства.</td></tr>
 		<tr><td style="background:#eee">contain</td
 			><td class="tt5">Позволяет выделять текст, но только внутри границ элемента.
 			<p><i>Значение <span class="red">contain</span> поддерживается только в <pan class="sin">IE</pan>.</i></p></td></tr>
+		<tr><td style="background:#eee">element</td
+			><td class="tt6">Аналогичен <samp class="lsin">contain</samp>. Поддерживается только в Internet Explorer.</td></tr>
 	</table>
 
+
+	<table class="support mt30">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="part"><span>10</span></td><!-- IE -->
+      <td><span>79</span></td><!-- Edge -->
+      <td><span>54</span></td><!-- Chrome -->
+      <td><span>41</span></td><!-- Opera -->
+      <td><span>16</span></td><!-- Safari -->
+      <td><span>69</span></td><!-- FF -->
+      <td><span>54</span></td><!-- mobile-android -->
+      <td><span>79</span></td><!-- mobile-FF -->
+      <td><span>41</span></td><!-- mobile-opera -->
+      <td><span>16</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
 
 
 </div>

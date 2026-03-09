@@ -16,7 +16,7 @@
 	.tt1 .tth td {background-color:#ddd; padding:5px 10px; text-align:center; font-weight:bold}
 	.tc1 caption {text-align:center; font-weight:bold; padding:8px}
 
-	.list li{margin:3px 0; text-align:justify}
+	.list li{margin:3px 0;}
 </style>
 </head>
 <body>
@@ -24,15 +24,24 @@
 
 <div class="item">
 	<p>Устанавливает форму курсора, когда он находится в пределах элемента. Вид курсора зависит от операционной системы и установленных параметров. Значение по умолчанию - <samp class="lsin">auto</samp>, наследуется, применяется ко всем элементам, не анимируется.</p>
-	<pre class="item2"><code>cursor: url('адрес'), курсор</code></pre>
 
-	<p class="mt10">Через запятую допускается указывать несколько значений <samp class="lsin">url</samp>, в этом случае браузер попытается открыть первый файл с курсором и если это по каким-либо причинам не получится, перейдёт к следующему файлу. Список обязательно заканчивается ключевым словом, например, <samp class="lsin">auto</samp> или <samp class="lsin">pointer</samp> или другим допустимым значением.</p>
+	<pre class="item2 mt20"><code>cursor: url('адрес'), курсор</code></pre>
+	<ul class="list mb30">
+		<li><samp class="lsin">url('адрес')</samp> - адрес до поддерживаемого браузером графического формата файла-изображения курсора.</li>
+		<li><samp class="lsin">курсор</samp> - <a href="#keyWord" class="sin tdu dib">ключевое слово</a>, которое определяет внешний вид курсора при наведении на элемент.</li>
+	</ul>
+
+	<p class="mt10">Допускается указывать несколько значений <samp class="lsin">url</samp> через запятую, в этом случае браузер попытается открыть первый файл с курсором и если это по каким-либо причинам не получится, перейдёт к следующему файлу. Список обязательно заканчивается ключевым словом, например, <samp class="lsin">auto</samp> или <samp class="lsin">pointer</samp> или другим допустимым значением.</p>
+
 	<ul class="list mt20">
 		<li>Internet Explorer в качестве формата файла курсора поддерживает <b>CUR</b> и <b>ANI</b>.</li>
 		<li>Firefox, Chrome, Safari поддерживают форматы <b>CUR, PNG, GIF, JPG</b>.</li>
 	</ul>
+
 	<div class="no">Браузеры на мобильных устройствах не поддерживают свойство <samp class="sin">cursor</samp>.</div>
 </div>
+
+
 
 <div class="item" id="pointer-events">
 	<h2 class="sin">pointer-events</h2>
@@ -45,14 +54,16 @@
 	</table>
 </div>
 
-<div class="item">
+
+
+<div class="item" id="keyWord">
 	<table class="tt1 t0 tb tc1 todd t3">
-		<caption>Значения</caption>
+		<caption class="sin">Ключевые слова для определения вида курсора</caption>
 		<tr class="tth"><td></td>
-			<td width="215px">Пример записи и курсора</td>
+			<td width="215px">Пример записи и внешнего вида курсора</td>
 			<td>Описание / примечание</td></tr>
 		<tr><td>url</td>
-			<td style="cursor:url(img/sniper.cur), auto; text-align:left"><pre><code>P {cursor:<br>url(img/sniper.cur), auto}</code></pre></td>
+			<td style="cursor:url(img/sniper.cur), auto; text-align:left"><pre class="ls-05"><code>P {<br>  cursor:<br>  url(sniper.cur), auto;<br>}</code></pre></td>
 			<td>Позволяет установить свой собственный курсор, для этого нужно указать путь к файлу с курсором.</td></tr>
 		<tr><td>auto</td>
 			<td style="cursor:auto"><pre><code>P {cursor: auto}</code></pre></td>
@@ -152,21 +163,22 @@
 			<td><samp class="sin">IE</samp> не поддерживает.</td></tr>
 		<tr><td>grab</td>
 			<td style="cursor:grab"><pre><code>P {cursor: grab}</code></pre></td>
-			<td>Chrome, Opera, Safari поддерживают значение <samp class="lsin dib">-webkit-grab</samp><br>IE не поддерживает.</td></tr>
+			<td>Chrome, Opera, Safari поддерживают значение <samp class="lsin dib">-webkit-grab</samp><br><samp class="sin">IE</samp> не поддерживает.</td></tr>
 		<tr><td>grabbing</td>
 			<td style="cursor:grabbing"><pre><code>P {cursor: grabbing}</code></pre></td>
-			<td>Chrome, Opera, Safari поддерживают значение <samp class="lsin dib">-webkit-grabbing</samp><br>IE не поддерживает.</td></tr>
+			<td>Chrome, Opera, Safari поддерживают значение <samp class="lsin dib">-webkit-grabbing</samp><br><samp class="sin">IE</samp> не поддерживает.</td></tr>
 	</table>
 </div>
 
 
+
 <div class="item anp">
 	<div class="no">
-		<ul class="list">
-			<li>Firefox до версии 24 поддерживает значения <samp class="lsin">-moz-zoom-in</samp> и <samp class="lsin">-moz-zoom-out</samp>.</li>
-			<li>Firefox до версии 27 поддерживает значения <samp class="lsin">-moz-grab</samp> и <samp class="lsin">-moz-grabbing</samp>.</li>
-			<li>Chrome до версии 22, Opera до версии 24 и Safari до версии 9 поддерживают значения <samp class="lsin">-webkit-grab</samp> и <samp class="lsin">-webkit-grabbing</samp>.</li>
-			<li>Chrome до версии 36, Opera до версии 24 и Safari до версии 9 поддерживают значения <samp class="lsin">-webkit-zoom-in</samp> и <samp class="lsin">-webkit-zoom-out</samp>.</li>
+		<ul class="list tal">
+			<li>Firefox до версии 24 поддерживает значения <samp class="lsin dib">-moz-zoom-in</samp> и <samp class="lsin dib">-moz-zoom-out</samp>.</li>
+			<li>Firefox до версии 27 поддерживает значения <samp class="lsin dib">-moz-grab</samp> и <samp class="lsin dib">-moz-grabbing</samp>.</li>
+			<li>Chrome до версии 22, Opera до версии 24 и Safari до версии 9 поддерживают значения <samp class="lsin dib">-webkit-grab</samp> и <samp class="lsin dib">-webkit-grabbing</samp>.</li>
+			<li>Chrome до версии 36, Opera до версии 24 и Safari до версии 9 поддерживают значения <samp class="lsin dib">-webkit-zoom-in</samp> и <samp class="lsin dib">-webkit-zoom-out</samp>.</li>
 		</ul>
 	</div>
 </div>

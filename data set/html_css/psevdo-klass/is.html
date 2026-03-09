@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><title>Псевдокласс is()</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:is()</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:is()</samp> позволяет писать комбинированные селекторы в более краткой форме. Это функция-псевдокласс принимает список селекторов как аргумент, и выбирает любой элемент, который может быть выбран одним из селекторов в этом списке. Это полезно при переписи огромных списков селекторов в более компактную форму.</p>
+
+  <pre class="item2" style="line-height:1.8"><code>.elem :is(td, th) {padding: 0.5rem}  /* аналогично  .elem td, .elem th {...} */<br>:is(ol, ul) > li {margin: 0.5rem}    /* стили для li внутри ol или ul */<br>.box :is(h2, .title) {color: #222}   /* стили для h2 или .title внутри .box */</code></pre>
+
+  <div class="no">Селекторы, содержащие разные браузерные префиксы (-moz-, -webkit- и пр.), нельзя группировать вместе.</div>
+</div>
+</body></html>

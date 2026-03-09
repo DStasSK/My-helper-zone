@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><title>CSS свойство - font-variant</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS свойство - <samp>font-variant</samp></h2>
+
+<div class="item">
+  <p>Свойство <samp class="sin">font-variant</samp> определяет, как нужно представлять строчные буквы — оставить их без модификаций или делать их все прописными уменьшенного размера. Такой способ изменения символов называется капителью. Значения свойства применяются ко всем элементам, наследуется, не анимируется. Значение по умолчанию - normal.</p>
+
+  <ul class="list mt30 mb30">
+    <li><samp class="sin">normal</samp> - оставляет регистр символов исходным, заданным по умолчанию.</li>
+    <li><samp class="sin">small-caps</samp> - модифицирует все строчные символы как заглавные уменьшенного размера.</li>
+  </ul>
+
+  <pre class="item2"><code>.elem {<br>  font-variant: normal;	      /* <span style="font-style:normal; font-variant:normal">обычный текст</span> */<br>  font-variant: small-caps;   /* <span style="font-style:normal; font-variant:small-caps">модифицированный текст</span> */<br>}</code></pre>
+</div>

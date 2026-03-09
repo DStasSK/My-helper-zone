@@ -19,63 +19,86 @@
 <h2 class="sin" id="ruby"><samp>&lt;select></samp></h2>
 <!-- Оглавление -->
 	<ul class="ogl">
-		<li><a href="#attributs">Атрибуты</a>
-			<div class="ogl2 ogl21">
-				<span><a href="#autofocus" title="Устанавливает, что список получает фокус после загрузки страницы." class="t-html5">autofocus</a></span>
-				<span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
-				<span><a href="#form" title="Связывает список с формой." class="t-html5">form</a></span>
-				<span><a href="#multiple" title="Позволяет одновременно выбирать сразу несколько элементов списка.">multiple</a></span>
-				<span><a href="#name" title="Имя элемента для отправки на сервер или обращения через скрипты.">name</a></span>
-				<span><a href="#required" title="Список обязателен для выбора перед отправкой формы." class="t-html5">required</a></span>
-				<span><a href="#size" title="Количество отображаемых строк списка.">size</a></span>
-				<span></span>
-			</div>
-			</li>
-		<li><a href="#pr1">Пример 1.</a></li>
+		<li><a href="#attributs">Атрибуты элемента <samp>&lt;select></samp></a></li>
+		<li><a href="#pr1">Пример 1 - size.</a></li>
 		<li><a href="#pr2">Пример 2 - disabled.</a></li>
-		<li><a href="#pr3">Пример 3.</a></li>
+		<li><a href="#pr3">Пример 3 - multiple.</a></li>
 		<li><a href="#pr4">Пример 4 - required.</a></li>
 		<li><a href="#pr5">Пример 5 - name + script.</a></li>
 	</ul>
 
 
-<div class="item">
-	<p>Элемент <samp class="red">&lt;select></samp> (от англ. selection — выбор) позволяет создать элемент интерфейса в виде раскрывающегося списка, а также список с одним или множественным выбором.</p>
-	<p>Конечный вид зависит от использования атрибута <samp class="sin">size</samp>, который устанавливает высоту списка. Ширина списка определяется самым широким текстом, указанным в элементе <samp class="red">&lt;option></samp>, а также может изменяться с помощью стилей. Каждый пункт создаётся с помощью элемента <samp class="red">&lt;option></samp>, который должен быть вложен в контейнер <samp class="red">&lt;select></samp>.</p>
-	<p>Если планируется отправлять данные списка на сервер, то требуется поместить <samp class="red">&lt;select></samp> внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.</p>
-	<p><samp class="red">&lt;select></samp> нельзя вкладывать внутрь ссылок <samp class="red">&lt;a></samp> и кнопок <samp class="red">&lt;button></samp>; внутри <samp class="red">&lt;select></samp> должен быть хотя бы один элемент <samp class="red">&lt;option></samp>.</p>
+<div class="item anp">
+	<p>Элемент <samp class="teg sin">select</samp> (от англ. selection — выбор) позволяет создать элемент интерфейса в виде раскрывающегося списка, а также список с одним или множественным выбором.</p>
+
+  <p>Конечный вид зависит от использования атрибута <samp class="sin">size</samp>, который устанавливает высоту списка. Ширина списка определяется самым широким текстом, указанным в элементе <samp class="teg sin">option</samp>, а также может изменяться с помощью стилей. Каждый пункт создаётся с помощью элемента <samp class="teg sin">option</samp>, который должен быть вложен в контейнер <samp class="teg sin">select</samp>.</p>
+
+  <p>Если планируется отправлять данные списка на сервер, то требуется поместить <samp class="teg sin">select</samp> внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.</p>
 
 	<pre class="item2 mt20"><code>&lt;select><br>   &lt;option>Пункт 1&lt;/option><br>   &lt;option>Пункт 2&lt;/option><br>&lt;/select></code></pre>
+  <select>
+    <option>Пункт 1</option>
+    <option>Пункт 2</option>
+    <option>Пункт 3</option>
+  </select>
+  
+  <div class="no mt40 mb40">Элемент <samp class="teg sin">select</samp> нельзя вкладывать внутрь ссылок <samp class="teg sin">a</samp> и кнопок <samp class="teg sin">button</samp>; внутри <samp class="teg sin">select</samp> должен быть хотя бы один элемент <samp class="teg sin">option</samp>.</div>
+
+  <p>Внутри контейнера <samp class="teg sin">select</samp> элементы <samp class="teg sin">option</samp> могут группироваться в броки при помощи элемента <a href="./optgroup.html"><samp class="teg sin tdu">optgroup</samp></a>, при этом он сам не является элементом списка.</p>
+
+  <pre class="item2"><code>&lt;select><br>   &lt;optgroup label="текст 1"><br>      &lt;option>1-1&lt;/option><br>      &lt;option>1-2&lt;/option><br>   &lt;/optgroup><br>   &lt;optgroup label="текст 2"><br>      &lt;option>2-1&lt;/option><br>      &lt;option>2-2&lt;/option><br>   &lt;/optgroup><br>&lt;/select></code></pre>
+  <select>
+    <optgroup label="текст 1">
+       <option>1-1</option>
+       <option>1-2</option>
+    </optgroup>
+    <optgroup label="текст 2">
+       <option>2-1</option>
+       <option>2-2</option>
+    </optgroup>
+ </select>
 </div>
+
 
 
 <div class="item" id="attributs">
 <h2 class="sin"><a href="#" title="наверх">Атрибуты</a></h2>
+  <div class="ogl2 ogl21 ogl2c">
+    <span><a href="#autofocus" title="Устанавливает, что список получает фокус после загрузки страницы." class="t-html5">autofocus</a></span>
+    <span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
+    <span><a href="#form" title="Связывает список с формой." class="t-html5">form</a></span>
+    <span><a href="#multiple" title="Позволяет одновременно выбирать сразу несколько элементов списка.">multiple</a></span>
+    <span><a href="#name" title="Имя элемента для отправки на сервер или обращения через скрипты.">name</a></span>
+    <span><a href="#required" title="Список обязателен для выбора перед отправкой формы." class="t-html5">required</a></span>
+    <span><a href="#size" title="Количество отображаемых строк списка.">size</a></span>
+    <!-- <span></span> -->
+  </div>
+
 	<table class="t1 t3 tb">
-		<tr><td id="autofocus" width="110px"><a href="#">autofocus</a><span class="t-html5" title="HTML5"></span></td>
+		<tr><td id="autofocus" width="110px"><a href="#attributs">autofocus</a><span class="t-html5" title="HTML5"></span></td>
 			<td>Устанавливает, что список получает фокус после загрузки страницы, при этом список становится доступным для выбора пунктов, например, с помощью клавиатуры.
 			<pre class="item2"><code>&lt;select autofocus>...&lt;/select></code></pre></td></tr>
-		<tr><td id="disabled"><a href="#">disabled</a></td>
+		<tr><td id="disabled"><a href="#attributs">disabled</a></td>
 			<td>Блокирует доступ и изменение элементов списка. Блокированный список не может получить фокус через курсор или клавиатуру, быть изменён, значение такого списка не передаётся на сервер.
 			<pre class="item2"><code>&lt;select disabled>...&lt;/select></code></pre></td></tr>
-		<tr><td id="form"><a href="#">form</a><span class="t-html5" title="HTML5"></span></td>
-			<td>Связывает список с формой по её идентификатору. Такая связь необходима в случае, когда список располагается за пределами <samp class="red">&lt;form></samp>. Значения - идентификатор формы (значение атрибута <samp class="sin">id</samp> элемента <samp class="red">&lt;form></samp>).
+		<tr><td id="form"><a href="#attributs">form</a><span class="t-html5" title="HTML5"></span></td>
+			<td>Связывает список с формой по её идентификатору. Такая связь необходима в случае, когда список располагается за пределами <samp class="teg sin">form</samp>. Значения - идентификатор формы (значение атрибута <samp class="sin">id</samp> элемента <samp class="teg sin">form</samp>).
 			<pre class="item2"><code>&lt;select form="идентификатор">...&lt;/select></code></pre>
 			<div class="no mb0">Не поддерживается в IE и Safari</div></td></tr>
-		<tr><td id="multiple"><a href="#">multiple</a></td>
+		<tr><td id="multiple"><a href="#attributs">multiple</a></td>
 			<td>Позволяет одновременно выбирать сразу несколько элементов списка. Конечный вид списка зависит от используемого атрибута <samp class="sin">size</samp> и браузера.
 			<pre class="item2"><code>&lt;select multiple>...&lt;/select></code></pre></td></tr>
-		<tr><td id="name"><a href="#">name</a></td>
-			<td>Имя элемента для отправки на сервер или обращения через скрипты. В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к элементу <samp class="red">&lt;select></samp> по имени соблюдайте ту же форму написания, что и в атрибуте <samp class="sin">name</samp>.
+		<tr><td id="name"><a href="#attributs">name</a></td>
+			<td>Имя элемента для отправки на сервер или обращения через скрипты. В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к элементу <samp class="teg sin">select</samp> по имени соблюдайте ту же форму написания, что и в атрибуте <samp class="sin">name</samp>.
 			<pre class="item2"><code>&lt;select name="имя">...&lt;/select></code></pre></td></tr>
-		<tr><td id="required"><a href="#">required</a><span class="t-html5" title="HTML5"></span></td>
+		<tr><td id="required"><a href="#attributs">required</a><span class="t-html5" title="HTML5"></span></td>
 			<td>Устанавливает список обязательным для выбора перед отправкой формы на сервер. Если пункт списка не выбран, браузер выведет сообщение, а форма не будет отправлена. Вид и содержание сообщения зависит от браузера и меняться пользователем не может.
 			<pre class="item2"><code>&lt;select required>...&lt;/select></code></pre></td></tr>
-		<tr><td id="size"><a href="#">size</a></td>
+		<tr><td id="size"><a href="#attributs">size</a></td>
 			<td><p>Количество отображаемых строк списка.</p>
 			<p>Если значение атрибута <samp class="sin">size</samp> равно <b>1</b>, то список превращается в раскрывающийся.</p>
 			<p>Когда атрибута <samp class="sin">multiple</samp> нет, то по умолчанию значение атрибута <samp class="sin">size</samp> равно <b>1</b>. Если он присутствует, то размер списка по умолчанию - равен количеству элементов.</p>
-			<p>При добавлении атрибута <samp class="sin">multiple</samp> к элементу <samp class="red">&lt;select></samp> при <samp class="sin">size="1"</samp> список отображается как «крутилка».
+			<p>При добавлении атрибута <samp class="sin">multiple</samp> к элементу <samp class="teg sin">select</samp> при <samp class="sin">size="1"</samp> список отображается как «крутилка».
 			<pre class="item2"><code>&lt;select size="число">...&lt;/select></code></pre></td></tr>
 	</table>
 </div>
@@ -84,7 +107,7 @@
 
 
 <div class="item" id="pr1">
-<h3 class="sin"><a href="#">Пример 1.</a></h3>
+<h3 class="sin"><a href="#">Пример 1 - <samp class="lsin">size</samp>.</a></h3>
 	<p></p>
 	<fieldset class="prm">
 		<legend></legend>
@@ -117,7 +140,7 @@
 
 
 <div class="item" id="pr3">
-<h3 class="sin"><a href="#">Пример 3.</a></h3>
+<h3 class="sin"><a href="#">Пример 3 - <samp class="lsin">multiple</samp>.</a></h3>
 	<p>Чтобы на сервер отправлялся массив данных, значение атрибута <samp class="sin">name</samp> следует писать с квадратными скобками — <samp class="lsin">hero[]</samp>, к примеру.</p>
 	<p><i>Не вводите людей в заблуждение. Если в PHP такая конвенция, то это ещё не значит, что атрибут "должен" выглядеть так. С другими серверными платформами всё может быть (и есть) по-другому.</i></p>
 	<fieldset class="prm">

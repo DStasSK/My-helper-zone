@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><title>Псевдокласс lang</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:lang</samp></h2>
+<div class="item">
+  <p>Данный псевдокласс используется когда в документе содержатся абзацы текста на разных языках. Чтобы браузер различал их, элементу с текстом добавляется атрибут <samp class="sin">lang</samp> с кодом языка, например, <samp class="sin dib">lang="<span class="lsin">fr</span>"</samp>. В результате чего этот элемент может быть стилизован при помощи селектора. С помощью псевдокласса <samp class="sin">:lang()</samp> можно задавать определённые настройки, характерные для разных языков, например, вид кавычек в цитатах.</p>
+
+	<pre class="item2 css mt20"><code>p:lang(fr) { color: yellow }</code></pre>
+</div>
+</body></html>

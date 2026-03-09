@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><title>Псевдокласс only-of-type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:only-of-type</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:only-of-type</samp> выбирает дочерний элемент определённого типа, только если он является единственным таким у своего родителя, наличие других элеметнов, отличного от заданного - не влияют на выбор.</p>
+	<p>Таким образом, <samp class="sin">p:only-child</samp> находит только единственный элемент и только если это <samp class="teg sin">p</samp>, а <samp class="sin">p:only-of-type</samp> находит элемент <samp class="teg sin">p</samp> и смотрит, является ли он единственным таким элементом среди всех потомков.</p>
+
+  <fieldset class="prm anp">
+    <legend></legend>
+    <style>
+      .example_only-of-type p:only-of-type { color:red }
+      .example_only-of-type p { margin: 0 }
+    </style>
+    <div class="example_only-of-type">
+      <p>1. Lorem ipsum dolor sit.</p>
+      <div>2. Lorem ipsum dolor sit.</div>
+    </div>
+    <div class="example_only-of-type mt20">
+      <p>1. Lorem ipsum dolor sit.</p>
+      <p>2. Lorem ipsum dolor sit.</p>
+      <div>3. Lorem ipsum dolor sit.</div>
+    </div>
+    <div class="item2 mt20">
+      <pre><code>&lt;div><br>  &lt;p>1. Lorem ipsum dolor sit.&lt;/p><br>  &lt;div>2. Lorem ipsum dolor sit.&lt;/div><br>&lt;/div><br>&lt;div><br>  &lt;p>1. Lorem ipsum dolor sit.&lt;/p><br>  &lt;p>2. Lorem ipsum dolor sit.&lt;/p><br>  &lt;div>3. Lorem ipsum dolor sit.&lt;/div><br>&lt;/div></code></pre>
+      <pre><code><br>p:only-child { color:red }</code></pre>
+    </div>
+  </fieldset>
+</div>
+</body></html>

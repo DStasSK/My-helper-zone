@@ -13,15 +13,40 @@
 
 <h2 class="sin">background-attachment</h2>
 <div class="item">
-	<p>У свойства <span class="sin">background-attachment</span> имеются параметры, с помощью которых можно зафиксировать фоновое изображение или наоборот сделать его подвижным для прокручивания вместе с содержимым страницы.</p>
-</div>
+	<p>Свойство <samp class="sin">background-attachment</samp> устанавливает, будет ли прокручиваться фоновое изображение вместе с содержимым элемента. Изображение может быть зафиксировано и оставаться неподвижным, либо перемещаться совместно с документом. Можно указать несколько значений для ряда фоновых изображений, перечисляя значения через запятую. Значение свойства не наследуется, анимируется, применяется для всех элементов. Значение по умолчанию	<samp class="lsin">scroll</samp>.</p>
 
-<div class="item">
-	<pre class="item2"><code>background-attachment: fixed;<br>background-attachment: scroll;<br>background-attachment: local;<br>background-attachment: inherit;</code></pre>
+  <pre class="item2 mt20 mb10"><code>.elem {<br>  background-attachment: fixed | scroll | local | inherit;<br>}</code></pre>
 
-	<span class="lsin">fixed</span> – данный параметр фиксирует фоновое изображение.
-	<br><span class="lsin">scroll</span> – фоновое изображение будет перемещаться с контентом.
-	<br><span class="lsin">local</span> – фон прокручивается не выходя за рамки элемента.
-	<br><span class="lsin">inherit</span> – наследует значение.
-</div>
+  <ul class="list">
+    <li><samp class="sin">fixed</samp> - фиксирует фоновое изображение.</li>
+    <li><samp class="sin">scroll</samp> - фоновое изображение будет перемещаться с контентом.</li>
+    <li><samp class="sin">local</samp> - фон фиксируется с учётом поведения элемента. Если элемент имеет прокрутку, фон прокручивается не выходя за рамки элемента.</li>
+    <li><samp class="sin">inherit</samp> - наследует значение.</li>
+  </ul>
+
+<!-- </div> -->
+
+
+  <fieldset class="prm mt40">
+    <style>
+      .example1 {
+        padding:90px 0;
+        background-image: url(img/1.gif), url(img/2.gif);
+        background-repeat: repeat-y, repeat-y;
+        /* background-position: left, right; */
+        background-position-x: 4%, 102%;
+        background-attachment: fixed, scroll;
+      }
+    </style>
+    <div class="example1">
+      <div style="margin:10px 100px;">
+        <p>Если в дизайне сайта используется больше одного фонового изображения, в <span class="sin">CSS3</span> предусмотрена возможность задать ряд параметров перечисляя их через запятую.</p>
+      </div>
+      <div class="item2" style="margin: 10px 100px; overflow: hidden;">
+        <pre><code>&lt;div class="elem"><br>  &lt;p>Если в дизайне сайта используется ...&lt;/p><br>&lt;/div></code></pre>
+        <pre><code><br>.elem {<br>  background-image: url(bg/1.gif), url(bg/2.gif);<br>  background-repeat: repeat-y, repeat-y;<br>  background-position-x: 4%, 102%;<br>  background-attachment: fixed, scroll;<br>}</code></pre>
+      </div>
+    </div>
+  </fieldset>
+
 </body></html>

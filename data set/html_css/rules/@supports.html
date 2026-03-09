@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><title>@supports</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h1 class="sin"><span class="dib">@<samp>supports</samp></span></h1>
+
+<div class="item">
+	<p>Правило <span class="red dib">@<samp>supports</samp></span> создает набор стилевых правил на основе того или иного логического условия. Допустимо создавать комплексные условия с помощью логических операторов <b>not, and, or</b>. Правило <span class="red dib">@<samp>supports</samp></span> может быть использовано не только на верхнем уровне вложенности CSS, но и внутри блоков любых других @-правил.</p>
+
+	<pre class="item2 mt20 mb20">@supports (условие) {<br>  <стилевые правила><br>}</pre>
+
+	<p>Условие состоит из одного или нескольких CSS-объявлений в сочетании с различными логическими операторами. Приоритет операторов может быть переопределён при помощи круглых скобок. В качестве простейшего условия в круглых скобках пишется стилевое свойство и его значение. Далее в фигурных скобках идут стилевые правила. Если браузер поддерживает указанное свойство, то применяются заданные стилевые правила, в противном случае они игнорируются.</p>
+
+	<ul class="list mb30">
+		<li>Для проверки того, что свойство не поддерживается применяется логический оператор <samp class="sin">not</samp>, он ставится перед условием; оператор <samp class="sin">not</samp> возвращает значение, противоположное тому, которое вернуло выражение в круглых скобках после него.</li>
+		<li>Объединить несколько условий можно через логический оператор <samp class="sin">and</samp>. Если хотя бы одно из условий не поддерживается, то стилевые правила не применяются. Сами условия должны быть в круглых скобках.</li>
+		<li>Для выбора одного из условий используется логический оператор <samp class="sin">or</samp>. Если поддерживается хотя бы одно из условий, то применяются стилевые правила.</li>
+	</ul>
+
+	<pre class="item2 css"><code>@supports (transform: perspective(300px)) {...<br>  /* Браузер поддерживает свойство transform с функцией perspective() */<br>}<br><br>@supports not (transform: perspective(300px)) {...<br>  /* Браузер НЕ поддерживает свойство transform с функцией perspective() */<br>}<br><br>@supports (transform-origin: 50% 100%) and (transform: perspective(300px)) {<br>  /* Браузер одновременно поддерживает свойства transform-origin И <br>     transform с функцией perspective() */<br>}<br><br>@supports (perspective: 300px) or (transform: perspective(300px)) {<br>  /* Браузер поддерживает свойство perspective ИЛИ <br>     свойство transform с функцией perspective() */<br>}</code></pre>
+
+	<div class="no">Eсли в выражении одновременно используются операторы <samp class="sin">and</samp> и <samp class="sin">or</samp>, необходимо использовать скобки, чтобы указать порядок применения логических операторов. Если скобки не используются, выражение считается некорректным и всё правило <span class="red dib">@<samp>supports</samp></span> будет полностью проигнорировано.</div>
+
+
+	<pre class="item2 mt40"><code>&lt;style><br>  @supports (display: flex) {<br>    .no { display: none; }<br>  }<br>  @supports not (display: flex) {<br>    .yes { display: none; }<br>  }<br>&lt;/style><br><br>&lt;p class="yes">Ваш браузер поддерживает display: flex.&lt;/p><br>&lt;p class="no">Ваш браузер не поддерживает display: flex.&lt;/p></code></pre>
+</div>
+
+
+
+</body></html>

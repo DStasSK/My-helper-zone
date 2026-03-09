@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><title>CSS свойство - font-size</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS свойство - <samp>font-size</samp></h2>
+
+<div class="item">
+  <p>Свойство <samp class="sin">font-size</samp> определяет размер шрифта элемента. В качестве значений свойства разрешается использовать любые допустимые <a href="../help/unit%20css.html" class="sin tdu dib">единицы CSS</a>, определяющие размер: px, em, ex, pt, проценты (За 100% берётся размер шрифта родительского элемента) и другие. Значения свойства применяются ко всем элементам, наследуется, анимируется. Значение по умолчанию - medium.</p>
+
+  <div class="no">Отрицательные значения не допускаются.</div>
+
+	<pre class="item2 mt30 mb30"><code>.elem {<br>  font-size: 150%;<br>  font-size: 30px;<br>  font-size: 11pt;<br>  font-size: 0.5em;<br>}</code></pre>
+
+  <p>Также допускается задавать размер шрифта при помощи ключевых слов (<b>xx-small, x-small, small, medium, large, x-large, xx-large</b>), но итоговый размер шрифта зависит от настроек браузера и операционной системы.</p>
+
+  <table class="t0 t2 tac tb m0a mt20 mb30">
+    <tr><td>CSS</td><td>xx-small</td><td>x-small</td><td>small</td><td>medium</td><td>large</td><td>x-large</td><td>xx-large</td><td>нет</td></tr>
+    <tr><td>HTML</td><td>1</td><td>нет</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+  </table>
+
+  <p>Другой набор констант (<samp class="sin">larger</samp>, <samp class="sin">smaller</samp>) устанавливает размер шрифта текущего элемента относительно размера шрифта родительского элемента.</p>
+
+</div>

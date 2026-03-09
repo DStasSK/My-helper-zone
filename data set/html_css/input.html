@@ -28,6 +28,9 @@
 				<span><a href="#checked" title="Предварительно активированный переключатель или флажок.">checked</a></span>
 				<span><a href="#dirname" title="Параметр, который передаёт на сервер направление текста." class="t-html5">dirname</a></span>
 				<span><a href="#disabled" title="Блокирует доступ и изменение элемента." class="t-html5">disabled</a></span>
+
+				<span><a href="#enterkeyhint" title=".">enterkeyhint</a></span>
+
 				<span><a href="#form" title="Связывает поле с формой по её идентификатору." class="t-html5">form</a></span>
 				<span><a href="#formaction" title="Определяет адрес обработчика формы." class="t-html5">formaction</a></span>
 				<span><a href="#formenctype" title="Устанавливает способ кодирования данных формы при их отправке на сервер." class="t-html5">formenctype</a></span>
@@ -54,7 +57,8 @@
 				<span></span>
 			</div>
 		</li>
-		<li class="mt10">
+    <li><a href="#filter">Регулярные выражения - для фильтра внутри <samp>input</samp></a></li>
+		<li>
 			<a href="#pclass">Псевдоклассы</a>
 			<div class="ogl2 ogl21">
 				<span><a href="#disabled2" title="используется для применения стиля к заблокированным элементам форм">:disabled</a></span>
@@ -62,10 +66,10 @@
 				<span><a href="#out-of-range" title="применяется к полям форм, у которых введённое пользователем значение выходит из заданного диапазона">:out-of-range</a></span>
 				<span><a href="#invalid" title="применяется к полям формы, содержимое которых не соответствует указанному типу">:invalid</a></span>
 				<span><a href="#valid" title="применяется к полям формы, содержимое которых соответствует указанному типу">:valid</a></span>
-				<span><a href="#read-only" title="применяется к полям формы, у которых задан атрибут readonly">:read-only</a></span>
+				<span><a href="#read-only" title="применяется к полям формы, у которых задан атрибут readonly">:read-only</a></span>
 				<span><a href="#read-write" title="применяется к полям формы, доступных для изменения">:read-write</a></span>
-				<span><a href="#optional" title="применяет стилевые правила к элементу &lt;input&rt;, у которого не задан атрибут required">:optional</a></span>
-				<span><a href="#required2" title="применяет стилевые правила к элементу &lt;input&rt;, у которого установлен атрибут required">:required</a></span>
+				<span><a href="#optional" title="применяет стилевые правила к элементу &lt;input&gt;, у которого не задан атрибут required">:optional</a></span>
+				<span><a href="#required2" title="применяет стилевые правила к элементу &lt;input&gt;, у которого установлен атрибут required">:required</a></span>
 				<span></span>
 			</div>
 		</li>
@@ -83,7 +87,7 @@
 
 
 <div class="item" id="z0">
-<h3 class="sin">Атрибуты</h3>
+<h3 class="sin"><a href="#" title="наверх">Атрибуты</a></h3>
 	<table class="t1 tb">
 		<tr><td><a href="#accept">accept</a></td><td>Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов.</td></tr>
 		<tr><td><a href="#align">align</a></td><td>Определяет выравнивание изображения.<span class="no ml10">устарел</span></td></tr>
@@ -200,16 +204,16 @@
 	<pre class="item2"><code>&lt;input type="radio" checked><br>&lt;input type="checkbox" checked></code></pre>
 
 	<fieldset class="prm anp">
-		<legend class="point" onclick='prchecked.classList.toggle("hiden");'></legend>
-		<form method="post" action="input5.php" class="hiden" id="prchecked">
+		<legend></legend>
+		<form method="post" action="">
 			<p><b>С какими операционными системами вы знакомы?</b></p>
 			<p><input type="checkbox" name="option1" value="a1" checked>Windows 95/98<Br>
 			<input type="checkbox" name="option2" value="a2">Windows 2000<Br>
-			<input type="checkbox" name="option3" value="a3">System X<Br> 
-			<input type="checkbox" name="option4" value="a4">Linux<Br> 
+			<input type="checkbox" name="option3" value="a3">System X<Br>
+			<input type="checkbox" name="option4" value="a4">Linux<Br>
 			<input type="checkbox" name="option5" value="a5">X3-DOS</p>
 			<p><input type="submit" value="Отправить"></p>
-			<pre class="item2"><code>&lt;form method="post" action="input5.php"><br>  &lt;p>&lt;b>С какими операционными системами вы знакомы?&lt;/b>&lt;/p><br>  &lt;p>&lt;input type="checkbox" name="op1" value="a1" checked>Windows 98&lt;br><br>  &lt;input type="checkbox" name="op2" value="a2">Windows 2000&lt;br><br>  &lt;input type="checkbox" name="op3" value="a3">System X&lt;br><br>  &lt;input type="checkbox" name="op4" value="a4">Linux&lt;br><br>  &lt;input type="checkbox" name="op5" value="a5">X3-DOS&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+			<pre class="item2"><code>&lt;form method="post" action="input_5.php"><br>  &lt;p>&lt;b>С какими операционными системами вы знакомы?&lt;/b>&lt;/p><br>  &lt;p>&lt;input type="checkbox" name="op1" value="a1" checked>Windows 98&lt;br><br>  &lt;input type="checkbox" name="op2" value="a2">Windows 2000&lt;br><br>  &lt;input type="checkbox" name="op3" value="a3">System X&lt;br><br>  &lt;input type="checkbox" name="op4" value="a4">Linux&lt;br><br>  &lt;input type="checkbox" name="op5" value="a5">X3-DOS&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
 		</form>
 	</fieldset>
 </div>
@@ -237,6 +241,17 @@
 		</form>
 		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;input type="text" size="30" onFocus="this.form.submit.disabled=0"><br>  &lt;br>&lt;input type="submit" name="submit" value="Отправить" disabled><br>&lt;/form></code></pre>
 	</fieldset>
+</div>
+
+
+<div class="item">
+<h3 class="sin" id="enterkeyhint"><a href="#z0">Атрибут - <samp class="grin">enterkeyhint</samp></a></h3>
+	<p>Это глобальный атрибут, который можно применять к элементам <samp>form</samp> или элементам, атрибут <a href="./uni attributs.html#contenteditable"><samp class="sin tdu">contenteditable</samp></a> которых имеет значение <samp class="lsin">true</samp>. Этот атрибут помогает пользователям мобильных устройств, пользующимся экранными клавиатурами.</p>
+
+	<p>Атрибут принимает одно из семи возможных значений, определяющих, какую надпись видит пользователь на клавише «enter» у своей экранной клавиатуре:</p>
+
+	<pre class="item2"><code>&lt;input type="text" enterkeyhint="enter|done|go|next|previous|search|send"></code></pre>
+
 </div>
 
 
@@ -412,7 +427,9 @@
 	<fieldset class="prm">
 		<legend></legend>
 		<form>
-			<script>function dataField(f) {alert("Вы ввели: " + f.comment.value);}</script>
+			<script>
+        function dataField(f) {alert("Вы ввели: " + f.comment.value);}
+      </script>
 			<p><b>Введите текст</b></p>
 			<p><input type="text" name="comment">
 				<input type="button" value="ОК" onClick="dataField(this.form)"></p>
@@ -427,7 +444,8 @@
 	<p>Указывает регулярное выражение, согласно которому требуется вводить и проверять данные в поле формы. Если присутствует атрибут <samp class="sin">pattern</samp>, то форма не будет отправляться, пока поле не будет заполнено правильно.</p>
 	<pre class="item2"><code>&lt;input type="email"  pattern="выражение"><br>&lt;input type="tel"    pattern="выражение"><br>&lt;input type="text"   pattern="выражение"><br>&lt;input type="search" pattern="выражение"><br>&lt;input type="url"    pattern="выражение"></code></pre>
 	<div class="no"><samp class="red">Safari</samp> не поддерживает данный атрибут.</div>
-	<div class="attr mt40 ls1" style="text-align:center;font-size:20px">Регулярные выражения</div>
+
+  <h2 class="sin ls1 mb10" id="filter" style="text-align:center;font-size:20px">Регулярные выражения</h2>
 	<table class="t1 todd t3 tb mb10">
 		<tr><td width="40%">\d [0-9]</td><td>Одна цифра от 0 до 9.</td></tr>
 		<tr><td>\D [^0-9]</td><td>Любой символ кроме цифры.</td></tr>
@@ -629,8 +647,8 @@
 		.th5 .br td:nth-child(n+2) span::before{content:''}
 	</style>
 
-	<h3 class="sin point mt30" onclick='typehtml5.classList.toggle("hiden");' title="скрыть/показать">Поддержка браузерами значений HTML5 (на 24.03.2018)</h3>
-		<table class="t1 t0 tb todd hiden th5 t1c" id="typehtml5" onclick="event.stopPropagation()">
+	<h3 class="sin mt30">Поддержка браузерами значений HTML5 (на 24.03.2018)</h3>
+		<table class="t1 t0 tb todd th5 t1c">
 			<tr class="br"><td style="text-align:center; color:#333;">Значение</td><td><span class="t-ie" title="Internet Explorer"></span></td><td><span class="t-edge" title="Edge"></span></td><td><span class="t-chrome" title="Chrome"></span></td><td><span class="t-opera" title="Opera"></span></td><td><span class="t-safari" title="Safari"></span></td><td><span class="t-firefox" title="Firefox"></span></td></tr>
 			<tr><td>color</td><td class="no"><span></span></td><td><span>14</span></td><td><span>20</span></td><td><span>11.5</span></td><td><span>11</span></td><td><span>29</span></td></tr>
 			<tr><td>date</td><td class="no"><span></span></td><td><span>13</span></td><td><span>20</span></td><td><span>10.1</span></td><td class="no"><span></span></td><td><span>57</span></td></tr>
@@ -768,7 +786,7 @@
 	<p>Firefox поддерживает псевдокласс <samp class="red">:-moz-read-only</samp>.</p>
 	<div class="item2"><pre><code>input:-moz-read-only { ... }<br>input:read-only { ... }</code></pre></div>
 	<style>
-		#f7 input:read-only {opacity:0.3;} /* Полупрозрачность */	
+		#f7 input:read-only {opacity:0.3;} /* Полупрозрачность */
 	</style>
 	<form action="handler.php" id="f7" class="prm mt40">
 		<p><input type="text" name="comment" size="40" value="Введенный текст не может изменяться" readonly></p>

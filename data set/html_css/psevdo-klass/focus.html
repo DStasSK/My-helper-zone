@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>Псевдокласс focus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:focus</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:focus</samp> определяет стиль для элемента, получающего фокус. Например, им может быть текстовое поле формы, в которое устанавливается курсор.</p>
+
+  <style>
+    .exampleFocus{border: 1px solid #aaa; outline: none;}
+    .exampleFocus:focus{background: #ffc; border: 1px solid #a0d; border-color:#a0d;}
+  </style>
+  <pre class="item2 mb30 mt20"><code>input:focus {         <input type="text" class="exampleFocus"><br>  background:#ffc;<br>  outline:none;<br>  border-color:#a0d;<br>}</code></pre>
+
+  <p>Псевдокласс <samp class="sin">:hover</samp> в сочетании со свойством <samp class="sin">transition</samp> часто применяется для создания различных анимационных эффектов при наведении курсора мыши на элемент. На мобильных устройствах <samp class="sin">:hover</samp> по понятным причинам не работает — там нет курсора, а взаимодействие происходит касанием пальца. Поэтому для создания эффектов заменим <samp class="sin">:hover</samp> на <samp class="sin">:focus</samp>.</p>
+
+	<p>Фокус могут получить не все элементы веб-страницы, а только ссылки, кнопки, поля формы. Чтобы заставить работать <samp class="sin">:focus</samp> для, скажем, изображений (<samp class="teg">img</samp>) или ссылки (<samp class="teg">a</samp>), надо добавить к ним атрибут <a href="../help/help.html#tabindex"><samp class="sin tdu">tabindex</samp></a> — он позволяет переходить к изображениям через клавишу <b class="bg_g">Tab</b>. В качестве значения указываются целые числа, переход происходит от элемента с меньшим значением к элементу с большим значением.</p>
+
+  <pre class="item2 mt20"><code>&lt;img src="image/thumb1.jpg" tabindex="1"><br><br>&lt;a href="1.html" tabindex="2">Ссылка&lt;/a></code></pre>
+</div>
+</body></html>

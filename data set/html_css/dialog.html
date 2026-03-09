@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><title>Элемент формы - &lt;dialog></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Элемент формы - <samp class="t-html5">&lt;dialog></samp></h2>
+
+<div class="item">
+	<p>Элемент <samp class="red">&lt;dialog></samp> (от англ. dialog — диалог) создаёт диалоговое окно, в котором можно выводить сообщение или форму, например, для входа на сайт. Изначально такое окно не отображается, чтобы его показать применяется JavaScript или атрибут <samp class="sin">open</samp> - без этого атрибута в стилях к нему добавляется <samp class="sin dib">display:<span class="lsin">none</span></samp> и окно не выводится в браузере.</p>
+
+  <p>В JavaScript для отображения и сокрытия диалогового окна применяются, соответственно, методы <samp class="pur">show()</samp> и <samp class="pur">close()</samp>, как показано в примере ниже. Кроме того, диалог можно превратить в модальное окно, используя вместо <samp class="pur">show()</samp> метод <samp class="pur">showModal()</samp>. В этом случае остальные элементы на странице блокируются — текст нельзя выделить, а кнопки нажать до тех пор, пока диалоговое окно не будет закрыто. Также модальное окно можно закрыть клавишей <samp class="bg_g">Esc</samp>.</p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;dialog open><br>...<br>&lt;/dialog></code></pre>
+
+  <div>Диалоговое окно отображается со следующим предустановленным стилем.</div>
+  <pre class="item2"><code>display: none;<br>position: absolute;<br>left: 0;<br>right: 0;<br>margin: auto;<br>border: solid;<br>padding: 1em;<br>color: black;<br>background: white;</code></pre>
+
+  <fieldset class="prm mt30">
+    <legend></legend>
+    <style>.exampleDialog {background:rgba(0, 0, 0, 0.7); color:#fff; width:300px; padding:30px;}</style>
+
+    <button id="openDialog1">Открыть окно через <samp class="pur">dialog.show()</samp></button>
+    <button id="openDialog2">Открыть окно через <samp class="pur">dialog.showModal()</samp></button>
+
+    <dialog class="exampleDialog">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, minus tenetur! Recusandae.</p>
+      <p><button id="closeDialog">Закрыть окно</button></p>
+    </dialog>
+
+    <script>
+      let dialog = document.querySelector('.exampleDialog');
+      document.querySelector('#openDialog1').onclick = function() {dialog.show()}
+      document.querySelector('#openDialog2').onclick = function() {dialog.showModal()}
+      document.querySelector('#closeDialog').onclick = function() {dialog.close()}
+    </script>
+
+    <div class="item2">
+      <pre class="ls-1"><code>&lt;button id="openDialog1">Открыть окно через dialog.show()&lt;/button><br>&lt;button id="openDialog2">Открыть окно через dialog.showModal()&lt;/button><br><br>&lt;dialog><br>  &lt;p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br>     Magnam, minus tenetur! Recusandae.&lt;/p><br>  &lt;p>&lt;button id="closeDialog">Закрыть окно&lt;/button>&lt;/p><br>&lt;/dialog><br><br>&lt;script><br>  let dialog = document.querySelector('dialog');<br>  document.querySelector('#openDialog1').onclick = function() {dialog.show()}<br>  document.querySelector('#openDialog2').onclick = function() {dialog.showModal()}<br>  document.querySelector('#closeDialog').onclick = function() {dialog.close()}<br>&lt;/script></code></pre>
+    </div>
+  </fieldset>
+
+	<div class="no">IE не поддерживает данный элемент.</div>
+</div>

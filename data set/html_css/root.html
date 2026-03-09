@@ -19,23 +19,22 @@
 
 
 <div class="item">
-	<p>Псевдокласс <samp class="sin">:root</samp> соответствует корневому элементу <samp class="red">&lt;html></samp>. Таким образом, селекторы <samp class="sin">:root</samp> и <samp class="red">html</samp> применяют стиль к одному и тому же элементу <samp class="red">&lt;html></samp>.</p>
+	<p>Псевдокласс <samp class="sin">:root</samp> соответствует корневому элементу <samp class="red">&lt;html></samp>. Таким образом, селекторы <samp class="sin">:root</samp> и <samp class="red">html</samp> применяют стиль к одному и тому же элементу <samp class="red">&lt;html></samp>. Тем не менее, между <samp class="sin">:root</samp> и <samp class="red">html</samp> есть небольшое отличие — у <samp class="sin">:root</samp> приоритет выше, чем у селектора <samp class="red">html</samp>. Если задать одинаковые стилевые правила для этих селекторов, то стиль <samp class="sin">:root</samp> переопределит стиль <samp class="red">html</samp>.</p>
 
-	<p>Тем не менее, между <samp class="sin">:root</samp> и <samp class="red">html</samp> есть небольшое отличие — у <samp class="sin">:root</samp> приоритет выше, чем у селектора <samp class="red">html</samp>. Если задать одинаковые стилевые правила для этих селекторов, то стиль <samp class="sin">:root</samp> переопределит стиль <samp class="red">html</samp>.</p>
-
-	<p>Псевдокласс <samp class="sin">:root</samp> также применяется для определения переменных, которые ниже можно вставлять вместо конкретных значений стилевых свойств. Имена переменных начинаются с двух дефисов, а значение переменной указывается после двоеточия. В целом, инициализация переменных происходит подобно стилевому свойству.</p>
-
-	<pre class="item2"><code>:root {<br>  --primary-color: #007bff;<br>}</code></pre>
+	<p class="mt20">Псевдокласс <samp class="sin">:root</samp> также применяется для определения переменных, которые ниже можно вставлять вместо конкретных значений стилевых свойств. Имена переменных начинаются с двух дефисов, а значение переменной указывается после двоеточия. В целом, инициализация переменных происходит подобно стилевому свойству.</p>
+	<pre class="item2 mb10"><code>:root {<br>  --primary-color: #007bff;<br>}</code></pre>
 
 	В дальнейшем, для вызова значения переменной используется ключевое слово <samp class="sin">var</samp>, после которого в круглых скобках пишется имя переменной.
-	<pre class="item2"><code>a {<br>  color: var(--primary-color);<br>}</code></pre>
+	<pre class="item2 mb10"><code>a { color: var(--primary-color); }</code></pre>
 
 	Это правило соответствует следующей записи, так как вместо var(--primary-color) подставляется значение переменной --primary-color.
-	<pre class="item2"><code>a {<br>  color: #007bff;<br>}</code></pre>
+	<pre class="item2 mb30"><code>a { color: #007bff; }</code></pre>
 
-	<p>Переменные удобно использовать для больших сайтов со множеством стилевых правил, поскольку они позволяют задать типовые значения в одном месте и легко при необходимости их поменять. Включать переменные в свой стиль не обязательно, добавляйте их при желании, исходя из собственных предпочтений.</p>
-	<p>В качестве значений переменных допустимо указывать не только цвет, но и текст, числа, единицы размера, в общем, любые допустимые значения стилевых свойств.</p>
-	<div class="no">Браузер Internet Explorer не поддерживает переменные.</div>
+	<p>Переменные удобно использовать для больших сайтов со множеством стилевых правил, поскольку они позволяют задать типовые значения в одном месте и легко при необходимости их поменять.  В качестве значений переменных допустимо указывать не только цвет, но и текст, числа, единицы размера, в общем, любые допустимые значения стилевых свойств.</p>
+
+  <div class="no no1">Сами переменные не обязательно объявлять внутри конструкции <samp class="sin">:root</samp>, их можно объялять в любом месте, но если объявлять переменные только внутри <samp class="sin">:root</samp>, то поддерживать такой проект будет проще.</div>
+
+	<div class="no mt30">Браузер Internet Explorer не поддерживает переменные.</div>
 </div>
 
 <div class="item" id="z1">
@@ -45,20 +44,21 @@
 			--primary-color: #00a651;
 			--button-color: #fffac0; 
 			--primary-padding: .5rem 1rem;
-			}
+		}
 		.but button {
 			background-color: var(--primary-color);
 			color: var(--button-color);
 			padding: var(--primary-padding);
 			border: none;
-			}
+		}
+    .but button:focus{background:#4dfea3; color:#540}
 		.but{position:absolute; top:20px; right:30px;}
 	</style>
 	<div class="item2" style="position:relative;">
 		<div class="but">
 			<button title="кнопка, стилизованная с помощью переменных">Текст</button>
 		</div>
-		<pre><code>&lt;style><br>  :root {<br>    --primary-color: #00a651;<br>    --button-color: #fffac0;<br>    --primary-padding: .5rem 1rem;<br>  }<br>  button {<br>    background-color: var(--primary-color);<br>    color: var(--button-color);<br>    padding: var(--primary-padding);<br>    border: none;<br>  }<br>  .but{position:absolute; top:20px; right:30px;}<br>&lt;/style><br><br>&lt;div class="but"><br>  &lt;button title="кнопка, стилизованная с помощью переменных">Текст&lt;/button><br>&lt;/div></code></pre>
+		<pre><code>&lt;style><br>  :root {<br>    --primary-color: #00a651;<br>    --button-color: #fffac0;<br>    --primary-padding: .5rem 1rem;<br>  }<br>  button {<br>    background-color: var(--primary-color);<br>    color: var(--button-color);<br>    padding: var(--primary-padding);<br>    border: none;<br>  }<br>  button:focus{background:#4dfea3; color:#540}<br>&lt;/style><br><br>&lt;div><br>  &lt;button title="кнопка, стилизованная с помощью переменных">Текст&lt;/button><br>&lt;/div></code></pre>
 	</div>
 </div>
 

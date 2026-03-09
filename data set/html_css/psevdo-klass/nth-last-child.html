@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><title>Псевдокласс nth-last-child</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:nth-last-child</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:nth-last-child</samp> - используется для добавления стиля к элементам на основе нумерации в дереве элементов. В отличие от псевдокласса <samp class="sin">:nth-child</samp> отсчёт ведётся не от первого элемента, а от последнего.</p>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <style>
+      .example_nth_lastchald ol { margin:0; }
+      .example_nth_lastchald li:nth-last-child(1) { color:red }
+    </style>
+    <ol class="lsit l1 example_nth_lastchald">
+      <li>Lorem ipsum dolor sit.</li>
+      <li>Lorem ipsum dolor sit.</li>
+      <li>Lorem ipsum dolor sit.</li>
+    </ol>
+    <pre class="item2"><code>ol li:nth-last-child(1) { color:red }</code></pre>
+  </fieldset>
+</div>
+</body></html>

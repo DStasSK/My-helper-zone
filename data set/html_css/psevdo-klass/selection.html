@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><title>Псевдоэлемент selection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдоэлемент <samp>::selection</samp></h2>
+<div class="item exampleSelection">
+  <style>
+    .exampleSelection ::selection{color:#007; background-color:#eef;}
+  </style>
+	<p>Псевдоэлемент <samp class="sin bold">::selection</samp> Позваляет задать цвет выделения текста. Выделение обычно применяется для копирования в буфер фрагмента текста, чтобы после этого вставить выделенный фрагмент в другое место. Например, в текстовый редактор для дальнейшей правки текста. Сам цвет и фон выделенного фрагмента определяется настройками операционной системы, но с помощью CSS эти параметры можно задать самостоятельно.</p>
+	<p>В правилах стилей допускается использовать следующие свойства: <samp>color, background, background-color, cursor, outline и text-shadow</samp>.</p>
+	<div class="no">Firefox до версии 62 использует нестандартный псевдоэлемент ::-moz-selection.</div>
+
+	<pre class="item2"><code>.elem ::selection {<br>   color:#007;<br>   background-color:#eef;<br>}</code></pre>
+</div>
+</body></html>

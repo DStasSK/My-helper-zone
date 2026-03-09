@@ -14,13 +14,32 @@
 <h2 class="sin">flex</h2>
 
 <div class="item">
-	<p>Сокращённое свойство, которое позволяет указать параметры элемента, чтобы он эффективно заполнял доступное пространство. Элементы могут быть растянуты пропорционально с учётом заданного соотношения или сжаты, чтобы целиком вместить все элементы без переносов в одну строку. Применяется к флекс-элементам, анимируется, не наследуется.</p>
-	<p>Значение по умолчанию: <samp class="lsin">flex-grow: 0, flex-shrink: 1, flex-basis: auto</samp></p>
+	<p>CSS свойство <samp class="sin">flex</samp> задает гибкие размеры для flex-элементов. Позволяют определить размер для флекс элементов, установленный по умолчанию, указать на сколько элемент может увеличится, либо уменьшится по отношению к остальным флекс элементам в одном контейнере.</p>
 
-	<pre class="item2"><code>.fl {<br>  -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */<br>  -moz-box-flex: 1;         /* OLD - Firefox 19- */<br>  width: ***;               /* For old syntax, otherwise collapses. */<br>  -webkit-flex: 1;          /* Chrome */<br>  -ms-flex: 1;              /* IE 10 */<br>  flex: 1;}</code></pre>
-	<pre class="item2"><code>flex: none | auto | [ flex-grow flex-shrink? || flex-basis ]</code></pre>
+	<div class="mt20">свойство <samp class="sin">flex</samp> это сокращенное свойство для:</div>
+	<ul class="list mb20 l1">
+		<li><a href="flex-grow.html"><samp class="sin tdu">flex-grow</samp></a></li>
+		<li><a href="flex-shrink.html"><samp class="sin tdu">flex-shrink</samp></a></li>
+		<li><a href="flex-basis.html"><samp class="sin tdu">flex-basis</samp></a></li>
+	</ul>
 
-	<p><samp class="lsin">none</samp> - cоответствует значению <samp class="lsin">0 0 auto</samp></p>
-	<p><samp class="lsin">auto</samp> - cоответствует значению <samp class="lsin">1 1 auto</samp></p>
+	<pre class="item2 mb20 mt30"><code>.fl {
+   flex: flex-grow flex-shrink flex-basis | auto | none | initial | inherit;
+}</code></pre>
+
+	<table class="t1 t3 tc"><caption>Значения:</caption>
+		<tr><td width="130px">flex-grow</td><td>Число без единиц измерения, указывающее, насколько увеличится номенклатура по отношению к остальным гибким номенклатурам. Отрицательные значения не допускаются. Значение по умолчанию 0.</td></tr>
+		<tr><td>flex-shrink</td><td>Число без единиц измерения, указывающее, насколько изделие уменьшится по сравнению с остальными гибкими изделиями. Отрицательные значения не допускаются. Значение по умолчанию 1.</td></tr>
+		<tr><td>flex-basis</td><td>Определяет размер для флекс элемента, установленный по умолчанию перед распределением пространства в контейнере. Размер указывается в единицах измерения CSS(px, em, pt и т.д.), либо высчитывается автоматически браузером исходя из содержания элемента. Отрицательные значения не допускаются. Значение по умолчанию auto.</td></tr>
+		<tr><td>auto</td><td>cоответствует значению <samp class="sin">flex:</samp><samp class="lsin">1 1 auto</samp></td></tr>
+		<tr><td>none</td><td>cоответствует значению <samp class="sin">flex:</samp><samp class="lsin">0 0 auto</samp></td></tr>
+		<tr><td>initial</td><td>Устанавливает свойство в значение по умолчанию.<br>cоответствует значению <samp class="sin">flex:</samp><samp class="lsin">0 1 auto</samp></td></tr>
+		<tr><td>inherit</td><td>Значение наследуется от родительского элемента.</td></tr>
+	</table>
+
+	<div class="no">Если указывается одно числовое значение, то оно устанавливается для <samp class="sin">flex-grow</samp>, если указаны единицы измерения CSS, то для <samp class="sin">flex-basis</samp>.
+		<br><br>Если второе значение соответствует числовому значению, то оно устанавливается для <samp class="sin">flex-shrink</samp>, если указаны единицы измерения CSS, то для <samp class="sin">flex-basis</samp>.
+	</div>
+
 </div>
 </body></html>

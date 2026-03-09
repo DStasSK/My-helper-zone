@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><title>Псевдокласс invalid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:invalid</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:invalid</samp> находит любые <samp class="teg">input</samp> или <samp class="teg">form</samp> элементы, контент которых не проходит валидацию, в соответствии с типом поля. Он позволяет вам легко менять внешний вид полей, что позволяет пользователю видеть и исправлять ошибки.</p>
+	<p>Применяется к полям формы, содержимое которых не соответствует указанному типу. Например, для <samp class="sin dib">type="<span class="lsin">number</span>"</samp> должно вводиться число, а не буквы, для <samp class="sin dib">type="<span class="lsin">email</span>"</samp> корректный адрес электронной почты.</p>
+	
+  <fieldset class="prm">
+    <legend></legend>
+    <style>
+      .f5 input:invalid {background: #fdd;} /* Красный цвет фона */
+      .f5 input:valid {background: #dfd;}   /* Зелёный цвет фона */
+      .f50 {background:#ccc;}
+      #f51 {background:#ccc;}
+    </style>
+    <form class="f5">
+      <p>Адрес сайта</p>
+      <p><input type="url" required></p>
+      <p>Адрес электронной почты</p>
+      <p><input type="email" required></p>
+      <p><input type="submit" value="Отправить" class="f50"></p>
+      <p><input type="submit" value="Отправить" id="f51"></p>
+    </form>
+  
+    <pre class="item2"><code>&lt;style><br>  .form_5 input:invalid {background: #fdd} /* Красный цвет фона */<br>  .form_5 input:valid {background: #dfd}   /* Зелёный цвет фона */<br>  .form_50 {background: #ccc}<br>  #form_51 {background: #ccc}<br>&lt;/style><br><br>&lt;form class="form_5"><br>  &lt;p>Адрес сайта&lt;/p><br>  &lt;p>&lt;input type="url" required>&lt;/p><br>  &lt;p>Адрес электронной почты&lt;/p><br>  &lt;p>&lt;input type="email" required>&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить" class="form_50">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить" id="form_51">&lt;/p><br>&lt;/form></code></pre>
+  </fieldset>
+
+  <div class="no">Если любая из радиокнопок в группе (т.е., с одинаковым атрибутом <samp class="sin">name</samp>) имеет атрибут <samp class="sin">required</samp>, псевдокласс <samp class="sin">:invalid</samp> применяется ко всем из них, если ни одна из кнопок группы не выбрана.</div>
+</div>
+</body></html>

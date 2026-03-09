@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>widows</title>
+<!DOCTYPE html><html><head><title>CSS свойство widows</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
@@ -11,18 +11,44 @@
 
 </head>
 <body>
-<h2 class="sin">widows</h2>
+<h2 class="sin">CSS свойство <samp>widows</samp></h2>
 
 <div class="item">
 	<p>Свойство <samp class="sin">widows</samp> задаёт минимальное число строк текста, которое располагается на следующей странице при печати документа. Это свойство работает в том случае, если весь текст размещается на двух и более печатных страницах. Если значение свойства <samp class="sin">widows</samp> конфликтует со значением <samp class="sin">orphans</samp>, то <samp class="sin">widows</samp> имеет приоритет и учитывается в первую очередь.</p>
 
-	<p>Значение по умолчанию <samp class="lsin">2</samp>, наследуется, применяется к блочным элементам. Значение - целое число, которое задает количество строк вверху печатной страницы. Отрицательное значение запрещено.</p>
+	<p>Значение по умолчанию <samp class="lsin">2</samp>, наследуется, применяется к блочным элементам. В качестве значения принимает целое положительное число, которое задает количество строк вверху печатной страницы. Отрицательное значение запрещено.</p>
 
-	<pre class="item2"><code>widows: <число></code></pre>
-</div>
+	<pre class="item2"><code>.block {<br>  widows: число;<br>}</code></pre>
 
+	<pre class="item2 mt20"><code>@media print {<br>  p {<br>    widows: 3;<br>    orphans: 3;<br>    }<br>}</code></pre>
 
-<div class="item">
-	<pre class="item2"><code>@media print {<br>  p {<br>    widows: 3;<br>    orphans: 3;<br>    }<br>}</code></pre>
+	<div class="no">На нестраничных носителях, таких как screen, CSS-свойство <samp class="sin">widows</samp> не имеет эффекта.</div>
+
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td><span>8</span></td><!-- IE -->
+      <td><span>12</span></td><!-- Edge -->
+      <td><span>25</span></td><!-- Chrome -->
+      <td><span>9.2</span></td><!-- Opera -->
+      <td><span>7</span></td><!-- Safari -->
+      <td class="n"><span></span></td><!-- FF -->
+      <td><span>4.4</span></td><!-- mobile-android -->
+      <td class="n"><span></span></td><!-- mobile-FF -->
+      <td><span>14</span></td><!-- mobile-opera -->
+      <td><span>7.1</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
 </div>
 </body></html>

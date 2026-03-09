@@ -1,0 +1,132 @@
+<!DOCTYPE html><html><head><title>color-scheme</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	:root {color-scheme: light dark;}
+	@media (prefers-color-scheme: dark) {
+	  p,div {
+	    background-color: #222;
+	  }
+		p,div,li{
+			color:#bbb
+		}
+		.sin{color:#39f !important}
+		.lsin{color:#6ef !important}
+		.no .sin{color:#009 !important}
+		.no .lsin{color:#07f !important}
+		.no1{box-shadow:0 0 4px 2px #69f}
+		.item2{box-shadow:0 0 4px 1px #aaa; border:none}
+		.ogl a:hover{color:#fff}
+	}
+</style>
+</head>
+<body>
+
+<h2 class="sin"><a href="#">CSS свойство <samp>color-scheme</samp></a></h2>
+	<!-- оглавление -->
+	<ul class="ogl" style="margin-top: 10px">
+		<li><a href="#color-scheme">CSS свойство <samp>color-scheme</samp></a></li>
+		<li><a href="#light-dark">Стилевая функция <samp>light-dark()</samp></a></li>
+	</ul>
+
+
+<div class="item" id="color-scheme">
+	<p>Свойство <samp class="sin">color-scheme</samp> позволяет указать предпочтительную цветовую схему для элемента - светлую или тёмную. Выбранная схема влияет на цвета полей формы, полос прокрутки, а также используемые значения системных цветов. Значение по умолчанию	<samp class="lsin">normal</samp>, наследуется, применяется ко всем элементам, не анимируется.</p>
+
+	<pre class="item2 mt30 mb10"><code>.elem { color-scheme: normal | light | dark | only }</code></pre>
+	<ul class="list mb40">
+		<li><samp class="sin">normal</samp> - элемент не поддерживает какие-либо цветовые схемы, поэтому его следует отображать с использованием цветовой схемы браузера по умолчанию.</li>
+		<li><samp class="sin">only</samp> - запрещает браузеру переопределять цветовую схему элемента.</li>
+		<li><samp class="sin">light</samp> - элемент поддерживает светлую цветовую схему.</li>
+		<li><samp class="sin">dark</samp> - элемент поддерживает тёмную цветовую схему.</li>
+		<li><samp class="sin">light dark</samp> - цвета элемента будут меняться в зависимости от установленной темы браузера. Для изменения цвета фона формы в зависимости от темы, можно воспользоваться медиа-запросами.
+		<pre class="item2"><code>:root {<br>  color-scheme: light dark;<br>}<br>@media (prefers-color-scheme: light) {<br>  form {<br>    background-color: #f0f0f0; /* Светло-серый цвет фона */<br>  }<br>}<br>@media (prefers-color-scheme: dark) {<br>  form {<br>    background-color: #333; /* Тёмно-серый цвет фона */<br>    accent-color: #ba84fa; /* Цвет акцента */<br>  }<br>}</code></pre>
+		</li>
+	</ul>
+
+	<div class="mt20">Для определения цветовой схемы всей веб-страницы целиком, <samp class="sin">color-scheme</samp> добавляется к псевдоклассу <a href="root.html"><samp class="sin tdu">:root</samp></a>.</div>
+	<pre class="item2"><code>:root {<br>  color-scheme: light dark;<br>}</code></pre>
+
+	<div class="mt20">Для указания цветовой схемы отдельных элементов, color-scheme добавляется к соответствующим селекторам.</div>
+	<pre class="item2 mb20"><code>h2 {<br>  color-scheme: light dark;<br>}</code></pre>
+
+	<table class="support mt40">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>81/98</span></td><!-- Edge -->
+      <td><span>81/98</span></td><!-- Chrome -->
+      <td><span>68/84</span></td><!-- Opera -->
+      <td><span>13</span></td><!-- Safari -->
+      <td><span>96</span></td><!-- FF -->
+      <td><span>81/98</span></td><!-- mobile-android -->
+      <td><span>96</span></td><!-- mobile-FF -->
+      <td><span>58/68</span></td><!-- mobile-opera -->
+      <td><span>13</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+	<div>~2022.03.</div>
+
+</div><!-- /item -->
+
+
+
+<div class="item" id="light-dark">
+<h2 class="sin"><a href="#" title="наверх">Стилевая функция <samp>light-dark()</samp></a></h2>
+	<p>Стилевая функция <samp class="sin">light-dark()</samp> позволяет установить два цвета в качестве значения какого-либо свойства. Возвращает одно значение, в зависимости от выбранной светлой или тёмной цветовой схемы. Принимает два значения цвета; возвращает первое значение, если установлена светлая тема и второе значение, если установлена тёмная тема.</p>
+
+	<div class="no no1">Чтобы включить поддержку функции <samp class="sin">light-dark()</samp>, свойство <samp class="sin">color-scheme</samp> должно иметь значение <samp class="lsin">light dark</samp>.</div>
+
+	<pre class="item2"><code>:root {<br>  color-scheme: light dark;<br>}<br>p {<br>  background: light-dark(white, black);<br>  color: light-dark(black, white);<br>}</code></pre>
+
+	<table class="support mt40">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>123</span></td><!-- Edge -->
+      <td><span>123</span></td><!-- Chrome -->
+      <td><span>109</span></td><!-- Opera -->
+      <td><span>17.5</span></td><!-- Safari -->
+      <td><span>120</span></td><!-- FF -->
+      <td><span>123</span></td><!-- mobile-android -->
+      <td><span>120</span></td><!-- mobile-FF -->
+      <td class="n"><span></span></td><!-- mobile-opera -->
+      <td><span>17.5</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+
+</div><!-- /item -->
+
+
+
+</body>
+</html>

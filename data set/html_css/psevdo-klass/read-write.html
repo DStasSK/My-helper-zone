@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head><title>Псевдокласс read-write</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:read-write</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:read-write</samp> применяется к полям формы, доступных для изменения. Псевдокласс <samp class="sin">:read-write</samp> является противоположным по своему действию <samp class="sin">:read-only</samp>, который применяется к полям с атрибутом <samp class="sin">readonly</samp> (только для чтения).</p>
+  
+  <pre class="item2"><code>input:-moz-read-write {  }<br>input:read-write {  }</code></pre>
+
+  <div class="no mt20">Псевдокласс <samp class="sin">:read-write</samp> применяется не только к элементам <samp class="red">&lt;input></samp> или <samp class="red">&lt;textarea></samp>, он применяется к любым элементам c атрибутом <a href="../contenteditable.html" class="tdu sin">contenteditable</a> - это элементы которые пользователь может изменить, например <samp class="teg">p</samp>, <samp class="teg">div</samp> и пр.</div>
+
+	<div class="no no1">Firefox поддерживает псевдокласс <samp class="red">:-moz-read-write</samp>.</div>
+
+  <fieldset class="prm mt20">
+    <legend></legend>
+	  <p>Как видно из примера элемнт <samp class="teg">input</samp> с параметром <samp class="lsin">disabled</samp> применяет на себя параметры заданные псевдоклассом <samp class="sin">:read-only</samp>.</p>
+    <style>
+      .box_color{display:inline-block; height:.8em; width:.8em; margin:0 2px -2px 0}
+      #example_read-write {padding:0 8px 8px}
+      #example_read-write input:focus {outline: none}
+      #example_read-write input:read-only {border: 3px solid red;}
+      #example_read-write input:read-write {border: 3px solid green;}
+      #example_read-write p:read-write {background: #c6f2ff;}
+    </style>
+    <form action="handler.php" id="example_read-write">
+      <p><input type="text" size="40" value="Заблокировано" readonly></p>
+      <p contenteditable><input type="text" size="40" value="Заранее введенный текст"></p>
+      <p><input type="text" size="40" value="disabled" disabled></p>
+      <p contenteditable><input type="submit" value="Отправить"></p>
+    </form>
+
+
+	  <pre class="item2 ls-1"><code>&lt;style><br>  input:read-only {border: 3px solid <span class="box_color" style="background:red"></span>red}<br>  input:read-write {border: 3px solid <span class="box_color" style="background:green"></span>green}<br>  p:read-write {background: <span class="box_color" style="background:#c6f2ff"></span>#c6f2ff}<br>&lt;/style><br><br>&lt;form action="handler.php" id="form"><br>  &lt;p>&lt;input type="text" size="40" value="Заблокировано" readonly>&lt;/p><br>  &lt;p contenteditable>&lt;input type="text" size="40" value="Заранее введенный текст">&lt;/p><br>  &lt;p>&lt;input type="text" size="40" value="disabled" disabled>&lt;/p><br>  &lt;p contenteditable>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+  </fieldset>
+</div>
+</body></html>

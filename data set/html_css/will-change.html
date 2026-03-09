@@ -1,0 +1,87 @@
+<!DOCTYPE html><html><head><title>Свойство will-change</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.list b {
+		font-family:monospace;
+		color:#009;
+		font-weight:400;
+	}
+	.list li {margin:10px 0}
+</style></head>
+
+<body>
+<h2 class="sin">Свойство <samp>will-change</samp></h2>
+	<!-- оглавление -->
+		<!-- <ul class="ogl">
+			<li>position
+				<div class="ogl2 ogl21">
+					<span><a href="#absolute">absolute</a></span>
+					<span><a href="#fixed">fixed</a></span>
+					<span><a href="#relative">relative</a></span>
+					<span><a href="#static">static</a></span>
+					<span><a href="#sticky">sticky</a></span>
+					<span></span>
+				</div>
+			</li>
+		</ul> -->
+		<!-- /оглавление -->
+
+<div class="item">
+	<p>Свойство <samp class="sin">will-change</samp> предоставляет автору возможность уведомить браузер об ожидаемом изменении элемента, таким образом браузер может настроить соответствующую оптимизацию до того как элемент действительно изменится. Такой тип оптимизации может повысить отзывчивость страницы, совершая, возможно дорогие операции до того как они действительно понадобятся.</p>
+
+	<pre class="item2 mt20 ls-05"><code>div {<br>  will-change: auto | scroll-position | contents | cssProp;<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">auto</samp> - значение по умолчанию; никаких дополнительных расчетов не производится.</li>
+		<li><samp class="sin">scroll-position</samp> - указывает, что автор ожидает анимацию или изменение положения скролла элемента в ближайшем будущем.</li>
+		<li><samp class="sin">contents</samp> - указывает, что автор ожидает анимацию или изменение чего то в контенте элемента в ближайшем будущем.</li>
+		<li><samp class="sin">cssProp</samp> - название CSS свойства; указывает, что автор ожидает анимацию или изменить свойства с заданным именем в элементе в ближайшем будущем. Если заданное свойство-это сокращённая запись, тогда оно указывает на все полные записи свойств, на которые указывает сокращённая запись. Это не может быть одним из следующих значений: <b>unset</b>, <b>initial</b>, <b>inherit</b>, <b class="dib">will-change</b>, <b>auto</b>, <b class="dib">scroll-position</b>, или <b>contents</b>.</li>
+	</ul>
+
+	<table class="support mt30 mb30">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>79</span></td><!-- Edge -->
+      <td><span>36</span></td><!-- Chrome -->
+      <td><span>23</span></td><!-- Opera -->
+      <td><span>9.1</span></td><!-- Safari -->
+      <td><span>36</span></td><!-- FF -->
+      <td><span>36</span></td><!-- mobile-android -->
+      <td><span>36</span></td><!-- mobile-FF -->
+      <td><span>24</span></td><!-- mobile-opera -->
+      <td><span>9.3</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+
+	<p>Не применяйте <samp class="sin dib">will-change</samp> к большому числу элементов. Браузер и так пытается изо всех сил всё оптимизировать. Некоторые тяжёлые оптимизации ссылающиеся на<samp class="sin dib">will-change</samp> используют много аппаратных мощностей, и если злоупотреблять этим, это может привести к замедлению работы страницы и потреблению большого количества ресурсов.</p>
+
+	<p>Используйте умеренно. Обычное поведение для оптимизаций которые выполняет браузер, удалить оптимизацию как можно скорее и вернуть нормальное состояние. Но добавление <samp class="sin dib">will-change</samp> прямо в файле стилей предполагает, что указанный элемент всегда находится в нескольких шагах от изменений и браузер будет сохранять для него оптимизацию гораздо больше времени. Так что, было бы хорошо включать и отключать <samp class="sin dib">will-change</samp> используя скрипт до и после того как произошли изменения.</p>
+
+	<p>Не применяйте <samp class="sin dib">will-change</samp> к элементам для выполнения преждевременной оптимизации. Если ваша страница хорошо отрабатывается, не применяйте <samp class="sin dib">will-change</samp> свойство к элементу только чтобы выжать немного больше скорости. <samp class="sin dib">will-change</samp> предназначен для использования в крайнем случае, для того чтобы исправить существующие проблемы оптимизации. Его не следует использовать для предвидения проблем оптимизации. Чрезмерное использование <samp class="sin dib">will-change</samp> приведёт к излишнему потреблению памяти и вызовет более тяжёлый рендеринг так как браузер будет пытаться подготовиться к возможным изменениям. Это приведёт к ухудшению производительности.</p>
+
+</div>
+
+
+
+</body>
+</html>

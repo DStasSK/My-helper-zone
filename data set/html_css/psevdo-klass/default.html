@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><title>Псевдокласс default</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:default</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:default</samp> применяет стиль к элементам форм, которые установлены по умолчанию в группе похожих элементов. Например, у нас может быть две кнопки для отправки данных формы на сервер. Одна из этих кнопок задана по умолчанию, мы можем изменить её стиль через <samp class="sin">:default</samp>.</p>
+
+  <fieldset class="prm mt20 mb20">
+    <legend></legend>
+    <style>
+      .form-default :default { background-color:lime; }
+    </style>
+      <form action="handler.php" class="form-default">
+      <p>
+        <input type="submit">
+        <input type="submit">
+        <input type="reset">
+      </p>
+    </form>
+    <div class="item2">
+      <pre><code>form :default { ... }</code></pre>
+      <pre><code><br>&lt;style><br>  :default { background-color:lime; }<br>&lt;/style><br><br>&lt;form action="handler.php"><br>  &lt;p><br>    &lt;input type="submit"><br>    &lt;input type="submit"><br>    &lt;input type="reset"><br>  &lt;/p><br>&lt;/form></code></pre>
+    </div>
+  </fieldset>
+	<p>В данном примере кнопка <b>Submit</b>, заданная по умолчанию, имеет другой цвет. Первая добавленная кнопка и является кнопкой по умолчанию.</p>
+  <div class="no">IE не поддерживает данный элемент.</div>
+</div>
+</body></html>

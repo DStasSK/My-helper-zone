@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-row</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-row</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-row</samp> — определяет с какой строки в макете сетки будет начинаться элемент, сколько строк будет занимать элемент, или на какой строке завершится элемент в макете сетки. Является сокращенным свойством для свойств <a href="grid-row-start.html" class="sin tdu"><samp>grid-row-start</samp></a> и <a href="grid-row-end.html" class="sin tdu"><samp>grid-row-end</samp></a>.</p>
+
+	<pre class="item2 css mt20 mb20"><code>.item {<br>   grid-row: grid-row-start / grid-row-end;<br>}</code></pre>
+
+	<div class="no no1">Допускается указывать одно значение, при этом будет задаваться тольно <a href="grid-row-start.html" class="sin tdu"><samp>grid-row-start</samp></a>.</div>
+
+	<pre class="item2 mt20 ls-05"><code>.item{
+   grid-row: auto / auto;  /* значения по умолчанию */
+   grid-row: 1 / 5;        /* задает блок от первой до пятой горизонтальной линии */
+   grid-row: 1 / span 2;   /* охватывает две строки */
+   grid-row: 2;            /* начинается со второй горизонтальной линии */
+}</code></pre>
+</div>
+</body></html>

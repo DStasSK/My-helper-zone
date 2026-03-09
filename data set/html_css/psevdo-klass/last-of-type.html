@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><title>Псевдокласс last-of-type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:last-of-type</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin dib">:last-of-type</samp> находит последнего потомка с заданным тегом в списке детей родительского элемента. Псевдокласс <samp class="sin dib">:last-of-type</samp> без указания селектора выберет последние элементы каждого типа (<samp class="teg">h1</samp>, <samp class="teg">p</samp>, ...) и установит для них указанные параметры.</p>
+
+  <pre class="item2 mt20"><code>ul li:last-of-type {color: red}   /* параметры последнего LI внутри каждого UL */<br><br>li :last-of-type {color: green}  /* цвет последних элементов внутри каждого LI */</code></pre>
+  <style>
+    li:last-of-type {color: red}
+    li :last-of-type {color: green} 
+  </style>
+  <ul class="list l1 mt10">
+    <li>Lorem, ipsum dolor <b>Lorem, ipsum.</b></li>
+    <li>Lorem, ipsum dolor <b>Lorem, ipsum.</b></li>
+    <li>Lorem, ipsum dolor <b>Lorem, ipsum.</b></li>
+  </ul>
+</div>
+</body></html>

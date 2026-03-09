@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><title>&lt;optgroup></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
+</style>
+</head>
+
+<body>
+<h2 class="sin">Элемент <samp>&lt;optgroup></samp></h2>
+
+<div class="item anp">
+  <p>Контейнер <samp class="teg sin">optgroup</samp> (от англ. <i>option group</i> — группа вариантов) представляет собой контейнер, внутри которого располагаются элементы <a href="./option.html"><samp class="teg sin tdu">option</samp></a>, объединённые в одну группу внутри элемента <a href="./select.html"><samp class="teg sin tdu">select</samp></a>.</p>
+  <p>Особенностью <samp class="teg sin">optgroup</samp> является то, что его нельзя выбрать как обычный элемент списка и он акцентируется с помощью жирного начертания, а все элементы, входящие в этот контейнер, смещаются вправо от своего исходного положения.</p>
+ 
+  <pre class="item2 mt30"><code>&lt;select><br>  &lt;optgroup || disabled || label="текст"><br>    &lt;option>...&lt;/option><br>  &lt;/optgroup><br>&lt;/select></code></pre>
+
+  <ul class="list mb30">
+    <li><samp class="sin">disabled</samp> - блокирует доступ к группе списка, при этом группа отображается другим цветом (обычно серым) и не доступна для выбора.</li>
+    <li><samp class="sin">label</samp> - содержит <samp class="lsin">текст</samp>, который будет входить в список в виде заголовка группы. Значения - любая текстовая строка.</li>
+  </ul>
+
+  <fieldset class="prm mb5">
+    <legend></legend>
+    <form>
+      <select>
+        <optgroup label="Цвет">
+          <option value="c1">Апельсиновый</option>
+          <option value="c2">Лимонный</option>
+          <option value="c3">Персиковый</option>
+        </optgroup>
+        <optgroup label="Тон" disabled>
+          <option value="s1">Светлый</option>
+          <option value="s2">Нормальный</option>
+          <option value="s3">Темный</option>
+        </optgroup>
+      </select>
+      <p><input type="submit" value="Отправить"></p>
+    </form>
+    <pre class="item2"><code>&lt;form action="handler.php"><br>   &lt;select><br>      &lt;optgroup label="Цвет"><br>         &lt;option value="c1">Апельсиновый&lt;/option><br>         &lt;option value="c2">Лимонный&lt;/option><br>         &lt;option value="c3">Персиковый&lt;/option><br>      &lt;/optgroup><br>      &lt;optgroup label="Тон" disabled><br>         &lt;option value="t1">Светлый&lt;/option><br>         &lt;option value="t2">Нормальный&lt;/option><br>         &lt;option value="t3">Темный&lt;/option><br>      &lt;/optgroup><br>   &lt;/select><br>   &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+  </fieldset>
+</div>
+</body></html>

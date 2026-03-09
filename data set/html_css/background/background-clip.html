@@ -9,40 +9,56 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-	.qitem3 {display:flex; justify-content:space-between; margin:5px -10px;}
-	.box{width:calc(33% - 20px);overflow:hidden;margin:0 10px;}
-	.bg{border:10px dotted #C90;padding:30px 15px;}
-	.bg1{background-color:#957;background-clip:padding-box;}
-	.bg2{background-color:#957;background-clip:border-box;}
-	.bg3{background-color:#957;background-clip:content-box;}
-	.pbg{color:#fff;font-size:17px;margin:0 auto;}
+	.qitem3 {display:flex; justify-content:space-between; margin:5px -10px; flex-wrap:wrap}
+	.box{width:calc(50% - 20px); overflow:hidden; margin:10px 10px; color:#fff}
+	.bg{border:10px dotted #C90; padding:30px 15px; background-color:#957}
+	.bg1{background-clip:padding-box;}
+	.bg2{background-clip:border-box;}
+	.bg3{background-clip:content-box;}
+	.bg4{background-clip:text; -webkit-background-clip:text; color:transparent}
+	.pbg{font-size:24px; margin:0 auto;}
 </style>
 
 </head>
 <body>
 
 <h2 class="sin">background-clip</h2>
-<div class="item anp">
-	<p>В каскадных таблицах стилей имеется возможность записать такое свойство, как <span class="sin">background-clip</span> которое, благодаря своим параметрам, управляет характером отображения фона или фонового рисунка относительно границ блока.</p>
+<div class="item">
+	<p>Cвойство <samp class="sin">background-clip</samp> oпределяет, как цвет фона или фоновая картинка должна выводиться под границами. Эффект заметен при прозрачных или пунктирных границах. Применяется ко всем элементам, не наследуется, не анимируется. Значение по умолчанию	<samp class="lsin">border-box</samp>.</p>
 
-	<pre class="item2"><code>background-clip: padding-box;<br>background-clip: border-box;<br>background-clip: content-box;</code></pre>
+	<pre class="item2 mt20 mb20"><code>.elem {<br>  background-clip: padding-box | border-box | content-box | text;<br>}</code></pre>
 
-	<p><span class="lsin">padding-box</span> – параметр устанавливает вывод фона внутри границ.</p>
-	<p><span class="lsin">border-box</span> – отображение фона под границами. <a href="../border & outline.html">(по умолчанию)</a></p>
-	<p><span class="lsin">content-box</span> – отображение фона только внутри контента.</p>
+  <ul class="list">
+    <li><samp class="sin">padding-box</samp> - параметр устанавливает вывод фона внутри границ.</li>
+    <li><samp class="sin">border-box</samp> - отображение фона под границами <a href="../border & outline.html">(по умолчанию)</a>.</li>
+    <li><samp class="sin">content-box</samp> - отображение фона только внутри контента.</li>
+    <li><samp class="sin">text</samp> - отображение фона только внутри текста.</li>
+  </ul>
+
+  <div class="no">В Chrome, Safari, Opera и Android значение <samp class="lsin">text</samp> работает только со свойством <samp class="sin dib">-webkit-background-clip</samp>.</div>
+
 </div>
 
 <div class="item">
 	<div class="qitem3">
 		<div class="box">
-			<div class="bg bg1" style=""><pre class="pbg">background-clip:<br>padding-box;</pre></div>
+			<div class="bg bg1"><pre class="pbg">background-clip:<br>padding-box;</pre></div>
 		</div>
 		<div class="box">
-			<div class="bg bg2" style=""><pre class="pbg">background-clip:<br>border-box;</pre></div>
+			<div class="bg bg2"><pre class="pbg">background-clip:<br>border-box;</pre></div>
 		</div>
 		<div class="box">
-			<div class="bg bg3" style=""><pre class="pbg">background-clip:<br>content-box;</pre></div>
+			<div class="bg bg3"><pre class="pbg">background-clip:<br>content-box;</pre></div>
 		</div>
-	</div><!-- item3 -->
-</div><!-- item -->
+		<div class="box">
+			<div class="bg bg4"><pre class="pbg">background-clip:<br>text;</pre></div>
+		</div>
+	</div>
+
+  <div class="item2">
+    <pre><code>&lt;div class="box"><br>  &lt;div class="bg4">background-clip:text;&lt;/div><br>&lt;/div></code></pre>
+    <pre><code class="css"><br>.box {color: #fff;}<br>.bg4 {<br>  border: 10px dotted #C90;<br>  background-color: #957;<br>  background-clip: text;<br>  -webkit-background-clip: text;<br>  color: transparent;<br>}</code></pre>
+  </div>
+
+</div>
 </body></html>

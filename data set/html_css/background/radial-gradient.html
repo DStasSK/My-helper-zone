@@ -1,0 +1,168 @@
+<!DOCTYPE html><html><head><title>background-gradient</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+  .stop span {background:#fafafa; line-height:1.2;}
+</style>
+</head>
+<body>
+  
+<h2 class="sin">Функция <samp>radial-gradient()</samp></h2>
+<div class="item" id="radial">
+  <p>Стилевая функция <samp class="sin dib">radial-gradient()</samp> добавляет радиальный градиент к фону элемента. Радиальные градиенты по своему принципу похожи на линейные градиенты, но один цвет переходит в другой не вдоль прямой линии, а словно круги по воде - вокруг начальной точки.</p>
+
+  <pre class="item2 mb30"><code>.elem {<br>  background: radial-gradient(тип размер начало, цвет1 ||, цвет2...);<br>}</code></pre>
+
+  <ul class="list">
+    <li>В качестве <b>типа</b> радиального градиента выступаю два параметра - <samp class="sin">circle</samp> (круглая форма градиента) и <samp class="sin">ellipse</samp> - градиент эллиптической формы. Эта форма установлена по умолчанию. Если значение не указать - то примется значение по умолчанию.</li>
+    <li>Под "<b>размером</b>" градиента понимется расстояние после которого не будет градиентной заливки, а будет только конечный цвет. Если значение не указать - то примется значение по умолчанию.</li>
+    <li>Под "<b>началом</b>" градиента подразумевается положение стартовой точки, где будет начинаться первый указанный цвет. Задается в процентах, пикселях или ключевыми словами. Значение по умолчанию - в центре элемента (at center || at center center || at 50% 50%).</li>
+  </ul>
+
+  <div class="no no1">Перед определением любого градиентного фона необходимо задать свойству <samp class="sin">background</samp> цвет по умолчанию. Такой цвет должен быть использован в качестве запасного, если браузер не поддерживает градиент.</div>
+
+	<div class="item2 br0 stop" style="background: radial-gradient(#6ae, #577); padding:60px 0 5px 5px;">
+		<pre><code>div{<br>  background: #689;<br>  background: radial-gradient(#689, #357);<br>}</code></pre>
+	</div>
+
+	<div class="no">Радиальные градиенты работают изнутри наружу элемента. Таким образом, первый цвет заданный в функции <samp class="sin">radial-gradient()</samp> будет располагаться в абсолютном центре элемента, а второй цвет будет находиться на внешней стороне элемента. Браузер затем создаст переход между этими двумя цветами.</div>
+
+	<p>Начальную точку градиента можно задавать в любом месте элемента, для этого вначале указывается её позиция. Позиция точки пишется аналогично значениям свойства <a href="background-position.html" class="sin tdu dib">background-position</a> с помощью ключевых слов или доступных единиц измерения вроде пикселей или процентов, например:</p>
+
+	<style>
+		.bgul li{margin:0; padding:0px;}
+		.bgul li span{font-style:monospace; color:#4169E1; width:180px; display:inline-block;}
+		.bgul {padding:0px 20px; margin:5px 0px 15px 0px;}
+	</style>
+	<ul class="bgul">
+		<li><span>в левом верхнем углу:</span> at top left = at left top = at 0% 0%</li>
+		<li><span>по центру вверху:</span> at top = at top center = at center top = at 50% 0%</li>
+		<li><span>справа вверху:</span> at right top = at top right = at 100% 0%</li>
+		<li><span>слева в центре:</span> at left = at left center = at center left = at 0% 50%</li>
+		<li><span>по центру (defolt):</span> at center = at center center = at 50% 50%</li>
+		<li><span>справа и центру:</span> at right = at right center = at center right = at 100% 50%</li>
+		<li><span>слева внизу:</span> at bottom left = at left bottom = at 0% 100%</li>
+		<li><span>по центру внизу:</span> at bottom = at bottom center = at center bottom = at 50% 100%</li>
+		<li><span>в правом нижнем углу:</span> at bottom right = at right bottom = at 100% 100%.</li>
+	</ul>
+
+
+
+  <h3 class="sin mt40"><b>Размер градиента.</b></h3>
+
+	<p>Наряду с типом градиента можно задавать и его размер, который зависит от применяемых ключевых слов. Ключевые слова определяют где будет заканчиваться переход между цветами - у ближней или дальней стороне элемента или у ближнего или дальнего угла относительно начальной точки градиента.</p>
+
+  <p>Размер градиента указывается через пробел после типа градиента (<samp class="sin">circle</samp> или <samp class="sin">ellipse</samp>). Под "размером градиента" понимается пространство в котором происходит градиентная смена цветов, остальное пространство заливается вторым цветом.</p>
+
+  <style>
+		.bgt1 table{border-collapse:collapse; width:100%; min-width:600px; margin:10px 0;}
+		.bgt1 td{text-align:center; padding:6px; width:20%; box-sizing:border-box;}
+		.bgt1 tr:nth-child(1) td,.bgt1 tr:nth-child(3) td{background:#eee;}
+		.bgt1 tr:nth-child(2) td,.bgt1 tr:nth-child(4) td{height:90px; color:#fff; font-size:16px;}
+
+		.bgd1 samp{width:155px; display:inline-block;}
+	</style>
+	<ul class="list bgd1 mt10">
+		<li><samp class="lsin">closest-side</samp> градиент идет до ближайшей стороне элемента.</li>
+		<li><samp class="lsin">closest-corner</samp> градиент идет до ближайшего угла элемента.</li>
+		<li><samp class="lsin">farthest-side</samp> градиент идет до дальней стороны элемента.</li>
+		<li><samp class="lsin">farthest-corner</samp> градиент идет до дальнего угла элемента (значение по умолчанию).</li>
+	</ul>
+
+	<div class="bgt1 mt20">
+		<table>
+			<tr><td colspan="5"><samp>background: radial-gradient(circle...)</samp></td></tr>
+			<tr>
+				<td style="background: radial-gradient(circle closest-side at 10px 20px, #fff, #000);" title="градиент доходит до ближайшей стороны">background: radial-gradient(circle closest-side at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle closest-corner at 10px 20px, #fff, #000);" title="градиент доходит до ближайшего угла">background: radial-gradient(circle closest-corner at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle farthest-side at 10px 20px, #fff, #000);" title="градиент доходит до дальней стороны">background: radial-gradient(circle farthest-side at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle farthest-corner at 10px 20px, #fff, #000);" title="градиент доходит до дальнеего угла">background: radial-gradient(circle farthest-corner at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(circle at 10px 20px, #fff, #000);" title="значение по умолчанию">background: radial-gradient(circle at 10px 20px, #fff, #000);</td>
+      </tr>
+			<tr><td colspan="5"><samp>background: radial-gradient(ellipse...)</samp></td></tr>
+			<tr>
+				<td style="background: radial-gradient(ellipse closest-side at 10px 20px, #fff, #000);" title="градиент доходит до ближайшей стороны">background: radial-gradient(ellipse closest-side at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse closest-corner at 10px 20px, #fff, #000);" title="градиент доходит до ближайшего угла">background: radial-gradient(ellipse closest-corner at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse farthest-side at 10px 20px, #fff, #000);" title="градиент доходит до дальней стороны">background: radial-gradient(ellipse farthest-side at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse farthest-corner at 10px 20px, #fff, #000);" title="градиент доходит до дальнеего угла">background: radial-gradient(ellipse farthest-corner at 10px 20px, #fff, #000);</td>
+				<td style="background: radial-gradient(ellipse at 10px 20px, #fff, #000);" title="значение по умолчанию">background: radial-gradient(ellipse at 10px 20px, #fff, #000);</td>
+      </tr>
+		</table>
+	</div>
+
+	<p>Для центральной начальной точки градиенты вроде <samp class="sin">closest-corner</samp> и <samp class="sin">farthest-side</samp> совпадают. Но градиенты будут различаться, если установить начальную точку, отличную от центра, например в углу.</p>
+
+</div><!-- /item -->
+
+
+
+<div class="item">
+<h2 class="sin">Стоп-цвета</h2>
+  <p>Подобно линейному градиенту можно указывать несколько цветов, устанавливать их позицию и делать резкие переходы между цветами. Для этого произвольное количество цветов перечисляется через запятую, а после значения цвета через пробел идёт его позиция, которая может быть задана в пикселях или процентах. Крайние значения 0% и 100% можно не писать, они подразумеваются автоматически.</p>
+
+  <img src="img/radial-gradient-color.png" width="100%" class="img-c mt20 mb20">
+
+  <p>Когда позиция одного цвета совпадает с позицией другого иногда получаются резкие переходы - «лесенка» из пикселей (см. ниже). Чтобы немного сгладить переходы добавляют разницу в один процент.</p>
+
+  <div style="height:200px; background: radial-gradient(circle closest-side at center, #016 49%, #fff 50%, #fff 100%, #c00);"></div>
+  <pre  class="item2 br0 mb20"><code>.elem {<br>  background: radial-gradient(circle closest-side at center, <br>  #016 49%, #fff 50%, #fff 100%, #c00);<br>}</code></pre>
+
+  <p>По умолчанию браузер будет позиционировать каждый стоп-цвет на равном расстоянии от следующего и переходить между ними соответственно. Если требуется больше контроля над тем, как желательно расположить цвета, то их места в градиенте могут быть определены для каждого цвета. Место должно быть объявлено как значение размера и идёт после значения цвета. Если не указано иное, то первый цвет будет позиционироваться на 0%, а последний цвет на 100%.</p>
+  <div style="height:200px; background: radial-gradient(circle closest-side at center, #016, #fff, #c00);"></div>
+  <pre  class="item2 br0 mb20"><code>.elem {<br>  background: radial-gradient(circle closest-side at center, <br>  #016, #fff, #c00);<br>}</code></pre>
+</div><!-- /item -->
+
+
+
+
+<div class="item" id="repeating-radial-gradient">
+  <h2 class="sin">Функция <samp>repeating-radial-gradient()</samp></h2>
+  <p>Стилевая функция <samp class="sin dib">repeating-radial-gradient()</samp> по своему действию похожа на радиальный градиент, который делается функцией <samp class="sin dib">radial-gradient()</samp>, и имеет с ним схожий синтаксис. Но цвета градиента бесконечно повторяются во всех направлениях образуя узор, заполняющий фон элемента.</p>
+
+  <p>В функции <samp class="sin dib">radial-gradient()</samp> можно использовать несколько цветов, которые будут переходить из одного в другой на протяжении элемента. В функции <samp class="sin dib">repeating-radial-gradient()</samp> есть возможность задать интервалы для того или иного цвета общая сумма которых может быть меньше размера элемента, при этом дальнейшее чередование цветов зациклено.</p>
+  
+  <ul class="list">
+    <li>Chrome до версии 26, Safari до версии 6.1 и Android до версии 4.4 поддерживают -webkit-repeating-radial-gradient().</li>
+    <li>Opera до версии 12.10 поддерживает -o-repeating-radial-gradient().</li>
+    <li>Firefox до версии 16 поддерживает -moz-repeating-radial-gradient().</li>
+  </ul>
+
+  <div class="no">Все свойства с префиксами не используют ключевое слово <striong><samp class="pur">to</samp></striong> при задании направления градиента.</div>
+
+</div>
+
+
+
+
+
+<div class="item">
+<h2 class="sin">Примеры с градиентом</h2>
+  <style type="text/css">
+    .box0{display:flex; justify-content:center; margin:0 -10px;}
+    
+    .box{width:calc(50% - 10px); margin:10px; line-height:1.2; text-align:left;}
+
+    .boxf{padding:20px 0; text-align:center; font-size:60px; width:300px; height:250px; margin:0 auto;}
+    .box5{background:radial-gradient(white, #DCECF8);}
+    .box6{background:repeating-radial-gradient(#000, #000 20px, #fff 20px, #fff 40px);}
+  </style>
+	<div><!-- box5, 6 -->
+		<div class="box0">
+			<div class="box boxf box5"><samp class="red">box5</samp></div>
+			<div class="box boxf box6"><samp class="red">box6</samp></div>
+		</div>
+		<div class="box0">
+			<div class="box"><samp>.box5{background:radial-gradient(white, #DCECF8);}</samp><br><samp style="opacity:.6;">.box5{background:radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);}</samp></div>
+			<div class="box"><samp>.box6{background:repeating-radial-gradient( #000, #000 20px, #fff 20px, #fff 40px );}</samp><br><samp style="opacity:.6;">.box6{background:repeating-radial-gradient(farthest-corner at 50% 50%, #000, #000 20px, #fff 20px, #fff 40px);}</samp></div>
+		</div>
+	</div>
+</div>
+
+</body></html>

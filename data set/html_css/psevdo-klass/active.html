@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>Псевдокласс active</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+  a{color: #009}
+  a:active{color: #f30}
+</style>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:active</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:active</samp> устанавливает стиль оформления ссылки <a class="tdu" style="cursor:pointer"><strong>в момент нажатия на неё</strong></a>. Чтобы пользователь понимал, что его щелчок по элементу сработал, в момент щелчка меняют вид элемента, для этого используется псевдокласс <samp class="sin">:active</samp>, который добавляется к селектору. В основном применяется к ссылкам и кнопкам, но ими не ограничен.</p>
+
+  <pre class="item2"><code>a {color: #009}<br>a:active {color: #f30}</code></pre>
+
+  <p class="mt40">Псевдоклассы для оформления стилей могут переопределять друг друга, чтобы избежать этого необходимо их указывать в определенном порядке, а именно:</p>
+  <pre class="no no1 mb10 mt10"><code>a:link, a:visited, a:hover, a:active, a:focus {}</code></pre>
+</div>
+</body></html>

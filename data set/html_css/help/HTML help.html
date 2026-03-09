@@ -7,11 +7,14 @@
 <link rel="stylesheet" href="../../highlight.js/styles/ss.css">
 <script src="../../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.item2 p,.item2 div,.item2 input {background:transparent; color:#333}
+</style>
 </head>
 <body>
 <div class="menu-help"><a href="#">Home</a><a href="#end">End</a></div>
 
-
+<!-- <a href="#dialog">dialog</a> -->
 <div class="item">
 <p><samp class="sin bold" id="comment">&lt;!-- --></samp></p>
 	<p>Добавляет комментарий в код документа. Текст комментария не отображается на странице и предназначен для пояснения кода или для технических целей. Разрешается внутрь комментария добавлять другие элементы, при этом недопустимо один комментарий вкладывать внутрь другого.</p>
@@ -149,9 +152,13 @@
 <div class="item">
 <p><samp class="sin bold" id="bdo">&lt;bdo></samp></p>
 	<p>Элемент <samp class="red">&lt;bdo></samp> (от англ. bidirectional override — переопределение двунаправленности) устанавливает направление вывода текста и преимущественно предназначен для использования с языками, где чтение происходит справа налево. Например, к ним относится арабский язык.</p>
-	<div class="item2" style="line-height:1.1; font-size:16px;">
+	<div class="item2 mb20" style="line-height:1.1; font-size:16px;">
 		<div style="font-size:22px; line-height:1.4; font-family:arial;"><bdo>текст1</bdo> текст2<br><bdo dir="rtl">текст1</bdo> текст2</div>
 		<pre><code><br>&lt;bdo>текст1&lt;/bdo> текст2<br>&lt;bdo dir="rtl">текст1&lt;/bdo> текст2</code></pre>
+	</div>
+
+	<div>
+		<a href="../txt/direction.html#bdo" class="sin tdu">еще</a>
 	</div>
 </div>
 
@@ -232,7 +239,7 @@
 		<tr><td>icon</td><td>Адрес картинки, которая показывается перед командой.</td></tr>
 		<tr><td>label</td><td>Название команды.</td></tr>
 		<tr><td>radiogroup</td><td>Задаёт имя группы переключателей. Доступно только если <samp class="sin">type</samp> установлен как <samp class="grin">radio</samp>.</td></tr>
-		<tr><td>type</td><td>Определяет тип команды (<samp class="grin">checkbox, command, radio</samp>). По умолчанию command.</td></tr>	
+		<tr><td>type</td><td>Определяет тип команды (<samp class="grin">checkbox, command, radio</samp>). По умолчанию command.</td></tr>
 	</table>
 </div>
 
@@ -303,12 +310,6 @@
 </div>
 
 
-<div class="item">
-<p><samp class="sin bold t-html5" id="dialog">&lt;dialog></samp></p>
-	<p>Элемент <samp class="red">&lt;dialog></samp> (от англ. dialog — диалог) создаёт диалоговое окно, в котором можно выводить сообщение или форму, например, для входа на сайт.</p>
-	<pre class="item2"><code>&lt;dialog open><br>...<br>&lt;/dialog></code></pre>
-	<div class="no">Слабая поддержка браузерами (только Chrome и Opera), лучше использовать скрипты.</div>
-</div>
 
 
 <div class="item">
@@ -331,6 +332,13 @@
 <p><samp class="sin bold" id="dldtdd">&lt;dl>, &lt;dt>, &lt;dd></samp></p>
 	<p>Элементы <samp class="red">&lt;dl></samp> (от англ. description list — список описаний), <samp class="red">&lt;dt></samp> (от англ. description list term — термин списка описаний), <samp class="red">&lt;dd></samp> (от англ. description list description — описание списка описаний), предназначенны для создания списка описаний. Каждый такой список начинается с контейнера <samp class="red">&lt;dl></samp>, куда входит элемент <samp class="red">&lt;dt></samp> создающий термин и элемент <samp class="red">&lt;dd></samp> задающий описание этого термина.</p>
 	<pre class="item2"><code>&lt;dl><br>  &lt;dt>Термин 1&lt;/dt><br>    &lt;dd>Описание термина 1&lt;/dd><br>  &lt;dt>Термин 2&lt;/dt><br>    &lt;dd>Описание термина 2&lt;/dd><br>&lt;/dl></code></pre>
+
+  <dl>
+    <dt>Термин 1</dt>
+      <dd>Описание термина 1</dd>
+    <dt>Термин 2</dt>
+      <dd>Описание термина 2</dd>
+  </dl>
 </div>
 
 
@@ -570,45 +578,6 @@
 <p><samp class="bold sin" id="noscript">&lt;noscript></samp></p>
 	<p>Контейнер <samp class="red">&lt;noscript></samp> показывает своё содержимое, если браузер не поддерживает работу со скриптами или их поддержка отключена пользователем. В остальных случаях браузер игнорирует этот элемент и всё, что располагается внутри него.</p>
 	<pre class="item2"><code>&lt;noscript>Ваш браузер не поддерживает скрипты!&lt;/noscript></code></pre>
-</div>
-
-
-<div class="item">
-<p><samp class="bold sin" id="optgroup">&lt;optgroup></samp></p>
-	<p>Контейнер <samp class="red">&lt;optgroup></samp> (от англ. option group — группа вариантов) представляет собой контейнер, внутри которого располагаются элементы <samp class="red">&lt;option></samp>, объединённые в одну группу. Особенностью <samp class="red">&lt;optgroup></samp> является то, что он не выделяется как обычный элемент списка, акцентируется с помощью жирного начертания, а все элементы, входящие в этот контейнер, смещаются вправо от своего исходного положения.</p>
-	<pre class="item2"><code>&lt;select><br>   &lt;optgroup label="текст"><br>      &lt;option>...&lt;/option><br>      &lt;option>...&lt;/option><br>   &lt;/optgroup><br>&lt;/select></code></pre>
-
-	<fieldset class="prm leg1 bn mb0 prm2">
-		<legend class="point" onclick='optgroup1.classList.toggle("hiden");' title="показать/скрыть"></legend>
-		<div id="optgroup1" class="hiden" onclick="event.stopPropagation()">
-			<table class="t1 t3">
-				<tr><td>disabled</td>
-					<td>Блокирует доступ к группе списка, при этом группа отображается другим цветом (обычно серым) и не доступна для выбора.</td></tr>
-				<tr><td>label</td>
-					<td>Текст, который будет входить в список в виде заголовка группы. Значения - любая текстовая строка.</td></tr>
-			</table>
-
-			<fieldset class="prm mb5">
-				<legend></legend>
-				<form>
-					<select>
-						<optgroup label="Цвет">
-							<option value="c1">Апельсиновый</option>
-							<option value="c2">Лимонный</option>
-							<option value="c3">Персиковый</option>
-						</optgroup>
-						<optgroup label="Тон" disabled>
-							<option value="s1">Светлый</option>
-							<option value="s2">Нормальный</option>
-							<option value="s3">Темный</option>
-						</optgroup>
-					</select>
-					<p><input type="submit" value="Отправить"></p>
-				</form>
-				<pre class="item2"><code>&lt;form action="handler.php"><br>   &lt;select><br>      &lt;optgroup label="Цвет"><br>         &lt;option value="c1">Апельсиновый&lt;/option><br>         &lt;option value="c2">Лимонный&lt;/option><br>         &lt;option value="c3">Персиковый&lt;/option><br>      &lt;/optgroup><br>      &lt;optgroup label="Тон" disabled><br>         &lt;option value="s1">Светлый&lt;/option><br>         &lt;option value="s2">Нормальный&lt;/option><br>         &lt;option value="s3">Темный&lt;/option><br>      &lt;/optgroup><br>   &lt;/select><br>   &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
-			</fieldset>
-		</div>
-	</fieldset>
 </div>
 
 

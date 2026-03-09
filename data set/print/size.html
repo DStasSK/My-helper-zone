@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><title>CSS свойство size</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>size</samp>.</h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">size</samp> для правила <samp class="red">@page</samp> определяет размер и ориентацию поля, которое используется для представления страницы. В большинстве случаев этот размер соответствует целевому размеру печатной страницы, если применимо. Размер может быть определен либо с помощью ключевого слова <samp class="lsin">scalable</samp> (в этом случае страница заполнит доступные размеры), либо с помощью абсолютных размеров.</p>
+
+	<pre class="item2 mt20"><code>@page {<br>  size: auto | portrait | landscape | value | value value |<br>        A4 | B5 | JIS-B4 | letter;<br><br>  /* размер и ориентация листа */<br>  size: A4 portrait;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">auto</samp> - Размер страницы определяется агентом пользователя. В большинстве случаев используются размеры и ориентация целевого листа.</li>
+		<li><samp class="sin">portrait</samp> - Содержимое страницы отображается в портретном режиме (т.е. самая длинная сторона окна расположена вертикально). Это ориентация по умолчанию.</li>
+		<li><samp class="sin">landscape</samp> - Содержимое страницы отображается в альбомном режиме.</li>
+		<li><samp class="sin">value</samp> - Любое значение длины в едицах CSS. Первое значение соответствует ширине страницы, а второе - ее высоте. Если указано только одно значение, оно используется как для ширины, так и для высоты.</li>
+		<li><samp class="sin">A3</samp> - Размеры соответствуют стандарту ISO: 297 x 420 мм.</li>
+		<li><samp class="sin">A4</samp> - Размеры соответствуют стандарту ISO: 210 x 297 мм.</li>
+		<li><samp class="sin">A5</samp> - Размеры соответствуют стандарту ISO: 148 x 210 мм.</li>
+		<li><samp class="sin">B4</samp> - Размеры соответствуют стандарту ISO: 250 x 353 мм.</li>
+		<li><samp class="sin">B5</samp> - Размеры соответствуют стандарту ISO: 176 x 250 мм.</li>
+		<li><samp class="sin">JIS-B4</samp> - Размеры соответствуют стандарту JIS: 257 мм x 364 мм.</li>
+		<li><samp class="sin">JIS-B5</samp> - Размеры соответствуют стандарту JIS: 182 мм x 257 мм.</li>
+		<li><samp class="sin">letter</samp> - Соответствует размерам почтовой бумаги в Северной Америке, 8,5 х 11 дюймов.</li>
+		<li><samp class="sin">legal</samp> - Соответствует размерам юридических документов в Северной Америке, 8,5 x 14 дюймов.</li>
+		<li><samp class="sin">ledger</samp> - Соответствует размерам страниц бухгалтерской книги в Северной Америке, 11 x 17 дюймов.</li>
+	</ul>
+
+
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>83</span></td><!-- Edge -->
+      <td><span>83</span></td><!-- Chrome -->
+      <td><span>69</span></td><!-- Opera -->
+      <td><span>18.2</span></td><!-- Safari -->
+      <td><span>95</span></td><!-- FF -->
+      <td><span>83</span></td><!-- mobile-android -->
+      <td><span>95</span></td><!-- mobile-FF -->
+      <td><span>59</span></td><!-- mobile-opera -->
+      <td><span>18.2</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+</div>
+</body></html>

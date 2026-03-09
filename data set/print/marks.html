@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>marks</title>
+<!DOCTYPE html><html><head><title>CSS свойство marks</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
@@ -12,11 +12,11 @@
 </head>
 <body>
 
-<h2 class="sin">marks</h2>
+<h2 class="sin">CSS свойство <samp>marks</samp></h2>
 
 <div class="item">
 	<p>Отображает специальные метки на странице при печати документа, предназначенные для дальнейшего обрезания страницы или для ровного соединения нескольких листов между собой. Значение по умолчанию <samp class="red">none</samp>, не наследуется, применяется к печатной странице.</p>
-	<pre class="item2"><code>marks: [ crop || cross ] | none</code></pre>
+	<pre class="item2"><code>.elem {<br>  marks: crop | cross | none;<br>}</code></pre>
 
 	<table class="t1 t3">
 		<tr><td>crop</td><td>Выводит метки для дальнейшего обрезания страницы после её печати.</td></tr>
@@ -25,6 +25,33 @@
 	</table>
 
 	<div class="no">Данное свойство не поддерживается браузерами - рабочий проект.</div>
+
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td class="n"><span></span></td><!-- Edge -->
+      <td class="n"><span></span></td><!-- Chrome -->
+      <td class="n"><span></span></td><!-- Opera -->
+      <td class="n"><span></span></td><!-- Safari -->
+      <td class="n"><span></span></td><!-- FF -->
+      <td class="n"><span></span></td><!-- mobile-android -->
+      <td class="n"><span></span></td><!-- mobile-FF -->
+      <td class="n"><span></span></td><!-- mobile-opera -->
+      <td class="n"><span></span></td><!-- mobile-safary -->
+    </tr>
+  </table>
 </div>
 
 </body></html>

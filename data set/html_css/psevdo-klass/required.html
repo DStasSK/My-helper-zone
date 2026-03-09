@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><title>Псевдокласс required</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:required</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:required</samp> применяет стилевые правила к элементу <samp class="red">&lt;input></samp>, у которого установлен атрибут <samp class="sin">required</samp>, он позволяет выделять поля обязательные к заполнению перед отправкой формы.</p>
+
+	<pre class="item2 mt20 mb20"><code>input:required {  ...  }</code></pre>
+
+	<style>
+		#f9 {border:1px solid; margin-top:10px}
+		#f9 p {margin: 0 0 5px;}
+		#f9 label {width:110px; float:left; text-align:right; padding-right:10px;}
+		#f9 input[type="text"], #f9 textarea {width: 320px; background:#fefefe;}
+		#f9 input:required {border:2px solid red;}
+	</style>
+	<form action="handler.php" id="f9">
+		<p><label for="user">Имя</label>
+		<input id="user" type="text" required></p>
+		<p><label for="email">E-mail</label><input id="email" type="text"></p>
+		<p><label for="text">Комментарий</label>
+			<textarea cols="42" rows="6" id="text"></textarea></p>
+		<p><label>&nbsp;</label><input type="submit" id="send" value="Отправить"></p>
+	</form>
+
+	<pre class="item2" style="line-height:.9"><code>&lt;style><br>  input:required {border:2px solid red;}<br>&lt;/style><br><br>&lt;form action="handler.php" id="f9"><br>  &lt;p><br>    &lt;label for="user">Имя&lt;/label><br>    &lt;input id="user" type="text" required><br>  &lt;/p><br>  &lt;p><br>    &lt;label for="email">E-mail&lt;/label><br>    &lt;input id="email" type="text"><br>  &lt;/p><br>  &lt;p><br>    &lt;label for="text">Комментарий&lt;/label><br>    &lt;textarea cols="40" rows="8" id="text">&lt;/textarea><br>  &lt;/p><br>  &lt;p><br>    &lt;label>&nbsp;&lt;/label><br>    &lt;input type="submit" id="send" value="Отправить"><br>  &lt;/p><br>&lt;/form></code></pre>
+</div>
+</body></html>

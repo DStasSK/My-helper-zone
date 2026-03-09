@@ -9,7 +9,6 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-
 	.be{background-color:yellow;padding:2px 5px;}
 
 	ol {margin:0 20px 10px 20px; padding:0;}
@@ -18,176 +17,213 @@
 	.spoiler :checked ~ div {display: block;}
 	.spoiler label {display:inline-block;}
 
+  .box1{position:absolute; top:0; right:0; width:250px; height:175px; background-color:#fff; padding:5px 5px 0; font-size:16px;}
+
+  .box2{height:187px; padding:10px 10px 0;}
 </style></head>
 <body>
 
 <h2 class="sin">Выпадающий список</h2>
+  <!-- Оглавление -->
+    <ul class="ogl mt20">
+      <li>
+        <a href="#summarydetails">Ваиант на тегах <samp class="teg">details</samp> и <samp class="teg">summary</samp></a></li>
+      <li>
+        <a href="#js-toggle">Вариант на <samp class="lsin">onclick</samp> и <samp class="lsin">toggle</samp> (JS встроен в html страницу).</a></li>
+      <li>
+        <a href="#label">Вариант на <samp class="teg">input</samp>, <samp class="teg">label</samp> и <samp class="lsin">:checked</samp>.</a></li>
+      <li>
+        <a href="#checkbox">Примеры на <samp>&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp>.</a></li>
+      <li>
+        <a href="#radio">Пример на <samp>&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp>.</a></li>
+      <li>
+        <a href="#js">Вариант на <samp class="sin">Java Script</samp>.</a></li>
+    </ul>
 
-<div class="item anp" id="summarydetails">
-<h3 class="sin">Ваиант на тегах <samp class="red">&lt;details></samp> и <samp class="red">&lt;summary></samp>.</h3>
-	<p>Архитектура:</p>
-	<div class="item2 br0" style="position:relative;">
-		<pre><code>&lt;details><br>  &lt;summary>Видимый текст 1&lt;/summary><br>  &lt;p>Скрытый текст 1&lt;/p><br>  &lt;p>Скрытый текст 1&lt;/p><br>&lt;/details><br>&lt;details><br>  &lt;summary>Видимый текст 2&lt;/summary><br>  &lt;p>Скрытый текст 2&lt;/p><br>  &lt;p>Скрытый текст 2&lt;/p><br>&lt;/details></code></pre>
 
-		<div style="position:absolute;top:0;right:0;width:250px;height:176px;background-color:#fff;padding:5px;font-size:16px;">
-			<p>Дефолтное отображение:</p>
-			<details>
-				<summary>Видимый текст 1</summary>
-				<p>Скрытый текст 1</p>
-				<p>Скрытый текст 1</p>
-			</details>
-			<details>
-				<summary>Видимый текст 2</summary>
-				<p>Скрытый текст 2</p>
-				<p>Скрытый текст 2</p>
-			</details>
-		</div>
-	</div>
 
-	<p class="pad">Минусы данного метода:
-	<br>- старые браузеры не знают таких тегов и не будут скрывать информацию.
-	<br>- дефолтный маркер надо спрятать, используя префиксы, и создать свой.</p>
-	<p>Чтобы тег <samp class="red">&lt;summary></samp> не растягивался на всю ширину и были кликабельными только слова, а не вся строка - устанавливают параметр <samp class="sin">display:</samp><samp class="lsin">inline-block</samp>.</p>
-
-	<pre class="item2 br0"><code>summary::-webkit-details-marker {display: none;}<br>summary::-moz-list-bullet {list-style-type: none;}<br>summary::marker {display: none;}<br>summary {display: inline-block;}</code></pre>
-
-	<div class="no"><samp class="sin"><b>IE</b></samp> не поддерживает данные тэги.</div>
+<div class="item mt20">
+  <p>В большинстве случаев выпадающие списки реализованы через использование Java Script, а при помощи CSS элементы списка только стилизуются. Java Script позволяет использовать разворачивание элементов не только при клике, но и при других событиях, при этом сам скрипт имеет небольшие размеры по сравнению с реализацией выпадающих списков на CSS, да и он более понятен.</p>
 </div>
 
 
 
-<div class="item">
-<h3>Примеры выпадающих списков</h3>
-<div class="item2 br0 detsum">
-	<style type="text/css">
-		.detsum summary {display:inline-block; background-color:#fff; padding:2px 5px; width:390px; cursor:pointer;}
-		.detsum details {width:400px; background-color:#fafafa; display:block; margin:15px;}
-		.detsum details p {line-height:29px; padding:0 15px;}
-		.detsum summary:focus {outline:0;} /* убирает рамку выделения */		
+<div class="item anp" id="summarydetails">
+<h3 class="sin"><a href="#" title="наверх">Ваиант на тегах <samp class="teg">details</samp> и <samp class="teg">summary</samp>.</a></h3>
+	<p>Архитектура:</p>
+	<div class="item2 br0" style="position:relative;">
+		<pre><code>&lt;details><br>  &lt;summary>Видимый текст 1&lt;/summary><br>  &lt;p>Скрытый текст 1&lt;/p><br>  &lt;p>Скрытый текст 1&lt;/p><br>&lt;/details><br>&lt;details><br>  &lt;summary>Видимый текст 2&lt;/summary><br>  &lt;p>Скрытый текст 2&lt;/p><br>  &lt;p>Скрытый текст 2&lt;/p><br>&lt;/details></code></pre>
 
-		.all summary::-webkit-details-marker{display:none;}
-		.all summary::-moz-list-bullet{list-style-type:none;}
-		.all summary::marker{display:none;}
+		<div class="box1">
+			<p>Дефолтное отображение:</p>
+			<details>
+				<summary>Видимый текст 1</summary>
+				<div>Скрытый текст 1</div>
+				<div>Скрытый текст 1</div>
+			</details>
+			<details>
+				<summary>Видимый текст 2</summary>
+				<div>Скрытый текст 2</div>
+				<div>Скрытый текст 2</div>
+			</details>
+		</div>
 
-		.plusm summary:before {display:inline-block; content:"+"; width:15px;
-			text-align:center; margin-left:-5px; font-weight:700;}
-		.plusm details[open] > summary:before {content:"–";} /* заменяет + на - */
+	</div>
 
-		.plusm2 summary:after {display:inline-block; content:"+"; transition:transform .5s;
-			width:15px; text-align:center; font-weight:700;}
-		.plusm2 details[open] > summary:after {transform: scale(1,-1);} /* масштабирование для маркера */
-		.plusm2 details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
-										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+	<p class="mt30">Минусы данного метода:
+	<br>- старые браузеры не знают таких тегов и не будут скрывать информацию.
+	<br>- дефолтный маркер надо спрятать, используя префиксы, и создать свой.</p>
 
-		.svg summary {padding-left:20px; display:block; cursor:pointer; position:relative; width:375px;}
-		.svg summary:before {display:inline-block; content:">"; transition:transform .5s; position:absolute;
-			left:5px; top:3px; font-weight:700;}
-		.svg details[open] > summary:before {transform: rotateZ(90deg);} /* поворот на 90 */
-		.svg details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
-										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
-		.wt details{display:block; background:#fff;
-			box-shadow:0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-			border-radius:8px; overflow:hidden;}
-		.wt summary {padding-left:20px; display:block; cursor:pointer; position:relative;
-			border-bottom: 1px solid #e2e8f0;}
-		.wt summary:before {display:inline-block; content:">"; transition:transform .5s; position:absolute;
-			left:5px; top:3px; font-weight:700;}
-		.wt details[open] > summary:before {transform: rotateZ(90deg);}
-		.wt details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
-										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
-		.wt2 details{display:block; background:#fff;
-			box-shadow:0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-			border-radius:8px; overflow:hidden;}
-		.wt2 summary {display:block; cursor:pointer; position:relative;
-			border-bottom: 1px solid #e2e8f0;}
-		.wt2 summary:before {top:.4em; right:.3em; color:transparent;
-		/* картинка стрелки */
-		background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTYuNTkgOC41OUwxMiAxMy4xNyA3LjQxIDguNTkgNiAxMGw2IDYgNi02eiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=") no-repeat 50% 50% / 1em 1em;
-			width:1em; height:1em; content: ""; position:absolute; transition:transform .5s;}
-		.wt2 details[open] > summary:before {transform: scale(1,-1);}
-		.wt2 details[open] summary ~ *{animation: sweep .5s ease-in-out;} /* анимация для всех элеметов внутри */
-										@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+  <p class="mt30">Чтобы тег <samp class="red">&lt;summary></samp> не растягивался на всю ширину и были кликабельными только слова, а не вся строка - устанавливают параметр <samp class="sin">display:</samp><samp class="lsin">inline-block</samp>.</p>
 
-	</style>
+	<pre class="item2 br0 mb30"><code>summary::-webkit-details-marker {display: none;}<br>summary::-moz-list-bullet {list-style-type: none;}<br>summary::marker {display: none;}<br>summary {display: inline-block;}</code></pre>
+
+	<div class="no"><samp class="sin"><b>IE</b></samp> не поддерживает данные тэги.</div>
+
+
+
+<h3 class="sin mt40">Примеры выпадающих списков</h3>
+<style type="text/css">
+  /* для всех примеров */
+	.example__box details {width:400px; background-color:#fafafa; display:block; margin:15px;}
+	.example__box details p {line-height:29px; padding:0 15px;}
+	.example__box summary {display:inline-block; background-color:#fff; padding:2px 5px; width:390px; cursor:pointer;}
+	.example__box summary:focus {outline:0;} /* убирает рамку выделения */		
+
+	.example__box summary::-webkit-details-marker{display:none;}
+	.example__box summary::-moz-list-bullet{list-style-type:none;}
+	.example__box summary::marker{display:none;}
+  /* для всех примеров */
+
+  /* пример №2 */
+  .plusm summary:before {display:inline-block; content:"+"; width:15px;
+		text-align:center; margin-left:-5px; font-weight:700;}
+	.plusm[open] > summary:before {content:"–";} /* заменяет + на - */
+
+  /* пример №3 */
+	.plusm2 summary:after {display:inline-block; content:"+"; transition:transform .5s; width:15px; text-align:center; font-weight:700;}
+	.plusm2[open] > summary:after {transform: scale(1,-1);} /* масштабирование для маркера */
+	.plusm2[open] summary ~ *{animation: sweep .5s ease-in-out;}
+	@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+
+  /* пример №4 */
+	.cone summary {padding-left:20px; display:block; cursor:pointer; position:relative; width:375px;}
+	.cone summary:before {display:inline-block; content:">"; transition:transform .5s; position:absolute; left:5px; top:3px; font-weight:700;}
+	.cone[open] > summary:before {transform: rotateZ(90deg);} /* поворот на 90 */
+	.cone[open] summary ~ *{animation: sweep .5s ease-in-out;}
+	@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+
+  /* пример №5 */
+	.wt{display:block; background:#fff;
+		box-shadow:0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border-radius:8px; overflow:hidden;}
+	.wt summary {padding-left:20px; display:block; cursor:pointer; position:relative; border-bottom: 1px solid #e2e8f0;}
+	.wt summary:before {display:inline-block; content:">"; transition:transform .5s; position:absolute; left:5px; top:3px; font-weight:700;}
+	.wt[open] > summary:before {transform: rotateZ(90deg);}
+	.wt[open] summary ~ *{animation: sweep .5s ease-in-out;}
+	@keyframes sweep {0% {opacity: 0;} 100% {opacity: 1;}}
+
+  /* пример №6 */
+	.wt2{display:block; background:#fff; border-radius:8px; overflow:hidden;
+		box-shadow:0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);}
+	.wt2 summary {display:block; cursor:pointer; position:relative;	border-bottom: 1px solid #e2e8f0;}
+	.wt2 summary:before {top:.4em; right:.3em; color:transparent; width:1em; height:1em; content: ""; position:absolute; transition:transform .5s;
+	/* картинка стрелки */
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTYuNTkgOC41OUwxMiAxMy4xNyA3LjQxIDguNTkgNiAxMGw2IDYgNi02eiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=") no-repeat 50% 50% / 1em 1em;}
+	.wt2[open] > summary:before {transform: scale(1,-1)}
+	.wt2[open] summary ~ *{animation: sweep .5s ease-in-out}
+	@keyframes sweep {0% {opacity:0} 100% {opacity:1}}
+</style>
+
+<div class="item2 br0 example__box">
+  <!-- пример1 -->
 	<details>
 		<summary>Покажи-скрой меня 1</summary>
 		<p>Дефолтное оформление</p>
 	</details>
-	<div class="plusm all"><details open>
+
+  <!-- пример2 -->
+	<details class="plusm" open>
 		<summary>Покажи-скрой меня 2</summary>
 		<p>Открыт по умолчанию: <samp class="red">&lt;details <samp class="lsin">open</samp>></samp></p>
 		<p>Маркер изменен на <samp>+/-</samp></p>
-	</details></div>
-	<div class="plusm2 all"><details>
+	</details>
+
+  <!-- пример3 -->
+	<details class="plusm2">
 		<summary>Покажи-скрой меня 3</summary>
 		<p>Маркер изменен на <samp>+</samp></p>
 		<p>Маркер расположен справа</p>
 		<p>Добавлена анимация маркера</p>
 		<p>Установлена плавность появления текста</p>
-	</details></div>
-	<div class="all svg"><details>
+	</details>
+
+  <!-- пример4 -->
+	<details class="cone">
 		<summary>Покажи-скрой меня 4</summary>
 		<p>Маркер изменен на <samp>></samp></p>
 		<p>Добавлена анимация маркера</p>
 		<p>Установлена плавность появления текста</p>
-	</details></div>
-	<div class="all wt"><details>
+	</details>
+
+  <!-- пример5 -->
+	<details class="wt">
 		<summary>Покажи-скрой меня 5</summary>
 		<p>Маркер изменен на <samp>></samp></p>
 		<p>Добавлена анимация маркера</p>
 		<p>Установлена плавность появления текста</p>
-	</details></div>
-	<div class="all wt2"><details>
+	</details>
+
+  <!-- пример6 -->
+	<details class="wt2">
 		<summary>Покажи-скрой меня 6</summary>
 		<p>Маркер изменен на <samp>></samp></p>
 		<p>Добавлена анимация маркера</p>
 		<p>Установлена плавность появления текста</p>
-	</details></div>
+	</details>
 </div>
 </div>
 
 
 
-<div class="item">
-<h3 class="sin">Вариант на <samp class="lsin">onclick</samp> и <samp class="lsin">toggle</samp>.</h3>
-	<div class="point" onclick='asubmenu.classList.toggle("hiden");'>Нажми меня два раза</div>
-		<ul id='asubmenu' class="hiden" onclick="event.stopPropagation()" style="margin:0 0 0 30px;padding:0px;">
-			<li>1-й пункт</li>
-			<li>2-й пункт</li>
-			<li>3-й пункт</li>
-		</ul>
+
+<div class="item" id="js-toggle">
+<h3 class="sin"><a href="#" title="наверх">Вариант на <samp class="lsin">onclick</samp> и <samp class="lsin">toggle</samp> (JS).</a></h3>
+	<div class="point dib" onclick='asubmenu.classList.toggle("hiden");'>Нажми на меня</div>
+	<ul id='asubmenu' class="hiden list l1" onclick="event.stopPropagation()">
+		<li>1-й пункт</li>
+		<li>2-й пункт</li>
+		<li>3-й пункт</li>
+	</ul>
 	<div class="item2 br0">
-		<samp class="point red bold" onclick='vs21.classList.toggle("hiden");'><abbr title="развернуть / свернуть">HTML</abbr></samp>
-		<div class="hiden" id="vs21" onclick="event.stopPropagation()">
-			<pre><code>&lt;!-- id повторяться не должны --><br>&lt;div class="menu" onclick='<b>submenu</b>.classList.toggle("hiden");'><br>  Нажми меня два раза<br>&lt;/div><br><br>&lt;!-- event.stop... не позволят кликам по пунктам сворачивать меню<br>т.е. предотвращает всплытие клика<br>onclick="event.stopPropagation()" --><br>&lt;ul <b>id='submenu'</b> class="hiden" onclick="event.stopPropagation()"><br>  &lt;li>1-й пункт&lt;/li><br>  &lt;li>2-й пункт&lt;/li><br>  &lt;li>3-й пункт&lt;/li><br>&lt;/ul></code></pre>
-			<br><samp class="red"><b>CSS</b></samp>
-			<pre><code>.menu {cursor:pointer; display:inline-block;}<br>.hiden {display:none;}</code></pre>
-			<span class="yel" onclick='vs21.classList.toggle("hiden");'>свернуть</span>
-		</div>
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;!-- id повторяться не должны --><br>&lt;div class="menu" onclick='<b>submenu</b>.classList.toggle("hiden");'><br>  Нажми на меня<br>&lt;/div><br>&lt;ul <b>id='submenu'</b> class="hiden" onclick="event.stopPropagation()"><br>  &lt;li>1-й пункт&lt;/li><br>  &lt;li>2-й пункт&lt;/li><br>  &lt;li>3-й пункт&lt;/li><br>&lt;/ul><br>&lt;!-- onclick="event.stopPropagation()"<br>предотвращает всплытие клика<br>это не позволят при клике по пунктам сворачивать меню --><br></code></pre>
+		<br><samp class="red">CSS</samp>
+		<pre><code>.menu {cursor:pointer; display:inline-block;}<br>.hiden {display:none;}</code></pre>
 	</div>
 </div>
 
 
 
-<div class="item">
-<h3 class="sin">Вариант на <samp class="red">&lt;input></samp>, <samp class="red">&lt;label></samp> и <samp class="lsin">:checked</samp>.</h3>
-	<div class="anp"><p>Есть два типа аккордеон-меню.</p></div>
+
+<div class="item" id="label">
+<h3 class="sin"><a href="#" title="наверх">Вариант на <samp class="teg">input</samp>, <samp class="teg">label</samp> и <samp class="lsin">:checked</samp>.</a></h3>
+
+<div class="anp"><p>Есть два типа аккордеон-меню.</p></div>
 	<ol>
 		<li>При раскрытии любого пункта списка открытое содержимое закрывается; по своему действию это похоже на вкладки.</li>
 		<li>Можно раскрывать любой пункт списка, остальные пункты при этом не закрываются.</li>
 	</ol>
 
-	<p class="mt20">Для первого типа аккордеона вставляем <samp>&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp>, который позволяет выбрать лишь один пункт, а для второго типа <samp>&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp> - с его помощью можно раскрывать и закрывать произвольное число пунктов.</p>
+	<p class="mt30 mb30">Для первого типа аккордеона вставляем <samp class="dib">&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp>, который позволяет выбрать лишь один пункт, а для второго типа <samp class="dib">&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp> - с его помощью можно раскрывать и закрывать произвольное число пунктов.</p>
 
-	<p>Для каждого <samp class="red">&lt;input></samp> необходимо добавить своей уникальный <samp class="red">id</samp>, а его значение затем вставить в атрибут <samp class="sin">for</samp> у расположенного ниже элемента <samp class="red">&lt;label></samp>.</p>
+	<p>Для каждого <samp class="teg">input</samp> необходимо добавить своей уникальный <samp class="red">id</samp>, а его значение затем вставить в атрибут <samp class="sin">for</samp> у расположенного ниже элемента <samp class="teg">label</samp>.</p>
 
-	<p>Для того чтобы отдельные пункты были заранее открытими, необходимо добавить к тегу <samp class="red">&lt;input></samp> параметр <samp class="sin">checked</samp>.</p>
+	<p>Для того чтобы отдельные пункты были заранее открытими, необходимо добавить к тегу <samp class="teg">input</samp> параметр <samp class="sin">checked</samp>.</p>
 
-	<div class="anp" style="margin-top:10px;"><p><b>Архитектура:</b></p></div>
-	<div class="item2 br0 anp" style="position:relative;">
+	<div class="item2 br0 anp mt30" style="position:relative;">
 		<pre><code>&lt;style><br>  .spoiler label {cursor:pointer;}<br>  .spoiler input {display:none;}<br>  .spoiler div {display:none;}<br>  .spoiler :checked ~ div {display:block;}<br>&lt;/style><br>&lt;div class="spoiler"><br>  &lt;input type="checkbox" id="spoiler1"><br>  &lt;label for="spoiler1">Видимый текст&lt;/label><br>  &lt;div>Скрытый текст&lt;/div><br>&lt;/div></code></pre>
 	
-		<div style="position:absolute;top:0;right:0;width:250px;height:183px;background-color:#fff;padding:10px;font-size:16px;">
+		<div class="box1 box2">
 			<p>Отображение со стилизацией:</p>
 			<style>
 				.spoiler99 label {cursor:pointer;}
@@ -201,6 +237,7 @@
 				<div>Скрытый текст</div>
 			</div>
 		</div>
+
 		<div style="position:absolute; top:100px; right:0; width:250px; padding:10px;">
 			<p>Отображение без стилилации:</p>
 			<div class="spoiler98">
@@ -210,11 +247,12 @@
 			</div>
 		</div>
 	</div>
-</div>
 
 
-<div class="item">
-<h3 class="sin">Пример на <samp>&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp></h3>
+  <div class="hr30 mt40 mb30"></div>
+
+
+  <h3 class="sin" id="checkbox"><a href="#" title="наверх">Примеры на <samp>&lt;<span class="red">input</span> type="<span class="lsin">checkbox</span>"></samp>.</a></h3>
 	<style>
 		.spoiler {border:1px solid #0000fa; margin:5px 0; display:inline-block;}
 		.spoiler label {cursor:pointer; padding:2px 5px;}
@@ -247,20 +285,18 @@
 	</div>
 
 	<div class="item2 br0">
-		<samp class="hover red menu" onclick='vs31.classList.toggle("hiden");'><abbr title="развернуть / свернуть">HTML</abbr></samp>
-		<div class="hiden" id="vs31" onclick="event.stopPropagation()">
-			<pre><code>&lt;div class="spoiler"><br>  &lt;input type="checkbox" id="spoiler1"><br>  &lt;label for="spoiler1">Внимание, спойлер №1&lt;/label><br>  &lt;div>Убийца - дворецкий!&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoiler st"><br>  &lt;input type="checkbox" id="spoiler2"><br>  &lt;label for="spoiler2">Cпойлер №2&lt;/label><br>  &lt;div>Убийца точно дворецкий!&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoiler plus"><br>  &lt;input type="checkbox" id="spoiler3"><br>  &lt;label for="spoiler3">Cпойлер №3&lt;/label><br>  &lt;div>Убийца точно дворецкий с усами соседа снизу!&lt;/div><br>&lt;/div></code></pre>
-			<br><samp class="red"><b>CSS</b></samp>
-			<pre><code>.spoiler {border:1px solid #0000fa; margin:5px 0; display:inline-block;}<br>.spoiler label {cursor:pointer; padding:2px 5px;}<br>.spoiler :checked + label {border-bottom:1px solid #0000fa;}<br>.spoiler input, .spoiler div {display: none;}<br>.st label::before {content:'►'; margin-right:5px;}<br>.st :checked + label::before {content:'▼';}              /* Открытый спойлер */<br>.spoiler :checked ~ div {display:block; padding:2px 5px;}/* Открытый спойлер */<br>.plus label {display:block; width:300px;}<br>.plus label::after {content: '+'; float: right;} /* Размещаем + по правому краю */<br>.plus :checked + label::after {content: '−';}</code></pre>
-			<span class="yel" onclick='vs31.classList.toggle("hiden");'>свернуть</span>
-		</div>
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="spoiler"><br>  &lt;input type="checkbox" id="spoiler1"><br>  &lt;label for="spoiler1">Внимание, спойлер №1&lt;/label><br>  &lt;div>Убийца - дворецкий!&lt;/div><br>&lt;/div><br><br>&lt;div class="spoiler st"><br>  &lt;input type="checkbox" id="spoiler2"><br>  &lt;label for="spoiler2">Cпойлер №2&lt;/label><br>  &lt;div>Убийца точно дворецкий!&lt;/div><br>&lt;/div><br><br>&lt;div class="spoiler plus"><br>  &lt;input type="checkbox" id="spoiler3"><br>  &lt;label for="spoiler3">Cпойлер №3&lt;/label><br>  &lt;div>Убийца точно дворецкий с усами соседа снизу!&lt;/div><br>&lt;/div></code></pre>
+
+    <br><samp class="red"><b>CSS</b></samp>
+		<pre><code>.spoiler {border:1px solid #0000fa; margin:5px 0; display:inline-block;}<br>.spoiler label {cursor:pointer; padding:2px 5px;}<br>.spoiler input, .spoiler div {display: none;}<br>.spoiler :checked + label {border-bottom:1px solid #0000fa;}<br>.spoiler :checked ~ div {display:block; padding:2px 5px;}/* Открытый спойлер */<br><br>.st label::before {content:'►'; margin-right:5px;}<br>.st :checked + label::before {content:'▼';}              /* Открытый спойлер */<br><br>.plus label {display:block; width:300px;}<br>.plus label::after {content: '+'; float: right;} /* Размещаем + по правому краю */<br>.plus :checked + label::after {content: '-';}</code></pre>
 	</div><!-- /item2 -->
 </div><!-- /item -->
 
 
 
-<div class="item">
-<h3 class="sin">Пример на <samp>&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp></h3>
+<div class="item" id="radio">
+<h3 class="sin"><a href="#" title="наверх">Пример на <samp>&lt;<span class="red">input</span> type="<span class="lsin">radio</span>"></samp>.</a></h3>
 	<style>
 		.spoilerr {border:1px solid #0000fa; margin:5px 0; display:inline-block; text-align:center;}
 		.spoilerr label {cursor:pointer; padding:2px 5px;}
@@ -287,14 +323,53 @@
 
 	<!-- item2 -->
 	<div class="item2 br0">
-		<samp class="hover red menu" onclick='vs41.classList.toggle("hiden");'><abbr title="развернуть / свернуть">HTML</abbr></samp>
-		<div id="vs41" onclick="event.stopPropagation()" class="hiden">
-			<pre><code>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler21" name="group1"><br>  &lt;label for="spoiler21">Спойлер №1&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler22" name="group1"><br>  &lt;label for="spoiler22">Cпойлер №2&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div><br>&lt;br><br>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler23" name="group1"><br>  &lt;label for="spoiler23">Cпойлер №3&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div></code></pre>
-			<br><samp class="red"><b>CSS</b></samp>
-			<pre><code>.spoilerr {border:1px solid #0000fa; margin:5px 0; display:inline-block;}<br>.spoilerr label {cursor:pointer; padding:2px 5px;}<br>.spoilerr input, .spoilerr div {display: none;}<br>.spoilerr :checked ~ div {display:block; padding:2px 5px;}</code></pre>
-			<span class="yel" onclick='vs41.classList.toggle("hiden");'>свернуть</span>
-		</div>
+		<samp class="red">HTML</samp>
+		<pre><code>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler1" name="group1"><br>  &lt;label for="spoiler1">Спойлер №1&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div><br><br>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler2" name="group1"><br>  &lt;label for="spoiler2">Cпойлер №2&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div><br><br>&lt;div class="spoilerr"><br>  &lt;input type="radio" id="spoiler3" name="group1"><br>  &lt;label for="spoiler3">Cпойлер №3&lt;/label><br>  &lt;div>или этот&lt;/div><br>&lt;/div></code></pre>
+
+    <br><samp class="red">CSS</samp>
+		<pre><code>.spoilerr {border:1px solid #0000fa; margin:5px 0; display:inline-block;}<br>.spoilerr label {cursor:pointer; padding:2px 5px;}<br>.spoilerr input, .spoilerr div {display: none;}<br>.spoilerr :checked ~ div {display:block; padding:2px 5px;}</code></pre>
 	</div><!-- /item2 -->
 </div><!-- /item -->
+
+
+
+
+<div class="item" id="js">
+<h3 class="sin"><a href="#" title="наверх">Вариант на <samp class="lsin">Java Script</samp>.</a></h3>
+  <style>.toggle__hiden{cursor:pointer}</style>
+  <ul class="list l1" id="js_example">
+    <li><span class="toggle__hiden">Раздел №1</span><ul class="list hiden l1"><li>Подраздел 1</li><li>Подраздел 2</li><li>Подраздел 3</li></ul></li>
+    <li><span class="toggle__hiden">Раздел №2</span> <span>какой-то текст</span><ul class="list hiden l1"><li>Подраздел 1</li><li>Подраздел 2</li><li>Подраздел 3</li></ul></li>
+    <li><span class="toggle__hiden">Раздел №3</span><ul class="list hiden l1"><li>Подраздел 1</li><li>Подраздел 2</li><li>Подраздел 3</li></ul></li>
+  </ul>
+
+  <div class="item2 br0">
+    <samp class="red">HTML</samp>
+    <pre><code>&lt;ul class="list" id="js_example"><br>  &lt;li><br>    &lt;span class="toggle__hidden">Раздел №1&lt;/span><br>    &lt;ul class="hidden"><br>      &lt;li>Подраздел 1&lt;/li><br>      &lt;li>Подраздел 2&lt;/li><br>      &lt;li>Подраздел 3&lt;/li><br>    &lt;/ul><br>  &lt;/li><br>  &lt;li><br>    &lt;span class="toggle__hidden">Раздел №2&lt;/span><br>    &lt;span>какой-то текст&lt;/span><br>    &lt;ul class="hidden"><br>      &lt;li>Подраздел 1&lt;/li><br>      &lt;li>Подраздел 2&lt;/li><br>      &lt;li>Подраздел 3&lt;/li><br>    &lt;/ul><br>  &lt;/li><br>  &lt;li><br>    &lt;span class="toggle__hidden">Раздел №3&lt;/span><br>    &lt;ul class="hidden"><br>      &lt;li>Подраздел 1&lt;/li><br>      &lt;li>Подраздел 2&lt;/li><br>      &lt;li>Подраздел 3&lt;/li><br>    &lt;/ul><br>  &lt;/li><br>&lt;/ul></code></pre>
+
+    <br><samp class="red">CSS</samp>
+    <pre><code>.toggle__hidden {cursor:pointer}<br>.hidden {display:none}</code></pre>
+
+    <br><samp class="red">JS</samp>
+    <pre><code>// вешаем событие onclick на нужный нам контейнер с id="js_example"<br>document.querySelector('#js_example').onclick = showUL;<br><br>// функция выполняется при клике внутри элемента с id="js_example"<br>function showUL(e) {<br>  // если элемент на который кликнули содержит класс toggle__hidden<br>  if (e.target.classList.contains('toggle__hidden')){<br>    // и следующий за ним элемент - это тег &lt;ul><br>    if (e.target.nextElementSibling.tagName == "UL"){<br>      // чередуем класс hidden (либо добавляем, либо убираем)<br>      e.target.nextElementSibling.classList.toggle('hidden');<br>    }<br>  }<br>}</code></pre>
+  </div>
+
+  <!-- скрипт для реализации выпадающих списков -->
+  <script>
+    document.querySelector('#js_example').onclick = showUL;
+    function showUL(e) {
+      if (e.target.classList.contains('toggle__hiden')){
+        if (e.target.nextElementSibling.tagName == "UL"){
+          e.target.nextElementSibling.classList.toggle('hiden');
+        }
+      }
+    }
+  </script>
+
+  <p>В этом примере необходимо соблюдать порядок тегов внутри нашего выпадающего меню. Так как если после тега с селектором <samp class="sin">toggle__hiden</samp> будет идти не тег <samp class="teg sin">ul</samp>, то чередование класса <samp class="sin">hidden</samp> у него не будет происходить и выпадающий список не будет раскрываться.</p>
+
+</div>
+
+
 </body>
 </html>

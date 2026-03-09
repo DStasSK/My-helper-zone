@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><title>CSS свойство page-orientation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраcка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>page-orientation</samp>.</h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">page-orientation</samp> для правила <samp class="red">@page</samp> управляет направлением поворота печатной страницы. Этот дескриптор помогает с макетом и ориентацией печатных документов, особенно когда документы печатаются с двух сторон. Пользователь может указать, как будут повернуты страницы при печати. ​​Это особенно полезно для макетирования контента, такого как таблицы, которые могут быть шире остального контента, в другой ориентации.</p>
+
+	<pre class="item2 mt20"><code>@page {<br>  page-orientation: upright | rotate-left | rotate-right;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">upright</samp> - ориентация не изменяется.</li>
+		<li><samp class="sin">rotate-left</samp> - поворачивает страницу на 90° против часовой стрелки.</li>
+		<li><samp class="sin">rotate-right</samp> - поворачивает страницу на 90° по часовой стрелке.</li>
+	</ul>
+
+	<div>Пример:</div>
+	<pre class="item2 mb30"><code>@media print {<br>  .upright {<br>    page: upright;<br>  }<br>  .left {<br>    page: left;<br>  }<br>  .right {<br>    page: right;<br>  }<br>}</code></pre>
+
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>85</span></td><!-- Edge -->
+      <td><span>85</span></td><!-- Chrome -->
+      <td><span>71</span></td><!-- Opera -->
+      <td class="n"><span></span></td><!-- Safari -->
+      <td><span>122</span></td><!-- FF -->
+      <td><span>85</span></td><!-- mobile-android -->
+      <td><span>122</span></td><!-- mobile-FF -->
+      <td><span>60</span></td><!-- mobile-opera -->
+      <td class="n"><span></span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+</div>
+</body></html>

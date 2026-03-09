@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><title>CSS cвойство animation-timing-function</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>animation-timing-function</samp></h2>
+
+<div class="item">
+	<p>CSS cвойство <samp class="sin">animation-timing-function</samp> определяет скорость воспроизведении анимации в течении её цикла. В качестве значений принимает ключевые слова или функцию. Значение по умолчанию <samp class="lsin">ease</samp>, не наследуется, не анимируется.</p>
+
+	<div class="no no1">Для каждогй ключевой точки анимации допускается указывать свой тип воспроизведения, при этом указанный тип анимации будет воспроизводиться в течении данного ключевого кадра, переопределяя глобальный параметр, заданный у селектора.</div>
+
+	<pre class="item2 mt20 ls-05"><code>.item {<br>  animation-timing-function: ease | ease-in | ease-out |
+                             ease-in-out | linear | step-start |
+                             step-end | steps | cubic-bezier() | linear();<br>}</code></pre>
+
+	<style>
+		.t1 pre{display:inline-block;}
+	</style>
+	<table class="t1 t3 tb ">
+		<tr><td width="140px">ease</td><td>Анимация начинается медленно, затем ускоряется и к концу движения опять замедляется.
+			<br>аналогично <pre><code>cubic-bezier(0.25,0.1,0.25,1)</code></pre></td></tr>
+		<tr><td>ease-in</td><td>Анимация медленно начинается, к концу ускоряется.
+			<br>аналогично <pre><code>cubic-bezier(0.42,0,1,1)</code></pre></td></tr>
+		<tr><td>ease-out</td><td>Анимация начинается быстро, к концу замедляется.
+			<br>аналогично <pre><code>cubic-bezier(0,0,0.58,1)</code></pre></td></tr>
+		<tr><td>ease-in-out</td><td>Анимация начинается и заканчивается медленно.
+			<br>аналогично <pre><code>cubic-bezier(0.42,0,0.58,1)</code></pre></td></tr>
+		<tr><td>linear</td><td>Одинаковая скорость от начала и до конца.
+			<br>аналогично <pre><code>cubic-bezier(0,0,1,1)</code></pre></td></tr>
+		<tr><td>step-start</td><td>Как таковой анимации нет. Стилевые свойства сразу же принимают конечное значение.
+			<br>аналогично <pre class="sin">steps(1, jump-start)</pre></td></tr>
+		<tr><td>step-end</td><td>Как таковой анимации нет. Стилевые свойства находятся в начальном значении заданное время, затем сразу же принимают конечное значение.
+			<br>аналогично <pre class="sin">steps(1, jump-end)</pre></td></tr>
+		<tr><td>steps</td><td>Ступенчатая функция, имеющая заданное число шагов воспроизведении анимации с одинаковым промежутком времени.
+			<br><pre class="item2 sin mb0">animation-timing-function: <span class="lsin">steps(число, параметр);</span></pre>
+			<ul class="list l1 mb10 mt0">
+				<li><samp class="sin">число</samp> - целое число больше нуля;</li>
+				<li><samp class="sin">start</samp> - задаёт полунепрерывную снизу функцию;</li>
+				<li><samp class="sin">end</samp> - задаёт полунепрерывную сверху функцию.
+					<div class="mt10"><b>2020.09</b></div></li>
+				<li><samp class="sin">jump-start</samp> - oбозначает непрерывную слева функцию, так что первый прыжок происходит, когда анимация начинается.</li>
+				<li><samp class="sin">jump-end</samp> - обозначает непрерывную справа функцию, так что последний прыжок происходит, когда анимация заканчивается. Это значение по умолчанию.</li>
+				<li><samp class="sin">jump-none</samp> - нет прыжка ни на одном конце, что фактически удаляет шаг во время итерации интерполяции. Вместо этого он удерживается как на отметке 0%, так и на отметке 100%, каждая на 1/n длительности.</li>
+				<li><samp class="sin">jump-both</samp> - включает паузы как на отметках 0%, так и на отметках 100%, что фактически добавляет шаг во время итерации анимации (по половине в начале и в конце).</li>
+			</ul>
+			<pre class="item2"><code>animation-timing-function: steps(5, end);</code></pre>
+		</td></tr>
+		<tr><td>cubic-bezier()</td><td>Задаёт функцию движения в виде кривой Безье. Первый и третий параметры функции должны быть в диапазоне от 0 до 1.
+			<div class="pr">
+				<img src="img/cubic-bezier.gif" alt="Примеры различных значений и графики функций cubic-bezier()" style="width:100%; max-width:100%;">
+				<pre class="item2 sin pa" style="left:0; top:0;">cubic-bezier(0...1, n, 0...1, n);</pre>
+			</div></td></tr>
+		<tr><td>linear()</td><td>
+			<p>Функция линейно интерполирует между указанными точками остановки замедления. Точка остановки — это пара выходного прогресса и входного процента. Входной процент необязателен и выводится, если не указан.</p>
+			<p>Если входной процент не указан, то первая и последняя точки остановки устанавливаются на 0% и 100% соответственно, а точки остановки в середине получают процентные значения, полученные путем линейной интерполяции между ближайшими предыдущей и следующей точками, имеющими процентное значение.</p>
+			<pre class="item2 ls-1"><code>.elem {<br>  /* linear() function values */<br>  animation-timing-function: linear(0, 0.25, 1);<br>  animation-timing-function: linear(0 0%, 0.25 50%, 1 100%);<br>  animation-timing-function: linear(0, 0.25 50% 75%, 1);<br>  animation-timing-function: linear(0, 0.25 50%, 0.25 75%, 1);<br>}</code></pre>
+			<img src="img/linear.gif" alt="Примеры различных значений и графики функций linear()" style="width:100%; max-width:100%;"></td></tr>
+	</table>
+
+	<div class="mt40">В старом коде могут всртечаться различные префиксы:</div>
+	<pre class="item2"><code>.box {<br>  -webkit-animation-timing-function: linear;<br>     -moz-animation-timing-function: linear;<br>       -o-animation-timing-function: linear;<br>          animation-timing-function: linear;<br>}</code></pre>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#" title="наверх">Результат действия разных значений. Пример 1.</a></h3>
+	<div>Чтобы посмотреть результат действия разных значений, наведите курсор на поле ниже. Время эффекта перехода установлено как <b>3s</b>.</div>
+	<style>
+		.example_1 {border:1px solid #ccc; font-size:15px; padding:5px 10px; margin:5px 0; width:80%; min-width:400px;}
+		.example_1 .e {background:#fc0; box-sizing:border-box; width:200px; padding:4px 10px; margin:5px 0; transition:3s; overflow:hidden; line-height:15px; height:23px; color:#333;}
+		.example_1:hover .e {width:100%}
+	</style>
+	<div class="example_1">
+		<div class="e" style="transition-timing-function:ease">ease</div>
+		<div class="e" style="transition-timing-function:ease-in">ease-in</div>
+		<div class="e" style="transition-timing-function:ease-out">ease-out</div>
+		<div class="e" style="transition-timing-function:ease-in-out">ease-in-out</div>
+		<div class="e" style="transition-timing-function:linear">linear</div>
+		<div class="e" style="transition-timing-function:step-start">step-start</div>
+		<div class="e" style="transition-timing-function:step-end">step-end</div>
+		<div class="e" style="transition-timing-function:steps(5, end)">steps(5, end)</div>
+		<div class="e ls-05" style="transition-timing-function:cubic-bezier(0.1, -0.6, 0.2, 0)">cubic-bezier(0.1, -0.6, 0.2, 0)</div>
+		<div class="e ls-05" style="transition-timing-function:linear(0, 1.2 50%, 0.75 70%, 1)">linear(0, 1.2 50%, 0.75 70%, 1)</div>
+	</div>
+</div>
+
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#" title="наверх">Результат действия разных значений. Пример 2.</a></h3>
+	<!-- <div>Чтобы посмотреть результат действия разных значений, наведите курсор на поле ниже. Время эффекта перехода установлено как <b>3s</b>.</div> -->
+	<style>
+		.example_2{border:1px solid #ccc; font-size:17px; padding:5px 10px; margin:5px 0; width:80%; min-width:400px;}
+		.example_2 div {left:0; height:20px; width:20px; position:relative; transition:1s;}
+		.example_2:hover div {left:370px}
+		.example_2 p{margin:0;}
+		.ease {transition-timing-function:ease; background:crimson;} /* по умолчанию */
+		.linear {transition-timing-function:linear; background:midnightblue;}
+		.ease-in {transition-timing-function:ease-in; background:mediumseagreen}
+		.ease-out {transition-timing-function:ease-out; background:orangered;}
+		.ease-in-out {transition-timing-function:ease-in-out; background:darkviolet;}
+	</style>
+	<div class="example_2 anp">
+		Bсе переходы занимают одинаковое время (1 секунда).
+		<p class="mt10"><strong>ease</strong>: медленно начинается, быстро в середине, медленно завершается</p>
+		<div class="ease"></div>
+		<p><strong>linear</strong>: постоянная скорость</p>
+		<div class="linear"></div>
+		<p><strong>ease-in</strong>: медленно начинается, быстро завершается</p>
+		<div class="ease-in"></div>
+		<p><strong>ease-out</strong>: быстро начинается, медленно завершается</p>
+		<div class="ease-out"></div>
+		<p><strong>ease-in-out</strong>: похоже на ease, но с более выраженным ускорением/замедлением</p>
+		<div class="ease-in-out"></div>
+	</div>
+
+</div>
+
+
+
+
+</body>
+</html>

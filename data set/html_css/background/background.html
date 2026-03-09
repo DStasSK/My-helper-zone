@@ -15,10 +15,14 @@
 <div class="item">
 	<p>Универсальное свойство <samp class="sin">background</samp> позволяет установить одновременно несколько характеристик фона. Значения могут идти в любом порядке, браузер сам определит, какое из них соответствует нужному свойству. Для подробного ознакомления смотрите информацию о каждом свойстве отдельно. Допустимо, также, указывать параметры сразу нескольких фонов, перечисляя их через запятую.</p>
 	<div class="item2">
-		<pre><code>background: &lt;background-color> <фон>, <фон>;</code></pre>
-		<pre><br><фон> = background-image    background-position    <samp class="red">/ background-size</samp><br>        background-repeat   background-attachment    background-origin<br>        background-clip<br><br>под  background-image, background-position, ...  понимается их значение</pre>
+		<pre><code>.elem {<br>  background: background-color фон, фон;<br>}</code></pre>
+		<pre><br>фон = background-image    background-position     <samp class="red">/ background-size</samp><br>      background-repeat   background-attachment   background-origin<br>      background-clip<br><br>под  background-image, background-position, ...  понимается их значение</pre>
 	</div>
 	<p>Любые комбинации значений, разделяемых между собой пробелом, определяющих стиль фона, в произвольном порядке. Ни одно значение не является обязательным, поэтому неиспользуемые можно опустить.</p>
+
+  <div class="no no1">Значение по умолчанию: <samp class="sin">transparent | none | repeat | scroll | 0% 0%</samp>.</div>
+
+  <div class="no no1">Если наряду с фоновыми изображениями требуется задать цвет фона элемента, он указывается в последнюю очередь после перечисления.</div>
 </div>
 
 
@@ -31,7 +35,7 @@
 	<div class="pr1">
 		<p style="padding:15px">Любые комбинации значений, разделяемых между собой пробелом, определяющих стиль фона, в произвольном порядке. Ни одно значение не является обязательным, поэтому неиспользуемые можно опустить.</p>
 	</div>
-	<pre class="item2"><code>&lt;style><br>  .pr1{width:100%; height:300px; margin-bottom:10px;<br>    color:#fff; font-size:22px;<br>    background:url(../txt/img/aquaria.jpg) center / cover no-repeat;}<br>&lt;/style><br><br>&lt;div class="pr1"><br>  &lt;p style="padding:15px">...&lt;/p><br>&lt;/div></code></pre>
+	<pre class="item2"><code>&lt;style><br>  .pr1 {<br>    width:100%; height:300px; margin-bottom:10px;<br>    color:#fff; font-size:22px;<br>    background:url(../txt/img/aquaria.jpg) center / cover no-repeat;<br>  }<br>&lt;/style><br><br>&lt;div class="pr1"><br>  &lt;p>...&lt;/p><br>&lt;/div></code></pre>
 </div>
 
 </body>

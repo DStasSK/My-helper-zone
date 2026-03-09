@@ -13,10 +13,13 @@
 
 <h2 class="sin">background-image</h2>
 <div class="item">
-	<p>Устанавливает фоновое изображение для элемента. Если одновременно для элемента задан цвет фона, он будет показан, пока фоновая картинка не загрузится полностью. То же произойдет, если изображения не доступны или их показ в браузере отключен. В случае наличия в рисунке прозрачных областей, через них будет проглядывать фоновый цвет. Допустимо указывать несколько фоновых изображений, перечисляя их параметры через запятую.</p>
-	<p>Значение по умолчанию - <samp class="lsin">none</samp>, не наследуется, не анимируется.</p>
-	<p>В качестве значения используется путь к графическому файлу, который указывается внутри конструкции <samp class="sin">url()</samp>. Путь к файлу при этом можно писать как в кавычках (двойных или одинарных), так и без них. <samp class="lsin">none</samp> - oтменяет фоновое изображение для элемента.</p>
-	<pre class="item2"><code>background-image: url(путь к файлу);</code></pre>
+	<p>Свойство <samp class="sin dib">background-image</samp> устанавливает фоновое изображение для элемента. Если одновременно для элемента задан цвет фона, он будет показан, пока фоновая картинка не загрузится полностью. То же произойдет, если изображения не доступны или их показ в браузере отключен. В случае наличия в рисунке прозрачных областей, через них будет проглядывать фоновый цвет.</p>
+  
+  <p>Допустимо указывать несколько фоновых изображений, перечисляя их параметры через запятую. Значение по умолчанию - <samp class="lsin" title="Отменяет фоновое изображение для элемента.">none</samp>, не наследуется, не анимируется.</p>
+
+	<p>В качестве значения используется путь к графическому файлу, который указывается внутри конструкции <samp class="sin dib">url( )</samp>. Путь к файлу при этом можно писать как в кавычках (двойных или одинарных), так и без них. Значение <samp class="lsin">none</samp> - oтменяет фоновое изображение для элемента.</p>
+
+	<pre class="item2 mt30 mb30"><code>.elem {<br>  background-image: url(путь к файлу);<br>}</code></pre>
 
 
 	<div class="no">Internet Explorer до версии <b>7</b> включительно применяет фон к внутренней части границы элемента, у которого установлено свойство <samp class="sin tdu"><a href="../help/IE.html#ie4">hasLayout</a></samp>. Если у элемента нет <samp class="sin">hasLayout</samp>, свойство <samp class="sin">background-image</samp> будет учитывать границы элемента, как это и задано в спецификации. Разница в отображении будет заметна, если границы пунктирные (<samp class="lsin">dashed</samp> или <samp class="lsin">dotted</samp>), а не сплошные.</div>
@@ -27,25 +30,39 @@
 </div>
 
 
-<div class="item" style="height:280px; padding:20px; background-image:url(img/bg.jpg); background-size:auto 120%; background-position:50% 50%; background-repeat:no-repeat;">
-	<pre><code>&lt;div style="<br>  height: 300px;<br>  background-image: url(img/bg.jpg);<br>  background-size: auto 120%;<br>  background-position: 50% 50%;<br>  background-repeat: no-repeat;"></code></pre>
+<div class="item" style="height:280px; padding:0px; background-image:url(img/bg.jpg); background-size:cover; background-position:50% 50%; background-repeat:no-repeat;">
+	<pre style="padding:20px"><code>&lt;div style="<br>  background-image: url(img/bg.jpg);<br>  background-size: cover;<br>  background-position: 50% 50%;<br>  background-repeat: no-repeat;">&lt;/div></code></pre>
 </div>
 
 
-<div class="item" style="background-color:silver; padding:0;">
-	<div style="height:280px; background-image:url(img/bg.jpg); background-size:auto 120%; background-position:50% 50%; background-repeat:no-repeat; -webkit-border-radius:50%; -moz-border-radius:50%; border-radius:50%; padding:20px">
-		<pre><code>&lt;div class="item" style="background-color: silver;padding:0;"><br>  &lt;div style="<br>    height:300px;<br>    background-image:url(img/bg.jpg);<br>    background-size:auto 120%;<br>    background-position:50% 50%;<br>    background-repeat:no-repeat;<br>    -webkit-border-radius:50%;<br>    -moz-border-radius:50%;<br>    border-radius:50%;"></span></pre>
-	</div>
+<div class="item" style="padding:0;">
+  <div style="background-color:silver; padding:0; margin:0; width:100%;">
+    <div style="height:280px; background-image:url(img/bg.jpg); background-size:cover; background-position:50% 50%; background-repeat:no-repeat; -webkit-border-radius:50%; -moz-border-radius:50%; border-radius:50%; padding:20px">
+      <pre><code>&lt;div style="background-color: silver;"><br>  &lt;div style="<br>    background-image:url(img/bg.jpg);<br>    background-size:cover;<br>    background-position:50% 50%;<br>    background-repeat:no-repeat;<br>    border-radius:50%;">&lt;/div><br>&lt;/div></code></pre>
+    </div>
+  </div>
+
 </div>
 
 
-<div class="item" style="background-position: left, right; background-attachment: fixed, fixed;
-background-repeat: repeat-y, repeat-y; background-image: url(img/1.gif), url(img/2.gif);">
-	<div style="margin:10px 75px;">
-		<p>Если в дизайне сайта используется больше одного фонового изображения, в <span class="sin">CSS3</span> предусмотрена возможность задать ряд параметров перечисляя их через запятую.</p>
-	</div>
-	<div class="item2" style="margin: 10px 75px;">
-		<pre><code>&lt;body style="<br>  background-position: left, right;<br>  background-attachment: fixed, fixed;<br>  background-repeat: repeat-y, repeat-y;<br>  background-image: url(img/1.gif), url(img/2.gif);"></code></pre>
-	</div>
+<div class="item">
+  <style>
+    .example1 {
+      padding:90px 0;
+      background-image: url(img/1.gif), url(img/2.gif);
+      background-repeat: repeat-y, repeat-y;
+      /* background-position: left, right; */
+      background-position-x: 2%, 102%;
+      background-attachment: fixed, scroll;
+    }
+  </style>
+  <div class="example1">
+    <p style="padding:10px 100px;">Если в дизайне сайта используется больше одного фонового изображения, в <span class="sin">CSS3</span> предусмотрена возможность задать ряд параметров перечисляя их через запятую.</p>
+    <div class="item2" style="margin: 10px 100px; overflow: hidden;">
+      <pre><code>&lt;div class="elem"><br>  &lt;p>Если в дизайне...&lt;/p><br>&lt;/div></code></pre>
+      <pre><code><br>.elem {<br>  background-image: url(bg/1.gif), url(bg/2.gif);<br>  background-repeat: repeat-y, repeat-y;<br>  background-position-x: 2%, 102%;<br>  background-attachment: fixed, scroll;<br>}</code></pre>
+    </div>
+  </div>
 </div>
+
 </body></html>

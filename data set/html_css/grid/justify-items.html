@@ -1,0 +1,63 @@
+<!DOCTYPE html><html><head><title>justify-items</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style>
+	.t1 td:nth-child(1) {width:85px}
+	.t1 td:nth-child(2) {width:90px}
+	.box {display:grid; width:85px; height:72px; margin:0 auto; outline:1px solid #ddd;
+		line-height:31px; box-sizing:border-box; background-color:#ddd; text-align:center;
+		font-size:14px; color:#fff; grid:auto / auto auto auto; gap:1px;}
+	.box div {background-color:rgb(100, 84, 195); padding:2px 2px;}
+	.jis {justify-items:stretch}
+	.jic {justify-items:center}
+	.jist {justify-items:start}
+	.jie {justify-items:end}
+	.jib {justify-items:baseline}
+	.jil {justify-items:left}
+	.jir {justify-items:right}
+</style>
+</head>
+<body>
+<h2 class="sin">justify-items</h2>
+
+<div class="item">
+	<p>CSS свойство <samp class="sin">justify-items</samp> производит выравнивание <b>всех</b> элементов макета сетки по оси строки grid-контенера. Не анимируется, не наследуется.</p>
+
+	<div class="no no1">Для того, чтобы произвести выравнивание всех элементов макета сетки по оси столбца grid-контейнера, вы можете воспользоваться свойством <a href="../../FlexBox/align-items.html"><samp class="sin tdu">align-items</samp></a></div>
+
+	<pre class="item2 css ls-05 mb40 mt30"><code>.el {justify-items: stretch | center | start | end | baseline | <samp title="Устанавливает свойство в значение по умолчанию.">initial</samp> | <samp title="Указывает, что значение наследуется от родительского элемента.">inherit</samp> }</code></pre>
+
+	<table class="t1 t3 th1 tb">
+		<tr><th>Значение</th><th>Положение</th><th>Описание</th></tr>
+		<tr><td>stretch</td>
+			<td><div class="box jis"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы растягиваются по размеру строки ячейки контейнера. Если объединенный размер элементов меньше размера контейнера выравнивания, все элементы с автоматическим размером увеличиваются поровну (не пропорционально), при этом соблюдаются ограничения, налагаемые параметром max-height / max-width (или эквивалентной функциональностью).</td></tr>
+		<tr><td>center</td>
+			<td><div class="box jic"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы размещаются в середине каждой ячейки контейнера.</td></tr>
+		<tr><td>start</td>
+			<td><div class="box jist"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы размещаются по начальному краю ячеек.</td></tr>
+		<tr><td>end</td>
+			<td><div class="box jie"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы размещаются по конечному краю ячеек.</td></tr>
+		<tr><td>baseline</td>
+			<td><div class="box jib"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы распологаются по их базовой линии.</td></tr>
+		<tr><td>left</td>
+			<td><div class="box jil"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы прижимаются к левому краю. Левый и начальный край ячейки могут не совпадить в рависимости от направления текста. (см. <a href="../txt/writing-mode.html" class="sin tdu">writing-mode</a>, <a href="../txt/direction.html#" class="sin tdu">direction</a>)</td></tr>
+		<tr><td>right</td>
+			<td><div class="box jir"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+			<td>Элементы прижимаются к правому краю. Правый и конечный край ячейки могут не совпадить в рависимости от направления текста. (см. <a href="../txt/writing-mode.html" class="sin tdu">writing-mode</a>, <a href="../txt/direction.html#" class="sin tdu">direction</a>)</td></tr>
+	</table>
+</div>
+</body></html>

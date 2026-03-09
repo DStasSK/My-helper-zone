@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>Псевдоэлемент first-letter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдоэлемент <samp>::first-letter</samp></h2>
+<div class="item">
+  <style>
+    .first-letter p::first-letter{font-size:1.5em; color:red; padding-right:2px;}
+  </style>
+
+  <div class="first-letter">
+	  <p>Определяет стиль первого символа в тексте элемента, к которому добавляется. К этому псевдоэлементу могут применяться только стилевые свойства, связанные со свойствами шрифта, полями, отступами, границами, цветом и фоном.</p>
+  </div>
+
+	<pre class="item2 mt20"><code>div p::first-letter {<br>  color:red;<br>  padding-right:2px;<br>  font-size:1.5em;<br>}</code></pre>
+
+  <div class="no">Hе работает на элементах со значением <samp class="sin dib">display:<samp class="lsin">inline;</samp></samp>.<br>Ставим <samp class="sin dib">display:<samp class="lsin">block;</samp></samp> или <samp class="sin dib">display:<samp class="lsin">inline-block;</samp></samp></div>
+</div>

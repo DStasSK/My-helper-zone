@@ -1,0 +1,174 @@
+<!DOCTYPE html><html><head><title>CSS cвойство outline</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin"><a href="#" title="наверх">CSS cвойство <samp>outline</samp></a></h2>
+
+<!-- оглавление -->
+	<ul class="ogl mt10 mb10">
+		<li><a href="#outline-color">CSS cвойство <samp class="sin">outline-color</samp></a></li>
+		<li><a href="#outline-style">CSS cвойство <samp class="sin">outline-style</samp></a></li>
+		<li><a href="#outline-width">CSS cвойство <samp class="sin">outline-width</samp></a></li>
+		<li><a href="#outline-b-r">CSS cвойство <samp class="sin">outline</samp> и <samp class="pur">border-radius</samp></a></li>
+		<li><a href="#outline-offset">CSS cвойство <samp class="sin">outline-offset</samp></a></li>
+	</ul><!-- /оглавление -->
+
+
+
+<div class="item" id="outline">
+	<p>CSS cвойство <samp class="sin">outline</samp> универсальное свойство, одновременно устанавливающее цвет, стиль и толщину внешней границы на всех четырёх сторонах элемента. Свойство <samp class="sin">outline</samp> может быть с одним, двум или тремя значениями. Порядок следования значений не имеет значения. Значения свойства не наследуются, анимируются.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  outline: outline-color || outline-style || outline-width;<br>}</code></pre>
+	<ul class="list l1 mb30">
+		<li><samp class="sin">outline-color</samp> - задаёт цвет линии допустимом для CSS формате.</li>
+		<li><samp class="sin">outline-style</samp> - задаёт стиль линии.</li>
+		<li><samp class="sin">outline-width</samp> - задаёт толщиу границы.</li>
+	</ul>
+
+	<div class="no no1 mt30 mb30">Если для свойства <samp class="sin">outline</samp> установлено значение <samp class="pur">0</samp> или <samp class="pur">none</samp>, то это удалит стандартную браузерную обводку, появляющуюся при фокусе на элемент.</div>
+
+	<div>В отличие от линии, задаваемой через <samp class="sin">border</samp>, у свойства <samp class="sin">outline</samp> есть следующие особенности:</div>
+	<ul class="list mt0">
+		<li>не влияет на размеры и положение самого элемента;</li>
+		<li>не занимает место, не влияет на окружающие элементы и отображается поверх них;</li>
+		<li>свойство <samp class="sin tdu"><a href="border-radius-css.html">border-radius</a></samp> для старых браузеров не действует;</li>
+		<li>применяется сразу ко всем четырём сторонам - нельзя задать параметры линии на отдельных сторонах элемента;</li>
+	</ul>
+</div>
+
+
+
+
+
+<div class="item" id="outline-color">
+<h3 class="sin"><a href="#" title="наверх">CSS cвойство <samp class="sin">outline-color</samp></a></h3>
+	<p>CSS cвойство <samp class="sin">outline-color</samp> задаёт цвет линии-обводки элемента. Обводка — это линия вокруг элемента за пределами рамки (<samp class="sin">border</samp>). В отличие от рамки элемента, обводка находится вне границ элемента и может перекрывать другое содержимое. В качестве значения принимает код цвета в любом css формате. Значение по умолчанию <samp class="lsin">invert</samp>, не наследуется, анимируется.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  outline-color: invert | цвет;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">invert</samp> - значение по умолчанию; цвет будет вычислен как противоположный цвету фона элемента. Если браузер не поддерживает это ключевое слово, то задается значение <samp class="lsin">currentcolor</samp>.</li>
+		<li><samp class="sin">цвет</samp> - цвет в любом допустимом для CSS формате.</li>
+	</ul>
+</div>
+
+
+
+<div class="item" id="outline-style">
+<h3 class="sin"><a href="#" title="наверх">CSS cвойство <samp class="sin">outline-style</samp></a></h3>
+	<p>CSS cвойство <samp class="sin">outline-style</samp> устанавливает стиль внешней границы элемента. Значения свойства аналогичны значениям свойста <a href="border.html#border-style"><samp class="sin dib tdu">border-style</samp></a>. Значение по умолчанию <samp class="lsin">none</samp> (т.е. её нет) для всех элементов кроме <samp class="teg">input</samp>.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  outline-style: auto | none | dotted | dashed | solid |<br>                 double | groove | ridge | inset | outset;<br>}</code></pre>
+</div>
+
+
+
+<div class="item" id="outline-width">
+<h3 class="sin"><a href="#" title="наверх">CSS cвойство <samp class="sin">outline-width</samp></a></h3>
+	<p>CSS cвойство <samp class="sin dib">outline-width</samp> задаёт толщину обводки элемента. Обводка — линия вокруг элемента за пределами рамки (<samp class="sin">border</samp>). В отличие от свойства <samp class="sin dib">border-width</samp>, для <samp class="sin dib">outline-width</samp> нельзя задать границу для каждой стороны элемента индивидуально. Чтобы <samp class="sin dib">outline-width</samp> работал, необходимо установить у свойства <samp class="sin dib">outline-style</samp> любое значение кроме <samp class="lsin">none</samp>.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  outline-width: thin | medium | thick | размер;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">thin</samp> - тонкая линия, обычно составляет 1 пиксель.</li>
+		<li><samp class="sin">medium</samp> - линия средней толщины (обычно 3 пикселя).</li>
+		<li><samp class="sin">thick</samp> - линия большой толщины (обычно 5 пикселей).</li>
+		<li><samp class="sin">размер</samp> - любые единицы размера принятые в CSS.</li>
+	</ul>
+</div>
+
+
+
+<div class="item anp" id="outline-b-r">
+<h3 class="sin"><a href="#" title="наверх">CSS cвойство <samp class="sin">outline</samp> и <samp class="pur">border-radius</samp></a></h3>
+	<p>В старых браузеров рамка, задаваемая через свойство <samp class="sin">outline</samp> была прямоугольной формы, даже не смотря на то, что сам элемент имел значение свойства <samp class="sin">border-radius</samp> отличное от нуля.</p>
+
+	<div>
+		<style>
+			.br-25 {width:280px; background:url(img/leather.jpg); border:4px dashed #000; border-radius:25px;}
+			.exampleOutline-d-r {
+				display:block;
+				padding:15px;
+				outline:4px dashed #000;
+				width:250px;
+
+			}
+			.exampleOutline-d-r span {background:#eee;}
+			.t-example-outline-1 td {padding:5px 10px 0}
+			.t-example-outline-1 tr:nth-child(1) {text-align:center; font-weight:700;}
+		</style>
+		<table style="width:auto; margin: 10px auto;" class="t-example-outline-1">
+			<tr><td>Старые браузеры</td><td>Новые браузеры</td></tr>
+			<tr>
+				<td>
+					<div style="outline:4px dashed #000;">
+						<pre class="br-25"><code class="exampleOutline-d-r" style="outline:0">div{<br>  outline: 4px dashed #000;<br>  border: 4px dashed #000;<br>  border-radius: 25px;<br>}</code></pre>
+					</div>
+				</td>
+				<td>
+					<pre class="br-25 exampleOutline-d-r" style="width:250px"><code>div{<br>  outline: 4px dashed #000;<br>  border: 4px dashed #000;<br>  border-radius: 25px;<br>}</code></pre>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<table class="support mt30">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>94</span></td><!-- Edge -->
+			<td><span>94</span></td><!-- Chrome -->
+			<td><span>80</span></td><!-- Opera -->
+			<td><span>16.4</span></td><!-- Safari -->
+			<td><span>88</span></td><!-- FF -->
+			<td><span>94</span></td><!-- mobile-android -->
+			<td><span>88</span></td><!-- mobile-FF -->
+			<td><span>10.1</span></td><!-- mobile-opera -->
+			<td><span>16.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="outline-offset">
+<h3 class="sin"><a href="#" title="наверх">CSS cвойство <samp>outline-offset</samp></a></h3>
+	<p>CSS cвойство <samp>outline-offset</samp> устанавливает расстояние между рамкой, созданной с помощью свойства <samp class="sin">outline</samp>, и краем элемента или его границей добавленной через <samp class="sin">border</samp>. Отрицательное значение отображает рамку внутри элемента, положительное - вокруг элемента.</p>
+
+	<div>
+		<style>
+			.exampleOutline-of {
+				width:300px; padding:20px; background:url(img/leather.jpg); margin:5px auto;
+				outline:2px dashed #000;
+				outline-offset:-10px;
+			}
+			.exampleOutline-of span {background:#eee}
+		</style>
+		<pre class="exampleOutline-of"><code>div{<br>  outline: 2px dashed #000;<br>  outline-offset: -10px;<br>}</code></pre>
+	</div>
+</div>
+
+
+
+
+
+</body>
+</html>

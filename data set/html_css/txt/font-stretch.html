@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><title>CSS свойство - font-stretch</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS свойство - <samp>font-stretch</samp></h2>
+
+<div class="item">
+  <p>Свойство <samp class="sin">font-stretch</samp> устанавливает узкое, нормальное или широкое начертание шрифта, что позволяет уплотнять или расширять текст, при этом растягиваются сами символы. Значения свойства применяются ко всем элементам, наследуется, анимируется. Значение по умолчанию - normal.</p>
+
+  <div class="no">Это не имеет никакого эффекта, если выбранный шрифт не содержит сжатых или расширенных вариантов символов.</div>
+
+  <pre class="item2 mb20"><code>p{<br>  font-stretch: ultra-condensed;  /* ультра-сжатый */<br>  font-stretch: extra-condensed;  /* экста-сжатый */<br>  font-stretch: condensed;        /* сжатый */<br>  font-stretch: semi-condensed;   /* полу-уплотненный */<br>  font-stretch: normal;           /* значение по умолчанию */<br>  font-stretch: semi-expanded;    /* немного растянутый */<br>  font-stretch: expanded;         /* растянутый */<br>  font-stretch: extra-expanded;   /* экста-растянутыйй */<br>  font-stretch: ultra-expanded;   /* ультра-растянутый */<br>}</code></pre>
+
+  <p>Браузеры применяют свойство font-stretch не ко всем шрифтам, поэтому уплотнение или расширение текста может не работать с некоторыми популярными и распространёнными гарнитурами шрифтов. Также некоторые значения могут не давать видимого результата.</p>
+</div>

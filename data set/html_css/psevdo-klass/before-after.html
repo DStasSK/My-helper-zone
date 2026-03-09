@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>Псевдоэлементы before и after</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдоэлементы <samp>::before и ::after</samp></h2>
+<div class="item">
+	<p>Данные псевдоэлементы позволяют добавлять контент до или после блоков, которым задан данный элемент. Кроме того, элементы, такие как <samp class="red">&lt;input></samp>, <samp class="red">&lt;textarea></samp> или <samp class="red">&lt;img></samp> не содержат в себе другие элементы, таким образом псевдо-элементы к ним не применяются.</p>
+
+  <div class="no no1">Псевдоэлементы <samp class="sin bold">::before</samp> и <samp class="sin bold">::after</samp> работает совместно со свойством <a href="../content.html"><samp class="sin tdu">content</samp></a>.</div>
+
+	<div class="no mb20">По умолчанию <samp class="sin bold">::before</samp> и <samp class="sin bold">::after</samp> создают строчный элемент.</div>
+
+	перенос строки через псевдоэлемент <samp class="sin">::after</samp>
+	<pre class="item2"><code>span::after {<br>  content: '\A';<br>  white-space: pre;<br>}</code></pre>
+</div>
+
+</body></html>

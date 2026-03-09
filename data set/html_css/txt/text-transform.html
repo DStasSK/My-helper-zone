@@ -13,16 +13,17 @@
 
 <h2 class="sin">text-transform</h2>
 <div class="item">
-	<p>Управление регистрами символов в <span class="sin">HTML</span> документе производится с помощью <span class="sin">CSS</span> стилей. Свойство <span class="sin">text-transform</span> устанавливает заданные характеристики в соответствии с выбранными параметрами.</p>
-	<pre class="item2"><code>text-transform: uppercase;
-text-transform: lowercase;
-text-transform: capitalize;
-text-transform: none;</code></pre>
+	<p>Свойство <span class="sin">text-transform</span> управляет преобразованием текста элемента в заглавные или прописные символы. Когда значение свойства отлично от <samp class="lsin">none</samp>, регистр исходного текста будет изменён.</p>
 
-	<span class="lsin">uppercase;</span> - <span style="text-transform:uppercase;">вывод всех символов в верхнем регистре</span>
-	<br><span class="lsin">lowercase;</span> - <span style="text-transform:lowercase;">ВЫВОД СТРОЧНЫХ СИМВОЛОВ (НИЖНИЙ РЕГИСТР)</span>
-	<br><span class="lsin">capitalize;</span> - <span style="text-transform:capitalize;">отображение всех слов в предложении с заглавной буквы</span>
-	<br><span class="lsin">none;</span> - регистр символов остаётся неизменным
+  <pre class="item2 mt20 mb10"><code>.elem {<br>  text-transform: capitalize | lowercase | uppercase | none;<br>}</code></pre>
+
+  <ul class="list">
+    <li><samp class="lsin">uppercase</samp> - <span style="text-transform:uppercase;">вывод всех символов в верхнем регистре</span></li>
+    <li><samp class="lsin">lowercase</samp> - <span style="text-transform:lowercase;">ВЫВОД СТРОЧНЫХ СИМВОЛОВ (НИЖНИЙ РЕГИСТР)</span></li>
+    <li><samp class="lsin">capitalize</samp> - <span style="text-transform:capitalize;">отображение всех слов в предложении с заглавной буквы</span></li>
+    <li><samp class="lsin">none</samp> - регистр символов остаётся неизменным</li>
+  </ul>
+
 </div>
 
 </body>

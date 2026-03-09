@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><title>Псевдокласс first-of-type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:first-of-type</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin dib">:first-of-type</samp> находит первого потомка своего типа среди детей родителя. Псевдокласс <samp class="sin dib">:first-of-type</samp> без указания селектора выберет первые элементы каждого типа. При добавлении селектора к <samp class="sin dib">:first-of-type</samp> сперва выбираются указанные элементы, затем из них берётся первый элемент.</p>
+
+	<pre class="item2 ls-05 mt20 mb20"><code>.table tr:first-of-type { color: red }   /* первая строка в таблице */<br>.table td:first-of-type { color: red }   /* первая ячейка (внутри каждой строки) */</code></pre>
+
+  <div class="no no1">Вместо <samp class="sin">:first-of-type</samp> допустимо использовать <samp class="sin">:nth-of-child(1)</samp>.</div>
+</div>
+</body></html>

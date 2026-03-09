@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>Псевдокласс indeterminate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:indeterminate</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:indeterminate</samp> задаёт стиль для переключателей, когда они находятся в неопределённом состоянии. К примеру, если ни один переключатель не помечен, то они находятся в указанном состоянии. В реальности, стиль применяется только к элементам, у которых DOM-атрибут <b>:indeterminate</b> через JavaScript установлен в значение <samp class="lsin">true</samp>. Также этот псевдокласс используется некоторыми браузерами для элемента <samp class="teg">progress</samp>.</p>
+
+  <pre class="item2 mt20 mb20"><code>input:indeterminate { color: blue }</code></pre>
+
+  <div>Селектор находит следующие элементы:</div>
+  <ul class="list">
+    <li>Элементы <samp class="teg dib">input <span class="sin">type="<span class="lsin">checkbox</span>"</span></samp>, свойство <samp class="pur">indeterminate</samp> которых было установлено в <samp class="lsin">true</samp> через JavaScript.</li>
+    <li>Элементы <samp class="teg dib">input <span class="sin">type="<span class="lsin">radio</span>"</span></samp>, когда все радио переключатели в одной группе (с одинаковым атрибутом name) не выбраны.</li>
+    <li>Элементы <samp class="teg">progress</samp> в неопределённом состоянии.</li>
+  </ul>
+</div>
+</body></html>

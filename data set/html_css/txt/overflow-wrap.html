@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><title>overflow-wrap</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">overflow-wrap</h2>
+<div class="item">
+	<p>Свойство <samp class="sin">overflow-wrap</samp> применяется к строковым элементам, устанавливая должен ли браузер расставлять переносы строк внутри неразрывной строки, чтобы избежать выхода текста за границы элемента.</p>
+
+  <pre class="item2 mt20 mb20"><code>.elem {<br> overflow-wrap: normal | break-word | anywhere<br>}</code></pre>
+
+	<table class="t1 tc">
+		<tr><td width="100px">normal</td>
+			<td>Используются правила переноса строк по умолчанию. Как правило, в этом случае строки не переносятся или переносятся в тех местах, где явно задан перенос (например, с помощью <samp class="teg">br</samp>, <samp class="teg">wbr</samp>, <samp title="место возможного переноса" class="red">&amp;shy;</samp>).</td></tr>
+		<tr><td>break-word</td>
+			<td>Так же как и со значением <samp class="sin">anywhere</samp>, слова, которые обычно нельзя перенести по слогам, могут быть разбиты в произвольных точках, если нет других допустимых разрывов в строке, но возможность мягкого переноса, представленная разрывом слов не рассматривается, когда вычисляется минимальный контент внутренних размеров.</td></tr>
+		<tr><td>anywhere</td>
+			<td>Чтобы избежать выхода текста за границы элемента, таких как длинных слов или URL, неразрывная строка символов может быть разбита в любой точке, если в строке нет других допустимых точек разрыва. Тире не вставляется. Возможность мягкого переноса, представленная разрывом слов, рассматривается, когда вычисляется минимальный контент внутренних размеров.</td></tr>
+	</table>
+
+
+	<style>
+		.example {width:500px; border-collapse:collapse; margin:30px auto 10px; table-layout: fixed; background:#fff; color:#333}
+		.example td{width:32%; padding:10px; border:1px solid #ccc; line-height:24px; font-size:20px}
+		.example p {background:#fff; color:#333}
+		/* .example th{text-align:center;} */
+	</style>
+	<table class="example">
+		<tr>
+			<td><pre class="css"><code>.el {<br>  overflow-wrap:<br>  normal;<br>}</code></pre></td>
+			<td><pre class="css"><code>.el {<br>  overflow-wrap:<br>  break-word;<br>}</code></pre></td>
+			<td><pre class="css"><code>.el {<br>  overflow-wrap:<br>  anywhere;<br>}</code></pre></td>
+		</tr>
+		<tr>
+			<td style="overflow-wrap:normal;">
+				<p>существительное</p>
+				<p>высокопревосходительство</p>
+				<p style="color:#fff; margin:-5px 0">&nbsp;</p>
+				<p>одушевленное существительное</p>
+				<p>один&shy;надцатикласс&shy;ница</p>
+				<p style="color:#fff; margin:-5px 0">&nbsp;</p>
+				<p>химическое вещество</p>
+			</td>
+			<td style="overflow-wrap:break-word;">
+				<p>существительное</p>
+				<p>высокопревосходительство</p>
+				<p>одушевленное существительное</p>
+				<p>один&shy;надцатикласс&shy;ница</p>
+				<p>химическое вещество</p>
+			</td>
+			<td style="overflow-wrap:anywhere;">
+				<p>существительное</p>
+				<p>высокопревосходительство</p>
+				<p>одушевленное существительное</p>
+				<p>один&shy;надцатикласс&shy;ница</p>
+				<p>химическое вещество</p>
+			</td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

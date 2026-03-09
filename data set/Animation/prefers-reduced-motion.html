@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>prefers-reduced-motion</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<div class="item">
+<h2 class="sin mt0"><samp>prefers-reduced-motion</samp></h2>
+	<p>CSS медиа функция <samp class="sin">prefers-reduced-motion</samp> может использоваться для определения того, запросил ли пользователь, чтобы ОС минимизировала количество анимации или движения, которые она использует.</p>
+
+	<div class="mt20">Принимаемые значения:</div>
+	<ul class="list l1 mb20">
+		<li><samp class="sin">no-preference</samp> - Указывает, что пользователь не сделал никаких предпочтений, известных системе.</li>
+		<li><samp class="sin">reduce</samp> - Указывает, что пользователь уведомил ОС, что он предпочитает интерфейс, который минимизирует количество движения или анимации, предпочтительно до точки, где удаляются все несущественные движения.</li>
+	</ul>
+
+	<pre class="item2"><code>.elem {<br>  -webkit-animation: my_animation 0.3s linear infinite both;<br>  animation: my_animation 0.3s linear infinite both;<br>}<br><br>@media (prefers-reduced-motion: reduce) {<br>  .elem {<br>    -webkit-animation: none;<br>    animation: none;<br>  }<br>}</code></pre>
+</div>
+
+</body>
+</html>

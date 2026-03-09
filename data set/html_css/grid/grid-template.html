@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-template</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-template</samp> — определяет количество, наименование и ширину столбцов и строк в макете сетки, задает шаблон макета сетки, ссылаясь при этом на имена областей элементов, которые задаются с помощью свойства <a href="grid-area.html" class="sin tdu"><samp>grid-area</samp></a>.</p>
+
+	<div class="mt30">Является сокращенным свойством для следующих свойств:</div>
+	<ul class="list">
+		<li><a href="grid-template-rows.html" class="sin tdu"><samp>grid-template-rows</samp></a></li>
+		<li><a href="grid-template-columns.html" class="sin tdu"><samp>grid-template-columns</samp></a></li>
+		<li><a href="grid-template-areas.html" class="sin tdu"><samp>grid-template-areas</samp></a></li>
+	</ul>
+
+	<pre class="item2 css ls-1 mt20"><code>.item {<br>   grid-template: none | grid-template-rows / grid-template-columns | grid-template-areas;<br>}</code></pre>
+
+	<div class="mt40 mb40"><img src="img/grid-template.gif" alt="схема" width="1035" height="337" class="img-c"></div>
+
+	<div class = "grid-container m0a mt40">
+		<div class = "grid-item item-a">Header</div>
+		<div class = "grid-item item-b">Main</div>
+		<div class = "grid-item item-c">Footer</div>
+		<div class = "grid-item item-d">Navigation</div>
+	</div>
+
+	<style>
+		.grid-container {display:grid; padding:10px; gap:10px; background:rgb(0,150,208);
+		grid-template: 'header header header header' 40px
+							'nav main main .' 40px 'nav main main .' 40px
+							'footer footer footer footer' 40px / 1fr 1fr 1fr 1fr;}
+		.grid-item {background: rgb(241,101,41); border: 1px solid #000;
+			text-align: center; line-height:40px;}
+		.item-a {grid-area:header; background:red;}
+		.item-b {grid-area:main; background:yellow;}
+		.item-c {grid-area:footer; background:green;}
+		.item-d {grid-area:nav; background:violet;}
+	</style>
+
+	<pre class="item2 mt20"><code>&lt;div class = "grid-container">
+   &lt;div class = "item-a">Header&lt;/div>
+   &lt;div class = "item-b">Main&lt;/div>
+   &lt;div class = "item-c">Footer&lt;/div>
+   &lt;div class = "item-d">Navigation&lt;/div>
+&lt;/div>
+
+&lt;style>
+.grid-container {
+   display: grid;
+   grid-template:'header header header header' 40px
+                 'nav main main .' 40px 'nav main main .' 40px
+                 'footer footer footer footer' 40px / 1fr 1fr 1fr 1fr;
+}
+.item-a { grid-area: header; }
+.item-b { grid-area: main; }
+.item-c { grid-area: footer; }
+.item-d { grid-area: nav; }
+&lt;/style></code></pre>
+
+</div>
+
+
+</body></html>

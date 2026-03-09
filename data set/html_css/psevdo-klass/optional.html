@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head><title>Псевдокласс optional</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:optional</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:optional</samp> применяет стилевые правила к элементу <samp class="teg">input</samp>, у которого не задан атрибут <b>required</b> (он позволяет выделять поля обязательные к заполнению перед отправкой формы). Таким образом <samp class="sin">:optional</samp> применяется к необязательным полям формы.</p>
+
+  <pre class="item2 mt20 mb20"><code>input:optional {  }</code></pre>
+
+  <style>
+		#form_optional {border:1px solid; margin-top:10px}
+		#form_optional p {margin: 0 0 5px;}
+		#form_optional label {width:110px; float:left; text-align:right; padding-right:10px;}
+		#form_optional input[type="text"], #f9 textarea {width: 320px; background:#fefefe;}
+		#form_optional input:required {border:2px solid red;}
+		#form_optional input:optional {background-color: greenyellow;}
+	</style>
+	<form action="handler.php" id="form_optional">
+		<p><label for="user">Имя</label><input id="user" type="text" required></p>
+		<p><label for="email">E-mail</label><input id="email" type="text" optional></p>
+		<p><label for="text">Комментарий</label><textarea cols="42" rows="6" id="text"></textarea></p>
+		<p>
+      <label for="">Разное</label>
+      <input type="checkbox">
+      <input type="radio" name="radio_1">
+      <input type="radio" name="radio_1">
+      <input type="radio" name="radio_1">
+    </p>
+		<p><label>&nbsp;</label><input type="submit" id="send" value="Отправить"></p>
+	</form>
+  <div class="item2">
+	  <pre><code>input:required {border:2px solid red}<br>input:optional {background-color: greenyellow}</code></pre>
+    <pre style="line-height:.9"><code><br>&lt;form action="handler.php" id="optional"><br>  &lt;p><br>    &lt;label for="user">Имя&lt;/label><br>    &lt;input id="user" type="text" required><br>  &lt;/p><br>  &lt;p><br>    &lt;label for="email">E-mail&lt;/label><br>    &lt;input id="email" type="text" optional><br>  &lt;/p><br>  &lt;p><br>    &lt;label for="">Разное&lt;/label><br>    &lt;input type="checkbox"><br>    &lt;input type="radio" name="radio_1"><br>    &lt;input type="radio" name="radio_1"><br>    &lt;input type="radio" name="radio_1"><br>  &lt;/p><br>  &lt;p><br>    &lt;label for="text">Комментарий&lt;/label><br>    &lt;textarea cols="40" rows="8" id="text">&lt;/textarea><br>  &lt;/p><br>  &lt;p><br>    &lt;label>&nbsp;&lt;/label><br>    &lt;input type="submit" id="send" value="Отправить"><br>  &lt;/p><br>&lt;/form></code></pre>
+  </div>
+</div>
+</body></html>

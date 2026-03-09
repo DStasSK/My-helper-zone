@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><title>aspect-ratio</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.box {
+  width: 270px;
+  aspect-ratio: 2 / 1;
+	background: #000;
+	text-align: center;
+	color: #fff;
+	font-size: 24px;
+	margin-bottom: 16px;
+	line-height: 135px;
+}
+.box:last-child{margin-bottom:5px}
+.box_2{
+	width: 80px;
+	line-height: 80px;
+	aspect-ratio: 1 / 1;
+  border: 3px solid red;
+}
+.box_3{
+  line-height: 36px;
+	padding-top: 20px;
+	margin-left: 9px;
+  background: #444 content-box;
+}
+.box_4{
+	box-sizing: border-box;
+}
+.box_5{
+	aspect-ratio: 16 / 9;
+	line-height: 150px;
+}
+.fr{float:right; max-width:270px;}
+.df{display:flex; flex-wrap:wrap; align-self:flex-start; align-items:flex-start;}
+</style>
+</head>
+<body>
+<h2 class="sin">aspect-ratio</h2>
+
+<div class="item anp">
+	<p>Свойство <samp class="sin">aspect-ratio</samp> задает соотношение сторон для элемента. Свойство вычисляет незаданную сторону, исходя из размера уже известной.</p>
+
+	<div class="no">Свойство нельзя применить к строчным элементам.</div>
+
+  <pre class="item2 mt30 mb10"><code>.elem { aspect-ratio: auto || size }</code></pre>
+
+	<ul class="list l1 mb30">
+		<li><samp class="lsin">auto</samp> - соотношение сторон считается автоматически.</li>
+		<li><samp class="lsin">width/height</samp> - соотношение сторон всегда считается относительно ширины или высоты блока. 16/9 - здесь первое число это ширина, а второе число — высота. Если какое-то значение не указано, то оно считается равным 1. Также некоторые соотношения допустимо записывать одним числом. Например, 2/1 можно записать как 0.5, это даст одинаковый результат.</li>
+		<li><samp class="lsin">auto width/height</samp> - когда у элемента (например изоброжения, видео, фреймы) есть собственное соотношение сторон, то оно сохраняется.</li>
+	</ul>
+
+  <p>Свойство <samp class="sin">aspect-ratio</samp> не оказывает влияния в следующих ситуациях:</p>
+  <ul class="list l1 mb30">
+		<li>У элемента заданы свойства <samp class="sin">width</samp> и <samp class="sin">height</samp>. В этом случае соотношение сторон браузер определяет как width / height.</li>
+		<li>У изображения не задана ширина и высота. В этом случае изображения отображаются в их исходном размере.</li>
+	</ul>
+
+
+	<div class="cf item2">
+		<div class="fr df">
+			<div class="box">1</div>
+			<div class="box box_2">2</div>
+			<div class="box box_2 box_3">2+3</div>
+			<div class="box box_2 box_3 box_4">2+3+4</div>
+			<div class="box box_5">5</div>
+		</div>
+		<pre><code>.container1 {
+  width: 270px;
+  aspect-ratio: 2 / 1;  /* height:100px */
+}
+
+.container2 {
+  width: 80px;
+  aspect-ratio: 1 / 1;
+  border: 3px solid red;
+}
+
+.container3 {
+  padding-top: 20px;
+  background: #444 content-box;
+}
+
+.container4 {
+  box-sizing: border-box;
+}
+
+.container5 {
+   width:270px; aspect-ratio:16 / 9;
+}</code></pre>
+	</div>
+
+  <div class="no no1" style="text-align:left">
+    <ul class="list">
+      <li>Свойству <samp class="sin">padding</samp> лучше задавать нулевое значение.</li>
+      <li>Свойство <samp class="sin">line-height</samp> может увеличить высоту элемента (если его значение больше расчетного).</li>
+      <li>Свойство <samp class="sin">border</samp> без <samp class="sin dib">box-sizing:<span class="lsin">border-box</span></samp> увеличивает размеры элемента.</li>
+    </ul>
+  </div>
+
+
+</div>
+
+
+</body></html>

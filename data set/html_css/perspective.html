@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><title>CSS свойство perspective</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+<h2 class="sin">CSS свойство <samp>perspective</samp></h2>
+	<!-- оглавление -->
+		<ul class="ogl mt10">
+			<li><a href="#perspectiveF">Функция <samp class="pur">perspective()</samp></a></li>
+			<li><a href="#perspective-origin">CSS свойство <samp class="sin">perspective-origin</samp></a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item" id="perspective">
+	<p>CSS свойство <samp class="sin">perspective</samp> oпределяет расстояние от плоскости экрана до точки сходимости линий и тем самым задаёт, насколько выражен эффект перспективы. Значение по умолчанию <samp class="lsin">none</samp>, не наследуется, анимируется, применяется к трансформируемым элементам.</p>
+
+	<pre class="item2 mt20 mb10"><code>div {<br>  -webkit-perspective: none | size;  /* для мобильных браузеров */<br>  perspective: none | size;<br>}</code></pre>
+
+	<ul class="list l1">
+		<li><samp class="sin">none</samp> - значение по умолчанию, отменяет эффект 3d пространства.</li>
+		<li><samp class="sin">size</samp> - расстояние от плоскости монитора до точки сходимости линий. Нулевое или отрицательное значение отменяет действие перспективы. Чем меньше значение, тем более выраженной выглядит перспектива и наоборот.</li>
+	</ul>
+
+	<div class="no">Элементы части которые находятся за пользователем, т.е. <b>z-</b>координата этих элементов больше чем значение свойства <samp class="sin">perspective</samp>, не отрисовываются.</div>
+
+	<div id="perspectiveF" class="mt30">Перспектива для элемента может быть задана двумя разными способами:</div>
+	<ul class="list l1">
+		<li>использование значения в виде функции <samp class="pur">perspective()</samp> в свойстве <samp class="sin">transform</samp> для отдельных элементов.</li>
+		<li>использование свойства <samp class="sin">perspective</samp> для родительского элемента, внутри которого трансформируются дочерние элементы.</li>
+	</ul>
+	<pre class="item2 mt10 mb20"><code>div {<br>  -webkit-transform: perspective(none | size);<br>  transform: perspective(none | size);<br><br>  -webkit-perspective: none | size;<br>  perspective: none | size;<br>}</code></pre>
+
+	<p>Использование значения <samp class="sin">perspective</samp> в свойстве <samp class="sin">transform</samp> прекрасно работает для преобразования одного элемента относительно единичной уникальной перспективы. Если вы желаете преобразовать группу элементов с одинаковой перспективой или точкой схода, то применяйте свойство <samp class="sin">perspective</samp> для их родительского элемента.</p>
+
+
+	<div class="no no1 mt40">Эффект глубины по оси <b>z</b> расчитывается по формуле <samp>d / (d - z)</samp>, где <b>d</b> - значение свойства <samp class="sin">perspective</samp>.</div>
+
+	<p class="mb30">Точка сходимости определяет расстояние или горизонт в которой сходятся все параллейные линии, при этом создается эффект объемного изображения. Точка сходимости по умолчанию располагается в центре элемента и может быть изменена с помощью свойства <a href="#perspective-origin"><samp class="sin dib">perspective-origin</samp></a>. Чем меньше значение, тем более выраженной выглядит перспектива и наоборот.</p>
+
+
+	<style>
+		.tt7 td{width:33%; position:relative; transform-style:preserve-3d;}
+		.tt7 tr:nth-child(1) td{padding:5px 0; font-size:16px; font-family:monospace; background:#eee;}
+		.tt7 tr:nth-child(2){height:150px;}
+		.tt7 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+		.tt7 img{transform: rotateX(20deg)}
+		.tt7 tr td:nth-child(1) {perspective:150px;}
+		.tt7 tr td:nth-child(2) {perspective:400px;}
+		.tt7 tr td:nth-child(3) {perspective:2000px;}
+	</style>
+	<div class="item2">
+		<pre><code>&lt;div><br>    &lt;img src="img/winnie.png"><br>&lt;/div></code></pre>
+		<pre><code><br><samp class="red">div</samp> {<br>    transform-style: preserve-3d;<br>    perspective: 150px;<br>}<br>img {<br>    transform: rotateX(20deg);<br>}</code></pre>
+	</div>
+	<table class="t0 tw ttb tb t1c mt10 mb10 tt7">
+		<tr><td><pre><code>perspective:150px;</code></pre></td>
+			<td><pre><code>perspective:400px;</code></pre></td>
+			<td><pre><code>perspective:2000px;</code></pre></td></tr>
+		<tr><td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td></tr>
+	</table>
+</div>
+
+
+
+
+<div class="item" id="perspective-origin">
+<h2 class="sin"><a href="#" title="наверх">perspective-origin</a></h2>
+	<p>CSS свойство <samp class="sin">perspective-origin</samp> задаёт координаты точки, куда смотрит наблюдатель. Это свойство работает совместно со свойством <samp class="sin">perspective</samp> и определяет точку сходимости линий при перспективе. По умолчанию точка находится в центре элемента. Значение свойства <samp class="sin">perspective-origin</samp> нужно задавать к родителю элемента, как и глубину перспективы.</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  -webkit-perspective-origin: позиция;<br>  perspective-origin: позиция;<br>}</code></pre>
+
+	<p>Свойство принимает одно или два значения. Если указано только одно значение, то оно считается координатой <b>X</b>, два значения определяют вначале координату <b>X</b>, затем <b>Y</b>. Проценты задаются относительно ширины элемента, отсчёт координат начинается с его левого верхнего угла. Проценты, пиксели и другие единицы CSS могут быть отрицательными. Ключевые слова (top, left, bottom, right) могут идти в произвольном порядке.</p>
+
+
+
+	<div class="item2 mt40" style="position:relative;">
+		<pre><code>&lt;div class="box"><br>  &lt;img src="img/winnie.png"><br>&lt;/div></code></pre>
+		<pre><code><br><br>.box {<br>  perspective-origin: 0 0;<br>  perspective: 300px;<br>}<br>img {<br>  transform: rotateX(20deg);<br>}</code></pre>
+
+		<div style="perspective-origin:0 0; perspective:300px; position:absolute; top:35px; right:60px">
+			<img src="img/winnie.png" style="transform:rotateX(20deg);">
+		</div>
+	</div>
+
+	<style>
+		.tt6 td{width:33.3%; position:relative;}
+		.tt6 tr:nth-child(1) td{padding:5px 0; font-size:16px; font-family:monospace; background:#eee;}
+		.tt6 tr:nth-child(2){height:150px;}
+		.tt6 img{display:block; line-height:0px; width:190px; margin:0 auto; transition:all 1s;}
+		.tt6 td {perspective:300px;}
+		.tt6 img{transform: rotateX(20deg)}
+		.tt6 tr td:nth-child(1) {perspective-origin:0 0;}
+		.tt6 tr td:nth-child(2) {perspective-origin:50% 0;}
+		.tt6 tr td:nth-child(3) {perspective-origin:100% 0;}
+	</style>
+	<table class="t0 tw tb t1c mt20 tt6">
+		<tr><td><pre><code>perspective-origin:0 0;</code></pre></td>
+			<td><pre><code>perspective-origin:50% 0;</code></pre></td>
+			<td><pre><code>perspective-origin:100% 0;</code></pre></td></tr>
+		<tr><td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td>
+			<td><img src="img/winnie.png"><samp></samp></td></tr>
+	</table>
+</div>
+
+
+</body>
+</html>

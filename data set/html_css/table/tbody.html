@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><title>Тэг - tbody</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- автораскравка тегов внутри pre-code -->
+	<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+	<script src="../../highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Тэг <samp class="teg sin">tbody</samp></h2>
+<div class="item">
+	<p>Элемент <samp class="teg sin">tbody</samp> (от англ. table body — тело таблицы) предназначен для хранения одной или нескольких строк таблицы. Это позволяет создавать структурные блоки, к которым можно применять единое оформление через стили, а также управлять их видом через скрипты.</p>
+</div>
+
+
+
+<div class="item" id="tbody_at">
+  <h3 class="sin">Атрибуты тега <samp>&lt;tbody></samp></h3>
+    <div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+
+    <div class="ogl2 ogl22">
+      <span><a href="#tbody_align" title="Определяет выравнивание по горизонтали для всех ячеек в пределах &lt;tbody>">align</a></span>
+      <span><a class="off" href="#tbody_char" title="Выравнивание содержимого ячеек относительно заданного символа.">char</a></span>
+      <span><a class="off" href="#tbody_charoff" title="Смещение содержимого ячеек относительно указанного символа.">charoff</a></span>
+      <span><a href="#tbody_bgcolor" title="Цвет фона ячеек, которые расположены внутри контейнера &lt;tbody>.">bgcolor</a></span>
+      <span><a href="#tbody_valign" title="Выравнивание содержимого ячеек по вертикали.">valign</a></span>
+      <span></span>
+    </div>
+  
+    <table class="t1 t2 tb">
+      <tr><td id="tbody_align"><a href="#tbody_at">align</a></td>
+        <td>Задаёт выравнивание по горизонтали для всех ячеек в пределах <samp class="teg sin">tbody</samp>. Если требуется применить разное выравнивание для каждой ячейки, воспользуйтесь стилями или используйте атрибут <samp class="sin">align</samp> для элемента <samp class="teg sin">td</samp> или <samp class="teg sin">th</samp>.
+        <pre class="item2"><code>&lt;tbody align="<abbr title="Выравнивание по левому краю. Значение по умолчанию.">left</abbr> | <abbr title="Выравнивание по центру.">center</abbr> | <abbr title="Выравнивание по правому краю.">right</abbr> | <abbr title="Выравнивание по ширине (одновременно по правому и левому краю).">justify</abbr>">...&lt;/tbody></code></pre>
+        Для выравнивания содержимого ячеек внутри элемента <samp class="teg sin">tbody</samp> используйте стилевое свойство <samp class="sin dib">text-align</samp>, применяя его к селектору <samp class="red">tbody</samp>.</td></tr>
+      <tr><td id="tbody_char"><a href="#tbody_at">char</a></td>
+        <td>Выравнивание содержимого ячеек относительно заданного символа. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+        <pre class="item2"><code>&lt;table><br>   &lt;tbody align="char" char="символ">...&lt;/tbody><br>&lt;/table></code></pre>
+        <div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+      <tr><td id="tbody_charoff"><a href="#tbody_at">charoff</a></td>
+        <td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> - сместить на три символа влево.
+        <pre class="item2"><code>&lt;table><br>   &lt;tbody align="char" char="символ"  charoff="число">...&lt;/tbody><br>&lt;/table></code></pre>
+        <div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+      <tr><td id="tbody_bgcolor"><a href="#tbody_at">bgcolor</a></td>
+        <td>Цвет фона ячеек, которые расположены внутри контейнера <samp class="teg sin">tbody</samp>.
+        <pre class="item2"><code>&lt;tbody bgcolor="цвет">...&lt;/tbody></code></pre>
+        Чтобы задать цвет фона внутри <samp class="teg sin">tbody</samp> используйте стилевое свойство <samp class="sin tdu dib"><a href="../background/background-color.html">background-color</a></samp>, применяя его к селектору <samp class="red">tbody</samp>.</td></tr>
+      <tr><td id="tbody_valign"><a href="#tbody_at">valign</a></td>
+        <td>Задает вертикальное выравнивание содержимого ячеек в контейнере <samp class="teg sin">tbody</samp>. По умолчанию контент ячейки располагается по вертикали в центре.
+        <pre class="item2"><code>&lt;tbody valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого ячеек строки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>">...&lt;/tbody></code></pre>
+        Для изменения выравнивания по высоте внутри <samp class="teg sin">tbody</samp> воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">tbody</samp>.</td></tr>
+    </table>
+
+</div>

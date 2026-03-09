@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><title>Псевдокласс has</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:has</samp></h2>
+<div class="item">
+  <p>Даёт возможность задавать стили родителя или предшествующего элемента на основе его дочерних элементов. Псевдокласс <samp class="sin">:has</samp> применяет стилевые правила к элементу, если у него есть указанный потомок или родственный элемент. Псевдокласс <samp class="sin">:has</samp> берет соответствующий список селекторов и их комбинаций в качестве аргумента.</p>
+
+  <pre class="item2 ls-1" style="line-height:1.8;"><code class="css">h1:has(+ p) { font-weight: 700 }  /* для тегов &lt;h1>, за которыми идёт тег &lt;p>*/<br>a:has(img, .btn) { color: #333 }  /* элемент &lt;a> с тэгом &lt;img> или .btn внутри; */<br>button:has(.icon) { padding:5px}  /* элемент &lt;button>, имеющий внутри элемент .icon*/<br>.car:not(:has(img)){ color:red }  /* выберет элемент .car, внутри которого нет &lt;img>*/<br>:is(h1, h2):has(+ p) {color:red}  /* выберет элементы &lt;h1>, &lt;h2>, за которыми идёт &lt;p>*/<br>li:has(+ li:hover) { color:red }  /* выберет предыдущий пункт списка при наведении */<br>ul li:hover + li { color:red }    /* выберет следущий пункт списка при наведении */<br>ul li:hover + li +li{color:red}   /* выберет второй после текущего пункт списка */</code></pre>
+
+  <div class="no">Внутри <samp class="sin">:has</samp> не разрешается вставлять другой <samp class="sin">:has</samp>, а также псевдоэлементы, например (<samp class="sin">::before</samp>, <samp class="sin">::after)</samp>.</div>
+
+  <div class="mt30">2022.03 ... 2023.12</div>
+  <table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>105</span></td><!-- Edge -->
+      <td><span>105</span></td><!-- Chrome -->
+      <td><span>91</span></td><!-- Opera -->
+      <td><span>15.4</span></td><!-- Safari -->
+      <td><span>121</span></td><!-- FF -->
+      <td><span>105</span></td><!-- mobile-android -->
+      <td><span>121</span></td><!-- mobile-FF -->
+      <td><span>72</span></td><!-- mobile-opera -->
+      <td><span>15.4</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+</div>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><title>Тэг - col</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- автораскравка тегов внутри pre-code -->
+	<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+	<script src="../../highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Тэг <samp class="teg sin">col</samp></h2>
+<div class="item">
+	<p>Элемент <samp class="teg sin">col</samp> (от англ. <i>column</i> — колонка) задаёт ширину и другие характеристики одной или нескольких колонок таблицы. При наличии этого элемента браузер начинает показывать содержимое таблицы, не дожидаясь её полной загрузки. <samp class="teg sin">col</samp> можно использовать совместно с элементом <samp class="teg sin">colgroup</samp>, который задаёт группу колонок, обладающих общими характеристиками.</p>
+
+  <div class="no no1 mt10">Для <samp class="teg sin">col</samp> допустимо использовать следующие стилевые свойства: <samp class="sin">border, background, width, visibility</samp>. Остальные свойства не оказывают никакого эффекта на элемент.</div>
+</div>
+
+
+
+<div class="item" id="col_at">
+<h3 class="sin">Атрибуты тега <samp>&lt;col></samp></h3>
+  <div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+
+  <div class="ogl2 ogl22">
+		<span><a class="off" href="#col_align" title="Устанавливает выравнивание содержимого колонки по краю.">align</a></span>
+		<span><a class="off" href="#col_char" title="Выравнивает содержимое колонки по заданному символу. ">char</a></span>
+		<span><a class="off" href="#col_charoff" title="Сдвигает содержимое ячейки относительно заданного символа. ">charoff</a></span>
+		<span><a href="#col_span" title="Количество колонок, к которым следует применять параметры.">span</a></span>
+		<span><a class="off" href="#col_valign" title="Задает вертикальное выравнивание содержимого колонки. ">valign</a></span>
+		<span><a href="#col_width" title="Ширина колонок.">width</a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="col_align"><a href="#col_at">align</a></td>
+			<td>Задаёт выравнивание содержимого колонок по горизонтали.
+			<pre class="item2"><code>&lt;col align="left | center | right | justify"><br><br>&lt;col align="left"><br>&lt;col span="3" align="center"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="col_char"><a href="#col_at">char</a></td>
+			<td>Атрибут char заставляет выравниваться содержимое колонки по заданному символу. Эта возможность может пригодиться для выравнивания колонки чисел по точке. Работает только в том случае, если значение атрибута <samp class="sin">align</samp> установлено как <samp class="lsin">char</samp>.
+			<pre class="item2"><code>&lt;col align="char" char=","></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="col_charoff"><a href="#col_at">charoff</a></td>
+			<td>Сдвигает содержимое ячейки относительно заданного символа. Если атрибут <samp class="sin">align</samp> установлен как <samp class="lsin">char</samp>, а для атрибута <samp class="sin">char</samp> в качестве значения задан символ, то с помощью атрибута <samp class="sin">charoff</samp> можно смещать содержимое ячейки влево или вправо относительно заданного символа. Так, <samp class="sin">charoff=</samp><samp class="lsin">"3"</samp> означает, что браузер должен сместить содержимое ячейки на три символа вправо, а <samp class="sin">charoff=</samp><samp class="lsin">"-3"</samp> — сместить на три символа влево.
+			<pre class="item2"><code>&lt;col align="char" char="," charoff="-2"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div></td></tr>
+		<tr><td id="col_span"><a href="#col_at">span</a></td>
+			<td>Определяет число колонок, к которым будут применяться заданные характеристики. Если этот атрибут отсутствует, то элемент <samp class="teg sin">col</samp> работает для одной колонки. Допускается применять атрибут <samp class="sin">span</samp> к нескольким колонкам и таким образом формировать группы колонок с одинаковыми характеристиками.
+			<pre class="item2"><code>&lt;table><br>   &lt;col width="150"><br>   &lt;col span="5" width="50"><br>   &lt;col span="4" width="75"><br>   &lt;tr>...&lt;/tr><br>&lt;/table></code></pre></td></tr>
+		<tr><td id="col_valign"><a href="#col_at">valign</a></td>
+			<td>Задает вертикальное выравнивание содержимого колонки. По умолчанию контент ячеек в колонке располагается по центру вертикали.
+			<pre class="item2"><code>&lt;col valign="<abbr title="Выравнивание по базовой линии, при этом происходит привязка содержимого колонки к одной линии.">baseline</abbr> | <abbr title="Выравнивание по нижнему краю.">bottom</abbr> | <abbr title="Выравнивание по середине.">middle</abbr> | <abbr title="Выравнивание по верхнему краю строки.">top</abbr>"></code></pre>
+			<div class="no mb0">Данный атрибут не поддерживается.</div>
+			Для изменения выравнивания в ячейках воспользуйтесь свойством <samp class="sin tdu dib"><a href="../txt/vertical-align.html">vertical-align</a></samp>, добавляя его к селектору <samp class="red">td</samp>.</td></tr>
+		<tr><td id="col_width"><a href="#col_at">width</a></td>
+			<td>Ширина колонок. В качестве значения обычно применяется любое целое значение в пикселях или процентах от доступного пространства. Альтернативный вариант основан на использовании символа <b>*</b>, который обозначает всю доступную ширину. Допустимо использовать кратные значения, например <b>3*</b>. Например, если для таблицы установлена ширина 600 пикселей, а для колонок - 1*, 2*, то в пикселях это будет соответственно 200 и 400.
+			<pre class="item2"><code>&lt;col width="значение"></code></pre>
+			Для изменения ширины колонок можно использавоть псевдокласс <samp class="sin">:nth-child</samp> и свойство <samp class="sin">width</samp>, добавляя их к селектору <samp class="red">td</samp>.</td></tr>
+	</table>
+</div>

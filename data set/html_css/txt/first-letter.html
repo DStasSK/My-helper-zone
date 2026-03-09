@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>first-letter</title>
+﻿<!DOCTYPE html><html><head><title>first-letter</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,27 +9,53 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-	.qitem3{font-size:22px; border:3px solid black; padding:0 30px 15px;
-		width:300px; background-color:#f9f9fd; text-align:center;}
-	.qitem3:first-letter{font-size:2em; color:#f00;}
+	.fl{font-size:22px; border:3px solid black; padding:0 30px 15px; margin:10px auto; color:#333;
+		width:320px; background-color:#f9f9fd; text-align:center;}
+	.fl:first-letter{font-size:2em; color:#f00;}
 </style>
 </head>
 <body>
 
 <h2 class="sin">:first-letter</h2>
 <div class="item">
-	<p>Псевдоэлемент <span class="sin">:first-letter</span> устанавливает характер отображения первого символа участка текста. Первая буква может оформляться в соответствии с установленными атрибутами, связанными со свойствами шрифта.</p>
-	<p>К этому псевдоэлементу могут применяться только стилевые свойства, связанные со свойствами шрифта, полями, отступами, границами, цветом и фоном. Hе работает на элементах со значением <samp class="sin">display:</samp><samp class="lsin">inline;</samp>. Ставим <samp class="sin">display:</samp><samp class="lsin">block</samp> или <samp class="sin">display:</samp><samp class="lsin">inline-block;</samp></p>
+	<p>Псевдоэлемент <span class="sin">:first-letter</span> устанавливает характер отображения первого символа участка текста. Первая буква может оформляться в соответствии с установленными атрибутами, связанными со свойствами шрифта. К этому псевдоэлементу могут применяться только стилевые свойства, связанные со свойствами шрифта, полями, отступами, границами, цветом и фоном.</p>
+
+  <div class="no">Hе работает на элементах со значением <samp class="sin">display:</samp><samp class="lsin">inline;</samp>.</div>
+
+  <div>Ставим <samp class="sin">display:</samp><samp class="lsin">block</samp> или <samp class="sin">display:</samp><samp class="lsin">inline-block;</samp></div>
+
+  <div class="mt20">К псевдоэлементу<span class="pur">:first-letter</span> применяется ограниченное количество свойств:</div>
+	<ul class="list l1 mb20">
+    <li><samp class="sin">float</samp></li>
+    <li><samp class="sin">width</samp> (только к элементу c float)</li>
+    <li><samp class="sin">margin</samp></li>
+    <li><samp class="sin">padding</samp></li>
+    <li><samp class="sin">background</samp></li>
+    <li><samp class="sin">border</samp></li>
+    <li><samp class="sin">vertical-align</samp> (только к элементу без float)</li>
+    <li><samp class="sin">line-height</samp></li>
+    <li><samp class="sin">text-decoration</samp></li>
+    <li><samp class="sin">text-transform</samp></li>
+    <li><samp class="sin">letter-spacing</samp></li>
+    <li><samp class="sin">word-spacing</samp></li>
+    <li><samp class="sin">font</samp> properties</li>
+    <li><samp class="sin">color</samp></li>
+	</ul>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <div class="fl">первая буква будет выделена</div>
+    <p class="fl anp">первая буква будет выделена</p>
+    <div class="tac mb30" style="margin-top:35px"><span class="fl" style="padding:22px 42px 25px 41px">первая буква не будет выделена</span></div>
+    <div class="item2 mt10">
+      <samp class="red">HTML</samp>
+      <pre><code>&lt;div class="fl">первая буква будет выделена&lt;/div><br>&lt;p class="fl">первая буква будет выделена&lt;/p><br>&lt;span class="fl">первая буква не будет выделена&lt;/span><br> </code></pre>
+      <samp class="red">CSS</samp>
+      <pre><code>fl:first-letter {font-size: 2em; color: red;}</code></pre>
+    </div>
+  </fieldset>
+
 </div>
 
-<div class="item">
-	<div class="qitem3 m0a">первая буква будет выделена</div>
-	<div class="item2 mt10">
-		<samp class="red">HTML</samp>
-		<pre><code>&lt;p&gt;первая буква будет выделена&lt;/p&gt;</code></pre>
-		<samp class="red">CSS</samp>
-		<pre><code>p {font-size: 1em;}<br>p:first-letter {font-size: 2em; color: #f00;}</code></pre>
-	</div>
-</div>
 </body>
 </html>

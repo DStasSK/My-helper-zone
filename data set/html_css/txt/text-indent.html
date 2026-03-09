@@ -14,18 +14,15 @@
 <h2 class="sin">text-indent</h2>
 
 <div class="item">
-	<p>Для установки величины отступа первой строки текста используются каскадные таблицы стилей,<span class="sin"></span> в которых задаётся отступ и его величина. Воздействия на все последующие строки, при установке отступа, не оказывается.</p>
-	<pre class="item2"><code>text-indent: 2px;<br>text-indent: 1em;<br>text-indent: inherit;</code></pre>
+	<p>Свойство <samp class="sin">text-indent</samp> используется для установки величины отступа первой строки текста. Воздействия на все последующие строки, при установке отступа, не оказывается. В качестве значений принимаются стандартные положительные единицы CSS.</p>
 
-	<span class="lsin">2px;</span> - отступ два пикселя
-	<br><span class="lsin">1em;</span> - отступ 1em (1em = размер шрифта)
-	<br><span class="lsin">inherit;</span> - наследует параметры родителя
-</div>
+	<pre class="item2 mb20"><code>.elem {<br>  text-indent: 20px;     /* отступ 30 пикселей */<br>  text-indent: 1em;      /* тступ 1em (1em = размер шрифта) */<br>  text-indent: inherit;  /* наследует параметры родителя */<br>}</code></pre>
 
-<div class="item" style="background:#eee">
-	<div style="text-indent:36px; font-size:18px">Отступ первой строки <span class="sin">36px; font-size:18px;</span> <i>Для установки величины отступа первой строки текста используются каскадные таблицы стилей, в которых задаётся отступ и его величина.</i></div>
-	<br>
-	<div style="text-indent:4em; font-size:18px">Отступ первой строки <span class="sin">4em; font-size:18px;</span> <i>Для установки величины отступа первой строки текста используются каскадные таблицы стилей, в которых задаётся отступ и его величина.</i></div>
+  <div class="item2">
+    <div style="text-indent:36px; font-size:18px">Отступ первой строки <span class="sin">36px; font-size:18px;</span> <i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione debitis vitae nesciunt esse odit alias eligendi magni tempora.</i></div>
+    <br>
+    <div style="text-indent:4em; font-size:18px">Отступ первой строки <span class="sin">4em; font-size:18px;</span> <i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus tempore eius quisquam sapiente tenetur reprehenderit officia pariatur quod!</i></div>
+  </div>
 </div>
 
 </body>

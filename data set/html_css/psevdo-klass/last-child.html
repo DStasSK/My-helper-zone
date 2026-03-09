@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>Псевдокласс last-child</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:last-child</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:last-child</samp> позволяет настраивать характеристики оформления последнего элемента внутри родительского контейнера.</p>
+
+	<pre class="item2 mb20 mt20"><code class="css">:last-child { }  /* параметры последнего элемента где бы он ни был */</code></pre>
+
+  <p>При добавлении селектора к <samp class="sin">:last-child</samp> сперва берётся последний элемент, затем смотрится какого он типа. Если элемент совпадает с указанным селектором, то он будет выбран. Таким образом, выбирается элемент, если он удовлетворяет двум условиям одновременно: это последний элемент и это элемент указанного типа.</p>
+
+	<p>Псевдокласс <samp class="sin">:last-child</samp> можно использовать в частности для списков, например если элементу списка <samp class="red">&lt;li></samp> задать свойство <samp class="sin">border-bottom: </samp><samp class="lsin">3px solid black;</samp> то в результате под всеми словами или предложениями из которых состоит список появятся сплошная линия чёрного цвета толщина которой составляет три пикселя. С эстетической точки зрения последнюю подчёркивающую линию можно убрать, с помощью <samp class="sin">li:last-child</samp> задав свойство <samp class="sin">border-bottom</samp> со значением ноль:</p>
+	<pre class="item2"><code>li {border-bottom: 3px solid black;}<br><br>li:last-child {border-bottom: 0;}  /* параметры последнего LI */<br><br>li :last-child {color: red}        /* цвет последнего элемента внутри каждого LI */</code></pre>
+
+  <div class="no no1 mt20">Для выбора последнего элемента определённого типа используют псевдокласс <samp class="sin">:last-of-type</samp>.</div>
+</div>
+</body></html>

@@ -15,16 +15,20 @@
 <div class="item">
 	<p>С помощью свойства <samp class="sin">text-overflow</samp> можно обрезать текст, который выходит за рамки контейнера. <samp class="sin">text-overflow</samp> работает в том случае, если для блока значение свойства <samp class="sin">overflow</samp> установлено как <samp class="lsin">auto</samp>, <samp class="lsin">scroll</samp> или <samp class="lsin">hidden</samp>.</p>
 
-	<pre class="item2"><code>text-overflow: clip | ellipsis</code></pre>
-	<samp class="lsin">clip</samp> - текст обрезается по размеру области.
-	<br><samp class="lsin">ellipsis</samp> - текст обрезается и к концу строки добавляется многоточие.
+	<pre class="item2 mt20 mb20"><code>text-overflow: clip | ellipsis</code></pre>
+
+  <ul class="list">
+    <li><samp class="lsin">clip</samp> - текст обрезается по размеру области.</li>
+    <li><samp class="lsin">ellipsis</samp> - текст обрезается и к концу строки добавляется многоточие.</li>
+  </ul>
 
 	<style>
 		.primer {width:400px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 	</style>
-	<div class="prm mt20">
+	<div class="prm mt30">
 		<div class="primer">С помощью свойства <samp class="sin">text-overflow</samp> можно обрезать текст, который выходит за рамки контейнера:</div>
-		<pre class="item2 ls-05"><code>&lt;style><br>  .primer {<br>    width: 400px;              /* ширина контейнера */<br>    text-overflow: ellipsis;   /* вставляем троеточие */<br>    white-space: nowrap;       /* запрещаем перенос строк */<br>    overflow: hidden;}<br>&lt;/style><br><br>&lt;div class="primer">С помощью свойства &lt;samp class="sin">text-overflow&lt;/samp><br>можно обрезать текст, который выходит за рамки контейнера:&lt;/div></code></pre>
+
+		<pre class="item2 ls-05"><code>&lt;style><br>  .elem {<br>    width: 400px;              /* ширина контейнера */<br>    text-overflow: ellipsis;   /* вставляем троеточие */<br>    white-space: nowrap;       /* запрещаем перенос строк */<br>    overflow: hidden;<br>  }<br>&lt;/style><br><br>&lt;div class="elem">С помощью свойства &lt;samp>text-overflow&lt;/samp><br>можно обрезать текст, который выходит за рамки контейнера.&lt;/div></code></pre>
 	</div>
 </div>
 

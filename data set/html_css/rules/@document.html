@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><title>@document</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h1 class="sin"><span class="dib">@<samp>document</samp></span></h1>
+
+<div class="item">
+	<div class="no">Pаботает только нa firefox!!</div>
+
+	<p>Правило CSS <span class="red dib">@<samp>document</samp></span> устанавливает стилевые правила на основе адреса документа. К примеру, если адреса мобильной и основной версии сайта различаются, то мы можем задать собственный стиль элементов для каждой версии.</p>
+
+	<div class="item2 mt20 mb30">
+		<pre>@document url(http://www.w3.org/),<br>          url-prefix(http://www.w3.org/Style/),<br>          domain(mozilla.org),<br>          media-document(video),<br>          regexp("https:.*") {</pre><pre><code>  body { }<br>  div { }<br>  /* и другие требуемые стили для указанных адресов и параметров */</code></pre><pre>}</pre>
+	</div>
+
+	<p>Правило <span class="red dib">@<samp>document</samp></span> может указывать одну или несколько подходящих функций. Если какая-либо из функций применяется к данному URL-адресу, это правило вступит в силу для этого URL-адреса.</p>
+
+	<div>Доступны следующие функции:</div>
+	<table class="t1 tb">
+		<tr><td width="160px">url()</td><td>Указывает точный адрес страницы, для которой применяются стилевые правила. Адрес пишется внутри скобок <samp class="sin">url()</samp>.</td></tr>
+		<tr><td>url-prefix()</td><td>Значение, с которого начинается адрес документа.</td></tr>
+		<tr><td>domain()</td><td>Домен или поддомен сайта.</td></tr>
+		<tr><td>media-document()</td><td>Отдельный тип документа, например, видеофайл.</td></tr>
+		<tr><td>regexp()</td><td>Регулярное выражение которому соответствует адрес.</td></tr>
+	</table>
+
+	<div class="no no1 mt40">В настоящее время в <samp class="red">FF</samp> поддерживается только функция <samp class="sin">url-prefix()</samp>.</div>
+
+	<div class="item2 mt40">
+			<pre><code>.ssl {<br>  display: none;<br>  background: #5bd4b6;<br>}<br>@document regexp("https:.*") {<br>  .ssl {display: block;}<br>}</code></pre>
+			<pre><code><br>&lt;!-- блок с классом ssl будет виден только на сайте,<br>     адрес которого начинается с протокола https. --><br>&lt;div class="ssl"><br>  Для вашей безопасности на сайте мы используем защищённый протокол.<br>&lt;/div></code></pre>
+	</div>
+</div>
+
+
+</body></html>

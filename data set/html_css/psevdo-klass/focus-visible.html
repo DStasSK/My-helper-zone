@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>Псевдокласс focus-visible</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:focus-visible</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:focus-visible</samp> используется для применения стилей к элементу, который получил фокус, но когда переход к элементу происходит с помощью клавиатуры.</p>
+
+	<pre class="item2 mt20 mb20"><code>.elem:focus-visible {...}</code></pre>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <style>
+      .exsampleFocusVisible button{outline:none}
+      .exsampleFocusVisible button:focus{outline:none}
+      .exsampleFocusVisible .btn1:focus {outline: 2px solid orange}
+      .exsampleFocusVisible .btn2:focus-visible {outline: 2px solid green}
+    </style>
+    <p class="exsampleFocusVisible">
+      <input type="text" placeholder="нажми сюда - потом tabs">
+      <button class="btn1">Кнопка</button>
+      <button class="btn2">Кнопка</button>
+    </p>
+    <div class="item2">
+      <pre><code>&lt;p><br>  &lt;input type="text" placeholder="нажми сюда - потом tabs"><br>  &lt;button class="btn1">Кнопка&lt;/button><br>  &lt;button class="btn2">Кнопка&lt;/button><br>&lt;/p></code></pre>
+      <pre><code><br>button {outline: none}<br>button:focus {outline: none}<br>.btn1:focus {outline: 2px solid orange}<br>.btn2:focus-visible {outline: 2px solid green}</code></pre>
+    </div>
+  </fieldset>
+
+  <table class="support mt20">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>86</span></td><!-- Edge -->
+      <td><span>86</span></td><!-- Chrome -->
+      <td><span>72</span></td><!-- Opera -->
+      <td><span>15.4</span></td><!-- Safari -->
+      <td><span>85</span></td><!-- FF -->
+      <td><span>86</span></td><!-- mobile-android -->
+      <td><span>85</span></td><!-- mobile-FF -->
+      <td><span>61</span></td><!-- mobile-opera -->
+      <td><span>15.4</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+</div>
+</body></html>

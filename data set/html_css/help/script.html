@@ -44,6 +44,8 @@
 	<p>Элемент <samp class="red">&lt;script></samp> (от англ. script — сценарий) предназначен для описания скриптов, может содержать ссылку на программу или её текст на определённом языке. Скрипты могут располагаться во внешнем файле и связываться с любым HTML-документом. Такой подход позволяет использовать одни и те же общие функции на многих веб-страницах и ускоряет их загрузку, т. к. внешний файл кэшируется при первой загрузке, и скрипт вызывается быстрее при последующих вызовах.</p>
 	<p><samp class="red">&lt;script></samp> может располагаться в заголовке или теле HTML-документа в неограниченном количестве. В большинстве случаев местоположение скрипта никак не сказывается на работу программы. Однако скрипты, которые должны выполняться в первую очередь, обычно помещают в заголовок документа.</p>
 
+  <div class="no no1">Для правильной работы скриптов их обычно размещают в конце документа. Так как для работы скрипта зачастую требуются элементы сраницы, но они еще не будут загружены.</div>
+
 	<pre class="item2 mt20"><code>&lt;script><br>  код скрипта<br>&lt;/script><br><br>&lt;script src="адрес">&lt;/script></code></pre>
 </div>
 
@@ -56,8 +58,8 @@
 			<pre class="item2"><code>&lt;script async>...&lt;/script></code></pre>
 			<div class="no mb0 mt10">Если задано сразу два атрибута - <samp class="sin">async</samp> и <samp class="sin">defer</samp>, то атрибут <samp class="sin">async</samp> игнорируется.</div></td></tr>
 		<tr><td id="defer"><a href="#">defer</a></td>
-			<td><p>это логический атрибут, его определение в теге <samp class="red">&lt;SCRIPT></samp> обеспечивает возможность отложенного исполнения скрипта, сообщая браузеру о том, что данный сценарий не производит генерирования содержимого Web-страницы. Если этот атрибут не установлен, то отображение страницы пользовательским агентом прерывается до момента завершения исполнения всех инструкций, определяемых в элементе SCRIPT.</p>
-			Откладывает выполнение скрипта до тех пор, пока вся страница не будет загружена полностью. Работает только при наличии атрибута <samp class="sin">src</samp>. По умолчанию этот атрибут выключен.
+			<td><p>Откладывает выполнение скрипта до тех пор, пока вся страница не будет загружена полностью. Работает только при наличии атрибута <samp class="sin">src</samp>. По умолчанию этот атрибут выключен.</p>
+      <p>Этот атрибут обеспечивает возможность отложенного исполнения скрипта, сообщая браузеру о том, что данный сценарий не производит генерирования содержимого Web-страницы. Если этот атрибут не установлен, то отображение страницы пользовательским агентом прерывается до момента завершения исполнения всех инструкций, определяемых в элементе SCRIPT.</p>
 			<pre class="item2"><code>&lt;script src="адрес" defer>&lt;/script></code></pre></td></tr>
 		<tr><td id="language"><a href="#">language</a><span class="t-trash" title="устарел"></span></td>
 			<td>Устанавливает язык программирования на котором написан скрипт.
@@ -65,7 +67,9 @@
 			<div class="no mb0 mt10">Данный атрибут осуждается, вместо него следует применять <samp class="sin">type</samp>, который указывает MIME-тип для определённого языка.</div></td></tr>
 		<tr><td id="src"><a href="#">src</a></td>
 			<td>Адрес скрипта из внешнего файла для импорта в текущий документ. Как только внешние инструкции полностью загружаются, браузер обрабатывает их, словно они были внедрены в текущий документ. 
-			В качестве значения принимается полный или относительный путь к файлу. Файл должен иметь расширение <b>.js</b>.</td></tr>
+			В качестве значения принимается полный или относительный путь к файлу. Файл должен иметь расширение <b>.js</b>.
+      <div class="no">При указании ссылки на файл со скриптом и наличии скрипта в теле самого тега <samp class="teg sin">script</samp> - скрипт внутри тега игнорируется. Т.е. выполняется только скрипт из документа по ссылке.</div>
+    </td></tr>
 		<tr><td id="type"><a href="#">type</a></td>
 			<td>Определяет тип содержимого <samp class="red">&lt;script></samp>.
 				<br><samp class="lsin">text/javascript</samp> - для языка программирования <b>JavaScript</b>.
@@ -80,11 +84,16 @@
 <div class="item" id="z1">
 <h3 class="sin"><a href="#">Включение кода в виде псевдо-URL</a></h3>
 	<p>Он подразумевает формирование URL специального вида путем указания протокола доступа к данным javascript, после чего записывается строка программного кода. Подобный URL может быть задан, например, как значение свойства <samp class="sin">href</samp> тега <samp class="red">&lt;a></samp>, свойства <samp class="sin">action</samp> тега <samp class="red">&lt;form></samp>, свойства <samp class="sin">src</samp> тега <samp class="red">&lt;form></samp> или<samp class="red">&lt;img></samp>.
-	<pre class="item2"><code>&lt;html>&lt;body><br>...<br>&lt;a href="javascript: alert('Щелчок');">Ссылка JavaScript&lt;/a><br>...<br>&lt;/body>&lt;/html></code></pre>
-	<p>Данный способ часто используют с целью создания на странице ссылок для добавления этой страницы в список закладок браузера и других похожих задач.</p>
-	<p>При использовании данного метода включения JavaScript-кода в HTML-документ обязательно указание для документа языка сценариев по умолчанию. Это может быть сделано путем включения соответствующего объявления META-информации в тег <samp class="red">&lt;head></samp>:
-	<pre class="item2"><code>&lt;META http-equiv="Content-Script-Type" content="text/javascript"></code></pre>
-	либо HTTP-заголовком <samp class="sin">Content-Script-Type:<samp class="lsin">text/javascript</samp></samp>.</p>
+
+  <pre class="item2 mb30"><code>&lt;html>&lt;body><br>...<br>&lt;a href="javascript: alert('Щелчок');">Ссылка JavaScript&lt;/a><br>...<br>&lt;/body>&lt;/html></code></pre>
+
+  <p>Данный способ часто используют с целью создания на странице ссылок для добавления этой страницы в список закладок браузера и других похожих задач. При использовании данного метода включения JavaScript-кода в HTML-документ обязательно указание для документа языка сценариев по умолчанию. Это может быть сделано путем включения соответствующего объявления META-информации в тег <samp class="red">&lt;head></samp>: либо HTTP-заголовком <samp class="sin">Content-Script-Type:<samp class="lsin">text/javascript</samp></samp>.</p>
+
+  <pre class="item2"><code>&lt;META http-equiv="Content-Script-Type" content="text/javascript"></code></pre>
+	
+
+  <div class="mt30">Для защиты от копирования можно тегу <samp class="red">&lt;body></samp> прописать прослушивание события:</div>
+	<pre class="item2"><code>&lt;body oncopy="return false;"></code></pre>
 </div>
 
 
@@ -95,14 +104,14 @@
 	<fieldset class="prm">
 		<legend></legend>
 		<script type="text/javascript">
-			document.write ('<table class="t0 t2 tb">');
+			document.write ('<table class="t0 t2 tb" style="margin:auto">');
 			for (i=1; i<6; i++) {document.writeln("<tr>");
-				for (j=1; j<6; j++) document.write("<td>" + i + j + "<\/td>");
-				document.writeln("<\/tr>");}
-			document.write ("<\/table>");
+				for (j=1; j<6; j++) document.write("<td>" + i + j + "</td>");
+				document.writeln("</tr>");}
+			document.write ("</table>");
 		</script>
 
-		<pre class="item2"><code>&lt;style><br>   table {max-width:1200px; border:0; border-collapse:collapse;}<br>   .t0 {min-width:auto; width:auto}<br>   .t2 td {padding:5px 8px}<br>   .tb td {border:1px solid #aaa;}<br>&lt;/style><br><br>&lt;script type="text/javascript"><br>   document.write ('&lt;table class="t0 t2 tb">');<br>   for (i=1; i&lt;6; i++) {document.writeln("&lt;tr>");<br>      for (j=1; j&lt;6; j++) document.write("&lt;td>" + i + j + "&lt;\/td>");<br>      document.writeln("&lt;\/tr>");}<br>   document.write ("&lt;\/table>");<br>&lt;/script></code></pre>
+		<pre class="item2"><code>&lt;style><br>   table {border:0; border-collapse:collapse;}<br>   .t0 {min-width:auto; width:auto}<br>   .t2 td {padding:5px 8px}<br>   .tb td {border:1px solid #aaa;}<br>&lt;/style><br><br>&lt;script type="text/javascript"><br>   document.write ('&lt;table class="t0 t2 tb" style="margin:auto">');<br>   for (i=1; i&lt;6; i++) {document.writeln("&lt;tr>");<br>      for (j=1; j&lt;6; j++) document.write("&lt;td>" + i + j + "&lt;/td>");<br>      document.writeln("&lt;/tr>");}<br>   document.write ("&lt;/table>");<br>&lt;/script></code></pre>
 	</fieldset>
 </div>
 
@@ -137,7 +146,7 @@
 			<p>Введите ваш возраст <input name="textField"></p>
 		</form>
 
-		<pre class="item2"><code>&lt;!DOCTYPE HTML><br>&lt;html><br>  &lt;head><br>  &lt;script defer src="js/defer.js">&lt;/script><br>  &lt;!-- document.forms[0].textField.value = 17; --><br>&lt;/head><br>&lt;body><br>  &lt;form action="handler.php"><br>    &lt;p>Введите ваш возраст &lt;input name="textField">&lt;/p><br>  &lt;/form><br>&lt;/body><br>&lt;/html></code></pre>
+		<pre class="item2"><code>&lt;!DOCTYPE HTML><br>&lt;html><br>  &lt;head><br>  &lt;script defer src="js/defer.js">&lt;/script><br>  &lt;!-- document.forms[0].textField.value = 17; --&gt;<br>&lt;/head><br>&lt;body><br>  &lt;form action="handler.php"><br>    &lt;p>Введите ваш возраст &lt;input name="textField">&lt;/p><br>  &lt;/form><br>&lt;/body><br>&lt;/html></code></pre>
 	</fieldset>
 </div>
 

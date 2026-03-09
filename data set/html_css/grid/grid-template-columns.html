@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-template-columns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-template-columns</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-template-columns</samp> — определяет количество, наименование и размер столбцов (дорожек) в макете сетки. Значения представляют собой список, разделенный пробелами, где каждое значение определяет ширину столбца.</p>
+
+	<p>Для того, чтобы задать количество, наименование и размер строк в макете сетки вы можете воспользоваться свойством <a href="grid-template-rows.html" class="sin tdu"><samp>grid-template-rows</samp></a>.</p>
+
+	<pre class="item2 css"><code>.item {<br>   grid-template-columns: none | length | flex | min-content |<br>                          max-content | auto | minmax() |<!--  fit-content() | --><br>                          repeat() | initial | inherit;<br>}</code></pre>
+
+	<table class="t1 t3 tc mt20 mb20"><caption>Значения:</caption>
+		<tr><td width="140px">none</td><td>Значение по умолчанию. Размер не задан. Столбцы создаются при необходимости, размер столбцов будет определяться с помощью свойства <a href="grid-auto-columns.html" class="sin tdu"><samp>grid-auto-columns</samp></a>.</td></tr>
+		<tr><td>length</td><td>Задает размер столбцов, используя допустимое значение длины, или значение, указанное в процентах. Значение должно быть положительным.</td></tr>
+		<tr><td>flex</td><td>Устанавливает соотношение распределения свободного пространства между столбцами.
+			<pre class="item2"><code>grid-template-columns: 3fr 1fr;</code></pre>
+			<p>Когда доступное пространство бесконечно (ширина или высота контейнера сетки макета неопределенны), размер столбцов сетки гибкого размера определяется их содержимым с сохранением соответствующих пропорций.</p>
+			<div class="no">Значения <samp class="lsin">fr</samp> не являются значениями <samp class="lsin">length</samp>, по этой причине они не могут быть представлены или объединены с другими типами единиц в выражениях типа <a href="../help/help.html#calc"><samp class="sin tdu">calc()</samp></a>.</div>
+			</td></tr>
+		<tr><td>max-content</td><td>Ключевое слово, которое задает размер каждого столбца в зависимости от самого большого элемента в столбце.</td></tr>
+		<tr><td>min-content</td><td>Ключевое слово, которое задает размер каждого столбца в зависимости от самого маленького элемента в столбце.</td></tr>
+		<tr><td>auto</td><td>Размер столбцов определяется размером контейнера и размером содержимого элементов в столбце.</td></tr>
+		<tr><td class="ls-1">minmax(min,max)</td><td>Функциональная нотация, определяющая диапазон размеров больше или равный <samp class="sin">min</samp> и меньше или равный <samp class="sin">max</samp>. Если <samp class="sin dib">max < min</samp>, то <samp class="sin">max</samp> игнорируется, а функция обрабатывается как <samp class="sin">min</samp>.</td></tr>
+		<!-- <tr><td>fit-content()</td><td></td></tr> -->
+		<tr><td>repeat()</td><td>Представляет из себя повторяющийся фрагмент списка столбцов (дорожек), позволяя записать в более компактной форме большое количество столбцов с повторяющимся шаблоном.; <a href="#repeat" class="sin tdu">подробнее</a>.</td></tr>
+		<tr><td>initial</td><td>Устанавливает свойство в значение по умолчанию.</td></tr>
+		<tr><td>inherit</td><td>Значение наследуется от родительского элемента.</td></tr>
+	</table>
+
+	<pre class="item2 ls-05"><code>.item{
+   grid-template-columns: 50px 50px;
+   grid-template-columns: 50%;
+   grid-template-columns: 25% 25% 25% 25%;
+
+   grid-template-columns: [line1] 40px [line2] 30px;       /* с указанием имени столбца */
+   grid-template-columns: [line1] 40px [line2 line3] 30px; /* сначала имя - потом размер */
+
+   grid-template-columns: 3fr 1fr;
+
+   grid-template-columns: auto;
+   grid-template-columns: none;
+   grid-template-columns: min-content;
+   grid-template-columns: max-content;
+
+   grid-template-columns: minmax(100px, 1fr);
+   grid-template-columns: repeat(4, 100px);    /* 4 столбца по 100рх */
+}</code></pre>
+
+</div>
+
+
+
+<div class="item" id="repeat">
+<h3 class="sin"><samp>grid-template-columns: <span class="lsin">repeat()</span></samp></h3>
+	<p>Значение <samp class="lsin">repeat</samp> свойства <samp class="sin">grid-temlate-columns</samp> представляет из себя повторяющийся фрагмент списка столбцов, позволяя записать в более компактной форме большое количество столбцов с повторяющимся шаблоном.</p>
+
+	<pre class="item2 css mt20 mb20"><code>repeat( [positive-integer | auto-fill | auto-fit] , track-list )</code></pre>
+
+	<div>Возможные значения:</div>
+	<ul class="list">
+		<li><samp class="lsin">positive-integer</samp> - положительное целое число, которое определяет количество повторений.</li>
+		<li><samp class="lsin">auto-fill</samp> - если контейнер сетки имеет определенный или максимальный размер на соответствующей оси, то число повторений является наибольшим возможным положительным целым числом, которое не вызывает переполнения сетки. Если любое количество повторений будет вызывать переполнение контейнера, то количество повторений будет равно <b>1</b>.<br>В противном случае, если контейнер сетки имеет определенный минимальный размер на соответствующей оси, число повторений является наименьшим возможным положительным целым числом, удовлетворяющим этому минимальному требованию. В противном случае указанный список дорожек повторяется только один раз.<br>Другими словами <samp class="lsin">auto-fill</samp> заполняет строку любым количеством столбцов. Таким образом, он создает неявные столбцы всякий раз, когда новый столбец может поместиться, потому что он пытается заполнить строку как можно большим количеством столбцов. Добавленные столбцы могут быть пустыми, но они все равно будут занимать определенное место в строке.</li>
+		<li><samp class="lsin">auto-fit</samp> - ведет себя так же, как <samp class="lsin">auto-fill</samp>, за исключением того, что после размещения элементов сетки пустые повторяющиеся дорожки объединяются (это может привести к тому, что все дорожки будут объеденены, если все они пусты). Другими словами <samp class="lsin">auto-fit</samp> помещает доступные в данный момент столбцы в пространство, расширяя их так, чтобы они занимали любое доступное пространство. Браузер делает это после заполнения этого дополнительного пространства дополнительными строками (как при автоматическом заполнении), а затем сворачивает пустые.</li>
+	</ul>
+
+</div>
+</body></html>

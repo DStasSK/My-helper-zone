@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><title>Тэг - caption</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- автораскравка тегов внутри pre-code -->
+	<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+	<script src="../../highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">Тэг <samp class="teg sin">caption</samp></h2>
+
+<div class="item">
+	<p>Элемент <samp class="teg sin">caption</samp> (от англ. <i>caption</i> — заголовок) предназначен для создания заголовка к таблице и может размещаться только внутри контейнера <samp class="teg sin">table</samp>, причём сразу после открывающего тега. Такой заголовок представляет собой текст, по умолчанию отображаемый перед таблицей и описывающий её содержание.</p>
+</div>
+
+
+
+<div class="item">
+  <h3 class="sin">Атрибуты тега <samp>&lt;caption></samp></h3>
+    <div class="no mb10">Данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+  
+    <table class="t1 t2 tb">
+      <tr><td id="caption_align"><a href="#caption_at">align</a></td>
+        <td>Определяет выравнивание заголовка относительно таблицы. Результат его действия зависит от используемого браузера и установленного значения.
+        <pre class="item2"><code>&lt;caption align="<span class="off dib"><abbr title="В Firefox заголовок располагается слева от таблицы. Остальные браузеры игнорируют это значение.">left</abbr></span> | <span class="off dib"><abbr title="В Firefox заголовок располагается справа от таблицы. Остальные браузеры игнорируют это значение.">right</abbr></span> | <abbr title="Заголовок размещается перед таблицей по её центру.">top</abbr> | <abbr title="Заголовок размещается внизу таблицы по её центру.">bottom</abbr>">justify</abbr>">...&lt;/caption></code></pre>
+        Для выравнивания заголовка по горизонтали используйте стилевое свойство <samp class="sin">text-align</samp>. Чтобы задать положение заголовка до или после таблицы, воспользуйтесь свойством <samp class="sin">caption-side</samp>.
+        <pre class="item2"><code>caption {<br>   text-align:center;<br>   caption-side:bottom;<br>}</code></pre></td></tr>
+    </table>
+</div>
+
+
+
+<div class="item" id="caption-side">
+<h2 class="sin"><a href="#" title="наверх">CSS свойство <samp>caption-side</samp></a></h2>
+  <p>Свойство <samp class="sin">caption-side</samp> применяется	к элементу <samp class="teg sin">caption</samp> или ко всем элементам, у которых значение <samp class="sin">display</samp> установлено как <samp class="lsin">table-caption</samp>. Свойство определяет положение заголовка таблицы относительно самой таблицы - выводит заголовок до или после таблицы, а выравнивание текста по правому или левому краю устанавливается через свойство <samp class="sin">text-align</samp>.</p>
+
+  <pre class="item2 mt20 mb20"><code>caption {<br>  caption-side: top | bottom | left | right;<br>}</code></pre>
+
+  <ul class="list">
+    <li><samp class="sin">top</samp> - заголовок располагается перед таблицей.</li>
+    <li><samp class="sin">bottom</samp> - заголовок располагается после таблицы.</li>
+    <li><samp class="sin">left</samp> - заголовок размещается слева от таблицы (это значение работает только в браузерах Firefox).</li>
+    <li><samp class="sin">right</samp> - заголовок размещается справа от таблицы (это значение работает только в браузерах Firefox).</li>
+  </ul>
+
+  <div class="no">Браузер Firefox также поддерживает расположение заголовка слева или справа от таблицы, но эти значения не входят в спецификацию CSS.</div>
+
+</div>

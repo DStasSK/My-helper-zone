@@ -12,8 +12,9 @@
 		margin:5px 0;
 		padding:0;
 		justify-content:center;
+		color:#333;
 	}
-	.ul_menu a{
+	.elA{
 		padding:2px 7px 3px;
 		margin-right:5px;
 		height:25px;
@@ -23,12 +24,12 @@
 		border-radius:5px;
 		transition:.2s;
 	}
-	.ul_menu a:last-child{margin:0}
-	.ul_menu a:hover{
+	.elA:last-child{margin:0}
+	.elA:hover{
 		background:#bbb;
 		transition:.2s;
 	}
-	a.active{
+	.elA.active{
 		background:#777 !important;
 		color:#fafafa;
 		transition:.2s;
@@ -44,13 +45,13 @@
 <div class="item" style="min-width:822px">
 <h2 class="sin">Коды языков</h2>
 	<div class="ul_menu">
-		<a class="min active" target="lang" href="lang-code-min.html">min версия</a>
-		<a class="iso" target="lang" href="lang-code-iso639.html">ISO 639</a>
-		<a class="all" target="lang" href="lang-code-all.html">Все теги</a>
-		<a class="reg" target="lang" href="lang-code-regions.html">Коды регионов</a>
-		<a class="var" target="lang" href="lang-code-add.html">Добавочные + variant</a>
-		<a class="old" target="lang" href="lang-code-old.html">Устаревшие</a>
-		<a class="script" target="lang" href="lang-code-script.html">Script</a>
+		<a class="elA active" target="lang" href="lang-code-min.html" id="l1">min версия</a>
+		<a class="elA" target="lang" href="lang-code-iso639.html" id="l2">ISO 639</a>
+		<a class="elA" target="lang" href="lang-code-all.html" id="l3">Все теги</a>
+		<a class="elA" target="lang" href="lang-code-regions.html" id="l4">Коды регионов</a>
+		<a class="elA" target="lang" href="lang-code-add.html" id="l5">Добавочные + variant</a>
+		<a class="elA" target="lang" href="lang-code-old.html" id="l6">Устаревшие</a>
+		<a class="elA" target="lang" href="lang-code-script.html" id="l7">Script</a>
 	</div>
 	<iframe src="lang-code-min.html" frameborder="0" class="lang" name="lang"></iframe>
 </div>
@@ -69,6 +70,20 @@
 				el.classList.add('active');
 			}
 		}
+	}
+
+
+	const iframe = document.querySelector('iframe');
+	let ls = localStorage.getItem('iframe_lang_code');
+	if(ls){
+		if(ls=='1'){document.querySelector(`#l${ls}`).click();}
+		if(ls=='2'){document.querySelector(`#l${ls}`).click();}
+		if(ls=='3'){document.querySelector(`#l${ls}`).click();}
+		if(ls=='4'){document.querySelector(`#l${ls}`).click();}
+		if(ls=='5'){document.querySelector(`#l${ls}`).click();}
+		if(ls=='6'){document.querySelector(`#l${ls}`).click();}
+		if(ls=='7'){document.querySelector(`#l${ls}`).click();}
+		localStorage.removeItem("iframe_lang_code");
 	}
 </script>
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><title>Псевдокласс first-child</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:first-child</samp></h2>
+<div class="item">
+	<div>Псевдокласс <samp class="sin">:first-child</samp> устанавливает стилевое оформление первого элемента-потомка своего родителя.</div>
+
+	<pre class="item2 ls-05 mt20 mb20" style="line-height:1.8;"><code>:first-child { color: red }    /* каждый первый элемент где бы он ни был */<br>p:first-child { color: red }   /* каждый первый &lt;p> где бы он ни был */<br>p :first-child { color: red }  /* каждый первый элемент внутри всех &lt;p> */</code></pre>
+
+  <p>При добавлении селектора к <samp class="sin">:first-child</samp> сперва берётся первый элемент, затем смотрится какого он типа. Если элемент совпадает с указанным селектором, то он будет выбран. Таким образом, выбирается элемент, если он удовлетворяет двум условиям одновременно: это первый элемент и это элемент указанного типа.</p>
+
+  <div class="no no1">Для выбора первого элемента определённого типа используют псевдокласс <samp class="sin">:first-of-type</samp>.</div>
+  <div class="no no1">Вместо <samp class="sin">:first-child</samp> допустимо использовать <samp class="sin">:nth-of-child(1)</samp>.</div>
+</div>
+</body></html>

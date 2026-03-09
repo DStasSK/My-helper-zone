@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>CSS свойствo hyphens</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+
+<h2 class="sin">CSS свойство <samp>hyphens</samp></h2>
+<div class="item">
+	<p>Свойство <samp class="sin">hyphens</samp> cообщает браузеру, как расставлять переносы слов в блоке текста. Словарь переносов хранится в браузере и подключается при наличии атрибута <samp class="sin">lang</samp> с кодом языка. Так, для русского языка следует добавить <samp class="sin">lang="<samp class="lsin">ru</samp>"</samp> к элементу <samp class="red">&lt;html></samp> или непосредственно к абзацу текста. Правила переносов определяются браузером и могут различаться.</p>
+
+	<div class="no no1">Перенос слов работает в основном в новых версиях браузеров и не для вех языков. Подробнее можно узнать <a href="https://developer.mozilla.org/ru/docs/Web/CSS/hyphens" class="sin tdu" target="_blank">тут</a>.</div>
+
+	<pre class="item2 mt20"><code>html {<br>  hyphens: none | manual | auto<br>}</code></pre>
+
+	<ul class="list mb40">
+		<li><samp class="lsin">none</samp> – слова не переносятся, даже при наличии в тексте мягких переносов <samp class="lsin">&amp;shy;</samp>. Строки будут переноситься только по пробелам.</li>
+		<li><samp class="lsin">manual</samp> – значение по умолчанию. Переносы слов в тексте происходят в тех местах, где добавлен <samp class="lsin">&amp;shy;</samp> или <samp class="lsin">&lt;wbr></samp>, если их нет, то переносы не делаются.
+		<div class="no mt0 mb0">При использовании <samp class="lsin">&lt;wbr></samp> знак переноса не добавляется.</div>
+		</li>
+		<li><samp class="lsin">auto</samp> – браузер автоматически добавляет переносы слов на основе встроенного словаря переносов и в указанных точках переноса.</li>
+	</ul>
+
+
+	<div class="no">
+		<ul class="list">
+			<li>Internet Explorer и Edge поддерживают свойство <samp class="sin">-ms-hyphens</samp>.</li>
+			<li>Safari поддерживает свойство <samp class="sin">-webkit-hyphens</samp>.</li>
+			<li>Firefox до версии 43 поддерживает свойство <samp class="sin">-moz-hyphens</samp>.</li>
+		</ul>
+	</div>
+
+	<table class="support mt40 mb0">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="part"><span>10</span></td><!-- IE -->
+			<td><span>112</span></td><!-- Edge -->
+			<td><span>112</span></td><!-- Chrome -->
+			<td><span>98</span></td><!-- Opera -->
+			<td><span>17</span></td><!-- Safari -->
+			<td><span>130</span></td><!-- FF -->
+			<td><span>112</span></td><!-- mobile-android -->
+			<td><span>130</span></td><!-- mobile-FF -->
+			<td><span>75</span></td><!-- mobile-opera -->
+			<td><span>17</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="hyphenate-character">
+<h3 class="sin">CSS свойство <samp>hyphenate-character</samp></h3>
+	<p>Свойство <samp class="sin">hyphenate-character</samp> устанавливает символ или строку, которая добавляется в тексте при переносе слов на другую строку и показывает место переноса. По умолчанию для этой цели используется символ дефиса.</p>
+
+	<pre class="item2 mt20"><code>html {<br>  hyphenate-character: auto| строка<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">auto</samp> - устанавливает символ переноса на основе текущего языка.</li>
+		<li><samp class="sin">строка</samp> - cимвол или строка, отображаемая в месте переноса.</li>
+	</ul>
+
+	<div class="no no1">Некоторые браузеры поддерживают только свойство <samp class="sin dib">-webkit-hyphenate-character</samp>.</div>
+
+	<table class="support mt30 mb0">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td class="part"><span>79</span></td><!-- Edge -->
+			<td class="part"><span>15</span></td><!-- Chrome -->
+			<td class="part"><span>15</span></td><!-- Opera -->
+			<td class="part"><span>5.1</span></td><!-- Safari -->
+			<td><span>98</span></td><!-- FF -->
+			<td><span>106</span></td><!-- mobile-android -->
+			<td><span>115</span></td><!-- mobile-FF -->
+			<td><span>73</span></td><!-- mobile-opera -->
+			<td class="part"><span>5</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="hyphenate-limit-chars">
+<h3 class="sin">CSS свойство <samp>hyphenate-limit-chars</samp></h3>
+	<p>Свойство <samp class="sin">hyphenate-limit-chars</samp> задаёт минимальную длину слова, при которой разрешён перенос на другую строку, а также минимальное количество букв до и после переноса.</p>
+
+	<pre class="item2 mt20"><code>html {<br>  hyphenate-limit-chars: auto| 1 число | 2 числа | 3 числа<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">auto</samp> - значение по умолчанию (аналогично 5 2 2).</li>
+		<li><samp class="sin">1 число</samp> - задает минимальную длину слова для переноса на другую строку. К примеру, если указать число 6, то слова, в которых содержится шесть и менее букв, переноситься не будут.</li>
+		<li><samp class="sin">2 числа</samp> - первое значение задает минимальную длину слова для переноса на другую строку. Второе значение - минимальное число символов перед и после дефиса. К примеру, значение 6 3 означает, что минимальная длина слова должна составлять 6 символов, три буквы минимум должны остаться на одной строке и три буквы на следующей строке.</li>
+		<li><samp class="sin">3 числа</samp> - первое значение задает минимальную длину слова для переноса на другую строку. Второе значение - минимальное число символов перед дефисом. Третье значение - минимальное число символов после дефиса.</li>
+	</ul>
+
+
+	<table class="support mt30 mb0">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>109</span></td><!-- Edge -->
+			<td><span>109</span></td><!-- Chrome -->
+			<td><span>95</span></td><!-- Opera -->
+			<td class="n"><span></span></td><!-- Safari -->
+			<td class="n"><span></span></td><!-- FF -->
+			<td><span>115</span></td><!-- mobile-android -->
+			<td class="n"><span></span></td><!-- mobile-FF -->
+			<td class="n"><span></span></td><!-- mobile-opera -->
+			<td class="n"><span></span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+
+
+</body>
+</html>

@@ -15,56 +15,32 @@
 <div class="item">
 	<p>Для того чтобы воздействовать на характер отображения пробелов между словами которые выводятся на странице сайта, в <samp class="sin">CSS</samp> предусмотрено свойство <samp class="sin">white-space</samp>. По умолчанию пробелы между словами, коде <span class="sin">HTML</span>, выводятся как один, не зависимо от их числа. И только текст, помещённый в нутрии контейнера <samp class="red">&lt;pre>&lt;/pre></samp>, выводится со всеми пробелами и переносами строк, так как он и был отформатирован.</p>
 	<p>Свойство, <samp class="sin">white-space</samp> аналогично тегу <samp class="red">&lt;pre&gt;</samp>, и отличается лишь выводом шрифта, который не меняется на моноширинный.</p>
-</div>
 
-<div class="item">
-	<pre class="item2"><code>white-space: normal;</code></pre>
-	<span class="lsin">normal</span> - 
-	<span style="white-space:normal;">текст в окне браузера отображается как обычно</span>
-</div>
+  <pre class="item2 mt20"><code>.elem {<br>  white-space: normal | nowrap | pre | pre-line | pre-wrap<br>}</code></pre>
 
-<div class="item">
-	<div class="item2"><pre><code>white-space: nowrap;</code></pre></div>
-	<span class="lsin">nowrap</span> - 
-	<span style="white-space:nowrap;">при выборе 
-данного параметра 
-	все "дополнительные" пробелы и переносы строк в коде <span class="sin">HTML</span> не учитываются, а текст выводится одной сплошной строкой</span>
-</div>
+  <ul class="list">
+    <li><samp class="sin">normal</samp> - текст в окне браузера отображается как обычно</li>
+    <li><samp class="sin">nowrap</samp> - <span>при выборе данного параметра все "дополнительные" пробелы и переносы строк в коде <span class="sin">HTML</span> не учитываются, а текст выводится одной сплошной строкой</span>. Вместе с тем, добавление <samp class="teg">br</samp> переносит текст на новую строку.</li>
+    <li><samp class="sin">pre</samp> - <span>текст выводится с учетом всех переносов и</span> <span style="white-space:pre;">п     ро  б    е <br>л   о          в</span></li>
+    <li><samp class="sin">pre-line</samp> - <span style="white-space:pre-line;">в выводимом тексте все "дополнительные" пробелы не учитываются, а перенос осуществляется автоматически</span></li>
+    <li><samp class="sin">pre-wrap</samp> - <span style="white-space:pre-wrap;">в содержимом сохраняются все    пробелы    и переносы, а строки превышающие ширину поля вывода текста, автоматически переносятся</span></li>
+    <li><samp class="sin">inherit</samp> - наследование родительского значения</li>
+  </ul>
 
-<div class="item">
-	<div class="item2"><pre><code>white-space: pre;</code></pre></div>
-	<span class="lsin">pre</span> - 
-	<span>текст выводится с учетом всех переносов и</span>
-	<br><span style="white-space:pre;">п     ро  б    е <br>л   о          в</span>
-</div>
+	<div class="no mt20">В Firefox для <samp class="teg">textarea</samp> значения <samp class="sin">normal, nowrap</samp>, и <samp class="sin">pre</samp> воспринимаются как <samp class="sin">pre-wrap</samp>.</div>
 
-<div class="item">
-	<div class="item2"><pre><code>white-space: pre-line;</code></pre></div>
-	<span class="lsin">pre-line</span> - 
-	<span style="white-space:pre-line;text-align:justify;">в выводимом тексте все "дополнительные" пробелы не учитываются, а перенос осуществляется автоматически</span>
-</div>
+  <table class="tb t2 t1c m0a mt40 th1 th2">
+    <caption>Перенос текста и пробелы при разных значениях white-space</caption> 
+    <tbody>
+      <tr><th>Значение</th><th>Перенос текста</th><th>Пробелы</th></tr>
+      <tr><td>normal</td><td>Переносится</td><td>Не учитываются</td></tr>
+      <tr><td>nowrap</td><td>Не переносится</td><td>Не учитываются</td></tr>
+      <tr><td>pre</td><td>Не переносится</td><td>Учитываются</td></tr> 
+      <tr><td>pre-line</td><td>Переносится</td><td>Не учитываются</td></tr> 
+      <tr><td>pre-wrap</td><td>Переносится</td><td>Учитываются</td></tr>
+    </tbody>
+  </table>
 
-
-<div class="item">
-	<div class="item2"><pre><code>white-space: pre-wrap;</code></pre></div>
-	<span class="lsin">pre-wrap</span> - 
-	<span style="white-space:pre-wrap;">в содержимом сохраняются все    пробелы    и переносы, а строки превышающие ширину поля вывода текста, автоматически переносятся</span>
-</div>
-
-
-<div class="item">
-	<div class="item2"><pre><code>white-space: inherit;</code></pre></div>
-	<span class="lsin">inherit</span> - 
-	<span style="white-space:inherit;">наследование родительского значения</span>
-</div>
-
-
-<div class="item">
-	<p>Браузер <samp class="sin">IE</samp> до версии <b>7.0</b> включительно <b>не поддерживает</b> значения <samp class="sin">pre-line</samp> и <samp class="sin">pre-wrap</samp>. Для <samp class="red">&lt;textarea></samp> значения <samp class="sin">normal</samp> и <samp class="sin">pre</samp> ведут себя как <samp class="sin">pre-wrap</samp>, а значение <samp class="sin">nowrap</samp> ведёт себя как <samp class="sin">pre-line</samp>.</p>
-
-	<p class="mt20">Opera до версии <b>9.5</b> не поддерживает значение <samp class="sin">pre-line</samp>. Для <samp class="red">&lt;textarea></samp> значения <samp class="sin">normal</samp> и <samp class="sin">pre</samp> ведут себя как <samp class="sin">pre-wrap</samp>, а значение <samp class="sin">nowrap</samp> ведет себя как <samp class="sin">pre-line</samp>.</p>
-
-	<p class="mt20">В Firefox для <samp class="red">&lt;textarea></samp> значения <samp class="sin">normal, nowrap</samp>, и <samp class="sin">pre</samp> воспринимаются как <samp class="sin">pre-wrap</samp>.</p>
 </div>
 </body>
 </html>

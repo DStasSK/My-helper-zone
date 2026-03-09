@@ -14,7 +14,8 @@
 <h2 class="sin"><samp>color</samp></h2>
 	<p>CSS свойство <samp class="sin">color</samp> определяет цвет текста элемента. Значения свойства, заданное как <samp class="lsin">transparent</samp>, устанавливает прозрачный цвет.</p>
 	<p>Цвет в стилях можно задавать разными способами: по <a href="#c16" class="sin tdu">шестнадцатеричному значению</a>, по <a href="../color.html" class="sin tdu">названию</a>, в формате <a href="#rgb" class="sin tdu">RGB</a>, <a href="#rgba" class="sin tdu">RGBA</a>, <a href="#hsl" class="sin tdu">HSL</a>, <a href="#hsla" class="sin tdu">HSLA</a>.</p>
-	<pre class="item2"><code>div {<br>  color:#000;  /* черный текст */<br>}</code></pre>
+
+	<pre class="item2"><code>div {<br>  color: #000;             /* черный цвет текста */<br>  color: rgb(0, 0, 0);<br>  color: rgba(0, 0, 0, 1);<br>  color: hsl(0, 0, 0);<br>  color: hsla(0, 0, 0, 1);<br>}</code></pre>
 </div>
 
 
@@ -22,8 +23,8 @@
 <h2 class="sin"><samp>currentColor</samp></h2>
 	<p>Ключевое слово <samp class="sin">currentColor</samp> соответствует значению свойства <samp class="sin">color</samp> для текущего элемента. Это позволяет использовать значение цвета для свойств, которые не получают его по умолчанию. Например можно установить цвет тени  у блока.</p>
 	<style>
-		.cc1{background:#f0f0f0; color:#3b4d81; padding:10px; border:1px solid; transition:1s;
-			border-radius:5px; box-shadow:0 0 5px currentColor;} /* Параметры тени - currentColor*/
+		.cc1{background:#f0f0f0; color:#3b4d81; padding:10px; border:1px solid; transition:1s; margin:20px 0; border-radius:5px;
+    box-shadow:0 0 5px currentColor;} /* Параметры тени - currentColor*/
 		.cc1:hover {color: #009d4b;}
 	</style>
 	<div class="item2 cc1">
@@ -36,7 +37,7 @@
 <div class="item" id="c16">
 <h2 class="sin"><a href="#">По шестнадцатеричному значению</a></h2>
 	<p>Цвета задаются числами в шестнадцатеричном коде. Шестнадцатеричная система, в отличие от десятичной системы, базируется, как следует из её названия, на числе 16. Цифры будут следующие: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Цифры от 10 до 15 заменены латинскими буквами. Числа больше 15 в шестнадцатеричной системе образуются объединением двух чисел в одно. Например, числу <b>255</b> в десятичной системе соответствует число <b>FF</b> в шестнадцатеричной системе.</p>
-	<p>Чтобы не возникало путаницы в определении системы счисления, перед шестнадцатеричным числом ставят символ решетки <samp class="red">#</samp>, например <b>#666999</b>.</p>
+	<p>Чтобы не возникало путаницы в определении системы счисления, перед шестнадцатеричным числом ставят символ решетки <samp class="red">#</samp>, например <b>#336699</b>.</p>
 
 	<p>Каждый из трёх цветов — красный, зелёный и синий — может принимать значения от <samp class="sin">00</samp> до <samp class="sin">FF</samp>. Таким образом, обозначение цвета разбивается на три составляющие <samp class="lsin">#rrggbb</samp>, где первые два символа отмечают красную компоненту цвета, два средних — зелёную, а два последних — синюю.</p>
 	<p>Допускается использовать сокращенную форму вида <samp class="lsin">#rgb</samp>, где каждый символ следует удваивать. Так, запись <samp class="lsin">#fe0</samp> следует расценивать как <samp class="lsin">#ffee00</samp>.</p>

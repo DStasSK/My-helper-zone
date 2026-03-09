@@ -9,17 +9,6 @@
 
 <style type="text/css">
 	.ls{letter-spacing:4px;}
-
-	.container{display:table;overflow:hidden;margin:10px auto;}
-	.container .part{float:left;}
-	.box{width:200px;height:100px;margin:0px auto;}
-	.gold{background-color:gold;}
-	.orange{background-color:orange;}
-	.chocolate{background-color:chocolate;}
-
-	.content-field {overflow:hidden;margin:0px auto;max-width:600px;}
-	.text-box {width:30%; float:left; padding:10px; margin-top:15px;
-		margin-right:15px; background-color:#fC0; border:1px solid #333;}
 </style>
 </head>
 <body>
@@ -27,32 +16,56 @@
 
 <div class="item">
 <h2 class="sin">CSS свойство <samp>float</samp></h2>
-	<p>Свойство <samp class="sin">float</samp> задаёт обтекание элементов, устанавливаемое его параметрами.</p>
-	<pre class="item2"><code>div {<br>  float: left;<br>  float: right;<br>  float: none;<br>}</code></pre>
-	<samp class="lsin">left</samp> – устанавливает обтекание по левому краю
-	<br><samp class="lsin">right</samp> – устанавливает обтекание по правому краю
-	<br><samp class="lsin">none</samp> – отменяет обтекание элемента
+	<p>Свойство <samp class="sin">float</samp> oпределяет, по какой стороне будет выравниваться элемент, при этом остальные элементы будут обтекать его с других сторон. Когда значение свойства <samp class="sin">float</samp> равно <samp class="lsin">none</samp>, элемент выводится на странице как обычно, при этом допускается, что одна строка обтекающего текста может быть на той же линии, что и сам элемент. Применяется ко всем элементам (за исключением абсолютно позиционированных).</p>
+
+	<pre class="item2 mt20"><code>div {<br>  float: left;<br>  float: right;<br>  float: none;<br>}</code></pre>
+	<ul class="list mb40">
+		<li><samp class="lsin">left</samp> – устанавливает обтекание по левому краю</li>
+		<li><samp class="lsin">right</samp> – устанавливает обтекание по правому краю</li>
+		<li><samp class="lsin">none</samp> – отменяет обтекание элемента (значение по умолчанию)</li>
+	</ul>
+
+	<div>К обтекаемым элементам автоматически применяется <samp class="sin dib">display:<span class="lsin">block</span></samp> и они в основном будут вести себя как блоки. При этом ширина элемента равна его содержимому плюс значения свойств padding, border и margin. В этом отношении элемент ведёт себя как строчно-блочный.</div>
+	<ul class="list">
+		<li>можно установить определённую высоту и ширину;</li>
+		<li>если высота не установлена, высотой элемента является <samp class="sin dib">line-height</samp>;</li>
+		<li>если применяется <samp class="sin">width:<span class="lsin">100%</span></samp>, то будет выглядеть как блочный элемент.</li>
+	</ul>
+
 </div>
+
 
 
 <div class="item" id="clear">
 <h2 class="sin">CSS свойство <samp>clear</samp></h2>
 	<p>Свойство <samp class="sin">clear</samp> устанавливает, с какой стороны элемента будет запрещено его обтекание остальными элементами. В случае если установлено обтекание, какого либо элемента с помощью свойства <samp class="sin">float</samp>, то параметр <samp class="sin">clear</samp> отменяет его действие для выбранных сторон.</p>
-	<pre class="item2"><code>div {<br>  clear: both;<br>  clear: left;<br>  clear: right;<br>  clear: none;<br>}</code></pre>
-	<samp class="lsin">both;</samp> – отмена обтекания элемента с правого и левого края одновременно
-	<br><samp class="lsin">left;</samp> – отмена обтекания по левому краю элемента
-	<br><samp class="lsin">right;</samp> – отмена обтекания по правой стороне элемента
-	<br><samp class="lsin">none;</samp> – отмена действия свойства clear
+
+	<pre class="item2 mt20"><code>div {<br>  clear: both;<br>  clear: left;<br>  clear: right;<br>  clear: none;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="lsin">both</samp> – отмена обтекания элемента с правого и левого края одновременно</li>
+		<li><samp class="lsin">left</samp> – отмена обтекания по левому краю элемента</li>
+		<li><samp class="lsin">right</samp> – отмена обтекания по правой стороне элемента</li>
+		<li><samp class="lsin">none</samp> – отмена действия свойства <samp class="sin">clear</samp></li>
+	</ul>
+
+
 </div>
 
 
 
 <div class="item">
-	<p>Чтобы отменить действие обтекания, свойство <samp class="sin">clear</samp> надо добавлять к элементу, идущему после элемента с <samp class="sin">float</samp>. Обычно вводят универсальный класс, к примеру, <samp class="red">clearfix</samp> и вставляют пустой <samp class="sin"><<samp class="red">div</samp> class="<samp class="lsin">cleаrfix</samp>"></samp> с этим классом.</p>
+<h2 class="sin">Очистка <samp>float</samp>.</h2>
+	<p>Действие <samp class="sin">float</samp> может продолжаться и за пределами родителя, если высота обтекаемого элемента превышает высоту родителя. Чтобы отменить дейсвие <samp class="sin">float</samp> можно воспользоваться одним из способов:</p>
 
-	<p>Частое включение пустого элемента <samp><<samp class="red">div</samp>></samp> со свойством <samp class="sin">clear</samp> захламляет код, особенно при активном использовании свойства <samp class="sin">float</samp>. Логично перенести всё в стили, избавившись от лишних элементов. Для этого используется псевдоэлементом <samp class="lsin">:after</samp>, который в комбинации со свойством <samp class="sin">content</samp> добавляет пустой текст после содержимого элемента. К такому тексту можно применить стилевые свойства, в частности <samp class="sin">clear</samp>.</p>
+	<ul class="list mb40">
+		<li>использование <samp class="sin">overflow</samp> со значением <samp class="lsin">auto</samp>, <samp class="lsin">scroll</samp> или <samp class="lsin">hidden</samp> на родителе элементов с <samp class="sin">float</samp>.</li>
+		<li>добавлять к элементу, идущему после элемента с <samp class="sin">float</samp> свойство <samp class="sin">clear:<span class="lsin">both</span></samp>.</li>
+		<li>добавить к родителю псевдоэлемент <samp class="pur">::after</samp> со свойством <samp class="sin">clear:<span class="lsin">both</span></samp>.</li>
+	</ul>
 
-	<pre class="item2 br0"><span class="sin">.clearfix</span>:after {<br>  content: "";     <span class="grey">/* Генерируем пустой элемент */</span><br>  clear: both;     <span class="grey">/* Отменяем обтекание*/</span><br>  display: block;} <span class="grey">/* Блочный элемент */</span></pre>
+	<p>Обычно вводят универсальный класс, к примеру, <samp class="pur">clearfix</samp> и вставляют пустой <samp class="sin"><<samp class="red">div</samp> class="<samp class="lsin">cleаrfix</samp>"></samp> с этим классом. Но частое включение пустого элемента <samp><<samp class="red">div</samp>></samp> со свойством <samp class="sin">clear</samp> захламляет код, особенно при активном использовании свойства <samp class="sin">float</samp>. Логично перенести всё в стили, избавившись от лишних элементов. Для этого используется псевдоэлементом <samp class="lsin">:after</samp>, который в комбинации со свойством <samp class="sin">content</samp> добавляет пустой текст после содержимого элемента. К такому тексту можно применить стилевые свойства, в частности <samp class="sin">clear</samp>.</p>
+
+	<pre class="item2"><code><span class="pur">.clearfix</span>::after {<br>  content: "";     /* Генерируем пустой элемент */<br>  clear: both;     /* Отменяем обтекание*/<br>  display: block;<br>}</code></pre>
 
 	<p>Вместо значения <samp class="lsin">block</samp> у <samp class="sin">display</samp> иногда вставляют значение <samp class="lsin">table</samp>, но смысл это не меняет, так же как и набор других возможных свойств. Их задача - создать невидимый блок, который будет отменять действие <samp class="sin">float</samp> у вышестоящих элементов.</p>
 
@@ -60,33 +73,37 @@
 </div>
 
 
-<div class="item"><!-- float -->
-	<p>Плавающие элементы (для которых задано свойство <samp class="sin">float</samp>) изымаются из нормального потока и родительский контейнер больше не видит их высоту, поэтому и элемент <samp class="red">&lt;header></samp> и элемент внутри него с классом <samp class="sin">.container</samp> схлопнулись. Чтобы исправить эту ситуацию, воспользуемся очисткой потока для элемента с классом <samp class="sin">.container</samp>:</p>
-
-	<pre class="item2"><code>.container:after {<br>   content: "";<br>   display: table;<br>   clear: both;<br>}</code></pre>
-
-	<p>Высота блока-контейнера <samp class="red">ul</samp> становится равной нулю. Чтобы решить эту проблему, добавляем для <samp class="red">ul <samp class="lsin">{overflow: hidden;}</samp></samp>, расширяя его и позволяя ему таким образом содержать плавающие элементы.</p>
-</div>
-
 
 <div class="item">
 	<h3 class="sin">Примеры использования <samp>float</samp></h3>
+	<style>
+		.container {display:table; overflow:hidden; margin:10px auto;}
+		.container-item {float:left;}
+		.box {width:200px; height:100px;}
+		.gold {background-color:gold;}
+		.orange {background-color:orange;}
+		.chocolate {background-color:chocolate;}
+	</style>
 	<div class="container mt20">
-		<div class="part"><div class="box chocolate">&nbsp;</div></div>
-		<div class="part"><div class="box orange">&nbsp;</div></div>
-		<div class="part"><div class="box gold">&nbsp;</div></div>
+		<div class="container-item"><div class="box chocolate">&nbsp;</div></div>
+		<div class="container-item"><div class="box orange">&nbsp;</div></div>
+		<div class="container-item"><div class="box gold">&nbsp;</div></div>
 	</div>
 	<div class="item2">
 		<samp class="red ls">HTML</samp>
-		<pre><code>&lt;div class="container"&gt;<br>  &lt;div class="part"&gt;&lt;div class="box chocolate"&gt;&nbsp;&lt;/div&gt;&lt;/div&gt;<br>  &lt;div class="part"&gt;&lt;div class="box orange"&gt;&nbsp;&lt;/div&gt;&lt;/div&gt;<br>  &lt;div class="part"&gt;&lt;div class="box gold"&gt;&nbsp;&lt;/div&gt;&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+		<pre><code>&lt;div class="container"&gt;<br>  &lt;div class="container-item"&gt;&lt;div class="box chocolate"&gt;&nbsp;&lt;/div&gt;&lt;/div&gt;<br>  &lt;div class="container-item"&gt;&lt;div class="box orange"&gt;&nbsp;&lt;/div&gt;&lt;/div&gt;<br>  &lt;div class="container-item"&gt;&lt;div class="box gold"&gt;&nbsp;&lt;/div&gt;&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
 		<br><samp class="red ls">CSS</samp>
-		<pre><code>.container {display:table; overflow:hidden; margin:10px auto;}<br>.container .part {float:left;}<br>.box {width:200px; height:100px; margin:0px auto;}<br>.gold {background-color:gold;}<br>.orange {background-color:orange;}<br>.chocolate {background-color:chocolate;}</code></pre>
+		<pre><code>.container {display:table; overflow:hidden;}<br>.container-item {float:left;}<br>.box {width:200px; height:100px;}<br>.gold {background-color:gold;}<br>.orange {background-color:orange;}<br>.chocolate {background-color:chocolate;}</code></pre>
 	</div>
 </div>
 
 
 
 <div class="item">
+	<style>
+		.content-field {overflow:hidden;margin:0px auto;max-width:600px;}
+		.text-box {width:30%; float:left; padding:10px; margin-right:10px; background-color:#fC0; border:1px solid #333; color:#333;}
+	</style>
 	<div class="content-field">
 		<div class="text-box">Cras molestie id lectus sit amet laoreet. Aenean posuere pulvinar vestibulum.</div>
 		<p>Sed eleifend nulla a posuere efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec cursus euismod odio, et tincidunt ipsum rhoncus vel. Mauris vehicula erat odio, non molestie metus rhoncus at. Aliquam sit amet dignissim erat. Phasellus rutrum pellentesque tortor, aliquet ornare lectus feugiat nec. Quisque hendrerit molestie eros, ac porttitor mi consectetur vel. Duis at tortor a enim tristique fermentum sit amet id velit.</p>
@@ -94,9 +111,9 @@
 
 	<div class="item2">
 		<samp class="red ls">HTML</samp>
-		<pre><code>&lt;div class="text-box"&gt;Cras molestie id lectus sit amet laoreet.<br>Aenean posuere pulvinar vestibulum.&lt;/div&gt;<br>&lt;p&gt;Sed eleifend nulla a posuere efficitur. Pellentesque habitant<br>morbi tristique senectus et netus et malesuada fames ac turpis<br>egestas.Donec cursus euismod odio, et tincidunt ipsum rhoncus<br>vel. Mauris vehicula erat odio, non molestie metus rhoncus at.<br>Aliquam sit amet dignissim erat. Phasellus rutrum pellentesque<br>tortor, aliquet ornare lectus feugiat nec. Quisque hendrerit <br>molestie eros, ac porttitor mi consectetur vel. Duis at tortor<br>a enim tristique fermentum sit amet id velit.&lt;/p&gt;</code></pre>
+		<pre><code>&lt;div class="content-field"><br>&lt;div class="text-box"&gt;Cras molestie id lectus...&lt;/div&gt;<br>&lt;p&gt;Sed eleifend nulla ... amet id velit.&lt;/p&gt;<br>&lt;/div></code></pre>
 		<br><samp class="red ls">CSS</samp>
-		<pre><code>.content-field {overflow:hidden; margin:0px auto; max-width:600px;}<br>.text-box {<br>  width:30%;<br>  float:left;<br>  padding:10px;<br>  margin-top:15px;<br>  margin-right:15px;<br>  background-color:#fC0;<br>  border:1px solid #333;<br>}</code></pre>
+		<pre><code>.content-field {overflow:hidden; margin:0px auto; max-width:600px;}<br>.text-box {<br>  width:30%;<br>  float:left;<br>  padding:10px;<br>  margin-right:10px;<br>}</code></pre>
 	</div>
 </div>
 </body>

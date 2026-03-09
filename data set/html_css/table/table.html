@@ -1,0 +1,485 @@
+<!DOCTYPE html><html><head><title>Тэг - table</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- автораскравка тегов внутри pre-code -->
+	<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+	<script src="../../highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+  <style>
+    .tt6 td{padding:2px 8px;
+      border-top:1px solid transparent !important;
+      border-bottom:1px solid transparent !important;}
+    .tt6 tr:last-child td{border-bottom:1px solid #aaa !important; padding-bottom:8px;}
+  </style>
+</head>
+<body>
+
+<h2 class="sin">Тэг <samp class="teg sin">table</samp></h2>
+	<!-- оглавление -->
+		<ul class="ogl mb20">
+			<li><a href="#table_layout">Структура таблицы</a></li>
+			<li><a href="#table_at">Атрибуты тега <samp class="teg sin">table</samp></a></li>
+			<li><a href="#table_css"><samp>CSS</samp> параметры тега <samp class="teg sin">table</samp></a></li>
+			<li><a href="#example_1">Пример таблицы с тегами <samp>&lt;colgroup></samp> и <samp>&lt;col></samp></a></li>
+			<li><a href="#example_2">Пример таблицы №2 (<samp>bgcolor</samp>)</a></li>
+			<li><a href="#example_3">Пример таблицы №3 (меню)</a></li>
+			<li><a href="#example_4">Пример таблицы №4 (Фиксированные заголовок и первая колонка на CSS)</a></li>
+		</ul><!-- /оглавление -->
+
+
+<div class="item anp">
+	<p>Элемент <samp class="teg sin">table</samp> (от англ. <i>table</i> — таблица) служит контейнером для элементов, определяющих содержимое таблицы. Любая таблица состоит из строк и ячеек, которые задаются с помощью элементов <samp class="teg sin">tr</samp> и <samp class="teg sin">td</samp>.</p>
+
+  <p class="mt20 mb0">Внутри <samp class="teg sin">table</samp></samp> допустимо использовать следующие элементы таблицы:</p>
+    <div class="ogl2 ogl21 mb20 mt0">
+    <span><a href="caption.html">&lt;caption></a></span>
+    <span><a href="colgroup.html">&lt;colgroup></a></span>
+    <span><a href="col.html">&lt;col></a></span>
+    <span><a href="thead.html">&lt;thead></a></span>
+    <span><a href="tbody.html">&lt;tbody></a></span>
+    <span><a href="tfoot.html">&lt;tfoot></a></span>
+    <span><a href="tr.html" title="">&lt;tr></a></span>
+    <span><a href="th.html" title="">&lt;th></a></span>
+    <span><a href="td.html">&lt;td></a></span>
+    <span></span>
+  </div>
+
+  <p>Каждая таблица состоит из строк и ячеек, минимально может быть одна строка и одна ячейка. Кроме того, таблице можно задать заголовок - <samp class="teg sin">caption</samp>, который кратко описывает её содержимое, указать «шапку» таблицы <samp class="teg sin">thead</samp>, «тело» таблицы - <samp class="teg sin">tbody</samp> и «подвал» таблицы - <samp class="teg sin">tfoot</samp>. Они нужны для стилевого или смыслового выделения части данных.</p>
+
+	<p>Элементов <samp class="teg sin">tbody</samp> может быть один или несколько. Например, в некоторых строках имеются объединения ячеек по вертикали и чтобы строки при наведении на них курсора мыши выделялись как требуется, их объединяют в <samp class="teg sin">tbody</samp> согласно требуемой логике. Если элемент таблицы <samp class="teg sin">tbody</samp> не указан, то браузер сам его создаст. Это стоит учитывать при оформлении стилей.</p>
+</div>
+
+
+
+<div class="item" id="table_layout">
+<h3 class="sin"><a href="#" title="к оглавлению">Структура таблицы</a></h3>
+	<style>
+		.t0{background:#fff; color:#333}
+		.t0 p {background:transparent; color:#333}
+		.item2 div {background:transparent}
+	</style>
+	<table class="th1 th2 t0 m0a tb t2 t5 tt6">
+		<tr><th>HTML 4</th><th>HTML 5</th></tr>
+		<tr>
+			<td width="50%"><p>В HTML4 элемент <samp class="teg sin">tfoot</samp> должен располагаться перед элементом <samp class="teg sin">tbody</samp>, но после <samp class="teg sin">thead</samp>, если они присутствуют, при этом содержимое <samp class="teg sin">tfoot</samp> отображается внизу таблицы.</p></td>
+			<td><p>В HTML5 <samp class="teg sin">tfoot</samp> идёт после всех элементов <samp class="teg sin">caption</samp>, <samp class="teg sin">colgroup</samp>, <samp class="teg sin">thead</samp>, <samp class="teg sin">tbody</samp>.</p></td></tr>
+		<tr>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;caption>…&lt;/caption><br>   &lt;thead>…&lt;/thead><br>   &lt;tfoot>…&lt;/tfoot><br>   &lt;tbody>…&lt;/tbody><br>&lt;/table></code></pre></td>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;caption>…&lt;/caption><br>   &lt;thead>…&lt;/thead><br>   &lt;tbody>…&lt;/tbody><br>   &lt;tfoot>…&lt;/tfoot><br>&lt;/table></code></pre></td></tr>
+		<tr>
+			<td><p class="mt20">Если элементов <samp class="teg sin">thead</samp> и <samp class="teg sin">tbody</samp> в таблице нет, тогда <samp class="teg sin">tfoot</samp> идёт после открывающего тега <samp class="teg sin">table</samp> или после необязательного элемента <samp class="teg sin">caption</samp>.</p></td>
+			<td><p class="mt20">Если указанных элементов в таблице нет, тогда <samp class="teg sin">tfoot</samp> идёт после всех <samp class="teg sin">tr</samp>.</p></td></tr>
+		<tr>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;caption>…&lt;/caption><br>   &lt;tfoot>…&lt;/tfoot><br>   &lt;tr>&lt;td>…&lt;/td>&lt;/tr><br>&lt;/table></code></pre></td>
+			<td><pre class="item2"><code>&lt;table><br>   &lt;tr>&lt;td>…&lt;/td>&lt;/tr><br>   &lt;tr>&lt;td>…&lt;/td>&lt;/tr><br>   &lt;tfoot>…&lt;/tfoot><br>&lt;/table></code></pre></td></tr>
+	</table>
+
+
+	<!-- пример -->
+		<style>
+			.tttt table{border:10px outset #999; border-collapse:separate;}
+			.tttt td, .tttt th {border:1px solid #333;}
+		</style>
+		<div class="tttt mt20">
+			<table align="center" border="10">
+				<caption>Таблица</caption>
+				<thead><tr><th>Столбец 1</th><th>Столбец 2</th></tr></thead>
+				<tbody>
+					<tr><td>Строка 1 яч.1</td><td>Строка 1 яч.2</td></tr>
+					<tr><td>Строка 2 яч.1</td><td>Строка 2 яч.2</td></tr>
+				</tbody>
+				<tfoot><tr><td colspan="2">Две ячейки в одной</td></tr></tfoot>
+			</table>
+		</div>
+		<div class="item2">
+			<samp class="point red bold" onclick='item211.classList.toggle("hiden");'>HTML</samp>
+			<div class="hiden" id="item211" onclick="event.stopPropagation()">
+				<pre><code>&lt;table border="10" align="center"><br><br>   &lt;!-- заголовок тaблицы (может отсутствовать) --><br>   &lt;caption>Таблица&lt;/caption><br><br>   &lt;!-- шапка тaблицы (может отсутствовать) --><br>   &lt;thead><br>      &lt;tr>&lt;th>Столбец 1&lt;/th>&lt;th>Столбец 2&lt;/th>&lt;/tr><br>   &lt;/thead><br><br>   &lt;!-- тело таблицы; тег &lt;tbody> может отсутствовать --><br>   &lt;tbody><br>      &lt;tr>&lt;td>Строка 1 яч.1&lt;/td>&lt;td>Строка 1 яч.2&lt;/td>&lt;/tr><br>      &lt;tr>&lt;td>Строка 2 яч.1&lt;/td>&lt;td>Строка 2 яч.2&lt;/td>&lt;/tr><br>   &lt;/tbody><br><br>   &lt;!-- подвал таблицы (может отсутствовать) --><br>   &lt;tfoot><br>      &lt;tr>&lt;td colspan="2">две ячейки в одной&lt;/td>&lt;/tr><br>   &lt;/tfoot><br><br>&lt;/table></code></pre>
+				<span class="yel" onclick='item211.classList.toggle("hiden");'>свернуть</span>
+			</div>
+		</div>
+</div>
+
+
+
+<div class="item">
+<h3 class="sin" id="table_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;table></samp></a></h3>
+	<div class="no mb10">Все данные атрибуты устарели, вместо них необходимо использовать стили.</div>
+	<div class="ogl2 ogl22">
+		<span><a href="#table_align" title="Определяет выравнивание таблицы. ">align</a></span>
+		<span><a href="#table_background" title="Задаёт фоновый рисунок в таблице. ">background</a></span>
+		<span><a href="#table_bgcolor" title="Цвет фона таблицы. ">bgcolor</a></span>
+		<span><a href="#table_border" title="Толщина рамки в пикселях. ">border</a></span>
+		<span><a href="#table_bordercolor" title="Цвет рамки. ">bordercolor</a></span>
+		<span><a href="#table_cellpadding" title="Отступ от рамки до содержимого ячейки. ">cellpadding</a></span>
+		<span><a href="#table_cellspacing" title="Расстояние между ячеек. ">cellspacing</a></span>
+		<span><a href="#table_cols" title="Число колонок в таблице. ">cols</a></span>
+		<span><a href="#table_frame" title="Сообщает браузеру, как отображать границы вокруг таблицы. ">frame</a></span>
+		<span><a href="#table_rules" title="Сообщает браузеру, где отображать границы между ячеек. ">rules</a></span>
+		<span><a href="#table_summary" title="Краткое описание таблицы. ">summary</a></span>
+		<span><a href="#table_width" title="Ширина таблицы.">width</a></span>
+		<span></span>
+	</div>
+
+	<table class="t1 t2 tb">
+		<tr><td id="table_align"><a href="#table_at">align</a></td>
+			<td>Задаёт выравнивание таблицы по краю окна браузера.
+			<pre class="item2"><code>&lt;table align="left | center | right">...&lt;/table></code></pre>
+			Для выравнивания таблицы по центру через СSS, ей надо указать ширину через стилевое свойство <samp class="sin">width</samp> и задать <samp class="sin">margin</samp> со значением <samp class="lsin">auto</samp>.</td></tr>
+		<tr><td id="table_background"><a href="#table_at">background</a></td>
+			<td>Определяет изображение, которое будет использоваться в качестве фонового рисунка таблицы. В отличие от обычных изображений, для фона не устанавливаются ширина и высота, и он всегда отображается в натуральную величину с масштабом 100%. Если рисунок по размеру меньше ширины или высоты таблицы, то картинка повторяется по горизонтали вправо и вниз, выстраиваясь, как мозаика.
+			<pre class="item2"><code>&lt;table background="адрес">...&lt;/table></code></pre>
+			Чтобы задать фоновую картинку для таблицы, используют стилевое свойство <samp class="sin"><a href="../background/background.html">background</a></samp>.
+			<pre class="item2"><code>table {background: url()}</code></pre></td></tr>
+		<tr><td id="table_bgcolor"><a href="#table_at">bgcolor</a></td>
+			<td>Цвет фона таблицы.
+			<pre class="item2"><code>&lt;table bgcolor="цвет">...&lt;/table></code></pre>
+			Для изменения цвета фона таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../background/background-color.html">background-color</a></samp>.
+			<pre class="item2"><code>table {background: цвет}</code></pre></td></tr>
+		<tr><td id="table_border"><a href="#table_at">border</a></td>
+			<td>Устанавливает толщину рамки таблицы в пикселях. По умолчанию рамка изображается трёхмерной, но если используется атрибут <samp class="sin">bordercolor</samp> элемента <samp class="teg sin">table</samp>, то вид рамки меняется в зависимости от браузера. Когда в <samp class="teg sin">table</samp> используется атрибут <samp class="sin">border</samp> без значений (<samp class="red">&lt;table <samp class="sin">border</samp>></samp>), то браузер отображает рамку толщиной один пиксель. Значение по умолчанию - 0.
+			<pre class="item2"><code>&lt;table border="число">...&lt;/table></code></pre>
+			Для изменения толщины и цвета рамки таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../border & outline.html">border</a></samp>.</td></tr>
+		<tr><td id="table_bordercolor"><a href="#table_at">bordercolor</a></td>
+			<td>Устанавливает цвет рамки таблицы. Рамка обычно рисуется как трёхмерная, добавление атрибутов <samp class="sin">bordercolor</samp> и <samp class="sin">border</samp> к элементу <samp class="teg sin">table</samp> создаёт однотонную линию.
+			<pre class="item2"><code>&lt;table bordercolor="цвет">...&lt;/table></code></pre>
+			Для изменения цвета рамки таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../border & outline.html">border</a></samp></td></tr>
+		<tr><td id="table_cellpadding"><a href="#table_at">cellpadding</a></td>
+			<td>Отступ от рамки до содержимого ячейки. Этот атрибут добавляет пустое пространство к ячейке, увеличивая тем самым её размеры. При отсутствии границ особого значения этот атрибут не имеет, но может помочь, когда требуется установить пустой промежуток между ячеек. Значения - любое целое значение в пикселях или процентах.
+			<pre class="item2"><code>&lt;table cellpadding="число">...&lt;/table></code></pre>
+			В CSS вместо атрибута <samp class="sin">cellpadding</samp> используйте стилевое свойство <samp class="sin">padding</samp>, добавляя его к селектору <samp class="red">td</samp> или <samp class="red">th</samp>.
+			<pre class="item2"><code>td {padding:10px;}</code></pre></td></tr>
+		<tr><td id="table_cellspacing"><a href="#table_at">cellspacing</a></td>
+			<td>Задаёт расстояние в пикселях между внешними границами ячеек. Если установлен атрибут <samp class="sin">border</samp>, толщина границы принимается в расчёт.
+			<pre class="item2"><code>&lt;table cellspacing="число">...&lt;/table></code></pre>
+			<p>Значение по умолчанию: 0 (когда нет атрибута <samp class="sin">border</samp>); 2 (когда атрибут <samp class="sin">border</samp> установлен).</p>
+			Вместо атрибута <samp class="sin">cellspacing</samp> используйте стилевое свойство <samp class="sin">border-spacing</samp>, добавляя его к селектору <samp class="red">table</samp>.
+			<pre class="item2"><code>table {border:1px solid #333; border-spacing: 5px}</code></pre></td></tr>
+		<tr><td id="table_cols"><a href="#table_at">cols</a></td>
+			<td>Задаёт количество столбцов в таблице, помогая браузеру в подготовке к её отображению. Без этого атрибута таблица будет показана только после того, как всё содержимое таблицы будет загружено в браузер и проанализировано. Использование атрибута <samp class="sin">cols</samp> позволяет несколько ускорить отображение содержимого таблицы.
+			<pre class="item2"><code>&lt;table cols="число">...&lt;/table></code></pre></td></tr>
+		<tr><td id="table_frame"><a href="#table_at">frame</a></td>
+			<td>Сообщает браузеру, как отображать границы вокруг таблицы. Толщина границы указывается с помощью атрибута <samp class="sin">border</samp> элемента <samp class="teg sin">table</samp>.
+			<pre class="item2"><code>&lt;table frame="<abbr title="Не отрисовывать границы.">void</abbr> | <abbr title="Граница вокруг таблицы. Значение по кмолчанию.">border</abbr> | <abbr title="Граница по верхнему краю таблицы.">above</abbr> | <abbr title="Граница снизу таблицы.">below</abbr> |<br>              <abbr title="Добавить только горизонтальные границы (сверху и снизу таблицы).">hsides</abbr> | <abbr title="Рисовать только вертикальные границы (слева и справа от таблицы).">vsides</abbr> | <abbr title="Граница только на правой стороне таблицы.">rhs</abbr> | <abbr title="Граница только на левой стороне таблицы.">lhs</abbr>">...&lt;/table></code></pre>
+			Для отображения границ на разных сторонах таблицы воспользуйтесь стилевыми свойствами <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp>, <samp class="sin">border-top</samp> и <samp class="sin">border-bottom</samp>, которые задают границы, соответственно, слева, справа, сверху и снизу таблицы.</td></tr>
+		<tr><td id="table_rules"><a href="#table_at">rules</a></td>
+			<td>Сообщает браузеру, где отображать границы между ячеек. Цвет границы указывается с помощью атрибута <samp class="sin">bordercolor</samp>, толщина внешней рамки таблицы — через атрибут <samp class="sin">border</samp>. По умолчанию рамка рисуется вокруг каждой ячейки, образуя тем самым сетку; толщина таких линий составляет <b>1px</b>.
+			<pre class="item2"><code>&lt;table rules="<abbr title="Линия рисуется вокруг каждой ячейки таблицы.">all</abbr> | <abbr title="Линия отображается между группами, которые образуются элементами &lt;thead>, &lt;tfoot>, &lt;tbody>, &lt;colgroup> или &lt;col>.">groups</abbr> | <abbr title="Линия отображается между колонок.">cols</abbr> | <abbr title="Все границы скрываются.">none</abbr> | <abbr title="Граница рисуется между строк таблицы, созданных через элемент &lt;tr>.">rows</abbr>">...&lt;/table></code></pre>
+			Для отображения границ на разных сторонах ячеек воспользуйтесь стилевыми свойствами <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp>, <samp class="sin">border-top</samp> и <samp class="sin">border-bottom</samp>, которые задают границы, соответственно, слева, справа, сверху и снизу ячеек таблицы.</td></tr>
+		<tr><td id="table_summary"><a href="#table_at">summary</a></td>
+			<td>Краткое описание таблицы. В отличие от элемента <samp class="red">&lt;caption></samp> содержимое <samp class="sin">summary</samp> никак не отображается и в браузере не выводится, однако может использоваться поисковыми системами или речевыми браузерами.
+			<pre class="item2"><code>&lt;table summary="текст">...&lt;/table></code></pre></td></tr>
+		<tr><td id="table_width"><a href="#table_at">width</a></td>
+			<td>Ширина таблицы в пикселях или процентах. Если общая ширина содержимого превышает указанную ширину таблицы, то браузер будет пытаться «втиснуться» в заданные размеры за счёт форматирования текста. В случае, когда это невозможно, например, в таблице находятся изображения, атрибут <samp class="sin">width</samp> будет проигнорирован, и новая ширина таблицы будет вычислена на основе её содержимого.
+			<pre class="item2"><code>&lt;table width="значение">...&lt;/table></code></pre>
+			Для изменения ширины таблицы через стили воспользуйтесь свойством <samp class="sin">width</samp>, применяя его к селектору <samp class="red">table</samp>.</td></tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="table_css">
+<h2 class="sin"><a href="#" title="к оглавлению"><samp>CSS</samp> параметры</a></h2>
+	<p>Для тэгов структуры таблицы доступны многие универсальные css атрибуты и события. Но также есть ряд специфичных свойств и их значений.</p>
+	<div class="ogl2 ogl21">
+		<span><a href="#border-collapse">border-collapse</a></span>
+		<span><a href="#border-spacing">border-spacing</a></span>
+		<span><a href="#table-layout">table-layout</a></span>
+		<span></span>
+	</div>
+
+  <div class="hr2 mt40"></div>
+
+	<p class="mt20"><samp class="red" id="border-collapse"><big><a href="#table_css">border-collapse (CSS)</a></big></samp></p>
+		<p>Применяется	к элементу <samp class="teg sin">table</samp> или к элементам, у которых свойство <samp class="sin">display</samp> установлено как <samp class="lsin">table</samp> или <samp class="lsin">inline-table</samp>. Свойство наследуется.</p>
+
+		<p>Устанавливает, как отображать границы вокруг ячеек таблицы. Это свойство играет роль, когда для ячеек установлена рамка, тогда в месте стыка ячеек получится линия двойной толщины. Значение <samp class="lsin">collapse</samp> заставляет браузер анализировать подобные места в таблице и убирать в ней двойные линии. При этом между ячейками остается только одна граница, одновременно принадлежащая обеим ячейкам. То же правило соблюдается и для внешних границ, когда вокруг самой таблицы добавляется рамка.</p>
+
+		<div style="margin:15px 0 5px;" class="bold">Значения:</div>
+		<table class="t1 t3" style="margin:0px -5px 15px -5px;">
+			<tr><td width="90px">collapse</td>
+				<td>Линия между ячейками отображается только одна, также игнорируется значение атрибута <samp class="sin">cellspacing</samp>.</td></tr>
+			<tr><td>separate</td>
+				<td>Вокруг каждой ячейки отображается своя собственная рамка, в местах соприкосновения ячеек показываются сразу две линии. Значение по умолчанию.</td></tr>
+			<tr><td>inherit</td>
+				<td>Наследует значение родителя.</td></tr>
+		</table>
+		<pre class="item2 br0"><code>table {border-collapse: collapse;}</code></pre>
+
+		<div class="no">Internet Explorer до версии 8.0 не отменяет действие атрибута <samp class="sin">cellspacing</samp>.</div>
+
+		<div class="no">Eсли у таблицы стоит свойство <samp class="sin">border-collapse</samp>, а у ячеек свойство <samp class="sin">position</samp> установлено в <samp class="lsin">relative</samp> и они раскрашены, то IE, Edge и Firefox могут не прорисовывать границы. В таких случаях к ячейкам надо добавлять "<samp class="sin">background-clip: </samp><samp class="lsin">padding-box;</samp>".</div>
+
+	  <div class="hr2 mt20"></div>
+
+
+	<p class="mt20"><samp class="red" id="border-spacing"><big><a href="#table_css">border-spacing (CSS)</a></big></samp></p>
+		<p>Применяется	к элементу <samp class="teg sin">table</samp> или к элементам, у которых свойство <samp class="sin">display</samp> установлено как <samp class="lsin">table</samp> или <samp class="lsin">inline-table</samp>. Свойство наследуется.</p>
+
+		<p>Задает расстояние между границами ячеек в таблице. <samp class="sin">border-spacing</samp> не работает в случае, когда для таблицы установлено свойство <samp class="sin">border-collapse</samp> со значением <samp class="lsin">collapse</samp>.</p>
+
+		<p>Одно значение устанавливает одновременно расстояние по вертикали и горизонтали между границами ячеек. Если значений два, то первое определяет горизонтальное расстояние, а второе — вертикальное.</p>
+
+		<pre class="item2"><code>table {<br>  border-collapse: separate;<br>  border-spacing: 10px 5px;<br>}</code></pre>
+
+		<div class="no">Если к элементу <samp class="red">&lt;table></samp> добавлен атрибут <samp class="sin">cellspacing</samp>, то при использовании стилевого свойства <samp class="sin">border-spacing</samp> атрибут <samp class="sin">cellspacing</samp> не принимается во внимание и его значение игнорируется.</div>
+	  <div class="hr2 mt20"></div>
+
+
+	<p class="mt20"><samp class="red" id="table-layout"><big><a href="#table_css">table-layout (CSS)</a></big></samp></p>
+		<p>Определяет, как браузер должен вычислять ширину ячеек таблицы, основываясь на ее содержимом. Применяется	к тегу <samp class="teg sin">table</samp> или к элементу, у которого значение <samp class="sin">display</samp> установлено как <samp class="lsin">table</samp> или <samp class="lsin">inline-table</samp>.</p>
+
+		<pre class="item2 br0"><code>table {<br>  table-layout: fixed; /* Фиксированная ширина ячеек */<br>  width: 100%;<br>  }</code></pre>
+
+		<div style="margin:15px 0 5px;" class="bold">Значения:</div>
+		<table style="margin:0 -5px 5px" class="t1 t3">
+			<tr><td width="70px">auto</td>
+				<td>Браузер загружает всю таблицу, анализирует ее для определения размеров ячеек и только после этого отображает.</td></tr>
+			<tr ><td>fixed</td>
+				<td>Ширина колонок в этом случае определяется либо с помощью тега <samp class="sin">&lt;col></samp>, либо вычисляется на основе первой строки. Если данные о форматировании первой строки таблицы по каким-либо причинам получить невозможно, в этом случае таблица делится на колонки равной ширины. При использовании этого значения, содержимое, которое не помещается в ячейку указанной ширины, будет «обрезано» либо наложено поверх ячейки. Это зависит от используемого браузера, но в любом случае ширина ячейки меняться не будет. Для корректной работы этого значения обязательно должна быть задана ширина таблицы.</td></tr>
+			<tr><td>inherit</td>
+				<td>Наследует значение родителя.</td></tr>
+		</table>
+</div>
+
+
+
+<!-- example 1 -->
+<div class="item">
+<h3 class="sin" id="example_1"><a href="#" title="к оглавлению">Пример таблицы с тегами <samp>&lt;colgroup></samp> и <samp>&lt;col></samp></a></h3>
+	<style type="text/css">
+		.col1 table {margin:20px auto; color:#333}
+		.col1 td, .col1 th {text-align:center; padding:5px 5px;}
+	</style>
+	<div class="col1">
+		<table border="1" cellspacing="0">
+			<colgroup>
+				<col span="2" style="background:Khaki;"><!-- цвет фона для первых 2 столбцов -->
+				<col style="background-color:LightCyan;"><!-- цвет фона для следующего (1) столбца -->
+			</colgroup>
+			<tr><th>№ п/п</th><th>Наименование</th><th>Цена, руб.</th></tr>
+			<tr><td>1</td><td>Карандаш цветной</td><td>20,00</td></tr>
+			<tr><td>2</td><td>Линейка 20 см</td><td>30,00</td></tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item611.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="item611" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="col1"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table border="1" cellspacing="0"><br>    &lt;colgroup><br>      &lt;!-- цвет фона для первых 2 столбцов --><br>      &lt;col span="2" style="background:Khaki;"><br>      &lt;!-- цвет фона для следующего (1) столбца --><br>      &lt;col style="background-color:LightCyan;"><br>    &lt;/colgroup><br>    &lt;tr>&lt;th>№ п/п&lt;/th>&lt;th>Наименование&lt;/th>&lt;th>Цена, руб.&lt;/th>&lt;/tr><br>    &lt;tr>&lt;td>1&lt;/td>&lt;td>Карандаш цветной&lt;/td>&lt;td>20,00&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>2&lt;/td>&lt;td>Линейка 20 см&lt;/td>&lt;td>30,00&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;/div></code></pre>
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>.col1 table {margin:20px auto;}<br>.col1 td, .col1 th {text-align:center; padding:5px 5px;}</pre>
+			<a href="#example_1"><span class="yel" onclick='item611.classList.toggle("hiden");'>свернуть</span></a>
+		</div>
+	</div>
+</div><!-- /example 1 -->
+
+
+
+<!-- example 2 -->
+<div class="item">
+<h3 class="sin" id="example_2"><a href="#" title="к оглавлению">Пример таблицы №2 <samp>(bgcolor)</samp></a></h3>
+	<style type="text/css">
+		.ext2 table{margin:10px auto; border-collapse:collapse; overflow:hidden;}
+		.ext2 td{border:1px solid black; width:50px; height:50px; position:relative; padding:0;}
+		.ext2 td:before{
+			content:""; position: absolute; left:5px; bottom:5px;
+			width:40px; height:40px; background:blue; border-radius:50%;}
+		.ext2 td:hover:before{content:""; background:black;}
+		.ext2 td:hover{background:orange;}
+		.ext2 tr:hover{background:yellow;}
+		.ext2 td:after{
+			content:""; position:absolute; left:0; z-index:-1;
+			width:50px; height:600px; bottom:-300px;}
+		.ext2 td:hover:after{background:yellow;}
+	</style>
+	<div class="ext2">
+		<table>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item311.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="item311" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="ext2"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;div></code></pre>
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>.ext2 table {margin: 10px auto;<br>  border-collapse: collapse;<br>  overflow: hidden;}<br>.ext2 td {<br>  border: 1px solid black;<br>  width: 50px;<br>  height: 50px;<br>  position: relative;<br>  padding: 0;}<br>.ext2 td:before {<br>  content: "";<br>  position: absolute;<br>  width: 40px;<br>  height: 40px;<br>  background: blue;<br>  border-radius: 50%;<br>  left: 5px;<br>  bottom: 5px;}<br>.ext2 td:hover:before {content: ""; background: black;}<br>.ext2 td:hover {background: orange;}<br>.ext2 tr:hover {background: yellow;}<br>.ext2 td:after {<br>  content: "";<br>  position: absolute;<br>  width: 50px;<br>  height: 600px;<br>  bottom: -300px;<br>  left: 0;<br>  z-index: -1;}<br>.ext2 td:hover:after {background: yellow;}</pre>
+			<a href="#example_2"><span class="yel" onclick='item311.classList.toggle("hiden");'>свернуть</span></a>
+		</div>
+	</div>
+</div><!-- /example 2 -->
+
+
+
+<!-- example 3 -->
+<div class="item">
+<h3 class="sin" id="example_3"><a href="#" title="к оглавлению">Пример таблицы №3 <samp>(меню)</samp></a></h3>
+	<style type="text/css">
+		.prim2 table {
+			border-collapse:collapse; line-height:1.1; color:#0C213B;
+			font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			background:radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);}
+		.prim2 caption {
+			font-family:annabelle, cursive; font-weight:bold; font-size:2em; color:#F3CD26;
+			padding:10px; text-shadow:1px 1px 0 rgba(0,0,0,.3);}
+		.prim2 caption:before, .prim2 caption:after {content: "\274B"; color: #A9E2CC; margin: 0 10px;}
+		.prim2 th {padding:10px; border:1px solid #A9E2CC;}
+		.prim2 td {font-size:0.8em; padding:5px 7px; border:1px solid #A9E2CC;}
+		.first {font-size:1em; font-weight:bold; text-align:center;}
+	</style>
+	<div class="prim2">
+		<table>
+			<caption>Меню ресторана "Ромашка"</caption>
+			<tr>
+				<th rowspan="2" class="first">Кухня</th><th colspan="2">Холодные блюда</th>
+				<th colspan="2">Горячие блюда</th><th rowspan="2">Десерты</th>
+			</tr>
+			<tr>
+				<td class="first">Салаты</td><td class="first">Закуски</td>
+				<td class="first">Первые блюда</td><td class="first">Вторые блюда</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="first">Русская</td><td>Винегрет</td><td>Язык с хреном</td>
+				<td>Щи с квашеной капустой</td><td>Вареники с картошкой</td><td>Печеные яблоки с медом</td>
+			</tr>
+			<tr>
+				<td>Оливье</td><td>Студень говяжий</td><td>Рассольник домашний</td>
+				<td>Караси запеченые в сметане</td><td>Блинчатый пирог</td>
+			</tr>
+			<tr>
+				<td>Сельдь под "шубой"</td><td>Судак заливной</td><td>Мясная солянка</td>
+				<td>Котлеты "Пожарские"</td><td>Пирожное "Картошка"</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="first">Испанская</td><td>Севиче из гребешков</td><td>Эмпанадас</td>
+				<td>Хлебный суп с чесноком</td><td>Паэлья с морепродуктами</td><td>Чуррос</td>
+			</tr>
+			<tr>
+				<td>Тимбал из авокадо и тунца</td><td>Ахотомате</td><td>Астурийская фабада</td>
+				<td>Свиное раксо</td><td>Альмойшавена</td>
+			</tr>
+			<tr>
+				<td>Фасоль с ветчиной</td><td>Чанфайна</td><td>Рыбный суп с манными клецками </td>
+				<td>Тортилья картофельная</td><td>Бунуэлос</td>
+			</tr>
+			<tr>
+				<td rowspan="3" class="first">Французская</td><td>Вогезский салат</td><td>Рийет из курицы</td>
+				<td>Баклажанный крем-суп "Ренуар"</td><td>Картофель огратен</td><td>Бриоши</td>
+			</tr>
+			<tr>
+				<td>Салат "Панзанелла"</td><td>Делисьез из сыра</td><td>Французский тыквенный суп</td>
+				<td>Гратин из птицы</td><td>Лигурийский лимонный пирог</td>
+			</tr>
+			<tr>
+				<td>Тар-тар</td><td>Маринованный лосось</td><td>Суп "Конти"</td>
+				<td>Тартифлетт</td><td>Саварен "Триумф"</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item511.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="item511" onclick="event.stopPropagation()">
+			<pre><code>&lt;div class="prim2"> &lt;!-- div с классом локализует теги td, tr, table --><br>&lt;table><br>  &lt;caption>Меню ресторана "Ромашка"&lt;/caption><br>  &lt;tr><br>    &lt;th rowspan="2" class="first">Кухня&lt;/th><br>    &lt;th colspan="2">Холодные блюда&lt;/th><br>    &lt;th colspan="2">Горячие блюда&lt;/th><br>    &lt;th rowspan="2">Десерты&lt;/th><br>  &lt;/tr><br>  &lt;tr>. . .&lt;/tr><br>&lt;/table></code></pre>
+
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>.prim2 table {<br>  border-collapse: collapse;<br>  line-height: 1.1;<br>  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;<br>  background:  radial-gradient(farthest-corner at 50% 50%, white, #DCECF8);<br>  color: #0C213B;}<br>.prim2 caption {<br>  font-family: annabelle, cursive;<br>  font-weight: bold;<br>  font-size: 2em;<br>  padding: 10px;<br>  color: #F3CD26;<br>  text-shadow: 1px 1px 0 rgba(0,0,0,.3);}<br>.prim2 caption:before, .prim2 caption:after {<br>  content: "\274B";<br>  color: #A9E2CC;<br>  margin: 0 10px;}<br>.prim2 th {padding: 10px; border: 1px solid #A9E2CC;}<br>.prim2 td {<br>  font-size: 0.8em;<br>  padding: 5px 7px;<br>  border: 1px solid #A9E2CC;}<br>.first {font-size: 1em; font-weight: bold; text-align: center;}</code></pre>
+			<a href="#example_3"><span class="yel" onclick='item511.classList.toggle("hiden");'>свернуть</span></a>
+		</div>
+	</div>
+</div><!-- /example 3 -->
+
+
+<!-- example 4 -->
+<div class="item">
+<h3 class="sin" id="example_4"><a href="#" title="к оглавлению">Фиксированные заголовок и первая колонка таблицы на CSS</a></h3>
+	<style type="text/css">
+    .example_4{overflow:auto; width:100%; height:50vh; padding:0; color:#333}
+
+    .table_scroll {border-collapse:separate; border-spacing:0; max-width:none; border:none;}
+
+    .table_scroll th{text-align:center; padding:1px 80px; height:40px; line-height:30px;
+      border:solid #000; border-width:0 1px 1px 0; box-shadow:inset 0 1px 0 #000;
+      position:sticky; top:0; background:#eee;}
+
+    .table_scroll tr th:nth-child(1){left:0; z-index:3; box-shadow:inset 1px 1px 0 #000;}
+
+    .table_scroll td{height:100px; text-align:center; vertical-align:middle; background:#fff;
+      border:solid #000; border-width:0 1px 1px 0;}
+    .table_scroll tr td:nth-child(1){position:sticky; left:0; background: yellow;
+      box-shadow:inset 1px 0 0 #000;}
+
+    /* опционально */
+    .table_scroll tr th:last-child{box-shadow:inset -1px 1px 0 #000;}
+    .table_scroll tr td:last-child{box-shadow:inset -1px 0 0 #000;}
+	</style>
+	<div class="example_4">
+		<table class="table_scroll">
+			<tr><th> </th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+			<tr><td>00</td><td>01</td><td>02</td><td>03</td><td>04</td><td>05</td><td>06</td></tr>
+			<tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+			<tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr>
+			<tr><td>30</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td></tr>
+			<tr><td>40</td><td>41</td><td>42</td><td>43</td><td>44</td><td>45</td><td>46</td></tr>
+			<tr><td>50</td><td>51</td><td>52</td><td>53</td><td>54</td><td>55</td><td>56</td></tr>
+			<tr><td>60</td><td>61</td><td>62</td><td>63</td><td>64</td><td>65</td><td>66</td></tr>
+		</table>
+	</div>
+
+	<div class="item2">
+		<samp class="point red bold" onclick='item61.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden ls-05" id="item61" onclick="event.stopPropagation()">
+			<pre><code>&lt;table class="table_scroll"><br>    . . .<br>&lt;/table></code></pre>
+
+			<br><samp class="red bold">CSS</samp>
+			<pre><code>&lt;style>
+.table_scroll {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table_scroll th {
+  background: #eee;
+  border: solid #000;
+  border-width: 0 1px 1px 0;
+  box-shadow: inset 0 1px 0 #000;
+}
+.table_scroll td {
+  border: solid #000;
+  border-width: 0 1px 1px 0;
+}
+
+/* оформление залипания */
+.table_scroll th {
+  position: sticky;
+  top: 0;
+}
+.table_scroll tr th:nth-child(1) {
+  left: 0;
+  z-index: 3;
+  box-shadow: inset 1px 1px 0 #000;
+}
+.table_scroll tr td:nth-child(1) {
+  position: sticky;
+  left: 0;
+  box-shadow: inset 1px 0 0 #000;
+}
+
+/* опционально */
+.table_scroll tr th:last-child {box-shadow: inset -1px 1px 0 #000;}
+.table_scroll tr td:last-child {box-shadow: inset -1px 0 0 #000;}
+&lt;/style></code></pre>
+			<a href="#example_4"><span class="yel" onclick='item61.classList.toggle("hiden");'>свернуть</span></a>
+		</div>
+	</div>
+</div><!-- /example 4 -->
+
+</body>
+</html>

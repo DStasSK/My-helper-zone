@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><title>CSS свойство place-self</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>place-self</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">place-self</samp> — производит выравнивание элемента макета сетки внутри ячейки по оси столбца и по оси строки grid-контенера. Является сокращенным свойством для свойств <a href="../../FlexBox/align-self.html" class="sin tdu dib"><samp>align-self</samp></a> и <a href="justify-self.html" class="sin tdu dib"><samp>justify-self</samp></a>.</p>
+
+	<pre class="item2 css mt20 mb20 ls-1"><code>.item {<br>   place-self: align-self | justify-self;<br>}<br><br>/*   align-self: auto | stretch | center | start | end | baseline | initial | inherit; */<br>/* justify-self: auto | stretch | center | start | end | baseline | initial | inherit; */</code></pre>
+
+	<div class="no no1">Допускается указывать одно значение, при этом значение используется для обоих свойств.</div>
+
+	<div class="no">Eсли для элемента установлено свойство <samp class="sin">margin</samp> со значением <samp class="lsin">auto</samp>, то свойство <samp class="sin">place-self</samp> будет игнорировано.</div>
+
+
+	<style>
+		.t1 td:nth-child(2) {width:90px}
+		.box {display:grid; width:180px; height:80px; margin:0 auto; outline:1px solid #ddd;
+			line-height:16px; box-sizing:border-box; background-color:#ddd; text-align:center;
+			font-size:14px; color:#fff; grid:auto / auto auto auto; gap:1px;}
+		.box div {background-color:rgb(100, 84, 195); padding:2px 2px;}
+
+		.pss {place-self:stretch; background:red !important}
+		.psst {place-self:start; background:red !important}
+		.pse {place-self:end; background:red !important}
+		.psb {place-self:baseline; background:red !important}
+
+		.pssc {place-self:stretch center; background:red !important}
+		.pses {place-self:end stretch; background:red !important}
+		.psest {place-self:end start; background:red !important}
+		.psste {place-self:start end; background:red !important}
+	</style>
+	<table class="t1 t3 th1 tb">
+		<tr><th>Значение</th><th>Положение</th></tr>
+		<tr><td><pre><code>.el{<br>   place-self: stretch;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="pss">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+		<tr><td><pre><code>.el{<br>   place-self: start;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="psst">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+		<tr><td><pre><code>.el{<br>   place-self: end;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="pse">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+		<tr><td><pre><code>.el{<br>   place-self: baseline;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="psb">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+
+		<tr><td><pre><code>.el{<br>   place-self: stretch center;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="pssc">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+		<tr><td><pre><code>.el{<br>   place-self: end stretch;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="pses">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+		<tr><td><pre><code>.el{<br>   place-self: end start;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="psest">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+		<tr><td><pre><code>.el{<br>   place-self: start end;<br>}</code></pre></td>
+			<td><div class="box"><div>1</div><div class="psste">2</div><div>3</div><div>4</div><div>5</div><div>6</div></div></td>
+		</tr>
+
+	</table>
+
+</div>
+</body></html>

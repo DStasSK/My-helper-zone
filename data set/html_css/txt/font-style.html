@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>CSS свойство - font-style</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+  
+</head>
+<body>
+
+<h2 class="sin">CSS свойство - <samp>font-style</samp></h2>
+
+<div class="item">
+  <p>Свойство <samp class="sin">font-style</samp> определяет начертание шрифта — обычное, курсивное или наклонное. Когда для текста установлено курсивное или наклонное начертание, браузер обращается к системе для поиска подходящего шрифта. Если заданный шрифт не найден, браузер использует специальный алгоритм для имитации нужного вида текста. Значения свойства применяются ко всем элементам, наследуется, анимируется. Значение по умолчанию - normal.</p>
+  
+  <ul class="list mt30 mb30">
+    <li><samp class="sin">normal</samp> - обычное начертание текста.</li>
+    <li><samp class="sin">italic</samp> - курсивное начертание.</li>
+    <li><samp class="sin">oblique</samp> - наклонное начертание. Курсив и наклонный шрифт при всей их похожести не одно и то же. Курсив это специальный шрифт имитирующий рукописный, наклонный же образуется путём наклона обычных знаков вправо. В зависимости от шрифта вид наклонного начертания может совпадать с курсивным.</li>
+  </ul>
+
+  <pre class="item2"><code>.elem {<br>  font-style: normal;	/* <span style="font-style:normal">обычный текст</span> */<br>  font-style: italic;   /* <span style="font-style:italic">курсив</span> */<br>  font-style: oblique;  /* <span style="font-style:oblique">наклоняет буквы, не курсив</span> */<br>}</code></pre>
+</div>

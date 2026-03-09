@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>font-face</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+  .o7{opacity:.7}
+</style>
+</head>
+<body>
+
+<h1 class="sin"><span class="dib">@<samp>font-face</samp></span></h1>
+<div class="item">
+	<p>Правило CSS <span class="red dib">@<samp>font-face</samp></span> позволяет определить настройки шрифтов и указать шрифты, которые могут быть загружены либо с удалённого сервера, либо с компьютера пользователя. Это правило может использоваться не только на верхнем уровне CSS, но и внутри любого @-правила.</p>
+
+	<div class="no mt30 mb30">Правило <span class="red dib">@<samp>font-face</samp></span> не может быть объявлено внутри CSS-селектора.</div>
+
+	<pre class="item2 mt30"><code>@font-face {<br>  имя шрифта;           /* <samp class="sin dib o7">font-family: <samp class="lsin">myFont</samp></samp> */<br>  путь до шрифта;       /* <samp class="sin dib o7">src: url(<samp class="lsin">"адрес"</samp>)</samp> */<br>  параметры;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">имя шрифта</samp> - задается как строковый параметр свойства <samp class="sin dib">font-family:<samp class="lsin">myFont</samp></samp>; этот параметр требуется для того, чтобы правило <span class="red dib">@<samp>font-face</samp></span> было действительным.</li>
+		<li>
+			<samp class="sin">путь до шрифта</samp> - записывается в виде <samp class="sin dib">src:url(<samp class="lsin">"адрес"</samp>)</samp>, где адрес — относительный или абсолютный путь к файлу. Можно указать несколько значений через запятую.
+			<pre class="item2"><code>@font-face {<br>  src: local("имя шрифта"), url("путь_1") format("формат"), url("путь_2");<br>}</code></pre>
+			<ul class="list mb10">
+				<li><samp class="sin">путь</samp> - путь к файлу шрифта</li>
+				<li><samp class="sin">формат</samp> - формат шрифта: <span class="ls-05"><samp class="lsin">woff</samp>, <samp class="lsin">woff2</samp>, <samp class="lsin">truetype</samp>, <samp class="lsin">opentype</samp>, <samp class="lsin">embedded-opentype</samp>, <samp class="lsin">svg</samp></span>.</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="no no1 mb20 mt20">Для каждого набора шрифта используются свои настройки <span class="red dib">@<samp>font-face</samp></span></div>
+
+	<p>Если в свойстве <samp class="sin">src</samp> была объявлена функция <samp class="sin">local()</samp>, с названием шрифта, то будет производиться поиск на компьютере пользователя, и в случае обнаружения будет использован этот шрифт. Иначе будет скачан и использован шрифт, указанный в функции <samp class="sin">url()</samp>. Используется первый найденный шрифт - последующие игнорируются.</p>
+
+	<p class="mt20">Веб шрифты попадают под правило ограничения домена (файлы шрифтов должны находиться на том же самом домене, что и использующая их страница), если это ограничение не снимается с помощью <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/CORS"><samp class="sin tdu">CORS</samp></a>.</p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;style><br>   @font-face {<br>     font-family: myPersonalFont;              /* Имя шрифта */<br>     src: local("myPersonalFont"),             /* проверка локального шрифта */<br>          url(./font/myPersonalFont.ttf) format("ttf"),<br>          url(./font/myPersonalFont.woff) format("woff");<br>     font-weight: 400;<br>     font-style: normal;<br>   }<br>   P {<br>     font-family: myPersonalFont, Arial;<br>   }<br>&lt;/style></code></pre>
+
+	<p>Внутри правила <span class="red dib">@<samp>font-face</samp></span> помимо ссылки на файл шрифта также могут находиться свойства для изменения параметров отображения самого шрифта:</p>
+	<ul class="list mb20">
+		<li><a href="font-display.html"><samp class="sin tdu dib">font-display</samp></a></li>
+		<li><a href="font-stretch.html"><samp class="sin tdu dib">font-stretch</samp></a></li>
+		<li><a href="font-style.html"><samp class="sin tdu dib">font-style</samp></a></li>
+		<li><a href="font-weight.html"><samp class="sin tdu dib">font-weight</samp></a></li>
+		<li><a href="font-variant.html"><samp class="sin tdu dib">font-variant</samp></a></li>
+		<li><a href="unicode-range.html"><samp class="sin tdu dib">unicode-range</samp></a></li>
+		<li><samp class="sin dib" title="Определяет метрику подъема для шрифта">ascent-override</samp></li>
+		<li><samp class="sin dib" title="Определяет метрику спуска для шрифта">descent-override</samp></li>
+	</ul>
+
+  <div class="hr30 mt30 mb30"></div>
+
+	<p>Opera в некоторых случаях может не показывать на веб-странице текст выбранным шрифтом, заменяя его стандартным. Причём для локальных документов всё работает корректно. Это происходит в тех случаях, когда имя пользователя в Windows написано кириллицей.</p>
+
+  <div class="hr30 mt30"></div>
+
+	<div class="no mt40">Браузер Internet Explorer до версии 9 поддерживает только шрифты формата EOT (Embedded OpenType).</div>
+	<pre class="item2 ls-1 mt20"><code class="css">@font-face {<br>  font-family:Righteous;                           /* Имя шрифта */<br>  src:url(fonts/Righteous/Righteous-Regular.ttf);<br>}<br>h1 {<br>  font-family: 'Righteous', cursive;<br>}<br><br><br>/* Работающий вариант подключения шрифта для всех версий браузеров */<br>@font-face {<br>  font-family: Pompadur;<br>  src: url(./font/pompadur.eot);                  /* Для IE5+ */<br>  src: local(pompadur), url(./font/pompadur.ttf); /* Для остальных браузеров */<br> }</code></pre>
+
+</div>
+
+</body>
+</html>

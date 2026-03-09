@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>Псевдокласс defined</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:defined</samp></h2>
+<div class="item">
+  <div>Псевдокласс <samp class="sin">:defined</samp> применяется к элементу, когда он определён.</div>
+
+	<pre class="item2 mt20 mb20"><code>.elem:defined {   }</code></pre>
+
+  <div>К таким элементам относятся следующие:</div>
+  <ul class="list">
+    <li>стандартные HTML-элементы, такие как <samp class="teg">p</samp>, <samp class="teg">h1</samp>, <samp class="teg">header</samp> и др.;</li>
+    <li>зарегистрированные пользовательские элементы.</li>
+  </ul>
+
+  <div class="no no1">Для обратного выбора — элементов, которые не были определены, можно использовать селектор <samp class="sin">:not(:defined)</samp>.</div>
+
+  <div class="no">IE не поддерживает данный элемент.</div>
+</div>
+</body></html>

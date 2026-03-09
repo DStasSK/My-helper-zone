@@ -1,0 +1,77 @@
+<!DOCTYPE HTML><html><head><title>&lt;canvas></title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.tt1 {min-width:500px; border-collapse:collapse;}
+	.tt1 td{vertical-align:top; padding:5px;}
+</style></head>
+<body>
+
+<h2 class="sin"><samp class="t-html5">&lt;canvas></samp></h2>
+<div class="item">
+	<p>Элемент <samp class="red">&lt;canvas></samp> (от англ. canvas — холст, полотно) создаёт область, в которой при помощи JavaScript можно рисовать разные объекты, выводить изображения, трансформировать их и менять свойства. При помощи <samp class="red">&lt;canvas></samp> можно создавать рисунки, анимацию, игры и др.</p>
+	<pre class="item2"><code>&lt;canvas id="идентификатор" width="200" height="150"><br>...<br>&lt;/canvas></code></pre>
+	<div>по умолчанию <samp class="sin">height - <samp class="lsin">150px</samp>, width - <samp class="lsin">300px</samp>.</samp></div>
+</div>
+
+<div class="item">
+<h3 class="sin">Пример</h3>
+	<table class="tt1"><tbody>
+		<tr><td>
+			<pre><code>&lt;canvas id="smile" width="200" height="200"><br>  &lt;p>Ваш браузер не поддерживает рисование.&lt;/p><br>&lt;/canvas>
+				<br>&lt;script><br>  var drawingCanvas = document.getElementById('smile');<br>  if(drawingCanvas && drawingCanvas.getContext) {<br>    var context = drawingCanvas.getContext('2d');
+				<br>    // Рисуем окружность<br>    context.strokeStyle = "#000";<br>    context.fillStyle = "#fc0";<br>    context.beginPath();<br>    context.arc(100,100,50,0,Math.PI*2,true);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();
+				<br>    // Рисуем левый глаз<br>    context.fillStyle = "#fff";<br>    context.beginPath();<br>    context.arc(84,90,8,0,Math.PI*2,true);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();
+				<br>    // Рисуем правый глаз<br>    context.beginPath();<br>    context.arc(116,90,8,0,Math.PI*2,true);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();
+				<br>    // Рисуем рот<br>    context.beginPath();<br>    context.moveTo(70,115);<br>    context.quadraticCurveTo(100,130,130,115);<br>    context.quadraticCurveTo(100,150,70,115);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();<br>  }<br>&lt;/script></code></pre></td>
+			<td><canvas id="smile" width="200" height="200">
+					<p>Ваш браузер не поддерживает рисование.</p>
+				</canvas>
+				<script> 
+					var drawingCanvas = document.getElementById('smile');
+					if(drawingCanvas && drawingCanvas.getContext) {
+						var context = drawingCanvas.getContext('2d');
+						// Рисуем окружность
+						context.strokeStyle = "#000";
+						context.fillStyle = "#fc0";
+						context.beginPath();
+						context.arc(100,100,50,0,Math.PI*2,true);
+						context.closePath();
+						context.stroke();
+						context.fill();
+						// Рисуем левый глаз
+						context.fillStyle = "#fff";
+						context.beginPath();
+						context.arc(84,90,8,0,Math.PI*2,true);
+						context.closePath();
+						context.stroke();
+						context.fill();
+						// Рисуем правый глаз
+						context.beginPath();
+						context.arc(116,90,8,0,Math.PI*2,true);
+						context.closePath();
+						context.stroke();
+						context.fill();
+						// Рисуем рот
+						context.beginPath();
+						context.moveTo(70,115);
+						context.quadraticCurveTo(100,130,130,115);
+						context.quadraticCurveTo(100,150,70,115);
+						context.closePath();
+						context.stroke();
+						context.fill();
+					}
+				</script></td></tr>
+	</tbody></table>
+
+</div>
+
+</body>
+</html>

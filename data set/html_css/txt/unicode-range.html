@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>CSS свойство - unicode-range</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS свойство - <samp>unicode-range</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">unicode-range</samp> - это настройка для правила <a href="./font-face.html" class="sin tdu dib">@font-face</a>, устанавливающий какой диапазон символов будет загружен из шрифта. А в некоторых случаях помогает управлять загрузкой шрифтов на странице. В качестве значений выступает номер или диапазон номеров символов шрифта. Так же допускается указывать несколько значений через запятую.</p>
+
+  <pre class="item2 ls-05 mt20"><code>@font-face {<br>  font-family: Pompadur;<br>  src: local(pompadur), url(/font/pompadur.ttf);<br>  unicode-range: U+0400;               /* одиночный символ юникода U+0400 */<br>  unicode-range: U+26;                 /* символ амперсанда - & */<br>  unicode-range: U+0400-04FF;          /* диапазон символов */<br>  unicode-range: U+4??;                /* символы из всего диапазона */<br>  unicode-range: U+0400-04FF, U+4??;   /* несколько значений */<br>  unicode-range: U+0030-0039;          /* диапазон символов - только цифры */<br>  unicode-range: U+0410-044F;          /* диапазон кириллицы */<br>}</code></pre>
+
+
+  <fieldset class="prm mt30">
+    <legend></legend>
+    <div class="mb30">С помощью <samp class="sin">unicode-range</samp> и нескольких правил <samp class="sin">@font-face</samp> можно скомпоновать из нескольких шрифтов один. Встретив текст с font-family: 'WebFont', браузер отобразит все цифры шрифтом Arial Black, а кириллический текст шрифтом Georgia.</div>
+
+    <style>
+      @font-face{
+        font-family:'WebFont';          /* своё название шрифта */
+        src:local('Arial Black');       /* указываем нужный шрифт */
+        unicode-range:U+0030-0039;}     /* только цифры */
+
+      @font-face{
+        font-family:'WebFont';
+        src:local('Georgia');
+        unicode-range:U+0410-044F;}     /* диапазон кириллицы */
+
+      .example1{font-family:'WebFont'; font-size:24px;}
+    </style>
+    <div class="example1">1234567890 абвгдеёжз...</div>
+    <div class="item2">
+      <pre><code>&lt;div class="example1">1234567890 абвгдеёжз...&lt;/div></code></pre>
+      <pre><code><br>@font-face{<br>  font-family: 'WebFont';          /* своё название шрифта */<br>  src: local('Arial Black');       /* указываем нужный шрифт */<br>  unicode-range: U+0030-0039;}     /* только цифры */<br>  <br>@font-face{<br>  font-family: 'WebFont';<br>  src: local('Georgia');           /* указываем другой нужный шрифт */<br>  unicode-range: U+0410-044F;}     /* диапазон кириллицы */<br>  <br>.example1{font-family:'WebFont';}</code></pre>
+    </div>
+  </fieldset>
+
+
+  <fieldset class="prm mt30">
+    <legend></legend>
+    <div class="mb30">Полезен такой трюк будет, если в каком-то шрифте надо заменить неудачные символы(цифры, кавычки, скобки и пр.) на подходящие из другого. Пример замены знака амперсанда:</div>
+
+    <style>
+      @font-face {
+        font-family:'Ampersand';
+        src:local('Arial Black');
+        unicode-range:U+26;
+      }
+
+      .example2{font-family:'Ampersand', Arial, sans-serif;  letter-spacing:2px}
+    </style>
+    <div class="example2">abc & ifg</div>
+    <div class="item2">
+      <pre><code>&lt;div class="example2">abc & ifg&lt;/div></code></pre>
+      <pre><code><br>@font-face {<br>  font-family: 'Ampersand';<br>  src:local('Arial Black');<br>  unicode-range: U+26;<br>}<br><br>.example2{<br>  font-family: 'Ampersand', Arial, sans-serif;<br>}</code></pre>
+    </div>
+  </fieldset>
+</div>
+
+
+<div class="item">
+  <p>Еще одним важным преимуществом <samp class="sin">unciode-range</samp> является возможность управлять загрузкой шрифтов на странице. Например, у вас есть мультиязычный сайт с нестандартными шрифтами, и они должны работать для каждого языка.</p>
+  <p>Самое простое решение — добавить символы всех языков в один файл. Однако это сильно увеличит вес шрифта, а если на сайте используется несколько начертаний, то общий объем шрифтовых файлов может вырасти до неприличного. Решить эту проблему можно динамическим подключением css-файлов с <samp class="sin">font-face</samp> для каждого языка, либо использовать один файл стилей и <samp class="sin">unciode-range</samp>.</p>
+  <p>При рендеринге страницы браузер будет загружать файлы шрифтов только в том случае, если символы на странице будут попадать в указанные диапазоны для unicode-range. Получается довольно эффективный способ оптимизации загрузки.</p>
+
+  <pre class="item2"><code>/* cyrillic */<br>@font-face {<br>  font-family: 'Open Sans';<br>  src: url(opensans-cyr.woff2) format('woff2');<br>  font-weight: 400;<br>  font-style: normal;<br>  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;<br>}<br><br>/* greek */<br>@font-face {<br>  font-family: 'Open Sans';<br>  src: url(opensans-greek.woff2) format('woff2');<br>  font-weight: 400;<br>  font-style: normal;<br>  unicode-range: U+0370-03FF;<br>}<br><br>/* latin-ext */<br>@font-face {<br>  font-family: 'Open Sans';<br>  src: url(opensans-lat-ext.woff2) format('woff2');<br>  font-weight: 400;<br>  font-style: normal;<br>  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB,<br>                 U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;<br>}<br><br>/* latin */<br>@font-face {<br>  font-family: 'Open Sans';<br>  src: url(opensans-latin.woff2) format('woff2');<br>  font-weight: 400;<br>  font-style: normal;<br>  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6,<br>                 U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,<br>                 U+2212, U+2215, U+E0FF, U+EFFD, U+F000;<br>}</code></pre>
+
+</div>
+</body>
+</html>

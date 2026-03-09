@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><title>CSS cвойство animation-play-state</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>animation-play-state</samp></h2>
+
+<div class="item">
+	<p>CSS cвойство <samp class="sin">animation-play-state</samp> определяет, проигрывать анимацию или поставить её на паузу. Когда анимация снимается с паузы, она возобновляет работу с того момента где была остановлена, а не начинается снова с самого начала.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  animation-play-state: running | paused;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">running</samp> - проигрывать анимацию.</li>
+		<li><samp class="sin">paused</samp> - поставить анимацию на паузу.</li>
+	</ul>
+
+
+
+	<div class="mt40">В старом коде могут всртечаться различные префиксы:</div>
+	<pre class="item2"><code>.elem {<br>  -webkit-animation-play-state: paused;<br>     -moz-animation-play-state: paused;<br>       -o-animation-play-state: paused;<br>          animation-play-state: paused;<br>}</code></pre>
+</div>
+
+
+
+
+</body>
+</html>

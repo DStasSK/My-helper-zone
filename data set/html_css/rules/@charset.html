@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><title>@charset</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h1 class="sin"><span class="dib">@<samp>charset</samp></span></h1>
+
+<div class="item">
+	<p>Правило CSS <span class="red dib">@<samp>charset</samp></span> определяет кодировку символов, используемую в таблице стилей. Этот синтаксис полезен при использовании не-ASCII-символов в некоторых свойствах CSS, таких как <samp class="sin">content</samp> и при использовании символов национального алфавита. Хотя первым символом в <span class="red dib">@<samp>charset</samp></span> является символ <b class="red">@</b>, это не правило <samp class="pur">at</samp>.</p>
+
+	<div class="no no1">Правило CSS <span class="red dib">@<samp>charset</samp></span> - это определенная последовательность байтов, которая может быть размещена только в самом начале таблицы стилей. Никакие другие символы, кроме метки порядка байтов <b>Unicode</b>, не допускаются перед ней. Он также не следует обычным правилам синтаксиса CSS, таким как использование кавычек или пробелов.</div>
+
+	<div>Для внешней таблицы стилей браузер последовательно просматривает следующие пункты для определения кодировки таблицы стилей, чем выше находится пункт, тем выше его приоритет:</div>
+	<ul class="list mt0 mb30">
+		<li>кодировка, которую отдает сервер.</li>
+		<li>правило <span class="red dib">@<samp>charset</samp></span> из начала css файла.</li>
+		<li>атрибут <a href="../help/link.html#charset"><samp class="sin tdu">charset</samp></a> элемента <samp class="teg">link</samp> (устарелo, не используйте его).</li>
+		<li>если ни один из пунктов не найден - установит UTF-8.</li>
+	</ul>
+
+	<div>В css файле для русского языка обычно указывается кодировка <b>windows-1251</b> или <b>utf-8</b>. Значение кодировки обязательно должно быть взято в кавычки.</div>
+
+	<pre class="item2"><code>@charset "windows-1251";<br><br>body {<br>  font: 11pt Arial, Helvetica, sans-serif;<br>  margin: 0;<br>}<br><br>/* ... */</code></pre>
+
+	<div class="no">
+		<pre><code>@charset 'iso-8859-15';     /* ошибка - нужны двойные кавычки */<br>@charset  "UTF-8";          /* ошибка - лишний пробел перед значением */<br> @charset "UTF-8";          /* ошибка - лишний пробел перед правилом */<br>@charset UTF-8;             /* ошибка - нет двойных кавычек */</code></pre>
+	</div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>CSS cвойство box-decoration-break</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>box-decoration-break</samp>.</h2>
+<div class="item">
+	<p>Указывает, как оформлять фрагмент текста при его переносе на другую строку. Значение по умолчанию <samp class="lsin">slice</samp>, не наследуется, не анимируется. Работает только для следующих свойств: <samp class="sin">background, border, border-image, box-shadow, clip-path, margin, padding</samp>.</p>
+
+	<pre><code class="item2 mt20">div {<br>  box-decoration-break: slice | clone:<br>}</code></pre>
+	<table class="t1">
+		<tr><td>slice</td><td>Значение по умолчанию. Каждый фрагмент разрезается в месте переноса и никакие эффекты оформления на месте «разреза» не отображаются. В частности, граница не показывается, тень не выводится, радиус скругления работает только для всего блока целиком.</td></tr>
+		<tr><td>clone</td><td>Каждый фрагмент оформляется независимо. Ко всем фрагментам отдельно применяется рамка, тень, фон и др.</td></tr>
+	</table>
+
+	<div class="no no1 mt30" style="text-align:left">Старые версии браузеров Edge, Chrome, Opera, Safari поддерживают свойство <samp class="sin dib ls-1">-webkit-box-decoration-break</samp>.</div>
+
+	<div class="no">IE не поддерживает данное свойство.</div>
+
+	<table class="support mt30">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>130</span></td><!-- Edge -->
+			<td><span>130</span></td><!-- Chrome -->
+			<td><span>115</span></td><!-- Opera -->
+			<td><span>7</span></td><!-- Safari -->
+			<td><span>32</span></td><!-- FF -->
+			<td><span>4.4</span></td><!-- mobile-android -->
+			<td><span>32</span></td><!-- mobile-FF -->
+			<td><span>86</span></td><!-- mobile-opera -->
+			<td><span>7</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+
+
+
+</body>
+</html>

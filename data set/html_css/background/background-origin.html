@@ -9,43 +9,45 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-	.qitem3 {display:flex;justify-content:space-between;margin:0 -10px;}
-	.box{width:calc(33% - 20px);overflow:hidden;margin:0 10px;}
-	.bg{border:10px dashed #C90;}
-	.bg1{background:url(img/bg.jpg) no-repeat #957;background-size:100%;background-origin:padding-box;}
-	.bg2{background:url(img/bg.jpg) no-repeat #957;background-size:100%;background-origin:border-box;}
-	.bg3{background:url(img/bg.jpg) no-repeat #957;background-size:100%;background-origin:content-box;}
+	.qitem3 {display:flex; justify-content:space-between; margin:0 -10px;}
+	.box{width:calc(33% - 20px); overflow:hidden; margin:0 10px;}
+	.bg{border:10px dashed #C90; padding:15px; height:150px;}
+	.bg1{background:url(img/bg.jpg) no-repeat #957; background-size:100%; background-origin:padding-box;}
+	.bg2{background:url(img/bg.jpg) no-repeat #957; background-size:100%; background-origin:border-box;}
+	.bg3{background:url(img/bg.jpg) no-repeat #957; background-size:100%; background-origin:content-box;}
+  .box__elem{color:#fff; font-size:17px; margin-top:115px;}
 	</style>
 </head>
 <body>
 
 <h2 class="sin">background-origin</h2>
 <div class="item">
-	<p>У такого свойства как <span class="sin">background-origin</span> имеются параметры, которые определяют ту область позиционирования, где предполагается выводить фоновое изображение.</p>
-	<p>Стоит отметить, что если свойство <span class="sin">background-attachment</span> имеет параметр <span class="sin">fixed</span>, делающий фоновый рисунок неподвижным, свойство <span class="sin">background-origin</span> не возможно к применению.</p>
+	<p>Свойство <samp class="sin">background-origin</samp> определяет область позиционирования фонового рисунка. Это свойство не применяется, когда значение свойства <samp class="sin dib">background-attachment</samp> задано как <samp class="lsin">fixed</samp>.</p>
 
-	<pre class="item2"><code>background-origin: padding-box;<br>background-origin: border-box;<br>background-origin: content-box;</code></pre>
+	<pre class="item2 mt20 mb20"><code>.elem {<br>  background-origin: padding-box | border-box | content-box;<br>}</code></pre>
 
-	<p><span class="lsin">padding-box</span> – параметр задаёт позиционирование фона относительно края элемента при этом учитывается толщина границы и игнорируется padding. Данное значение для элемента задано по умолчанию.</p>
-	<p><span class="lsin">border-box</span> – с помощью данного параметра фоновое изображение также позиционируется от границы с игнорированием свойства padding, но при этом её линия перекрывает графический элемент.</p>
-	<p><span class="lsin">content-box</span> – это значение указывает на то, что позиция фонового изображения будет реализована относительно края границы, учитывая её толщину и самого элемента с учётом заданного поля padding.</p>
-</div>
+  <ul class="list">
+    <li><samp class="lsin">padding-box</samp> - значение по умолчанию, фон позиционируется относительно края элемента - до его границ.</li>
+    <li><samp class="lsin">border-box</samp> - фон позиционируется относительно границы, при этом линия границы перекрывает фон.</li>
+    <li><samp class="lsin">content-box</samp> - фон позиционируется относительно содержимого элемента - до падинга.</li>
+  </ul>
 
-<div class="item">
-	<div class="qitem3">
+  <div class="no no1 mt40 mb40">Если фон задан один, а значений <samp class="sin dib">background-origin</samp> несколько, то браузеры покажут разное поведение. Firefox и Opera используют первое значение, Chrome и Safari создадут несколько фоновых рисунков.</div>
+
+	<div class="qitem3 mb10">
 		<div class="box">
-			<div class="bg bg1" style="padding:15px 15px 15px 15px;height:150px;">
-				<pre style="color:#fff;font-size:17px;margin-top:90px;">background-origin:<br>padding-box;</pre>
+			<div class="bg bg1">
+				<pre class="box__elem">background-origin:<br>padding-box;</pre>
 			</div>
 		</div>
 		<div class="box">
-			<div class="bg bg2" style="padding:15px;height:150px;">
-				<pre style="color:#fff;font-size:17px;margin-top:90px;">background-origin:<br>border-box;</pre>
+			<div class="bg bg2">
+				<pre class="box__elem">background-origin:<br>border-box;</pre>
 			</div>
 		</div>
 		<div class="box">
-			<div class="bg bg3" style="padding:15px;height:150px;">
-				<pre style="color:#fff;font-size:17px;margin-top:90px;">background-origin:<br>content-box;</pre>
+			<div class="bg bg3">
+				<pre class="box__elem">background-origin:<br>content-box;</pre>
 			</div>
 		</div>
 	</div><!-- item3 -->

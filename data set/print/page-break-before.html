@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>page-break-before</title>
+<!DOCTYPE html><html><head><title>CSS свойство page-break-before</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
@@ -11,11 +11,14 @@
 
 </head>
 <body>
-<h2 class="sin">page-break-before</h2>
+<h2 class="sin t-trash">CSS свойство <samp class="pur">page-break-before</samp></h2>
 
-<div class="item">
+<div class="item anp">
+	<div class="no">Устаревшее свойство, вместо него лучше использовать <a href="break-before.html"><samp class="sin tdu">break-before</samp></a></div>
+
 	<p>Добавляет разрыв страницы при печати документа перед заданным элементом. Значение по умолчанию <samp class="red">auto</samp>, не наследуется, применяется к блочным элементам.</p>
-	<pre class="item2"><code>page-break-after: always | auto | avoid | left | right</code></pre>
+
+	<pre class="item2 mt20"><code>page-break-after: always | auto | avoid | left | right;</code></pre>
 
 	<table class="t1 t3">
 		<tr><td>always</td><td>Всегда добавляет разрыв страницы перед элементом.</td></tr>
@@ -24,10 +27,7 @@
 		<tr><td>left</td><td>Пропускает одну или две страницы перед элементом, чтобы следующая страница при печати была чётной.</td></tr>
 		<tr><td>right</td><td>Пропускает одну или две страницы перед элементом, чтобы следующая страница при печати была нечётной.</td></tr>
 	</table>
-</div>
 
-
-<div class="item">
-	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>page-break-before&lt;/title><br>    &lt;style><br>      @media print {   /* медиазапросы не поддерживется в IE8 */<br>        .more {page-break-before: always;}<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>    &lt;h2>Мусорные пакеты&lt;/h2><br>    &lt;p>...&lt;/p><br>    &lt;p class="more">Читать дальше&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
+	<pre class="item2 mt40"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>page-break-before&lt;/title><br>    &lt;style><br>      @media print {   /* медиазапросы не поддерживется в IE8 */<br>        .more {page-break-before: always;}<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>    &lt;h2>Мусорные пакеты&lt;/h2><br>    &lt;p>...&lt;/p><br>    &lt;p class="more">Читать дальше&lt;/p><br>  &lt;/body><br>&lt;/html></code></pre>
 </div>
 </body></html>

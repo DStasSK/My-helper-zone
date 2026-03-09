@@ -36,7 +36,38 @@
 			<td><p>Позволяет применить эффекты вроде размытия к области фонового рисунка, расположенной за элементом. Чтобы эффект стал заметен, сам элемент должен быть частично прозрачным.</p>
 			<pre class="item2"><code>.box {<br>  /* Размываем фон */<br>  backdrop-filter: blur(4px);<br>  -webkit-backdrop-filter: blur(4px);<br>  /* Белый фон с полупрозрачностью */<br>  background: rgba(255,255,255,0.4);<br>}</code></pre>
 			<p>Чтобы свойство работало в браузере Opera, на странице <b>opera:flags</b> раздел <b>Experimental Web Platform features</b> следует установить в <b>Enabled</b>.</p>
-			Чтобы свойство работало в браузере Firefox, на странице <b>about:config</b> параметр <b>layout.css.backdrop-filter.enabled</b> следует установить как <b>true</b>.</td></tr>
+			Чтобы свойство работало в браузере Firefox, на странице <b>about:config</b> параметр <b>layout.css.backdrop-filter.enabled</b> следует установить как <b>true</b>.
+			<table class="support mt20 mb0">
+		    <tr>
+		      <td><span class="t-ie" title="Internet Explorer"></span></td>
+		      <td><span class="t-edge" title="Edge"></span></td>
+		      <td><span class="t-chrome" title="Chrome"></span></td>
+		      <td><span class="t-opera" title="Opera"></span></td>
+		      <td><span class="t-safari" title="Safari"></span></td>
+		      <td><span class="t-firefox" title="Firefox"></span></td>
+		      <td><span class="t-android" title="mobile-android"></span></td>
+		      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+		      <td><span class="t-opera" title="mobile-Opera"></span></td>
+		      <td><span class="t-safari" title="mobile-Safari"></span></td>
+		    </tr>
+		    <tr>
+		      <td class="n"><span></span></td><!-- IE -->
+		      <td><span>79</span></td><!-- Edge -->
+		      <td><span>76</span></td><!-- Chrome -->
+		      <td><span>63</span></td><!-- Opera -->
+		      <td><span>18</span></td><!-- Safari -->
+		      <td><span>103</span></td><!-- FF -->
+		      <td><span>76</span></td><!-- mobile-android -->
+		      <td><span>103</span></td><!-- mobile-FF -->
+		      <td><span>54</span></td><!-- mobile-opera -->
+		      <td><span>18</span></td><!-- mobile-safary -->
+		    </tr>
+		  </table>
+
+
+
+
+		</td></tr>
 		<tr id="blur"><td>blur()</td>
 			<td><p>Задаёт размытие по Гауссу изображений, фоновых картинок или текста. К элементу <samp class="red">&lt;body></samp> напрямую применить размытие нельзя, только к его потомкам.</p>
 			В качестве значения указывается радиус размытия, он пишется в любых доступных единицах размера CSS (к примеру: 5px). Чем больше значение, тем сильнее будет размыто изображение. Отрицательное значение не допускается. Пустое значение воспринимается как 0px.

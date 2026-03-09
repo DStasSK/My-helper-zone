@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><title>Псевдокласс target</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:target</samp></h2>
+<div class="item anp">
+  <p>Для перехода к выбранному фрагменту документа, в адресе пишется символ <samp class="red"><b>#</b></samp> и указывается имя идентификатора. К примеру, в адресе <i class="lsin">http://www.w3.org/TR/css3-selectors/<samp class="red">#</samp>target-pseudo</i> происходит переход к элементу, атрибут <samp class="red">id</samp> которого задан как <samp class="lsin"><i>target-pseudo</i></samp>. Такая запись адреса называется <i>целевой элемент</i>.</p>
+
+  <p class="mt20 mb20">Псевдокласс <samp class="sin">:target</samp> применяется к целевому элементу, иными словами, к идентификатору, который указан в адресной строке браузера.</p>
+
+  <p>Также этот псевдокласс стилизует «целевые элементы» при переходе внутри страницы по ссылкам (анкор).</p>
+
+  <div>
+    <style>
+      #f10 {border:1px solid #ccc; background:#fafafa; padding:10px}
+      #f10 h3:target {background:#fc0;}
+      #f10 ul{padding:0 0 0 25px; margin-bottom:-10px; margin-top:0}
+    </style>
+    <div id="f10">
+      <ul>
+        <li><a href="#h1">История 1</a></li>
+        <li><a href="#h2">История 2</a></li>
+      </ul>
+      <h3 id="h1">История 1</h3>
+      <p>История о том, как необходимо было сделать, ее начали, а потом, и что из этого получилось.</p>
+      <h3 id="h2">История 2</h3>
+      <p>История о том, как возле столовой появились загадочные розовые с шестью пальцами, и почему это случилось.</p>
+    </div>
+    <pre class="item2"><code>&lt;style><br>  #f10 h3:target {background:#fc0;}<br>&lt;/style><br><br>&lt;div id="f10"><br>  &lt;ul><br>    &lt;li>&lt;a href="#h1">История 1&lt;/a>&lt;/li><br>    &lt;li>&lt;a href="#h2">История 2&lt;/a>&lt;/li><br>  &lt;/ul><br>  &lt;h3 id="h1">История 1&lt;/h3><br>  &lt;p>...&lt;/p><br>  &lt;h3 id="h2">История 2&lt;/h3><br>  &lt;p>...&lt;/p><br>&lt;/div></code></pre>
+  </div>
+
+  <p class="mt40">Можно ли сделать ссылку на <b>oбъект</b> через тег <samp class="red">&lt;a></samp>, а сам <b>oбъект</b> будет появляться только после нажатия на эту ссылку?</p>
+  <style>
+    #canvas {display:none;}
+    #canvas:target {display:inline-block;}
+  </style>
+  <div class="item2">
+    <a href="#canvas" class="sin tdu">Ссылка для отображения объекта</a>
+    <div id="canvas"> <span class="red item">Oбъект</span></div>
+    <pre><code><br>&lt;style><br>  #canvas {display: none;}<br>  #canvas:target {display: block;}<br>&lt;/style><br><br>&lt;div class="item2"><br>  &lt;a href="#canvas">Ссылка для отображения объекта&lt;/a><br>  &lt;div id="canvas">&lt;span class="red">Oбъект&lt;/span>&lt;/div><br>&lt;/div></code></pre>
+  </div>
+</div>
+</body></html>

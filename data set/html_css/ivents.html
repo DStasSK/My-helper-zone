@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Атрибуты событий</title>
+<!DOCTYPE html><html><head><title>Расширенны список событий</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,8 @@
 </style>
 </head>
 <body>
-<h2 class="sin ls2">Атрибуты событий</h2>
+
+<h2 class="sin ls2">Список событий</h2>
 <!-- Оглавление -->
 	<ul class="ogl">
 		<li><a href="#mous">События Мыши и Клавиатуры</a></li>
@@ -23,6 +24,7 @@
 		<li><a href="#form">События Форм</a></li>
 		<li><a href="#media">Медиа События</a></li>
 	</ul>
+
 
 <div class="item anp">
 	<p><i><a href="https://webref.ru/html/attr/event" class="sin tdu">https://webref.ru/html/attr/event</a></i></p>
@@ -131,8 +133,11 @@
 </div>
 
 
-<div class="item">
-	<p>Для защиты от копирования можно тегу <samp class="red">&lt;body></samp> прописать прослушивание события:</p>
-	<pre class="item2"><code>&lt;body oncopy="return false;"></code></pre>
+<div class="item anp">
+	<p>Для защиты от копирования можно тегу <samp class="teg">body</samp> прописать прослушивание события:</p>
+	<pre class="item2 mb40"><code>&lt;body oncopy="return false;"></code></pre>
+
+	<p>Для отмены действия по умолчанию, например у кнопки или у тега <samp class="teg">a</samp>, прописать прослушивание события:</p>
+	<pre class="item2"><code>&lt;a href="..." onclick="return false;">&lt;/a></code></pre>
 </div>
 </body></html>

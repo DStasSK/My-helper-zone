@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><title>CSS свойствo backface-visibility</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS свойство <samp>backface-visibility</samp></h2>
+
+<div class="item">
+	<p>CSS свойство <samp class="sin">backface-visibility</samp> oпределяет, показывать обратную сторону элемента или нет. Как правило, обратная сторона становится видна при трансформации элемента, например, при его вращении относительно горизонтальной или вертикальной оси в трёхмерном пространстве.</p>
+
+	<pre class="item2 mt20"><code>.elem {<br>  -webkit-backface-visibility: visible | hidden;<br>     -moz-backface-visibility: visible | hidden;<br>          backface-visibility: visible | hidden;<br>}</code></pre>
+
+	<ul class="list mb30">
+		<li><samp class="sin">hidden</samp> - обратная сторона элемента не отображается, элемент считается прозрачным.</li>
+		<li><samp class="sin">visible</samp> - обратная сторона элемента видна и отображается зеркально; является значением по умолчанию.</li>
+	</ul>
+
+	<p>Для корректной работы необходимо задать свойство <samp class="sin dib">transform-style: <span class="lsin">preserve-3d;</span></samp> для подвижного блока. Если стребуется придать эффект перспективы, то для неподвижного родителя задается свойство <samp class="sin">perspective</samp>.</p>
+
+	<div class="item2 pr">
+		<style>
+			.box11 {position:absolute; top:15px; right:20px; width:180px; perspective:500px;}
+			.bv1 {transform-style:preserve-3d; transition:all 2s; position:relative;}
+			.bv1:hover{transform:rotateY(180deg);}
+			.bv1 img {width:180px; position:absolute; backface-visibility:hidden;}
+			.bv1 div {text-align:center; background:#fff; padding:46px 0; font-size:31px; line-height:31px; transform:rotateY(180deg); backface-visibility:hidden;}
+		</style>
+		<div class="box11">
+			<div class="bv1">
+				<img src="img/winnie.png">
+				<div>404 ой</div>
+			</div>
+		</div>
+		<pre><code>&lt;div class="box"><br>  &lt;div class="bv1"><br>    &lt;img src="img/winnie.png"><br>    &lt;div class="text">404 ой&lt;/div><br>  &lt;/div><br>&lt;/div></code></pre>
+		<pre><code><br>.box {perspective: 500px}<br>.bv1 {transform-style: preserve-3d}<br>.bv1:hover{transform: rotateY(180deg)}<br>.text {<br>  transform: rotateY(180deg);<br>  backface-visibility: hidden;<br>}<br>img {backface-visibility: hidden}</code></pre>
+	</div>
+</div>
+
+
+</body>
+</html>

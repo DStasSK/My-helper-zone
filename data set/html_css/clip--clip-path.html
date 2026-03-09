@@ -19,7 +19,7 @@
 		<li><a href="#z1">clip</a></li>
 		<li><a href="#z2">clip-path</a></li>
 		<li><a href="#z3">Два способа использования clip-path.</a></li>
-		<li><a href="#z4">Cинтаксис clip-path</a></li>
+		<li><a href="#z4">Cинтаксис базовых фигур clip-path</a></li>
 		<li><a href="#z5">"Анимация" базовых фигур через transition, особенности.</a></li>
 		<li>Примеры:</li>
 		<ol style="font-size:16px; padding-left:20px">
@@ -44,8 +44,7 @@
 
 	<div class="hiden" onclick="event.stopPropagation()" id="clip0">
 		<p class="mt10">Свойство <samp class="sin">clip</samp> определяет область позиционированного элемента, в которой будет показано его содержимое. Всё, что не помещается в эту область, будет обрезано и становится невидимым. На данный момент единственная доступная форма области - прямоугольник.</p>
-		<p><samp class="sin">clip</samp> работает только для позиционированных элементов, у которых свойство <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp> или <samp class="lsin">fixed</samp>.</p>
-		<p>Значение по умолчанию - <samp class="lsin">auto</samp>, свойство не наследуется, применяется к блочным элементам, анимируется</p>
+		<p><samp class="sin">clip</samp> работает только для позиционированных элементов, у которых свойство <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp> или <samp class="lsin">fixed</samp>. Значение по умолчанию - <samp class="lsin">auto</samp>, свойство не наследуется, применяется к блочным элементам, анимируется</p>
 		<p>В качестве значений используется расстояние от края элемента до области вырезки, которое задается в единицах CSS — пиксели (px), em и др. Если край области нужно оставить без изменений, следует установить <samp class="lsin">auto</samp>, положение остальных значений показано ниже.</p>
 
 		<pre class="item2 br0"><code>clip: rect(Y1, X2, Y2, X1) | auto</code></pre>
@@ -89,11 +88,42 @@
 
 <div class="item" id="z2">
 <h2 class="sin"><a href="#"><samp>clip-path</samp></a></h2>
-	<p>Свойство <samp class="sin">clip-path</samp> определяет область позиционированного элемента, в которой будет показано его содержимое. Всё, что не помещается в эту область, будет обрезано и становится невидимым.</p>
-	<p><samp class="sin">clip-path</samp> как и <samp class="sin">clip</samp> работает только для позиционированных элементов, у которых свойство <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp> или <samp class="lsin">fixed</samp>.</p>
-	<p>Значение по умолчанию - <samp class="lsin">auto</samp>, свойство не наследуется, применяется к блочным элементам, анимируется</p>
+	<p>Свойство <samp class="sin">clip-path</samp> определяет область позиционированного элемента, в которой будет показано его содержимое. Всё, что не помещается в эту область, будет обрезано и становится невидимым. Значение по умолчанию - <samp class="lsin">none</samp>, свойство не наследуется, применяется к блочным элементам, анимируется.</p>
 
-	<p><samp class="sin">clip-path</samp> можно использовать совмесно с SVG графикой.</p>
+	<pre class="item2 css mt20"><code>clip-path: <адрес> | [ <базовая фигура> || <блок> ] | none</code></pre>
+
+	<div>Значения:</div>
+
+	<ul class="list">
+		<li><samp class="lsin">none</samp> - oбрезка не применяется.</li>
+		<li><b>адрес</b> - aдрес SVG изоюражения, содержащего форму обрезки.</li>
+		<li><b>базовая фигура</b> - это функция, которая определяет форму обрезки:
+			<ul class="list l1">
+				<li><samp class="sin">circle()</samp> - окружность.</li>
+				<li><samp class="sin">ellipse()</samp> - эллипс.</li>
+				<li><samp class="sin">inset()</samp> - прямоугольник, заданный отступами от краев элемента.</li>
+				<li><samp class="sin">path()</samp> - фигура, заданная с помощью кривых SVG.</li>
+				<li><samp class="sin">polygon()</samp> - многоугольник, заданный координатами вершин.</li>
+				<li><samp class="sin">rect()</samp> - прямоугольник, заданный координатами углов.</li>
+				<li><samp class="sin">xywh()</samp> - прямоугольник, используя указанные расстояния от левого и верхнего краёв, а также заданную ширину и высоту прямоугольника.</li>
+			</ul>
+		</li>
+		<li><b>блок</b> - определяет границы блока, включая радиус скругления углов. Может быть использован в комбинации с базовыми фигурами. Если геометрия не указана, то в качестве блока будет использоваться <samp class="sin">border-box</samp>.
+			<pre class="item2"><code>.el { clip-path: padding-box circle(50px at 0 100px); }</code></pre>
+			<ul class="list l1">
+				<li><samp class="sin">margin-box</samp> - Блок определяется с учётом margin.</li>
+				<li><samp class="sin">border-box</samp> - Блок определяется с учётом border.</li>
+				<li><samp class="sin">padding-box</samp> - Блок определяется с учётом padding.</li>
+				<li><samp class="sin">content-box</samp> - Блок определяется с учётом его содержимого.</li>
+				<li><samp class="sin">fill-box</samp> - Использует область заливки объекта для определения блока.</li>
+				<li><samp class="sin">stroke-box</samp> - Использует обводку объекта для определения блока.</li>
+				<li><samp class="sin">view-box</samp> - Использует область просмотра SVG.</li>
+			</ul>
+		</li>
+	</ul>
+
+	<!-- <div class="no no1"><samp class="sin">clip-path</samp> как и <samp class="sin">clip</samp> работает только для позиционированных элементов, у которых свойство <samp class="sin">position</samp> задано как <samp class="lsin">absolute</samp> или <samp class="lsin">fixed</samp>.</div> -->
+
 	<p>Отсечение с помощью свойства <samp class="sin">clip-path</samp> похоже на вырезание фигуры (например, круга или пятиугольника) из прямоугольного листа бумаги. Свойство относится к спецификации <a href="http://www.w3.org/TR/css-masking-1" class="sin tdu">«CSS Masking Module Level 1»</a>. Спецификация заявляет: <q><i>Маскирование <b>CSS</b> предлагает два средства для частичного или полного сокрытия частей визуальных элементов: маскирование и отсечение.</i></q></p>
 
 	<p>Первая часть, то есть маскирование, связана с использованием графического элемента, такого как изображения <b>PNG</b>, градиента на <b>CSS</b> или элемента <b>SVG</b>, в качестве маски для сокрытия разделов другого элемента.</p>
@@ -102,19 +132,19 @@
 
 
 
-<div class="item" id="z3">
+<div class="item anp" id="z3">
 <h2 class="sin"><a href="#">Два способа использования <samp>clip-path</samp></a></h2>
 
 	<p class="mb0 mt20"><samp>1. на CSS</samp></p>
 	<p class="mt0">Основные фигуры из <a href="http://www.w3.org/TR/css-shapes-1/#typedef-basic-shape">«CSS Shapes Module»</a> обеспечивают удобный способ использования <b>clip-path</b>. Доступны разные фигуры: <b>polygon, circle, ellipse и inset</b>; <b>inset</b> предназначен для прямоугольников.</p>
 
-	<p class="mb0 tm20"><samp>2. на SVG</samp></p>
+	<p class="mb0 mt30"><samp>2. на SVG</samp></p>
 	<p class="mt0">В качестве альтернативы можно создать фигуру с помощью SVG, а затем обрезать элемент по этой фигуре с помощью синтаксиса URL. Есть два способа сделать это, в обоих случаях в SVG используется элемент clipPath для обёртывания элемента, который определяет обтравочный контур, будь то круг, многоугольник или другой элемент:
-	<br>а) через указатель на встроенный SVG (разметка SVG существует в самой странице);
-	<br>б) со ссылкой на внешний документ SVG.</p>
+	<br> &nbsp; а) через указатель на встроенный SVG (разметка SVG существует в самой странице);
+	<br> &nbsp; б) со ссылкой на внешний документ SVG.</p>
 
-	<div class="mt40 mb10">Mожно создать адаптивный обтравочный контур SVG следующим образом:</div>
-	<ul>
+	<div class="mt40 mb0">Mожно создать адаптивный обтравочный контур SVG следующим образом:</div>
+	<ul class="list">
 		<li>Установить ширину и высоту SVG как 0.</li>
 		<li>Установить идентификатор для элемента <samp class="sin">clipPath</samp> внутри <samp class="sin">SVG</samp>, на который затем можно ссылаться из CSS. Вы можете использовать встроенный или внешний SVG, помня про "поддержку" браузерами.</li>
 		<li>Повторно использовать процентные значения координат многоугольника, определённого с помощью <samp class="sin">clipPath</samp>. Просто разделить их на <b>100</b> и добавить как безразмерные точки многоугольника в SVG. Установить значение атрибута <samp class="sin">clipPathUnits</samp> как <samp class="lsin">objectBoundingBox</samp>, чтобы обтравочный контур помечал границы элемента HTML, который на него ссылается.</li>
@@ -127,7 +157,7 @@
 
 
 <div class="item amp anp" id="z4">
-<h2 class="sin"><a href="#">Cинтаксис <samp>clip-path</samp></a></h2>
+<h2 class="sin"><a href="#">Cинтаксис базовых фигур <samp>clip-path</samp></a></h2>
 	<style>
 		.cir{-webkit-clip-path: circle(40.0% at 20% 50%);
 			clip-path: circle(40% at 20% 50%);}

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>@layer</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h1 class="sin"><span class="dib">@<samp>layer</samp></span></h1>
+
+<div class="item">
+	<p>Правило <span class="red dib">@<samp>layer</samp></span> используется для объявления каскадного слоя, а также позволяет задать приоритеты при наличии нескольких каскадных слоёв.</p>
+
+	<pre class="item2 mt20"><code>@layer <samp class="red">myName</samp> {<br>  <samp class="sin">rules</samp><br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">myName</samp> - название каскадного слоя.</li>
+		<li><samp class="sin">rules</samp> - набор CSS-правил каскадного слоя.</li>
+	</ul>
+
+	<div class="no no1">Любые стили, заданные вне слоя <span class="red dib">@<samp>layer</samp></span>, будут переопределять стили, объявлённые внутри любого слоя, независимо от их специфичности.</div>
+
+	<p>Допускается создавать каскадный слой без указанных css свойств и их параметров. Более того допускается после определения правила <span class="red dib">@<samp>layer</samp></span> указывать несколько слоёв через запятую, при этом будет определяться приоритет правил от последнего к первому - последний имеет высший приоритет, первый - самый низкий, при этом специфичность селекторов в разных слоях не учитывается.</p>
+
+	<p>Объявив имена слоёв и установив их порядок, можно добавить CSS-правила в слой повторно объявив его имя. Таким образом стили добавятся к слою, и порядок слоёв и приоритет свойств между слоями не изменится. Если слой был объявлен без имени, то он также будет работать, но в него нельзя будет добавить css свойства в другом месте; и приоритет его css свойств будет устанавливаться порядком объявления слоя.</p>
+
+	<fieldset class="prm anp mb30">
+		<legend></legend>
+		<style>
+			@layer myGroup1;
+			@layer myGroup2, myGroup3, myGroup4;
+
+		.example1 p {color:rebeccapurple; /* font-size:50px; font-weight:400; */}
+
+			@layer myGroup1 {
+				.example1 p {font-weight:900; color:green; font-size:10px;}
+			}
+			@layer myGroup4 {
+				.example1 p {font-weight:400; color:red; font-size:30px;}
+			}
+			@layer myGroup2 {
+				.example1 p {font-weight:700; color:yellow; font-size:5px;}
+			}
+			@layer myGroup3 {
+				.example1 p {font-weight:700; color:brown; font-size:20px;}
+			}
+			@layer {
+				.example1 p {font-size:50px;}
+			}
+		</style>
+		<div class="example1"><p>Test</p></div>
+		<div class="item2">
+			<pre class="css mt10"><code>@layer myGroup1;<br>@layer myGroup2, myGroup3, myGroup4;<br><br>p {color: rebeccapurple;}<br><br>@layer myGroup1 {<br>  p {font-weight:900; color:green; font-size:10px;}<br>}<br>@layer myGroup4 {<br>  p {font-weight:400; color:red; font-size:30px;}<br>}<br>@layer myGroup2 {<br>  p {font-weight:700; color:yellow; font-size:5px;}<br>}<br>@layer myGroup3 {<br>  p {font-weight:700; color:brown; font-size:20px;}<br>}<br>@layer{<br>  p {font-size: 50px;}<br>}</code></pre>
+			<pre><code><br>&lt;p>Test&lt;/p></code></pre>
+		</div>
+	</fieldset>
+
+	<p>Каскадные слои также могут быть вложены друг в друга. При этом для добавления css свойств в внутренний каскадный слой к нему следует обращаться через внешний слой, отделяя названия слоёв точкой - как свойства объекта в JS.</p>
+	<pre class="item2 mb40"><code>@layer parent {<br>  @layer chald {<br>  }<br>}<br><br>@layer parent.chald {<br>  p {<br>    margin: 1rem;<br>  }<br>}</code></pre>
+
+	<p>Каскадный слой также можно импортировать из другого css файла используя <span class="red dib">@<samp>import</samp></span>. В этом случае правила будут находиться в импортированном файле стилей. Нужно помнитт, что @-правило <span class="red dib">@<samp>import</samp></span> должно предшествовать всем другим типам правил, за исключением правил <span class="red dib">@<samp>charset</samp></span> и <span class="red dib">@<samp>layer</samp></span>.</p>
+	<pre class="item2 mb40"><code>@import "theme.css" layer(myLayerRules);</code></pre>
+
+	<!-- <div class="no no1">Подробнее смотреть на сайте <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values" class="sin tdu dib" target="_blank">developer.mozilla.org</a></div> -->
+
+
+
+	<div style="font-size:16px">2022.08 - full support</div>
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>99</span></td><!-- Edge -->
+      <td><span>99</span></td><!-- Chrome -->
+      <td><span>85</span></td><!-- Opera -->
+      <td><span>15.4</span></td><!-- Safari -->
+      <td><span>97</span></td><!-- FF -->
+      <td><span>99</span></td><!-- mobile-android -->
+      <td><span>97</span></td><!-- mobile-FF -->
+      <td><span>68</span></td><!-- mobile-opera -->
+      <td><span>15.4</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+
+</div>
+
+
+
+</body></html>

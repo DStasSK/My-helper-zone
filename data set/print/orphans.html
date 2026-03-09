@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>orphans</title>
+<!DOCTYPE html><html><head><title>CSS свойство orphans</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
@@ -11,12 +11,41 @@
 
 </head>
 <body>
-<h2 class="sin">orphans</h2>
+<h2 class="sin">CSS свойство <samp>orphans</samp></h2>
 
 <div class="item">
-	<p>Свойство orphans задает минимальное число строк текста, которое остается на предыдущей странице при печати документа. Это свойство работает в том случае, если весь текст размещается на двух и более печатных страницах. Значение по умолчанию <samp class="red">2</samp>, наследуется, применяется к блочным элементам. В качестве значения используют целое положительное число.</p>
+	<p>Свойство <samp class="sin">orphans</samp> задает минимальное число строк текста, которое остается на предыдущей странице при печати документа. Это свойство работает в том случае, если весь текст размещается на двух и более печатных страницах. Значение по умолчанию <samp class="red">2</samp>, наследуется, применяется к блочным элементам. В качестве значения используют целое положительное число.</p>
 
 	<pre class="item2"><code>&lt;head><br>  &lt;style><br>    @media print {     /* IE8 не поддерживает медиазапросы */<br>      p {orphans: 3;}<br>    }<br>  &lt;/style><br><br>  &lt;!-- или для поддержки IE8 отдельым файлом --><br>  &lt;link rel="stylesheet" href="/css/print.css" media="print"><br>&lt;/head></code></pre>
+
+	<div class="no no1">В типографии, <samp class="sin">orphan</samp> это первая линия абзаца, которая отображается внизу страницы. (Абзац продолжается на следующей странице.)</div>
+
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td><span>8</span></td><!-- IE -->
+      <td><span>12</span></td><!-- Edge -->
+      <td><span>25</span></td><!-- Chrome -->
+      <td><span>9.2</span></td><!-- Opera -->
+      <td><span>7</span></td><!-- Safari -->
+      <td class="n"><span></span></td><!-- FF -->
+      <td><span>4.4</span></td><!-- mobile-android -->
+      <td class="n"><span></span></td><!-- mobile-FF -->
+      <td><span>14</span></td><!-- mobile-opera -->
+      <td><span>7.1</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
 </div>
 
 </body></html>

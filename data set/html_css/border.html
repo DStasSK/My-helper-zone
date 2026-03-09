@@ -1,0 +1,287 @@
+<!DOCTYPE html><html><head><title>CSS cвойство border</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<style type="text/css">
+	.tt1 div{max-width:50px; height:20px; margin:2px auto; padding:5px; line-height:20px;
+		font-size:14px; letter-spacing:1px; text-align:center; font-family:monospace;}
+
+	.prev{display:flex; gap:5px; margin:0; padding:0; list-style:none;}
+	.prev-box{
+		background:#eee; flex:1; border:4px solid; padding:4px 5px;
+		font-size:14px; letter-spacing:.5px; text-align:center; font-family:monospace;
+	}
+
+	.pb1{border:dotted #fc0}
+	.pb2{border:dashed #fc0}
+	.pb3{border:solid #fc0}
+	.pb4{border:double #fc0}
+	.pb5{border:groove #fc0}
+	.pb6{border:ridge #fc0}
+	.pb7{border:inset #fc0}
+	.pb8{border:outset #fc0}
+
+	.bw1{border-width:1px}
+	.bw2{border-width:2px}
+	.bw3{border-width:3px}
+	.bw4{border-width:4px}
+	.bw5{border-width:5px}
+	.bw6{border-width:6px}
+</style>
+</head>
+
+<body>
+
+<h2 class="sin"><a href="#" title="наверх">CSS cвойство <samp>border</samp>.</a></h2>
+
+<!-- оглавление -->
+	<ul class="ogl mt10">
+		<li><a href="#border-style">CSS cвойство <samp class="sin">border-style</samp></a></li>
+		<li>Примеры:
+			<ul style="font-size:17px; line-height:1.1; padding:0 0 0 10px">
+				<li><a href="#example_0">Свойство отдельных участков границы</a></li>
+				<li><a href="#example_1">Штриховая рамка (градиент)</a></li>
+				<li><a href="#example_2">Загнутый уголок</a></li>
+				<li><a href="#example_3">Пример - треугольник</a></li>
+				<li><a href="#example_4">Пример с меню</a></li>
+			</ul>
+		</li>
+	</ul><!-- /оглавление -->
+
+
+<div class="item" id="border">
+	<p>CSS cвойство <samp class="sin">border</samp> позволяет задавать толщину, цвет и тип линии по периметру вокруг элемента. Параметры данного свойства могут записываться в одной строке, разделяясь через пробел и в любом порядке.</p>
+
+	<pre class="item2"><code>div {<br>  border: border-width || border-style || border-color;<br>}</code></pre>
+	<ul class="list l1">
+		<li><samp class="sin">border-width</samp> - определяет толщину границы</li>
+		<li><samp class="sin">border-color</samp> - устанавливает цвет границы в любом CSS формате</li>
+		<li>
+			<samp class="sin">border-style</samp> - определяет вид границы
+			<ul class="prev">
+				<li class="prev-box pb1">dotted</li>
+				<li class="prev-box pb2">dashed</li>
+				<li class="prev-box pb3">solid</li>
+				<li class="prev-box pb4">double</li>
+				<li class="prev-box pb5">groove</li>
+				<li class="prev-box pb6">ridge</li>
+				<li class="prev-box pb7">inset</li>
+				<li class="prev-box pb8">outset</li>
+			</ul>
+		</li>
+	</ul>
+
+
+	<p class="mt20"> Для установки границы только на определённых сторонах элемента, воспользуйтесь свойствами <samp class="sin">border-top</samp>, <samp class="sin">border-bottom</samp>, <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp> - позволяет одновременно установить толщину, стиль и цвет границы элемента. Значения могут идти в любом порядке, разделяясь пробелом.</p>
+	<pre class="item2"><code>border-top: [border-top-width || border-top-style || border-top-color]</code></pre>
+</div>
+
+
+
+<div class="item" id="border-style">
+<h3 class="sin"><a href="#" title="наверх">CSS cвойство <samp>border-style</samp>.</a></h3>
+	<p>Устанавливает стиль границы вокруг элемента. Допустимо задавать индивидуальные стили для разных сторон элемента. Значение по умолчанию <samp class="lsin">none</samp>, не наследуется, применяется ко всем элементам, не анимируется.</p>
+
+	<p>Для управления видом границы предоставляется несколько значений свойства <samp class="sin">border-style</samp>. Вид зависит от используемого браузера и заданной толщины границы.</p>
+
+	<pre class="item2 mb10"><code>div {<br>  border-style: none | hidden | dotted | dashed | solid |<br>                double | groove | ridge | inset | outset;<br>}</code></pre>
+
+	<table class="t1 tb tt2 mb0">
+		<tr><td width="80px">none</td>
+			<td>не отображает границу и её толщина (<samp class="sin">border-width</samp>) задаётся нулевой.</td></tr>
+		<tr><td>hidden</td>
+			<td>имеет тот же эффект, что и <samp class="lsin">none</samp> за исключением применения <samp class="sin">border-style</samp> к ячейкам таблицы, у которой значение свойства <samp class="sin">border-collapse</samp> установлено как <samp class="lsin">collapse</samp>. В этом случае вокруг ячейки граница не будет отображаться вообще.</td></tr>
+	</table>
+	<table class="t1 tb tt1 t1c t3 mt0" style="margin-top:-1px">
+		<tr><td width="80px"><abbr title="Линия состоящая из набора точек.">dotted</abbr></td>
+			<td><div class="bw1 pb1">1px</div></td>
+			<td><div class="bw2 pb1">2px</div></td>
+			<td><div class="bw3 pb1">3px</div></td>
+			<td><div class="bw4 pb1">4px</div></td>
+			<td><div class="bw5 pb1">5px</div></td>
+			<td><div class="bw6 pb1">6px</div></td></tr>
+		<tr><td><abbr title="Пунктирная линия, состоящая из серии коротких отрезков.">dashed</abbr></td>
+			<td><div class="bw1 pb2">1px</div></td><td><div class="bw2 pb2">2px</div></td><td><div class="bw3 pb2">3px</div></td><td><div class="bw4 pb2">4px</div></td><td><div class="bw5 pb2">5px</div></td><td><div class="bw6 pb2">6px</div></td></tr>
+		<tr><td><abbr title="Сплошная линия.">solid</abbr></td>
+			<td><div class="bw1 pb3">1px</div></td><td><div class="bw2 pb3">2px</div></td><td><div class="bw3 pb3">3px</div></td><td><div class="bw4 pb3">4px</div></td><td><div class="bw5 pb3">5px</div></td><td><div class="bw6 pb3">6px</div></td></tr>
+		<tr><td><abbr title="Двойная линия.">double</abbr></td>
+			<td><div class="bw1 pb4">1px</div></td><td><div class="bw2 pb4">2px</div></td><td><div class="bw3 pb4">3px</div></td><td><div class="bw4 pb4">4px</div></td><td><div class="bw5 pb4">5px</div></td><td><div class="bw6 pb4">6px</div></td></tr>
+		<tr><td><abbr title="Создаёт эффект вдавленной рамки.">groove</abbr></td>
+			<td><div class="bw1 pb5">1px</div></td><td><div class="bw2 pb5">2px</div></td><td><div class="bw3 pb5">3px</div></td><td><div class="bw4 pb5">4px</div></td><td><div class="bw5 pb5">5px</div></td><td><div class="bw6 pb5">6px</div></td></tr>
+		<tr><td><abbr title="Создаёт эффект рельефной границы.">ridge</abbr></td>
+			<td><div class="bw1 pb6">1px</div></td><td><div class="bw2 pb6">2px</div></td><td><div class="bw3 pb6">3px</div></td><td><div class="bw4 pb6">4px</div></td><td><div class="bw5 pb6">5px</div></td><td><div class="bw6 pb6">6px</div></td></tr>
+		<tr><td><abbr title="Псевдотрёхмерная рамка, при которой правая и нижняя граница осветляется, а левая и верхняя линии затемняются.">inset</abbr></td>
+			<td><div class="bw1 pb7">1px</div></td><td><div class="bw2 pb7">2px</div></td><td><div class="bw3 pb7">3px</div></td><td><div class="bw4 pb7">4px</div></td><td><div class="bw5 pb7">5px</div></td><td><div class="bw6 pb7">6px</div></td></tr>
+		<tr><td><abbr title="Псевдотрёхмерная рамка, при которой левая и верхняя граница имеют более светлый оттенок, чем заданный цвет, а правая и нижняя линии затемняются.">outset</abbr></td>
+			<td><div class="bw1 pb8">1px</div></td><td><div class="bw2 pb8">2px</div></td><td><div class="bw3 pb8">3px</div></td><td><div class="bw4 pb8">4px</div></td><td><div class="bw5 pb8">5px</div></td><td><div class="bw6 pb8">6px</div></td></tr>
+	</table>
+
+	<p class="mt20">Разрешается использовать одно, два, три или четыре значения, разделяя их между собой пробелом. Если указано одно значение - стиль границы будет задан для всех сторон элемента. Если указано два значения - первое значение устанавливает стиль верхней и нижней границ, второе - левой и правой. Если указано три значения - первое значение задаёт стиль верхней границы, второе - одновременно левой и правой границ, а третье - нижней границы. Если указано четыре значения - поочередно устанавливается стиль верхней, правой, нижней и левой границ.</p>
+</div>
+
+
+
+<!-- примеры -->
+<div class="item" id="example_0">
+<h3 class="sin"><a href="#" title="наверх">Свойство отдельных участков границы.</a></h3>
+	<div style="display:flex;">
+		<style>
+			.example_01{width:30%; padding:15px 0 0; margin:8px 20px}
+			.example_02{width:40%; padding:0 30px; margin:8px 20px}
+
+			.example_0_box{
+				width:100%; background-color:#fC0; padding:20px; text-align:center;
+				border-top:8px solid red;
+				border-bottom:8px solid blue;
+				border-left:8px solid grey;
+				border-right:8px solid chocolate;
+			}
+		</style>
+		<div class="example_01"><div class="example_0_box">Разноцветная рамка</div></div>
+		<div class="example_02"><pre><code class="css">.elem {<br>  border-top:8px solid red;<br>  border-bottom:8px solid blue;<br>  border-left:8px solid grey;<br>  border-right:8px solid chocolate;<br>}</code></pre></div>
+	</div>
+</div>
+
+
+
+<div class="item" id="example_1" style="background-color:#eee;">
+<h3 class="sin"><a href="#" title="наверх">Штриховая рамка (градиент).</a></h3>
+	<style type="text/css">
+		.example_1_box {
+			width:100%; max-width:350px;
+			background:#fffdee;
+			padding:20px;
+			border:10px solid transparent;
+			text-align:center;
+		}
+		.example_11 {border-image:10 repeating-linear-gradient(135deg, #C42061, #C42061 10px, transparent 10px, transparent 20px, #FBCFDF 20px, #FBCFDF 30px,transparent 30px, transparent 40px);}
+		.example_12 {border-image:10 repeating-linear-gradient(135deg, black, black 10px, gold 10px, gold 20px);}
+
+		.example_1_group {display:flex;}
+		.example_1_item1{width:30%; padding:0 20px; margin:8px 20px}
+		.example_1_item2{width:40%; padding:0 20px; margin:8px 20px}
+	</style>
+	<div class="example_1_group">
+		<div class="example_1_item1" style="width:150px">
+			<div class="example_1_box example_11" style="line-height:60px">Штриховая рамка</div>
+		</div>
+		<div class="example_1_item2">
+			<pre class="ls-05"><code class="css">{<br>  border: 10px solid transparent;<br>  border-image: 10 repeating-linear-gradient<br>  (135deg, #C42061, #C42061 10px, transparent 10px, <br>  transparent 20px, #FBCFDF 20px, #FBCFDF 30px,<br>  transparent 30px, transparent 40px);<br>}</code></pre>
+		</div>
+	</div>
+	<div class="example_1_group mt30">
+		<div class="example_1_item1" style="width:150px;">
+			<div class="example_1_box example_12" style="line-height:60px">Штриховая рамка</div>
+		</div>
+		<div class="example_1_item2">
+			<pre class="ls-05"><code class="css">{<br>  border: 10px solid transparent;<br>  border-image: 10 repeating-linear-gradient<br>  (135deg, black, black 10px, gold 10px, gold 20px);<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item" id="example_2">
+<h3 class="sin"><a href="#" title="наверх">Загнутый уголок.</a></h3>
+	<style>
+		.example_2_group{display:flex;}
+
+		.example_2_box{position:relative; width:240px; padding:1em 1em; margin:5px auto; color:#fff;
+			background:#97C02F; overflow:hidden; text-align:center;}
+		.example_2_box:before {content:""; position:absolute; top:0; right:0;
+			border-width:0 16px 16px 0;
+			border-style:solid;
+			border-color:#fff #fff #658E15 #658E15;
+			display:block; width:0;
+			box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);}
+		.example_21{background:#53A3B4;}
+		.example_21:before{border-color:#fff #fff transparent transparent; background:transparent;} /* #fff - цвет фона родителя */
+		.example_22{background:#999868; border-radius:5px 0 5px 5px;}
+		.example_22:before{border-color:#fff #fff #BDBB8B #BDBB8B; background:#BDBB8B; border-radius:0 0 0 5px;}
+	</style>
+
+	<div class="example_2_group">
+		<div class="example_2_box example_21">у Вас ус отклеился</div>
+		<div class="example_2_box example_22">у Вас ради-ус отклеился</div>
+	</div>
+	<div class="item2">
+		<pre><code>&lt;div class=".example_box example_1">у Вас ус отклеился&lt;/div><br>&lt;div class=".example_box example_2">у Вас ради-ус отклеился&lt;/div></code></pre>
+		<pre><code><br>.example_box {position:relative; overflow:hidden;}<br>.example_box:before {<br>  content:""; position:absolute; top:0; right:0;<br>  border-width:0 16px 16px 0;<br>  border-style:solid;<br>  display:block; width:0;<br>  box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);<br>}<br><br>.example_1 {background:#53A3B4;}<br>.example_1:before {               /* #fff - цвет фона родителя */<br>  border-color:#fff #fff transparent transparent;<br>  background:transparent;<br>} <br>.example_2 {background:#999868; border-radius:5px 0 5px 5px;}<br>.example_2:before {<br>  border-color:#fff #fff #BDBB8B #BDBB8B;<br>  background:#BDBB8B; border-radius:0 0 0 5px;<br>}</code></pre>
+	</div><!-- /item2 -->
+</div><!-- /item -->
+
+
+
+<div class="item" id="example_3">
+<h3 class="sin"><a href="#" title="наверх">Пример - треугольник.</a></h3>
+	<style type="text/css">
+		.example3{display:flex;}
+		.example31{width:30%; padding:0 20px; margin:8px 20px}
+		.example32{width:40%; padding:0 20px; margin:8px 20px}
+		.ex_3_0{margin-left:30px; width:0; height:0; border-left:70px solid transparent; border-right:70px solid transparent;}
+		.ex_3_1{border-bottom:120px solid red}
+		.ex_3_2{border-top:120px solid aqua}
+		.ex_3_1:hover {border-bottom-color:green;}
+		.ex_3_2:hover{border-top-color:green;}
+	</style>
+	<div class="example3">
+		<div class="example31"><div class="ex_3_0 ex_3_1"></div></div>
+		<div class="example32">
+			<pre style="margin-top:-10px;"><code><span class="red">HTML</span><br>&lt;div class="qq1">&lt;/div><br>&lt;div class="qq2">&lt;/div></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code class="css">.qq1 {<br>  width: 0; height: 0;<br>  border-left: 70px solid transparent;<br>  border-right: 70px solid transparent;<br>  border-bottom: 120px solid red;}</code></pre>
+		</div>
+	</div>
+	<div class="example3">
+		<div class="example31"><div class="ex_3_0 ex_3_2"></div></div>
+		<div class="example32">
+			<pre style="margin-top:-16px;"><code class="css">.qq2 {<br>  width: 0; height: 0;<br>  border-left: 70px solid transparent;<br>  border-right: 70px solid transparent;<br>  border-top: 120px solid aqua;}<br>.qq1:hover {border-bottom-color: green}<br>.qq2:hover {border-top-color: green}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="item" id="example_4">
+<h3 class="sin"><a href="#" title="наверх">Пример с меню - треугольник снизу.</a></h3>
+	<style>
+		.menu-example {width:645px; margin:20px auto;}
+		.menu_block {display:inline-block; padding:10px 20px; margin:0 5px 10px; width:75px; background:#FDF5E6; text-align:center; position:relative; cursor:pointer;}
+		.menu_block:before {content:""; width:0; height:0; position:absolute; top:100%; left:50%; pointer-events:none; display:none; cursor:default; z-index:3;
+			border:solid transparent;
+			border-width:10px;
+			margin-left:-10px;
+			border-top-color:#000;}
+		.menu_block:hover:before {display:block;}
+		.menu_block ul {width:105px; position:absolute; top:44px; left:0; z-index:2; padding:10px 5px 0; background:#fff; margin:0; display:none;}
+		.menu_block:hover ul {display:block;}
+		.menu_block li {text-align:center; margin:0 -5px; padding:5px 0; list-style:none;}
+		.menu_block li:hover {background:yellow}
+	</style>
+	<div class="menu-example">
+	<div class="menu_block">пункт1
+		<ul>
+			<li><a href="#">menu</a></li>
+			<li><a href="#">menu</a></li>
+			<li><a href="#">menu</a></li>
+		</ul>
+	</div>
+	<div class="menu_block">пункт2<ul><li><a href="#">menu</a></li><li><a href="#">menu</a></li><li><a href="#">menu</a></li></ul></div><div class="menu_block">пункт3<ul><li><a href="#">menu</a></li><li><a href="#">menu</a></li><li><a href="#">menu</a></li></ul></div><div class="menu_block">пункт4<ul><li><a href="#">menu</a></li><li><a href="#">menu</a></li><li><a href="#">menu</a></li></ul></div><div class="menu_block">пункт5<ul><li><a href="#">menu</a></li><li><a href="#">menu</a></li><li><a href="#">menu</a></li></ul></div></div>
+
+	<div class="item2 pr ls-05">
+		<pre><code>&lt;div class="menu"><br>  &lt;div class="menu_block">пункт1<br>    &lt;ul><br>      &lt;li>&lt;a href="#">menu&lt;/a>&lt;/li><br>      &lt;li>&lt;a href="#">menu&lt;/a>&lt;/li><br>      &lt;li>&lt;a href="#">menu&lt;/a>&lt;/li><br>    &lt;/ul><br>  &lt;/div><br>...<br>  &lt;div class="menu_block">пункт5<br>    &lt;ul><br>      &lt;li>&lt;a href="#">menu&lt;/a>&lt;/li><br>      &lt;li>&lt;a href="#">menu&lt;/a>&lt;/li><br>      &lt;li>&lt;a href="#">menu&lt;/a>&lt;/li><br>    &lt;/ul><br>  &lt;/div><br>&lt;/div></code></pre>
+		<pre style="position:absolute; top:5px; left:50%;"><code>.menu_block{<br>  display:inline-block;<br>  position:relative;<br>}<br>.menu_block:before{<br>  content:""; width:0; height:0;<br>  position:absolute;<br>  top:100%; left:calc(50% - 10px);<br>  border:solid transparent;<br>  border-width:10px;<br>  border-top-color:#000;<br>}<br>.menu_block > ul{<br>  display:none;<br>  position:absolute; top:45px; left:0;<br>  z-index:2; background:#fff;<br>}</code></pre>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

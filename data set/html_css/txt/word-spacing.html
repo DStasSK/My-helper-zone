@@ -13,14 +13,23 @@
 
 <h2 class="sin">word-spacing</h2>
 <div class="item">
-	<p>С помощью свойства <samp class="sin">word-spacing</samp> можно изменить (увеличить или уменьшить) расстояние между словами. Свойство <samp class="sin">word-spacing</samp> не будет действовать в том случае, если задан параметр выравнивания <samp class="lsin">justify</samp>, свойства <samp class="sin">text-align</samp>, которое выравнивает текст по ширине.</p>
-	<p>В качестве значений принимаются любые единицы длины, принятые в CSS — например, пиксели (px), дюймы (in), пункты (pt) и др. Допустимо использовать отрицательное значение, но читаемость текста может при этом снизиться. Процентная запись запрещена. Значение по умолчанию - normal.</p>
+	<p>С помощью свойства <samp class="sin">word-spacing</samp> можно изменить (увеличить или уменьшить) расстояние между словами. В качестве значений принимаются любые единицы длины, принятые в CSS — например, пиксели (px), дюймы (in), пункты (pt) и др. Допустимо использовать отрицательное значение, но читаемость текста может при этом снизиться. Процентная запись запрещена. Значение по умолчанию - <samp class="lsin">normal</samp>.</p>
 
-	<pre class="item2"><code>word-spacing: 1em;<br>word-spacing: 10px;<br>word-spacing: normal;<br>word-spacing: inherit;</code></pre>
-	<span class="lsin">1em;</span> - <span style="word-spacing:1em;">дистанция между словами 1em</span>
-	<br><span class="lsin">10px;</span> - <span style="word-spacing:10px;">дистанция между словами 10px</span>
-	<br><span class="lsin">normal;</span> - интервал между словами по умолчанию
-	<br><span class="lsin">inherit;</span> - наследует параметры родителя
+  <div class="no">Если для текста задано выравнивание через <samp class="sin">text-align</samp> со значением <samp class="lsin">justify</samp> (выравнивание по ширине), то интервал между словами будет установлен принудительно, но не меньше значения, указанного через <samp class="sin">word-spacing</samp>.</div>
+
+	<pre class="item2 mt30"><code>.elem {<br>  word-spacing: размер | normal | inherit<br>}</code></pre>
+
+  <ul class="list mb30">
+    <li><samp class="lsin">normal</samp> - интервал между словами по умолчанию</li>
+    <li><samp class="lsin">inherit</samp> - наследует параметры родителя</li>
+    <li><samp class="lsin">число</samp> - задает указанную дистанцию между словами</li>
+  </ul>
+
+  <fieldset>
+    <div style="word-spacing:20px; text-align:left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat hic ullam cupiditate, quaerat itaque voluptas laboriosam. In, rem!</div>
+    <pre class="item2 mt20"><code>&lt;p style="word-spacing:20px;">Lorem ipsum dolor ...&lt;/p></code></pre>
+  </fieldset>
+
 </div>
 
 </body>

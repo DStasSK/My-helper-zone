@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head><title>@counter-style</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+.ll1>li{margin-bottom:20px}
+.ll1>li:last-child{margin-bottom:0}
+</style>
+</head>
+<body>
+
+<h1 class="sin"><span class="dib">@<samp>counter-style</samp></span></h1>
+
+<div class="item">
+	<p>Правило <span class="red dib">@<samp>counter-style</samp></span> позволяет расширять предопределенные стили списков и определять собственные стили счетчиков <samp class="teg">ul</samp> и <samp class="teg">ol</samp>, когда предопределенные стили не соответствуют их требованиям.</p>
+
+	<pre class="item2 mt20"><code>@counter-style &lt;name> {<br>  &lt;declaration-list><br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">&lt;name></samp> - идентифицирует указанные стили - позволяет к ним в последующем обратиться. Имя группы свойств указывается без кавычек; и оно чуствительно к регистру. Оно не может быть <samp class="sin">none</samp> или совпадать с названием CSS свойств и их ключевыми словами.</li>
+		<li>
+			<samp class="sin">&lt;declaration-list></samp> - перечень определенных CSS свойств и их параметров.
+			<ul class="list ll1">
+				<li><samp class="sin">system</samp> - указывает алгоритм преобразования значения счетчика в строковое представление. Если значение задано как
+				<samp class="lsin" title="После достижения конца списка цикл возвращается к началу и начинается заново. Это значение полезно как для базовых стилей маркеров с одним символом, так и для стилей с несколькими символами. В дескрипторе символов должен быть указан хотя бы один символ, в противном случае стиль счетчика недействителен.">cyclic</samp>,
+				<samp class="lsin" title="Интерпретирует символы счетчика как цифры в системе счисления с позиционным значением. В числовой системе первый символ счетчика интерпретируется как 0, следующий как 1, затем 2 и т. д. В дескрипторе символов необходимо указать не менее двух символов счетчика, иначе стиль счетчика будет недействительным.">numeric</samp>,
+				<samp class="lsin" title="Интерпретирует указанные символы как цифры в алфавитной системе счисления. Первые 26 представлений счетчика будут a, b до z. После z будет продолжаться как aa, ab">alphabetic</samp>,
+				<samp class="lsin" title="Циклически проходит по символам, представленным в списке дескрипторов символов, многократно, удваивая, утраивая и т. д. символы при каждом последующем проходе. Например, если указаны два символа ◽ и ◾, при каждом последующем проходе они станут ◽◽ и ◾◾, затем ◽◽◽ и ◾◾◾ и т. д. В дескрипторе символов должен быть указан хотя бы один символ, в противном случае стиль счетчика недействителен. Эта система счетчиков работает только для положительных значений счетчика.">symbolic</samp> или
+				<samp class="lsin" title="Определяет конечный набор символов, итерируя один раз по списку символов. После итерации указанных символов используется резервный стиль счетчика. В дескрипторе символов должен быть указан хотя бы один символ, в противном случае стиль счетчика недействителен. За ключевым словом fixed может следовать необязательное значение integer - указывает элемент в списке, который получит первый символ из списка символов. Значением по умолчанию является 1.">fixed</samp> необходимо будет также указать дескриптор символов - <samp class="sin">symbols</samp>. Если значение задано как <samp class="lsin" title="Используется для представления систем нумерации знак-значение, таких как римские цифры, которые вместо повторного использования цифр в разных позициях для получения разных значений определяют дополнительные цифры для больших значений.">additive</samp>, необходимо также указать дескриптор аддитивных символов - <samp class="sin dib">additive-symbols</samp>.</li>
+
+				<li>
+					<samp class="sin">symbols</samp> - указывает символы, которые будут использоваться для представления маркеров. Символы могут содержать строки, изображения или пользовательские идентификаторы. Этот дескриптор требуется, если свойство <samp class="sin">system</samp> имеет значение <samp class="lsin">cyclic</samp>, <samp class="lsin">numeric</samp>, <samp class="lsin">alphabetic</samp>, <samp class="lsin">symbolic</samp> или <samp class="lsin">fixed</samp>.
+					<pre class="item2 css"><code>symbols: A B C D E;<br>symbols: "\24B6" "\24B7" "\24B8" D E;<br>symbols: "0" "1" "2" "4" "5" "6" "7" "8" "9";<br>symbols: url("one.svg") url("two.svg") url("three.svg");</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">additive-symbols</samp> - в качестве значения указывается список символов счетчика, перечисленнымх в порядке убывания. Этот дескриптор требуется, если свойство <samp class="sin">system</samp> имеет значение <samp class="sin dib">additive-symbols</samp>.
+					<pre class="item2 css"><code>/* Single tuple */<br>additive-symbols: 3 "*";<br><br>additive-symbols:<br>  3 "0",<br>  2 "\2E\20",<br>  1 url(symbol.png);</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">negative</samp> - указывает символы, которые следует добавить в конец или начало представления счетчика, если значение отрицательное.
+					<pre class="item2 ls-1 css"><code>/* One value */<br>negative: "--"; /* Adds '--' before if counter value is negative */<br><br>/* Two values */<br>negative: "(" ")"; /* Adds '(- before and ')' after if value is negative */</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">prefix</samp> - указывает символ, который должен быть добавлен к представлению маркера. Префиксы добавляются к представлению на последнем этапе, перед любыми символами, добавляемыми к отрицательным значениям свойства <samp class="sin">negative</samp>.
+					<pre class="item2 css"><code>/* value: string, image, or identifier */<br>prefix: "§";<br>prefix: "Page ";<br>prefix: url(bullet.png);</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">suffix</samp> - указывает символ, который добавляется после представления маркера, включая любые символы, добавленные к отрицательным значениям свойства <samp class="sin">negative</samp>.
+					<pre class="item2 css"><code>/* value: string, image, or identifier */<br>suffix: "!";<br>suffix: " page.";<br>suffix: url(bullet.png);</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">range</samp> - определяет диапазон значений, к которым применим стиль счетчика. Если стиль счетчика используется для представления значения счетчика за пределами диапазонов, определенных этим дескриптором, стиль счетчика вернется к своему резервному стилю, описанному в свойстве <samp class="sin">fallback</samp>.
+					<pre class="item2 css"><code>range: 2 5;<br>range: infinite 10;<br>range: 6 infinite;<br>range: infinite infinite;</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">pad</samp> - определяет минимальную длину счетчика. Если представление маркера короче указанной длины, то представление маркера будет дополнено указанным символом заполнения; остальные представления отображаются без дополнительного заполнения.
+					<pre class="item2 css"><code>pad: 3 "0";<br>pad: "+" 5;</code></pre>
+				</li>
+
+				<li>
+					<samp class="sin">speak-as</samp> - описывает, как экранные дикторы, должны объявлять стиль счетчика. Например, значение маркера элемента списка может быть прочитано как числа или буквы алфавита для упорядоченных списков или как звуковые подсказки для неупорядоченных списков.
+					<ul class="list">
+						<li><samp class="lsin">auto</samp> - значение по умолчанию (настройки браузера)</li>
+						<li><samp class="lsin">bullets</samp> - будет зачитана фраза или звуковая подсказка, определенная для неупорядоченного элемента списка.</li>
+						<li><samp class="lsin">numbers</samp> - числовое значение счетчика будет озвучено на языке документа.</li>
+						<li><samp class="lsin">words</samp> - будет озвучено строковое значение счетчика на языке документа.</li>
+						<li><samp class="lsin">spell-out</samp> - будет читать значение счетчика по буквам. Если пользовательский агент не знает, как читать определенный символ счетчика - озвучит как будто значение было числом.</li>
+					</ul>
+				</li>
+
+				<li>
+					<samp class="sin">fallback</samp> - указывает имя счетчика системы, к которому следует вернуться, если указанная система не может построить представление значения счетчика или если значение счетчика выходит за пределы указанного диапазона. Если резервный счетчик также не может представить значение, то используется резерв этого счетчика, если он указан. Если нет описанных резервных счетчиков или если цепочка резервных систем не может представить значение счетчика, то в конечном итоге будет выполнен возврат к десятичному стилю.
+					<pre class="item2 css"><code>fallback: lower-alpha;</code></pre>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<fieldset class="prm mt40 mb40">
+		<legend></legend>
+		<style>
+			@counter-style myListSlyle {
+				system: cyclic;
+				symbols: "\1F44D";
+				suffix: " ";
+			}
+
+			.ll01 {
+				list-style: myListSlyle;
+			}
+		</style>
+		<ul class="list ll01"><li>1</li><li>2</li><li>3</li></ul>
+		<pre class="item2 mt10"><code>@counter-style myListSlyle {<br>  system: cyclic;<br>  symbols: "\1F44D";<br>  suffix: " ";<br>}<br><br>ul {<br>  list-style: myListSlyle;<br>}</code></pre>
+	</fieldset>
+
+	<div style="font-size:16px">2023.09</div>
+	<table class="support">
+    <tr>
+      <td><span class="t-ie" title="Internet Explorer"></span></td>
+      <td><span class="t-edge" title="Edge"></span></td>
+      <td><span class="t-chrome" title="Chrome"></span></td>
+      <td><span class="t-opera" title="Opera"></span></td>
+      <td><span class="t-safari" title="Safari"></span></td>
+      <td><span class="t-firefox" title="Firefox"></span></td>
+      <td><span class="t-android" title="mobile-android"></span></td>
+      <td><span class="t-firefox" title="mobile-Firefox"></span></td>
+      <td><span class="t-opera" title="mobile-Opera"></span></td>
+      <td><span class="t-safari" title="mobile-Safari"></span></td>
+    </tr>
+    <tr>
+      <td class="n"><span></span></td><!-- IE -->
+      <td><span>91</span></td><!-- Edge -->
+      <td><span>91</span></td><!-- Chrome -->
+      <td><span>77</span></td><!-- Opera -->
+      <td><span>17</span></td><!-- Safari -->
+      <td><span>33</span></td><!-- FF -->
+      <td><span>91</span></td><!-- mobile-android -->
+      <td><span>33</span></td><!-- mobile-FF -->
+      <td><span>64</span></td><!-- mobile-opera -->
+      <td><span>17</span></td><!-- mobile-safary -->
+    </tr>
+  </table>
+
+</div>
+
+
+
+</body></html>

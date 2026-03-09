@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>:checked</title>
+<!DOCTYPE html><html><head><title>Псевдокласс :checked</title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,19 +20,22 @@
 </style></head>
 <body>
 
-<h2 class="sin">псевдокласс <samp>:checked</samp></h2>
+<h2 class="sin">Псевдокласс <samp>:checked</samp></h2>
 <div class="item">
-	<div class="anp">
-		<p><samp class="red">:checked</samp> - выбранный (чекнутый) элемент</p>
-		<p class="mt10">Применяется для:</p>
-		<table class="qtt1" cellspacing="0">
-			<tr><td width=100px><input type="checkbox" checked></td><td>Флажка</td><td><pre><code class="html">&lt;input type="checkbox" checked></code></pre></td></tr>
-			<tr><td><input type="radio" name="yesno" checked>Да<input type="radio" name="yesno">Нет</td><td>Переключателя</td><td><pre><code class="html">&lt;input type="radio" name="yesno" checked>Да<br>&lt;input type="radio" name="yesno">Нет</code></pre></td></tr>
-			<tr><td><select><option>один</option><option>два</option><option>три</option></select></td><td>Списка</td><td><pre><code class="html">&lt;select><br>  &lt;option>один&lt;/option><br>  &lt;option>два&lt;/option><br>  &lt;option>три&lt;/option><br>&lt;/select></code></pre></td></tr>
-		</table>
-	</div><!-- /anp -->
+	<p>Псевдокласс <b>:checked</b> применяется к элементам списков - <a href="option.html"><samp class="teg tdu">option</samp></a> с атрибутом <samp class="sin">selected</samp>, а так же к тегу <a href="../input.html"><samp class="teg tdu">input</samp></a> у которого атрибут <a href="../input.html#type"><samp class="sin tdu">type</samp></a> имеет значение <samp class="lsin">checkbox</samp> или <samp class="lsin">radio</samp> и когда они находятся в положение «включено» или имеют атрибут <samp class="sin">checked</samp>.</p>
 
-	<p>Сами поля форм плохо стилизуются, и для того чтобы как-то активно использовать <samp class="sin">:checked</samp> идут на хитрость и стилизуют не сам <samp class="red">&lt;input></samp>, а элемент <samp class="red">&lt;label></samp>. Для этого сразу после <samp class="red">&lt;input></samp> вставляем <samp class="red">&lt;label></samp> и связываем эти два элемента с помощью одинакового значения у атрибутов <samp class="red">id</samp> и <samp class="red">for</samp>. Теперь можно щёлкать уже по тексту и флажок будет включаться или выключаться. В стилях их тоже можно связать между собой.</p>
+	<div class="mt20">Применяется для:</div>
+	<table class="qtt1" cellspacing="0">
+		<tr><td width=100px><input type="checkbox" checked></td><td>Флажка</td><td><pre><code class="html">&lt;input type="checkbox" checked></code></pre></td></tr>
+		<tr><td><input type="radio" name="yesno" checked>Да<input type="radio" name="yesno">Нет</td><td>Переключателя</td><td><pre><code class="html">&lt;input type="radio" name="yesno" checked>Да<br>&lt;input type="radio" name="yesno">Нет</code></pre></td></tr>
+		<tr><td><select><option>один</option><option>два</option><option>три</option></select></td><td>Списка</td><td><pre><code class="html">&lt;select><br>  &lt;option>один&lt;/option><br>  &lt;option>два&lt;/option><br>  &lt;option>три&lt;/option><br>&lt;/select></code></pre></td></tr>
+	</table>
+</div>
+
+
+<div class="item">
+<h3 class="sin">Стилизация <samp class="teg">input <span class="sin">type:</span><span class="lsin">checkbox</span></samp></h3>
+	<p>Сами поля форм плохо стилизуются, и для того чтобы как-то активно использовать <samp class="sin">:checked</samp> идут на хитрость и стилизуют не сам <samp class="teg">input</samp>, а элемент <samp class="teg">label</samp>. Для этого сразу после <samp class="teg">input</samp> вставляем <samp class="teg">label</samp> и связываем эти два элемента с помощью одинакового значения у атрибутов <samp class="red">id</samp> и <samp class="red">for</samp>. Теперь можно щёлкать уже по тексту и флажок будет включаться или выключаться. В стилях их тоже можно связать между собой.</p>
 
 	<div class="item2 br0" style="padding:0">
 		<table width=100% class="qtt2">

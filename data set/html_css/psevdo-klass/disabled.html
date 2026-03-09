@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><title>Псевдокласс disabled</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:disabled</samp></h2>
+<div class="item" id="disabled">
+  <p>Псевдокласс <samp class="sin">:disabled</samp> используется для применения стиля к заблокированным элементам форм. Такие элементы не могут получить фокус, быть нажатыми или активированы, в текстовых полях нельзя набирать текст.</p>
+
+	<pre class="item2 mt20 mb20"><code>.elem:disabled {  }</code></pre>
+
+	<fieldset class="prm">
+    <legend></legend>
+    <style type="text/css">
+      .ta3 {width:300px; height:30px; resize:none; background:yellow; display:inline-block;}
+      .ta3:disabled::placeholder{color:red;}
+      .ta4{background:#fff;}
+    </style>
+    <form>
+      <textarea class="ta3" placeholder="введите текст"></textarea>
+      <textarea class="ta3 ta4" placeholder="заблокированно" disabled></textarea>
+    </form>
+  
+    <pre class="item2 ls-05"><code>&lt;style type="text/css"><br>  textarea {background: yellow}<br>  textarea:disabled::placeholder {color: red}<br>  .ta4 {background: #fff}<br>&lt;/style><br><br>&lt;form><br>  &lt;textarea placeholder="введите текст">&lt;/textarea><br>  &lt;textarea class="ta4" placeholder="заблокированно" disabled>&lt;/textarea><br>&lt;/form></code></pre>
+  </fieldset>
+</div>
+</body></html>

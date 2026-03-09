@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>Псевдокласс in-range</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:in-range</samp></h2>
+<div class="item">
+  <p>Псевдокласс <samp class="sin">:in-range</samp> применяется к элементам форм, у которых введённое пользователем значение находится в заранее заданном диапазоне. Сам диапазон устанавливается с помощью атрибутов <b>min</b> и <b>max</b>, они, соответственно, задают минимальное и максимальное значение.</p>
+
+  <div class="no no1">Этот псевдокласс применяется только к элементам с заданным диапазоном ограничений. При отсутствии такого ограничения, элемент не может быть ни "в зоне допустимых значений", ни "вне диапазона".</div>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <style>
+      .exampleInrange input:in-range {background: #eec;}
+      .exampleInrange input:out-of-range {background: #fcd;}
+    </style>
+    <form class="exampleInrange">
+      <p>Введите число от 1 до 10</p>
+      <p><input type="number" min="1" max="10" value="1"></p>
+    </form>
+  
+    <pre class="item2"><code>&lt;style><br>  .form input:in-range {background: #eec;}<br>  .form input:out-of-range {background: #fcd;}<br>&lt;/style><br><br>&lt;form class="form"><br>  &lt;p>Введите число от 1 до 10&lt;/p><br>  &lt;p>&lt;input type="number" min="1" max="10" value="1">&lt;/p><br>&lt;/form></code></pre>
+  </fieldset>
+
+  <div class="no">IE не поддерживает данный элемент</div>
+</div>
+</body></html>

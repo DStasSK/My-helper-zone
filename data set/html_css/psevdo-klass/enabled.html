@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><title>Псевдокласс enabled</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Псевдокласс <samp>:enabled</samp></h2>
+<div class="item">
+	<p>Псевдокласс <samp class="sin">:enabled</samp> используется для применения стиля к доступным (не заблокированным) элементам форм. По умолчанию, все элементы форм являются доступными, если в коде HTML к ним не добавляется атрибут <samp class="sin">disabled</samp>.</p>
+
+	<pre class="item2 mt20 mb20"><code>.elem:enabled { ... }</code></pre>
+
+  <fieldset class="prm">
+    <legend></legend>
+    <script>
+      function agreeForm(f) {
+       if (f.agree.checked) f.submit.disabled = 0;  // submit - name="submit"
+       else f.submit.disabled = 1;                  // берет из псевдомассива form
+      }
+    </script>
+    <style>
+      .exampleEnabled:enabled { background: rgb(72, 252, 183); }
+    </style>
+    <form action="./">
+      <div>Типовой договор</div>
+      <div class="mt10 mb10">
+        <input type="checkbox" id="agree" onclick="agreeForm(this.form)">
+        <label for="agree">Я согласен со всеми условиями</label>
+      </div>
+      <div><input type="submit" name="submit" value="Отправить" disabled class="exampleEnabled"></div>
+    </form>
+    <div class="item2 mt30">
+      <pre><code>&lt;script><br>  function agreeForm(f) {<br>   if (f.agree.checked) f.submit.disabled = 0;  // submit - name="submit"<br>   else f.submit.disabled = 1;                  // берет из псевдомассива form<br>  }<br>&lt;/script><br>&lt;form action="./"><br>  &lt;p>Типовой договор&lt;/p><br>  &lt;input type="checkbox" id="agree" onclick="agreeForm(this.form)"><br>  &lt;label for="agree">Я согласен со всеми условиями&lt;/label><br>  &lt;p>&lt;input type="submit" name="submit" value="Отправить" disabled>&lt;/p><br>&lt;/form></code></pre>
+      <pre><code><br>input:enabled { background: rgb(72, 252, 183); }</code></pre>
+    </div>
+  </fieldset>
+</div>
+</body></html>

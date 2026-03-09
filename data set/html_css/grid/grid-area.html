@@ -1,0 +1,92 @@
+<!DOCTYPE html><html><head><title>CSS свойство grid-area</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>grid-area</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">grid-area</samp> — определяет размер и расположение элемента сетки в макете сетки, а также  может использоваться для присвоения имени элементу сетки.</p>
+
+	<div class="mt30">Является сокращенным свойством для следующих свойств:</div>
+	<ul class="list">
+		<li><a href="grid-row-start.html" class="sin tdu"><samp>grid-row-start</samp></a></li>
+		<li><a href="grid-column-start.html" class="sin tdu"><samp>grid-column-start</samp></a></li>
+		<li><a href="grid-row-end.html" class="sin tdu"><samp>grid-row-end</samp></a></li>
+		<li><a href="grid-column-end.html" class="sin tdu"><samp>grid-column-end</samp></a></li>
+	</ul>
+
+	<div class="no no1">Значение всех свойств по умолчанию - <samp>auto</samp>.</div>
+
+	<div class="mt40 mb40"><img src="img/grid-area.gif" alt="схема" width="640" height="213" class="img-c"></div>
+
+	<pre class="item2 css ls-1 mt20"><code>.item {<br>   grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end | item_name;<br>}</code></pre>
+
+	<table class="t1 t3 tc mt20 mb30">
+		<tr><td class="ls-1" width="155px">grid-row-start</td>
+			<td>Определяет сколько строк будет занимать элемент, или на какой строке начинается элемент в макете сетки.</td></tr>
+		<tr><td class="ls-1">grid-column-start</td>
+			<td>Определяет сколько строк будет занимать элемент, или на какой строке заканчивается элемент в макете сетки.</td></tr>
+		<tr><td class="ls-1">grid-row-end</td>
+			<td>Определяет с какого столбца будет расположен элемент в макете сетки, или какое количество столбцов будет охватывать элемент.</td></tr>
+		<tr><td class="ls-1">grid-column-end</td>
+			<td>Определяет сколько столбцов будет занимать элемент, или на какой строке столбца завершится элемент.</td></tr>
+		<tr><td>item_name</td>
+			<td>Задает имя элемента сетки. <b>Нельзя использовать с <samp class="sin">grid-...</samp> свойствами</b>.</td></tr>
+	</table>
+
+	<div>Возможные значения <samp class="sin">grid-...</samp> свойств:</div>
+	<ul class="list">
+		<li><samp class="lsin">auto</samp> - ключевое слово, указывающее, что свойство не влияет на размещение элемента в макете сетки (автоматическое размещение, автоматический диапазон или диапазон по умолчанию равный 1). Является значением по умолчанию.</li>
+		<li>целое число, которое соответствует начальной грани элемента в макете сетки (отсчет граней в макете ведется сверху вниз от верхнего края элемента). Если задано отрицательное целое число, то отсчет ведется в обратном порядке, начиная с конечного края явной сетки макета. <b>Значение 0 недопустимо</b>.</li>
+		<li><samp class="lsin">line-name</samp> - строковое значение ссылающееся на именованную строку в макете сетки, заданный свойством <a href="grid-template.html"><samp class="sin dib tdu">grid-template</samp></a>. Элемент располагается от начальной грани указанного элемента.</li>
+		<li><samp class="lsin">span n</samp> - ключевое слово с целым числом <b>n</b>, которое определяет какое количество строк сетки элемент будет охватывать. По умолчанию используется значение 1. <b>Отрицательные значения или значение 0 недопустимы</b>.</li>
+	</ul>
+
+	<div class = "grid-container m0a mt40">
+		<div class = "grid-item item-a">Header</div>
+		<div class = "grid-item item-b">Main</div>
+		<div class = "grid-item item-c">Footer</div>
+		<div class = "grid-item item-d">Navigation</div>
+	</div>
+
+	<style>
+		.grid-container {display:grid; padding:10px; gap:10px; background:rgb(0,150,208);
+		grid-template: repeat(4, 30px) / 1fr 1fr 1fr 1fr;}
+		.grid-item {border: 1px solid #000; text-align: center; line-height:30px;}
+		.item-a {grid-area: 1 / 1 / 2 / 5; background:red;}
+		.item-b {grid-area: 2 / 2 / 4 / 4; background:yellow;}
+		.item-c {grid-area: 4 / span 4 / 5; background:green;}
+		.item-d {grid-area: 2 / 1 / span 2 / 2; background:violet;}
+	</style>
+
+	<pre class="item2 mt20"><code>&lt;div class = "grid-container">
+   &lt;div class = "item-a">Header&lt;/div>
+   &lt;div class = "item-b">Main&lt;/div>
+   &lt;div class = "item-c">Footer&lt;/div>
+   &lt;div class = "item-d">Navigation&lt;/div>
+&lt;/div>
+
+&lt;style>
+.grid-container {
+   display: grid;
+   grid-template: repeat(4, 40px) / 1fr 1fr 1fr 1fr;
+}
+.item-a { grid-area: 1 / 1 / 2 / 5; }
+.item-b { grid-area: 2 / 2 / 4 / 4; }
+.item-c { grid-area: 4 / span 4 / 5; }
+.item-d { grid-area: 2 / 1 / span 2 / 2; }
+&lt;/style></code></pre>
+
+</div>
+
+
+</body></html>

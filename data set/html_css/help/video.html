@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>&lt;video></title>
+﻿<!DOCTYPE html><html><head><title>&lt;video></title>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../css/mane.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,7 @@
 			<div class="ogl2 ogl21">
 				<span><a href="#autoplay" title="Bоспроизведение сразу после загрузки страницы.">autoplay</a></span>
 				<span><a href="#controls" title="Добавляет панель управления к файлу.">controls</a></span>
+				<span><a href="#disablePictureInPicture" title="управление функцией «картинка в картинке».">disablePictureInPicture</a></span>
 				<span><a href="#height" title="Задаёт высоту области для воспроизведения видеоролика.">height</a></span>
 				<span><a href="#loop" title="Повторяет воспроизведение с начала после его завершения.">loop</a></span>
 				<span><a href="#muted" title="Отключает звук при воспроизведении файлa.">muted</a></span>
@@ -89,6 +90,12 @@
 		<tr><td id="controls"><a href="#">controls</a></td>
 			<td>Указывает браузеру, что нужно отобразить базовые элементы управления воспроизведением (воспроизведение, пауза, громкость).
 			<pre class="item2"><code>&lt;video controls="controls">&lt;/video></code></pre></td></tr>
+		<tr><td id="disablePictureInPicture"><a href="#">disablePictureInPicture</a></td>
+			<td>Свойство указывает, отключена ли функция «картинка в картинке» для текущего элемента.
+			<pre class="item2"><code>&lt;video disablePictureInPicture="true">&lt;/video>
+&lt;video disablePictureInPicture>&lt;/video>
+&lt;video disablePictureInPicture="false">&lt;/video>
+</code></pre></td></tr>
 		<tr><td id="height"><a href="#">height</a></td>
 			<td>Задаёт высоту области для воспроизведения видеоролика, возможные значения: <b>px</b> или <b>%</b>.
 			<pre class="item2"><code>&lt;video height="значение">&lt;/video></code></pre></td></tr>
@@ -124,12 +131,11 @@
 
 <div class="item" id="pr1">
 <h3 class="sin"><a href="#">Пример 1.</a></h3>
-	<pre class="item2 ls-05"><code>&lt;video width="400" height="300" controls="controls" poster="video/duel.jpg">
-   &lt;source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
-   &lt;source src="video/duel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-   &lt;source src="video/duel.webm" type='video/webm; codecs="vp8, vorbis"'>
-   Элемент video не поддерживается вашим браузером. 
-   &lt;a href="video/duel.mp4">Скачайте видео&lt;/a>.
+	<pre class="item2 ls-05"><code>&lt;video width="400" height="300" controls="controls">
+   &lt;source src="video/jane.ogv" type='video/ogg; codecs="theora, vorbis"'>
+   &lt;source src="video/jane.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+   Элемент video не поддерживается вашим браузером.
+   &lt;a href="video/jane.mp4">Скачайте видео&lt;/a>.
 &lt;/video></code></pre>
 </div>
 
@@ -138,22 +144,20 @@
 <h3 class="sin"><a href="#">Пример 2.</a></h3>
 	<i>Подскажите, как задать воспроизведение видео с определенной секунды.</i>
 	<div class="m0a mt20" style="width:400px; height:300px">
-		<video src="media/duel.mp4" id="YOURID" controls width="400" height="300"></video>
+		<video src="media/jane.mp4" id="player" controls width="400" height="300"></video>
 	</div>
-	<pre class="item2"><code>  &lt;body><br>    &lt;video src="путь" id="YOURID" controls width="400" height="300">&lt;/video><br>  &lt;/body><br><br>  &lt;script><br>    var timeToPlay = 24;<br>    var video = document.querySelector('#YOURID');<br>    video.onplay = (el) => {<br>      el.srcElement.currentTime = timeToPlay;<br>      el.srcElement.play();<br>    }<br>  &lt;/script><br><br>&lt;/html></code></pre>
+
+	<!-- cкрипт для примера №2 - старт видео с 2-й секунды -->
+  <script>
+    let timeToPlay = 2;
+    let video = document.querySelector('#player');
+    video.onplay = (el) => {
+      el.srcElement.currentTime = timeToPlay;
+      el.srcElement.play();
+    }
+  </script>
+
+  <pre class="item2"><code>&lt;video src="путь" id="player" controls width="400" height="300">&lt;/video><br> <br><br>&lt;script><br>  let timeToPlay = 2;<br>  let video = document.querySelector('#player');<br>  video.onplay = (el) => {<br>    el.srcElement.currentTime = timeToPlay;<br>    el.srcElement.play();<br>  }<br>&lt;/script></code></pre>
 </div>
 
-
-</body>
-
-	<!-- cкрипт для примера №2 - старт видео с 24-й секунды -->
-		<script>
-			var timeToPlay = 24;
-			var video = document.querySelector('#YOURID');
-			video.onplay = (el) => {
-				el.srcElement.currentTime = timeToPlay;
-				el.srcElement.play();
-			}
-		</script>
-
-</html>
+</body></html>
