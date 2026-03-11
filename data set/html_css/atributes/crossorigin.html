@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><title>Атрибут crossorigin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">crossorigin</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов
+	<a href="../help/audio.html"><samp class="teg tdu">audio</samp></a>,
+	<a href="../help/img.html"><samp class="teg tdu">img</samp></a>,
+	<a href="../help/link.html"><samp class="teg tdu">link</samp></a>,
+	<a href="../help/script.html"><samp class="teg tdu">script</samp></a> и
+	<a href="../help/video.html"><samp class="teg tdu">video</samp></a>.</div>
+
+	<p>Aтрибут <samp class="sin">crossorigin</samp> позволяет настроить CORS запросы для данных получаемых элементом. Oбеспечивает поддержку CORS, определяя, как элемент обрабатывает запросы кросс-источника, тем самым позволяя настраивать запросы CORS для извлеченных данных элемента. Позволяет загружать ресурсы c другого домена с помощью CORS-запросов.</p>
+
+	<pre class="item2 mt20"><code>&lt;img crossorigin="anonymous | use-credentials" /></code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">anonymous</samp> - запрос использует заголовки CORS, а флаг учетных данных установлен на 'same-origin'. Обмен учетными данными пользователя (через файлы cookie, клиентские сертификаты TLS или HTTP-аутентификацию) не производится, если только пункт назначения не является тем же источником.</li>
+		<li><samp class="sin">use-credentials</samp> - запрос выполняется с передачей учетных данных. Запрос использует заголовки CORS, флаг учетных данных установлен на «include», и учетные данные пользователя всегда включены.</li>
+		<li><samp class="sin">""</samp> - недопустимое ключевое слово и пустая строка будут обработаны как <samp class="sin">anonymous</samp>.</li>
+		<li>По умолчанию (то есть, когда атрибут не указан) CORS вообще не используется.</li>
+	</ul>
+
+	<div class="no">Атрибут <samp class="sin">crossorigin</samp> не поддерживается для <samp class="sin dib">rel="<span class="lsin">icon</span>"</samp> в браузерах на базе Chromium.</div>
+
+</div>
+
+
+</body></html>

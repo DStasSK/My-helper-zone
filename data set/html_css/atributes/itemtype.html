@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><title>Атрибут itemtype</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>itemtype</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">itemtype</samp> указывает адрес словаря, который будет применяться для определения свойств элемента в структуре данных. Яндекс и Google поддерживают стандарт разметки <samp class="sin">Schema.org</samp>, соответственно, в качестве значения <samp class="red">itemtype</samp> указывается адрес словаря на этом сайте.<!-- К примеру, для разметки организаций используется значение <samp class="sin dib">http://schema.org/Organization</samp>. --></p>
+
+	<pre class="item2 mt20"><code>&lt;div itemscope itemtype="адрес"><br>  ...<br>&lt;/div></code></pre>
+	<ul class="list mb20">
+		<li>Атрибут <samp class="sin">itemtype</samp> может быть указан только для элементов, у которых указан атрибут <samp class="sin">itemscope</samp>.</li>
+		<li>Атрибут <samp class="sin">itemtype</samp> должен иметь значение, которое является неупорядоченным набором уникальных токенов, чувствительных к регистру, каждый из которых является допустимым и абсолютным URL-адресом, и все они определены для использования одного и того же словаря. Значение атрибута должно иметь по крайней мере один токен.</li>
+		<li>Все типы элементов должны быть типами, определенными в применимых спецификациях (например, schema.org), и все они должны быть определены для использования одного и того же словаря.</li>
+		<li>Атрибут <samp class="sin">itemid</samp> может быть указан только для элементов, у которых указаны как атрибут <samp class="sin">itemscope</samp>, так и атрибут <samp class="sin">itemtype</samp>. Они должны быть указаны только для элементов с атрибутом <samp class="sin">itemscope</samp>, атрибут <samp class="sin">itemtype</samp> которых указывает словарь, не поддерживающий глобальные идентификаторы для элементов, как определено спецификацией этого словаря.</li>
+		<li>Точное значение глобального идентификатора определяется спецификацией словаря. Такие спецификации определяют, разрешено ли существование нескольких элементов с одним и тем же глобальным идентификатором (на одной странице или на разных страницах), а также каковы правила обработки для этого словаря с точки зрения обработки случая наличия нескольких элементов с одним и тем же идентификатором.</li>
+	</ul>
+
+
+	<div class="prm mt20 anp">
+		<div itemscope itemtype="http://schema.org/Organization">
+			<span itemprop="name">Яндекс</span> Контакты:
+			<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				Адрес:
+				<span itemprop="streetAddress">ул. Льва Толстого, 16</span>
+				<span itemprop="postalCode"> 119021</span>
+				<span itemprop="addressLocality">Москва</span>,
+			</div>
+			Телефон: <span itemprop="telephone">+7 495 739–70–00</span><br>
+			Факс: <span itemprop="faxNumber">+7 495 739–70–70</span><br>
+			Электронная почта: <span itemprop="email">pr@yandex-team.ru</span>
+		</div>
+
+		<pre class="item2 ls-05"><code>&lt;div itemscope itemtype="http://schema.org/Organization"><br>  &lt;span itemprop="name">Яндекс&lt;/span> Контакты:<br>  <span class="ls-1">&lt;div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"></span><br>    Адрес:<br>    &lt;span itemprop="streetAddress">ул. Льва Толстого, 16&lt;/span><br>    &lt;span itemprop="postalCode"> 119021&lt;/span><br>    &lt;span itemprop="addressLocality">Москва&lt;/span>,<br>  &lt;/div><br>  Телефон: &lt;span itemprop="telephone">+7 495 739–70–00&lt;/span>&lt;br><br>  Факс: &lt;span itemprop="faxNumber">+7 495 739–70–70&lt;/span>&lt;br><br>  Электронная почта: &lt;span itemprop="email">pr@yandex-team.ru&lt;/span><br>&lt;/div></code></pre>
+	</div>
+
+
+</div>
+
+</body></html>

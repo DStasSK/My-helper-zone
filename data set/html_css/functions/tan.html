@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><title>Функция - tan()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>tan()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">tan()</samp> — это тригонометрическая функция, которая возвращает тангенс указанного в ней угла в виде числа от -∞ до +∞.</p>
+
+	<pre class="item2 mt20 mb10 sin">tan(<samp class="lsin">angle</samp>)<br><br>tan(<samp class="lsin">45deg</samp>)<br>tan(<samp class="lsin">0.125turn</samp>)<br>tan(<samp class="lsin">3.14159 / 4</samp>)</pre>
+
+	<div><samp class="sin">angle</samp> - любое CSS значение угла; при указании безразмерных чисел, например при расчете, они интерпретируются как число радиан, представляющее угол.</div>
+
+	<ul class="list">
+		<li>Если угол задан как <samp class="lsin">infinity</samp>, <samp class="lsin">-infinity</samp> или <samp class="lsin">NaN</samp>, результат будет <samp class="pur">NaN</samp>.</li>
+		<li>Если угол равен 0, результат равен 0.</li>
+		<li>Если угол является одним из значений асимптоты (например, 90°, 270° и т. д.), результат явно не определен. Авторы не должны полагаться на то, что <samp class="sin">tan()</samp> возвращает какое-либо конкретное значение для этих входных данных.</li>
+	</ul>
+
+	<div class="mt30">2023.07</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>111</span></td><!-- Edge -->
+			<td><span>111</span></td><!-- Chrome -->
+			<td><span>97</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>108</span></td><!-- FF -->
+			<td><span>111</span></td><!-- mobile-android -->
+			<td><span>108</span></td><!-- mobile-FF -->
+			<td><span>75</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

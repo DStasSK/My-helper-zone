@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><title>Функция - sqrt()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>sqrt()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">sqrt()</samp> — возвращает квадратный корень заданного числа. В качестве значения применяется число больше или равное нулю (x ≥ 0). Если указанное число отрицательное (например: sqrt(-4)), то функция вернёт <samp class="pur">NaN</samp>.</p>
+
+	<div class="no">Функция <samp class="sin">sqrt()</samp> работает только с числами без единиц CSS. Для использования с единицами CSS, такими как <samp class="lsin">px</samp>, <samp class="lsin">em</samp>, <samp class="lsin">rem</samp> и др. можно воспользоваться функцией <samp class="sin">calc()</samp>.</div>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin">sqrt(<samp class="lsin">number</samp>)</pre>
+		<pre><code><br>div {<br>  width: calc(10px * sqrt(9));   /*  30px */<br>  width: calc(10px * sqrt(25));  /*  50px */<br>  width: calc(10px * sqrt(100)); /* 100px */<br>}</code></pre>
+	</div>
+
+
+	<div class="mt30">2023.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>120</span></td><!-- Edge -->
+			<td><span>120</span></td><!-- Chrome -->
+			<td><span>106</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>118</span></td><!-- FF -->
+			<td><span>120</span></td><!-- mobile-android -->
+			<td><span>118</span></td><!-- mobile-FF -->
+			<td><span>80</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

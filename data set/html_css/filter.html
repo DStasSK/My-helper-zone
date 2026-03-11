@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>filter</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -71,7 +71,7 @@
 		<tr id="blur"><td>blur()</td>
 			<td><p>Задаёт размытие по Гауссу изображений, фоновых картинок или текста. К элементу <samp class="red">&lt;body></samp> напрямую применить размытие нельзя, только к его потомкам.</p>
 			В качестве значения указывается радиус размытия, он пишется в любых доступных единицах размера CSS (к примеру: 5px). Чем больше значение, тем сильнее будет размыто изображение. Отрицательное значение не допускается. Пустое значение воспринимается как 0px.
-			<pre class="item2"><code>.bg {<br>  background:url(/example/image/shark.jpg);<br>  background-size:cover;<br>  position:fixed;<br>  left:0; right:0; top:0; bottom:0;<br>  filter:blur(10px);<br>  -webkit-filter:blur(10px);<br>}</code></pre></td></tr>
+			<pre class="item2"><code>.bg {<br>  background:url(/example/image/shark.jpg);<br>  background-size:cover;<br>  position:fixed;<br>  left:0; right:0; top:0; bottom:0;<br>  -webkit-filter: blur(15px);<br>  -moz-filter: blur(15px);<br>  -o-filter: blur(15px);<br>  -ms-filter: blur(15px);<br>  filter: blur(15px);<br>}</code></pre></td></tr>
 		<tr id="brightness"><td>brightness()</td>
 			<td><p>Понижает или повышает яркость изображений или фоновых картинок.
 			Значение 100% или 1 оставляет изображение исходным. Любые значения меньше 100% (или меньше 1) понижают яркость изображения.</p>

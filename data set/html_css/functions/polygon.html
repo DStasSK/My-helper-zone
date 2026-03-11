@@ -1,0 +1,99 @@
+<!DOCTYPE html><html><head><title>Функция - polygon()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>polygon()</samp></h2>
+
+<div class="item">
+	<p>Функция <samp class="sin">polygon()</samp> принимает в качестве значений массив точек-коодинат по осям <b>x</b> и <b>y</b>, разделенных запятыми, для создания сложной фигуры с ломанным контуром. Сами координаты X и Y разделяются пробелом. Наименьшим количеством наборов точек является три, что создаёт треугольник.
+
+Эта функция используется в CSS свойствах <a href="../clip-path.html"><samp class="sin tdu dib">clip-path</samp></a> и <a href="../CSS%20Shapes.html#shape-outside"><samp class="sin tdu dib">shape-outside</samp></a>.</p>
+
+	<pre class="item2 mt20 mb10 sin">polygon( [<samp class="lsin">fill-rule</samp>,] <!-- [<samp class="lsin">round length</samp>],  -->[<samp class="lsin">point</samp>], [<samp class="lsin">point</samp>]... )</pre>
+	<ul class="list">
+		<li><samp class="sin">point</samp> - значение координат точки в которую или из которой будет идти линия контура фигуры. Представляет собой два значения: первое - координата по оси Х, второе - по оси Y.</li>
+		<!-- <li><samp class="sin">round</samp> - .</li> -->
+		<!-- <li><samp class="sin">length</samp> - значение длины в единицах CSS.</li> -->
+		<li>
+			<samp class="sin">fill-rule</samp> - необязательное значение, которое определяет правило заполнения. Значение представляется в виде одного из ключевых слов:
+			<ul class="list l1">
+				<li><samp class="sin">nonzero</samp> - значение по умолчанию. Заполняет все внутреенее пространство.</li>
+				<li><samp class="sin">evenodd</samp> - определяет внутреннюю область на холсте, проводя линию из этой области через всю фигуру в любом направлении, подсчитывая сегменты контура, пересекаемых линией. Если при этом получится нечетное число, то точка находится внутри, если четное — то снаружи. Направление рисования пересекаемых линий фигуры - не имеет значения.</li>
+			</ul>
+		</li>
+	</ul>
+
+</div>
+
+
+
+<div class="item">
+	<style>
+		.example * {box-sizing:border-box;}
+		.example {
+			display:flex; gap:20px; padding:10px; margin:5px 0 10px;
+			background:#fff; color:#333; border:1px solid;
+		}
+		.example-box {width: 200px; background: #fafafa; flex-shrink:0;}
+		/* .example-box-3 {width: 250px;} */
+		.code-box {flex:1; margin:-10px; padding:10px;}
+		.triangle {
+			/* float: left; */ width:200px; height:150px; background-color:magenta;
+			clip-path: polygon(0% 0%, 50% 50%, 0% 100%);
+			/* shape-outside: polygon(0% 0%, 50% 50%, 0% 100%); */
+		}
+		.star-shape-1 {
+			height:200px; width:200px; background:gold;
+			clip-path: polygon(50% 0, 83% 100%, 0 38%, 100% 38%, 17% 100%, 50% 0);
+		}
+		.star-shape-2 {
+			height:100px; width:100px; background:gold;
+			float:left; shape-outside: polygon(50% 0, 83% 100%, 0 38%, 100% 38%, 17% 100%, 50% 0);
+			clip-path: polygon(evenodd, 50% 0, 83% 100%, 0 38%, 100% 38%, 17% 100%, 50% 0);
+		}
+	</style>
+
+	<div class="example">
+		<div class="example-box">
+			<div class="triangle"></div>
+		</div>
+		<div class="item2 code-box">
+			<pre><code>&lt;div class="triangle">&lt;/div></code></pre>
+			<pre><code>.triangle {<br>  width: 200px;<br>  height: 150px;<br>  background-color: magenta;<br>  clip-path: polygon(0% 0%, 50% 50%, 0% 100%);<br>}</code></pre>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="example-box">
+			<div class="star-shape-1"></div>
+		</div>
+		<div class="item2 code-box">
+			<pre><code>&lt;div class="star-shape-1">&lt;/div></code></pre>
+			<pre class="ls-1"><code><br>.star-shape-1 {<br>  width: 200px;<br>  height: 200px;<br>  background-color: gold;<br>  clip-path: polygon(50% 0, 83% 100%, 0 38%, 100% 38%, 17% 100%, 50% 0);<br>}</code></pre>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="example-box example-box-3">
+			<div class="star-shape-2"></div>
+			<div style="font-size:14px;">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
+		</div>
+		<div class="item2 code-box">
+			<pre><code>&lt;div class="star-shape-2">&lt;/div><br>&lt;div>text text text ...&lt;/div></code></pre>
+			<pre class="ls-1"><code><br>.star-shape-2 {<br>  width:100px; height:100px; float:left; background:gold;<br>  clip-path: polygon(evenodd, 50% 0, 83% 100%, 0 38%, 100% 38%, 17% 100%, 50% 0);<br>  shape-outside: polygon(50% 0, 83% 100%, 0 38%, 100% 38%, 17% 100%, 50% 0);<br>}</code></pre>
+		</div>
+	</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>CSS cвойство border</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -12,7 +12,7 @@
 	.tt1 div{max-width:50px; height:20px; margin:2px auto; padding:5px; line-height:20px;
 		font-size:14px; letter-spacing:1px; text-align:center; font-family:monospace;}
 
-	.prev{display:flex; gap:5px; margin:0; padding:0; list-style:none;}
+	.prev{display:flex; gap:5px; margin:0; padding:0; list-style:none; color:#333}
 	.prev-box{
 		background:#eee; flex:1; border:4px solid; padding:4px 5px;
 		font-size:14px; letter-spacing:.5px; text-align:center; font-family:monospace;
@@ -130,10 +130,10 @@
 <!-- примеры -->
 <div class="item" id="example_0">
 <h3 class="sin"><a href="#" title="наверх">Свойство отдельных участков границы.</a></h3>
-	<div style="display:flex;">
+	<div style="display:flex; justify-content:center">
 		<style>
-			.example_01{width:30%; padding:15px 0 0; margin:8px 20px}
-			.example_02{width:40%; padding:0 30px; margin:8px 20px}
+			.example_01{width:30%; padding:15px 0 0; margin:8px 20px; color:#333}
+			.example_02{width:340px; padding:5px; margin:8px 0 8px 50px; background:#eee}
 
 			.example_0_box{
 				width:100%; background-color:#fC0; padding:20px; text-align:center;
@@ -156,6 +156,7 @@
 		.example_1_box {
 			width:100%; max-width:350px;
 			background:#fffdee;
+			color:#333;
 			padding:20px;
 			border:10px solid transparent;
 			text-align:center;
@@ -221,9 +222,9 @@
 <div class="item" id="example_3">
 <h3 class="sin"><a href="#" title="наверх">Пример - треугольник.</a></h3>
 	<style type="text/css">
-		.example3{display:flex;}
-		.example31{width:30%; padding:0 20px; margin:8px 20px}
-		.example32{width:40%; padding:0 20px; margin:8px 20px}
+		.example3{display:flex; justify-content:center; align-items:center}
+		.example31{width:30%; padding:0 20px; margin:8px}
+		.example32{width:380px; padding:5px; margin:8px; background:#eee}
 		.ex_3_0{margin-left:30px; width:0; height:0; border-left:70px solid transparent; border-right:70px solid transparent;}
 		.ex_3_1{border-bottom:120px solid red}
 		.ex_3_2{border-top:120px solid aqua}
@@ -233,7 +234,7 @@
 	<div class="example3">
 		<div class="example31"><div class="ex_3_0 ex_3_1"></div></div>
 		<div class="example32">
-			<pre style="margin-top:-10px;"><code><span class="red">HTML</span><br>&lt;div class="qq1">&lt;/div><br>&lt;div class="qq2">&lt;/div></code></pre>
+			<pre style=""><code><span class="red">HTML</span><br>&lt;div class="qq1">&lt;/div><br>&lt;div class="qq2">&lt;/div></code></pre>
 			<br><samp class="red">CSS</samp>
 			<pre><code class="css">.qq1 {<br>  width: 0; height: 0;<br>  border-left: 70px solid transparent;<br>  border-right: 70px solid transparent;<br>  border-bottom: 120px solid red;}</code></pre>
 		</div>
@@ -241,7 +242,7 @@
 	<div class="example3">
 		<div class="example31"><div class="ex_3_0 ex_3_2"></div></div>
 		<div class="example32">
-			<pre style="margin-top:-16px;"><code class="css">.qq2 {<br>  width: 0; height: 0;<br>  border-left: 70px solid transparent;<br>  border-right: 70px solid transparent;<br>  border-top: 120px solid aqua;}<br>.qq1:hover {border-bottom-color: green}<br>.qq2:hover {border-top-color: green}</code></pre>
+			<pre style=""><code class="css">.qq2 {<br>  width: 0; height: 0;<br>  border-left: 70px solid transparent;<br>  border-right: 70px solid transparent;<br>  border-top: 120px solid aqua;}<br>.qq1:hover {border-bottom-color: green}<br>.qq2:hover {border-top-color: green}</code></pre>
 		</div>
 	</div>
 </div>
@@ -252,7 +253,7 @@
 <h3 class="sin"><a href="#" title="наверх">Пример с меню - треугольник снизу.</a></h3>
 	<style>
 		.menu-example {width:645px; margin:20px auto;}
-		.menu_block {display:inline-block; padding:10px 20px; margin:0 5px 10px; width:75px; background:#FDF5E6; text-align:center; position:relative; cursor:pointer;}
+		.menu_block {display:inline-block; padding:10px 20px; margin:0 5px 10px; width:75px; background:#FDF5E6; text-align:center; position:relative; cursor:pointer; color:#333}
 		.menu_block:before {content:""; width:0; height:0; position:absolute; top:100%; left:50%; pointer-events:none; display:none; cursor:default; z-index:3;
 			border:solid transparent;
 			border-width:10px;

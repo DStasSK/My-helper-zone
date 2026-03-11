@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>@viewport</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -22,7 +22,34 @@
 <h1 class="sin"><span class="dib">@<samp>viewport</samp></span></h1>
 
 <div class="item">
-	<div class="no">Это свойство поддерживается токлько Internet Explorer и Edge - используют правило <samp class="red dib">@-ms-viewport</samp>.</div>
+	<div class="no">Это свойство поддерживается токлько Internet Explorer и Edge, но они при этом используют правило <samp class="red dib">@-ms-viewport</samp>.</div>
+
+	<table class="support mt20 mb20">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="part"><span title="IE"></span></td>
+			<td class="part"><span title="Edge"></span></td>
+			<td class="n"><span            title="Chrome"></span></td>
+			<td class="n"><span             title="Opera"></span></td>
+			<td class="n"><span            title="Safari"></span></td>
+			<td class="n"><span           title="Firefox"></span></td>
+			<td class="n"><span    title="mobile-android"></span></td>
+			<td class="n"><span    title="mobile-Firefox"></span></td>
+			<td class="n"><span      title="mobile-opera"></span></td>
+			<td class="n"><span     title="mobile-safary"></span></td>
+		</tr>
+	</table>
 
 	<p>Правило <span class="red dib">@<samp>viewport</samp></span> позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров. Является аналогом <samp class="red">&lt;meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>></samp>, но переносит параметры из HTML в правила CSS.</p>
 

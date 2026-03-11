@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><title>CSS свойство pointer-events</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>pointer-events</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">pointer-events</samp> позволяет управлять тем, как элементы будут реагировать на события мыши или прикосновения к сенсорному экрану. Часто применяется для того, чтобы в сложной компоновке можно было взаимодействовать с нижележащими элементами, игнорируя вышележащие, например элемент <samp class="pur">::before</samp>. Значение свойства не анимируется, наследуется, применяется ко всем элементам.</p>
+
+	<pre class="item2 mt20"><code>.class {<br>  pointer-events: none | auto;<br><br>  /* только для SVG */<br>  pointer-events: visiblePainted | visibleFill | visibleStroke| visible |<br>                  painted | fill | stroke | all;<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">auto</samp> - восстанавливает функциональность элемента по умолчанию.</li>
+		<li><samp class="sin">none</samp> - предотвращает события мыши и щелчки по элементу. Элемент не может быть целью (target) событий мыши; тем не менее, целью событий мыши могут быть его потомки, если их <samp class="sin">pointer-events</samp> имеет какое-либо другое значение. В этом случае события мыши вызовут ожидаемое срабатывание обработчиков на этом родительском элементе на пути к/от потомк(у)/(а) во время фазы захвата/всплытия.</li>
+	</ul>
+</div>
+
+</body></html>

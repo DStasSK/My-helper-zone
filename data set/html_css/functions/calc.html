@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><title>Функция - calc()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>calc()</samp></h2>
+<div class="item">
+	<p>Функция <samp class="sin">calc()</samp> используется для указания вычисляемого значения свойств, принимает в качестве параметра математическое выражение, результат вычисления которого можно использовать как значение CSS-свойства. Выражение может включать операторы +, -, *, / с использованием стандартных правил приоритета операторов. Это позволяет задавать значения, основанные на сложении или вычитании разных единиц измерений. Если значение не может быть вычислено, оно игнорируется.</p>
+
+	<pre class="item2 mt30 sin">cвойство: <samp class="red">calc</samp>(<samp class="lsin">выражение</samp>);</pre>
+
+	<div>Выражение представляет собой комбинацию значений размеров и следующих знаков математических действий.</div>
+	<ul class="list l1 mb30">
+		<li><samp class="sin">+ </samp>сложение <samp class="dib sin"> width: <span class="lsin">calc(20px + 20px)</span>;</samp></li>
+		<li><samp class="sin">- </samp>вычитание <samp class="dib sin"> padding: <span class="lsin">calc(10% - 10px)</span>;</samp></li>
+		<li><samp class="sin">* </samp>умножение <samp class="dib sin"> height: <span class="lsin">calc(20%*2)</span>;</samp></li>
+		<li><samp class="sin">/ </samp>деление; на ноль делить запрещено. <samp class="dib sin"> width: <span class="lsin">calc(100%/3)</span>;</samp></li>
+	</ul>
+
+	<div class="no">Знаки плюс и минус должны отбиваться пробелами с двух сторон.</div>
+
+	<div class="no">Internet Explorer не поддерживает <samp class="sin">calc()</samp> внутри <samp class="red">@keyframes</samp></div>
+
+</div>
+
+
+</body>
+</html>

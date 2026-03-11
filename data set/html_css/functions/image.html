@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><title>Функция - image()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>image()</samp></h2>
+
+<div class="item">
+	<p>Функция <samp class="sin">image()</samp> — определяет изображение аналогично функции <samp class="sin">url()</samp>, но с дополнительной функциональностью, включая указание направленности изображения, отображение только части этого изображения, определенной фрагментом мультимедиа, и указание сплошного цвета в качестве резервного варианта на случай, если ни одно из указанных изображений не может быть отображено.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre><code>image( [ltr | rtl]  [url() | src]  [, color] )</code></pre>
+		<pre><code><br><br>div {<br>  background-image: image(rgb(0 0 0 / 25%)), url("bg.png");<br>  list-style-image: image(ltr "rightarrow.png");<br>  cursor: image("sprite.png#xywh=32,64,16,16");<br>}</code></pre>
+	</div>
+	<ul class="list">
+		<li><samp class="sin">ltr | rtl</samp> - направленность изображения: ltr — слева направо, rtl — справа налево. Если направленность опущена, изображение не будет перевернуто при изменении направления текста.</li>
+		<li><samp class="sin">url() | src</samp> - ноль или более источников изображений, с необязательными размерами фрагментов изображений.</li>
+		<li><samp class="sin">color</samp> - запасный вариант цвета в формате CSS.</li>
+	</ul>
+
+
+	<p class="mt30">При указании адрса изображения через <samp class="sin">src</samp> есть возможность указать фрагмент изображения через начальную точку по осям x и y, а также ширину и высоту — это отобразит только часть исходного изображения. Часть изображения, определенная в параметре, становится отдельным изображением. Синтаксис выглядит следующим образом:</p>
+
+	<pre class="item2"><code>div {<br>  background-image: image("my-image.webp#xywh=0,20,40,60");<br>/* Фоновое изображение элемента будет частью изображения myImage.webp<br>   которая начинается с координат 0px, 20px (верхний левый угол)<br>   и имеет ширину 40px и высоту 60px. */<br>}</code></pre>
+
+	<p>Синтаксис фрагмента медиа <samp class="lsin">#xywh=#,#,#,#</samp> принимает четыре числовых значения, разделенных запятыми. Первые два представляют координаты X и Y для начальной точки создаваемого блока. Третье значение — ширина блока, а последнее значение — высота. По умолчанию это значения в пикселях, но координаты можно задать и в процентах.</p>
+
+	<pre class="item2 ды-05"><code>div {<br>  background-image: image("my-image.webp#xywh=160,120,320,240");<br>  background-image: image("my-image.webp#xywh=pixel:160,120,320,240");<br>  background-image: image("my-image.webp#xywh=percent:25,25,50,50");<br>}<br>/* xywh=160,120,320,240        размеры 320x240, начало в x=160 and y=120<br>   xywh=pixel:160,120,320,240  размеры 320x240, начало в x=160 and y=120<br>   xywh=percent:25,25,50,50    размеры 50%x50%, начало в x=25% and y=25% */</code></pre>
+
+	<div class="no">Если браузер не понимает нотацию фрагментов медиа, он игнорирует фрагмент, отображая всё изображение или бдет отображен запасный цвет.</div>
+
+	<div class="no no1">Если изображение содержит информацию, критическую для понимания общего назначения страницы, лучше описать ее семантически в документе. Это будет полездно для экранных ридеров.</div>
+
+
+
+	<div class="mt30">2023.10</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">113</span></td>
+			<td><span         title="Chrome">113</span></td>
+			<td><span          title="Opera">99</span></td>
+			<td><span         title="Safari">17</span></td>
+			<td><span             title="FF">89</span></td>
+			<td><span title="mobile-android">113</span></td>
+			<td><span      title="mobile-FF">89</span></td>
+			<td><span   title="mobile-opera">76</span></td>
+			<td><span  title="mobile-safary">17</span></td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

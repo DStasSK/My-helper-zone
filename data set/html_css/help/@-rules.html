@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>@-правила</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -11,185 +11,35 @@
 </head>
 <body>
 
-<h1 class="sin" style="margin:0"><samp>@-</samp>правила</h1>
+<h1>@-правила</h1>
 
-<div class="item">
-	<p>Используются для подключения дополнительных стилей или шрифтов, установки кодировки и др.</p>
-	<p>@-правила включают в себя все, что находится до первой, следующей после идентификатора, точки с запятой ( <samp>;</samp> ) либо до окончания первого, следующего за ним, структурного блока</p>
-	<pre class="item2"><code>@import "style.css";<br>@media print {body {color:green;}}</code></pre>
-
-
-	<ul class="list mt40">
-		<li><a href="../rules/@charset.html"><samp class="pur">@charset</samp></a></li>
+<div class="item helper">
+	<ul class="list ogl sin" style="font-family:monospace">
+		<li><a href="../rules/@charset.html">@charset</a></li>
 		<!-- <li>@color-profile</li> -->
 		<!-- <li>@container</li> -->
-		<li><a href="../rules/@counter-style.html"><samp class="pur">@counter-style</samp></a></li>
-		<li><a href="../rules/@document.html"><samp class="pur">@document</samp></a></li>
-		<li><a href="../txt/@font-face.html"><samp class="pur">@font-face</samp></a></li>
-		<li><a href="../rules/@font-feature-values.html"><samp class="pur o7">@font-feature-values</samp></a></li>
-		<li><a href="../rules/@font-palette-values.html"><samp class="pur o7">@font-palette-values</samp></a></li>
-		<li><a href="../rules/@import.html"><samp class="pur">@import</samp></a></li>
-		<li><a href="../../Animation/@keyframes.html"><samp class="pur">@keyframes</samp></a></li>
-		<li><a href="../rules/@layer.html"><samp class="pur">@layer</samp></a></li>
-		<li><a href="@media.html"><samp class="pur">@media</samp></a></li>
-		<li>@namespace</li>
-		<li><a href="../../print/@page.html"><samp class="pur">@page</samp></a></li>
-		<li>@position-try</li>
-		<li>@property</li>
-		<li>@scope</li>
-		<li>@starting-style</li>
-		<li><a href="../rules/@supports.html"><samp class="pur">@supports</samp></a></li>
-		<li>@view-transition</li>
-		<li><a href="../rules/@viewport.html"><samp class="pur">@viewport</samp></a></li>
-	</ul><!-- /оглавление -->
-
-
-
-<!-- <div class="item mt20" id="charset">
-<h2 class="sin"><samp><a href="#">@charset</a></samp></h2>
-	<p>Правило CSS <span class="red dib">@<samp>charset</samp></span> определяет кодировку символов, используемую в таблице стилей. Этот синтаксис полезен при использовании не-ASCII-символов в некоторых свойствах CSS, таких как <samp class="sin">content</samp> и при использовании символов национального алфавита. Хотя первым символом в <span class="red dib">@<samp>charset</samp></span> является символ <b class="red">@</b>, это не правило <samp class="pur">at</samp>.</p>
-
-	<div class="no no1">Правило CSS <span class="red dib">@<samp>charset</samp></span> - это определенная последовательность байтов, которая может быть размещена только в самом начале таблицы стилей. Никакие другие символы, кроме метки порядка байтов <b>Unicode</b>, не допускаются перед ней. Он также не следует обычным правилам синтаксиса CSS, таким как использование кавычек или пробелов.</div>
-
-	<div>Для внешней таблицы стилей браузер последовательно просматривает следующие пункты для определения кодировки таблицы стилей, чем выше находится пункт, тем выше его приоритет:</div>
-	<ul class="list mt0 mb30">
-		<li>кодировка, которую отдает сервер.</li>
-		<li>правило <span class="red dib">@<samp>charset</samp></span> из начала css файла.</li>
-		<li>атрибут <a href="../help/link.html#charset"><samp class="sin tdu">charset</samp></a> элемента <samp class="teg">link</samp> (устарелo, не используйте его).</li>
-		<li>если ни один из пунктов не найден - установит UTF-8.</li>
+		<li><a href="../rules/@counter-style.html">@counter-style</a></li>
+		<li><a href="../rules/@document.html">@document</a></li>
+		<li><a href="../txt/@font-face.html">@font-face</a></li>
+		<li><a href="../rules/@font-feature-values.html" class="o7">@font-feature-values</a></li>
+		<li><a href="../rules/@font-palette-values.html" class="o7">@font-palette-values</a></li>
+		<li><a href="../rules/@import.html">@import</a></li>
+		<li><a href="../../Animation/@keyframes.html">@keyframes</a></li>
+		<li><a href="../rules/@layer.html">@layer</a></li>
+		<li><a href="@media.html">@media</a></li>
+		<li style="color:initial" class="o7">@namespace</li>
+		<li><a href="../../print/@page.html">@page</a></li>
+		<!-- <li>@position-try</li> -->
+		<li style="color:initial" class="o7">@property</li>
+		<!-- <li>@scope</li> -->
+		<li style="color:initial" class="o7">@starting-style</li>
+		<li><a href="../rules/@supports.html">@supports</a></li>
+		<!-- <li>@view-transition</li> -->
+		<li><a href="../rules/@viewport.html">@viewport</a></li>
+		<li>&nbsp;</li>
+		<li>&nbsp;</li>
 	</ul>
 
-	<div>В css файле для русского языка обычно указывается кодировка <b>windows-1251</b> или <b>utf-8</b>. Значение кодировки обязательно должно быть взято в кавычки.</div>
-
-	<pre class="item2"><code>@charset "windows-1251";<br><br>body {<br>  font: 11pt Arial, Helvetica, sans-serif;<br>  margin: 0;<br>}<br><br>/* ... */</code></pre>
-
-	<div class="no">
-		<pre><code>@charset 'iso-8859-15';     /* ошибка - нужны двойные кавычки */<br>@charset  "UTF-8";          /* ошибка - лишний пробел перед значением */<br> @charset "UTF-8";          /* ошибка - лишний пробел перед правилом */<br>@charset UTF-8;             /* ошибка - нет двойных кавычек */</code></pre>
-	</div>
-</div> -->
-
-
-
-<!--<div class="item" id="document">
-<h2 class="sin"><samp><a href="#">@document</a></samp></h2>
-	<p class="red" style="font-size:22px">Pаботает только нa firefox!!</p>
-	<p><samp class="red">@document</samp> устанавливает стилевые правила на основе адреса документа. К примеру, если адреса мобильной и основной версии сайта различаются, то мы можем задать собственный стиль элементов для каждой версии</p>
-	<pre class="item2 br0 ls-1"><code>@document [url(<адрес>) [, url-prefix(<адрес>)][, domain(<адрес>)][, regexp(<адрес>)] ] {<br>  Стилевые правила<br>}</code></pre>
-
-	<table class="t1 tb tc">
-		<caption>Значения:</caption>
-		<tr><td width="120px">url()</td><td>Указывает точный адрес страницы, для которой применяются стилевые правила. Адрес пишется внутри скобок <samp class="sin">url()</samp>.</td></tr>
-		<tr><td>url-prefix()</td><td>Значение, с которого начинается адрес документа.</td></tr>
-		<tr><td>domain()</td><td>Домен или поддомен сайта.</td></tr>
-		<tr><td>regexp()</td><td>Регулярное выражение которому соответствует адрес.</td></tr>
-	</table>
-	<pre class="item2 mt10"><code>&lt;style><br>  .ssl {display:none; background:#5bd4b6;}<br>  @-moz-document regexp("https:.*") {<br>    .ssl {display: block;}<br>  }<br>&lt;/style><br><br>&lt;!-- блок с классом ssl будет виден только на сайте,<br>     адрес которого начинается с протокола https. --&gt;><br>&lt;div class="ssl"><br>Для вашей безопасности на сайте мы используем защищённый протокол.<br>&lt;/div></code></pre>
-</div> -->
-
-
-
-<!-- <div class="item" id="font-face">
-<h2 class="sin"><samp><a href="#">@font-face</a></samp></h2>
-	<p>Правило <samp class="red">@font-face</samp> позволяет определить настройки шрифтов, а также загрузить специфичный шрифт на компьютер пользователя.</p>
-
-	<pre class="item2 br0"><code>@font-face { свойства шрифта }</code></pre>
-
-	<p>Внутри конструкции <samp class="red">@font-face</samp> может находиться набор свойств для изменения параметров шрифта (<samp class="sin">font-family, font-size, font-style</samp> и др.), а также ссылка на шрифтовой файл. Ссылка записывается в виде <samp class="red">src: url(<</samp>адрес<samp class="red">>)</samp>, где <b><адрес></b> — относительный или абсолютный путь к файлу.</p>
-	<p><i>Для каждого набора шрифта свой @font-fac</i>e</p>
-	<pre class="item2"><code>&lt;style><br>   @font-face {<br>     font-family: Pompadur;              /* Имя шрифта */<br>     src: local("Pompadur"),             /* проверка локального шрифта */<br>          url(/example/font/pompadur.ttf) format("ttf"),<br>          url(/example/font/pompadur.woff) format("woff");<br>     font-weight: 400;<br>     font-style: normal;<br>   }<br>   P {font-family: Pompadur;}<br>&lt;/style></code></pre>
-
-	<p>Браузер Internet Explorer до версии 9 поддерживает только шрифты формата EOT (Embedded OpenType).</p>
-	<p>Opera в некоторых случаях может не показывать на веб-странице текст выбранным шрифтом, заменяя его стандартным. Причём для локальных документов всё работает корректно. Это происходит в тех случаях, когда имя пользователя в Windows написано кириллицей.</p>
-</div> -->
-
-
-
-<!--<div class="item" id="import">
-<h2 class="sin"><samp><a href="#">@import</a></samp></h2>
-	<p class="red" style="font-size:22px">Это свойство крайне не рекомендуют использовать</p>
-	<p>Правило <samp class="red">@import</samp> позволяет импортировать содержимое CSS-файла в текущую стилевую таблицу. <samp class="red">@import</samp>  не разрешается вставлять после любых объявлений кроме <samp class="red">@charset</samp> или другого <samp class="red">@import</samp>.</p>
-
-	<pre class="item2 br0"><code>@import url("имя файла") [типы носителей];<br>@import "имя файла" [типы носителей];</code></pre>
-
-	<p>В качестве типа носителя выступают различные устройства, например, принтер, КПК, монитор и др.</p>
-	<p>В качестве значения используется путь к стилевому файлу, который указывается внутри необязательной конструкции <b>url()</b>. Путь к файлу при этом можно писать как в кавычках (двойных или одинарных), так и без них.</p>
-
-	<pre class="item2"><code>&lt;style><br>   @import "/style/all.css" all;              /* Стиль для всех устройств */<br>   @import "/style/main.css" screen;          /* Стиль для мониторa */<br>   @import "/style/palm.css" handheld, print; /* Стиль для печати */<br>&lt;/style></code></pre>
-	<p>Браузер Internet Explorer до версии 7 включительно не поддерживает типы носителей при импорте стилевого файла. Более того, при добавлении типа носителя стилевой файл вообще не загружается.</p>
-</div> -->
-
-
-
-<!--<div class="item" id="supports">
-<h2 class="sin"><samp><a href="#">@supports</a></samp></h2>
-	<p>Правило <samp class="red">@supports</samp> позволяет проверить, поддерживает браузер ту или иную возможность, и на основе этого создать набор стилевых правил. Допустимо создавать комплексные условия с помощью логических операторов <b>not, and, or</b>.</p>
-	<pre class="item2 css"><code>@supports <условие> {<br>  <стилевые правила><br>}</code></pre>
-
-	<p>В качестве условия в круглых скобках пишется стилевое свойство и его значение. Далее в фигурных скобках идут стилевые правила. Если браузер поддерживает указанное свойство, то применяются заданные стилевые правила, в противном случае они игнорируются.</p>
-	<pre class="item2 css"><code>@supports (transform: perspective(300px)) {...<br>  /* Браузер поддерживает свойство transform с функцией perspective() */<br>}</code></pre>
-
-	<p>Для проверки того, что свойство не поддерживается применяется логический оператор <samp class="sin">not</samp>, он ставится перед условием.</p>
-	<pre class="item2 css"><code>@supports not (transform: perspective(300px)) {...<br>  /* Браузер НЕ поддерживает свойство transform с функцией perspective() */<br>}</code></pre>
-
-	<p>Объединить несколько условий можно через логический оператор <samp class="sin">and</samp>. Если хотя бы одно из условий не поддерживается, то стилевые правила не применяются.</p>
-	<pre class="item2 css"><code>@supports (transform-origin: 50% 100%) and (transform: perspective(300px)) {<br>  /* Браузер одновременно поддерживает свойства transform-origin И <br>     transform с функцией perspective() */<br>}</code></pre>
-
-	<p>Для выбора одного из условий используется логический оператор <samp class="sin">or</samp>. Если поддерживается хотя бы одно из условий, то применяются стилевые правила.</p>
-	<pre class="item2 css"><code>@supports (perspective: 300px) or (transform: perspective(300px)) {<br>  /* Браузер поддерживает свойство perspective ИЛИ <br>     свойство transform с функцией perspective() */<br>}</code></pre>
-
-	<div class="mt20"><b>Пример</b></div>
-	<pre class="item2"><code>&lt;style><br>  @supports (display: flex) {<br>    .no { display: none; }<br>  }<br>  @supports not (display: flex) {<br>    .yes { display: none; }<br>  }<br>&lt;/style><br><br>&lt;p class="yes">Ваш браузер поддерживает display: flex.&lt;/p><br>&lt;p class="no">Ваш браузер не поддерживает display: flex.&lt;/p></code></pre>
-</div> -->
-
-
-
-<!-- <div class="item" id="viewport">
-<h2 class="sin"><samp><a href="#">@viewport</a></samp></h2>
-	<p class="red" style="font-size:22px">Это свойство поддерживается токлько Internet Explorer и Edge.</p>
-	<p>Позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров. Является аналогом <samp class="red">&lt;meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>></samp>, но переносит параметры из HTML в правила CSS.</p>
-
-	<pre class="item2"><code>@-ms-viewport {<br>  <дескриптор>: <значение>;<br>}<br><br>@viewport {<br>  <дескриптор>: <значение>;<br>}</code></pre>
-	<div class="no">Internet Explorer и Edge используют правило <samp class="red">@-ms-viewport</samp>.</div>
-
-	<style>
-		.tt1 tr td:nth-child(2){vertical-align:middle;}
-		.tt1 ul{margin:0;padding-left:20px}
-	</style>
-	<table class="t1 tc tb tm40 tt1 mb10">
-		<caption>Значения:</caption>
-		<tr><td width="130px">min-width</td><td>Минимальная ширина области просмотра.</td></tr>
-		<tr><td>max-width</td><td>Максимальная ширина области просмотра.</td></tr>
-		<tr><td>width<br>device-width</td><td>Одновременно устанавливает min-width и max-width.</td></tr>
-		<tr><td>min-height</td><td>Минимальная высота области просмотра.</td></tr>
-		<tr><td>max-height</td><td>Максимальная высота области просмотра.</td></tr>
-		<tr><td>height<br>device-height</td><td>Одновременно устанавливает min-height и max-height.</td></tr>
-		<tr><td>zoom</td>
-			<td>Устанавливает начальный масштаб документа, может задаваться как положительное дробное число или в процентах. По умолчанию установлено значение auto.
-			<ul>
-				<li><samp class="lsin">auto</samp> - браузер автоматически устанавливает масштаб, чтобы целиком отобразить документ;</li>
-				<li><samp class="lsin"><число></samp> - значение 1.0 соответствует 100%;</li>
-				<li><samp class="lsin"><проценты></samp> - 100% указывает, что масштабирование не требуется.</li>
-			</ul></td></tr>
-		<tr><td>min-zoom</td><td>Устанавливает минимальный масштаб документа. По умолчанию установлено значение auto.</td></tr>
-		<tr><td>max-zoom</td><td>Устанавливает максимальный масштаб документа. По умолчанию установлено значение auto.</td></tr>
-		<tr><td>user-zoom</td>
-			<td>Определяет, может пользователь масштабировать документ или нет. По умолчанию установлено значение zoom.
-			<ul>
-				<li><samp class="lsin">zoom</samp> - пользователь может масштабировать документ;</li>
-				<li><samp class="lsin">fixed</samp> - пользователю запрещено изменять масштаб.</li>
-			</ul></td></tr>
-		<tr><td>orientation</td>
-			<td>Управляет ориентацией документа. По умолчанию установлено значение auto.
-			<ul>
-				<li><samp class="lsin">auto</samp> - устанавливает ориентацию автоматически на основе положения устройства;</li>
-				<li><samp class="lsin">portrait</samp> - документ должен быть зафиксирован в портретной ориентации;</li>
-				<li><samp class="lsin">landscape</samp> - документ должен быть зафиксирован в альбомной ориентации.</li>
-			</ul>
-			</td></tr>
-	</table>
-
-	<pre class="item2"><code>&lt;!DOCTYPE html><br>&lt;html><br>  &lt;head><br>    &lt;meta charset="utf-8"><br>    &lt;title>@viewport&lt;/title><br>    &lt;style><br>      @viewport {<br>        width: device-width;<br>        zoom: 1;<br>        max-zoom: 2;<br>      }<br>    &lt;/style><br>  &lt;/head><br>  &lt;body><br>  ...<br>  &lt;/body><br>&lt;/html></code></pre>
-</div> -->
 
 </body>
 </html>

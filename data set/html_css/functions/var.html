@@ -1,0 +1,76 @@
+<!DOCTYPE html><html><head><title>Функция - var()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>var()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">var()</samp> используют для вставки пользовательского значения свойства (иногда называемого «переменной CSS») вместо значения другого свойства. Функцию <samp class="sin">var()</samp> нельзя использовать в именах свойств, селекторов или чем-либо еще, кроме значений свойств.</p>
+
+	<pre class="item2 sin mt20">var( <span class="lsin">propertyName [, value]</span> )</pre>
+	<ul class="list mb30">
+		<li><samp class="sin">propertyName</samp> - имя пользовательской переменной.</li>
+		<li><samp class="sin">value</samp> - резервное значение. Синтаксис резервного значения допускает запятые, то есть все, что находится между первой запятой и концом функции, считается резервным значением.</li>
+	</ul>
+
+	<pre class="item2 mt20 mb20"><code>:root {<br>  --bg-color: pink;<br>}<br><br>body {<br>  background-color: <samp class="pur">var(<samp class="lsin">--bg-color, #fafafa</samp>);</samp><br>}</code></pre>
+
+	<div class="mt30">Функция <samp class="sin">var()</samp> может вернуть недопустимое значение, если:</div>
+	<ul class="list">
+		<li>Пользовательское свойство не определено и не указано резервное значение.</li>
+		<li>Пользовательское свойство определено, но его значение является недопустимым значением для свойства, в котором оно используется.</li>
+	</ul>
+
+</div>
+
+
+
+<div class="item">
+<h3 class="sin"><a href="#" title="наверх">Пользовательские переменные.</a></h3>
+	<p>Пользовательские переменные и их значения описываются внутри произвольного селектора и должны начинаться с двух дефисов. Через двоеточие переменной присваивается любое допустимое для CSS значение. При этом область видимости переменной ограничена указанным селектором и применение переменной в другом селекторе не даст результата, но все потомки данного селектора будут иметь доступ к переменным родителя.</p>
+
+	<p>Для задания имени переменной допускается использовать буквы, цифры, знаки подчёркивания и дефис. Переменные CSS чувствительны к регистру.</p>
+
+	<div class="no no1">Для создания <strong>глобальных переменных</strong> их следует описать внутри селектора <a href="../root.html"><samp class="sin tdu">:root</samp></a>.</div>
+
+	<pre class="item2 mt30"><code>:root {<br>  --bg-color: pink;<br>  --bg_gradient: linear-gradient(to top, #a0f, #fff);<br>}</code></pre>
+
+	<fieldset class="prm mt30">
+		<legend></legend>
+		<div class="mb20">Пример использования: переменные определены непосредственно у <samp class="teg">img</samp> элеметнов HTML, а расчет размеров изображений ведется для одного класса. При этом полученные изображения с одним классом имеют разные размеры.</div>
+		<style>
+			.example_img {
+				display: flex;
+				gap: 10px;
+			}
+			.example_img div {width: calc( (100% - 20px)/3 );}
+			.example_img .img {max-width:100%; width:calc( 1 / var(--size, 1) * 100% );}
+		</style>
+		<div class="example_img mt10">
+			<div><img src="../img/winnie.png" class="img" style="--size: 3"></div>
+			<div><img src="../img/winnie.png" class="img" style="--size: 2"></div>
+			<div><img src="../img/winnie.png" class="img" style="--size: 1"></div>
+		</div>
+		<div class="item2">
+			<pre><code>&lt;div class="example_img"&gt;<br>  &lt;div&gt;&lt;img src="img/winnie.png" class="img" style="--size: 3"&gt;&lt;/div&gt;<br>  &lt;div&gt;&lt;img src="img/winnie.png" class="img" style="--size: 2"&gt;&lt;/div&gt;<br>  &lt;div&gt;&lt;img src="img/winnie.png" class="img" style="--size: 1"&gt;&lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+			<pre><code><br>.example_img {<br>  display: flex;<br>  gap: 10px;<br>}<br>.example_img div { width: calc( (100% - 20px) / 3 ); }<br>.example_img .img {<br>  max-width: 100%;<br>  width: calc( 1 / var(--size, 1) * 100% );<br>}</code></pre>
+		</div>
+	</fieldset>
+
+	<p class="mt30">Так же переменные можно использовать если есть смного объектов с однотипной анимацией: для каждого класса объекта задаются свои переменные, которые будут работать как значения свойств в одном <samp class="red">@keyframes</samp>, которого будет достаточно для всех объектов.</p>
+
+	<div class="no">При использовании переменной CSS внутри правила <samp class="red">@keyframes</samp> переменная не может быть анимирована, т.е. анимация будет работать некорректно, если внутри <samp class="red">@keyframes</samp> будут задаваться переменные.<br>Переменные нужно задавать вне <samp class="red">@keyframes</samp> и использовать из как значения свойств.</div>
+
+
+</div>
+
+</body>
+</html>

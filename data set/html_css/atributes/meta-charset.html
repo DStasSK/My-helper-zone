@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><title>Атрибут charset элеметна &lt;meta></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">charset</samp> элемента <samp class="teg">meta</samp></h3>
+
+<div class="item">
+	<p>Этот атрибут объявляет кодировку символов документа. Если атрибут присутствует, его значение должно быть нечувствительным к регистру ASCII-соответствием для строки <span class="dib">"<samp class="lsin">utf-8</samp>"</span>, поскольку UTF-8 является единственной допустимой кодировкой для документов HTML5. Элементы <samp class="teg">meta</samp>, объявляющие кодировку символов, должны быть расположены полностью в пределах первых 1024 байт документа.</p>
+
+	<div class="no no1">Помимо UTF-8 атрибут может принимать другое стандартное имя <a href="https://www.iana.org/assignments/character-sets/character-sets.xhtml" target="_blank" class="sin tdu dib">IANA MIME</a> для кодировки символов документа.</div>
+
+	<pre class="item2 mt20 mb30 ls-1"><code>&lt;meta charset="utf-8"><br><br>&lt;!-- аналогично устаревшему --&gt;<br>&lt;meta http-equiv="Content-Type" content="text/html; charset=IANAcharset"></code></pre>
+
+	<ul class="list">
+		<li>Не следует использовать ASCII-несовместимые кодировки, чтобы избежать угроз безопасности: браузеры, не поддерживающие их, могут интерпретировать вредоносный контент как HTML. Это относится к семейству кодировок <samp class="sin">JIS_C6226-1983</samp>, <samp class="sin">JIS_X0212-1990</samp>, <samp class="sin">HZ-GB-2312</samp>, <samp class="sin">JOHAB</samp> и <samp class="sin">EBCDIC</samp>. ASCII-несовместимые кодировки - это те, которые не преобразуют 8-битные коды точек <samp class="lsin">0x20</samp>, <samp class="lsin">0x7E</samp>, <samp class="lsin">0x0020</samp>, <samp class="lsin">0x007E</samp> в коды Unicode точек.</li>
+		<li class="mt10 mb10">Авторы не должны использовать кодировки <samp class="sin">CESU-8</samp>, <samp class="sin">UTF-7</samp>, <samp class="sin">BOCU-1</samp> и/или <samp class="sin">SCSU</samp>, так как есть примеры атак межсайтового скриптинга использующих данные кодировки.</li>
+		<li>Авторам не следует использовать кодировку <samp class="sin">UTF-32</samp>, потому что не все алгоритмы кодирования HTML5 могут отличить её от <samp class="sin">UTF-16</samp>.</li>
+	</ul>
+
+
+</div>
+
+
+</body></html>

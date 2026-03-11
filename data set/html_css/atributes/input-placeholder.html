@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><title>Атрибут placeholder</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">placeholder</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов <a href="../input.html"><samp class="teg tdu">input</samp></a> и <a href="../help/textarea.html"><samp class="teg tdu">textarea</samp></a>.</div>
+
+	<p>Выводит текст внутри поля формы, который исчезает при получении фокуса или при наборе текста. Обычно отображается серым цветом. В качестве значения используется текстовая строка или слово. Если внутри строки предполагается пробел, её необходимо брать в двойные или одинарные кавычки.</p>
+
+	<p>Aтрибут <samp class="sin">placeholder</samp> может добавляться только к полю формы, у которого <samp class="sin">type</samp> имеет одно из значений: <samp class="lsin">text</samp>, <samp class="lsin">password</samp>, <samp class="lsin">search</samp>, <samp class="lsin">url</samp>, <samp class="lsin">tel</samp>, <samp class="lsin">email</samp>.</p>
+
+	<pre class="item2 mt20"><code>&lt;input placeholder="текст"></code></pre>
+
+	<div class="no mt30">Есть случаи, в которых атрибут <samp class="sin">placeholder</samp> никогда не отображается пользователю, поэтому форма должна быть понятна и без него.</div>
+
+	<fieldset class="prm mt20">
+		<legend></legend>
+		<form action="handler.php">
+			<input type=search placeholder="Введите текст для поиска" size="40">
+			<input type="submit" value="Искать">
+		</form>
+		<pre class="item2 ls-1"><code>&lt;form action="handler.php"><br>  &lt;input type=search placeholder="Введите текст для поиска"><br>  &lt;input type="submit" value="Искать"><br>&lt;/form></code></pre>
+	</fieldset>
+</div>
+
+
+</body></html>

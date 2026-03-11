@@ -1,81 +1,29 @@
 <!DOCTYPE html><html><head><title>CSS help</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+
+<!-- Если вдруг попадутся старые ссылки, то будет автопереход на новые -->
+<script src="../../js/old_link.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
 <link rel="stylesheet" href="../../highlight.js/styles/ss.css">
 <script src="../../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
+<style>
+	.ffm {font-family: monospace;}
+</style>
 </head>
-<body>
+<body id="body">
 
 <div class="menu-help"><a href="#">Home</a><a href="#end">End</a></div>
 
 
-<div class="item" id="important">
-<p><samp class="sin bold">!important</samp></p>
-	<p>Играет роль в том случае, когда пользователи подключают свою собственную таблицу стилей; также применяется для повышения специфичности стилевого правила. Если возникает противоречие, когда стиль автора страницы (сайта) и пользователя (локальные параметры) для одного и того же элемента не совпадает, то <samp class="pur">!important</samp> позволяет повысить приоритет стиля.</p>
-  <ul class="list mb20 mt20">
-    <li>Если <samp class="pur">!important</samp> отсутвствует в обоих таблицах стилей - то приоритет за сайтом.</li>
-    <li>Если <samp class="pur">!important</samp> есть в обоих таблицах стилей - то приоритет за пользователем.</li>
-    <li>Если <samp class="pur">!important</samp> только в одной из таблиц - то приоритет за ней.</li>
-  </ul>
-	<pre class="item2"><code>p {padding-left: 65px !important;}</code></pre>
-</div>
-
-
-
-<div class="item" id="box-sizing">
-<p><samp class="sin bold">box-sizing</samp></p>
-	<p>Применяется для изменения алгоритма расчёта ширины и высоты элемента.</p>
-	<p>Согласно спецификации CSS ширина блока складывается из ширины содержимого (<samp class="sin">width</samp>), значений <samp class="sin">margin</samp>, <samp class="sin">padding</samp> и <samp class="sin">border</samp>. Аналогично обстоит и с высотой блока. Свойство <samp class="sin">box-sizing</samp> позволяет изменить этот алгоритм, чтобы свойства <samp class="sin">width</samp> и <samp class="sin">height</samp> задавали размеры не содержимого, а размеры блока.</p>
-	<pre><code class="item2 br0">box-sizing: content-box | border-box</code></pre>
-	<p><samp class="lsin">content-box</samp> - по умолчанию; width и height задают ширину и высоту содержимого и не включают в себя значения margin, padding и border.</p>
-	<p><samp class="lsin">border-box</samp> - свойства width и height включают в себя значения padding и border, но не margin.</p>
-	<p><samp class="lsin">padding-box</samp> - исключен из спецификации и поддерживается только Firefox.</p>
-</div>
-
-
 <div class="item" id="caret-color">
 <p><samp class="sin bold">caret-color</samp></p>
-	<p>Задаёт цвет текстового курсора, который отображается в текстовых полях формы (<samp class="red">&lt;input></samp>, <samp class="red">&lt;textarea></samp>), а также для элементов с атрибутом <samp class="sin">contenteditable</samp>. Такой курсор по аналогии с печатными машинками также называется кареткой и показывает место ввода следующего символа. Как правило, текстовый курсор выглядит как вертикальная мигающая линия.</p>
+	<p>Задаёт цвет текстового курсора, который отображается в текстовых полях формы (<samp class="red">&lt;input></samp>, <samp class="red">&lt;textarea></samp>), а также для элементов с атрибутом <a href="../contenteditable.html"><samp class="sin tdu">contenteditable</samp></a>. Такой курсор по аналогии с печатными машинками также называется кареткой и показывает место ввода следующего символа. Как правило, текстовый курсор выглядит как вертикальная мигающая линия.</p>
 	<pre class="item2 br0 sin">caret-color: <span class="lsin">auto | <цвет></span></pre>
-</div>
-
-
-<div class="item" id="counter-reset">
-<p><samp class="sin bold">counter-reset</samp></p>
-	<p>Устанавливает переменную, в которой будет храниться счётчик отображений определенного элемента, а также начальное значение счётчика. Такой счётчик может выводиться с помощью свойства <b>content</b> и псевдоэлементов <b>::after</b> и <b>::before</b>.</p>
-	<div class="item2 mb20">
-	<pre class="sin">counter-reset: <span class="lsin">[<переменная> | <число>?]+ | none</span></code></pre>
-	<pre><code>ol { counter-reset: list -1; }  /* Список начинается с нуля. */</code></pre>
-	</div>
-<p id="counter-increment"><samp class="sin bold">counter-increment</samp></p>
-	<p>Стилевое свойство counter-increment предназначено для увеличения значения счётчика приращений, который задается свойством <b>counter-reset</b>. Такой счётчик подсчитывает количество отображений элементов на странице и может выводиться с помощью свойства content и псевдоэлементов <b>::after</b> и <b>::before</b>. Это позволяет создавать списки (в том числе многоуровневые), в которых нумерация и вид задаются через стили.</p>
-	<pre class="item2"><code class="css">ol {<br>  counter-reset: list -1;  /* Список начинается с нуля. */<br>  counter-reset: list 9;   /* Список начинается с 10 */<br>}<br>li::before {<br>  counter-increment: list 1;    /* Выводятся 1, 2, 3,... */<br>  counter-increment: list 2;    /* Выводятся 2, 4, 6,... */<br>  content: counter(list) ". ";<br>}</code></pre>
-</div>
-
-
-<div class="item" id="height">
-<p><samp class="sin bold">height</samp></p>
-	<p>Устанавливает высоту содержимого элемента. По умолчанию высота определяется автоматически, исходя из содержимого элемента, но если задать фиксированное значение высоты, то она будет установлена, несмотря на объём содержимого.</p>
-	<p>Если содержимое элемента превышает указанное значение высоты, то высота элемента останется неизменной, а содержимое будет отображаться поверх него. Из-за этой особенности может получиться наложение содержимого элементов друг на друга, когда элементы в коде HTML идут последовательно. Чтобы этого не произошло, добавьте свойство <samp class="sin">overflow</samp> со значением <samp class="lsin">auto</samp> к стилю элемента.</p>
-	<p>Свойство <samp class="sin">height</samp> <span class="red">не учитывает</span> толщину границ <samp class="sin">border</samp> вокруг элемента, величину отступов <samp class="sin">margin</samp> и полей <samp class="sin">padding</samp>.</p>
-	<p>Если для элемента свойство <samp class="sin">box-sizing</samp> задано как <samp class="lsin">border-box</samp>, то <samp class="sin">height</samp> определяет высоту блока.</p>
-
-	<pre class="item2 sin">height: <span class="lsin"><abbr title="пиксели (px), дюймы (in), пункты (pt) и др."><размер></abbr> | <abbr title="При использовании процентной записи высота вычисляется в зависимости от значения height у родительского элемента. Если родитель явно не указан, то в его качестве выступает окно браузера. Если высота у родителя явно не определена, то применяется значение auto, кроме случая, когда у элемента стоит position:absolute."><проценты></abbr> | <abbr title="Значение по умолчанию, устанавливает высоту исходя из содержимого элемента.">auto</abbr></span></pre>
-	<pre class="item2 css"><code>div {<br>  height: 12%;     /* высота элемента 12% */<br>  height: 150px;   /* высота элемента 150 пикселей */<br>  height: auto;    /* автоматическая величина */<br>  height: inherit /* наследует значение родителя */<br>}</code></pre>
-
-	<div class="no">
-		<ul class="list">
-			<li>Браузер Internet Explorer до версии 7 некорректно определяет <samp class="sin">height</samp> как <samp class="sin dib">min-height</samp>.</li>
-			<li>Браузер Internet Explorer 8 неверно отображает элемент при добавлении <samp class="sin">overflow</samp> со значениями <samp class="lsin">auto</samp> и <samp class="lsin">scroll</samp>.</li>
-			<li>В режиме совместимости (quirk mode) Internet Explorer до версии 7 включительно неправильно вычисляет высоту элемента, не добавляя к ней значения <samp class="sin">padding</samp> и <samp class="sin">border</samp>.</li>
-			<li><samp class="sin">height:</samp> <samp class="lsin">100%</samp> работает, когда у родителя явно задана высота.</li>
-		</ul>
-	</div>
 </div>
 
 
@@ -98,6 +46,34 @@
 	<p>Является комбинацией ключевых слов <samp class="sin">initial</samp> и <samp class="sin">inherit</samp>. Ключевое слово <samp class="sin">unset</samp> устанавливает значение свойства как <samp class="sin">inherit</samp>, если свойство наследуется от своего родителя, в противном случае значение устанавливается как <samp class="sin">initial</samp>.</p>
 	<p>В данном примере происходит сброс некоторых свойств для всех элементов.</p>
 	<div class="item2"><pre><code>* {<br>  margin:unset;<br>  padding:unset;<br>  border:unset;<br>}</code></pre></div>
+</div>
+
+
+<div class="item" id="height">
+<p><samp class="sin bold">height</samp></p>
+	<p>Устанавливает высоту содержимого элемента. По умолчанию высота определяется автоматически, исходя из содержимого элемента, но если задать фиксированное значение высоты, то она будет установлена, несмотря на объём содержимого.</p>
+	<p>Если содержимое элемента превышает указанное значение высоты, то высота элемента останется неизменной, а содержимое будет отображаться поверх него. Из-за этой особенности может получиться наложение содержимого элементов друг на друга, когда элементы в коде HTML идут последовательно. Чтобы этого не произошло, добавьте свойство <samp class="sin">overflow</samp> со значением <samp class="lsin">auto</samp> к стилю элемента.</p>
+	<p>Свойство <samp class="sin">height</samp> <span class="red">не учитывает</span> толщину границ <samp class="sin">border</samp> вокруг элемента, величину отступов <samp class="sin">margin</samp> и полей <samp class="sin">padding</samp>. Если для элемента свойство <a href="#box-sizing" class="sin tdu ffm">box-sizing</a> задано как <samp class="lsin">border-box</samp>, то <samp class="sin">height</samp> определяет высоту блока.</p>
+
+	<pre class="item2 sin">height: <span class="lsin"><abbr title="пиксели (px), дюймы (in), пункты (pt) и др."><размер></abbr> | <abbr title="При использовании процентной записи высота вычисляется в зависимости от значения height у родительского элемента. Если родитель явно не указан, то в его качестве выступает окно браузера. Если высота у родителя явно не определена, то применяется значение auto, кроме случая, когда у элемента стоит position:absolute."><проценты></abbr> | <abbr title="Значение по умолчанию, устанавливает высоту исходя из содержимого элемента.">auto</abbr></span></pre>
+
+	<pre class="item2 css"><code>div {<br>  height: 12%;     /* высота элемента 12% */<br>  height: 150px;   /* высота элемента 150 пикселей */<br>  height: auto;    /* автоматическая величина */<br>  height: inherit  /* наследует значение родителя */<br>}</code></pre>
+
+	<div class="no"><samp class="sin">height:</samp><samp class="lsin">100%</samp> работает, когда у родителя явно задана высота.</div>
+</div>
+
+
+<div class="item" id="width">
+<p><samp class="sin bold">width</samp></p>
+	<p>Устанавливает ширины элементов, которые могут быть, как блочные, так и строчные (в том числе и ширину изображения). Ширина элемента может задаваться в процентах, пикселях или автоматически.</p>
+	<p>Свойство <samp class="sin">width</samp> <span class="red">не учитывает</span> толщину границ <samp class="sin">border</samp> вокруг элемента, величину отступов <samp class="sin">margin</samp> и полей <samp class="sin">padding</samp>.</p>
+
+	<div class="item2">
+		<samp class="sin">width:</samp> <samp class="lsin">10%;</samp> - ширина элемента 10%
+		<br><samp class="sin">width:</samp> <samp class="lsin">260px;</samp> - ширина элемента 260 пикселей
+		<br><samp class="sin">width:</samp> <samp class="lsin">auto;</samp> - автоматическая величина
+		<br><samp class="sin">width:</samp> <samp class="lsin">inherit</samp> - наследует значение родителя
+	</div>
 </div>
 
 
@@ -134,13 +110,6 @@
 </div>
 
 
-<div class="item" id="initial">
-<p><samp class="sin bold">object-fit</samp></p>
-	<p>Управляет соотношением сторон заменяемых элементов, таких как <samp class="red">&lt;img></samp> и <samp class="red">&lt;video></samp>, когда у них задана ширина или высота, а также способом масштабирования. Свойство <samp class="sin">object-fit</samp> может сохранять исходные пропорции элемента или наоборот, искажать пропорции, в угоду соблюдения размеров.</p>
-	<div class="no">Более подробно расписано <a href="img.html#of"><span class="sin tdu">тут</span></a></div>
-</div>
-
-
 <div class="item" id="padding">
 <p><samp class="sin bold">padding</samp></p>
 	<p>Устанавливает значение полей вокруг содержимого элемента. Полем называется расстояние от внутреннего края рамки элемента до воображаемого прямоугольника, ограничивающего его содержимое.</p>
@@ -157,20 +126,6 @@
 	<pre class="item2 sin mb20">padding: <span class="lsin">0;</span><br>padding: <span class="lsin">10px 20px;</span><br>padding: <span class="lsin">0 6px 4px;</span><br>padding: <span class="lsin">0 3px 6px 9px;</span></pre>
 
 	<p>Поля также можно задавать отдельно для каждой стороны с помощью свойств <samp class="sin">padding-top</samp>, <samp class="sin">padding-right</samp>, <samp class="sin">padding-bottom</samp>, <samp class="sin">padding-left</samp>.</p>
-</div>
-
-
-<div class="item" id="pointer-events">
-<p><samp class="sin bold">pointer-events</samp></p>
-	<p>Свойство <samp class="sin">pointer-events</samp> позволяет управлять тем, как элементы будут реагировать на события мыши или прикосновения к сенсорному экрану. Часто применяется для того, чтобы в сложной компоновке можно было взаимодействовать с нижележащими элементами, игнорируя вышележащие (например <samp>::before</samp>).</p>
-
-	<pre class="item2 mt20"><code>.class {<br>  pointer-events: none | auto;<br><br>  /* только для SVG */<br>  pointer-events: visiblePainted | visibleFill | visibleStroke| visible |<br>                  painted | fill | stroke | all;<br>}</code></pre>
-
-	<ul class="list">
-		<li><samp class="sin">auto</samp> - восстанавливает функциональность элемента по умолчанию.</li>
-		<li><samp class="sin">none</samp> - предотвращает события мыши и щелчки по элементу. Элемент не может быть целью (target) событий мыши; тем не менее, целью событий мыши могут быть его потомки, если их <samp class="sin">pointer-events</samp> имеет какое-либо другое значение. В этом случае события мыши вызовут ожидаемое срабатывание обработчиков на этом родительском элементе на пути к/от потомк(у)/(а) во время фазы захвата/всплытия.</li>
-	</ul>
-
 </div>
 
 
@@ -202,113 +157,11 @@
 </div>
 
 
-<div class="item" id="resize">
-<p><samp class="sin bold">resize</samp></p>
-	<p>Указывает, можно ли пользователю изменять размеры текстового поля. Применяется к <samp class="red">&lt;textarea></samp> или к любому элементу, у которого свойство <samp class="sin">overflow</samp> отличается от <samp class="lsin">visible</samp>.</p>
-	<pre class="item2">resize: <span class="lsin">none | both | horizontal | vertical</span></pre>
-
-	<table class="t1 t3">
-		<tr><td width="70px"><samp class="sin">none</samp></td>
-			<td>- размеры элемента не изменяются.</td></tr>
-		<tr><td><samp class="sin">both</samp></td>
-			<td>- можно изменять размеры элемента по горизонтали и вертикали.</td></tr>
-		<tr><td><samp class="sin">horizontal</samp></td>
-			<td>- можно изменять размеры элемента только по горизонтали.</td></tr>
-		<tr><td><samp class="sin">vertical</samp></td>
-			<td>- можно изменять размеры элемента только по вертикали.</td></tr>
-	</table>
-	<div class="no">Хотя по умолчанию значение установлено как <samp class="lsin">none</samp>, многие браузеры самостоятельно меняют его на <samp class="lsin">both</samp>. Если вы не хотите, чтобы размер поля изменялся, задавайте явное значение none, а не оставляйте его по умолчанию.</div>
-</div>
-
-
-<div class="item" id="scroll-behavior">
-<p><samp class="sin bold">scroll-behavior</samp></p>
-	<p>Определяет поведение прокрутки внутри элемента - плавная прокрутка или мгновенный переход. Значение по умолчанию <samp class="lsin">auto</samp>, не наследуется, не анимируется, применяется к блоку с прокруткой.</p>
-	<pre class="item2 sin">scroll-behavior: <span class="lsin">auto | smooth</span></pre>
-
-	<table class="t1 t3">
-		<tr><td>auto</td><td>переход к элементу внутри блока с прокруткой происходит мгновенно.</td></tr>
-		<tr><td>smooth</td><td>прокрутка происходит плавно. Время и функция перехода устанавливаются непосредственно браузеро</td></tr>
-	</table>
-
-	<div class="no">Слабая поддержка браузерами.</div>
-</div>
-
-
-<div class="item" id="tabindex">
-<p><samp class="sin bold">tabindex</samp></p>
-	<p>Определяет порядок перехода к элементу при помощи клавиши TAB. Принимаемые значения: порядковый номер.</p>
-	<p>Следует: устанавливать <samp class="sin">tabindex="-1"</samp> для фокуса с помощью JavaScript</p>
-	<p>Атрибут <samp class="sin">tabindex="-1"</samp> используется для создания доступных интерактивных виджетов посредством JS. Прописав <samp class="sin">tabindex="-1"</samp>, вы сделаете элемент фокусируемым для JS, а также по клику или тапу, но недоступным через клавишу Tab.</p>
-	<div class="item2 anp">
-		<p tabindex="-1" title="tabindex=-1">Заголовок 1</p>
-		<p tabindex="2" title="tabindex=2">Заголовок 2</p>
-		<p tabindex="3" title="tabindex=2">Заголовок 3</p>
-	</div>
-</div>
-
-
 <div class="item" id="tab-size">
 <p><samp class="sin bold">tab-size</samp></p>
 	<p>Используется для изменения ширины отступа, заданного с помощью символа табуляции (клавиша <samp><b>Tab</b></samp>). Значения - число символов. Применяется к блочным элементам.</p>
 
 	<pre class="item2 pr"><code>pre {<br>  -o-tab-size: 3;   /* Opera */<br>  -moz-tab-size: 3; /* Firefox */<br>  tab-size: 3;<br>}<div style="position:absolute; top:25px; right:50px;"><samp>tab-size:12;</samp><span style="background:lime; tab-size:12;">	</span><br><samp>tab-size: 6;</samp><span style="background:lime; tab-size:6;">	</span><br><samp>tab-size: 3;</samp><span style="background:lime; tab-size:3;">	</span></div></code></pre>
-</div>
-
-
-<div class="item" id="width">
-<p><samp class="sin bold">width</samp></p>
-	<p>Устанавливает ширины элементов, которые могут быть, как блочные, так и строчные (в том числе и ширину изображения). Ширина элемента может задаваться в процентах, пикселях или автоматически.</p>
-	<p>Свойство <samp class="sin">width</samp> <span class="red">не учитывает</span> толщину границ <samp class="sin">border</samp> вокруг элемента, величину отступов <samp class="sin">margin</samp> и полей <samp class="sin">padding</samp>.</p>
-
-	<div class="item2">
-		<samp class="sin">width:</samp> <samp class="lsin">10%;</samp> - ширина элемента 10%
-		<br><samp class="sin">width:</samp> <samp class="lsin">260px;</samp> - ширина элемента 260 пикселей
-		<br><samp class="sin">width:</samp> <samp class="lsin">auto;</samp> - автоматическая величина
-		<br><samp class="sin">width:</samp> <samp class="lsin">inherit</samp> - наследует значение родителя
-	</div>
-</div>
-
-
-
-
-<div class="item" id="accesskey">
-<p><samp class="sin bold">accesskey</samp></p>
-	<p>Генерирует сочетания клавиш для доступа к текущему элементу. Состоит из разделенного пробелами списка символов. Браузер в первую очередь выбирает те клавиши, которые существуют на раскладке клавиатуры. Применяется к следующим элементам: <samp class="red">&lt;a>, &lt;area>, &lt;button>, &lt;input>, &lt;label>, &lt;legend>, &lt;textarea></samp>.</p>
-	<p>Принимаемые значения: цифра (0-9) или латинская буква (a-z).</p>
-  <pre class="item2 mb30"><code>&lt;a href="img/xxx.jpg" accesskey="x">Горячая клавиша X для открытия ссылки&lt;/a><br>&lt;a href="img/rob.jpg" accesskey="r">Горячая клавиша R для открытия ссылки&lt;/a></code></pre>
-
-  <div>При использовании атрибута <samp class="red">accesskey</samp> следует учитывать:</div>
-  <ul class="list mb30">
-    <li>Значение атрибута <samp class="red">accesskey</samp> может конфликтовать с комбинациями клавиш системы, браузера или вспомогательными инструментами доступности.</li>
-    <li>Определённые значения атрибута <samp class="red">accesskey</samp> могут отсутствовать на некоторых клавиатурах. Это особенно сильно проявляется, если вы используете язык отличный от английского.</li>
-    <li>Не существует стандартизированного способа информировать пользователя о наличии атрибута <samp class="red">accesskey</samp> на элементе. Неинформированный пользователь может случайно активировать элемент с атрибутом <samp class="red">accesskey</samp>.</li>
-  </ul>
-
-  <div>Атрибут <samp class="red">accesskey</samp> позволяет получить доступ к элементу с помощью сочетания клавиш с заданной в атрибуте буквой или цифрой. Браузеры в windows при этом используют различные комбинации клавиш:</div>
-  <ul class="list">
-    <li><samp class="sin dib" style="width:75px">IE:</samp> <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
-    <li><samp class="sin dib" style="width:75px">Chrome:</samp> <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
-    <li><samp class="sin dib" style="width:75px">Safari:</samp> <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
-    <li><samp class="sin dib" style="width:75px">Opera:</samp> <code class="bg_g">&nbsp;Shift&nbsp;</code> + <code class="bg_g">&nbsp;Esc&nbsp;</code>, <code class="bg_g">&nbsp;key&nbsp;</code></li>
-    <li><samp class="sin dib" style="width:75px">Firefox:</samp> <code class="bg_g">&nbsp;Shift&nbsp;</code> + <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
-  </ul>
-</div>
-
-
-
-
-
-<!-- далее идет не попавшее в навигатор -->
-
-
-<div class="item">
-<p><big><samp class="sin bold">Встраивание гибкого медиа-контента</samp></big></p>
-	<p>К сожалению, свойство <b>max-width</b> не очень хорошо работает для всех случаев медиа-контента, в частности, для <samp class="red">&lt;iframe></samp> и встраиваемого медиа-контента. Когда дело доходит до внешних сайтов вроде YouTube, которые используют <samp class="red">&lt;iframe></samp> для встраиваемого медиа-контента, это огромное разочарование.</p>
-	<p>Чтобы встраиваемый медиа-контент был полностью отзывчивым, элемент должен быть позиционирован абсолютно в родительском элементе. У родителя width должен быть 100%, чтобы он мог масштабироваться, основываясь на ширине области просмотра. Родительский элемент также должен иметь height равный 0, чтобы включить механизм hasLayout в Internet Explorer.</p>
-	<p>Затем добавляем padding снизу родительского элемента, значение которого устанавливается таким же, что и соотношение сторон видео. Это позволяет высоте родительского элемента быть пропорциональной его ширине. Помните формулу гибкого макета? Если у видео соотношение сторон 16:9, то 9 разделить на 16 будет 0.5625, таким образом требуется нижний padding равный 56.25%. padding снизу, а не сверху используется специально для предотвращения Internet Explorer 5.5 от поломки и лечения родительского элемента, как абсолютно позиционированного.</p>
-
-	<pre class="item2"><code>&lt;style><br>  figure {<br>    height:0; width:100%;<br>    padding-bottom: 56.25%; /* 16:9 */<br>    position:relative;<br>  }<br>  iframe {<br>    height:100%; width:100%;<br>    position:absolute; left:0; top:0;<br>  }<br>&lt;/style><br><br>&lt;figure><br>  &lt;iframe src="https://www.youtube.com/embed/4Fqg43ozz7A">&lt;/iframe><br>&lt;/figure></code></pre>
 </div>
 
 
@@ -346,138 +199,6 @@
 	</table>
 	<p>При установке размеров обязательно указывайте единицы измерения, например <samp class="sin">width: 30px</samp>. В противном случае браузер не сможет показать желаемый результат, поскольку не понимает, какой размер вам требуется. Единицы не добавляются только при нулевом значении (<samp>margin: 0</samp>).</p>
 </div>
-
-<!--
-<div class="item" id="stretch">
-<p><samp class="sin bold">значение свойств - Строка</samp></p>
-	<p>Любые строки необходимо брать в двойные или одинарные кавычки. Если внутри строки требуется оставить одну или несколько кавычек, то можно комбинировать типы кавычек или добавить перед кавычкой обратную косую черту.</p>
-	<p>Как правило применяется для свойства <samp class="sin">content</samp></p>
-	<p>Переносы строк не разрешены, но можно добавить перевод с помощью шестнадцатеричного символа юникода <b>\A</b> или <b>\00000a</b>.</p>
-
-	<pre class="item2"><code>Свойство: 'первая "строка"'<br>Свойство: "первая 'строка'"<br>Свойство: "первая \"строка\""</code></pre>
-</div>
-
-
-<div class="item" id="angle">
-<p><samp class="sin bold">Угол</samp></p>
-	<p>Задаёт угол наклона или поворота. Положительное значение отмеряется по часовой стрелке, отрицательное против часовой стрелки.</p>
-	<div class="no">Более подробно значения перечислены <a href="unit css.html#angle" class="sin tdu">тут</a>.</div>
-</div>
-
-
-<div class="item" id="number">
-<p><samp class="sin bold">Число</samp></p>
-	<p>Значением может выступать целое число, содержащее цифры от 0 до 9 и десятичная дробь, в которой целая и десятичная часть разделяются точкой. Если число начинается с нуля, то его можно опустить (.5 вместо 0.5).
-	</p>
-</div> -->
-
-
-<div class="item" id="attr">
-<p><samp class="sin bold">Функция attr()</samp></p>
-	<p>Применяется для добавления значения атрибута HTML-элемента в стилевое свойство.</p>
-	<pre class="item2">attr(<span class="lsin"><атрибут> <тип>? [, <значение>]?</span>)</pre>
-
-	<table class="t1">
-		<tr><td width="80px"><атрибут></td><td>Имя атрибута элемента передаваемое в CSS.</td></tr>
-		<tr><td><тип></td><td>Тип значения свойства CSS. Допустимы следующие ключевые слова: string (строки), color (цвет), url (веб-адрес), integer (целое число), number (вещественное число), angle (угол), time (время), deg (градус), а также единицы CSS вроде em, px и др.</td></tr>
-		<tr><td><значение></td><td>Значение, которое будет использоваться в том случае, если атрибута нет или браузер не может его получить.</td></tr>
-	</table>
-
-	<p class="mt20">Между версиями CSS есть небольшая разница по прочтению некоторых особенностей <samp class="sin">attr()</samp>. В CSS2.1 функция <samp class="sin">attr()</samp> может использоваться только совместно со свойством content и всегда возвращает строку в качестве значения. В CSS3 <samp class="sin">attr()</samp> допустимо применять с любым свойством и возвращаемое значение может быть в любом корректном для CSS3 формате.</p>
-
-	<style>
-		.prattr1{display:inline-block; position:relative; color:red; padding:0 10px 10px; font-weight:700; font-size:22px;}
-		.prattr1[data-tooltip]::after {position:absolute; left:80%; top:0; pointer-events:none;
-			width:280px; background: #3989c9; color:#fff; opacity:0; transition:1s; text-align:center;
-			content: attr(data-tooltip);} /* Выводим текст */
-		.prattr1[data-tooltip]:hover::after {opacity:1; left:120%;}
-	</style>
-	<div class="item2">
-		<div data-tooltip="Всплывающая подсказка" class="prattr1">текст</div>
-		<pre><code>&lt;style><br>  .pr{display:inline-block; position:relative;}<br>  .pr[data-tooltip]::after {<br>    position:absolute; left:80%; top:0;<br>    pointer-events:none;<br>    width:280px; background:#3989c9; color:#fff;<br>    opacity:0; transition:1s; text-align:center;<br>    content: attr(data-tooltip);}                /* Выводим текст */<br>  .pr[data-tooltip]:hover::after {opacity:1; left:120%;}<br>&lt;/style><br><br>&lt;div data-tooltip="Всплывающая подсказка" class="pr">текст&lt;/div></code></pre>
-	</div>
-</div>
-
-
-
-<div class="item" id="calc">
-<p><samp class="sin bold">Функция calc()</samp></p>
-	<p>Используется для указания вычисляемого значения свойств, которые в качестве значений используют размер, угол, время, число. Это позволяет задавать значения, основанные на сложении или вычитании разных единиц измерений. Если значение не может быть вычислено, оно игнорируется.</p>
-	<pre class="item2"><code>Свойство: calc(<выражение>)</code></pre>
-
-	<style>
-		.tposc tr td:nth-child(1) {width:30px; font-size:22px; line-height:22px}
-		/*.tposc samp {margin-left:20px;}*/
-		/*.tposc td {padding:4px 10px;}*/
-	</style>
-	<table class="t1 t3 tposc">
-		<tr><td>+</td><td>сложение <pre class="dib sin"> width: <span class="lsin">calc(20px + 20px)</span>;</pre></td></tr>
-		<tr><td>-</td><td>вычитание <pre class="dib sin"> padding: <span class="lsin">calc(10% - 10px)</span>;</pre></td></tr>
-		<tr><td>*</td><td>умножение <pre class="dib sin"> height: <span class="lsin">calc(20%*2)</span>;</pre></td></tr>
-		<tr><td>/</td><td>деление. На ноль делить запрещено. <pre class="dib sin"> width: <span class="lsin">calc(100%/3)</span>;</pre></td></tr>
-	</table>
-
-	<div class="no" style="line-height:1.8">Знаки плюс и минус должны отбиваться пробелами с двух сторон.
-		<br>Internet Explorer не поддерживает <samp class="sin">calc</samp> внутри <samp class="red">@keyframes</samp>
-		<br>Firefox до версии 16 поддерживает <samp class="sin">-moz-calc</samp>
-		<br>Chrome до версии 26 поддерживает <samp class="sin">-webkit-calc</samp>
-		<br>Safari 6 поддерживает <samp class="sin">-webkit-calc</samp>
-	</div>
-</div>
-
-
-<div class="item" id="clamp">
-<p><samp class="sin bold">Функция clamp()</samp></p>
-	<p>задаёт предпочитаемое значение, а также его нижнюю и верхнюю границы. Это позволяет установить диапазон, в котором должно располагаться значение.</p>
-	<div class="item2">
-		<pre class="sin">Свойство: <samp class="lsin">clamp(<минимум>, <значение>, <максимум>)</samp></pre>
-		<pre><code><br>.scale {font-size: clamp(1rem, calc(12px + 1vw), 24px);}</code></pre>
-	</div>
-	<table class="t1 t3">
-		<tr><td width="80px"><минимум></td><td>минимальное значение</td></tr>
-		<tr><td><значение></td><td>предпочитаемое значение</td></tr>
-		<tr><td><максимум></td><td>максимальное значение</td></tr>
-	</table>
-	<p style="margin-top:15px">В одном выражении допустимо применять разные единицы (<samp>px, %, vw, em, rem</samp> и др.), а также использовать функцию <samp class="sin">calc()</samp>.</p>
-	<div class="no">
-		<p>При указании значений соблюдайте условие «минимум < значение < максимум». Иными словами, значение должно быть больше минимума, но меньше максимума. Если параметры выставлены в неверном порядке (например: clamp(40px, 10px, 20px)), то в качестве значения выбирается минимум, в данном случае 40px.</p>
-		<!-- <br>Internet Explorer и Safari не поддерживает <samp class="sin">clamp</samp> -->
-	</div>
-</div>
-
-
-<div class="item" id="max">
-<p><samp class="sin bold">Функция max()</samp></p>
-	<p>Данная функция позволяет браузеру выбрать наибольшее значение из представленных аргументов.</p>
-	<div class="item2">
-		<pre><code>.block {<br>   width: max(100%, 1024px);<br>}<br><br>/* или */<br><br>.block {<br>   width: 100%;<br>   min-width: 1024px;<br>}</code></pre>
-	</div>
-</div>
-
-
-<div class="item" id="min">
-<p><samp class="sin bold">Функция min()</samp></p>
-	<p>Данная функция позволяет браузеру выбрать наименьшее значение из представленных аргументов.</p>
-	<pre class="item2"><code>.block {<br>   width: min(100%, 1024px);<br>}<br><br>/* или */<br><br>.block {<br>   width: 100%;<br>   max-width: 1024px;<br>}</code></pre>
-</div>
-
-
-<div class="item" id="var">
-<p><samp class="sin bold">Функция var()</samp></p>
-	<p>позволяет вставлять значения пользовательских переменных в значения стилевых свойств. <samp class="red">var()</samp> нельзя использовать в именах селекторов и в свойствах.</p>
-	<p>Сами пользовательские переменные и их значения описываются внутри произвольного селектора и должны начинаться с двух дефисов. Через двоеточие переменной присваивается любое допустимое для CSS значение.</p>
-	<p>Для обращения к переменной используется запись <samp class="sin">var(--my-font)</samp>, которую можно вставлять в качестве значения свойства. При этом область видимости переменной ограничена указанным селектором и применение var(--my-font) в другом селекторе не даст результата.</p>
-	<div class="no">Для создания глобальных переменных их следует описать внутри селектора <a href="../root.html"><samp class="sin tdu">:root</samp></a>.</div>
-
-	<pre class="item2 sin">var(<span class="lsin"> <переменная> [, <значение> ]? </span>)</pre>
-
-	<table class="t1">
-		<tr><td><переменная></td><td>Имя переменной, обозначается двумя дефисами впереди (--my-font).</td></tr>
-		<tr><td><значение></td><td>Резервное значение, которое подставляется вместо заданного, в том случае, если переменная не определена. Через запятую можно указать несколько значений.</td></tr>
-	</table>
-	<!-- <div class="no">Internet Explorer и Android WebView не поддерживает <samp class="sin">var()</samp></div> -->
-</div>
-
 
 
 <div id="end" style="line-height:0;font-size:0"></div>

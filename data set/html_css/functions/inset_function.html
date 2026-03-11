@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>Функция - inset()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>inset()</samp></h2>
+
+<div class="item">
+	<p>Функция <samp class="sin">inset()</samp> — определяет прямоугольник на указанных расстояниях отступа от каждой стороны своего родителя. Положение прямоугольника и его размеры определяются с помощью одного, двух, трёх или четырёх параметров функции разделенных пробелами - аналогично свойству <samp class="sin">padding</samp>. Эта функция используется в CSS свойствах <a href="../clip-path.html"><samp class="sin tdu dib">clip-path</samp></a> и <a href="../CSS%20Shapes.html#shape-outside"><samp class="sin tdu dib">shape-outside</samp></a>.</p>
+
+	<pre class="item2 mt20 mb10 css"><code>inset( length [length length length] [round radius] )</code></pre>
+	<ul class="list">
+		<li><samp class="sin">length</samp> - от одного до четырех параметров в виде длинн CSS формата, включая проценты, определяют положение прямоугольника аналогично свойству <samp class="sin">padding</samp> (верхнее, правое, нижнее и левое смещения).</li>
+		<li><samp class="sin">round</samp> - ключевое слово для определения радиусов.</li>
+		<li><samp class="sin">radius</samp> - значение из css свойства <samp class="sin dib">border-radius</samp>.</li>
+	</ul>
+
+	<div class="no no1">Если параметры функции заданы в процентах, то они считаются от ширины или высоты родителя, при этом сумма процентов по вертикали и горизонтали не должна превышать 100%. Если сумма превышает это значение, то размеры будут уменьшены пропорционально, чтобы получилось 100%.</div>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<style>
+			.example {width:200px; background:yellow; margin:auto; color:#333; text-align:center;}
+			.example .text {border: 4px solid red;}
+			.example .inset {
+				clip-path: inset(45px 50px 15px 2px round 20px 0);
+				shape-outside: inset(40px 40px 10px 10px round 20px 0px);
+				height:150px; background:#ddd;
+				padding:32px; box-sizing:border-box;
+			}
+		</style>
+		<div class="example">
+			<div class="text">text 1</div>
+			<div class="text inset">text 2</div>
+			<div class="text">text 3</div>
+		</div>
+		<div class="item2">
+			<pre><code>&lt;div class="example"><br>  &lt;div class="text">text 1&lt;/div><br>  &lt;div class="text inset">text 2&lt;/div><br>  &lt;div class="text">text 3&lt;/div><br>&lt;/div></code></pre>
+			<pre><code><br>.text {border: 4px solid red;}<br>.inset {<br>  clip-path: inset(45px 50px 15px 2px round 20px 0);<br>  shape-outside: inset(40px 40px 10px 10px round 20px 0);<br>  height:150px; background:#ddd;<br>  padding:32px; box-sizing:border-box;<br>}</code></pre>
+		</div>
+	</fieldset>
+
+
+
+	<div class="mt30"></div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">37</span></td>
+			<td><span          title="Opera">24</span></td>
+			<td><span         title="Safari">10.1</span></td>
+			<td><span             title="FF">54</span></td>
+			<td><span title="mobile-android">37</span></td>
+			<td><span      title="mobile-FF">54</span></td>
+			<td><span   title="mobile-opera">24</span></td>
+			<td><span  title="mobile-safary">10.3</span></td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><title>CSS свойство resize</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>resize</samp></h2>
+
+<div class="item">
+	<p>Указывает, можно ли пользователю изменять размеры текстового поля. Применяется к <samp class="teg">textarea</samp> или к любому элементу, у которого значение свойства <samp class="sin">overflow</samp> отличается от <samp class="lsin">visible</samp>.</p>
+
+	<pre class="item2 mt20 mb10"><code>textarea {<br>  resize: none | both | horizontal | vertical;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">none</samp> - размеры элемента не изменяются.</li>
+		<li><samp class="sin">both</samp> - можно изменять размеры элемента по горизонтали и вертикали.</li>
+		<li><samp class="sin">horizontal</samp> - можно изменять размеры элемента только по горизонтали.</li>
+		<li><samp class="sin">vertical</samp> - можно изменять размеры элемента только по вертикали.</li>
+	</ul>
+
+	<div class="no">Хотя по умолчанию значение установлено как <samp class="lsin">none</samp>, многие браузеры самостоятельно меняют его на <samp class="lsin">both</samp>. Если вы не хотите, чтобы размер поля изменялся, задавайте явное значение <samp class="lsin">none</samp>, а не оставляйте его по умолчанию.</div>
+
+	<table class="support mt30">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">1</span></td>
+			<td><span          title="Opera">12.1</span></td>
+			<td><span         title="Safari">3</span></td>
+			<td><span             title="FF">4</span></td>
+			<td><span title="mobile-android">37</span></td>
+			<td><span      title="mobile-FF">4</span></td>
+			<td><span   title="mobile-opera">14</span></td>
+			<td class="n"><span  title="mobile-safary"></span></td>
+		</tr>
+	</table>
+</div>
+</body></html>

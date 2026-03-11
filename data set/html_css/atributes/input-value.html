@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><title>Атрибут value</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">value</samp> элемента <samp class="teg">input</samp>.</h3>
+
+<div class="item">
+	<p>Определяет значение элемента формы, которое будет отправлено на сервер или получено с помощью клиентских скриптов. На сервер отправляется пара «имя=значение», где имя задаётся атрибутом <samp class="sin">name</samp> элемента <samp class="teg">input</samp>, а значение — атрибутом <samp class="sin">value</samp>.</p>
+	<pre class="item2 mt20"><code>&lt;input value="текст"></code></pre>
+
+	<div class="mt30">В зависимости от типа элемента атрибут <samp class="sin">value</samp> выступает в следующей роли:</div>
+	<ul class="list">
+		<li>для файлового поля (<samp>input type="file"</samp>) не оказывает влияние.</li>
+		<li>для кнопок (<samp>input type="button | reset | submit"</samp>) устанавливает текстовую надпись на них;</li>
+		<li>для текстовых полей (<samp>input type="password | text"</samp>) указывает предварительно введённую строку. Пользователь может стирать текст и вводить свои символы, но при использовании в форме кнопки Reset пользовательский текст очищается и восстанавливается введённый в атрибуте value;</li>
+		<li>для флажков и переключателей (<samp>input type="checkbox | radio"</samp>) уникально определяет каждый элемент, с тем, чтобы клиентская или серверная программа могла однозначно установить, какой пункт выбрал пользователь.</li>
+	</ul>
+
+	<div class="prm mt30">
+		<form action="">
+			<p><b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?</b></p>
+			<input type="radio" name="answer" value="a1">Офицерский состав
+			<br><input type="radio" name="answer" value="a2">Операционная система
+			<br><input type="radio" name="answer" value="a3">Большой полосатый мух
+			<br><input type="submit">
+		</form>
+		<pre class="item2 ls-1"><code>&lt;form action="handler.php"><br>  &lt;p>&lt;b>Как по вашему мнению расшифровывается аббревиатура &quot;ОС&quot;?&lt;/b>&lt;/p><br>  &lt;input type="radio" name="answer" value="a1">Офицерский состав<br>  &lt;br>&lt;input type="radio" name="answer" value="a2">Операционная система<br>  &lt;br>&lt;input type="radio" name="answer" value="a3">Большой полосатый мух<br>  &lt;br>&lt;input type="submit"><br>&lt;/form></code></pre>
+	</div>
+
+</div>
+
+
+</body></html>

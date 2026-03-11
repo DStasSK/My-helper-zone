@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>Функция - rect()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>rect()</samp></h2>
+
+<div class="item">
+	<p>Функция <samp class="sin">rect()</samp> — позволяет создать прямоугольник на основе указанных расстояний от левого и верхнего краёв области. Положение и размеры прямоугольника определяются с помощью четырёх параметров функции, которые, соответственно, задают верхнюю, правую, нижнюю и левую стороны прямоугольника. Также дополнительным параметром является ключевое слово <samp class="pur">round</samp> с параметром <samp class="sin dib">border-radius</samp> для добавления скругленных углов к прямоугольнику.</p>
+
+	<p>Функцию <samp class="sin">rect()</samp> можно использовать в свойствах CSS, таких как <samp class="sin bid">offset-path</samp>, для создания прямоугольного пути, по которому перемещается элемент, и в <a href="../clip-path.html"><samp class="sin tdu dib">clip-path</samp></a> для определения формы области отсечения.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin">rect( <samp class="lsin">top|auto right|auto bottom|auto left|auto <samp class="pur">round</samp> radius</samp> )</pre>
+		<pre><code><br>offset-path: rect(50px auto 200px 50px round 20%);<br>offset-path: rect(50px auto 200px auto);</code></pre>
+	</div>
+	<ul class="list l1 mb30">
+		<li><samp class="sin">top</samp> - расстояние от родителя до верхней границы.</li>
+		<li><samp class="sin">right</samp> - расстояние от родителя до правой границы.</li>
+		<li><samp class="sin">bottom</samp> - расстояние от родителя до нижней границы.</li>
+		<li><samp class="sin">left</samp> - расстояние от родителя до левой границы.</li>
+		<li><samp class="sin">auto</samp> - ключевое слово, при котором соответствующее расстояние равно 0.</li>
+		<li><samp class="sin">round</samp> - ключевое слово для добавления скругленных углов.</li>
+		<li><samp class="sin">radius</samp> - до четырех параметров <a href="../border-radius-css.html"><samp class="sin dib tdu">border-radius</samp></a>.</li>
+	</ul>
+
+	<div class="no">Браузеры Edge, Chrome и Opera поддерживают функцию <samp class="sin">rect()</samp> только для свойства <samp class="sin dib">offset-path</samp>.</div>
+
+	<div class="mt30">2024.01</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span        title="IE"></span></td>
+			<td class="part"><span   title="Edge">116</span></td>
+			<td class="part"><span title="Chrome">116</span></td>
+			<td class="part"><span  title="Opera">102</span></td>
+			<td><span              title="Safari">17.2</span></td>
+			<td><span                  title="FF">122</span></td>
+			<td class="part"><span title="mobile-android">116</span></td>
+			<td><span           title="mobile-FF">122</span></td>
+			<td class="part"><span title="mobile-opera">78</span></td>
+			<td><span             title="mobile-safary">17.2</span></td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

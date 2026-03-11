@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>&lt;label></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -13,19 +13,23 @@
 <h2 class="sin"><samp>&lt;label></samp></h2>
 
 <div class="item">
-	<p>Элемент <samp class="red">&lt;label></samp> (от англ. label — метка) устанавливает связь между определённой меткой, в качестве которой обычно выступает текст, и элементом формы (<samp class="red">&lt;input></samp>, <samp class="red">&lt;select></samp>, <samp class="red">&lt;textarea></samp>). Такая связь необходима, чтобы изменять значения элементов формы при щелчке курсором мыши на текст. Кроме того, с помощью <samp class="red">&lt;label></samp> можно устанавливать горячие клавиши на клавиатуре и переходить на активный элемент подобно ссылкам.</p>
-	<p>Существует два способа связывания объекта и метки. Первый заключается в использовании идентификатора <samp class="sin">id</samp> внутри элемента формы и указании его имени в качестве атрибута <samp class="sin">for</samp> элемента <samp class="red">&lt;label></samp>. При втором способе элемент формы помещается внутрь контейнера <samp class="red">&lt;label></samp>.</p>
-	<pre class="item2"><code>&lt;input id="идентификатор"><br>  &lt;label for="идентификатор">Текст<br>&lt;/label><br><br>&lt;label><br>  &lt;input>Текст<br>&lt;/label></code></pre>
+	<p>Элемент <samp class="red">&lt;label></samp> (от англ. <i lang="en" translate="no">label</i> — метка) устанавливает связь между определённой меткой, в качестве которой обычно выступает текст, и элементом формы (<samp class="red">&lt;input></samp>, <samp class="red">&lt;select></samp>, <samp class="red">&lt;textarea></samp>). Такая связь необходима, чтобы изменять значения элементов формы при щелчке курсором мыши на текст. Кроме того, с помощью <samp class="red">&lt;label></samp> можно устанавливать горячие клавиши на клавиатуре и переходить на активный элемент подобно ссылкам.</p>
 
-	<div class="no">IE до версии 6.0 включительно не позволяет активировать поле формы при щелчке по тексту, когда поле с текстом находится внутри <samp class="red">&lt;label></samp>.
-	<br><br>IE до версии 8.0 включительно корректно работает с <samp class="red">&lt;label></samp> только при наличии в нём текста. Если добавить изображение
-	<pre class="item2"><code>&lt;label>&lt;img src="pic.jpg" alt="">&lt;/label></code></pre>
-	то активировать поле формы щелчком по картинке нельзя.</div>
+	<p>Существует два способа связывания объекта и метки. Первый заключается в использовании идентификатора <a href="atributes/id.html"><samp class="pur tdu">id</samp></a> внутри элемента формы и указании его имени в качестве атрибута <a href="atributes/for.html"><samp class="sin tdu">for</samp></a> элемента <samp class="red">&lt;label></samp>. При втором способе элемент формы помещается внутрь контейнера <samp class="red">&lt;label></samp>.</p>
+
+	<pre class="item2 mt20"><code>&lt;input id="идентификатор"><br>  &lt;label for="идентификатор">Текст<br>&lt;/label><br><br>&lt;label><br>  &lt;input>Текст<br>&lt;/label></code></pre>
+
+	<!-- <div class="no" hidden>
+		IE до версии 6.0 включительно не позволяет активировать поле формы при щелчке по тексту, когда поле с текстом находится внутри <samp class="red">&lt;label></samp>.
+		<br><br>IE до версии 8.0 включительно корректно работает с <samp class="red">&lt;label></samp> только при наличии в нём текста. Если добавить изображение
+		<pre class="item2"><code>&lt;label>&lt;img src="pic.jpg" alt="">&lt;/label></code></pre>
+		то активировать поле формы щелчком по картинке нельзя.
+	</div> -->
 </div>
 
 <div class="item">
 <h3 class="sin">Пример.</h3>
-	<form action="handler.php" class="prm">
+	<form action="" class="prm">
 		<p><b>Выберите напиток</b></p>
 		<p>
 			<input type="checkbox" id="check1"><label for="check1">Коньяк</label>
@@ -35,21 +39,16 @@
 			<input type="checkbox" id="check3"><label for="check3">Кальвадос</label>
 		</p>
 	</form>
-	<pre class="item2"><code>&lt;form action="handler.php">
+	<pre class="item2 mt10"><code>&lt;form action="">
   &lt;p>&lt;b>Выберите напиток&lt;/b>&lt;/p>
-  &lt;p>
-    &lt;input type="checkbox" id="check1">
-      &lt;label for="check1">Коньяк
-    &lt;/label>
-    &lt;br>
-    &lt;input type="checkbox" id="check2">
-      &lt;label for="check2">Арманьяк
-    &lt;/label>
-    &lt;br>
-    &lt;input type="checkbox" id="check3">
-      &lt;label for="check3">Кальвадос
-    &lt;/label>
-  &lt;/p>
+  &lt;input type="checkbox" id="check1">
+  &lt;label for="check1">Коньяк&lt;/label>
+  &lt;br>
+  &lt;input type="checkbox" id="check2">
+  &lt;label for="check2">Арманьяк&lt;/label>
+  &lt;br>
+  &lt;input type="checkbox" id="check3">
+  &lt;label for="check3">Кальвадос&lt;/label>
 &lt;/form></code></pre>
 </div>
 

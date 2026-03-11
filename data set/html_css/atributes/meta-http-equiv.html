@@ -1,0 +1,75 @@
+<!DOCTYPE html><html><head><title>Атрибут http-equiv элеметна &lt;meta></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">http-equiv</samp> элемента <samp class="teg">meta</samp></h3>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">http-equiv</samp> предназначен для конвертирования метатега в заголовок HTTP. Этот атрибут определяет прагму, которая может изменять поведение серверов и пользователей. Значение прагмы определяется с помощью атрибута <samp class="sin">content</samp>.</p>
+
+	<p>Браузеры преобразовывают значение атрибута <samp class="sin">http-equiv</samp>, заданное с помощью <samp class="sin">content</samp>, в формат заголовка ответа HTTP и обрабатывают их, как будто они прибыли непосредственно от сервера.</p>
+
+	<p>Когда атрибут <samp class="sin">http-equiv</samp> указан в элементе <samp class="teg">meta</samp>, элемент <samp class="teg">meta</samp> является прагма директивой, которая предоставляет дополнительную информацию о документе.</p>
+
+	<pre class="item2 mt20 mb10"><code>&lt;meta http-equiv="content-security-policy | content-type |
+                  default-style | x-ua-compatible | refresh"
+      content="values"></code></pre>
+
+	<ul class="list mt0">
+		<li><samp class="sin">content-security-policy</samp> - позволяет авторам страниц определять политику контента для текущей страницы. Политики контента в основном определяют разрешенные серверные источники и конечные точки скриптов, которые помогают защититься от атак с использованием межсайтового скриптинга.
+		<br>См. также <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy" class="sin tdu" target="_blank">Content-Security-Policy</a>.</li>
+
+		<li><samp class="sin">content-type</samp> - (<span class="red">устаревшее</span>) oбъявляет тип MIME и кодировку символов документа. Атрибут <samp class="sin">content</samp> должен иметь значение "<samp class="lsin">text/html; charset=utf-8</samp>", если указано. Это эквивалентно элементу <samp class="teg">meta</samp> с указанным атрибутом <samp class="sin">charset</samp> и имеет то же ограничение на размещение в документе.
+		<br>Mожет использоваться только в документах, обслуживаемых с <samp class="sin">text/html</samp> — не в документах, обслуживаемых с типом <samp class="sin">XML MIME</samp>.
+		<br>См. также <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Type" class="sin tdu" target="_blank">content-type</a>.</li>
+
+		<li><samp class="sin">default-style</samp> - задает имя (через атрибут <samp class="sin">name</samp>) набора таблиц стилей CSS по умолчанию. Специализация этой прагмы - предпочтительный стиль таблиц, используемый на странице. Aтрибут <samp class="sin">content</samp> должен содержать заголовок элемента <samp class="teg">link</samp> или <samp class="teg">style</samp>, который содержит CSS таблицу стилей.</li>
+
+		<li><samp class="sin">x-ua-compatible</samp> - Если указано, атрибут <samp class="sin">content</samp> должен иметь значение <span class="dib">"<samp class="lsin">IE=edge</samp>"</span>, то агенты пользователей должны игнорировать эту прагму.</li>
+
+		<li><samp class="sin">refresh</samp> - эта инструкция определяет количество секунд до перезагрузки страницы или перехода на другую страницу. В качестве значения принимает два параметра из атрибута <samp class="sin">content</samp>: неотрицательное целое число, определяющее таймер перехода и допустимый URL для перехода на другую страницу. Таймер запускается, когда страница полностью загружена, то есть после срабатывания событий <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" target="_blank"><samp class="pur tdu">load</samp></a> и <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/pageshow_event"><samp class="pur tdu">pageshow</samp></a>.
+		<pre class="item2"><code>&lt;meta http-equiv="refresh" content="5; url=https://example.com/"></code></pre></li>
+	</ul>
+
+	<div class="no mt40 mb10">Устаревшие значения прагм:</div>
+	<table class="t1 tb">
+		<tr><td width="145px" class="ls-1">content-language</td><td>
+			Позволяет указать основной язык для всего документа.
+			<pre class="item2"><code>&lt;!-- устаревшая форма определения - не использовать --><br>&lt;meta http-equiv="content-language" content="ru" /><br><br>&lt;!-- В HTML5 указание языка упрощено: --><br>&lt;html lang="ru"></code></pre>
+		</td></tr>
+		<tr><td>expires</td><td>
+			Устанавливает дату и время, после которой информация в документе будет считаться устаревшей.
+		</td></tr>
+		<tr><td>pragma</td><td>
+			Способ кэширования документа.
+		</td></tr>
+		<tr><td>Cache-Control</td><td>
+			<p>Управление кэшированием. Должно давать четкие указанию браузеру и промежуточным серверам как вести кэширование этой страницы. Инструкции не чувствительны к регистру и имеют необязательный аргумент, который может быть указан как в кавычках, так и без них. Несколько инструкций разделяются запятыми.</p>
+			<ul class="list l1">
+				<li><samp class="sin">public</samp> - документ кэшируется во всех доступных кэшах</li>
+				<li><samp class="sin">no-store</samp> - может быть кэширован, но не сохраняется в архиве</li>
+				<li><samp class="sin">max-age=time, must-revalidate</samp> - указывает браузеру сколько секунд хранить документ в кэше</li>
+				<li><samp class="sin">private</samp> - кэшируется браузером, не кэшируется proxy-сервером</li>
+				<li><samp class="sin">no-cache</samp> - запрет на кэширование (браузер и proxy-сервер документ не кэшируют)</li>
+				<li><samp class="sin">max-age=time, proxy-revalidate</samp> - указывает сколько секунд хранить документ в кэше proxy-серверу</li>
+			</ul>
+			<pre class="item2 mt10"><code>&lt;!-- для страниц типа результатов поиска --><br>&lt;meta http-equiv="Cache-Control"<br>         content="no-cache, no-store, must-revalidate"><br>&lt;!-- для публичных страниц типа статей блога --><br>&lt;meta http-equiv="Cache-Control"<br>         content="public, max-age=31536000"></code></pre>
+			Полный <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"><span class="sin tdu">список</span></a> возможных значений.
+		</td></tr>
+	</table>
+
+	<pre class="item2 mt20"><code>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"><br>&lt;meta http-equiv="expires" content="Sun, 01 Jan 2013 07:01:00 GMT"><br>&lt;meta http-equiv="refresh" content="300"> &lt!-- обновление каждые 5 минут --><br>&lt;meta http-equiv="refresh" content="20; url=page4.html"> &lt!-- переход по url --><br>&lt;meta http-equiv="default-style" content="default"></code></pre>
+
+</div>
+
+
+</body></html>

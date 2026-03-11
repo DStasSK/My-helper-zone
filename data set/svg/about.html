@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>SVG введение</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -13,6 +13,12 @@
 		background-color:#fff;
 		border:1px solid #000;
 	}
+	/* Оформление для темной темы браузера */
+	:root {color-scheme: light dark;}
+		@media (prefers-color-scheme: dark) {
+			pre {padding:5px 10px; margin:5px 0; border-radius:5px; background-color:#eee; overflow-x:auto; color:#333;}
+		.item2 pre {margin:0; padding:2px;}
+	}
 </style>
 </head>
 <body>
@@ -21,7 +27,6 @@
 		<ul class="ogl">
 			<li><a href="#tohtml">Способы вставки изображений в формате SVG на страницу.</a></li>
 			<li><a href="#size">Размеры изображений в формате SVG.</a></li>
-			<!-- <li><a href="#viewBox">Атрибут <samp class="red">viewBox</samp>.</a></li> -->
 		</ul>
 		<!-- /оглавление -->
 
@@ -72,6 +77,7 @@
 
 
 
+
 <div class="item anp" id="size">
 <h3 class="sin"><a href="#">Размеры изображений в формате SVG.</a></h3>
 	<p>Содержимое SVG-элемента отрисовывается на бесконечном холсте и может быть сколь угодно большого размера, но видимая часть холста соответствует размерам SVG-элемента. Эта область отрисовки называется <samp class="red">viewport</samp> (вьюпорт).</p>
@@ -84,10 +90,12 @@
 		<svg class="fr example" width="250" height="150">
 			<circle cx="100" cy="100" r="80" fill="#817" />
 		</svg>
-		<pre><code><br>&lt;svg width="250" height="150"><br><br><br>   &lt;circle cx="100" cy="100" r="80" fill="#817" /><br><br><br>&lt;/svg></code></pre>
+		<pre><code>&lt;svg width="250" height="150"><br>  &lt;circle cx="100" cy="100" r="80" fill="#817" /><br>&lt;/svg></code></pre>
 	</div>
 
 </div>
+
+
 
 
 <div class="item anp">

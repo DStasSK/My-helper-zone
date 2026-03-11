@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>mix-blend-mode</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -10,17 +10,6 @@
 
 <style type="text/css">
 	.tt1 td:nth-child(1){width:110px;}
-
-	.box1, .box2{
-		width:90%; height:30vw;
-		margin:10px auto;
-		background:url(txt/img/s1200.jpg) center center; background-size:cover;}
-	.box2{background:url(txt/img/s1201.jpg) center center; background-size:cover;}
-	.box1 p, .box2 p{
-		color:#fff;
-		font-size:14vw; text-align:center;
-		padding:5vw 0; font-weight:600;
-		mix-blend-mode:difference;}
 </style>
 </head>
 <body>
@@ -43,7 +32,7 @@
 
   <h3 id="z2" class="mt20 sin">Значения.</h3>
 
-	<table class="t1 tb tt1 t3">
+	<table class="t1 tb tt1 t3 t0">
 		<tr><td>normal</td><td>Обычный. Не используется смешивание цветов. Режим по умолчанию.</td></tr>
 		<tr><td>multiply</td><td>Умножение. В этом режиме значение основного цвета умножается на значение накладываемого цвета. Результирующий цвет всегда представляет собой более тёмный цвет. В результате умножения значения любого цвета на значение чёрного цвета вырабатывается чёрный цвет. В результате умножения значения любого цвета на значение белого цвета цвет остаётся неизменным.</td></tr>
 		<tr><td>screen</td><td>Осветление. В этом режиме перемножаются обратные значения основного и накладываемого цвета. В качестве результирующего цвета всегда применяется более светлый цвет. При осветлении с применением чёрного цвета, цвет остаётся неизменным. При перекрытии с применением белого цвета, цвет становится белым. Полученный эффект аналогичен наложению друг на друга изображений многочисленных фотографических слайдов с помощью проектора.</td></tr>
@@ -163,6 +152,7 @@
 		.pec #bg5:checked ~ .d1{background:#00f;}
 		.pec #bg6:checked ~ .d1{background:#000;}
 	</style>
+	<div style="overflow:auto">
 	<div class="pec anp">
 		<input type="radio" name="bg" id="bg1"><label for="bg1" class="bgg g1"></label>
 		<input type="radio" name="bg" id="bg2" checked><label for="bg2" class="bgg g2"></label>
@@ -210,7 +200,9 @@
 			<p>Аквариум</p>
 			<p>Аквариум</p>
 		</div>
+	</div><!-- .pec -->
 	</div>
+
 </div>
 <!-- /Песочница. -->
 
@@ -218,38 +210,47 @@
 
 <div class="item" id="p1">
 <h2 class="sin"><a href="#">Пример 1.</a></h2>
-	<p>В данном примере на фоновое изображение накладывается текст с белым фоном, который закрывает собой изображение. Режим наложения <samp class="red">lighten</samp> оставляет лишь светлые цвета и поскольку цвет текста по умолчанию чёрный, то получаются цветные буквы на белом фоне</p>
+	<p>В данном примере на фоновое изображение накладывается текст с белым фоном, который закрывает собой изображение. Режим наложения <samp class="sin">lighten</samp> оставляет лишь светлые цвета и поскольку цвет текста по умолчанию чёрный, то получаются цветные буквы на белом фоне</p>
 	<style>
-		.textmode {background:url(txt/img/aquaria.jpg) center no-repeat; text-align:center;}
-		.textmode__header {font:bold 3em Verdana, Helvetica, sans-serif; margin:0;
-			display:block;            /* убирает фон слева и справа */
-			background:#fff;          /* Белый цвет фона */
-			mix-blend-mode: lighten;  /* Режим наложения */
-			font-size:14vw;
-			color:#000;
-			padding-bottom:20px;
+		.header {background:url(txt/img/aquaria.jpg) center no-repeat; text-align:center;}
+		.header__text {font:bold 3em Verdana, Helvetica, sans-serif; font-size:13.5vw; color:#000;
+			background: #fff;          /* Белый цвет фона */
+			mix-blend-mode: lighten;   /* Режим наложения */
+			margin: 0;
+			padding-bottom: 20px;
 		}
 	</style>
-	<h1 class="textmode"><span class="textmode__header">Аквариум</span></h1>
+	<header class="header"><h1 class="header__text">Аквариум</h1></header>
+	<!-- <h1 class="textmode"><span class="textmode__header">Аквариум</span></h1> -->
 	<div class="item2">
 		<samp class="red">HTML</samp>
-		<pre><code>&lt;h1 class="textmode">&lt;span class="textmode__header">Аквариум&lt;/span>&lt;/h1></code></pre>
+		<pre><code>&lt;header class="header"><br>  &lt;h1 class="header__text">Аквариум&lt;/h1><br>&lt;/header></code></pre>
 		<br><samp class="red">CSS</samp>
-		<pre class="mb"><code>.textmode {<br>  background:url(img/aquaria.jpg) center no-repeat;<br>  text-align:center;<br>}<br>.textmode__header {<br>  display:block;            /* убирает фон слева и справа */<br>  background:#fff;          /* Белый цвет фона */<br>  mix-blend-mode: lighten;  /* Режим наложения */<br>  color: #000;<br>}</code></pre>
+		<pre class="ls-05"><code>.header {<br>  background: url(img/aquaria.jpg) center no-repeat;<br>  text-align: center;<br>}<br>.header__text {<br>  background: #fff;          /* Белый цвет фона */<br>  mix-blend-mode: lighten;   /* Режим наложения */<br>  color: #000;<br>}</code></pre>
 	</div>
 </div>
 
 
 
 <div class="item" id="p2">
-<h2 class="sin" style="max-width:600px;margin:0px auto;"><a href="#">CSS: Как сделать контрастный цвет тексту, который лежит на разноцветном фоне.</a></h2>
-	<div class="box1"><p>Logo of site</p></div>
-	<div class="box2"><p>Logo of site</p></div>
+<h2 class="sin" style="max-width:600px; margin:0px auto;"><a href="#">CSS: Как сделать контрастный цвет тексту, который лежит на разноцветном фоне.</a></h2>
+
+	<style>
+		.box {width:90%; height:30vw; margin:10px auto;}
+		.box1 {background: url(txt/img/s1200.jpg) center center; background-size:cover;}
+		.box2 {background: url(txt/img/s1201.jpg) center center; background-size:cover;}
+		.box1 p, .box2 p{
+			color:#fff; font-size:14vw; text-align:center; font-weight:600; padding:5vw 0;
+			mix-blend-mode: difference;
+		}
+	</style>
+	<div class="box box1"><p>Logo of site</p></div>
+	<div class="box box2"><p>Logo of site</p></div>
 
 	<div class="item2 mb30">
     <samp class="red">HTML</samp>
-		<pre><code class="html">&lt;div class="box1">&lt;p>Logo of site&lt;/p>&lt;/div><br>&lt;div class="box2">&lt;p>Logo of site&lt;/p>&lt;/div></code></pre>
-		<pre><code class="css"><br><span class="red">CSS</span><br>.box1, .box2 {<br>  width: 90%; height: 200px; margin: 10px auto;<br>  background: url(img/s1200.jpg) center center;<br>  background-size: cover;<br>}<br>.box2 {<br>  background: url(img/s1201.jpg) center center;<br>  background-size: cover;<br>}<br>.box1 p, .box2 p {<br>  color: #fff;<br>  mix-blend-mode: difference;<br>}</code></pre>
+		<pre><code class="html">&lt;header class="header1">&lt;h1>Logo of site&lt;/h1>&lt;/header><br>&lt;header class="header2">&lt;h1>Logo of site&lt;/h1>&lt;/header></code></pre>
+		<pre><code class="css"><br><span class="red">CSS</span><br>.header1 {<br>  background: url(img/s1200.jpg) center center;<br>  background-size: cover;<br>}<br>.header2 {<br>  background: url(img/s1201.jpg) center center;<br>  background-size: cover;<br>}<br>h1 {<br>  color: #fff;<br>  mix-blend-mode: difference;<br>}</code></pre>
 	</div>
 
 	<p>Если внимательно читать <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode" target="_blank"><samp class="sin tdu">MDN</samp></a> можно, примерно, понять режимы смешивания и увидеть различия между ними, хотя они практически все одинаковы. Наличие белого текста над изображением дает результат, который является инвертированным изображением, где текст перекрывает его. Для простых черно-белых изображений черный в исходном изображении становится белым, где есть белый текст над ним, а белый в исходном изображении становится черным, когда над ним находится белый текст.</p>

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>CSS cвойство animation-timing-function</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -40,7 +40,7 @@
 			<br>аналогично <pre class="sin">steps(1, jump-start)</pre></td></tr>
 		<tr><td>step-end</td><td>Как таковой анимации нет. Стилевые свойства находятся в начальном значении заданное время, затем сразу же принимают конечное значение.
 			<br>аналогично <pre class="sin">steps(1, jump-end)</pre></td></tr>
-		<tr><td>steps</td><td>Ступенчатая функция, имеющая заданное число шагов воспроизведении анимации с одинаковым промежутком времени.
+		<tr id="steps"><td>steps()</td><td>Функция для заданния числа шагов воспроизведении анимации с одинаковым промежутком времени.
 			<br><pre class="item2 sin mb0">animation-timing-function: <span class="lsin">steps(число, параметр);</span></pre>
 			<ul class="list l1 mb10 mt0">
 				<li><samp class="sin">число</samp> - целое число больше нуля;</li>
@@ -54,7 +54,7 @@
 			</ul>
 			<pre class="item2"><code>animation-timing-function: steps(5, end);</code></pre>
 		</td></tr>
-		<tr><td>cubic-bezier()</td><td>Задаёт функцию движения в виде кривой Безье. Первый и третий параметры функции должны быть в диапазоне от 0 до 1.
+		<tr id="cubic-bezier"><td>cubic-bezier()</td><td>Задаёт функцию движения в виде кривой Безье. Первый и третий параметры функции должны быть в диапазоне от 0 до 1.
 			<div class="pr">
 				<img src="img/cubic-bezier.gif" alt="Примеры различных значений и графики функций cubic-bezier()" style="width:100%; max-width:100%;">
 				<pre class="item2 sin pa" style="left:0; top:0;">cubic-bezier(0...1, n, 0...1, n);</pre>

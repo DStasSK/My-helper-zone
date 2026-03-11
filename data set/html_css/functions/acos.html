@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><title>Функция - acos()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>acos()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">acos()</samp> — это тригонометрическая функция, которая возвращает арккосинус числа от -1 до 1 - это число радиан, представляющих угол от 0 до 180 градусов. Если нужны градусы а не радианы, то возвращаемое функцией число нужно умножить на 180 и разделить на pi (3.14159...).</p>
+
+	<pre class="item2 mt20 sin"><code>acos(<samp class="lsin">number</samp>)</code></pre>
+
+	<div><samp class="sin">number</samp> - любое число или расчет который даст результат в диапазоне от -1 до 1. Если <b class="dib">number < -1</b> или <b class="dib">number > 1</b>, результат — <samp class="pur">NaN</samp>. Если число равно  1, то результат — 0.</div>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<style>
+			.example {display:flex; gap:10px; justify-content:space-between;}
+			.box {width:15%; aspect-ratio: 1 / 1; border-radius:50%;
+				background: linear-gradient(orange, red);}
+			.box1 {transform: rotate(acos(1));}
+			.box2 {transform: rotate(acos(0.5));}
+			.box3 {transform: rotate(acos(0));}
+			.box4 {transform: rotate(acos(-0.5));}
+			.box5 {transform: rotate(acos(-1));}
+		</style>
+		<div class="example">
+			<div class="box box1"></div>
+			<div class="box box2"></div>
+			<div class="box box3"></div>
+			<div class="box box4"></div>
+			<div class="box box5"></div>
+		</div>
+		<div class="item2 mt10">
+			<pre><code>&lt;div><br>  &lt;div class="box1">&lt;/div><br>  &lt;div class="box2">&lt;/div><br>  &lt;div class="box3">&lt;/div><br>  &lt;div class="box4">&lt;/div><br>  &lt;div class="box5">&lt;/div><br>&lt;/div></code></pre>
+			<pre><code><br>.box1 {transform: rotate( acos(1) ) }<br>.box2 {transform: rotate( acos(0.5) ) }<br>.box3 {transform: rotate( acos(0) ) }<br>.box4 {transform: rotate( acos(-0.5) ) }<br>.box5 {transform: rotate( acos(-1) ) }</code></pre>
+		</div>
+	</fieldset>
+
+	<div class="mt30">2023.05</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>111</span></td><!-- Edge -->
+			<td><span>111</span></td><!-- Chrome -->
+			<td><span>97</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>108</span></td><!-- FF -->
+			<td><span>111</span></td><!-- mobile-android -->
+			<td><span>108</span></td><!-- mobile-FF -->
+			<td><span>75</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

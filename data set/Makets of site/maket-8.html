@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>Фиксированный подвал</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -9,44 +9,52 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-	.anf{margin-bottom:55px;} /* для учета высоты футера */
+	.item:last-child {margin-bottom: 55px;} /* для учета высоты футера */
 </style></head>
 <body>
+
 <div class="item anf">
 <h2 class="sin">Фиксированный подвал</h2>
 
-	<style type="text/css">
-		#content{width:700px; margin:0 auto 50px; padding:5px; font-size:1.2em;
+	<style>
+		.container {margin:0 auto 50px; padding:10px; font-size:1.2em;
 			background:#00f; color:#fff;}
-		#footer{position:fixed; left:0; bottom:0; color:#fff; width:100%;}
-		#footer div {padding:10px; background:#39b54a;}
+		.footer {position:fixed; left:0; bottom:0; color:#fff; width:100%; padding:10px; background:#39b54a; z-index:9;} /* z-indexs kill BAG from opacity */
 	</style>
 	<!--[if lte IE 6]>
 	<style type="text/css">
 		html, body, #container {
 			height: 100%;                /* Высота страницы */
-			overflow: hidden;}           /* Обрезаем все, что не помещается в окно */
+			overflow: hidden;            /* Обрезаем все, что не помещается в окно */
+		}
 		#container {overflow: auto;}     /* Добавляем полосы прокрутки */
 		#footer {position: absolute;}    /* Абсолютное позиционирование */
 		#footer div {margin-right:17px;} /* Смещаем фон, чтобы не накладывался на скролбар */
 	</style>
 	<![endif]-->
-	<div id="container"><div id="content">содержимое страницы</div></div>
-	<div id="footer"><div>&copy; фу-у-тер</div></div>
 
-	<p class="mat">Обычно подвал располагается после всего контента и виден только при прокрутке страницы. В некоторых случаях желательно сделать подвал доступным всегда, независимо от высоты страницы, и зафиксировать его внизу окна браузера.</p>
+	<div class="container"><div>содержимое<br>контента</div></div>
+	<div class="footer"><div>&copy; фу-у-тер</div></div>
 
-	<p>Для этого используют свойство <samp class="sin">position</samp> и его значением <samp class="lsin">fixed</samp>. При этом элемент остается на одном месте, а его положение задается координатами через свойства <samp class="sin">top, right, bottom, left</samp>. В этом случае достаточно задать нулевые значения у <samp class="sin">left</samp> и <samp class="sin">bottom</samp>. Ширина фиксированных элементов равна их контенту, что хорошо заметно, если добавить фоновый цвет или рисунок, поэтому необходимо также задать ширину через <samp class="sin">width</samp> как 100%.</p>
-	<p class="mab">Браузер Internet Explorer 6 не поддерживает значение <samp class="lsin">fixed</samp>, поэтому в нем данный пример будет работать некорректно. Для IE6 придется дополнить код двумя тегами <samp class="red">&lt;div></samp>, вложив их внутрь контейнеров <samp class="red">content</samp> и <samp class="red">footer</samp>, а также включить еще один стиль специально для этого браузера </p>
+	<p class="mt20">Обычно подвал располагается после всего контента и виден только при прокрутке страницы. В некоторых случаях желательно сделать подвал доступным всегда, независимо от высоты страницы, и зафиксировать его внизу окна браузера.</p>
 
-	<div class="item2 br0">
-		<pre class="red point" onclick='code1.classList.toggle("hiden");code2.classList.toggle("hiden");'>HTML</pre>
-		<pre class="hiden" id="code1" onclick="event.stopPropagation()"><code class="html">&lt;head><br>&lt;link rel="stylesheet" type="text/css" href=""><br><br>&lt;!--[if IE]><br>  &lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script><br>&lt;![endif]--><br><br>&lt;!--[if lte IE 6]><br> &lt;style type="text/css"><br>  html, body, #container {<br>   height:100%;                    /* Высота страницы */<br>   overflow:hidden;}               /* Обрезаем все, что не помещается в окно */<br>  #container {overflow:auto;}      /* Добавляем полосы прокрутки */<br>  #footer {position:absolute;}     /* Абсолютное позиционирование */<br>  #footer div {margin-right:17px;} /* чтобы фон не накладывался на скрол */<br> &lt;/style><br>&lt;![endif]-->
-		<br>&lt;/head><br>  &lt;div id="container"><br>    &lt;div id="content"><br>      содержимое страницы<br>    &lt;/div><br>  &lt;/div><br>  &lt;div id="footer"><br>    &lt;div><br>      &copy; фу-у-тер<br>    &lt;/div><br> &lt;/div><br>&lt;/html></code></pre>
-		<pre class="hiden" id="code2" onclick="event.stopPropagation()"><code class="css"><br><span class="red">CSS</span><br>#content{<br>  width:700px; margin:0 auto 50px;<br>  padding:5px; font-size:1.2em;<br>  background:#00f; color:#fff;}<br>#footer {position:fixed; left:0; bottom:0; color:#fff; width:100%;}<br>#footer div {padding:10px; background:#39b54a;}</code></pre>
+	<p>Для этого используют свойство <samp class="sin">position</samp> и его значением <samp class="lsin">fixed</samp>. При этом элемент остается на одном месте, а его положение задается координатами через свойства <samp class="sin">top, right, bottom, left</samp>. В этом случае достаточно задать нулевые значения у <samp class="sin">left</samp> и <samp class="sin">bottom</samp>. Ширина фиксированных элементов равна их контенту, что хорошо заметно, если добавить фоновый цвет или рисунок, поэтому необходимо также задать ширину через <samp class="sin">width</samp> как <samp class="lsin">100%</samp>.</p>
+
+	<p>Браузер Internet Explorer 6 не поддерживает значение <samp class="lsin">fixed</samp>, поэтому в нем данный пример будет работать некорректно. Для IE6 придется дополнить код двумя тегами <samp class="red">&lt;div></samp>, вложив их внутрь элементов с <samp class="red">id</samp> <samp class="pur">container</samp> и <samp class="pur">footer</samp>, а также включить еще один стиль специально для этого браузера </p>
+
+	<div class="item2 mt20 mb20" id="close">
+		<samp class="red point" onclick='code.classList.toggle("hiden");'>HTML</samp>
+		<div class="hiden" id="code" onclick="event.stopPropagation()">
+			<pre><code>&lt;body><br>  &lt;div id="container"><br>    &lt;div>содержимое страницы&lt;/div><br>  &lt;/div><br>  &lt;div id="footer"><br>    &lt;div>&copy; фу-у-тер&lt;/div><br>  &lt;/div><br>&lt;/body></code></pre>
+			<br><samp class="red">CSS</samp>
+			<pre><code>#container {<br>  margin:0 auto 50px;<br>}<br>#footer {<br>  width: 100%;<br>  position: fixed;<br>  left: 0;<br>  bottom: 0;<br>}</code></pre>
+			<pre class="ls-05" style="opacity:.7">&lt;!--[if lte IE 6]&gt;<br>  &lt;style type="text/css"><br>    html, body, #container {<br>      height: 100%;                     /* Высота страницы */<br>      overflow: hidden;                 /* Обрезаем все, что не помещается */<br>    }<br>    #container {overflow: auto;}        /* Добавляем полосы прокрутки */<br>    #footer {position: absolute;}       /* Абсолютное позиционирование */<br>    #footer > div {margin-right: 17px;} /* чтобы фон не накладывался на скрол */<br>  &lt;/style><br>&lt;![endif]--&gt;</pre>
+			<a href="#close" class="yel point" onclick='code.classList.toggle("hiden");'>Свернуть</a>
+		</div>
 	</div>
 
-	<P class="mat">В данном примере используется значение <samp class="lsin">absolute</samp> свойства <samp class="sin">position</samp>. При абсолютном позиционировании элемент можно поместить в любое место окна браузера, но при этом он прокручивается вместе с содержимым. В этом основное различие между значениями <samp class="lsin">fixed</samp> и <samp class="lsin">absolute</samp>. Чтобы подвал не перемещался, задается высота страницы как 100% и отсекается все, что не помещается в текущие размеры окна. При этом пропадает вертикальная полоса прокрутки, ее следует добавить к <samp class="red">content</samp> с помощью <samp class="sin">overflow</samp>.</P>
+	<p>В данном примере для IE6 используется значение <samp class="lsin">absolute</samp> свойства <samp class="sin">position</samp>. При абсолютном позиционировании элемент можно поместить в любое место окна браузера, но при этом он прокручивается вместе с содержимым. В этом основное различие между значениями <samp class="lsin">fixed</samp> и <samp class="lsin">absolute</samp>. Чтобы подвал не перемещался, задается высота страницы как 100% и отсекается все, что не помещается в текущие размеры окна. При этом пропадает вертикальная полоса прокрутки, ее следует добавить к <samp class="red">content</samp> с помощью <samp class="sin">overflow</samp>.</p>
+
 	<p>Еще один неприятный момент это наложение фона подвала на полосу прокрутки, так что придется задать отступ справа на ширину скролбара. При этом, если полосы прокрутки нет, в подвале справа будет зиять дыра.</p>
 </div><!-- /item -->
 </body>

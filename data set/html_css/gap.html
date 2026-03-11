@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title>CSS свойство gap</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -16,14 +16,15 @@
 <div class="item">
 	<p>Свойство <samp class="sin">gap</samp> — это короткая запись значений свойств <a href="./row-gap.html" class="sin tdu">row-gap</a> и <a href="./column-gap.html" class="sin tdu">column-gap</a>, определяющее размер промежутка между строками и столбцами в макете <samp>flexbox</samp>, <samp>grid</samp> или в макете с несколькими столбцами.</p>
 
-	<pre class="item2 css"><code>div {<br>   display: flex|grid;<br>   gap: row-gap column-gap | initial | inherit;<br>}</code></pre>
+	<pre class="item2 css ье20 ьи10"><code>div {<br>   display: flex|grid;<br>   gap: row-gap column-gap | initial | inherit;<br>}</code></pre>
 
-	<table class="t1 t3 tc mt20 mb20"><caption>Значения:</caption>
-		<tr><td width="105px">row-gap</td><td>размер промежутка между строками в макете</td></tr>
-		<tr><td>column-gap</td><td>размер промежутка между столбцами в макете</td></tr>
-		<tr><td>initial</td><td>устанавливает значение по умолчанию.</td></tr>
-		<tr><td>inherit</td><td>наследует значение от родительского элемента.</td></tr>
-	</table>
+	<ul class="list mb30">
+		<li><samp class="sin">row-gap</samp> - размер промежутка между строками в макете.</li>
+		<li><samp class="sin">column-gap</samp> - размер промежутка между столбцами в макете.</li>
+		<li><samp class="sin">initial</samp> - устанавливает значение по умолчанию.</li>
+		<li><samp class="sin">inherit</samp> - наследует значение от родительского элемента.</li>
+	</ul>
+
 
 	<pre class="item2"><code>div {<br>   display: flex;<br>   gap: 20px  40px;<br>}<br><br>div {<br>   display: flex;<br>   gap: 40px;  /* row-gap == column-gap == 40px  */<br>}</code></pre>
 

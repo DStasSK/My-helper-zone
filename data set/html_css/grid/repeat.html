@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><title>Функция - repeat()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>repeat()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">repeat()</samp> представляет собой повторяющийся фрагмент списка дорожек, что позволяет записать в более компактной форме большое количество столбцов или строк, имеющих повторяющийся шаблон. Принимает два аргумента разделенных запятой. Используется в CSS Grids в свойствах <a href="grid-template-columns.html"><samp class="sin dib tdu">grid-template-columns</samp></a> и <a href="grid-template-rows.html"><samp class="sin dib tdu">grid-template-rows</samp></a>.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin">repeat( count , list )</code></pre>
+	</div>
+	<ul class="list">
+		<li>
+			<samp class="sin">count</samp> - указывает количество повторов списка дорожек от 1 и более; или ключевыми словами <samp class="lsin dib">auto-fill</samp> или <samp class="lsin dib">auto-fit</samp>. Эти ключевые слова повторяют набор дорожек столько раз, сколько необходимо для заполнения контейнера сетки.
+			<ul class="list">
+				<li><samp class="sin">auto-fill</samp> - количество повторений определяется как наибольшее возможное положительное целое число, которое не приведет к переполнению контейнера сетки с учетом <samp class="sin">gap</samp>. Заполняет строку любым количеством столбцов, создавая неявные столбцы всякий раз, когда новый столбец может поместиться. Добавленные столбцы могут быть пустыми, но они все равно будут занимать определенное место в строке. Минимальное значение повторений равно 1.</li>
+				<li><samp class="sin">auto-fit</samp> - ведет себя так же, как <samp class="sin dib">auto-fill</samp> за исключением того, что после размещения элементов сетки все пустые повторяющиеся дорожки объединяются. Пустая дорожка — это дорожка, в которую не помещены или не охватывают ее элементы сетки потока. Это может привести к объединению всех дорожек, если они все пустые.</li>
+			</ul>
+		</li>
+		<li>
+			<samp class="sin">list</samp> -  указывает набор дорожек, которые будут повторяться. Cостоит из одного или нескольких значений, где каждое значение представляет размер этой дорожки. Значение задаётся:
+			<ul class="list">
+				<li>в процентах или длине css</li>
+				<li><a href="../grid/grid-template-columns.html#flex" class="tdu"><samp class="lsin">flex</samp>-параметрах</a> (<samp class="pur">fr</samp>)</li>
+				<li>с помощью функции <a href="minmax.html"><samp class="sin tdu">minmax()</samp></a></li>
+				<li>с помощью сключевых слов - <samp class="lsin dib">min-content</samp>, <samp class="lsin dib">max-content</samp> или <samp class="lsin">auto</samp></li>
+				<li>одного или нескольких имен строк до или после каждой дорожки разделенных пробелом и заключенных в квадратные скобки</li>
+				<li>с помощью функции <a href="fit-content.html"><samp class="sin dib tdu">fit-content()</samp></a>, передающая значение длины в процентах</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="item2 mt30">
+		<pre><code>.container {<br>  display: grid;<br>  grid-template-columns:</code></pre>
+		<pre class="sin">    repeat(<samp class="lsin">4, 1fr</samp>);<br>    repeat(<samp class="lsin">4, 250px</samp>);<br>    repeat(<samp class="lsin">4, [col-start] 250px [col-end]</samp>);<br>    repeat(<samp class="lsin">4, [col-start] min-content [col-end]</samp>);<br>    repeat(<samp class="lsin">4, [col-start] auto [col-end]</samp>);<br>    repeat(<samp class="lsin">4, [col-start] minmax(100px, 1fr) [col-end]</samp>);<br>    repeat(<samp class="lsin">4, [col-start] fit-content(200px) [col-end]</samp>);<br>    repeat(<samp class="lsin">4, 10px [col-start] 30% [col-middle] auto [col-end]</samp>);<br>    repeat(<samp class="lsin">auto-fill, 250px</samp>);<br>    repeat(<samp class="lsin">auto-fit, 250px</samp>);<br>    repeat(<samp class="lsin">auto-fill, 10px [col-start] 30% 400px [col-end]</samp>);<br>}</pre>
+	</div>
+
+
+
+</div>
+
+</body>
+</html>

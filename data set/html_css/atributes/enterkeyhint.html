@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>Атрибут enterkeyhint</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>enterkeyhint</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">enterkeyhint</samp> — это перечисляемый атрибут, определяющий, какую метку действия (или значок) следует отображать для клавиши <samp class="key">Enter</samp> на виртуальных клавиатурах. Это позволяет изменить поведение полей формы и дать пользователю подсказку, что ему ожидать при работе с клавиатурой. Если атрибут <samp class="sin">enterkeyhint</samp> не указан, браузер самостоятельно подбирает наиболее подходящий вид кнопки (например - из атрибутов <samp class="sin">inputmode</samp>, <samp class="sin">type</samp> или <samp class="sin">pattern</samp>).</p>
+
+	<pre class="item2 mt20"><code>&lt;input enterkeyhint="enter | done | go | next | previous | search | send"></code></pre>
+
+	<ul class="list mt10 mb30">
+		<li><samp class="sin">enter</samp> - обычно вставляется новая строка. <samp class="key">return</samp>, <samp class="key">↵</samp></li>
+		<li><samp class="sin">done</samp> - нажатие Enter не будет отправлять форму, а только завершит ввод в текущем поле и свернёт клавиатуру. <samp class="key">done</samp>, <samp class="key">✅</samp></li>
+		<li><samp class="sin">go</samp> - нажатие Enter отправит форму, даже если поле ввода многострочное. <samp class="key">go</samp>, <samp class="key">🡢</samp>, <samp class="key">→</samp></li>
+		<li><samp class="sin">next</samp> - перенаправляет к следующему полю ввода текста. <samp class="key">next</samp>, <samp class="key">⇥</samp></li>
+		<li><samp class="sin">previous</samp> - переход к предыдущему полю ввода. <samp class="key">return</samp>, <samp class="key">⇤</samp></li>
+		<li><samp class="sin">search</samp> - обычно перенаправляет пользователя к результатам поиска по введенному им тексту. Использует Enter для поиска или отправки формы. <samp class="key">search</samp>, <samp class="key">🔍</samp></li>
+		<li><samp class="sin">send</samp> - нажатие Enter выполнит отправку формы. <samp class="key">send</samp>, <samp class="key">➣</samp></li>
+	</ul>
+
+	<p>Элементы управления формами (например, элементы <samp class="teg">textarea</samp> или <samp class="teg">input</samp>) или элементы, использующие <samp class="sin">contenteditable</samp>, могут указывать атрибут <samp class="sin">inputmode</samp> для управления тем, какой тип виртуальной клавиатуры будет использоваться. Для дальнейшего улучшения пользовательского опыта можно настроить клавишу Enter, указав атрибут <samp class="sin">enterkeyhint</samp>, указывающий, как должна быть обозначена клавиша <samp class="key">Enter</samp> (или какой значок должен быть показан). Клавиша Enter обычно представляет, что пользователь должен сделать дальше; типичные действия: отправка текста, вставка новой строки или поиск.</p>
+
+	<div class="mt30">2021.11</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">77</span></td>
+			<td><span          title="Opera">66</span></td>
+			<td><span         title="Safari">13.1</span></td>
+			<td><span             title="FF">94</span></td>
+			<td><span title="mobile-android">77</span></td>
+			<td><span      title="mobile-FF">94</span></td>
+			<td><span   title="mobile-opera">57</span></td>
+			<td><span  title="mobile-safary">12.0</span></td>
+		</tr>
+	</table>
+
+</div>
+
+
+
+
+</body></html>

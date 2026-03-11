@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>mix-blend-mode</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+	.header {
+		font-size: 1em;
+		text-align: center;
+		background: url(../../html_css/txt/img/aquaria.jpg) center no-repeat;
+	}
+	.header__text {
+		margin: 0;
+		padding-bottom: .25em;
+		font-family: Verdana, Helvetica, sans-serif;
+		font-weight: bold;
+		color:#000;
+		background: #fff;        /* Белый цвет фона */
+		mix-blend-mode: lighten; /* Режим наложения */
+	}
+</style>
+</head>
+<body>
+<div class="item">
+<h3 class="sin" style="font-size:1.6em">Пример 1.</h3>
+	<p style="font-size:0.8em">В данном примере на фоновое изображение накладывается текст с белым фоном, который закрывает собой изображение. Режим наложения <samp class="sin">lighten</samp> оставляет лишь светлые цвета и поскольку цвет текста по умолчанию чёрный, то получаются цветные буквы на белом фоне</p>
+
+	<header class="header"><h1 class="header__text">Аквариум</h1></header>
+	<pre class="item2 ls-05" style="font-size:0.8em"><code>.header {<br>  background: url(img/aquaria.jpg) center no-repeat;<br>  text-align: center;<br>}<br>.header__text {<br>  background: #fff;          /* Белый цвет фона */<br>  mix-blend-mode: lighten;   /* Режим наложения */<br>  color: #000;<br>}</code></pre>
+</div>
+</body>
+</html>

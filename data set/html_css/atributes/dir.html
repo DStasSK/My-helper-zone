@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><title>Атрибут dir</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>dir</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">dir</samp> задаёт направление и отображение текста — слева направо или справа налево. Если свойство не задано, то его значение наследуется от родительского элемента.</p>
+
+  <pre class="item2 mt20"><code>&lt;div dir="rtl | ltr"><br>  текст<br>&lt;/div></code></pre>
+
+  <ul class="list mb30 l1">
+    <li><samp class="sin">rtl</samp> - направление текста идет слева направо.</li>
+    <li><samp class="sin">ltr</samp> - направление текста идет справа налево.</li>
+    <li><samp class="sin">auto</samp> - браузер определит направление текста на основе содержимого; рекомендуется только в том случае, если направление текста неизвестно - например, для данных, поступающих из пользовательского ввода или из внешних данных.</li>
+  </ul>
+
+	<div class="no">Этот атрибут может быть переопределен CSS свойствами <a href="../txt/direction.html"><samp class="sin tdu">direction</samp></a> и <a href="../txt/direction.html#unicode-bidi"><samp class="sin dib tdu">unicode-bidi</samp></a>.</div>
+
+	<div class="no no1">Этот атрибут не наследуется элементом <a href="../help/HTML%20help.html#bdi"><samp class="teg tdu">bdi</samp></a>. Если он не установлен, его значение — <samp class="lsin">auto</samp>.</div>
+
+
+	<fieldset class="prm mt20">
+		<legend></legend>
+		<bdo dir="ltr">А роза упала на лапу Азора.</bdo>
+		<br><bdo dir="rtl">А роза упала на лапу Азора.</bdo>
+		<br><br><bdo dir="rtl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laborum in quod quam voluptates odit nemo suscipit, reprehenderit incidunt, optio, corporis ea, omnis sint! Soluta dignissimos in reprehenderit aut perspiciatis minus, eveniet nesciunt tempore maiores.</bdo>
+
+		<pre class="item2"><code>&lt;bdo dir="ltr">А роза упала на лапу Азора.&lt;/bdo><br>&lt;bdo dir="rtl">А роза упала на лапу Азора.&lt;/bdo><br><br>&lt;bdo dir="rtl">Lorem ipsum dolor sit amet...&lt;/bdo></code></pre>
+	</fieldset>
+
+
+	<fieldset class="prm mt20 anp">
+		<legend></legend>
+		<p dir="rtl">שבת — суббота</p>
+		<p>В ашкеназском произношении звучит как «ша́бос» (идиш «ша́бес»), а в сефардском — как «шаба́т».</p>
+
+		<pre class="item2"><code>&lt;p dir="rtl">שבת — суббота&lt;/p><br>&lt;p>В ашкеназском произношении звучит как «ша́бос» <br>   (идиш «ша́бес»), а в сефардском — как «шаба́т».&lt;/p></code></pre>
+	</fieldset>
+
+</div>
+
+
+</body></html>

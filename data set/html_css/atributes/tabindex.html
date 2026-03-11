@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>Атрибут tabindex</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>tabindex</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">tabindex</samp> позволяет делать HTML-элементы фокусируемыми, а также разрешать или запрещать им последовательную фокусировку (обычно с помощью клавиши <span class="key">Tab</span> ) и определять их относительный порядок для последовательной навигации по фокусу. В качастве значения принимает целое число не более 32767.</p>
+
+	<ul class="list mt20 mb20">
+		<li>Если установить атрибут <samp class="sin dib">tabindex="<samp class="lsin">-1</samp>"</samp>, то к нему нельзя будет обратиться через клавищу <span class="key">Tab</span> для фокуса, но это делает возможным вокусировку на элементе с помощью JavaScript.</li>
+		<li>Значение атрибута <samp class="sin dib">tabindex="<samp class="lsin">0</samp>"</samp> означает, что элемент должен быть доступен для фокусировки при последовательной навигации с помощью клавиатуры, но после любых положительных значений <samp class="sin">tabindex</samp>. Порядок фокусировки этих элементов определяется их порядком в исходном документе.</li>
+		<li>Положительное значение атрибута делает элемент доступным для фокусировки при последовательной навигации с помощью клавиатуры.</li>
+		<li>Если атрибут <samp class="sin">tabindex</samp> установлен в элементе без заданного значения, то возможность фокусировки на нем определяется настройками браузера.</li>
+	</ul>
+
+	<div class="no no1">Порядок табуляции по элементам с <samp class="sin">tabindex</samp> определяется значением числа - от меньшего к большему, потом "0" и элемнты с <samp class="sin">tabindex</samp> без заданного значения. Элементы с одинаковым значением <samp class="sin">tabindex</samp>, получаю фокус в порядке их положения в документе.</div>
+
+	<p class="mb0 mt30">Некоторым элементам HTML браузеры по умолчанию устанавливают <samp class="sin dib">tabindex="<samp class="lsin">0</samp>"</samp>. Не следует добавлять атрибут <samp class="sin">tabindex</samp> к этим элементам, если он не изменяет поведение по умолчанию:</p>
+	<ul class="list l1">
+		<li>элементы <samp class="teg">a</samp> и <samp class="teg">area</samp> с атрибутом <samp class="sin">href</samp>.</li>
+		<li><samp class="teg">button</samp>, <samp class="teg">frame</samp>, <samp class="teg">iframe</samp>, <samp class="teg">input</samp>, <samp class="teg">object</samp>, <samp class="teg">select</samp>, <samp class="teg">textarea</samp>.</li>
+		<li>элемент <samp class="teg">summary</samp>, который предоставляет сводку для элемента <samp class="teg">details</samp></samp>.</li>
+	</ul>
+
+	<div class="no mt30 mb30">Aтрибут <samp class="sin">tabindex</samp> нельзя использовать в элементе <samp class="teg">dialog</samp>.</div>
+
+	<p>Если идет запрос к странице по хешу, например: <samp class="sin">site.ru/#blabla</samp> и на странице есть элемент с <samp class="red">id</samp> равным <samp class="sin">"blabla"</samp>, то при нажатии на на клавиатуре клавиши <span class="key">Tab</span> порядок получения фокуса изменится. Фокус получит ближайший элемент возле элемента с этим <samp class="red">id</samp>.</p>
+
+	<div class="no">Как изменить цвет рамки по умолчанию при фокусировке на кнопке с помощью tab'а?
+		<br>Используйте <samp class="sin"><a class="tdu" href="help/psevdo-klass.html#pk-focus">:focus</a></samp>
+	</div>
+</div>
+
+
+
+<div class="item anp">
+	<p tabindex="1" title="tabindex=-1">Заголовок 1</p>
+	<div tabindex="2" title="tabindex=2">Заголовок 2</div>
+	<h4 tabindex="3" title="tabindex=3" style="text-align:left;">Заголовок 3</h4>
+	<div>
+		<textarea rows="4" cols="30" tabindex="4" title="tabindex=4" style="resize:none;"></textarea>
+		<textarea rows="4" cols="30" style="resize:none;"></textarea>
+		<br><button tabindex="-1" title="tabindex=-1" style="color:#333">кнопка c tabindex="-1"</button>
+		<button style="color:#333" tabindex="5" title="tabindex=5">кнопка c tabindex="5"</button>
+	</div>
+	<div class="item2">
+		<pre><code>&lt;p tabindex="1" title="tabindex=-1"&gt;Заголовок 1&lt;/p&gt;<br>&lt;div tabindex="2" title="tabindex=2"&gt;Заголовок 2&lt;/div&gt;<br>&lt;h4 tabindex="3" title="tabindex=3"&gt;Заголовок 3&lt;/h4&gt;<br>&lt;textarea tabindex="4" title="tabindex=4"&gt;&lt;/textarea&gt;<br>&lt;textarea&gt;&lt;/textarea&gt;<br>&lt;br&gt;&lt;button tabindex="-1" title="tabindex=-1"&gt;кнопка&lt;/button&gt;<br>&lt;button tabindex="5" title="tabindex=5"&gt;кнопка&lt;/button&gt;</code></pre>
+	</div>
+</div>
+
+
+</div>
+
+</body></html>

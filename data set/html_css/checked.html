@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>Псевдокласс :checked</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -31,6 +31,55 @@
 		<tr><td><select><option>один</option><option>два</option><option>три</option></select></td><td>Списка</td><td><pre><code class="html">&lt;select><br>  &lt;option>один&lt;/option><br>  &lt;option>два&lt;/option><br>  &lt;option>три&lt;/option><br>&lt;/select></code></pre></td></tr>
 	</table>
 </div>
+
+
+
+<div class="item">
+<h3 class="sin">Изменение состояния флажка через <samp>JS</samp></h3>
+	<p>Самый простоя способ изменения состояния флажка - либо задать ему новое значение, либо эмулировать нажатие на <samp class="teg">input</samp>, при этом во втором случае состояние флажка изменится на противоположное, а в первом - будет задано конкретное состояние.</p>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<style>
+			.example_js input {padding-right: 10px;}
+			.example_js button {color:#333; font-size:16px; line-height:21px}
+		</style>
+		<ul class="list l0 example_js" style="padding:0">
+			<li>
+				<input type="checkbox">
+				<button onclick="(elemProperty='change')">поменять состояние</button>
+			</li>
+			<li>
+				<input type="checkbox">
+				<button onclick="(elemProperty='select')">выделить флажок</button>
+			</li>
+			<li>
+				<input type="checkbox" checked>
+				<button onclick="(elemProperty='remove')">снять выделение</button>
+			</li>
+		</ul>
+		<script>
+			document.querySelector('.example_js').addEventListener('click', checkbox);
+			let elemProperty; // задаем переменную, которую будем задавать кнопкой
+
+			function checkbox() {
+				let elem = arguments[0].target;
+				if ( elem && (elem.tagName == 'BUTTON') ) {
+					if (elemProperty=='change') { elem.previousElementSibling.click(); }
+					if (elemProperty=='select') { elem.previousElementSibling.checked = true; }
+					if (elemProperty=='remove') { elem.previousElementSibling.checked = false; }
+				}
+				elemProperty = '';
+			}
+		</script>
+
+		<div class="item2">
+		<pre class="ls-1"><code>&lt;ul class="example_js"><br>  &lt;li><br>    &lt;input type="checkbox"><br>    &lt;button onclick="(elemProperty='change')">поменять состояние&lt;/button><br>  &lt;/li><br>  &lt;li><br>    &lt;input type="checkbox"><br>    &lt;button onclick="(elemProperty='select')">выделить флажок&lt;/button><br>  &lt;/li><br>  &lt;li><br>    &lt;input type="checkbox" checked><br>    &lt;button onclick="(elemProperty='remove')">снять выделение&lt;/button><br>  &lt;/li><br>&lt;/ul><br> </code></pre>
+		<pre class="ls-1"><code><br>&lt;script><br>  document.querySelector('.example_js').addEventListener('click', checkbox);<br>  let elemProperty;     // задаем переменную, которую будем задавать кнопкой<br><br>  function checkbox() {<br>    let elem = arguments[0].target;<br>    if ( elem && (elem.tagName == 'BUTTON') ) {  // клик только по кнопке<br>      if (elemProperty=='change') {<br>        elem.previousElementSibling.click();<br>      }<br>      if (elemProperty=='select') {<br>        elem.previousElementSibling.checked = true;<br>      }<br>      if (elemProperty=='remove') {<br>        elem.previousElementSibling.checked = false;<br>      }<br>    }<br>    elemProperty = '';<br>  }<br>&lt;/script></code></pre>
+		</div>
+	</fieldset>
+</div>
+
 
 
 <div class="item">
@@ -82,7 +131,7 @@
 			width: 20px; height: 20px;
 			left: 35px; top: 5px;
 			transition: 0.5s; /* Время движения квадратика */
-			} 
+			}
 		.qtt3 input:checked + label {background: #1976D2;}
 		.qtt3 input:checked + label::before {left: 5px;} /* Квадратик слева */
 

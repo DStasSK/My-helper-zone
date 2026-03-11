@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title>CSS свойство grid-row-start</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -33,6 +33,28 @@
 		<tr><td>inherit</td><td>Значение наследуется от родительского элемента.</td></tr>
 	</table>
 
+	<style>
+		.grid-container {
+			display: grid;
+			padding: 10px;
+			grid-template: auto / auto auto auto;
+			background-color: #2196F3;
+			gap: 10px;
+		}
+		.grid-item {
+			background-color: rgba(255, 255, 255, 0.8);
+			vertical-align: middle;
+			text-align: center;
+			line-height: 40px;
+		}
+		.grid-item-b {
+			grid-column: 2 / span 2;
+			grid-row-start: 2;
+			grid-row-end: span 2;
+			background: red;
+			line-height: 90px
+		}
+	</style>
 	<div class="grid-container mt40">
 		<div class="grid-item">A</div>
 		<div class="grid-item grid-item-b">B</div>
@@ -42,50 +64,10 @@
 		<div class="grid-item">F</div>
 		<div class="grid-item">G</div>
 	</div>
-	<style>
-		.grid-container{
-			display:grid;
-			padding: 10px;
-			grid-template: auto / auto auto auto;
-			background-color: #2196F3;
-			gap: 10px;
-		}
-		.grid-item{
-			background-color: rgba(255, 255, 255, 0.8);
-			vertical-align:middle;
-			text-align:center;
-			line-height: 40px;
-		}
-		.grid-item-b{
-			grid-column: 2 / span 2;
-			grid-row-start: 2;
-			grid-row-end: span 2;
-			background: red;
-			line-height:90px
-		}
-	</style>
-	<pre class="item2 mt20"><code>&lt;div class="grid-container">
-   &lt;div class="grid-item">A&lt;/div>
-   &lt;div class="grid-item grid-item-b">B&lt;/div>
-   &lt;div class="grid-item">C&lt;/div>
-   &lt;div class="grid-item">D&lt;/div>
-   &lt;div class="grid-item">E&lt;/div>
-   &lt;div class="grid-item">F&lt;/div>
-   &lt;div class="grid-item">G&lt;/div>
-&lt;/div>
 
-&lt;style>
-   .grid-container{
-      display:grid;
-      grid-template: auto / auto auto auto auto;
-      gap: 10px;
-   }
-   .grid-item-b{
-      grid-column: 2 / span 2;
-      grid-row-start: 2;
-      grid-row-end: span 2;
-      background: red;
-   }
-&lt;/style></code></pre>
+	<div class="item2 mt20">
+		<pre><code>&lt;div class="grid-container"><br>  &lt;div class="grid-item">A&lt;/div><br>  &lt;div class="grid-item grid-item-b">B&lt;/div><br>  &lt;div class="grid-item">C&lt;/div><br>  &lt;div class="grid-item">D&lt;/div><br>  &lt;div class="grid-item">E&lt;/div><br>  &lt;div class="grid-item">F&lt;/div><br>  &lt;div class="grid-item">G&lt;/div><br>&lt;/div></code></pre>
+		<pre><code><br>.grid-container {<br>  display: grid;<br>  grid-template: auto / auto auto auto auto;<br>  gap: 10px;<br>}<br>.grid-item-b {<br>  grid-column: 2 / span 2;<br>  grid-row-start: 2;<br>  grid-row-end: span 2;<br>  background: red;<br>}</code></pre>
+	</div>
 </div>
 </body></html>

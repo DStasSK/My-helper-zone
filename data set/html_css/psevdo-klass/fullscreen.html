@@ -1,7 +1,7 @@
-<!DOCTYPE html><html><head><title>Псевдокласс fullscreen</title>
+<!DOCTYPE html><html><head><title>Псевдокласс full-screen</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -11,33 +11,11 @@
 </head>
 <body>
 
-<h2 class="sin">Псевдокласс <samp>:fullscreen</samp></h2>
+<h2 class="sin">Псевдокласс <samp>:full-screen</samp></h2>
 <div class="item">
 	<p>Применяется к элементам, когда браузер находится в полноэкранном режиме. При этом скрывается заголовок окна, адресная строка, вкладки, меню и другие стандартные элементы и браузер отображается на весь экран. Для перехода из стандартного режима в полноэкранный и обратно обычно применяется клавиша <samp class="bg_g">F11</samp>.</p>
 
 	<div class="no no1">Чтобы псевдокласс работал, предварительно для отдельных элементов следует разрешить полноэкранный режим с помощью скриптов.</div>
-
-  <fieldset class="prm exampleFullscreen">
-    <legend></legend>
-    <script>
-      function fullScreen() {
-        let el = document.querySelector('.exampleFullscreen');
-
-        if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();// Chrome, Opera, Safari
-        else if (el.mozRequestFullScreen) el.mozRequestFullScreen(); // Firefox
-        else if (el.msRequestFullscreen) el.msRequestFullscreen();   // Internet Explorer, Edge
-        else if (el.requestFullscreen) el.requestFullscreen();       // Стандарт
-      }
-    </script>
-		<style>
-		button{color:#333}
-		</style>
-    <div class="item2" style="padding:5px 2px">
-      <pre><code>&lt;!DOCTYPE html>&lt;html>&lt;head>&lt;meta charset="utf-8"> <button onclick="fullScreen()">Посмотреть на полном экране!</button><br>  &lt;script></code></pre>
-      <pre class="ls-1"><code>   function fullScreen() {<br>    let el = document.querySelector('#msg');<br><br>    if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();// Chrome, Opera, Safari<br>    else if (el.mozRequestFullScreen) el.mozRequestFullScreen(); // Firefox<br>    else if (el.msRequestFullscreen) el.msRequestFullscreen();   // IE, Edge<br>    else if (el.requestFullscreen) el.requestFullscreen();       // Стандарт<br>   }</code></pre>
-      <pre><code>  &lt;/script><br>  &lt;style><br>   body { margin: 0; }<br>   #msg {padding:10px; background:#bc7062; color:#fff;}<br>   #msg:-ms-fullscreen { background: #6088a5; }<br>   #msg:-webkit-full-screen { background: #6088a5; }<br>   #msg:-moz-full-screen { background: #6088a5; }<br>  &lt;/style><br>&lt;/head><br>&lt;body><br>  &lt;div id="msg"><br>   Элемент страницы отображается в полноэкранном режиме.<br>  &lt;/div><br>  &lt;p>&lt;button onclick="fullScreen()">Посмотреть на полном экране!&lt;/button>&lt;/p><br>&lt;/body>&lt;/html></code></pre>
-    </div>
-  </fieldset>
 
   <ul class="list mt20">
 		<li>Internet Explorer поддерживает псевдокласс <samp class="sin">:-ms-fullscreen</samp></li>
@@ -46,6 +24,7 @@
 	</ul>
 
 	<div class="no no1">Псевдоклассы для каждого браузера следует писать отдельно, а не перечислять их через запятую.</div>
+	<pre class="item2 mb40"><code>&lt;style><br>  .elem:-ms-fullscreen { background: #6088a5; }<br>  .elem:-webkit-full-screen { background: #6088a5; }<br>  .elem:-moz-full-screen { background: #6088a5; }<br>&lt;/style></code></pre>
 
   <table class="support mt30">
     <tr>
@@ -73,5 +52,39 @@
       <td class="part"><span>12</span></td><!-- mobile-safary -->
     </tr>
   </table>
+</div>
+
+
+<div class="item">
+	<h3 class="sin">Пример</h3>
+	<p>Для перевода выбранного элемента в полноэкранный режим необходимо использовать стандартный метод <samp class="pur">requestFullscreen()</samp> на элементе. Для выхода из полноэкранного режима необходимо использовать метод <samp class="pur">document.exitFullscreen()</samp> (данный метод всегда вызывается на объекте <samp class="pur">document</samp>).</p>
+	<p>При переходе в полноэкранный режим и при выходе из него браузер генерирует событие <samp class="pur">fullscreenchange</samp>. Если по какой-то причине переход в полноэкранный режим недоступен, то генерируется ошибка <samp class="pur">fullscreenerror</samp> - это следует учитывать, чтобы не сломать страницу.</p>
+	<p>При переходе в полноэкранный режим, элемент, на котором был вызван метод <samp class="pur">requestFullscreen()</samp> записывается как значение свойства <samp class="pur">document.fullscreenElement</samp>, само свойство по умолчанию имеет значение <samp class="lsin">null</samp>.</p>
+
+	<div class="no">При выходе из полноэкранного режима, прокрутка страницы документа может меняться.</div>
+
+
+	<script>
+	  function fullScreen() {
+	    let el = document.querySelector('.exampleFullscreen');
+			if (el.requestFullscreen) el.requestFullscreen();       // Стандарт
+			else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();// webkit, Safari
+			else if (el.mozRequestFullScreen) el.mozRequestFullScreen(); // Firefox
+			else if (el.msRequestFullscreen) el.msRequestFullscreen();   // IE, Edge
+	  }
+	  function fullScreenCancel() {
+			if (document.fullscreenElement) document.exitFullscreen();
+	  }
+	</script>
+
+	<style>
+		.btn{color:#333; position:absolute; top:10px; right:10px; cursor:pointer;}
+	</style>
+  <div class="item2 exampleFullscreen ls-1 mt30 pr">
+	  <button onclick="fullScreen()" class="btn">Посмотреть на полном экране!</button>
+	  <button onclick="fullScreenCancel()" class="btn" style="top:40px">Выход из полного экрана!</button>
+	  <pre class="ls-1"><code>&lt;script><br>  function fullScreen() {<br>    let el = document.querySelector('#msg');<br><br>    if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();// webkit, Safari<br>    else if (el.mozRequestFullScreen) el.mozRequestFullScreen(); // Firefox<br>    else if (el.msRequestFullscreen) el.msRequestFullscreen();   // IE, Edge<br>    else if (el.requestFullscreen) el.requestFullscreen();       // Стандарт<br>  }<br><br>  function fullScreenCancel() {<br>    if (document.fullscreenElement) document.exitFullscreen();<br>  }</code></pre>
+	  <pre><code>&lt;/script><br><br>&lt;style><br>  #msg {padding:10px; background:#bc7062; color:#fff;}<br>  #msg:-ms-fullscreen { background: #6088a5; }<br>  #msg:-webkit-full-screen { background: #6088a5; }<br>  #msg:-moz-full-screen { background: #6088a5; }<br>&lt;/style><br><br>&lt;div id="msg"><br>   Элемент страницы отображается в полноэкранном режиме.<br>&lt;/div><br>&lt;button onclick="fullScreen()">Посмотреть на полном экране!&lt;/button><br>&lt;button onclick="fullScreenCancel()">Выход из полного экрана!&lt;/button></code></pre>
+	</div>
 </div>
 </body></html>

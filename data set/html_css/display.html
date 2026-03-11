@@ -1,6 +1,6 @@
-<!DOCTYPE html><html><head><title>display</title>
+<!DOCTYPE html><html><head><title>CSS cвойство display</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -15,69 +15,152 @@
 </head>
 <body>
 
-<h2 class="sin"><samp>display</samp></h2>
+<h2 class="sin">CSS cвойство <samp>display</samp></h2>
 
 <div class="item">
-	<p>Многоцелевое свойство, которое определяет, как элемент должен быть показан в документе. Значения свойства не наследуется, может применяться для всех элементов. По умолчанию имеет значение <samp class="lsin">inline | block</samp>.</p>
-</div>
+	<p>Свойство <samp class="sin">display</samp> устанавливает: будет ли элемент рассматриваться как блок или встроенный блок; это свойство также может определять макет, используемый для размещения его дочерних элементов -  <samp class="sin dib">flow layout</samp>, <samp class="sin">grid</samp> или <samp class="sin">flex</samp>. Формально свойство <samp class="sin">display</samp> устанавливает внутренние и внешние типы отображения элемента. Внешний тип устанавливает участие элемента в потоковом макете; внутренний тип устанавливает макет дочерних элементов.</p>
 
-
-<div class="item">
-<h3 class="sin">Синтаксис</h3>
-	<pre class="item2 mb20"><samp class="sin">display:</samp> <samp class="lsin">block | inline | inline-block | none | flex | inline-flex |<br>         grid | inline-grid | list-item | contents | run-in |<br>         inline-table | table | table-caption | table-cell |<br>         table-column-group | table-column | table-footer-group |<br>         table-header-group | table-row | table-row-group</samp></pre>
+	<pre class="item2 mt20 mb20 ls-1"><code>div {<br>/* частоиспользуемые значения */<br>  display: block | inline | inline-block |flex | inline-flex |<br>           grid | inline-grid | contents | list-item | none |<br>           flow | flow-root;<br><br>/* значения для элементов таблиц */<br>  display: table | inline-table | table-caption | table-cell | table-row |<br>           table-row-group | table-column | table-column-group |<br>           table-header-group | table-footer-group<br><br>/* Global values */<br>  display: inherit | initial | revert | revert-layer | unset;<br><br>/* <a href="#multiKey" class="tdu">multi-keyword syntax</a> - для самых современных браузеров */<br>  display: block flex | block flow | block flow-root | block grid |<br>           inline flex | inline flow | inline flow-root | inline grid;<br>}</code></pre>
 
 	<table class="t1 tt1 t3 tb">
-		<tr><td width="120px">block</td>
-			<td>Элемент показывается как блочный. Применение этого значения для встроенных элементов, например тега <samp class="red">&lt;span></samp>, заставляет его вести подобно блокам - происходит перенос строк в начале и в конце содержимого.</td></tr>
-		<tr><td>inline</td>
-			<td>Элемент отображается как встроенный. Использование блочных тегов, таких как <samp class="red">&lt;div></samp> и <samp class="red">&lt;p></samp>, автоматически создает перенос и показывает содержимое этих тегов с новой строки. Значение <samp class="lsin">inline</samp> отменяет эту особенность, поэтому содержимое блочных элементов начинается с того места, где окончился предыдущий элемент.</td></tr>
-		<tr><td>inline-block</td>
-			<td>Это значение генерирует блочный элемент, который обтекается другими элементами веб-страницы подобно встроенному элементу. Фактически такой элемент по своему действию похож на встраиваемые элементы (вроде тега <samp class="red">&lt;img></samp>). При этом его внутренняя часть форматируется как блочный элемент, а сам элемент - как встроенный.</td></tr>
-		<tr><td>none</td>
-			<td>Временно удаляет элемент из документа. Занимаемое им место не резервируется и веб-страница формируется так, словно элемента и не было. Изменить значение и сделать вновь видимым элемент можно с помощью скриптов.</td></tr>
-		<tr><td>flex</td>
-			<td>Элемент ведёт себя как блочный и выкладывает содержимое согласно флекс-модели.</td></tr>
-		<tr><td>inline-flex</td>
-			<td>Отображает элемент в виде гибкого контейнера встроенного уровня.</td></tr>
-		<tr><td>grid</td>
-			<td>Отображает элемент в виде контейнера сетки на уровне блоков.</td></tr>
-		<tr><td>inline-grid</td>
-			<td>Отображает элемент в виде контейнера сетки встроенного уровня.</td></tr>
-		<tr><td>list-item</td>
-			<td>Элемент выводится как блочный и добавляется маркер списка, т.е. элемент ведет себя как элемент <samp class="red">&lt;li></samp>.</td></tr>
+		<tr><td width="115px">block</td><td>
+			Элемент показывается как блочный - генерирует разрывы строк как до, так и после элемента в нормальном потоке. Применение этого значения для встроенных элементов, например тега <samp class="teg">span</samp>, заставляет его вести подобно блокам - происходит перенос строк в начале и в конце содержимого.
+		</td></tr>
+		<tr><td>inline</td><td>
+			<p>Элемент отображается как встроенный - генерирует один или несколько встроенных блоков, которые не генерируют разрывы строк до или после себя. В нормальном потоке следующий элемент будет на той же строке, если есть место.</p>
+			Использование блочных тегов, таких как <samp class="teg">div</samp> и <samp class="teg">p</samp>, автоматически создает перенос и показывает содержимое этих тегов с новой строки. Значение <samp class="lsin">inline</samp> отменяет эту особенность, поэтому содержимое блочных элементов начинается с того места, где окончился предыдущий элемент.
+		</td></tr>
+
+		<tr><td colspan=2><div class="no mt0 mb10" style="color:#333; font-weight:400; font-family:initial;">Когда браузеры, поддерживающие <a href="#multiKey" class="tdu sin">синтаксис с несколькими ключевыми словами</a>, сталкиваются со свойством display, имеющим только внешнее значение (например, display: block или display: inline), внутреннее значение устанавливается равным flow (например, display: block flow и display: inline flow).</div></td></tr>
+
+		<tr><td>flow</td><td>
+			<p>Элемент размещает свое содержимое с помощью макета потока: eсли его внешний тип отображения — inline, и он участвует в блочном или инлайновом контексте форматирования, то он генерирует инлайновый блок. В противном случае он генерирует блочный блок.</p>
+			В зависимости от значения других свойств (таких как <samp class="sin">position</samp>, <samp class="sin">float</samp> или <samp class="sin">overflow</samp>) и того, участвует ли он сам в блочном или инлайновом контексте форматирования, то он либо устанавливает новый блочный контекст форматирования для своего содержимого, либо интегрирует свое содержимое в свой родительский контекст форматирования.
+		</td></tr>
+		<tr><td>flow-root</td><td>
+			Элемент генерирует блочный блок, который устанавливает новый блочный контекст форматирования, определяя, где находится корень форматирования.
+		</td></tr>
+		<tr><td>inline-block</td><td>
+			Это значение генерирует блочный элемент, который обтекается другими элементами веб-страницы подобно встроенному элементу. Фактически такой элемент по своему действию похож на встраиваемые элементы (вроде <samp class="teg">img</samp>). При этом его внутренняя часть форматируется как блочный элемент, а сам элемент - как встроенный.
+			<br>Эквивалентно значению <samp class="lsin">inline flow-root</samp>
+		</td></tr>
+
+		<tr><td>contents</td><td>
+			Заставляет контейнер исчезнуть, делая дочерние элементы дочерними элементами элемента следующего уровня в DOM. Элемент не создаёт определенный блок сам по себе. Он заменяется своими псевдоблоками и дочерними блоками.
+		</td></tr>
+		<tr><td>none</td><td>
+			<p>Отключает отображение элемента, чтобы он не влиял на макет (документ отображается так, как будто элемент не существует). У всех дочерних элементов также отключено отображение. Изменить значение и сделать элемент вновь видимым можно с помощью скриптов или CSS селекторов.</p>
+			Чтобы элемент занимал место, которое он обычно занимает, но фактически ничего не отображал, используют свойство <a href="visibility.html"><samp class="sin tdu">visibility</samp></a>.
+		</td></tr>
+
+		<tr><td>flex</td><td>
+			Элемент ведёт себя как блочный и выкладывает содержимое согласно флекс-модели.
+		</td></tr>
+		<tr><td>inline-flex</td><td>
+			Элемент ведет себя как элемент встроенного уровня и размещает свое содержимое в соответствии с моделью flexbox.
+		</td></tr>
+
+		<tr><td>grid</td><td>
+			Отображает элемент в виде контейнера сетки на уровне блоков.
+		</td></tr>
+		<tr><td>inline-grid</td><td>
+			Элемент ведет себя как элемент встроенного уровня и размещает свое содержимое в соответствии с моделью сетки.
+		</td></tr>
+		<tr><td>list-item</td><td>
+			Элемент выводится как блочный и добавляется маркер списка, т.е. элемент ведет себя как элемент <samp class="teg">li</samp>.
+		</td></tr>
 	</table>
+
+
+	<h3 class="sin mt30">Значения для элементов таблиц.</h3>
+	<table class="t1 tt1 t3 tb tm20">
+		<tr><td width="170px">table</td><td>
+			Определяет, что элемент является блочной таблицей подобно использованию тега <samp class="teg">table</samp>.
+		</td></tr>
+		<tr><td>inline-table</td><td>
+			Определяет, что элемент является таблицей как при использовании тега <samp class="teg">table</samp>, но при этом таблица является встроенным элементом и происходит ее обтекание другими элементами, например, текстом.
+		</td></tr>
+		<tr><td>table-caption</td><td>
+			Задает заголовок таблицы подобно применению тега <samp class="teg">caption</samp>.
+		</td></tr>
+		<tr><td>table-cell</td><td>
+			Указывает, что элемент представляет собой ячейку таблицы (тег <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>).
+		</td></tr>
+		<tr><td>table-row</td><td>
+			Элемент отображается как строка таблицы (тег <samp class="red">&lt;tr></samp>).
+		</td></tr>
+		<tr><td>table-column</td><td>
+			Назначает элемент колонкой таблицы, словно был добавлен тег <samp class="red">&lt;col></samp>.
+		</td></tr>
+		<tr><td>table-column-group</td><td>
+			Определяет, что элемент является группой одной или более колонок таблицы, как при использовании тега <samp class="red">&lt;colgroup></samp>.
+		</td></tr>
+		<tr><td>table-footer-group</td><td>
+			Используется для хранения одной или нескольких строк ячеек, которые отображаются в самом низу таблицы. По своему действию сходно с работой тега <samp class="red">&lt;tfoot></samp>.
+		</td></tr>
+		<tr><td>table-header-group</td><td>
+			Элемент предназначен для хранения одной или нескольких строк ячеек, которые представлены вверху таблицы. По своему действию сходно с работой тега <samp class="red">&lt;thead></samp>.
+		</td></tr>
+		<tr><td>table-row-group</td><td>
+			Создает структурный блок, состоящий из нескольких строк таблицы аналогично действию тега <samp class="red">&lt;tbody></samp>.
+		</td></tr>
+	</table>
+
+
+	<h3 class="sin mt30">Следующие параметры поддерживают не все браузеры</h3>
+	<table class="t1 tt1 t3 tb tm20">
+		<tr><td width="170px">ruby</td><td>
+			Элемент ведет себя как элемент встроенного уровня и размещает свое содержимое в соответствии с моделью форматирования ruby. Он ведет себя как элемент HTML <samp class="teg">ruby</samp>.
+		</td></tr>
+		<tr><td>ruby-base</td><td>
+			Эти элементы ведут себя как элементы HTML <samp class="teg">rb</samp>.
+		</td></tr>
+		<tr><td>ruby-text</td><td>
+			Эти элементы ведут себя как элементы HTML <samp class="teg">rt</samp>.
+		</td></tr>
+		<tr><td><span class="ls-1">ruby-base-container</span></td><td>
+			Эти элементы генерируются как анонимные блоки.
+		</td></tr>
+		<tr><td><span class="ls-1">ruby-text-container</span></td><td>
+			Эти элементы ведут себя как элементы HTML <samp class="teg">rtc</samp>.
+		</td></tr>
+		<tr><td>run-in</td><td>
+			Устанавливает элемент как блочный или встроенный в зависимости от контекста.
+		</td></tr>
+	</table>
+
 </div>
 
 
-<div class="item">
-<h3 class="sin">Следующие параметры поддерживают не все браузеры</h3>
-	<table class="t1 tt1 t3 tb tm20">
-		<tr><td width="170px">run-in</td>
-			<td>Устанавливает элемент как блочный или встроенный в зависимости от контекста.</td></tr>
-		<tr><td>contents</td>
-			<td>Заставляет контейнер исчезнуть, делая дочерние элементы дочерними элементами элемента следующего уровня в DOM.</td></tr>
-		<tr><td>inline-table</td>
-			<td>Определяет, что элемент является таблицей как при использовании тега <samp class="red">&lt;table></samp>, но при этом таблица является встроенным элементом и происходит ее обтекание другими элементами, например, текстом.</td></tr>
-		<tr><td>table</td>
-			<td>Определяет, что элемент является блочной таблицей подобно использованию тега <samp class="red">&lt;table></samp>.</td></tr>
-		<tr><td>table-caption</td>
-			<td>Задает заголовок таблицы подобно применению тега <samp class="red">&lt;caption></samp>.</td></tr>
-		<tr><td>table-cell</td>
-			<td>Указывает, что элемент представляет собой ячейку таблицы (тег <samp class="red">&lt;td></samp> или <samp class="red">&lt;th></samp>).</td></tr>
-		<tr><td>table-row</td>
-			<td>Элемент отображается как строка таблицы (тег <samp class="red">&lt;tr></samp>).</td></tr>
-		<tr><td>table-column</td>
-			<td>Назначает элемент колонкой таблицы, словно был добавлен тег <samp class="red">&lt;col></samp>.</td></tr>
-		<tr><td>table-column-group</td>
-			<td>Определяет, что элемент является группой одной или более колонок таблицы, как при использовании тега <samp class="red">&lt;colgroup></samp>.</td></tr>
-		<tr><td>table-footer-group</td>
-			<td>Используется для хранения одной или нескольких строк ячеек, которые отображаются в самом низу таблицы. По своему действию сходно с работой тега <samp class="red">&lt;tfoot></samp>.</td></tr>
-		<tr><td>table-header-group</td>
-			<td>Элемент предназначен для хранения одной или нескольких строк ячеек, которые представлены вверху таблицы. По своему действию сходно с работой тега <samp class="red">&lt;thead></samp>.</td></tr>
-		<tr><td>table-row-group</td>
-			<td>Создает структурный блок, состоящий из нескольких строк таблицы аналогично действию тега <samp class="red">&lt;tbody></samp>.</td></tr>
-	</table>
 
+<div class="item" id="multiKey">
+<h3 class="sin"><a href="#" title="наверх">multi-keyword syntax</a></h3>
+	<p>Cвойство <samp class="sin">display</samp> имеет значительные возможности. Помимо указания того, является ли что-то блоком уровня блока или встроенным по отношению к другим элементам на странице, оно также указывает контекст форматирования внутри элемента, к которому оно применяется. Чтобы лучше описать это поведение, свойству <samp class="sin">display</samp> устанавливают два значения — внешнее и внутреннее. Исходный синтаксис с одним значением также допустим. Внешний тип отображения описывает, является ли элемент блочным или строчным. Внутренний тип отображения описывает, как ведут себя дочерние элементы этого блока.</p>
+
+	<p>Например, когда используют <samp class="sin dib">display: <samp class="lsin">flex</samp></samp>, создают контейнер блочного уровня с flex-дочерними элементами. Дочерние элементы описываются как участвующие в контексте форматирования flex. Вместо установки <samp class="sin dib">display: <samp class="lsin">flex</samp></samp> для создания блока с дочерними элементами flex используют <samp class="sin dib">display: <samp class="lsin">block flex</samp></samp>.</p>
+
+	<p>Существуют сопоставления для всех существующих значений <samp class="sin">display</samp>; наиболее распространенные из них перечислены в таблице ниже.</p>
+
+	<table class="t22 th1 tb mt20">
+		<tr><th>Short display</th><th>Full display</th></tr>
+		<tr><td>none</td><td>—</td></tr>
+		<tr><td>contents</td><td>—</td></tr>
+		<tr><td>block</td><td>block flow</td></tr>
+		<tr><td>flow-root</td><td>block flow-root</td></tr>
+		<tr><td>inline</td><td>inline flow</td></tr>
+		<tr><td>inline-block</td><td>inline flow-root</td></tr>
+		<tr><td>run-in</td><td>run-in flow</td></tr>
+		<tr><td>list-item</td><td>block flow list-item</td></tr>
+		<tr><td>inline list-item</td><td>inline flow list-item</td></tr>
+		<tr><td>flex</td><td>block flex</td></tr>
+		<tr><td>inline-flex</td><td>inline flex</td></tr>
+		<tr><td>grid</td><td>block grid</td></tr>
+		<tr><td>inline-grid</td><td>inline grid</td></tr>
+		<tr><td>ruby</td><td>inline ruby</td></tr>
+		<tr><td>block ruby</td><td>block ruby</td></tr>
+		<tr><td>table</td><td>block table</td></tr>
+		<tr><td>inline-table</td><td>inline table</td></tr>
+	</table>
 </div>
 
 </body></html>

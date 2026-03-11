@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><title>Атрибут max</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">max</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов <a href="../help/progress.html"><samp class="teg tdu">progress</samp></a>, <a href="../help/meter.html"><samp class="teg tdu">meter</samp></a> и элементам <a href="../input.html"><samp class="teg tdu">input</samp></a> у которых атрибут <samp class="sin">type</samp> имеет значение <samp>date, month, week, time, datetime-local, number, range</samp>.</div>
+
+	<p>Атрибут <samp class="sin">max</samp> определяет максимальное значение, которое является приемлемым и действительным для входных данных, содержащих атрибут. Если значение элемента больше этого, элемент не проходит проверку. Это значение должно быть больше или равно значению атрибута <a href="min.html"><samp class="sin tdu">min</samp></a>.</p>
+
+	<p>Если атрибут <samp class="sin">max</samp> присутствует, но его значение не указано или является недействительным, атрибут не применяется. Если атрибут <samp class="sin">max</samp> указан и вводимое значение больше максимально допустимого атрибутом <samp class="sin">max</samp>, проверка ограничений предотвратит отправку формы.</p>
+
+	<div class="no"> Если введенные пользователем данные превышают максимально допустимое значение, определенное атрибутом <samp class="sin">max</samp>, то элемент будет сопоставлен псевдоклассам <samp class="pur">:out-of-range</samp> и <samp class="pur">:invalid</samp>.</div>
+
+	<p>Для элемента <samp class="teg">progress</samp> атрибут <samp class="sin">max</samp> описывает объем работы, требуемый для задачи, указанной элементом progress. Если присутствует, должен иметь значение больше нуля и быть допустимым числом с плавающей точкой.</p>
+	<div class="prm mb30">
+		Идёт загрузка…<br><progress value="60" max="100">60%</progress>
+		<pre class="html item2"><code>&lt;p>Идёт загрузка…&lt;/p><br>&lt;progress value="60" max="100">60%&lt;/progress></code></pre>
+	</div>
+
+	<p>Для элемента <samp class="teg">meter</samp> атрибут <samp class="sin">max</samp> определяет верхнюю числовую границу измеряемого диапазона. Оно должно быть больше минимального значения (атрибут <samp class="sin">min</samp>), если оно указано. В обоих случаях, если оно опущено, значение по умолчанию равно 1.</p>
+	<div class="prm mb30">
+		<p><meter value="36.6" min="35" max="42">36,6 градусов</meter></p>
+		<pre class="item2"><code>&lt;meter value="36.6" min="35" max="42">36,6 градусов&lt;/meter></code></pre>
+	</div>
+
+	<p class="mb0">Для элемента <samp class="teg">input</samp> атрибут <samp class="sin">max</samp> устанавливает верхнее значение для ввода числа или даты в поле формы. В качестве значения использует:</p>
+	<ul class="list l1 mb10">
+		<li>Целое положительное или отрицательное число (для type="number", type="range").</li>
+		<li>Дата в формате ГГГГ-ММ-ДД (например: 2012-12-22) для type="date".</li>
+	</ul>
+	<style>
+		.example input {width: 170px}
+	</style>
+	<pre class="item2 example"><code><input type="date" max="2019-12-25" step="1"> &lt;input type="date" max="2019-12-25" step="1"> <br><input type="month" max="2019-12" step="12"> &lt;input type="month" max="2019-12" step="12"> <br><input type="week" max="2019-W23" step=""> &lt;input type="week" max="2019-W23" step=""> <br><input type="time" max="17:00" step="900"> &lt;input type="time" max="17:00" step="900"> <br><input type="datetime-local" max="2019-12-25T23:59"> &lt;input type="datetime-local" max="2019-12-25T23:59"> <br><input type="number" min="0" step="5" max="100" style="width:167px"> &lt;input type="number" min="0" step="5" max="100"> <br><input type="range" min="60" step="5" max="100"> &lt;input type="range" min="60" step="5" max="100"></code></pre>
+</div>
+
+
+</body></html>

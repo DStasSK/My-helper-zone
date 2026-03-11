@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><title>Атрибут accept</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">accept</samp> элемента <samp class="teg">input</samp></h3>
+
+<div class="item">
+	<p>Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов. Если файл не подходит под установленный фильтр, он не показывается в окне выбора файлов. Применяется к полю для отправки файла. В качестве значения принимает список из одного или нескольких типов файлов, разделенных запятыми, или уникальных спецификаторов типов файлов, описывающих, какие типы файлов разрешены.</p>
+
+	<pre class="item2 mt20 "><code>&lt;input type="file" accept="MIME-тип | значение"></code></pre>
+	<div class="attr mt10 sin">Значения:</div>
+	<ul class="list l1">
+		<li>расширение файла с точкой впереди (например: <samp class="sin">.jpg</samp>).</li>
+		<li>имя <samp class="sin tdu"><a href="../mime.html">MIME</a></samp>-типа (например: <samp class="sin">image/jpeg</samp>).</li>
+		<li>несколько значений перечисляются через запятую (<samp class="sin">image/jpeg, image/png</samp>).</li>
+		<!-- <li>В HTML5 также допустимо в качестве значения указывать</li> -->
+		<li><samp class="sin">audio/*</samp> для выбора всех звуковых файлов<span class="html5"></span></li>
+		<li><samp class="sin">video/*</samp> для видеофайлов<span class="html5"></span></li>
+		<li><samp class="sin">image/*</samp> для всех графических файлов<span class="html5"></span></li>
+	</ul>
+
+	<div class="prm anp mt30">
+		<form action="">
+			<p><strong>Укажите картинку в формате JPEG, PNG или GIF</strong></p>
+			<p><input type="file" name="img" accept=".png, .jpg, .jpeg, .gif">
+			<input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2 ls-1"><code>&lt;form action="handler.php"><br>  &lt;strong>Укажите картинку в формате JPEG, PNG или GIF&lt;/strong><br>  &lt;input type="file" name="img" accept=".png, .jpg, .jpeg, .gif"><br>  &lt;input type="submit" value="Отправить"><br>&lt;/form></code></pre>
+	</div>
+
+	<div class="prm anp mt30">
+		Существует несколько способов идентификации файлов Microsoft Word, поэтому сайт, принимающий файлы Word, может использовать <samp class="teg">input</samp> следующим образом:
+		<pre class="item2 ls-1 mt10"><code>&lt;form action="handler.php"><br>  &lt;strong>Выберите файл word документа:&lt;/strong><br>  &lt;input type="file" id="docpicker"<br>         accept=".doc,.docx,application/msword,<br>         application/vnd.openxmlformats-officedocument.wordprocessingml.document" /><br>  &lt;input type="submit" value="Отправить"><br>&lt;/form></code></pre>
+	</div>
+</div>
+
+
+</body></html>

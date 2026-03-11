@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>sticky-footer</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -8,11 +8,38 @@
 <script src="../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<style type="text/css">
+<style>
 	.im1 {float:left; margin:10px 0 -10px -30px}
+
+	/* стили для таблиц с примерами */
 	.tt1 {width:calc(100% + 20px); min-width:600px; margin:5px -10px 0px;
-		border-collapse:separate; border-spacing:10px 0;}
-	.tt1 td {padding:10px 0; vertical-align:top;}
+		border-collapse:separate; border-spacing:10px 0; color:#333;
+	}
+	.tt1 td {padding:10px 0; vertical-align:top; height:150px;}
+
+	/* общие стили для примеров */
+	.exsample {display:flex; width:100%; min-width:600px; gap:10px; color:#333; height:180px; margin:10px 0}
+	.exsample__block {overflow:auto; text-align:center; font-size:20px; flex:1; margin:0; padding:0;  height:100%}
+	.content {background:#ffdead; padding:10px; min-height:80px; width:100%; box-sizing:border-box;}
+	.content_max {height:200px}
+	.footer {background:lime; height:30px; line-height:30px}
+
+	/* стили для примеров */
+	.wrapper_examlpe1 {min-height:100%; margin-bottom:-30px;} /* mb == height у футера */
+
+	.wrapper_examlpe2 {min-height:100%; padding-bottom:30px; box-sizing:border-box;}
+	.footer_example2 {margin-top:-30px}
+
+	.wrapper_examlpe3 {min-height:calc(100vh - 30px);}  /* 100vh -> глюки */
+	.wrapper_examlpe3 {min-height:calc(180px - 30px);}
+
+	.exsample__block4 {display:flex; flex-direction:column; justify-content:space-between;}
+	.content4 {flex-shrink: 0;} /* .content4 {flex:0 0 auto;} */
+
+	.exsample__block5 {display:grid; grid-template-rows:1fr auto;}
+	.content5 {place-self: start stretch;}
+	.footer5 {grid-row: 2/3;}
+
 
 </style>
 </head>
@@ -31,49 +58,36 @@
 
 
 <div class="item">
-	<img src="img/sticky-footer.svg" width="400px" height="200px" class="im1">
+	<img class="im1" src="img/sticky-footer.svg" width="400px" height="200px">
 	<p class="cf">Смысл прижатого подвала заключается в том, что он «прилипает» к нижней части окна браузера. Но не всегда; если на странице достаточно содержимого, чтобы сдвинуть подвал вниз, то это будет сделано. Если содержимого на странице мало, тогда подвал прижмётся к нижней части окна браузера.</p>
 </div>
+
 
 
 <div class="item" id="z1">
 <h3 class="sin"><a href="#">Способ 1. Отрицательный margin-bottom для обёртки</a></h3>
 	<p>Мы используем элемент, например - <samp class="red">.wrapper</samp>, в который помещаем всё, за исключением подвала. Затем устанавливаем для обёртки отрицательный <samp class="sin">margin-bottom</samp>, равный высоте подвала. В конце обертки добавляем пустой элемент с высотой подвалa - он гарантирует что отрицательный <samp class="sin">margin</samp> не потянет подвал вверх и не перекроет собой содержимое.</p>
-	<p>Минус данного метода в том, что он требует дополнительный элемент HTML.</p>
 
 	<pre class="item2"><code>&lt;style><br>  html, body {height:100%; margin:0;}<br>  .wrapper {min-height:100%; margin-bottom:-50px;}<br>  .footer, .push {height: 50px;}<br>&lt;/style><br><br>&lt;div class="wrapper"><br>  &lt;div>Содержимое&lt;/div><br>  &lt;div class="push">&lt;/div><br>&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
 
-	<style>
-		.box {height:150px; margin:0; overflow:auto;}
-		/* html, body {height:100%; margin:0;} */
-		.bg div:nth-child(1){background:#ffdead;}
-		.push {height:30px;}
-		.footer {background:lime; text-align:center; font-size:20px; height:30px; line-height:30px}
-		.box1 {text-align:center;}
-		.box11 {height:80px}
-		.box12 {height:200px}
-		.b1 {min-height:100%; margin-bottom:-30px;}
-	</style>
-	<table class="tt1 t2">
-		<tr><td>
-			<div class="box">
-				<div class="box1 b1 bg">
-					<div class="box11">Содержимое<samp> < height</samp></div>
-					<div class="push"></div>
+	<div class="exsample">
+		<div class="exsample__block">
+				<div class="wrapper_examlpe1">
+					<div class="content">Содержимое<samp> < height</samp></div>
+					<div style="height:30px"></div>
 				</div>
 				<div class="footer">footer</div>
-			</div>
-		</td><td>
-			<div class="box">
-				<div class="box1 b1 bg">
-					<div class="box12">Содержимое<samp> > height</samp></div>
-					<div class="push"></div>
+		</div>
+		<div class="exsample__block">
+				<div class="wrapper_examlpe1">
+					<div class="content content_max">Содержимое<samp> > height</samp></div>
+					<div style="height:30px"></div>
 				</div>
 				<div class="footer">footer</div>
-			</div>
-		</td></tr>
-	</table>
+		</div>
+	</div><!-- /exsample -->
 </div>
+
 
 
 <div class="item" id="z2">
@@ -83,188 +97,114 @@
 
 	<pre class="item2"><code>&lt;style><br>  html, body {height:100%; margin:0;}<br>  .content {min-height: 100%;}<br>  .content-inside {padding-bottom: 50px;}<br>  .footer {height: 50px; margin-top: -50px;}<br>&lt;/style><br><br>&lt;div class="content"><br>  &lt;div class="content-inside">Содержимое&lt;/div><br>&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
 
-	<style>
-		.box {height:150px; margin:0; overflow:auto;}
-		/* html, body {height:100%; margin:0;} */
-		.bg div:nth-child(1){background:#ffdead;}
-		.footer {background:lime; text-align:center; font-size:20px; height:30px; line-height:30px}
-		.box1 {text-align:center;}
-		.box11 {height:80px}
-		.box12 {height:200px}
-		.b2 {min-height:100%; padding-bottom:30px; box-sizing:border-box;}
-		.f2 {margin-top:-30px}
-	</style>
-	<table class="tt1 t2">
-		<tr><td>
-			<div class="box">
-				<div class="box1 b2 bg">
-					<div class="box11">Содержимое<samp> < height</samp></div>
-				</div>
-				<div class="footer f2">footer</div>
+	<div class="exsample">
+		<div class="exsample__block">
+			<div class="wrapper wrapper_examlpe2">
+				<div class="content">Содержимое<samp> < height</samp></div>
 			</div>
-		</td><td>
-			<div class="box">
-				<div class="box1 b2 bg">
-					<div class="box12">Содержимое<samp> > height</samp></div>
-				</div>
-				<div class="footer f2">footer</div>
+			<div class="footer footer_example2">footer</div>
+		</div>
+		<div class="exsample__block">
+			<div class="wrapper wrapper_examlpe2">
+				<div class="content content_max">Содержимое<samp> > height</samp></div>
 			</div>
-		</td></tr>
-	</table>
+			<div class="footer footer_example2">footer</div>
+		</div>
+	</div><!-- /exsample -->
 </div>
+
 
 
 <div class="item" id="z3">
 <h3 class="sin"><a href="#">Способ 3. Использование calc() для уменьшения высоты обёртки</a></h3>
-	<p>Один из способов не включать лишние элементы — это отрегулировать высоту обёртки с помощью <samp class="red">calc()</samp>. Тогда никакого перекрытия не будет, просто два элемента складываются друг с другом на общую высоту <b>100%</b>.</p>
-	<p>Обратите внимание на <b>70px</b> в <samp class="red">calc()</samp> и фиксированную высоту подвала <b>50px</b>. Можно предположить, что в содержимом у последнего элемента <samp class="sin">margin-bottom</samp> равен <samp class="lsin">20px</samp>. Именно это значение нужно сложить с высотой подвала, чтобы полученную сумму вычесть из высоты области просмотра. Если margin отсутствует, то оба значения должны быть равны.</p>
-	<p>И да, мы используем единицы <b>vh</b> как небольшой трюк, чтобы не устанавливать 100% у <samp class="red">body</samp> и обёртки.</p>
+	<p>Один из способов не включать лишние элементы — это отрегулировать высоту обёртки с помощью <samp class="red">calc()</samp>. Тогда никакого перекрытия не будет, просто два элемента складываются друг с другом на общую высоту <samp class="lsin">100%</samp>.</p>
 
-	<pre class="item2"><code>&lt;style><br>  .content {min-height: calc(100vh - 70px);}<br>  .footer {height: 50px;}<br>&lt;/style><br><br>&lt;div class="content"><br>  Содержимое<br>&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
+	<p>Обратите внимание на <samp class="lsin">50px</samp> в <samp class="red">calc()</samp> и фиксированную высоту подвала <samp class="lsin">50px</samp>. Если <samp class="sin">margin</samp> отсутствует, то оба значения должны быть равны, либо нужно будет учесть его значение.</p>
 
-	<style>
-		.box {height:150px; margin:0; overflow:auto;}
-		/* html, body {height:100%; margin:0;} */
-		.bg div:nth-child(1){background:#ffdead;}
-		.footer {background:lime; text-align:center; font-size:20px; height:30px; line-height:30px}
-		.box1 {text-align:center;}
-		.box11 {height:80px}
-		.box12 {height:200px}
-		.b3 {min-height:calc(100vh - 30px);}  /* 100vh от окна просмотра -> глюки)) */
-		.b3 {min-height:calc(150px - 30px);}
-	</style>
-	<table class="tt1 t2">
-		<tr><td>
-			<div class="box">
-				<div class="box1 b3 bg">
-					<div class="box11">Содержимое<samp> < height</samp></div>
-				</div>
-				<div class="footer">footer</div>
+	<pre class="item2"><code>&lt;style><br>  .content {min-height: calc(100vh - 50px);}<br>  .footer {height: 50px;}<br>&lt;/style><br><br>&lt;div class="content"><br>  &lt;div class="content-inside">Содержимое&lt;/div><br>&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
+
+	<div class="exsample">
+		<div class="exsample__block">
+			<div class="wrapper wrapper_examlpe3">
+				<div class="content">Содержимое<samp> < height</samp></div>
 			</div>
-		</td><td>
-			<div class="box">
-				<div class="box1 b3 bg">
-					<div class="box12">Содержимое<samp> > height</samp></div>
-				</div>
-				<div class="footer">footer</div>
+			<div class="footer">footer</div>
+		</div>
+		<div class="exsample__block">
+			<div class="wrapper wrapper_examlpe3">
+				<div class="content content_max">Содержимое<samp> > height</samp></div>
 			</div>
-		</td></tr>
-	</table>
+			<div class="footer">footer</div>
+		</div>
+	</div><!-- /exsample -->
 </div>
+
 
 
 <div class="item" id="z4">
 <h3 class="sin"><a href="#">Способ 4. Использование флексбоксов</a></h3>
 	<p>Большая проблема у перечисленных трёх методов состоит в том, что они требуют подвала фиксированной высоты, а это довольно неприятно. Содержимое может измениться. Элементы гибкие. Фиксированная высота — опасная территория. Использование флексбоксов для прижимания подвала не только не потребует дополнительных элементов, но и позволяет установить подвал произвольной высоты.</p>
 
-	<pre class="item2"><code>&lt;style><br>  html, body {height: 100%;}<br>  body {display:flex; flex-direction:column;}<br>  .content {flex: 1 0 auto;}<br>  .footer {flex-shrink: 0;}<br>&lt;/style><br><br>&lt;div class="content"><br>  Содержимое<br>&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
+	<pre class="item2 mt20 mb20"><code>&lt;style><br>  html, body {height: 100%;}<br>  body {<br>    display: flex;<br>    flex-direction: column;<br>    justify-content: space-between;<br>  }<br>  /* .content {flex-shrink: 0;} */<br>  .content {flex: 0 0 auto;}<br>&lt;/style><br><br>&lt;body><br>  &lt;div class="content">Содержимое&lt;/div><br>  &lt;footer class="footer">Подвал&lt;/footer><br>&lt;/body></code></pre>
 
-	<div>Вот пара хитростей.</div>
-	<ul style="margin:0 0 10px -20px;">
-		<li><samp style="padding-right:20px">flex: 1;</samp> для дочернего элемента, который будет расти для заполнения пространства (содержимое в нашем случае).</li>
-		<li><samp style="padding-right:20px">margin-top: auto;</samp> чтобы сдвинуть дочерний элемент от соседа (или другой margin, в зависимости от направления).</li>
-	</ul>
+	<div class="no no1"><samp class="sin dib">flex:<samp class="lsin">0 0 auto</samp></samp> - для элемента, который будет расти - в данном случае - содержимое сонтента.</div>
 
-	<style>
-		.box {height:150px; margin:0; overflow:auto;}
-		/* html, body {height:100%; margin:0;} */
-		.bg div:nth-child(1){background:#ffdead;}
-		.footer {background:lime; text-align:center; font-size:20px; height:30px; line-height:30px}
-		.box1 {text-align:center;}
-		.box11 {height:80px}
-		.box12 {height:200px}
-		.bf {display:flex; flex-direction:column;}
-		.b4 {flex: 1 0 auto;}
-		.f4 {flex-shrink: 0;}
-	</style>
-	<table class="tt1 t2">
-		<tr><td>
-			<div class="box bf">
-				<div class="box1 b4 bg">
-					<div class="box11">Содержимое<samp> < height</samp></div>
-				</div>
-				<div class="footer f4">footer</div>
-			</div>
-		</td><td>
-			<div class="box bf">
-				<div class="box1 b4 bg">
-					<div class="box12">Содержимое<samp> > height</samp></div>
-				</div>
-				<div class="footer f4">footer</div>
-			</div>
-		</td></tr>
-	</table>
+	<div class="exsample">
+		<div class="exsample__block exsample__block4">
+			<div class="content content4">Содержимое<samp> < height</samp></div>
+			<div class="footer">footer</div>
+		</div>
+		<div class="exsample__block exsample__block4">
+			<div class="content content_max content4">Содержимое<samp> > height</samp></div>
+			<div class="footer">footer</div>
+		</div>
+	</div><!-- /exsample 4 -->
 </div>
+
 
 
 <div class="item" id="z5">
 <h3 class="sin"><a href="#">Способ 5. Использование <samp>Grid</samp></a></h3>
-	<p>Разметка с помощью Grid более новая (и менее поддерживаемая), чем флексбоксы. Вы также можете довольно легко использовать Grid для прижимания подвала.</p>
+	<!-- <p>Разметка с помощью Grid более новая (и менее поддерживаемая), чем флексбоксы. Вы также можете довольно легко использовать Grid для прижимания подвала.</p> -->
 
-	<pre class="item2"><code>&lt;style><br>  html {height: 100%;}<br>  body {margin:0; min-height:100%;<br>    display: grid;<br>    grid-template-rows: 1fr auto;<br>  }<br>  .footer {<br>    grid-row-start: 2;<br>    grid-row-end: 3;<br>  }<br>&lt;/style><br><br>&lt;div class="content"><br>  Содержимое<br>&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
+	<pre class="item2"><code>&lt;style><br>  html {height: 100%;}<br>  body {<br>    min-height: 100%;<br>    display: grid;<br>    grid-template-rows: 1fr auto;<br>   /* align-items: flex-start; */<br>  }<br>  .content {place-self: start stretch;}<br>  .footer {grid-row: 2/3;}<br>&lt;/style><br><br>&lt;div class="content">Содержимое&lt;/div><br>&lt;footer class="footer">Подвал&lt;/footer></code></pre>
 
-	<style>
-		.box {height:150px; margin:0; overflow:auto;}
-		.bg div:nth-child(1){background:#ffdead;}
-		.footer {background:lime; text-align:center; font-size:20px; height:30px; line-height:30px}
-		.box1 {text-align:center;}
-		.box11 {height:80px}
-		.box12 {height:200px}
-		.bgr {display:grid; grid-template-rows:1fr auto;}
-		.f5 {grid-row-start:2; grid-row-end:3;}
-	</style>
-	<table class="tt1 t2">
-		<tr><td>
-			<div class="box bgr">
-				<div class="box1 bg">
-					<div class="box11">Содержимое<samp> < height</samp></div>
-				</div>
-				<div class="footer f5">footer</div>
-			</div>
-		</td><td>
-			<div class="box bgr">
-				<div class="box1 bg">
-					<div class="box12">Содержимое<samp> > height</samp></div>
-				</div>
-				<div class="footer f5">footer</div>
-			</div>
-		</td></tr>
-	</table>
+	<div class="exsample">
+		<div class="exsample__block exsample__block5">
+			<div class="content content5">Содержимое<samp> < height</samp></div>
+			<div class="footer footer5">footer</div>
+		</div>
+		<div class="exsample__block exsample__block5">
+			<div class="content content_max">Содержимое<samp> > height</samp></div>
+			<div class="footer footer5">footer</div>
+		</div>
+	</div><!-- /exsample 5 -->
+
 </div>
 
 
-<div class="item" id="z6">
-<h3 class="sin"><a href="#">Способ 6. Использование <samp class="sin">position:</samp><samp class="lsin">sticky</samp></a></h3>
-	<p>C помощью липкого позиционирования (<a href="../html_css/position.html#sticky" class="tdu"><samp class="sin">position:</samp><samp class="lsin">sticky</samp></a>) можно делать приклеенный подвал. Данный метод подойдет для подвала небольшого размера, в противном случае в блоке подвала появятся полосы прокрутки.</p>
 
-	<pre class="item2"><code>&lt;style><br>  html, body {height:100%; margin:0;}<br>  footer {height:20px; position:sticky; top:100%;}<br>&lt;/style><br><br>&lt;main><br>  Содержимое<br>&lt;/main><br>&lt;footer>Подвал&lt;/footer></code></pre>
+<div class="item anp" id="z6">
+<h3 class="sin"><a href="#">Способ 6. Использование <samp class="sin">position:</samp><samp class="lsin">sticky</samp></a></h3>
+	<p>C помощью липкого позиционирования (<a href="../html_css/position.html#sticky" class="tdu"><samp class="sin">position:</samp><samp class="lsin">sticky</samp></a>) можно делать приклеенный подвал.</p>
+
+	<div class="no no1">Данный метод подойдет для подвала небольшого размера, в противном случае в блоке подвала появятся полосы прокрутки.</div>
+
+	<pre class="item2"><code>&lt;style><br>  html, body {height:100%; margin:0;}<br>  footer {height:20px; position:sticky; top:100%;}<br>&lt;/style><br><br>&lt;main>Содержимое&lt;/main><br>&lt;footer>Подвал&lt;/footer></code></pre>
 
 	<style>
-		.box {height:150px; margin:0; overflow:auto;}
-		.bg div:nth-child(1){background:#ffdead;}
-		.footer {background:lime; text-align:center; font-size:20px; height:30px; line-height:30px}
-		.box1 {text-align:center;}
-		.box11 {height:80px}
-		.box12 {height:200px}
-		.f6 {position:sticky; top:100%;}
+		.footer6 {position:sticky; top:100%;}
 	</style>
-	<table class="tt1 t2">
-		<tr><td>
-			<div class="box">
-				<div class="box1 bg">
-					<div class="box11">Содержимое<samp> < height</samp></div>
-				</div>
-				<div class="footer f6">footer</div>
-			</div>
-		</td><td>
-			<div class="box bgr">
-				<div class="box1 bg">
-					<div class="box12">Содержимое<samp> > height</samp></div>
-				</div>
-				<div class="footer f6">footer</div>
-			</div>
-		</td></tr>
-	</table>
+	<div class="exsample">
+		<div class="exsample__block">
+			<div class="content">Содержимое<samp> < height</samp></div>
+			<div class="footer footer6">footer</div>
+		</div>
+		<div class="exsample__block">
+			<div class="content content_max">Содержимое<samp> > height</samp></div>
+			<div class="footer footer6">footer</div>
+		</div>
+	</div><!-- /exsample 6 -->
 </div>
 
 </body>

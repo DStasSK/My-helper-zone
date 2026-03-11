@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><title>Атрибут autofocus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>autofocus</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">autofocus</samp> — это логический атрибут, указывающий, что элемент должен быть сфокусирован при загрузке страницы или при отображении элемента <a href="../dialog.html"><samp class="teg tdu">dialog</samp></a>, частью которого он является. Допускается не более одного элемента в документе или диалоговом окне с атрибутом <samp class="sin">autofocus</samp>, в противном случае фокус будет получен первым элеметном.</p>
+
+	<pre class="item2 mt20"><code>&lt;input autofocus /&gt;</code></pre>
+
+	<div class="no no1 mt30 mb20">Атрибут <samp class="sin">autofocus</samp> можно применить к любому элементу, хотя обычно его применяют к элементам формы.</div>
+
+	<p>Когда назначается автофокусировка, экранные ридеры «телепортируют» своего пользователя к элементу управления формы, не предупреждая его заранее. Это может сбить с толку людей с нарушениями зрения, использующих технологию чтения с экрана, и людей с когнитивными нарушениями. Хотя экранный ридер озвучит метку элемента управления формы, получающего фокус, экранный ридер не озвучит ничего перед меткой, и зрячий пользователь на небольшом устройстве также пропустит контекст, созданный предыдущим содержимым.</p>
+
+	<div class="hr30 mt30"></div>
+
+	<p>Браузеры, которые не поддерживают атрибут <samp class="sin">autofocus</samp>, будут его игнорировать. Если есть необходимость автофокуса на элементе, то можно помимо атрибута <samp class="sin">autofocus</samp> в коде HTML использовать JS для проверки поддержки браузером атрибута <samp class="sin">autofocus</samp>, и если нет, запустить собственный скрипт.</p>
+
+	<pre class="item2 mt10"><code>&lt;form name="f"><br>  &lt;input id="q" autofocus><br>  &lt;script><br>    if (!("autofocus" in document.createElement("input"))) {<br>      document.getElementById("q").focus();<br>    }<br>  &lt;/script><br>  &lt;input type="submit" value="Вперёд"><br>&lt;/form></code></pre>
+
+	<div class="mt30">2023.03</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">79</span></td>
+			<td><span          title="Opera">66</span></td>
+			<td><span         title="Safari">15.4</span></td>
+			<td><span             title="FF">110</span></td>
+			<td><span title="mobile-android">79</span></td>
+			<td><span      title="mobile-FF">110</span></td>
+			<td><span   title="mobile-opera">57</span></td>
+			<td><span  title="mobile-safary">16.4</span></td>
+		</tr>
+	</table>
+</div>
+
+
+</body></html>

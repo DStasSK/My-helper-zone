@@ -1,0 +1,231 @@
+<!DOCTYPE html><html><head><title>Счетчики в CSS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Счетчики в CSS</h2>
+<!-- оглавление -->
+<ul class="ogl mt10 mb10">
+	<li><a href="#counter-reset">CSS свойство создания счетчика - <samp class="sin">counter-reset</samp></a></li>
+	<li><a href="#counter-set">CSS свойство установки начального значения - <samp class="sin">counter-set</samp></a></li>
+	<li><a href="#counter-increment">CSS свойство установки приращения - <samp class="sin">counter-increment</samp></a></li>
+	<li><a href="#counter">CSS функция <samp class="sin">counter()</samp></a></li>
+	<li><a href="#counters">CSS функция <samp class="sin">counters()</samp></a></li>
+	<li><a href="rules/@counter-style.html">Правило <samp class="red">@counter-style</samp> для расширенной стилизации.</a></li>
+	<li><a href="#example1">Пример использования - простой нумерованный список.</a></li>
+	<li><a href="#example2">Пример использования - многоуровневый нумерованный список.</a></li>
+</ul>
+
+<div class="item">
+	<p>В CSS можно создавать свои счетчики, которые будут считать количество отображений определенного элемента. Значение такого счётчика может выводиться с помощью свойства <samp class="sin">content</samp> и псевдоэлементов <samp class="pur">::after</samp> и <samp class="pur">::before</samp>.</p>
+
+	<p>В основном такие счетчики используются при создании списков (в том числе многоуровневых), в которых нумерация и вид задаются через стили. В нумерованном списке номер каждого пункта выводится с точкой. При этом как-то изменить вид числа, к примеру, убрать точку или поставить скобку, напрямую нельзя. Поэтому вообще убирают исходную нумерацию и выводят свою с помощью псевдоэлемента <samp class="pur">::before</samp> и свойства <samp class="sin">content</samp>. Чтобы нумерация работала и увеличивалась с каждым пунктом, нужно добавить свойство <samp class="sin">counter-reset</samp> с произвольным именем счётчика для его инициализации и <samp class="sin">counter-increment</samp> для приращения счётчика.</p>
+
+	<p>Название/идентификатор счетчика чувствительным к регистру. Идентификатор счетчика не может начинаться с двух дефисов и не может быть <samp class="lsin">none</samp>, <samp class="lsin">unset</samp>, <samp class="lsin">initial</samp> или <samp class="lsin">inherit</samp>.</p>
+</div>
+
+
+
+<div class="item" id="counter-reset">
+<h3 class="sin"><a href="#" title="наверх">CSS свойство <samp>counter-reset</samp>.</a></h3>
+	<p>CSS свойство <samp class="sin">counter-reset</samp> устанавливает переменную, в которой будет храниться счётчик отображений определенного элемента, а также начальное значение счётчика. В качестве значений принимает список из одного или нескольких имен счетчиков, разделенных пробелами, или ключевое слово <samp class="lsin">none</samp>.</p>
+
+	<pre class="item2 mt20 mb10"><code>ol {<br>  counter-reset: name integer | <span class="red">reversed(name)</span> integer | none;<br>  counter-reset: inherit | initial | revert | revert-layer | unset;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">name</samp> - имя/идентификатор счетчика.</li>
+		<li><samp class="sin">integer</samp> - начальное значение счетчика - целое число. По умолчанию 0.</li>
+		<li>
+			<samp class="sin">reversed(name)</samp> - функциональная нотация для обращенного счетчика. При создании обратных счетчиков без значения счетчик начнет со значения, равного количеству элементов в наборе, отсчитывая в обратном порядке.
+			<div class="no mt10 mb20">Поддерживается только в FF.</div>
+		</li>
+		<li><samp class="sin">none</samp> - отключает счетчик; значение счетчика удаляется.</li>
+	</ul>
+
+	<div class="no">Установка <samp class="sin dib">counter-increment:<samp class="lsin">none</samp></samp> для селектора с большей специфичностью переопределяет создание именованного набора счетчиков для селекторов с меньшей специфичностью.</div>
+
+</div>
+
+
+
+<div class="item" id="counter-set">
+<h3 class="sin"><a href="#" title="наверх">CSS свойство <samp>counter-set</samp>.</a></h3>
+	<p>CSS свойство <samp class="sin">counter-set</samp> устанавливает значение счетчика в указанное значение. Если счетчики не существуют, свойство <samp class="sin">counter-set</samp> создает новый счетчик для каждого именованного счетчика в списке пар счетчика и значения, разделенных пробелом. Если значение свойства не указано, значение счетчика будет установлено на 0.</p>
+
+	<pre class="item2 mt20 mb10"><code>ol {<br>  counter-set: name integer | none;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">name</samp> - имя/идентификатор счетчика.</li>
+		<li><samp class="sin">integer</samp> - устанавливаемое значение счетчика - целое число, включая отрицательные. По умолчанию 0.</li>
+		<li><samp class="sin">none</samp> - отключает счетчик; значение счетчика удаляется.</li>
+	</ul>
+
+	<div class="mt30">2023.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">85</span></td>
+			<td><span         title="Chrome">85</span></td>
+			<td><span          title="Opera">71</span></td>
+			<td><span         title="Safari">17.2</span></td>
+			<td><span             title="FF">68</span></td>
+			<td><span title="mobile-android">85</span></td>
+			<td><span      title="mobile-FF">85</span></td>
+			<td><span   title="mobile-opera">60</span></td>
+			<td><span  title="mobile-safary">14.0</span></td>
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="counter-increment">
+<h3 class="sin"><a href="#" title="наверх">CSS свойство <samp>counter-increment</samp>.</a></h3>
+	<p>CSS свойство <samp class="sin">counter-increment</samp> использоваться для увеличения или уменьшения значения именованных счетчиков CSS на указанные значения. Если именованный счетчик в списке разделенных пробелами счетчиков и значений не существует, он будет создан. Если в списке счетчиков не указано значение для счетчика, счетчик будет увеличен на 1.</p>
+
+	<pre class="item2 mt20 mb10"><code>ol {<br>  counter-increment: name integer | none;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">name</samp> - имя/идентификатор счетчика.</li>
+		<li><samp class="sin">integer</samp> - величина приращения счетчика - целое число, включая отрицательные и 0. По умолчанию 1.</li>
+		<li><samp class="sin">none</samp> - отключает изменения значений всех счетчиков. Чтобы предотвратить изменение значения определенных счетчиков, установите целочисленное значение 0 для соответствующего счетчика(ов).</li>
+	</ul>
+
+
+	<pre class="item2 mt30"><code class="css">ol {<br>  counter-reset: list -1;  /* Список начинается с нуля. */<br>  counter-reset: list 9;   /* Список начинается с 10 */<br>}<br>li::before {<br>  counter-increment: list 1;    /* Выводятся 1, 2, 3,... */<br>  counter-increment: list 2;    /* Выводятся 2, 4, 6,... */<br>  content: counter(list) ". ";<br><br>  /* изменит "page" на 1, "section" на 2, "chapter" - не меняется */<br>  counter-increment: chapter 0 section 2 page;<br>}</code></pre>
+
+	<div class="no">Для элементов, у которых установлено display: none, значение счётчика не меняется.</div>
+</div>
+
+
+
+<div class="item" id="counter">
+<h3 class="sin"><a href="#" title="наверх">CSS функция <samp>counter()</samp></a></h3>
+	<p>CSS функция <samp class="sin">counter()</samp> возвращает текущее значение именованного счетчика, если таковой имеется, в виде строки. Функция <samp class="sin">counter()</samp> обычно используется в псевдоэлементе через свойство <samp class="sin">content</samp>, но теоретически ее можно использовать везде, где поддерживается значение типа <samp class="pur">string</samp>.</p>
+
+	<pre class="item2 mt20 mb10"><code>li::before {<br>  content: counter(name, style);<br>  content: counter(name, symbols( symbols-type | url() );<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">name</samp> - имя/идентификатор счетчика.</li>
+		<li><samp class="sin">style</samp> - стиль оформления счетчика, обычно это параметр свойства <a href="list-style-type%20ul%20li%20ol.html#list-style-type"><samp class="sin dib tdu">list-style-type</samp></a> для нумерованного списка. Также можно указать имя из правила <samp class="red">@counter-style</samp> или функцию <samp class="sin">symbols()</samp>. Если стиль оформления не указан, то применяется <samp class="sin">decimal</samp> - десятичный стиль.</li>
+		<li><samp class="sin">symbols-type</samp> - <samp class="lsin">cyclic | numeric | alphabetic | symbolic | fixed</samp>.</li>
+		<li><samp class="sin">url()</samp> - адрес изображения.</li>
+	</ul>
+
+	<div class="no mt30">Чтобы объединить и отобразить значения нескольких счетчиков, используют функцию <samp class="sin">counters()</samp>.</div>
+</div>
+
+
+
+<div class="item" id="counters">
+<h3 class="sin"><a href="#" title="наверх">CSS функция <samp>counters()</samp></a></h3>
+	<p>CSS функция <samp class="sin">counters()</samp> возвращает строку, которая объединяет текущие значения именованных и вложенных счетчиков, если таковые имеются, разделенные предоставленной строкой. Третий, необязательный параметр позволяет определить стиль списка. Сгенерированный текст представляет собой значение всех счетчиков с указанными идентификаторами, расположенных от самого внешнего к самому внутреннему и разделенных указанной строкой.</p>
+
+
+	<pre class="item2 mt20 mb10"><code>li::before {<br>  content: counters(name, string, style);<br>  content: counters(name, string, symbols( symbols-type | url() );<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">name</samp> - имя/идентификаторы счетчиков.</li>
+		<li><samp class="sin">string</samp> - строка-разделитель между значениями счетчиков. Любое количество текстовых символов. Нелатинские символы должны быть закодированы с использованием их управляющих последовательностей Unicode.</li>
+		<li><samp class="sin">style</samp> - стиль оформления счетчика, обычно это параметр свойства <a href="list-style-type%20ul%20li%20ol.html#list-style-type"><samp class="sin dib tdu">list-style-type</samp></a> для нумерованного списка. Также можно указать имя из правила <samp class="red">@counter-style</samp> или функцию <samp class="sin">symbols()</samp>. Если стиль оформления не указан, то применяется <samp class="sin">decimal</samp> - десятичный стиль.</li>
+		<li><samp class="sin">symbols-type</samp> - <samp class="lsin">cyclic | numeric | alphabetic | symbolic | fixed</samp>.</li>
+		<li><samp class="sin">url()</samp> - адрес изображения.</li>
+	</ul>
+
+</div>
+
+
+
+<div class="item" id="example1">
+<h3 class="sin"><a href="#" title="наверх">Пример - простой нумерованный список.</a></h3>
+	<p>В нумерованном списке номер каждого пункта выводится с точкой. При этом как-то изменить вид числа, к примеру, убрать точку или поставить скобку, напрямую нельзя. Поэтому вообще убирают исходную нумерацию и выводят свою с помощью псевдоэлемента <samp class="sin">::before</samp> и свойства <samp class="sin">content</samp>. Чтобы нумерация работала и увеличивалась с каждым пунктом, нужно добавить свойство <samp class="sin">counter-reset</samp> с произвольным именем счётчика для его инициализации и <samp class="sin">counter-increment</samp> для приращения счётчика.</p>
+
+	<div class="no no1">Поскольку мы сами выводим число, то можем легко его стилизовать, изменив цвет, сделав жирным, курсивным и др.</div>
+
+	<fieldset class="prm">
+		<legend></legend>
+		<style>
+			.sch {list-style-type:none; counter-reset:countera; padding:0;}
+			.sch li:before {content:counter(countera) ")"; counter-increment:countera; margin-right:10px;}
+		</style>
+		<ol class="sch list mt0">
+			<li>простой список с номерами</li>
+			<li>нумерованный список</li>
+			<li>список с нумерацией</li>
+		</ol>
+		<div class="item2 ls-05">
+			<pre><code>&lt;ol><br>  &lt;li>простой список с номерами&lt;/li><br>  &lt;li>нумерованный список&lt;/li><br>  &lt;li>список с нумерацией&lt;/li><br>&lt;/ol></code></pre>
+			<pre><code><br>ol {<br>  list-style-type: none;           /* Убираем исходные маркеры */<br>  counter-reset: myCounter;        /* Задаём имя счетчика */<br>}<br>li::before {<br>  content: counter(myCounter) ")"; /* Выводим число и скобку */<br>  counter-increment: myCounter;    /* Увеличиваем значение счётчика */<br>  margin-right: 10px;              /* Расстояние от цифры до текста */<br>}</code></pre>
+		</div>
+	</fieldset>
+</div>
+
+
+
+<div class="item" id="example2">
+<h3 class="sin"><a href="#" title="наверх">Многоуровневый нумерованный список</a></h3>
+	<div class="mt20">Чтобы сделать вложенную нумерацию, нужно использовать следующие свойства:</div>
+	<ul class="list mb20">
+		<li><samp class="sin">counter-reset</samp> сбрасывает один или несколько счётчиков, задавая значение для сброса;</li>
+		<li><samp class="sin">counter-increment</samp> задаёт значение приращения счётчика, т.е. с каким шагом будет нумероваться каждый последующий пункт;</li>
+		<li><samp class="sin">content</samp> генерируемое содержимое, в данном случае отвечает за вывод номера перед каждым пунктом списка.</li>
+	</ul>
+
+	<style>
+		.multi-namber ol {
+			/* убираем стандартную нумерацию */
+			list-style: none;
+			/* Идентифицируем счетчик и даем ему имя li. Значение счетчика не указано - по умолчанию оно равно 0 */
+			counter-reset: li;}
+		.multi-namber li:before {
+			/* Определяем элемент, который будет нумероваться — li. Псевдоэлемент before указывает, что содержимое, вставляемое при помощи свойства content, будет располагаться перед пунктами списка. Здесь же устанавливается значение приращения счетчика (по умолчанию равно 1). */
+			counter-increment: li;
+			/* С помощью свойства content выводится номер пункта списка. counters() означает, что генерируемый текст представляет собой значения всех счетчиков с таким именем. Точка в кавычках добавляет разделяющую точку между цифрами, а точка с пробелом добавляется перед содержимым каждого пункта списка */
+			content: counters(li,".") ". ";}
+		.multi-namber ol, .multi-namber li {border:1px solid #000; margin:0px; padding:0}
+		.multi-namber ol {padding-left:20px;}
+	</style>
+	<div class="multi-namber">
+		<ol style="padding:0">
+			<li>пункт</li> <!--1.-->
+			<li>пункт
+				<ol>
+					<li>пункт</li> <!--2.1.-->
+					<li>пункт</li> <!--2.2.-->
+					<li>пункт
+						<ol>
+							<li>пункт</li> <!--2.3.1.-->
+							<li>пункт</li> <!--2.3.2.-->
+							<li>пункт</li> <!--2.3.3.-->
+						</ol>
+					</li> <!--2.3.-->
+					<li>пункт</li> <!--2.4.-->
+				</ol>
+			</li> <!--2.-->
+			<li>пункт</li> <!--3.-->
+			<li>пункт</li> <!--4.-->
+		</ol>
+	</div>
+
+	<div class="item2">
+		<pre><code>&lt;div class="multi-namber">&lt;ol><br>  &lt;li>пункт&lt;/li> &lt;!--1.--><br>  &lt;li>пункт<br>    &lt;ol><br>      &lt;li>пункт&lt;/li> &lt;!--2.1.--><br>      &lt;li>пункт&lt;/li> &lt;!--2.2.--><br>      &lt;li>пункт<br>        &lt;ol><br>          &lt;li>пункт&lt;/li> &lt;!--2.3.1.--><br>          &lt;li>пункт&lt;/li> &lt;!--2.3.2.--><br>          &lt;li>пункт&lt;/li> &lt;!--2.3.3.--><br>        &lt;/ol><br>      &lt;/li> &lt;!--2.3.--><br>      &lt;li>пункт&lt;/li> &lt;!--2.4.--><br>    &lt;/ol><br>  &lt;/li> &lt;!--2.--><br>  &lt;li>пункт&lt;/li> &lt;!--3.--><br>  &lt;li>пункт&lt;/li> &lt;!--4.--><br>&lt;/ol>&lt;/div></code></pre>
+		<pre><code><br>.multi-namber ol {<br>  list-style: none;<br>  counter-reset: li;    /* создаем счетчик с именем li для каждого ol */<br>}<br>.multi-namber li:before {<br>  <abbr title="Определяем элемент, который будет нумероваться — li. Псевдоэлемент before указывает, что содержимое, вставляемое при помощи свойства content, будет располагаться перед пунктами списка. Здесь же устанавливается значение приращения счетчика (по умолчанию равно 1).">counter-increment: li;</abbr><br>  <abbr title="counters(li,'.') означает, что генерируемый текст представляет собой значения всех счетчиков с таким именем. Точка в кавычках добавляет разделяющую точку между значениями счетчиков. Tочка с пробелом добавляется перед содержимым каждого пункта списка - li.">content: counters(li,".") ". ";</abbr><br>}</code></pre>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html><html><head><title>&lt;video></title>
+<!DOCTYPE html><html><head><title>&lt;video></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -14,11 +14,14 @@
 <h2 class="sin"><samp>&lt;video></samp></h2>
 <!-- Оглавление -->
 	<ul class="ogl">
+		<li><a href="#codecs">Кодеки и браузеры.</a></li>
 		<li>
 			<a href="#attributs">Атрибуты</a>
 			<div class="ogl2 ogl21">
 				<span><a href="#autoplay" title="Bоспроизведение сразу после загрузки страницы.">autoplay</a></span>
 				<span><a href="#controls" title="Добавляет панель управления к файлу.">controls</a></span>
+				<span><a href="#controlslist" title="указывает какие элементы управления отображать для видеоэлемента, когда указан атрибут controls.">controlslist</a></span>
+				<span><a href="../atributes/crossorigin.html" title="позволяет настроить CORS запросы для ресурсов c другого домена">crossorigin</a></span>
 				<span><a href="#disablePictureInPicture" title="управление функцией «картинка в картинке».">disablePictureInPicture</a></span>
 				<span><a href="#height" title="Задаёт высоту области для воспроизведения видеоролика.">height</a></span>
 				<span><a href="#loop" title="Повторяет воспроизведение с начала после его завершения.">loop</a></span>
@@ -31,50 +34,63 @@
 				<span></span>
 			</div>
 		</li>
-		<li><a href="#pr1">Пример 1.</a></li>
+		<li><a href="#example1">Пример оформления.</a></li>
+		<li><a href="#example2">Установка начала воспроизведения с нужного времени.</a></li>
 	</ul>
 
 
 
 <div class="item">
 	<p>Элемент <samp class="red">&lt;video></samp> Добавляет, воспроизводит и управляет настройками видеоролика на веб-странице. Путь к файлу задаётся через атрибут <samp class="sin"><a href="#src">src</a></samp> или вложенный элемент <samp class="red tdu"><a href="source.html">&lt;source></a></samp>. Список поддерживаемых браузерами аудио и видеокодеков ограничен и приведён в таблице. Для универсального воспроизведения в указанных браузерах видео кодируют с помощью разных кодеков и добавляют файлы одновременно.</p>
-	<p>Также видео можно отображать на странице при помощи тэга <samp><a href="embed.html" class="red tdu">&lt;embed></a></samp>.</p>
-	<pre class="item2 mt10"><code>&lt;video><br>  &lt;source src="адрес"><br>&lt;/video></code></pre>
 
-	<h3 class="sin mt20">Кодеки и браузеры</h3>
-		<style type="text/css">
-			.th5 tbody tr:nth-child(even){background:#f5f5f5}
-			.th5 {margin:5px auto 10px; color:#333;}
-			.th5 td:nth-child(1){padding-left:10px; padding-right:10px}
-			.th5 td:nth-child(n+2){background:#cee2d3; width:70px;}
-			.th5 span::before{content:'\e81b'; padding-right:5px; font-family:fontello; color:#4b846a;}
-			.th5 .no{background:#f2c8c8 !important}
-			.th5 .no span::before{content:'\e81c'; color:#ce3045; padding-right:0;}
-			.th5 .strike span::before{content:''; color:#ce3045; padding:0;}
-			.th5 .strike p{font-family:serif; color:#333; text-align:center;}
-			.th5 .br td{background-color:#FAF3D2 !important}
-			.th5 .br td:nth-child(n+2) span{font-size:24px; margin-left:-10px}
-			.th5 .br td:nth-child(n+2) span::before{content:''}
-		</style>
-		<table class="t1 t0 tb th5 t1c">
-			<tbody>
-				<tr class="br"><td style="text-align:center; color:#333;">Кодек</td><td><span class="t-ie" title="Internet Explorer"></span></td><td><span class="t-edge" title="Edge"></span></td><td><span class="t-chrome" title="Chrome"></span></td><td><span class="t-opera" title="Opera"></span></td><td><span class="t-safari" title="Safari"></span></td><td><span class="t-firefox" title="Firefox"></span></td></tr>
-			</tbody>
-			<tbody>
-				<tr><td colspan="7" class="strike"><p>Аудио кодеки</p></td></tr>
-				<tr><td>ogg/vorbis</td><td class="no"><span></span></td><td><span>17</span></td><td><span>4</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>3.5</span></td></tr>
-				<tr><td>wav</td><td class="no"><span></span></td><td><span>12</span></td><td><span>8</span></td><td><span>11.5</span></td><td><span>4</span></td><td><span>3.5</span></td></tr>
-				<tr><td>mp3</td><td><span>9</span></td><td><span>12</span></td><td><span>4</span></td><td><span>15</span></td><td><span>4</span></td><td><span>22</span></td></tr>
-				<tr><td>AAC</td><td><span>9</span></td><td><span>12</span></td><td><span>12</span></td><td><span>15</span></td><td><span>4</span></td><td style="background: rgb(240,230,90)"><span>22</span></td></tr>
-			</tbody>
-			<tbody>
-				<tr><td colspan="7" class="strike"><p>Видео кодеки</p></td></tr>
-				<tr><td>ogg/theora</td><td class="no"><span></span></td><td><span>17</span></td><td><span>4</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>3.5</span></td></tr>
-				<tr><td>H.264</td><td><span>9</span></td><td><span>12</span></td><td><span>4</span></td><td><span>25</span></td><td><span>3.2</span></td><td><span>21</span></td></tr>
-				<tr><td>WebM</td><td class="no"><span></span></td><td><span>14</span></td><td><span>6</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>4</span></td></tr>
-			</tbody>
-		</table>
-		<div class="no">Firefox поддерживает AAC частично — только в контейнере MP4 и когда операционная система поддерживает этот формат.</div>
+	<pre class="item2 mt20 mb20"><code>&lt;video><br>  &lt;source src="адрес"><br>&lt;/video></code></pre>
+
+	<div>Также видео можно отображать на странице при помощи тэга <samp><a href="embed.html" class="red tdu">&lt;embed></a></samp>.</div>
+</div>
+
+
+
+<div class="item" id="codecs">
+<h3 class="sin">Кодеки и браузеры</h3>
+	<p>Если MP4 содержит видео H.264 (базовый или основной уровень сложности) и аудио AAC, Chrome сможет его воспроизвести. Если MP4 содержит что-то более сложное (например, видео H.265/HEVC и более сложный аудиоформат), у Chrome нет ни единого шанса его воспроизвести.</p>
+
+	<p>Chrome также будет воспроизводить видеофайлы WebM, если они содержат видео VP9 (стандарт Youtube) и аудио Opus.</p>
+
+	<p>Любая другая комбинация видео+аудио+контейнер не сработает, если вы не установите какие-нибудь плагины/дополнения, которые добавят дополнительные функции в ваш браузер.</p>
+
+	<style type="text/css">
+		.th5 tbody tr:nth-child(even){background:#f5f5f5}
+		.th5 {margin:5px auto 10px; color:#333;}
+		.th5 td:nth-child(1){padding-left:10px; padding-right:10px}
+		.th5 td:nth-child(n+2){background:#cee2d3; width:70px;}
+		.th5 span::before{content:'\e81b'; padding-right:5px; font-family:fontello; color:#4b846a;}
+		.th5 .no{background:#f2c8c8 !important}
+		.th5 .no span::before{content:'\e81c'; color:#ce3045; padding-right:0;}
+		.th5 .strike span::before{content:''; color:#ce3045; padding:0;}
+		.th5 .strike p{font-family:serif; color:#333; text-align:center;}
+		.th5 .br td{background-color:#FAF3D2 !important}
+		.th5 .br td:nth-child(n+2) span{font-size:24px; margin-left:-10px}
+		.th5 .br td:nth-child(n+2) span::before{content:''}
+	</style>
+	<table class="t1 t0 tb th5 t1c mt30">
+		<tbody>
+			<tr class="br"><td style="text-align:center; color:#333;">Кодек</td><td><span class="t-ie" title="Internet Explorer"></span></td><td><span class="t-edge" title="Edge"></span></td><td><span class="t-chrome" title="Chrome"></span></td><td><span class="t-opera" title="Opera"></span></td><td><span class="t-safari" title="Safari"></span></td><td><span class="t-firefox" title="Firefox"></span></td></tr>
+		</tbody>
+		<tbody>
+			<tr><td colspan="7" class="strike"><p>Аудио кодеки</p></td></tr>
+			<tr><td>ogg/vorbis</td><td class="no"><span></span></td><td><span>17</span></td><td><span>4</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>3.5</span></td></tr>
+			<tr><td>wav</td><td class="no"><span></span></td><td><span>12</span></td><td><span>8</span></td><td><span>11.5</span></td><td><span>4</span></td><td><span>3.5</span></td></tr>
+			<tr><td>mp3</td><td><span>9</span></td><td><span>12</span></td><td><span>4</span></td><td><span>15</span></td><td><span>4</span></td><td><span>22</span></td></tr>
+			<tr><td>AAC</td><td><span>9</span></td><td><span>12</span></td><td><span>12</span></td><td><span>15</span></td><td><span>4</span></td><td style="background: rgb(240,230,90)"><span>22</span></td></tr>
+		</tbody>
+		<tbody>
+			<tr><td colspan="7" class="strike"><p>Видео кодеки</p></td></tr>
+			<tr><td>ogg/theora</td><td class="no"><span></span></td><td><span>17</span></td><td><span>4</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>3.5</span></td></tr>
+			<tr><td>H.264</td><td><span>9</span></td><td><span>12</span></td><td><span>4</span></td><td><span>25</span></td><td><span>3.2</span></td><td><span>21</span></td></tr>
+			<tr><td>WebM</td><td class="no"><span></span></td><td><span>14</span></td><td><span>6</span></td><td><span>11.5</span></td><td class="no"><span></span></td><td><span>4</span></td></tr>
+		</tbody>
+	</table>
+	<div class="no">Firefox поддерживает AAC частично — только в контейнере MP4 и когда операционная система поддерживает этот формат.</div>
 </div>
 
 
@@ -87,40 +103,74 @@
 			<!-- Атрибут <samp class="sin">autoplay</samp> отменяет действие атрибута <samp class="sin">preload</samp>. -->
 			<pre class="item2"><code>&lt;video autoplay="autoplay"&lt;/video></code></pre>
 			<div class="no">атрибут <samp class="sin">autoplay</samp> не работает без <samp class="sin">muted</samp> в хроме.</div></td></tr>
+
 		<tr><td id="controls"><a href="#">controls</a></td>
 			<td>Указывает браузеру, что нужно отобразить базовые элементы управления воспроизведением (воспроизведение, пауза, громкость).
-			<pre class="item2"><code>&lt;video controls="controls">&lt;/video></code></pre></td></tr>
-		<tr><td id="disablePictureInPicture"><a href="#">disablePictureInPicture</a></td>
+			<pre class="item2 mb10"><code>&lt;video controls>&lt;/video></code></pre>
+			<p>Для отключения стандартных элементов управления нужно удалить атрибут и задать стили в CSS.</p>
+			<div class="item2 ls-1">
+				<pre><code>&lt;video controls="false">&lt;/video></code></pre>
+				<pre><code><br>/* css */<br>video::-webkit-media-controls {<br>  display: none! important;<br>}</code></pre>
+				<pre><code><br>/* указываем для отдельных префиксов */<br>video::-moz-media-controls {}<br>video::-o-media-controls {}<br>video::-ms-media-controls {}<br>video::-webkit-media-controls-fullscreen-button {}<br>video::-moz-media-controls-fullscreen-button {}<br><br>/* отключает отдельные кнопки */<br>video::-webkit-media-controls-play-button {}<br>video::-webkit-media-controls-volume-slider {}<br>video::-webkit-media-controls-mute-button {}<br>video::-webkit-media-controls-timeline {}<br>video::-webkit-media-controls-current-time-display {}</code></pre>
+			</div>
+			<p>Для отключения возможности включать встроенное управление можно задать css свойство <samp class="sin">pointer-events: <samp class="lsin">none</samp></samp>, но при этом клики кнопки мыши не будет работать - видео будет не управляемым и может нарушиться логика JS, если она есть.</p>
+			<div class="no no1">Для предотвращения появления встроенных кнопок управления в полном экране: можно не разварачивать видео на полный экран, а разворачивать контейнер с видео.</div>
+			<div class="no mt20">Удаление <samp class="pur">controls</samp> в разметке HTML5 убивает видео на iPad - можно использовать JS?
+				<pre class="item2 javascript mb10"><code>window.onload = ()=> { //после загрузки<br>  video = document.querySelector('my_selector');<br>  video.removeAttribute('controls');<br>}</code></pre>
+			</div></td></tr>
+
+		<tr><td id="controlslist"><a href="#">controlslist</a></td>
+			<td>Указывает, какие элементы управления отображать для видеоэлемента, когда указан атрибут <samp class="sin">controls</samp>.
+			<pre class="item2 ls-1"><code>&lt;video controls controlslist="<br>  nodownload | nofullscreen | noremoteplayback"><br>&lt;/video></code></pre>
+			<ul class="list l1 mt10 mb10">
+				<li><samp class="lsin">nodownload</samp> - отключить кнопку загрузки</li>
+				<li><samp class="lsin">nofullscreen</samp> - откл. кнопку перехода в полный экран</li>
+				<li><samp class="lsin">noremoteplayback</samp> - <i>нет удаленного воспроизведения</i></li>
+			</ul>
+			<div class="no">данный атрибут не поддерживается в:<br><samp>FF</samp>, <samp>Safari</samp>, <samp>WebView on iOS</samp>.</div>
+		</td></tr>
+
+		<tr><td id="disablePictureInPicture" class="ls-1"><a href="#">disablePictureInPicture</a></td>
 			<td>Свойство указывает, отключена ли функция «картинка в картинке» для текущего элемента.
-			<pre class="item2"><code>&lt;video disablePictureInPicture="true">&lt;/video>
-&lt;video disablePictureInPicture>&lt;/video>
-&lt;video disablePictureInPicture="false">&lt;/video>
-</code></pre></td></tr>
+			<pre class="item2 ls-1"><code>&lt;video disablePictureInPicture="true">&lt;/video><br>&lt;video disablePictureInPicture>&lt;/video><br>&lt;video disablePictureInPicture="false">&lt;/video></code></pre></td></tr>
+
 		<tr><td id="height"><a href="#">height</a></td>
 			<td>Задаёт высоту области для воспроизведения видеоролика, возможные значения: <b>px</b> или <b>%</b>.
 			<pre class="item2"><code>&lt;video height="значение">&lt;/video></code></pre></td></tr>
+
 		<tr><td id="loop"><a href="#">loop</a></td>
 			<td>Повторяет воспроизведение видео с начала после его завершения.
 			<!-- По умолчанию этот атрибут выключен. -->
 			<pre class="item2"><code>&lt;video loop="loop">&lt;/video></code></pre></td></tr>
+
 		<tr><td id="muted"><a href="#">muted</a></td>
 			<td>Отключает звук при воспроизведении видеоролика.
 			<!-- В качестве значения указывается <samp class="lsin">muted</samp>, также допустимо вообще не указывать никакое значение. -->
 			<pre class="item2"><code>&lt;video muted="muted">&lt;/video></code></pre>
 			<div class="no">Некоторые браузеры (Например Chrome 70.0) не могут автоматически проигрываться если <samp class="red">&lt;video></samp> имеет атрибут <samp class="sin">muted</samp>.</div></td></tr>
+
 		<tr><td id="playsinline"><a href="#">playsinline</a></td>
 			<td>Экраны устройств использующих Android или iOS довольно маленькие, поэтому при просмотре video на браузере данных устройств, оно автоматически воспроизводит видео в полноэкранном режиме (Fullscreen). Атрибут <samp class="sin">playsinline</samp> не даёт браузеру воспроизводить видео в полноэкранном режиме.
 			<pre class="item2"><code>&lt;video playsinline>&lt;/video></code></pre></td></tr>
+
 		<tr><td id="poster"><a href="#">poster</a></td>
 			<td>Указывает адрес картинки, которая будет отображаться, пока видео не доступно или не воспроизводится. Если атрибут не задан, то будет отображаться первый кадр видеофайла.
 			<pre class="item2"><code>&lt;video poster="адрес">&lt;/video></code></pre></td></tr>
+
 		<tr><td id="preload"><a href="#">preload</a></td>
 			<td>Атрибут, отвечающий за предварительную загрузку видеоконтента. Не является обязательным, некоторые браузеры игнорируют его. Этот атрибут игнорируется, если установлен атрибут <samp class="sin">autoplay</samp>. Пустое значение атрибута воспринимается как <samp class="lsin">auto</samp>. Значение по умолчанию - <samp class="lsin">none</samp>.
-			<pre class="item2"><code>&lt;video preload="<abbr title="Не загружать предварительную информацию об файле.">none</abbr> | <abbr title="Загрузить только служебную информацию (продолжительность и др.).">metadata</abbr> | <abbr title="Загрузить файл целиком при загрузке страницы.">auto</abbr>">&lt;/video></code></pre></td></tr>
+			<pre class="item2 ls-1"><code>&lt;video preload="none | metadata | auto">&lt;/video></code></pre>
+			<ul class="list l1">
+				<li><samp class="sin">none</samp> - не загружать предварительную информацию об файле</li>
+				<li><samp class="sin">metadata</samp> - загрузить только служебную информацию (продолжительность и др.)</li>
+				<li><samp class="sin">auto</samp> - загрузить файл целиком при загрузке страницы</li>
+			</ul></td></tr>
+
 		<tr><td id="src"><a href="#">src</a></td>
 			<td>Указывает путь к воспроизводимому файлу.
 			<!-- Для этой же цели также можно использовать элемент <samp class="sin tdu"><a href="source.html">&lt;source></a></samp>. -->
 			<pre class="item2"><code>&lt;video src="адрес">&lt;/video></code></pre></td></tr>
+
 		<tr><td id="width"><a href="#">width</a></td>
 			<td>Задаёт ширину области для воспроизведения видеоролика, возможные значения: <b>px</b> или <b>%</b>.
 			<pre class="item2"><code>&lt;video width="значение">&lt;/video></code></pre></td></tr>
@@ -129,35 +179,44 @@
 
 
 
-<div class="item" id="pr1">
-<h3 class="sin"><a href="#">Пример 1.</a></h3>
-	<pre class="item2 ls-05"><code>&lt;video width="400" height="300" controls="controls">
-   &lt;source src="video/jane.ogv" type='video/ogg; codecs="theora, vorbis"'>
-   &lt;source src="video/jane.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-   Элемент video не поддерживается вашим браузером.
-   &lt;a href="video/jane.mp4">Скачайте видео&lt;/a>.
+<div class="item" id="example1">
+<h3 class="sin"><a href="#">Пример оформления.</a></h3>
+	<pre class="item2 ls-05"><code>&lt;video width="400" height="300" controls="controls" poster="video/jane.jpg">
+  &lt;source src="video/jane.ogv" type='video/ogg; codecs="theora, vorbis"'>
+  &lt;source src="video/jane.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+  Элемент video не поддерживается вашим браузером.
+  &lt;a href="video/jane.mp4">Скачайте видео&lt;/a>
 &lt;/video></code></pre>
 </div>
 
 
-<div class="item" id="pr1">
-<h3 class="sin"><a href="#">Пример 2.</a></h3>
-	<i>Подскажите, как задать воспроизведение видео с определенной секунды.</i>
+<div class="item" id="example2">
+<h3 class="sin"><a href="#">Установка начала воспроизведения с нужного времени.</a></h3>
+	<div><i>Подскажите, как задать воспроизведение видео с определенной секунды.</i></div>
+	<div>Установить значению свойства элемента видео - <samp class="pur">currentTime</samp> необходимое значение в секундах.</div>
 	<div class="m0a mt20" style="width:400px; height:300px">
-		<video src="media/jane.mp4" id="player" controls width="400" height="300"></video>
+		<video src="media/jane.mp4" id="player" controls width="400" height="300" crossorigin="anonymous"></video>
 	</div>
 
-	<!-- cкрипт для примера №2 - старт видео с 2-й секунды -->
-  <script>
-    let timeToPlay = 2;
-    let video = document.querySelector('#player');
-    video.onplay = (el) => {
-      el.srcElement.currentTime = timeToPlay;
-      el.srcElement.play();
-    }
-  </script>
+	<!-- cкрипт для примера №2 - старт видео с 24-й секунды -->
+	<script>
+		try {
+			let video = document.querySelector('#player');
+			video.pause();
+			video.currentTime = 0;
+			let timeToPlay = 2;
+			video.onplay = (el) => {
+				el.srcElement.currentTime = timeToPlay;
+				el.srcElement.play();
+				timeToPlay = 0;
+			}
+		} catch(e) {
+			console.log('ошибка работы с видео');
+			console.log(e,'\n=================')
+		}
+	</script>
 
-  <pre class="item2"><code>&lt;video src="путь" id="player" controls width="400" height="300">&lt;/video><br> <br><br>&lt;script><br>  let timeToPlay = 2;<br>  let video = document.querySelector('#player');<br>  video.onplay = (el) => {<br>    el.srcElement.currentTime = timeToPlay;<br>    el.srcElement.play();<br>  }<br>&lt;/script></code></pre>
+	<pre class="item2 ls-1"><code>&lt;video src="путь"<br>   id="player" controls width="400" height="300"<br>   crossorigin="anonymous"><br>&lt;/video><br><br>&lt;script><br>  let timeToPlay = 2;<br>  let video = document.querySelector('#player');<br>  video.onplay = (el) => {<br>    el.srcElement.currentTime = timeToPlay; // текушее время видео<br>    el.srcElement.play();<br>    timeToPlay = 0;<br>  }<br>&lt;/script></code></pre>
 </div>
 
 </body></html>

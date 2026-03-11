@@ -1,0 +1,236 @@
+<!DOCTYPE html><html><head><title>Атрибут name элеметна &lt;meta></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">name</samp> элемента <samp class="teg">meta</samp></h3>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">name</samp> Устанавливает название/имя метаданных документа. Атрибуты <samp class="sin">name</samp> и <samp class="sin">content</samp> могут использоваться вместе для предоставления метаданных документа в виде пар «имя-значение», при этом атрибут <samp class="sin">name</samp> задает имя метаданных, а атрибут <samp class="sin">content</samp> задает значение.</p>
+
+	<div class="no tal">Одновременно использовать атрибуты <samp class="lsin">name</samp> и <samp class="lsin dib">http-equiv</samp> в одном тэге <samp class="teg">meta</samp> не допускается.</div>
+
+	<pre class="item2 mt20 mb10"><code>&lt;meta name="property" content="myValues"></code></pre>
+
+	<div>Стандартные имена метаданных (часть):</div>
+	<table class="t1 t3 tb">
+		<tr><td class="ls-05">application-name</td><td>
+			имя приложения, запущенного на веб-странице. Браузеры могут использовать это для идентификации приложения. Он отличается от элемента <samp class="teg">title</samp>, который обычно содержит имя приложения, но может также содержать информацию, например имя документа или статус.
+			<div class="no ls-05 mt10">Отдельные веб-страницы не должны определять этот атрибут.</div>
+		</td></tr>
+		<tr><td>author</td><td>
+			Имя автора документа. Значение должно быть строкой произвольной формы с указанием имени одного из авторов страницы.
+		</td></tr>
+		<tr><td>description</td><td>
+			Описание текущего документа. Значение должно быть строкой произвольной формы, описывающей страницу. Значение должно быть подходящим для использования в каталоге страниц, например, в поисковой системе.
+		</td></tr>
+		<tr><td>generator</td><td>
+			<p>Значение должно быть строкой произвольной формы, которая идентифицирует один из пакетов программного обеспечения, использованных для создания документа. Это значение не должно использоваться на страницах, разметка которых не создается программным обеспечением, например на страницах, разметка которых была написана пользователем в текстовом редакторе.</p>
+			<pre class="item2"><code>&lt;meta name="generator" content="WordPress 5.2" /></code></pre>
+		</td></tr>
+		<tr><td>keywords</td><td>
+			<p>Список ключевых слов, встречающихся на странице. Значение должно быть набором разделенных запятыми ключевых слов, относящихся к странице. Многие поисковые системы не рассматривают такие ключевые слова, потому что эта функция исторически использовалась ненадежно и спамила результаты поиска.</p>
+			<pre class="item2"><code>&lt;meta name="keywords" content="слова,для,поисковых,систем" /></code></pre>
+		</td></tr>
+		<tr><td>viewport</td><td>
+			Дает подсказки о размере начального размера области просмотра. Управляет просмотром сайта на мобильных устройствах; <a href="../help/meta.html#view" class="sin tdu">пример</a>.
+			<pre class="item2 ls-1 mb10"><code>&lt;meta name="viewport" content="width=device-width"></code></pre>
+			<a href="#viewport-content" class="sin tdu">значения</a> атрибута <samp class="sin">content</samp> для <samp class="teg">meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp></samp>
+		</td></tr>
+		<tr><td>referrer</td><td>
+			Kонтролирует содержимое HTTP. Referer HTTP - заголовок, прикреплённый к любому запросу, отправленному из этого документа. Позволяет отслеживать перемещения пользователей между страницами; <a href="../help/meta.html#referrer" class="sin tdu">пример</a>.
+		</td></tr>
+		<tr><td>theme-color</td><td>
+			Указывает предлагаемый цвет, который пользовательские агенты должны использовать для настройки отображения страницы или окружающего пользовательского интерфейса. Атрибут <samp class="sin">content</samp> содержит допустимый цвет CSS. Атрибут <samp class="sin">media</samp> с допустимым списком запросов media может быть включен для установки носителя, к которому применяются метаданные цвета темы.
+			<pre class="item2"><code>&lt;meta name="theme-color" content="#50a2de"<br>      media="(prefers-color-scheme: light)"><br>&lt;meta name="theme-color" content="#1f2d3b"<br>      media="(prefers-color-scheme: dark)"></code></pre>
+			<table class="support mt10 mb0">
+				<tr>
+					<td><span class="t-ie" title="Internet Explorer"></span></td>
+					<td><span class="t-edge" title="Edge"></span></td>
+					<td><span class="t-chrome" title="Chrome"></span></td>
+					<td><span class="t-opera" title="Opera"></span></td>
+					<td><span class="t-safari" title="Safari"></span></td>
+					<td><span class="t-firefox" title="Firefox"></span></td>
+					<td><span class="t-android" title="mobile-android"></span></td>
+					<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+					<td><span class="t-opera" title="mobile-Opera"></span></td>
+					<td><span class="t-safari" title="mobile-Safari"></span></td>
+				</tr>
+				<tr>
+					<td class="n"><span title="IE"></span></td>
+					<td class="n"><span title="Edge"></span></td>
+					<td class="part"><span title="Chrome">73</span></td>
+					<td class="n"><span title="Opera"></span></td>
+					<td><span         title="Safari">15</span></td>
+					<td class="n"><span title="Firefox"></span></td>
+					<td><span title="mobile-android">76</span></td>
+					<td class="n"><span title="mobile-Firefox"></span></td>
+					<td class="n"><span title="mobile-opera"></span></td>
+					<td><span title="mobile-safary">15</span></td>
+				</tr>
+			</table>
+		</td></tr>
+		<tr><td>color-scheme</td><td>
+			<p>Указывает одну или несколько цветовых схем, с которыми совместим документ. Браузер будет использовать эту информацию совместно с настройками браузера или устройства пользователя, чтобы определить, какие цвета использовать для всего: от фона и переднего плана до элементов управления формами и полос прокрутки. Основное применение — указать совместимость со светлыми и темными цветовыми режимами и порядок их предпочтения.</p>
+			Значение свойства <samp class="sin">content</samp> для <samp class="sin">color-scheme</samp> может быть одним из следующих:
+			<ul class="list">
+				<li><samp class="sin">normal</samp> - Документ не поддерживает цветовые схемы и должен отображаться с использованием цветовой палитры по умолчанию.</li>
+				<li><samp class="sin">light, dark, light dark, dark light</samp> - Одна или несколько цветовых схем, поддерживаемых документом. Указание одной и той же цветовой схемы более одного раза имеет тот же эффект, что и указание ее только один раз. Указание нескольких цветовых схем означает, что первая схема предпочтительна для документа, но что вторая указанная схема приемлема, если пользователь предпочитает ее.</li>
+				<li><samp class="sin">only light</samp> - Указывает, что документ поддерживает только светлый режим со светлым фоном и темными цветами переднего плана. Согласно спецификации, только темный режим недопустим, поскольку принудительное отображение документа в темном режиме, когда он на самом деле с ним несовместим, может привести к нечитаемому контенту; все основные браузеры по умолчанию используют светлый режим, если не настроено иное.</li>
+			</ul>
+			<pre class="item2 ls-1"><code>&lt;meta name="color-scheme" content="dark light" /></code></pre>
+		</td></tr>
+		<tr><td>url</td><td>
+			<p>Прекращает индексацию страницы поисковой системой, и перенаправляет робота поисковой машины по указанной ссылке. Применяется для отмены индексации «зеркала» и генерируемых страниц.</p>
+			<pre class="item2"><code>&lt;meta name="url" content="http://ru.wikipedia.org/" /></code></pre>
+		</td></tr>
+		<tr><td colspan="2"><h2 class="mb0">Нестандартные значения атрибута</h2></td></tr>
+		<tr><td class="ls-05">application-title</td><td>
+			Используется для настройки заголовка приложения для веб-приложений, установленных как отдельные приложения на поддерживающих настольных операционных системах. Хотя текстовое содержимое элемента <samp class="teg">title</samp> обычно отображается во вкладках браузера, когда приложение запущено в браузере, имя метаданных <samp class="sin dib">application-title</samp> может использоваться для установки другого заголовка для приложения, когда оно запущено как отдельное установленное приложение.
+			<div class="no mt10">Слабая поддержка даже современными браузерами.</div>
+		</td></tr>
+		<tr><td>creator</td><td>
+			определят в свободном формате имя создателя документа. Это также может быть имя института. Если же имён больше чем одно, то должны быть использованы несколько элементов <samp class="teg">meta</samp>.
+		</td></tr>
+		<tr><td>googlebot</td><td>
+			синоним <samp class="sin">robots</samp>, но только следует за Googlebot, сканирует индексы для Google.
+		</td></tr>
+		<tr><td>publisher</td><td>
+			определяет в свободном формате имя того, кто опубликовал документ. Это также может быть имя института.
+		</td></tr>
+		<tr><td>robots</td><td>
+			<p>Значения атрибута, предназначенных для поисковых систем; <a href="../help/meta.html#robots" class="sin tdu">пример</a>.</p>
+			<a href="#robots-content" class="sin tdu">значения</a> атрибута <samp class="sin">content</samp> для <samp class="teg">meta <samp class="sin">name="<samp class="lsin">robots</samp>"</samp></samp>
+		</td></tr>
+	</table>
+</div>
+
+
+<div class="item" id="viewport-content">
+<h3 class="sin"><a href="#" title="наверх">Значения <samp class="lsin">content</samp> для <samp class="teg">meta <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp></samp></a></h3>
+	<style>
+		#tz tr td:nth-child(1){font-weight:400; letter-spacing:-1px; width:121px}
+		#tz tr td:nth-child(2){text-align:left;}
+	</style>
+	<table class="t1 t3 tb" id="tz">
+		<tr>
+			<td>width</td>
+			<td><samp class="lsin ls-1">device-width</samp> или целое положительное число</td>
+			<td>
+				<p>Устанавливает ширину области просмотра в пикселях.</p>
+				<samp class="lsin">device-width</samp> соответствует <samp class="sin tdu"><a href="../help/unit css.html#vw">100vw</a></samp>
+				<pre class="item2"><code>&lt;meta name="viewport" <br>      content="width=device-width"></code></pre>
+		</td></tr>
+		<tr>
+			<td>height</td>
+			<td><samp class="lsin ls-1">device-height</samp> или целое положительное число</td>
+			<td>
+				<p>Устанавливает высоту области просмотра в пикселях.</p>
+				<samp class="lsin">device-height</samp> соответствует <samp class="sin tdu"><a href="../help/unit css.html#vh">100vh</a></samp>
+		</td></tr>
+		<tr>
+			<td>initial-scale</td>
+			<td>Число от 0.0 до 10.0</td>
+			<td>
+				Устанавливает соотношение между шириной устройства (<samp class="lsin">device-width</samp> в портретном режиме или <samp class="lsin">device-height</samp> в ландшафтном режиме) и размером области просмотра.
+				<pre class="item2"><code>&lt;meta name="viewport" <br>      content="initial-scale=1"></code></pre>
+		</td></tr>
+		<tr>
+			<td>maximum-scale</td>
+			<td>Число от 0.0 до 10.0</td>
+			<td>
+				Задаёт максимальное значение масштаба. Должно быть больше или равно <samp class="sin">minimum-scale</samp>, в противном случае игнорируется.
+		</td></tr>
+		<tr>
+			<td>minimum-scale</td>
+			<td>Число от 0.0 до 10.0</td>
+			<td>
+				Задаёт минимальное значение масштаба. Должно быть меньше или равно <samp class="sin">maximum-scale</samp>, в противном случае игнорируется.
+		</td></tr>
+		<tr>
+			<td>user-scalable</td>
+			<td><samp class="lsin">yes</samp> или <samp class="lsin">no</samp></td>
+			<td>
+				Если указано <samp class="lsin">no</samp>, то пользователь не сможет масштабировать веб-страницу.
+				<br>По умолчанию используется <samp class="lsin">yes</samp>.
+		</td></tr>
+		<tr>
+			<td>viewport-fit</td>
+			<td><samp class="lsin">auto</samp>, <samp class="lsin">contain</samp> или <samp class="lsin">cover</samp></td>
+			<td>
+				<ul class="list">
+					<li><samp class="sin">auto</samp> не влияет на начальный макет области просмотра, и вся веб-страница видна.</li>
+					<li><samp class="sin">contain</samp> означает, что область просмотра масштабируется для заполнения самого большого прямоугольника, вписанного в дисплей.</li>
+					<li><samp class="sin">cover</samp> означает, что область просмотра масштабируется для заполнения дисплея устройства. Настоятельно рекомендуется использовать переменные вставки безопасной области, чтобы гарантировать, что важный контент не окажется за пределами дисплея.</li>
+				</ul>
+		</td></tr>
+	</table>
+
+	<div><i>Некоторые значения атрибута <samp class="sin">content</samp> для <samp class="sin">name="<samp class="lsin">viewport</samp>"</samp>, предназначенных для управления просмотром сайта на мобильных устройствах. Подробнее <a href="../help/meta.html#view" class="sin tdu">тут</a>.</i></div>
+
+	<div class="no">Отключение возможностей масштабирования путем установки пользовательского масштабирования на значение no не позволяет людям с плохим зрением читать и понимать содержимое страницы.</div>
+
+</div>
+
+
+<div class="item" id="robots-content">
+<h3 class="sin"><a href="#" title="наверх">Значения <samp class="lsin">content</samp> для <samp class="teg">meta <samp class="sin">name="<samp class="lsin">robots</samp>"</samp></samp></a></h3>
+	<table class="t1 t3 tb">
+		<tr><td>index</td><td>
+			Разрешает роботу индексировать данную страницу.
+			<pre class="item2"><code>&lt;meta name="robots" content="index,follow" /><br>&lt;meta name="robots" content="all" /></code></pre>
+		</td></tr>
+		<tr><td>noindex</td><td>
+			Запрещает роботу индексировать текущую страницу. Она не попадает в базу поисковика и её невозможно будет найти через поисковую систему.
+			<pre class="item2"><code>&lt;meta name="robots" content="noindex" /></code></pre>
+		</td></tr>
+		<tr><td>follow</td><td>
+			Разрешает роботу переходить по ссылкам на данной странице.
+			<pre class="item2"><code>&lt;meta name="robots" content="follow" /></code></pre>
+		</td></tr>
+		<tr><td>nofollow</td><td>
+			Запрещает роботу переходить по ссылкам на данной странице. При этом всем ссылкам не передаётся ТИЦ (тематический индекс цитирования) и PageRank.
+			<pre class="item2"><code>&lt;meta name="robots" content="nofollow" /></code></pre>
+		</td></tr>
+		<tr><td>all</td><td>
+			эквивалентно значению <samp class="sin">index, follow</samp>, используется только в Google.
+		</td></tr>
+		<tr><td>none</td><td>
+			эквивалентно значению <samp class="sin">noindex, nofollow</samp>, используется только в Google.
+		</td></tr>
+		<tr><td>noarchive</td><td>
+			Запрещает роботу кэшировать данную страницу.
+			<pre class="item2"><code>&lt;meta name="robots" content="noarchive" /></code></pre>
+			используется в Google, Yahoo, Bing.
+		</td></tr>
+		<tr><td>nocache</td><td>
+			Синоним noarchive, используется Bing.
+		</td></tr>
+		<tr><td>nocache</td><td>
+			Запрещает отображение любого описания страницы на странице результатов поиска; используется Google, Bing.
+		</td></tr>
+		<tr><td>noimageindex</td><td>
+			Запрещает отображение этой страницы в качестве ссылающейся страницы индексированного изображения; используется Google.
+		</td></tr>
+	</table>
+
+	<ul class="list mt20 mb30">
+		<li>Эти правила соблюдают только кооперативные роботы. Не ожидайте, что они предотвратят сборщиков электронной почты.</li>
+		<li>Роботу все равно нужно получить доступ к странице, чтобы прочитать эти правила. Чтобы предотвратить потребление полосы пропускания, подумайте, не лучше ли использовать файл robots.txt.</li>
+		<li>Элемент <samp class="teg">meta <samp class="sin">name="<samp class="lsin">robots</samp>"</samp></samp> и файл robots.txt служат разным целям: robots.txt управляет сканированием страниц и не влияет на индексацию или другое поведение, контролируемое метаданными robots. Страница, которую невозможно просканировать, все равно может быть проиндексирована, если на нее ссылается другой документ.</li>
+		<li>Если вы хотите удалить страницу, noindex сработает, но только после того, как робот снова посетит страницу. Убедитесь, что файл robots.txt не предотвращает повторные посещения.</li>
+		<li>Некоторые значения являются взаимоисключающими, например index и noindex или follow и nofollow. В этих случаях поведение робота не определено и может различаться между ними. Некоторые поисковые роботы, такие как Google, Yahoo и Bing, поддерживают те же значения для HTTP-заголовка X-Robots-Tag; это позволяет использовать эти правила в документах, отличных от HTML, например, в изображениях.</li>
+	</ul>
+
+	<div><i>Некоторые значения атрибута <samp class="sin">content</samp> для <samp class="sin">name="<samp class="lsin">robots</samp>"</samp>, предназначенных для поисковых роботов. Подробнее <a href="../help/meta.html#robots" class="sin tdu">тут</a>.</i></div>
+
+</div>
+</body></html>

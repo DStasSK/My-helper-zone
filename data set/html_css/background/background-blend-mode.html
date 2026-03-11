@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>background-blend-mode</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -13,8 +13,6 @@
 <h2 class="sin">background-blend-mode</h2>
 <!-- оглавление -->
 	<ul class="ogl">
-		<!-- <li><a href="#z1">Синтаксис.</a></li> -->
-		<!-- <li><a href="#z2">Значения.</a></li> -->
 		<li><a href="#z3">Песочница.</a></li>
 		<li><a href="#z4">Пример.</a></li>
 	</ul>
@@ -23,14 +21,17 @@
 <div class="item">
 	<p>Определяет режим наложения фонового изображения на фоновый цвет или другие фоновые изображения. Допустимо указывать несколько значений через запятую, при этом они будут применяться к фоновым изображениям, перечисленных в <samp class="sin">background-image</samp>, в том же порядке. Значение по умолчанию <samp class="lsin">normal</samp>, применяется ко всем элементам, не анимируется. Значения и эффекты примерно совпадают с параметром <a href="../mix-blend-mode.html"><span class="sin tdu dib">mix-blend-mode</span></a> для текста.</p>
 
-	<p class="no">Safari до версии 10 и iOS Safari до версии 10.3 не поддерживают значения <samp class="lsin">hue, saturation, color и luminosity</samp>.</p>
+	<div class="no no1">Для экранирования какого-либо блока от действия данного фильтра можно применять свойство <a href="../isolation.html"><samp class="sin tdu">isolation</samp></a>.</div>
 
-	<pre class="item2 mb20 mt40"><code>.elem{<br>  background-blend-mode: normal | multiply | screen | overlay |<br>                 darken | lighten | color-dodge | color-burn |<br>                 hard-light | soft-light | difference | exclusion |<br>                 hue | saturation | color | luminosity<br>}</code></pre>
+	<!-- <p class="no">Safari до версии 10 и iOS Safari до версии 10.3 не поддерживают значения <samp class="lsin">hue, saturation, color и luminosity</samp>.</p> -->
+
+	<pre class="item2 mb10 mt20"><code>.elem{<br>  background-blend-mode: normal | multiply | screen | overlay |<br>                 darken | lighten | color-dodge | color-burn |<br>                 hard-light | soft-light | difference | exclusion |<br>                 hue | saturation | color | luminosity<br>}</code></pre>
 
 
 
 	<style>
-		.tt1 table{width:100%; min-width:600px; border-collapse:collapse; background:#fff}
+		.tt1 {overflow:auto;}
+		.tt1 table{width:100%; border-collapse:collapse; background:#fff}
 		.tt1 td{border:1px solid #555; padding:7px 5px;}
 		.tt1 tr:nth-child(odd){background:#eee;}
 		.tt1 tr td:nth-child(1){text-align:center; width:110px; vertical-align:top; font-family:monospace; color:#00008B;}
@@ -179,6 +180,8 @@
 			.pec #bg5:checked ~ .dbg2{background:#00f url(../txt/img/aquaria.jpg); background-size:100% 100%;}
 			.pec #bg6:checked ~ .dbg2{background:#000 url(../txt/img/aquaria.jpg); background-size:100% 100%;}
 		</style>
+
+		<div style="overflow:auto">
 		<b style="letter-spacing:2px;" id="z3"><a href="#">песочница:</a></b>
 		<div class="pec anp" style="overflow:hidden">
 			<input type="radio" name="bg" id="bg1" class="bg0"><label for="bg1" class="bgg g1"></label>
@@ -220,21 +223,28 @@
 				<p>Аквариум</p>
 				<p>Аквариум</p>
 			</div>
+		</div><!-- .pec -->
 		</div>
   <!-- /Песочница. -->
 </div>
+
 
 
 <div class="item">
 <h3 class="sin" id="z4"><a href="#">Пример.</a></h3>
 	<p>В данном примере фоновое изображение плюс вертикальный линейный градиент от голубого до белого цвета. В результате смешивания фонового изображения и градиента получается однотонное изображение, которое постепенно становится чёрно-белым.</p>
 	<style>
-		.pr1{width:100%; height:300px; margin-bottom:10px;
+		.example_1 {
+			width:100%; height:300px;
 			background:url(../txt/img/aquaria.jpg) center / cover no-repeat, linear-gradient(#00A8DE, #FFF);
-			background-blend-mode: luminosity;}
+			background-blend-mode: luminosity;
+		}
 	</style>
-	<div class="pr1"></div>
-	<pre class="item2"><code>&lt;style><br>  .pr1{width:100%; height:300px; margin-bottom:10px;<br>    background-blend-mode: luminosity;<br>    background:url(../txt/img/aquaria.jpg) center / cover no-repeat,<br>      linear-gradient(#00A8DE, #FFF);<br>  }<br>&lt;/style><br><br>&lt;div class="pr1">&lt;/div></code></pre>
+	<div class="example_1 mb10"></div>
+	<div class="item2">
+		<pre><code>&lt;div class="example_1">&lt;/div></code></pre>
+		<pre><code><br>.example_1 {<br>  width:100%; height:300px;<br>  background-blend-mode: luminosity;<br>  background: url(img/aquaria.jpg) center / cover no-repeat,<br>              linear-gradient(#00A8DE, #FFF);<br>}</code></pre>
+	</div>
 </div>
 
 </body>

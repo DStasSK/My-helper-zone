@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><title>Функция - attr()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>attr()</samp></h2>
+
+<div class="item">
+	<p>С помощью CSS функции <samp class="red">attr()</samp> можно извлекать значение атрибута выбранного элемента и использовать это значение в таблице стилей. Функция работает и с псевдо-элементами. В этом случае возвращается значение атрибута элемента, для которого формируется псевдо-элемент.</p>
+
+	<div class="no no1">Функцию <samp class="red">attr()</samp> можно использовать с любым свойством CSS, но поддержка иных свойств, кроме <samp class="sin">content</samp>, является экспериментальной.</div>
+
+	<div class="item2 mt20 mb10">
+		<pre class="red">attr(<span class="lsin"><атрибут> <тип>? [, <значение>]?</span>);</pre>
+	</div>
+
+	<table class="t1">
+		<tr><td width="80px"><атрибут></td><td>Имя атрибута элемента передаваемое в CSS.</td></tr>
+		<tr><td><тип></td><td>Тип значения свойства CSS. Допустимы следующие ключевые слова: string (строки), color (цвет), url (веб-адрес), integer (целое число), number (вещественное число), angle (угол), time (время), deg (градус), а также единицы CSS вроде em, px и др.</td></tr>
+		<tr><td><значение></td><td>Значение, которое будет использоваться в том случае, если атрибута нет или браузер не может его получить.</td></tr>
+	</table>
+
+	<div class="item2 mt20 mb20">
+		<pre><code>&lt;div data-text="hello">world&lt;/div></code></pre>
+		<pre><code><br>div::before {<br>  content: attr(data-text) " ";<br>  color: #00f;<br>}<br><br></code></pre>
+		<style>.example1::before {content:attr(data-text) " "; color:#00f;}</style>
+		<div data-text="hello" class="example1">world</div>
+	</div>
+
+	<p>Между версиями CSS есть небольшая разница по прочтению некоторых особенностей <samp class="sin">attr()</samp>. В CSS2.1 функция <samp class="sin">attr()</samp> может использоваться только совместно со свойством content и всегда возвращает строку в качестве значения. В CSS3 <samp class="sin">attr()</samp> допустимо применять с любым свойством и возвращаемое значение может быть в любом корректном для CSS3 формате.</p>
+
+	<style>
+		.example2 {display:inline-block; position:relative; color:red; padding:0 10px 10px 0; font-weight:700; font-size:22px;}
+		.example2[data-tooltip]::after {position:absolute; left:80%; top:0; pointer-events:none;
+			display:block; background: #3989c9; color:#fff; opacity:0; transition:1s; width:255px;
+			content: attr(data-tooltip);} /* Выводим текст */
+		.example2[data-tooltip]:hover::after {opacity:1; left:120%;}
+	</style>
+	<div class="item2 mt20">
+		<div data-tooltip="Всплывающая подсказка" class="example2">текст</div>
+		<pre><code>&lt;style><br>  .text {display:inline-block; position:relative;}<br>  .text[data-tooltip]::after {<br>    position:absolute; left:80%; top:0;<br>    pointer-events:none;<br>    opacity:0; transition:1s;<br>    content: attr(data-tooltip);            /* Выводим текст */<br>}<br>  .text[data-tooltip]:hover::after {opacity:1; left:120%;}<br>&lt;/style><br><br>&lt;div data-tooltip="Всплывающая подсказка" class="text">текст&lt;/div></code></pre>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML><html><head><title>&lt;canvas></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -9,8 +9,8 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style type="text/css">
-	.tt1 {min-width:500px; border-collapse:collapse;}
-	.tt1 td{vertical-align:top; padding:5px;}
+	.tt1 {min-width:500px; border-collapse:collapse; width: 100%}
+	.tt1 td{vertical-align:top; padding:5px 0;}
 </style></head>
 <body>
 
@@ -25,16 +25,16 @@
 <h3 class="sin">Пример</h3>
 	<table class="tt1"><tbody>
 		<tr><td>
-			<pre><code>&lt;canvas id="smile" width="200" height="200"><br>  &lt;p>Ваш браузер не поддерживает рисование.&lt;/p><br>&lt;/canvas>
+			<pre class="item2 ls-1"><code>&lt;canvas id="smile" width="200" height="200"><br>  &lt;p>Ваш браузер не поддерживает рисование.&lt;/p><br>&lt;/canvas>
 				<br>&lt;script><br>  var drawingCanvas = document.getElementById('smile');<br>  if(drawingCanvas && drawingCanvas.getContext) {<br>    var context = drawingCanvas.getContext('2d');
 				<br>    // Рисуем окружность<br>    context.strokeStyle = "#000";<br>    context.fillStyle = "#fc0";<br>    context.beginPath();<br>    context.arc(100,100,50,0,Math.PI*2,true);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();
 				<br>    // Рисуем левый глаз<br>    context.fillStyle = "#fff";<br>    context.beginPath();<br>    context.arc(84,90,8,0,Math.PI*2,true);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();
 				<br>    // Рисуем правый глаз<br>    context.beginPath();<br>    context.arc(116,90,8,0,Math.PI*2,true);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();
 				<br>    // Рисуем рот<br>    context.beginPath();<br>    context.moveTo(70,115);<br>    context.quadraticCurveTo(100,130,130,115);<br>    context.quadraticCurveTo(100,150,70,115);<br>    context.closePath();<br>    context.stroke();<br>    context.fill();<br>  }<br>&lt;/script></code></pre></td>
-			<td><canvas id="smile" width="200" height="200">
+			<td><canvas id="smile" width="150" height="200">
 					<p>Ваш браузер не поддерживает рисование.</p>
 				</canvas>
-				<script> 
+				<script>
 					var drawingCanvas = document.getElementById('smile');
 					if(drawingCanvas && drawingCanvas.getContext) {
 						var context = drawingCanvas.getContext('2d');

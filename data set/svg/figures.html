@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>Основные фигуры SVG</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -9,34 +9,37 @@
 <script>hljs.initHighlightingOnLoad();</script>
 
 <style>
-	.fr{float: right}
-	.d-team{
+	.fr {float: right}
+	.bw {background-color: white;}
+	.d-team {
 		font-size:22px; letter-spacing:1px; line-height:32px;
 		text-align:left; color:#009; font-family:monospace;
 		border-bottom:2px solid; display:inline-block;
 		/* margin-left:30px; */
 	}
-	.a a{transition:all .1s}
-	.a a:hover{background:#eee; transition:all .1s}
+	.a a {transition: all .1s}
+	.a a:hover {background:#eee; transition:all .1s}
 
 
 	/* оформление svg в разделе <path d="..."> */
-	.svgExample{right:20px; top:20px; background-color:#fff; border:1px solid; overflow:visible}
-	.svg-path{fill:none; stroke:blue; stroke-width:1}
-	.svgExample text{stroke:#000; font-size:10px; font-family:sans-serif; font-weight:300}
+	.svgExample {right:20px; top:20px; background-color:rgba(255,255,255,.8); border:1px solid; overflow:visible; letter-spacing:0}
+	.svg-path {fill:none; stroke:blue; stroke-width:1}
+	.svgExample text {stroke:#000; font-size:10px; font-family:sans-serif;}
 	/* оформление <span class="h"> внутри <pre class = "pre-svg"><code>  */
-	.pre-svg .h{cursor:pointer}
-	.pre-svg .h:hover{background-color:yellow}
+	.pre-svg .h {cursor:pointer}
+	.pre-svg .h:hover {background-color:yellow}
 
 	/* оформление примера секции простых линий в разделе <path d="..."> */
 	.d1:hover ~svg .sd1,.d2:hover ~svg .sd2,.d3:hover ~svg .sd3,
 	.d4:hover ~svg .sd4
 	{stroke:red; stroke-width:2}
+
 	.c1:hover ~svg .sc1,.c2:hover ~svg .sc2,.c3:hover ~svg .sc3,
 	.c4:hover ~svg .sc4,.c5:hover ~svg .sc5,.c6:hover ~svg .sc6,
 	.c7:hover ~svg .sc7,.c8:hover ~svg .sc8,
 	.c9:hover ~svg .sc9,.c10:hover ~svg .sc10
 	{stroke:red; stroke-width:2}
+
 	.t1:hover ~svg .st1,.t2:hover ~svg .st2,.t3:hover ~svg .st3,
 	.t4:hover ~svg .st4,.t5:hover ~svg .st5,.t6:hover ~svg .st6,
 	.t7:hover ~svg .st7,.t8:hover ~svg .st8,
@@ -60,6 +63,14 @@
 	.ac3:hover ~svg .af3,.ac4:hover ~svg .af4,.ac5:hover ~svg .af5
 	{stroke:red; stroke-width:2}
 </style>
+<style>
+	/* Оформление для темной темы браузера */
+	:root {color-scheme: light dark;}
+		@media (prefers-color-scheme: dark) {
+			.a a:hover {background:#eee; transition:all .1s; color:#555}
+			.d-team {color: #7bf}
+	}
+</style>
 
 </head>
 <body>
@@ -73,15 +84,19 @@
 			<li><a href="#polyline">Ломаная линия - <samp class="teg sin">polyline</samp></a></li>
 			<li><a href="#polygon">Многоугольник - <samp class="teg sin">polygon</samp></a></li>
 			<li><a href="#path">Путь - <samp class="teg sin">path</samp></a></li>
+			<li><a href="#path_d">Команды атрибута <samp class="red">d</samp> элемента <samp class="teg sin">path</samp></a></li>
 		</ul><!-- /оглавление -->
 
 
-	<pre class="item2 pr"><code>&lt;svg width="200" height="140"<br>     xmlns="http://www.w3.org/2000/svg"><br><br>  &lt;rect width="100%" height="100%" fill="#3333fe" /><br><br>  &lt;circle cx="100" cy="70" r="50" fill="green" /><br><br>  &lt;text x="100" y="82" font-size="40"<br>        text-anchor="middle" fill="white">SVG&lt;/text><br>&lt;/svg></code><svg width="200" height="140" xmlns="http://www.w3.org/2000/svg"
-		class="pa" style="right:20px; top:20px">
-		<rect width="100%" height="100%" fill="#3333fe" />
-		<circle cx="100" cy="70" r="50" fill="green" />
-		<text x="100" y="82" font-size="40" text-anchor="middle" fill="white">SVG</text>
-	</svg></pre>
+	<div class="item2 pr">
+		<pre><code>&lt;svg width="200" height="140"<br>     xmlns="http://www.w3.org/2000/svg"><br><br>  &lt;rect width="100%" height="100%" fill="#3333fe" /><br><br>  &lt;circle cx="100" cy="70" r="50" fill="green" /><br><br>  &lt;text x="100" y="82" font-size="40"<br>        text-anchor="middle" fill="white">SVG&lt;/text><br>&lt;/svg></code></pre>
+		<svg width="200" height="140" xmlns="http://www.w3.org/2000/svg"
+			class="pa" style="right:20px; top:20px">
+			<rect width="100%" height="100%" fill="#3333fe" />
+			<circle cx="100" cy="70" r="50" fill="green" />
+			<text x="100" y="82" font-size="40" text-anchor="middle" fill="white">SVG</text>
+		</svg>
+	</div>
 
 
 
@@ -89,20 +104,20 @@
 <h3 class="sin"><a href="#">Прямоугольник</a></h3>
 	<p>Элемент <samp class="teg sin">rect</samp> рисует прямоугольник на экране. Существуют только 6 основных атрибутов, которые контролируют положение и форму прямоугольника на экране.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="160" style="border:1px solid;"><br>   &lt;rect width="50" height="50">&lt;/rect><br>   &lt;rect x="60" y="-10" rx="15" ry="15" width="50" height="50" /><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="180" height="150"><br>   &lt;rect width="50" height="50">&lt;/rect><br>   &lt;rect x="60" y="10" rx="15" ry="15" width="50" height="50" /><br>&lt;/svg></code></pre>
 
 	<div class="cf">
-		<svg class="fr" style="border:1px solid; top:10px; right:0" width="200" height="160">
+		<svg class="fr bw" style="border:1px solid; top:10px; right:0; margin:0 0 5px 10px" width="180" height="150">
 			<rect width="50" height="50"></rect>
-			<rect x="60" y="-10" rx="15" ry="15" width="50" height="50" />
+			<rect x="60" y="10" rx="15" ry="15" width="50" height="50" />
 		</svg>
-		<ul class="list">
-			<li><samp class="lsin">x</samp> - положение x верхнего левого угла прямоугольника.</li>
-			<li><samp class="lsin">y</samp> - положение y верхнего левого угла прямоугольника.</li>
+		<ul class="list tal">
+			<li><samp class="lsin">x</samp> - положение по оси x верхнего левого угла прямоугольника.</li>
+			<li><samp class="lsin">y</samp> - положение по оси y верхнего левого угла прямоугольника.</li>
 			<li><samp class="lsin">width</samp> - ширина прямоугольника.</li>
 			<li><samp class="lsin">height</samp> - высота прямоугольника.</li>
-			<li><samp class="lsin">rx</samp> - радиус x углов прямоугольника; если не указан - то 0.</li>
-			<li><samp class="lsin">ry</samp> - радиус y углов прямоугольника; если не указан - то 0.</li>
+			<li><samp class="lsin">rx</samp> - радиус по оси x углов прямоугольника; если не указан - то 0.</li>
+			<li><samp class="lsin">ry</samp> - радиус по оси y углов прямоугольника; если не указан - то 0.</li>
 		</ul>
 	</div>
 
@@ -114,17 +129,17 @@
 <h3 class="sin"><a href="#">Окружность</a></h3>
 	<p>Элемент <samp class="teg sin">circle</samp> рисует окружность на экране. Существует 3 щсновных атрибута для описания этого элемента.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;circle r="20"/><br>   &lt;circle cx="25" cy="75" r="40"/><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="180" height="140"><br>   &lt;circle r="30"/><br>   &lt;circle cx="110" cy="75" r="40"/><br>&lt;/svg></code></pre>
 
 	<div class="cf">
-		<svg class="fr" width="200" height="140" style="border:1px solid;">
-			<circle r="20"/>
-			<circle cx="25" cy="75" r="40"/>
+		<svg class="fr bw" width="180" height="140" style="border:1px solid;">
+			<circle r="30"/>
+			<circle cx="110" cy="75" r="40"/>
 		</svg>
 		<ul class="list">
 			<li><samp class="lsin">r</samp> - радиус окружности.</li>
-			<li><samp class="lsin">cx</samp> - положение x центра окружности.</li>
-			<li><samp class="lsin">cy</samp> - положение y центра окружности.</li>
+			<li><samp class="lsin">cx</samp> - положение центра окружности по оси х.</li>
+			<li><samp class="lsin">cy</samp> - положение центра окружности по оси y.</li>
 		</ul>
 	</div>
 
@@ -136,18 +151,18 @@
 <h3 class="sin"><a href="#">Эллипс</a></h3>
 	<p>Элемент <samp class="teg sin">ellipse</samp> это наиболее общая форма элемента окружность, в котором можно масштабировать радиусы x и y (обычно называемые математиками половиной большой оси и половиной малой оси) окружности по отдельности.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;ellipse rx="50" ry="25"/><br>   &lt;ellipse cx="75" cy="75" rx="70" ry="50"/><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="180" height="140"><br>   &lt;ellipse rx="50" ry="25"/><br>   &lt;ellipse cx="100" cy="60" rx="70" ry="50"/><br>&lt;/svg></code></pre>
 
 	<div class="cf">
-		<svg class="fr" width="200" height="140" style="border:1px solid;">
+		<svg class="fr bw" width="180" height="130" style="border:1px solid;">
 			<ellipse rx="50" ry="25"/>
-			<ellipse cx="75" cy="75" rx="70" ry="50"/>
+			<ellipse cx="100" cy="60" rx="70" ry="50"/>
 		</svg>
 		<ul class="list">
-			<li><samp class="lsin">rx</samp> - радиус эллипса по x.</li>
-			<li><samp class="lsin">ry</samp> - радиус эллипса по y.</li>
-			<li><samp class="lsin">cx</samp> - положение x центра эллипса.</li>
-			<li><samp class="lsin">cy</samp> - положение y центра эллипса.</li>
+			<li><samp class="lsin">rx</samp> - радиус эллипса по оси x.</li>
+			<li><samp class="lsin">ry</samp> - радиус эллипса по оси y.</li>
+			<li><samp class="lsin">cx</samp> - положение центра эллипса оси х.</li>
+			<li><samp class="lsin">cy</samp> - положение центра эллипса оси y.</li>
 		</ul>
 	</div>
 
@@ -159,18 +174,18 @@
 <h3 class="sin"><a href="#">Линия</a></h3>
 	<p>Элемент <samp class="teg sin">line</samp> изображает простую прямую линию. Её атрибутами являются две точки, которые определяют начальную и конечную точки линии.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;line x1="10" y1="30" x2="150" y2="120" stroke="orange" /><br>   &lt;line x2="150" y2="120" stroke="red" /><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="180" height="130"><br>   &lt;line x1="10" y1="30" x2="150" y2="120" stroke="orange" /><br>   &lt;line x2="150" y2="120" stroke="red" /><br>&lt;/svg></code></pre>
 
 	<div class="cf">
-		<svg class="fr" width="200" height="140" style="border:1px solid;">
+		<svg class="fr" width="180" height="130" style="border:1px solid;">
 			<line x1="10" y1="30" x2="150" y2="120" stroke="orange" />
 			<line x2="150" y2="120" stroke="red" />
 		</svg>
 		<ul class="list">
-			<li><samp class="lsin">x1</samp> - положение x точки 1.</li>
-			<li><samp class="lsin">y1</samp> - положение y точки 1.</li>
-			<li><samp class="lsin">x2</samp> - положение x точки 2.</li>
-			<li><samp class="lsin">y2</samp> - положение y точки 2.</li>
+			<li><samp class="lsin">x1</samp> - положение по оси x для точки 1.</li>
+			<li><samp class="lsin">y1</samp> - положение по оси y для точки 1.</li>
+			<li><samp class="lsin">x2</samp> - положение по оси x для точки 2.</li>
+			<li><samp class="lsin">y2</samp> - положение по оси y для точки 2.</li>
 		</ul>
 	</div>
 
@@ -182,15 +197,13 @@
 <h3 class="sin"><a href="#">Ломаная линия</a></h3>
 	<p>Элемент <samp class="teg sin">polyline</samp> воспроизводит группу соединённых прямых линий. Поскольку этот список может быть довольно длинным, все точки включены в один атрибут.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;polyline points="10 10, 175 20, 20 25, 165 50, 40 85, 145 100, 60 95, 125 120"<br>             fill="transparent" stroke="red" /><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20 ls-1"><code>&lt;svg width="180" height="130"><br>  &lt;polyline points="10 10, 175 20, 20 25, 165 50, 40 85, 145 100, 60 95, 125 120"<br>            fill="transparent" stroke="red" /><br>&lt;/svg></code></pre>
 
 	<div class="cf">
-		<svg class="fr" width="200" height="140" style="border:1px solid; margin: 0 0 0 20px">
+		<svg class="fr" width="180" height="130" style="border:1px solid; margin: 0 0 0 20px">
 			<polyline points="10 10, 175 20, 20 25, 165 50, 40 85, 145 100, 60 95, 125 120" fill="transparent" stroke="red" />
 		</svg>
-		<ul class="list">
-			<li>точки - cписок точек, каждая разделённая пробелом, запятой, EOL, или символом перевода строки.<br>Каждая точка должна содержать два числа, координату x и координату y. Поэтому список (0,0), (1,1) и (2,2) может быть записан: "0 0, 1 1, 2 2".</li>
-		</ul>
+		<div><samp class="sin">points</samp> - cписок координат точек по осям Х и Y. Каждая точка отделяется, запятой, EOL, или символом перевода строки. Каждая точка должна содержать два числа, координату X и координату Y.</div>
 	</div>
 
 </div>
@@ -199,17 +212,15 @@
 
 <div class="item anp" id="polygon">
 <h3 class="sin"><a href="#">Многоугольник</a></h3>
-	<p>Элемент <samp class="teg sin">polygon</samp> очень похож на элемент polyline в том, что они образованы сегментами прямых линий, соединяющими список точек. Но для многоугольников путь автоматически возвращается к первой точке в конце, создавая тем самым замкнутую форму.</p>
+	<p>Элемент <samp class="teg sin">polygon</samp> очень похож на элемент <samp class="teg sin">polyline</samp> в том, что они образованы сегментами прямых линий, соединяющими список точек. Но для многоугольников путь автоматически возвращается к первой точке в конце, создавая тем самым замкнутую форму.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;polygon points="10 10, 150 20, 170 80, 160 110, 25 115" /><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20 ls-05"><code>&lt;svg width="180" height="130"><br>  &lt;polygon points="10 10, 150 20, 170 80, 160 110, 25 115" /><br>&lt;/svg></code></pre>
 
 	<div class="cf">
-		<svg class="fr" width="200" height="140" style="border:1px solid; margin: 0 0 0 20px">
+		<svg class="fr bw" width="180" height="130" style="border:1px solid; margin: 0 0 0 20px">
 			<polygon points="10 10, 150 20, 170 80, 160 110, 25 115" />
 		</svg>
-		<ul class="list">
-			<li>точки - cписок точек, каждая разделённая пробелом, запятой, EOL, или символом перевода строки. Каждая точка должна содержать два числа, координату x и координату y. Поэтому список (0,0), (1,1) и (2,2) может быть записан как: "0 0, 1 1, 2 2". Полигон замыкается финальной прямой линией от (2,2) до (0,0).</li>
-		</ul>
+		<div><samp class="sin">points</samp> - cписок координат точек по осям Х и Y. Каждая точка отделяется, запятой, EOL, или символом перевода строки. Каждая точка должна содержать два числа, координату X и координату Y.</div>
 	</div>
 
 </div>
@@ -220,18 +231,19 @@
 <h3 class="sin"><a href="#">Путь - <samp class="teg sin">path</samp></a></h3>
 	<p>Элемент <samp class="teg sin">path</samp> наиболее общая форма, которую можно использовать в SVG. Используя элемент path можно рисовать прямоугольники, окружности, эллипсы, ломанные линии и многоугольники; и по существу любые другие типы форм: кривые Безье, квадратические кривые и многое другое.</p>
 
-	<pre class="item2 mt20 mb20"><code>&lt;svg width="200" height="140" style="border:1px solid;"><br>   &lt;path d="M 20 10 Q 40 115, 150 110 T 110 10"<br>         fill="none" stroke="blue" stroke-width="1" /><br>&lt;/svg></code></pre>
+	<pre class="item2 mt20 mb20"><code>&lt;svg width="180" height="130"><br>  &lt;path d="M 20 10 Q 40 115, 130 110 T 110 10"<br>        fill="none" stroke="blue" stroke-width="1" /><br>&lt;/svg></code></pre>
 
 	<div class="cf mb30">
-		<svg class="fr" width="200" height="140" style="border:1px solid; margin: 0 0 0 20px">
-			<path d="M 20 10 Q 40 115, 150 110 T 110 10" fill="none" stroke="blue" stroke-width="1" />
+		<svg class="fr" width="180" height="130" style="border:1px solid; margin: 0 0 0 20px">
+			<path d="M 20 10 Q 40 115, 130 110 T 110 10" fill="none" stroke="blue" stroke-width="1" />
 		</svg>
 		<ul class="list">
-			<li><samp class="lsin">d</samp> - cписок точек и другой информации о том, как рисовать путь; содержит серию команд и параметров, используемых этими командами, каждая команда обозначается специальной буквой..</li>
+			<li><samp class="lsin">d</samp> - атрибут в который в качестве значения указывают cписок точек и другой информации о том, как рисовать путь; содержит серию команд и параметров, используемых этими командами, каждая команда обозначается специальной буквой.</li>
 		</ul>
 	</div>
 
-<h3 class="sin"><a href="#">Атрибут <samp class="red">d</samp> элемента <samp class="teg sin">path</samp></a></h3>
+
+	<h3 class="sin"><a href="#">Атрибут <samp class="red">d</samp> элемента <samp class="teg sin">path</samp></a></h3>
 
 	<p>Форма элемента <samp class="teg sin">path</samp> определяется одним атрибутом: <samp class="red">d</samp>. Все команды существуют в двух вариантах: вызов команды с <b>заглавной буквы</b> обозначает абсолютные координаты на странице, а команда со <b>строчной буквой</b> - относительные (например, перемещение от последней точки на 10px вверх и 7px влево).</p>
 
@@ -271,7 +283,7 @@
 
 
 
-<div class="item anp">
+<div class="item anp" id="path_d">
 <h3 class="sin"><a href="#">Команды атрибута <samp class="red">d</samp> элемента <samp class="teg sin">path</samp></a></h3>
 
 
@@ -286,47 +298,48 @@
 	<h3 class="d-team"><a href="#comands">Команды прямых линий - <span class="red">L</span>, <span class="red">H</span>, <span class="red">V</span>:</a></h3>
 
 		<p>Команда <samp class="red">L</samp> принимает два параметра - координаты точки <b>x</b> и <b>y</b> - и рисует линию от текущего положения к этой точке.</p>
-
 		<p>Команда <samp class="red">H</samp> - рисует горизонтальную линию от текущего положения в указанное.</p>
 		<p>Команда <samp class="red">V</samp> - рисует вертикальную линию от текущего положения в указанное.</p>
 		<p>Команда <samp class="red">Z || z</samp> - "закрыть путь". Эта команда рисует прямую линию от текущего положения обратно к первой точке пути. Она часто встречается в конце узла пути, хотя и не всегда; регистр буквы не важен.</p>
 
-		<pre class="item2 pr pre-svg"><code>&lt;svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><br>   <span class="h d1">&lt;path d="M 10 30 L 150 20">&lt;/path></span><br>   <span class="h d2">&lt;path d="M 10 70 H 150 " /></span><br>   <span class="h d3">&lt;path d="M 180 20 V 90 " /></span><br>   <span class="h d4">&lt;path d="M 10 120 L 180 120 V 180 H 50 Z " fill="#eee" /></span><br><br>   <span class="h c1">&lt;circle cx="10" cy="30" r="2" /></span><span class="h t1">&lt;text x="10" y="25">10-10&lt;/text></span><br>   <span class="h c2">&lt;circle cx="150" cy="20" r="2" /></span><span class="h t2">&lt;text x="120" y="15">150-20&lt;/text></span><br>   <span class="h c3">&lt;circle cx="10" cy="70" r="2" /></span><span class="h t3">&lt;text x="10" y="66">10-70&lt;/text></span><br>   <span class="h c4">&lt;circle cx="150" cy="70" r="2" /></span><span class="h t4">&lt;text x="120" y="66">150-70&lt;/text></span><br>   <span class="h c5">&lt;circle cx="180" cy="20" r="2" /></span><span class="h t5">&lt;text x="165" y="15">180-20&lt;/text></span><br>   <span class="h c6">&lt;circle cx="180" cy="90" r="2" /></span><span class="h t6">&lt;text x="165" y="100">180-90&lt;/text></span><br><br>   <span class="h c7">&lt;circle cx="10" cy="120" r="2" /></span><span class="h t7">&lt;text x="10" y="115">10-120&lt;/text></span><br>   <span class="h c8">&lt;circle cx="180" cy="120" r="2" /></span><span class="h t8">&lt;text x="160" y="115">180-120&lt;/text></span><br>   <span class="h c9">&lt;circle cx="180" cy="180" r="2" /></span><span class="h t9">&lt;text x="160" y="192">180-180&lt;/text></span><br>   <span class="h c10">&lt;circle cx="50" cy="180" r="2" /></span><span class="h t10">&lt;text x="35" y="192">50-180&lt;/text></span><br>&lt;/svg><!--
-		 --><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path">
-			<path class="sd1" d="M 10 30 L 150 20" />
-			<path class="sd2" d="M 10 70 H 150" />
-			<path class="sd3" d="M 180 20 V 90" />
-			<path class="sd4" d="M 10 120 L 180 120 V 180 H 50 Z" fill="#eee" />
+		<div class="item2 pr">
+			<pre class="pr pre-svg ls-1 rotate" style=""><code>&lt;svg width="200" height="200"<br>     xmlns="http://www.w3.org/2000/svg"><br>  <span class="h d1">&lt;path d="M 10 30 L 150 20">&lt;/path></span><br>  <span class="h d2">&lt;path d="M 10 70 H 150 " /></span><br>  <span class="h d3">&lt;path d="M 180 20 V 90 " /></span><br>  <span class="h d4">&lt;path d="M 10 120 L 180 120 V 180 H 50 Z" /></span><br><br>  <span class="h c1">&lt;circle cx="10" cy="30" r="2" /></span><br>  <span class="h t1">&lt;text x="10" y="25">10-10&lt;/text></span><br>  <span class="h c2">&lt;circle cx="150" cy="20" r="2" /></span><br>  <span class="h t2">&lt;text x="120" y="15">150-20&lt;/text></span><br>  <span class="h c3">&lt;circle cx="10" cy="70" r="2" /></span><br>  <span class="h t3">&lt;text x="10" y="66">10-70&lt;/text></span><br>  <span class="h c4">&lt;circle cx="150" cy="70" r="2" /></span><br>  <span class="h t4">&lt;text x="120" y="66">150-70&lt;/text></span><br>  <span class="h c5">&lt;circle cx="180" cy="20" r="2" /></span><span class="h t5">&lt;text x="165" y="15">180-20&lt;/text></span><br>  <span class="h c6">&lt;circle cx="180" cy="90" r="2" /></span><span class="h t6">&lt;text x="165" y="100">180-90&lt;/text></span><br><br>  <span class="h c7">&lt;circle cx="10" cy="120" r="2" /></span><span class="h t7">&lt;text x="10" y="115">10-120&lt;/text></span><br>  <span class="h c8">&lt;circle cx="180" cy="120" r="2" /></span><span class="h t8">&lt;text x="160" y="115">180-120&lt;/text></span><br>  <span class="h c9">&lt;circle cx="180" cy="180" r="2" /></span><span class="h t9">&lt;text x="160" y="192">180-180&lt;/text></span><br>  <span class="h c10">&lt;circle cx="50" cy="180" r="2" /></span><span class="h t10">&lt;text x="35" y="192">50-180&lt;/text></span><br>&lt;/svg><!--
+			--><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path" style="right:-15px">
+				<path class="sd1" d="M 10 30 L 150 20" />
+				<path class="sd2" d="M 10 70 H 150" />
+				<path class="sd3" d="M 180 20 V 90" />
+				<path class="sd4" d="M 10 120 L 180 120 V 180 H 50 Z" fill="#eee" />
 
-			<circle class="sc1" cx="10" cy="30" r="2" />
-			<text class="st1" x="10" y="25">10-30</text>
-			<circle class="sc2" cx="150" cy="20" r="2" />
-			<text class="st2" x="120" y="15">150-20</text>
-			<circle class="sc3" cx="10" cy="70" r="2" />
-			<text class="st3" x="10" y="66">10-70</text>
-			<circle class="sc4" cx="150" cy="70" r="2" />
-			<text class="st4" x="120" y="66">150-70</text>
-			<circle class="sc5" cx="180" cy="20" r="2" />
-			<text class="st5" x="165" y="15">180-20</text>
-			<circle class="sc6" cx="180" cy="90" r="2" />
-			<text class="st6" x="165" y="100">180-90</text>
+				<circle class="sc1" cx="10" cy="30" r="2" />
+				<text class="st1" x="10" y="25">10-30</text>
+				<circle class="sc2" cx="150" cy="20" r="2" />
+				<text class="st2" x="120" y="15">150-20</text>
+				<circle class="sc3" cx="10" cy="70" r="2" />
+				<text class="st3" x="10" y="66">10-70</text>
+				<circle class="sc4" cx="150" cy="70" r="2" />
+				<text class="st4" x="120" y="66">150-70</text>
+				<circle class="sc5" cx="180" cy="20" r="2" />
+				<text class="st5" x="165" y="15">180-20</text>
+				<circle class="sc6" cx="180" cy="90" r="2" />
+				<text class="st6" x="165" y="100">180-90</text>
 
-			<circle class="sc7" cx="10" cy="120" r="2" />
-			<text class="st7" x="10" y="115">10-120</text>
-			<circle class="sc8" cx="180" cy="120" r="2" />
-			<text class="st8" x="160" y="115">180-120</text>
-			<circle class="sc9" cx="180" cy="180" r="2" />
-			<text class="st9" x="160" y="192">180-180</text>
-			<circle class="sc10" cx="50" cy="180" r="2" />
-			<text class="st10" x="35" y="192">50-180</text>
+				<circle class="sc7" cx="10" cy="120" r="2" />
+				<text class="st7" x="10" y="115">10-120</text>
+				<circle class="sc8" cx="180" cy="120" r="2" />
+				<text class="st8" x="160" y="115">180-120</text>
+				<circle class="sc9" cx="180" cy="180" r="2" />
+				<text class="st9" x="160" y="192">180-180</text>
+				<circle class="sc10" cx="50" cy="180" r="2" />
+				<text class="st10" x="35" y="192">50-180</text>
 
-			<circle cx="0" cy="0" r="1" stroke="red" /><text x="-10" y="-8">0 - 0</text>
-			<circle cx="200" cy="0" r="1" stroke="red" /><text x="185" y="-8">200 - 0</text>
-			<circle cx="0" cy="200" r="1" stroke="red" /><text x="-15" y="212">0 - 200</text>
-			<circle cx="200" cy="200" r="1" stroke="red" /><text x="175" y="212">200 - 200</text>
+				<circle cx="0" cy="0" r="1" stroke="red" /><text x="-10" y="-8">0 - 0</text>
+				<circle cx="200" cy="0" r="1" stroke="red" /><text x="185" y="-8">200 - 0</text>
+				<circle cx="0" cy="200" r="1" stroke="red" /><text x="-15" y="212">0 - 200</text>
+				<circle cx="200" cy="200" r="1" stroke="red" /><text x="175" y="212">200 - 200</text>
 
 			</svg></code></pre>
 		<!-- /pre-code-svg -->
+		</div>
 	</div>
 
 
@@ -350,8 +363,8 @@
 
 		<p class="mt20">Команда <samp class="red">S</samp> - сокращённая запись для кубической кривой Безье. Она задаёт тот же тип кривой, что и был, но если он следует за другой <b>S</b> или <b>C</b> командой, подразумевается, что первая контрольная точка линии - последняя контрольная точкапредыдущей. Если команда <b>S</b> не следует за другой командой <b>S</b> или <b>C</b>, то подразумевается, что текущая позиция курсора используется как первая контрольная точка.</p>
 
-		<pre class="item2 pr pre-svg"><code>&lt;svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><br><br><br>   <span class="h cc1">&lt;path d="M 10 10 C 50 50 60 50 100 10" /></span><br><br><br>   <span class="h cc2">&lt;path d="M 100 50 C 140 10 150 10 190 50" /></span><br><br><br>   <span class="h cc3">&lt;path d="M 10 140 C 50 180 60 180 100 140 S 150 100 190 140" /></span><br>                     <span class="h cc4">&lt;!-- кривая 1 --></span>       <span class="h cc5">&lt;!-- кривая 2 --></span><br><br>&lt;/svg><!--
-		 --><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path" style="top:14px">
+		<pre class="item2 pr pre-svg ls-05"><code>&lt;svg width="200" height="200"<br>     xmlns="http://www.w3.org/2000/svg"><br><br>  <span class="h cc1">&lt;path d="M 10 10 C 50 50 60 50 100 10" /></span><br><br>  <span class="h cc2">&lt;path d="M 100 50 C 140 10 150 10 190 50" /></span><br><br>                     <span class="h cc4">&lt;!-- кривая 1 --&gt;</span><br><span class="h cc3">  &lt;path d="M 10 140 C 50 180 60 180 100 140 &nbsp;<br>                    S 150 100 190 140" />    </span><br>                     <span class="h cc5">&lt;!-- кривая 2 --&gt;</span><br><br>&lt;/svg><!--
+		 --><svg width="200" height="200" class="pa svgExample svg-path" style="top:20px">
 			<path d="M 10 10 L 50 50" stroke="#FFDEAD" />
 			<path d="M 60 50 L 100 10" stroke="#FFDEAD" />
 			<path class="cs1" d="M 10 10 C 50 50 60 50 100 10" />
@@ -366,7 +379,6 @@
 			<path d="M 150 100 L 190 140" stroke="#FFDEAD" />
 			<path d="M 10 140 L 190 140" stroke="yellow" stroke-dasharray="5" />
 
-			<!-- <path class="cs3" d="M 10 140 C 50 180 60 180 100 140 S 150 100 190 140" /> -->
 			<path class="cs4" d="M 10 140 C 50 180 60 180 100 140" />
 			<path class="cs5" d="M 100 140 C 140 100 150 100 190 140" />
 
@@ -410,10 +422,10 @@
 
 		<p>Команда <samp class="red">T</samp> - сокращённая запись для квадратичной кривой. Cокращение смотрит на предыдущую контрольную точку, и выводит из неё новую. Это позволяет делать довольно сложные фигуры, указав только конечные точки.</p>
 
-		<div class="no">Это работает только в том случае, если предыдущей командой была команда <b>Q</b> или <b>T</b>. Если это не так, то вы нарисуете только линию.</div>
+		<div class="no mb30">Это работает только в том случае, если предыдущей командой была команда <b>Q</b> или <b>T</b>. Если это не так, то вы нарисуете только линию.</div>
 
-		<pre class="item2 pr pre-svg"><code>&lt;svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><br><br><br>   <span class="h cq1">&lt;path d="M 10 10 Q 55 55 100 10" /></span><br><br><br>   <span class="h cq2">&lt;path d="M 110 10 L 110 50 T 150 50 T190 90" /></span><br><br><br>   <span class="h cq3">&lt;path d="M 10 140 Q 55 185 100 140 T 190 140" /></span><br>                     <span class="h cq4">&lt;!-- кривая 1 --></span><span class="h cq5">&lt;!--кривая 2--></span><br><br>&lt;/svg><!--
-		 --><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path" style="top:14px">
+		<pre class="item2 pr pre-svg ls-1"><code>&lt;svg width="200" height="200"<br>     xmlns="http://www.w3.org/2000/svg"><br><br>  <span class="h cq1">&lt;path d="M 10 10 Q 55 55 100 10" /></span><br><br><br>  <span class="h cq2">&lt;path d="M 110 10 L 110 50 T 150 50 T190 90" /></span><br><br><br>  <span class="h cq3">&lt;path d="M 10 140 Q 55 185 100 140 T 190 140" /></span><br>                    <span class="h cq4">&lt;!-- кривая 1 --></span><span class="h cq5">&lt;!--кривая 2--></span><br><br>&lt;/svg><!--
+		 --><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path" style="top:20px">
 			<path d="M 10 10 L 55 55" stroke="#FFDEAD" />
 			<path d="M 55 55 L 100 10" stroke="#FFDEAD" />
 			<path class="ct1" d="M 10 10 Q 55 55 100 10" />
@@ -462,7 +474,7 @@
 
 		<p>Команда <samp class="red">А</samp> создает дугу с указанными радиусами эллипсов через указанные две точки, а также указывает какую часть эллипса отобразить. Данная комадна также позволяет поворачивать эллипсы в проскости рисунка на заданный угол.</p>
 
-		<pre class="item2"><code>&lt;svg><br>   &lt;path d="M xm ym A rx ry x-axis-rotation large-arc-flag sweep-flag x y" /><br>&lt;/svg></code></pre>
+		<pre class="item2 ls-1"><code>&lt;svg><br>   &lt;path d="M xm ym A rx ry x-axis-rotation large-arc-flag sweep-flag x y" /><br>&lt;/svg></code></pre>
 
 		<ul class="list mb20">
 			<li><b>(xm, ym)</b> - точка, в которой начинается дуга эллипса.</li>
@@ -473,8 +485,8 @@
 			<li><samp class="bold">sweep-flag</samp> - определяет, по какому из двух кругов она будет идти. Принимает значения <samp class="lsin">0</samp> или <samp class="lsin">1</samp>.</li>
 		</ul>
 
-		<pre class="item2 pr pre-svg ls-05"><code>&lt;svg width="200" height="200"<br>   xmlns="http://www.w3.org/2000/svg"><br><br>   <span class="h ac1">&lt;path d="M 55 55   A 40 40 0 0 0 95 95 V 55 z" fill="#0808" /></span><br><br><br>   <span class="h ac2">&lt;path d="M 205 55  A 40 40 0 0 <span class="red">1</span> 245 95 V 55 z" fill="#00f8" /></span><br><br><br>   <span class="h ac3">&lt;path d="M 55 205  A 40 40 0 <span class="red">1</span> 0 95 245 V 205 z" fill="#9008" /></span><br><br><br>   <span class="h ac4">&lt;path d="M 205 205 A 40 40 0 <span class="red">1 1</span> 245 245 V 205 z" fill="#9008" /></span><br><br><br>   <span class="h ac5">&lt;path d="M 133 167 A 25 50 <span class="red">-45 1 1</span> 133.01 167.01" /></span><br><br>&lt;/svg>
-		<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path" style="top:14px">
+		<pre class="item2 pr pre-svg ls-1"><code>&lt;svg width="200" height="200"<br>   xmlns="http://www.w3.org/2000/svg"><br><br><span class="h ac1">  &lt;path fill="#0808"                                &nbsp;<br>        d="M 55 55   A 40 40 0 0 0 95 95 V 55 z" /> &nbsp;</span><br><br><span class="h ac2">  &lt;path fill="#00f8"                                 &nbsp;<br>        d="M 205 55  A 40 40 0 0 <span class="red">1</span> 245 95 V 55 z" /> &nbsp;</span><br><br><span class="h ac3">  &lt;path fill="#9008"                                  &nbsp;<br>        d="M 55 205  A 40 40 0 <span class="red">1</span> 0 95 245 V 205 z" /> &nbsp;</span><br><br><span class="h ac4">  &lt;path fill="#9008"                                   &nbsp;<br>        d="M 205 205 A 40 40 0 <span class="red">1 1</span> 245 245 V 205 z" /> &nbsp;</span><br><br>  <span class="h ac5">&lt;path d="M 133 167 A 25 50 <span class="red">-45 1 1</span> 133.01 167.01" /></span><br><br>&lt;/svg><!--
+		 --><svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" class="pa svgExample svg-path" style="top:14px">
 			<path d="M 55 55 A 40 40 0 0 1 95 95" stroke="#aaa" />
 			<path d="M 55 55 A 40 40 0 1 0 95 95" stroke="#aaa" />
 			<path d="M 55 55 A 40 40 0 1 1 95 95" stroke="#aaa" />

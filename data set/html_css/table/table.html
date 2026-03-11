@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>Тэг - table</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- автораскравка тегов внутри pre-code -->
@@ -23,7 +23,7 @@
 			<li><a href="#table_layout">Структура таблицы</a></li>
 			<li><a href="#table_at">Атрибуты тега <samp class="teg sin">table</samp></a></li>
 			<li><a href="#table_css"><samp>CSS</samp> параметры тега <samp class="teg sin">table</samp></a></li>
-			<li><a href="#example_1">Пример таблицы с тегами <samp>&lt;colgroup></samp> и <samp>&lt;col></samp></a></li>
+			<li><a href="#example_1">Пример таблицы с тегами <samp class="teg sin">colgroup</samp> и <samp class="teg sin">col</samp></a></li>
 			<li><a href="#example_2">Пример таблицы №2 (<samp>bgcolor</samp>)</a></li>
 			<li><a href="#example_3">Пример таблицы №3 (меню)</a></li>
 			<li><a href="#example_4">Пример таблицы №4 (Фиксированные заголовок и первая колонка на CSS)</a></li>
@@ -109,18 +109,18 @@
 <h3 class="sin" id="table_at"><a href="#" title="к оглавлению">Атрибуты тега <samp>&lt;table></samp></a></h3>
 	<div class="no mb10">Все данные атрибуты устарели, вместо них необходимо использовать стили.</div>
 	<div class="ogl2 ogl22">
-		<span><a href="#table_align" title="Определяет выравнивание таблицы. ">align</a></span>
-		<span><a href="#table_background" title="Задаёт фоновый рисунок в таблице. ">background</a></span>
-		<span><a href="#table_bgcolor" title="Цвет фона таблицы. ">bgcolor</a></span>
-		<span><a href="#table_border" title="Толщина рамки в пикселях. ">border</a></span>
-		<span><a href="#table_bordercolor" title="Цвет рамки. ">bordercolor</a></span>
-		<span><a href="#table_cellpadding" title="Отступ от рамки до содержимого ячейки. ">cellpadding</a></span>
-		<span><a href="#table_cellspacing" title="Расстояние между ячеек. ">cellspacing</a></span>
-		<span><a href="#table_cols" title="Число колонок в таблице. ">cols</a></span>
-		<span><a href="#table_frame" title="Сообщает браузеру, как отображать границы вокруг таблицы. ">frame</a></span>
-		<span><a href="#table_rules" title="Сообщает браузеру, где отображать границы между ячеек. ">rules</a></span>
-		<span><a href="#table_summary" title="Краткое описание таблицы. ">summary</a></span>
-		<span><a href="#table_width" title="Ширина таблицы.">width</a></span>
+		<span><a href="#table_align" title="Определяет выравнивание таблицы">align</a></span>
+		<span><a href="#table_background" title="Задаёт фоновый рисунок в таблице">background</a></span>
+		<span><a href="#table_bgcolor" title="Цвет фона таблицы">bgcolor</a></span>
+		<span><a href="#table_border" title="Толщина рамки в пикселях">border</a></span>
+		<span><a href="#table_bordercolor" title="Цвет рамки">bordercolor</a></span>
+		<span><a href="#table_cellpadding" title="Отступ от рамки до содержимого ячейки">cellpadding</a></span>
+		<span><a href="#table_cellspacing" title="Расстояние между ячеек">cellspacing</a></span>
+		<span><a href="#table_cols" title="Число колонок в таблице">cols</a></span>
+		<span><a href="#table_frame" title="Сообщает браузеру, как отображать границы вокруг таблицы">frame</a></span>
+		<span><a href="#table_rules" title="Сообщает браузеру, где отображать границы между ячеек">rules</a></span>
+		<span><a href="#table_summary" title="Краткое описание таблицы">summary</a></span>
+		<span><a href="#table_width" title="Ширина таблицы">width</a></span>
 		<span></span>
 	</div>
 
@@ -129,49 +129,70 @@
 			<td>Задаёт выравнивание таблицы по краю окна браузера.
 			<pre class="item2"><code>&lt;table align="left | center | right">...&lt;/table></code></pre>
 			Для выравнивания таблицы по центру через СSS, ей надо указать ширину через стилевое свойство <samp class="sin">width</samp> и задать <samp class="sin">margin</samp> со значением <samp class="lsin">auto</samp>.</td></tr>
+
 		<tr><td id="table_background"><a href="#table_at">background</a></td>
 			<td>Определяет изображение, которое будет использоваться в качестве фонового рисунка таблицы. В отличие от обычных изображений, для фона не устанавливаются ширина и высота, и он всегда отображается в натуральную величину с масштабом 100%. Если рисунок по размеру меньше ширины или высоты таблицы, то картинка повторяется по горизонтали вправо и вниз, выстраиваясь, как мозаика.
 			<pre class="item2"><code>&lt;table background="адрес">...&lt;/table></code></pre>
 			Чтобы задать фоновую картинку для таблицы, используют стилевое свойство <samp class="sin"><a href="../background/background.html">background</a></samp>.
 			<pre class="item2"><code>table {background: url()}</code></pre></td></tr>
+
 		<tr><td id="table_bgcolor"><a href="#table_at">bgcolor</a></td>
-			<td>Цвет фона таблицы.
+			<td><p>Цвет фона таблицы. Обычно используют вормат цввета по <a href="../txt/color.html#c16" class="sin tdu">шестнадцатеричному значению</a>.</p>
 			<pre class="item2"><code>&lt;table bgcolor="цвет">...&lt;/table></code></pre>
-			Для изменения цвета фона таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../background/background-color.html">background-color</a></samp>.
-			<pre class="item2"><code>table {background: цвет}</code></pre></td></tr>
+			Если данному атрибуту установить произвольное слово, например значение "<samp class="lsin">backspace</samp>", то оно будет преобразовано в значение цвета:
+			<ul class="list l1 mb20">
+				<li><samp class="lsin">bac ksp ace</samp> - делит слово по три символа</li>
+				<li><samp class="lsin">bac 000 ace</samp> - если символ не из 16-й системы, то меняет на ноль</li>
+				<li><samp class="lsin">ba 00 ac</samp> - оставляет первые две цифры</li>
+				<li> и собирает цвет <samp class="lsin" style="background:#ba00ac">&nbsp;#ba00ac&nbsp;</samp></li>
+			</ul>
+			<div class="no no1">
+				Для изменения цвета фона таблицы используйте стилевое CSS-свойство <samp class="sin tdu"><a href="../background/background-color.html">background-color</a></samp>.
+				<pre class="item2"><code>table {background: цвет}</code></pre>
+			</div>
+			</td></tr>
+
 		<tr><td id="table_border"><a href="#table_at">border</a></td>
 			<td>Устанавливает толщину рамки таблицы в пикселях. По умолчанию рамка изображается трёхмерной, но если используется атрибут <samp class="sin">bordercolor</samp> элемента <samp class="teg sin">table</samp>, то вид рамки меняется в зависимости от браузера. Когда в <samp class="teg sin">table</samp> используется атрибут <samp class="sin">border</samp> без значений (<samp class="red">&lt;table <samp class="sin">border</samp>></samp>), то браузер отображает рамку толщиной один пиксель. Значение по умолчанию - 0.
 			<pre class="item2"><code>&lt;table border="число">...&lt;/table></code></pre>
 			Для изменения толщины и цвета рамки таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../border & outline.html">border</a></samp>.</td></tr>
+
 		<tr><td id="table_bordercolor"><a href="#table_at">bordercolor</a></td>
 			<td>Устанавливает цвет рамки таблицы. Рамка обычно рисуется как трёхмерная, добавление атрибутов <samp class="sin">bordercolor</samp> и <samp class="sin">border</samp> к элементу <samp class="teg sin">table</samp> создаёт однотонную линию.
 			<pre class="item2"><code>&lt;table bordercolor="цвет">...&lt;/table></code></pre>
 			Для изменения цвета рамки таблицы используйте стилевое свойство <samp class="sin tdu"><a href="../border & outline.html">border</a></samp></td></tr>
+
 		<tr><td id="table_cellpadding"><a href="#table_at">cellpadding</a></td>
 			<td>Отступ от рамки до содержимого ячейки. Этот атрибут добавляет пустое пространство к ячейке, увеличивая тем самым её размеры. При отсутствии границ особого значения этот атрибут не имеет, но может помочь, когда требуется установить пустой промежуток между ячеек. Значения - любое целое значение в пикселях или процентах.
 			<pre class="item2"><code>&lt;table cellpadding="число">...&lt;/table></code></pre>
 			В CSS вместо атрибута <samp class="sin">cellpadding</samp> используйте стилевое свойство <samp class="sin">padding</samp>, добавляя его к селектору <samp class="red">td</samp> или <samp class="red">th</samp>.
 			<pre class="item2"><code>td {padding:10px;}</code></pre></td></tr>
+
 		<tr><td id="table_cellspacing"><a href="#table_at">cellspacing</a></td>
 			<td>Задаёт расстояние в пикселях между внешними границами ячеек. Если установлен атрибут <samp class="sin">border</samp>, толщина границы принимается в расчёт.
 			<pre class="item2"><code>&lt;table cellspacing="число">...&lt;/table></code></pre>
 			<p>Значение по умолчанию: 0 (когда нет атрибута <samp class="sin">border</samp>); 2 (когда атрибут <samp class="sin">border</samp> установлен).</p>
 			Вместо атрибута <samp class="sin">cellspacing</samp> используйте стилевое свойство <samp class="sin">border-spacing</samp>, добавляя его к селектору <samp class="red">table</samp>.
 			<pre class="item2"><code>table {border:1px solid #333; border-spacing: 5px}</code></pre></td></tr>
+
 		<tr><td id="table_cols"><a href="#table_at">cols</a></td>
 			<td>Задаёт количество столбцов в таблице, помогая браузеру в подготовке к её отображению. Без этого атрибута таблица будет показана только после того, как всё содержимое таблицы будет загружено в браузер и проанализировано. Использование атрибута <samp class="sin">cols</samp> позволяет несколько ускорить отображение содержимого таблицы.
 			<pre class="item2"><code>&lt;table cols="число">...&lt;/table></code></pre></td></tr>
+
 		<tr><td id="table_frame"><a href="#table_at">frame</a></td>
 			<td>Сообщает браузеру, как отображать границы вокруг таблицы. Толщина границы указывается с помощью атрибута <samp class="sin">border</samp> элемента <samp class="teg sin">table</samp>.
 			<pre class="item2"><code>&lt;table frame="<abbr title="Не отрисовывать границы.">void</abbr> | <abbr title="Граница вокруг таблицы. Значение по кмолчанию.">border</abbr> | <abbr title="Граница по верхнему краю таблицы.">above</abbr> | <abbr title="Граница снизу таблицы.">below</abbr> |<br>              <abbr title="Добавить только горизонтальные границы (сверху и снизу таблицы).">hsides</abbr> | <abbr title="Рисовать только вертикальные границы (слева и справа от таблицы).">vsides</abbr> | <abbr title="Граница только на правой стороне таблицы.">rhs</abbr> | <abbr title="Граница только на левой стороне таблицы.">lhs</abbr>">...&lt;/table></code></pre>
 			Для отображения границ на разных сторонах таблицы воспользуйтесь стилевыми свойствами <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp>, <samp class="sin">border-top</samp> и <samp class="sin">border-bottom</samp>, которые задают границы, соответственно, слева, справа, сверху и снизу таблицы.</td></tr>
+
 		<tr><td id="table_rules"><a href="#table_at">rules</a></td>
 			<td>Сообщает браузеру, где отображать границы между ячеек. Цвет границы указывается с помощью атрибута <samp class="sin">bordercolor</samp>, толщина внешней рамки таблицы — через атрибут <samp class="sin">border</samp>. По умолчанию рамка рисуется вокруг каждой ячейки, образуя тем самым сетку; толщина таких линий составляет <b>1px</b>.
 			<pre class="item2"><code>&lt;table rules="<abbr title="Линия рисуется вокруг каждой ячейки таблицы.">all</abbr> | <abbr title="Линия отображается между группами, которые образуются элементами &lt;thead>, &lt;tfoot>, &lt;tbody>, &lt;colgroup> или &lt;col>.">groups</abbr> | <abbr title="Линия отображается между колонок.">cols</abbr> | <abbr title="Все границы скрываются.">none</abbr> | <abbr title="Граница рисуется между строк таблицы, созданных через элемент &lt;tr>.">rows</abbr>">...&lt;/table></code></pre>
 			Для отображения границ на разных сторонах ячеек воспользуйтесь стилевыми свойствами <samp class="sin">border-left</samp>, <samp class="sin">border-right</samp>, <samp class="sin">border-top</samp> и <samp class="sin">border-bottom</samp>, которые задают границы, соответственно, слева, справа, сверху и снизу ячеек таблицы.</td></tr>
+
 		<tr><td id="table_summary"><a href="#table_at">summary</a></td>
 			<td>Краткое описание таблицы. В отличие от элемента <samp class="red">&lt;caption></samp> содержимое <samp class="sin">summary</samp> никак не отображается и в браузере не выводится, однако может использоваться поисковыми системами или речевыми браузерами.
 			<pre class="item2"><code>&lt;table summary="текст">...&lt;/table></code></pre></td></tr>
+
 		<tr><td id="table_width"><a href="#table_at">width</a></td>
 			<td>Ширина таблицы в пикселях или процентах. Если общая ширина содержимого превышает указанную ширину таблицы, то браузер будет пытаться «втиснуться» в заданные размеры за счёт форматирования текста. В случае, когда это невозможно, например, в таблице находятся изображения, атрибут <samp class="sin">width</samp> будет проигнорирован, и новая ширина таблицы будет вычислена на основе её содержимого.
 			<pre class="item2"><code>&lt;table width="значение">...&lt;/table></code></pre>
@@ -269,7 +290,7 @@
 	<div class="item2">
 		<samp class="point red bold" onclick='item611.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="item611" onclick="event.stopPropagation()">
-			<pre><code>&lt;div class="col1"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table border="1" cellspacing="0"><br>    &lt;colgroup><br>      &lt;!-- цвет фона для первых 2 столбцов --><br>      &lt;col span="2" style="background:Khaki;"><br>      &lt;!-- цвет фона для следующего (1) столбца --><br>      &lt;col style="background-color:LightCyan;"><br>    &lt;/colgroup><br>    &lt;tr>&lt;th>№ п/п&lt;/th>&lt;th>Наименование&lt;/th>&lt;th>Цена, руб.&lt;/th>&lt;/tr><br>    &lt;tr>&lt;td>1&lt;/td>&lt;td>Карандаш цветной&lt;/td>&lt;td>20,00&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>2&lt;/td>&lt;td>Линейка 20 см&lt;/td>&lt;td>30,00&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;/div></code></pre>
+			<pre class="ls-1"><code>&lt;div class="col1"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table border="1" cellspacing="0"><br>    &lt;colgroup><br>      &lt;!-- цвет фона для первых 2 столбцов --><br>      &lt;col span="2" style="background:Khaki;"><br>      &lt;!-- цвет фона для следующего (1) столбца --><br>      &lt;col style="background-color:LightCyan;"><br>    &lt;/colgroup><br>    &lt;tr>&lt;th>№ п/п&lt;/th>&lt;th>Наименование&lt;/th>&lt;th>Цена, руб.&lt;/th>&lt;/tr><br>    &lt;tr>&lt;td>1&lt;/td>&lt;td>Карандаш цветной&lt;/td>&lt;td>20,00&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>2&lt;/td>&lt;td>Линейка 20 см&lt;/td>&lt;td>30,00&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;/div></code></pre>
 			<br><samp class="red bold">CSS</samp>
 			<pre><code>.col1 table {margin:20px auto;}<br>.col1 td, .col1 th {text-align:center; padding:5px 5px;}</pre>
 			<a href="#example_1"><span class="yel" onclick='item611.classList.toggle("hiden");'>свернуть</span></a>
@@ -309,7 +330,7 @@
 	<div class="item2">
 		<samp class="point red bold" onclick='item311.classList.toggle("hiden");'>HTML</samp>
 		<div class="hiden" id="item311" onclick="event.stopPropagation()">
-			<pre><code>&lt;div class="ext2"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;div></code></pre>
+			<pre class="ls-1"><code>&lt;div class="ext2"> &lt;!-- div с классом локализует теги td, tr, table --><br>  &lt;table><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>    &lt;tr>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;td>&lt;/td>&lt;/tr><br>  &lt;/table><br>&lt;div></code></pre>
 			<br><samp class="red bold">CSS</samp>
 			<pre><code>.ext2 table {margin: 10px auto;<br>  border-collapse: collapse;<br>  overflow: hidden;}<br>.ext2 td {<br>  border: 1px solid black;<br>  width: 50px;<br>  height: 50px;<br>  position: relative;<br>  padding: 0;}<br>.ext2 td:before {<br>  content: "";<br>  position: absolute;<br>  width: 40px;<br>  height: 40px;<br>  background: blue;<br>  border-radius: 50%;<br>  left: 5px;<br>  bottom: 5px;}<br>.ext2 td:hover:before {content: ""; background: black;}<br>.ext2 td:hover {background: orange;}<br>.ext2 tr:hover {background: yellow;}<br>.ext2 td:after {<br>  content: "";<br>  position: absolute;<br>  width: 50px;<br>  height: 600px;<br>  bottom: -300px;<br>  left: 0;<br>  z-index: -1;}<br>.ext2 td:hover:after {background: yellow;}</pre>
 			<a href="#example_2"><span class="yel" onclick='item311.classList.toggle("hiden");'>свернуть</span></a>

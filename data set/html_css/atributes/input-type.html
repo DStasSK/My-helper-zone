@@ -1,0 +1,231 @@
+<!DOCTYPE html><html><head><title>Атрибут type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">type</samp> элемента <samp class="teg">input</samp>.</h3>
+
+<!-- <div class="ogl2 ogl22">
+	<span><a href="#button" title="">button</a></span>
+	<span><a href="#checkbox" title="">checkbox</a></span>
+	<span><a href="#file" title="">file</a></span>
+	<span><a href="#hidden" title="">hidden</a></span>
+	<span><a href="#image" title="">image</a></span>
+	<span><a href="#password" title="">password</a></span>
+	<span><a href="#radio" title="">radio</a></span>
+	<span><a href="#reset" title="">reset</a></span>
+	<span><a href="#submit" title="">submit</a></span>
+	<span><a href="#text" title="">text</a></span>
+	<span><a href="#color" title="">color</a></span>
+	<span><a href="#date" title="">date</a></span>
+	<span><a href="#datetime-local" title="">datetime-local</a></span>
+	<span><a href="#email" title="">email</a></span>
+	<span><a href="#number" title="">number</a></span>
+	<span><a href="#range" title="">range</a></span>
+	<span><a href="#search" title="">search</a></span>
+	<span><a href="#tel" title="">tel</a></span>
+	<span><a href="#time" title="">time</a></span>
+	<span><a href="#url" title="">url</a></span>
+	<span><a href="#month" title="">month</a></span>
+	<span><a href="#week" title="">week</a></span>
+	<span></span>
+</div> -->
+
+<div class="item">
+	<div>Атрибут <samp class="sin">type</samp> cообщает браузеру, к какому типу относится элемент формы. Если этот атрибут не указан, по умолчанию используется <samp class="lsin">text</samp>.</div>
+
+	<pre class="item2 mt10"><code>&lt;input type="значение"></code></pre>
+
+	<div class="ogl2 ogl22 mt20 mb20">
+		<span><a href="#button" title="Кнопка без предопределённого поведения.">button</a></span>
+		<span><a href="#checkbox" title="Представляет элемент input в виде флажка.">checkbox</a></span>
+		<span><a href="#color" title="элемент управления цветовым диапазоном для установки значения элемента в строку">color</a></span>
+		<span><a href="#date" title="Поле для выбора календарной даты (год, месяц и день, без времени)">date</a></span>
+		<span><a href="#datetime" title="Указание даты и времени (час, минута, секунда и доля секунды) в соответствии с часовым поясом UTC.">datetime</a></span>
+		<span><a href="#datetime-local" title="Указание местной даты и времени без часового пояса.">datetime-local</a></span>
+		<span><a href="#email" title="Поле для редактирования адреса электронной почты.">email</a></span>
+		<span><a href="#file" title="Элемент управления, который позволяет пользователю выбрать файл.">file</a></span>
+		<span><a href="#hidden" title="Скрытое поле. Оно никак не отображается на веб-странице.">hidden</a></span>
+		<span><a href="#image" title="Поле с изображением - для отправки данных формы на сервер.">image</a></span>
+		<span><a href="#month" title="Элемент управления для ввода месяца и года без часового пояса.">month</a></span>
+		<span><a href="#number" title="Элемент управления ввода числа (тип float)">number</a></span>
+		<span><a href="#password" title="Однострочное текстовое поле, чьё значение скрыто символом * ">password</a></span>
+		<span><a href="#radio" title="Переключатели. Используются, когда следует выбрать один вариант из нескольких предложенных.">radio</a></span>
+		<span><a href="#range" title="Ползунок для выбора чисел в указанном диапазоне.">range</a></span>
+		<span><a href="#reset" title="Кнопка для возвращения данных формы в первоначальное значение">reset</a></span>
+		<span><a href="#search" title="Однострочное текстовое поле для ввода строк поиска">search</a></span>
+		<span><a href="#submit" title="Кнопка для отправки данных формы на сервер.">submit</a></span>
+		<span><a href="#tel" title="Элемент управления для ввода номера телефона">tel</a></span>
+		<span><a href="#text" title="Однострочное текстовое поле">text</a></span>
+		<span><a href="#time" title="Элемент управления для ввода значения времени без часового пояса.">time</a></span>
+		<span><a href="#url" title="Поле для редактирования URI">url</a></span>
+		<span><a href="#week" title="Элемент управления для ввода даты, содержащей число неделя-год и номер недели без часового пояса.">week</a></span>
+		<span></span>
+	</div>
+
+	<style>
+		.mbi input {margin-bottom: 3px}
+	</style>
+	<table class="t1 t3 tb">
+		<tr id="button"><td><a href="#">button</a></td><td>
+			<p>Кнопка без предопределённого поведения.</p>
+			<pre class="item2 mbi"><code><input type="button" value="текст"><br>&lt;input type="button" value="текст"></code></pre>
+			Атрибуты <samp class="teg">input</samp> которые дополняют тип <samp class="lsin">button</samp>
+			<ul class="list tal l1">
+				<li><samp class="sin">value</samp> - надпись на кнопке.</li>
+				<li><samp class="sin">name</samp> - имя кнопки, чтобы обработчик формы мог её идентифицировать.</li>
+				<li><samp class="sin">form</samp> - идентификатор формы для связывания кнопки с <samp class="teg">form</samp>.</li>
+				<li><samp class="sin">disabled</samp> - блокирует кнопку.</li>
+				<li><samp class="sin">autofocus</samp> - кнопка получает фокус после загрузки документа.</li>
+			</ul>
+		</td></tr>
+		<tr id="submit"><td><a href="#">submit</a></td><td>
+			Кнопка для отправки данных формы на сервер.
+			<pre class="item2"><code><input type="submit"> &lt;input type="submit"><br><br><input type="submit" value="Искать"> &lt;input type="submit" value="Искать"></code></pre>
+		</td></tr>
+		<tr id="image"><td><a href="#">image</a></td><td>
+			<p>Поле с изображением, при нажатии на рисунок данные формы отправляются на сервер.</p>
+			Дополнительные атрибуты:
+			<ul class="list l1">
+				<li><samp class="sin">src</samp> - определяет путь к изображению</li>
+				<li><samp class="sin">alt</samp> - задает альтернативный текст</li>
+				<li><samp class="sin">height</samp> - высота кнопки</li>
+				<li><samp class="sin">width</samp> - ширина кнопки</li>
+			</ul>
+			<pre class="item2 mbi"><code><input type="image" src="../img/imgbutton.gif"><br>&lt;input type="image" src="img/myButtonImg.jpg"></code></pre>
+		</td></tr>
+		<tr id="checkbox"><td><a href="#">checkbox</a></td><td>
+			<p>Представляет элемент <samp class="teg">input</samp> в виде флажка. Позволяет выбрать более одного варианта из предложенных.</p>
+			Атрибут <samp class="sin">value</samp> определяет значение, которое будет отдано этим элементом.
+			<br>Атрибут <samp class="sin">checked</samp> делает флажок выбранным.
+			<br>Атрибут <samp class="sin">indeterminate</samp> указывает, что флажок находится в неопределённом состоянии.
+			<pre class="item2"><code><input type="checkbox" checked><input type="checkbox"><input type="checkbox"><br>&lt;input type="checkbox" checked><br>&lt;input type="checkbox"><br>&lt;input type="checkbox"></code></pre>
+		</td></tr>
+		<tr id="color"><td><a href="#">color</a></td><td>
+			<p>Элемент управления цветом, представляет собой элемент управления цветовым диапазоном для установки значения элемента в строку, представляющую сериализацию цвета CSS.</p>
+			Атрибут <samp class="sin">value</samp>, если он указан, должен иметь значение, которое является цветом CSS (<samp class="lsin">#aa12ef</samp>).
+			<pre class="item2 mbi"><code><input type="color" value="#aa12ef"><br>&lt;input type="color" value="#aa12ef"></code></pre>
+			<a class="sin tdu" href="https://html.spec.whatwg.org/multipage/input.html#color-state-(type%3Dcolor)" target="_blank">подробнее...</a>
+		</td></tr>
+		<tr id="date"><td><a href="#">date</a></td><td>
+			Поле для выбора календарной даты (год, месяц и день, без времени).
+			<pre class="item2 mbi"><code><input type="date"><br>&lt;input type="date"></code></pre>
+		</td></tr>
+		<tr id="datetime"><td><a href="#">datetime</a></td><td>
+			Указание даты и времени (час, минута, секунда и доля секунды) в соответствии с часовым поясом UTC.
+			<pre class="item2 mbi"><code><input type="datetime"><br>&lt;input type="datetime"></code></pre>
+		</td></tr>
+		<tr id="datetime-local"><td><pre><a href="#" class="dib ls-1">datetime-local</a></pre></td><td>
+			Указание местной даты и времени без часового пояса.
+			<pre class="item2 mbi"><code><input type="datetime-local"><br>&lt;input type="datetime-local"></code></pre>
+		</td></tr>
+		<tr id="email"><td><a href="#">email</a></td><td>
+			Поле для редактирования адреса электронной почты. Перед отправкой проверяется, что входное значение содержит либо пустую строку, либо один действительный адрес электронной почты.
+			<pre class="item2 mbi"><code><input type="email"><br>&lt;input type="email"></ocde></pre>
+		</td></tr>
+		<tr id="file"><td><a href="#">file</a></td><td>
+			<p>Элемент управления, который позволяет пользователю выбрать файл. Aтрибут <a href="input-accept.html"><samp class="sin tdu">accept</samp></a> определяет типы файлов, которые могут быть выбраны.</p>
+			<pre class="item2 mbi"><code><input type="file" size="14" style="letter-spacing:-.565em;"><br>&lt;input type="file"<br>       style="letter-spacing:-.565em"><br><br><input type="file"><br>без <samp class="sin">letter-spacing</samp></code></pre>
+		</td></tr>
+		<tr id="hidden"><td><a href="#">hidden</a></td><td>
+			Скрытое поле. Оно никак не отображается на веб-странице, но чьё значение будет отправлено на сервер.
+			<pre class="item2"><code><input type="hidden"><br>&lt;input type="hidden"></code></pre>
+		</td></tr>
+		<tr id="month"><td><a href="#">month</a></td><td>
+			Элемент управления для ввода месяца и года без часового пояса.
+			<pre class="item2 mbi"><code><input type="month"><br>&lt;input type="month"></code></pre>
+		</td></tr>
+		<tr id="number"><td><a href="#">number</a></td><td>
+			<p>Элемент управления ввода числа (тип float).</p>
+			атрибут <samp class="sin">min</samp> - определяет минимально допустимое значение
+			<br>атрибут <samp class="sin">max</samp> - определяет максимально допустимое значение
+			<br>атрибут <samp class="sin">step</samp> - задает шаг приращения значения
+			<pre class="item2 mbi"><code><input type="number" min="0" step="0.01" max="10"><br>&lt;input type="number" min="0" step="0.01" max="10"></code></pre>
+			<!-- <div class="no">Android для типа <samp class="sin">number</samp> не поддерживает атрибуты <smap class="sin">step, min</smap> и <samp class="sin">max</samp>.</div> -->
+		</td></tr>
+		<tr id="password"><td><a href="#">password</a></td><td>
+			Однострочное текстовое поле, чьё значение скрыто символом "звёздочка". Аатрибуты <samp class="sin">minlength</samp> и <samp class="sin">maxlength</samp> позволяют задать минимальную и максимальную длину значения, которое может быть введено.
+			<pre class="item2 mbi"><code><input type="password"><br>&lt;input type="password"></code></pre>
+		</td></tr>
+		<tr id="radio"><td><a href="#">radio</a></td><td>
+			<p>Переключатели. Используются, когда следует выбрать один вариант из нескольких предложенных.</p>
+			Переключатели объединяются в группы при помощи задания атрибута <samp class="sin">name="<samp class="lsin">имя_группы</samp>"</samp> с одинаковым значением.
+			<pre class="item2 mbi"><code><input type="radio" name="f2"><input type="radio" name="f2"><input type="radio" name="f2"><br>&lt;input type="radio" name="radio"></code></pre>
+		</td></tr>
+		<tr id="range"><td><a href="#">range</a></td><td>
+			Ползунок для выбора чисел в указанном диапазоне.
+			<pre class="item2 mbi"><code><input type="range" min="50" max="100" value="50"><br>&lt;input type="range" min="50" max="100" value="50"></code></pre>
+			значения атрибутов по умолчанию:
+			<ul class="list l1">
+				<li><samp>min: 0</samp></li>
+				<li><samp>max: 100</samp></li>
+				<li><samp>value: min + (max-min)/2, or min if max < min</samp></li>
+				<li><samp>step: 1</samp></li>
+			</ul>
+		</td></tr>
+		<tr id="reset"><td><a href="#">reset</a></td><td>
+			Кнопка для возвращения данных формы в первоначальное значение (в состояние по умолчанию).
+			<pre class="item2 mbi"><code><input type="reset"><br>&lt;input type="reset"></code></pre>
+		</td></tr>
+		<tr id="search"><td><a href="#">search</a></td><td>
+			Поле для поиска. Однострочное текстовое поле для ввода строк поиска; разрывы строк автоматически удаляются из входного значения.
+			<pre class="item2 mbi"><code><input type="search"> <input type="submit" value="Искать"><br>&lt;input type="search"> <br>&lt;input type="submit" value="Искать"></code></pre>
+		</td></tr>
+		<tr id="tel"><td><a href="#">tel</a></td><td>
+			Элемент управления для ввода номера телефона; разрывы строк автоматически удаляются из входного значения, но никакой другой синтаксис не применяется. Можно использовать атрибуты <samp class="sin">pattern</samp> и <samp class="sin">maxlength</samp>, чтобы ограничить вводимое значение.
+			<pre class="item2 mbi"><code><input type="tel"><br>&lt;input type="tel"></code></pre>
+		</td></tr>
+		<tr id="text"><td><a href="#">text</a></td><td>
+			Однострочное текстовое поле. Предназначено для ввода символов с помощью клавиатуры. Переносы строк автоматически удаляются из входного значения.
+			<pre class="item2 mbi"><code><input type="text"><br>&lt;input type="text"></code></pre>
+		</td></tr>
+		<tr id="time"><td><a href="#">time</a></td><td>
+			Элемент управления для ввода значения времени без часового пояса.
+			<pre class="item2 mbi"><code><input type="time"><br>&lt;input type="time"></code></pre>
+		</td></tr>
+		<tr id="url"><td><a href="#">url</a></td><td>
+			Поле для редактирования URI. Введённое значение должно содержать либо пустую строку, либо допустимый абсолютный URL. В противном случае значение не будет принято. Переводы строк, лидирующие и завершающие пробельные символы будут автоматически удалены из введённого значения. Можно использовать атрибуты <samp class="sin">pattern</samp> и <samp class="sin">maxlength</samp>, чтобы ограничить вводимое значение.
+			<pre class="item2 mbi"><code><input type="url"><br>&lt;input type="url"></code></pre>
+		</td></tr>
+
+		<tr id="week"><td><a href="#">week</a></td><td>
+			Элемент управления для ввода даты, содержащей число неделя-год и номер недели без часового пояса.
+			<pre class="item2 mbi"><code><input type="week"><br>&lt;input type="week"></code></pre>
+		</td></tr>
+	</table>
+
+
+
+	<style type="text/css">
+		.th5 {margin:5px auto 10px; color:#333;}
+		.th5 td:nth-child(n+2){background:#cee2d3; width:60px;}
+		.th5 span::before{content:'\e81b'; padding-right:5px; font-family:fontello; color:#4b846a;}
+
+		.th5 .no{background:#f2c8c8 !important}
+		.th5 .no span::before{content:'\e81c'; color:#ce3045; padding-right:0;}
+
+		.th5 .br td{background-color:#FAF3D2 !important}
+		.th5 .br td:nth-child(n+2) span{font-size:24px; margin-left:-10px}
+		.th5 .br td:nth-child(n+2) span::before{content:''}
+	</style>
+
+	<h3 class="sin mt30">Поддержка браузерами значений (на 20.04.2025)</h3>
+		<table class="t1 t0 tb todd th5 t1c">
+			<tr class="br"><td style="text-align:center; color:#333;">Значение</td><td><span class="t-ie" title="Internet Explorer"></span></td><td><span class="t-edge" title="Edge"></span></td><td><span class="t-chrome" title="Chrome"></span></td><td><span class="t-opera" title="Opera"></span></td><td><span class="t-safari" title="Safari"></span></td><td><span class="t-firefox" title="Firefox"></span></td></tr>
+			<tr><td>month</td><td class="no"><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td class="no"><span></span></td><td class="no"><span></span></td></tr>
+			<tr><td>week</td><td class="no"><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td class="no"><span></span></td><td class="no"><span></span></td></tr>
+		</table>
+</div>
+
+
+
+
+</body></html>

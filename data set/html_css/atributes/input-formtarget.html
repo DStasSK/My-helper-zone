@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head><title>Атрибут formtarget</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">formtarget</samp> элемента <samp class="teg">input</samp>.</h3>
+
+<div class="item">
+	<p>Определяет имя фрейма, в которое будет загружаться результат, возвращаемый обработчиком формы в виде HTML-документа. В качестве значения используется имя фрейма, заданное атрибутом <samp class="sin">name</samp>. Если установлено несуществующее имя, то будет открыта новая вкладка.</p>
+
+	<pre class="item2 ls-05 mt20 mb10"><code>&lt;input type="submit" <br>       formtarget="имя фрейма | _blank | _self | _parent | _top"></code></pre>
+
+	<table class="t1 t3 mb30">
+		<tr><td>_blank</td><td>Загружает страницу в новую вкладку браузера.</td></tr>
+		<tr><td>_self</td><td>Загружает страницу в текущую вкладку. <i>(Значение по умолчанию.)</i></td></tr>
+		<tr><td class="ls-05">_parent</td><td>Загружает страницу во фрейм-родитель; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+		<tr><td>_top</td><td>Отменяет все фреймы и загружает страницу в окне браузера; если фреймов нет, то это значение работает как <samp class="sin">_self</samp>.</td></tr>
+	</table>
+
+	<div class="no">Атрибут <samp class="sin">formtarget</samp> может добавляться только к кнопке для отправки формы <span class="dib">(<samp class="red">&lt;input <samp class="sin">type="<span class="lsin">submit</span>"</samp>></samp>)</span> или к кнопке с изображением <span class="dib">(<samp class="red">&lt;input <samp class="sin">type="<span class="lsin">image</span>"</samp>></samp>)</span>.</div>
+
+
+</div>
+
+
+</body></html>

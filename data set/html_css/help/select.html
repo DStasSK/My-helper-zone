@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>&lt;select></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -16,10 +16,24 @@
 
 <body>
 
-<h2 class="sin" id="ruby"><samp>&lt;select></samp></h2>
+<h2 class="sin" id="ruby"><samp class="teg">select</samp></h2>
 <!-- Оглавление -->
 	<ul class="ogl">
-		<li><a href="#attributs">Атрибуты элемента <samp>&lt;select></samp></a></li>
+		<li><a href="#js"><samp class="teg sin">select</samp> и JS</a></li>
+		<li><a href="#attributs">Атрибуты элемента <samp class="teg sin">select</samp></a>
+			<div class="ogl2 ogl22">
+				<span><a href="#autofocus" title="Устанавливает, что список получает фокус после загрузки страницы." class="t-html5">autofocus</a></span>
+				<span><a href="../atributes/autocomplete.html" title="Включает или отключает автозаполнение.">autocomplete</a></span>
+
+				<span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
+				<span><a href="#form" title="Связывает список с формой." class="t-html5">form</a></span>
+				<span><a href="#multiple" title="Позволяет одновременно выбирать сразу несколько элементов списка.">multiple</a></span>
+				<span><a href="#name" title="Имя элемента для отправки на сервер или обращения через скрипты.">name</a></span>
+				<span><a href="#required" title="Список обязателен для выбора перед отправкой формы." class="t-html5">required</a></span>
+				<span><a href="#size" title="Количество отображаемых строк списка.">size</a></span>
+				<span></span>
+			</div>
+		</li>
 		<li><a href="#pr1">Пример 1 - size.</a></li>
 		<li><a href="#pr2">Пример 2 - disabled.</a></li>
 		<li><a href="#pr3">Пример 3 - multiple.</a></li>
@@ -31,75 +45,149 @@
 <div class="item anp">
 	<p>Элемент <samp class="teg sin">select</samp> (от англ. selection — выбор) позволяет создать элемент интерфейса в виде раскрывающегося списка, а также список с одним или множественным выбором.</p>
 
-  <p>Конечный вид зависит от использования атрибута <samp class="sin">size</samp>, который устанавливает высоту списка. Ширина списка определяется самым широким текстом, указанным в элементе <samp class="teg sin">option</samp>, а также может изменяться с помощью стилей. Каждый пункт создаётся с помощью элемента <samp class="teg sin">option</samp>, который должен быть вложен в контейнер <samp class="teg sin">select</samp>.</p>
+	<p>Конечный вид зависит от использования атрибута <samp class="sin">size</samp>, который устанавливает высоту списка. Ширина списка определяется самым широким текстом, указанным в элементе <a href="./option.html" class="tdu sin"><samp class="teg sin">option</samp></a>, а также может изменяться с помощью стилей. Каждый пункт создаётся с помощью элемента <samp class="teg sin">option</samp>, который должен быть вложен в контейнер <samp class="teg sin">select</samp>.</p>
 
-  <p>Если планируется отправлять данные списка на сервер, то требуется поместить <samp class="teg sin">select</samp> внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.</p>
+	<p>Если планируется отправлять данные списка на сервер, то требуется поместить <samp class="teg sin">select</samp> внутрь формы. Это также необходимо, когда к данным списка идёт обращение через скрипты.</p>
 
-	<pre class="item2 mt20"><code>&lt;select><br>   &lt;option>Пункт 1&lt;/option><br>   &lt;option>Пункт 2&lt;/option><br>&lt;/select></code></pre>
-  <select>
-    <option>Пункт 1</option>
-    <option>Пункт 2</option>
-    <option>Пункт 3</option>
-  </select>
-  
-  <div class="no mt40 mb40">Элемент <samp class="teg sin">select</samp> нельзя вкладывать внутрь ссылок <samp class="teg sin">a</samp> и кнопок <samp class="teg sin">button</samp>; внутри <samp class="teg sin">select</samp> должен быть хотя бы один элемент <samp class="teg sin">option</samp>.</div>
+	<pre class="item2 mt20"><code>&lt;select><br>  &lt;option>Пункт 1&lt;/option><br>  &lt;option>Пункт 2&lt;/option><br>&lt;/select></code></pre>
+	<select>
+		<option>Пункт 1</option>
+		<option>Пункт 2</option>
+		<option>Пункт 3</option>
+	</select>
 
-  <p>Внутри контейнера <samp class="teg sin">select</samp> элементы <samp class="teg sin">option</samp> могут группироваться в броки при помощи элемента <a href="./optgroup.html"><samp class="teg sin tdu">optgroup</samp></a>, при этом он сам не является элементом списка.</p>
+	<div class="no mt40 mb40">Элемент <samp class="teg sin">select</samp> нельзя вкладывать внутрь ссылок <samp class="teg sin">a</samp> и кнопок <samp class="teg sin">button</samp>; внутри <samp class="teg sin">select</samp> должен быть хотя бы один элемент <samp class="teg sin">option</samp>.</div>
 
-  <pre class="item2"><code>&lt;select><br>   &lt;optgroup label="текст 1"><br>      &lt;option>1-1&lt;/option><br>      &lt;option>1-2&lt;/option><br>   &lt;/optgroup><br>   &lt;optgroup label="текст 2"><br>      &lt;option>2-1&lt;/option><br>      &lt;option>2-2&lt;/option><br>   &lt;/optgroup><br>&lt;/select></code></pre>
-  <select>
-    <optgroup label="текст 1">
-       <option>1-1</option>
-       <option>1-2</option>
-    </optgroup>
-    <optgroup label="текст 2">
-       <option>2-1</option>
-       <option>2-2</option>
-    </optgroup>
- </select>
+	<p>Внутри контейнера <samp class="teg sin">select</samp> элементы <samp class="teg sin">option</samp> могут группироваться в броки при помощи элемента <a href="./optgroup.html"><samp class="teg sin tdu">optgroup</samp></a>, при этом он сам не является элементом списка.</p>
+
+	<pre class="item2"><code>&lt;select><br>  &lt;optgroup label="текст 1"><br>    &lt;option>1-1&lt;/option><br>    &lt;option>1-2&lt;/option><br>  &lt;/optgroup><br>  &lt;optgroup label="текст 2"><br>    &lt;option>2-1&lt;/option><br>    &lt;option>2-2&lt;/option><br>  &lt;/optgroup><br>&lt;/select></code></pre>
+	<select>
+		<optgroup label="текст 1">
+			<option>1-1</option>
+			<option>1-2</option>
+		</optgroup>
+		<optgroup label="текст 2">
+			<option>2-1</option>
+			<option>2-2</option>
+		</optgroup>
+	</select>
+</div>
+
+
+
+<div class="item" id="js">
+<h3 class="sin"><a href="#"><samp class="teg sin">select</samp> и JS.</a></h3>
+	<div>Элемент <samp class="teg sin">select</samp> имеет 3 важных свойства:</div>
+	<ul class="list mt10 mb30 l1">
+		<li><samp class="pur">select.options</samp> - коллекция из подэлементов <samp class="teg sin">option</samp></li>
+		<li><samp class="pur">select.value</samp> - значение выбранного в данный момент <samp class="teg sin">option</samp></li>
+		<li><samp class="pur">select.selectedIndex</samp> - номер выбранного <samp class="teg sin">option</samp></li>
+	</ul>
+
+	<div>Они дают три разных способа установить значение в <samp class="teg sin">select</samp>:</div>
+	<ul class="list mt10 mb20 l1">
+		<li>Найти соответствующий элемент <samp class="teg sin">option</samp> и установить в <samp class="pur dib">option.selected</samp> значение <samp class="lsin">true</samp>.</li>
+		<li>Установить в <samp class="pur">select.value</samp> значение нужного <samp class="teg sin">option</samp>.</li>
+		<li>Установить в <samp class="pur">select.selectedIndex</samp> номер нужного <samp class="teg sin">option</samp>.</li>
+	</ul>
+
+	<pre class="item2 mb20"><code>&lt;select id="my_select"><br>  &lt;option value="apple">Яблоко&lt;/option><br>  &lt;option value="pear">Груша&lt;/option><br>  &lt;option value="banana">Банан&lt;/option><br>&lt;/select><br><br>&lt;script><br>  // все три строки делают одно и то же<br>  my_select.options[2].selected = true;<br>  my_select.selectedIndex = 2;<br>  my_select.value = 'banana';<br><br>  // получаем массив выбранных элементов option<br>  let selected = Array.from(my_select.options)<br>                      .filter(option => option.selected)<br>&lt;/script></code></pre>
+
+	<p>Если у элемента <samp class="teg sin">select</samp> установлен атрибут <samp class="pur">multiple</samp> (позволяющий выбрать несколько значений), то в этом случае для работы со значениями необходимо использовать первый способ, то есть ставить или удалять свойство <samp class="sin">selected</samp> у подэлементов <samp class="teg sin">option</samp>.</p>
+
+
+
+
 </div>
 
 
 
 <div class="item" id="attributs">
 <h2 class="sin"><a href="#" title="наверх">Атрибуты</a></h2>
-  <div class="ogl2 ogl21 ogl2c">
-    <span><a href="#autofocus" title="Устанавливает, что список получает фокус после загрузки страницы." class="t-html5">autofocus</a></span>
-    <span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
-    <span><a href="#form" title="Связывает список с формой." class="t-html5">form</a></span>
-    <span><a href="#multiple" title="Позволяет одновременно выбирать сразу несколько элементов списка.">multiple</a></span>
-    <span><a href="#name" title="Имя элемента для отправки на сервер или обращения через скрипты.">name</a></span>
-    <span><a href="#required" title="Список обязателен для выбора перед отправкой формы." class="t-html5">required</a></span>
-    <span><a href="#size" title="Количество отображаемых строк списка.">size</a></span>
-    <!-- <span></span> -->
-  </div>
+	<div class="ogl2 ogl22">
+		<span><a href="#autofocus" title="Устанавливает, что список получает фокус после загрузки страницы." class="t-html5">autofocus</a></span>
+		<span><a href="../atributes/autocomplete.html" title="Включает или отключает автозаполнение.">autocomplete</a></span>
 
+		<span><a href="#disabled" title="Блокирует доступ и изменение элемента.">disabled</a></span>
+		<span><a href="#form" title="Связывает список с формой." class="t-html5">form</a></span>
+		<span><a href="#multiple" title="Позволяет одновременно выбирать сразу несколько элементов списка.">multiple</a></span>
+		<span><a href="#name" title="Имя элемента для отправки на сервер или обращения через скрипты.">name</a></span>
+		<span><a href="#required" title="Список обязателен для выбора перед отправкой формы." class="t-html5">required</a></span>
+		<span><a href="#size" title="Количество отображаемых строк списка.">size</a></span>
+		<span></span>
+	</div>
 	<table class="t1 t3 tb">
 		<tr><td id="autofocus" width="110px"><a href="#attributs">autofocus</a><span class="t-html5" title="HTML5"></span></td>
 			<td>Устанавливает, что список получает фокус после загрузки страницы, при этом список становится доступным для выбора пунктов, например, с помощью клавиатуры.
 			<pre class="item2"><code>&lt;select autofocus>...&lt;/select></code></pre></td></tr>
+
+		<tr><td id="autocomplete"><a href="#attributs">autocomplete</a></td>
+			<td><p>Включает или отключает автозаполнение. Этот атрибут помогает заполнить текстовое поле текстом, который был введён в нём ранее. Значения сохраняет и подставляет браузер, при этом автозаполнение по соображениям безопасности может отключаться пользователем в настройках браузера и не может в таком случае управляться атрибутом <samp class="sin">autocomplete</samp>.</p>
+			Автозаполнение конкретного поля формы привязывается к его атрибуту <samp class="sin">name</samp> и при смене значения теряется. Значение по умолчанию - зависит от настроек браузера.
+			<br><a href="../atributes/autocomplete.html" class="sin tdu">подробнее...</a></td></tr>
+
 		<tr><td id="disabled"><a href="#attributs">disabled</a></td>
 			<td>Блокирует доступ и изменение элементов списка. Блокированный список не может получить фокус через курсор или клавиатуру, быть изменён, значение такого списка не передаётся на сервер.
 			<pre class="item2"><code>&lt;select disabled>...&lt;/select></code></pre></td></tr>
+
 		<tr><td id="form"><a href="#attributs">form</a><span class="t-html5" title="HTML5"></span></td>
 			<td>Связывает список с формой по её идентификатору. Такая связь необходима в случае, когда список располагается за пределами <samp class="teg sin">form</samp>. Значения - идентификатор формы (значение атрибута <samp class="sin">id</samp> элемента <samp class="teg sin">form</samp>).
 			<pre class="item2"><code>&lt;select form="идентификатор">...&lt;/select></code></pre>
 			<div class="no mb0">Не поддерживается в IE и Safari</div></td></tr>
+
 		<tr><td id="multiple"><a href="#attributs">multiple</a></td>
 			<td>Позволяет одновременно выбирать сразу несколько элементов списка. Конечный вид списка зависит от используемого атрибута <samp class="sin">size</samp> и браузера.
 			<pre class="item2"><code>&lt;select multiple>...&lt;/select></code></pre></td></tr>
+
 		<tr><td id="name"><a href="#attributs">name</a></td>
 			<td>Имя элемента для отправки на сервер или обращения через скрипты. В качестве имени используется набор символов, включая числа и буквы. JavaScript чувствителен к регистру, поэтому при обращении к элементу <samp class="teg sin">select</samp> по имени соблюдайте ту же форму написания, что и в атрибуте <samp class="sin">name</samp>.
 			<pre class="item2"><code>&lt;select name="имя">...&lt;/select></code></pre></td></tr>
+
 		<tr><td id="required"><a href="#attributs">required</a><span class="t-html5" title="HTML5"></span></td>
 			<td>Устанавливает список обязательным для выбора перед отправкой формы на сервер. Если пункт списка не выбран, браузер выведет сообщение, а форма не будет отправлена. Вид и содержание сообщения зависит от браузера и меняться пользователем не может.
 			<pre class="item2"><code>&lt;select required>...&lt;/select></code></pre></td></tr>
+
 		<tr><td id="size"><a href="#attributs">size</a></td>
 			<td><p>Количество отображаемых строк списка.</p>
 			<p>Если значение атрибута <samp class="sin">size</samp> равно <b>1</b>, то список превращается в раскрывающийся.</p>
 			<p>Когда атрибута <samp class="sin">multiple</samp> нет, то по умолчанию значение атрибута <samp class="sin">size</samp> равно <b>1</b>. Если он присутствует, то размер списка по умолчанию - равен количеству элементов.</p>
 			<p>При добавлении атрибута <samp class="sin">multiple</samp> к элементу <samp class="teg sin">select</samp> при <samp class="sin">size="1"</samp> список отображается как «крутилка».
-			<pre class="item2"><code>&lt;select size="число">...&lt;/select></code></pre></td></tr>
+			<pre class="item2"><code>&lt;select size="число">...&lt;/select></code></pre>
+			<style>
+				.s_td td {width: 40px}
+				.s_td td.auto {width:50px; font-size:20px; color:#009; line-height:1;}
+				.s_td tr:nth-child(1) {font-size: 18px}
+			</style>
+			<table class="support mt20 s_td mb0" style="font-size:16px">
+				<tr>
+					<td class="auto"></td>
+					<td><span class="t-ie" title="Internet Explorer"></span></td>
+					<td><span class="t-edge" title="Edge"></span></td>
+					<td><span class="t-chrome" title="Chrome"></span></td>
+					<td><span class="t-opera" title="Opera"></span></td>
+					<td><span class="t-safari" title="Safari"></span></td>
+					<td><span class="t-firefox" title="Firefox"></span></td>
+					<td><span class="t-android" title="mobile-android"></span></td>
+					<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+					<td><span class="t-opera" title="mobile-Opera"></span></td>
+					<td><span class="t-safari" title="mobile-Safari"></span></td>
+				</tr>
+				<tr>
+					<td class="auto">size</td>
+					<td class="n"><span   title="IE"></span></td>
+					<td><span           title="Edge">12</span></td>
+					<td><span         title="Chrome">1</span></td>
+					<td><span          title="Opera">15</span></td>
+					<td><span         title="Safari">3</span></td>
+					<td><span        title="Firefox">1</span></td>
+					<td class="n"><span title="mobile-android"></span></td>
+					<td><span title="mobile-Firefox">4</span></td>
+					<td class="n"><span   title="mobile-opera"></span></td>
+					<td class="n"><span  title="mobile-safary"></span></td>
+				</tr>
+			</table>
+
+		</td></tr>
 	</table>
 </div>
 
@@ -108,9 +196,7 @@
 
 <div class="item" id="pr1">
 <h3 class="sin"><a href="#">Пример 1 - <samp class="lsin">size</samp>.</a></h3>
-	<p></p>
-	<fieldset class="prm">
-		<legend></legend>
+	<div class="prm mt20">
 		<div class="mb10">Вид как с <samp class="lsin">multiple</samp>, но выбор только одного значения.</div>
 		<select size="4">
 			<option>First</option>
@@ -119,14 +205,13 @@
 			<option>Fourth</option>
 		</select>
 		<pre class="item2"><code>&lt;select size="4"><br>  &lt;option>First&lt;/option><br>  &lt;option>Second&lt;/option><br>  &lt;option>Third&lt;/option><br>  &lt;option>Fourth&lt;/option><br>&lt;/select></code></pre>
-	</fieldset>
+	</div>
 </div>
 
 
 <div class="item" id="pr2">
 <h3 class="sin"><a href="#">Пример 2 - <samp class="lsin">disabled</samp>.</a></h3>
-	<fieldset class="prm">
-		<legend></legend>
+	<div class="prm mt20">
 		<select disabled name="hero">
 			<option selected>Выберите героя</option>
 			<option value="t1">Чебурашка</option>
@@ -135,7 +220,7 @@
 			<option value="t4">Крыса Лариса</option>
 		</select>
 		<pre class="item2"><code>&lt;select disabled name="hero"><br>   &lt;option selected>Выберите героя&lt;/option><br>   &lt;option value="t1">Чебурашка&lt;/option><br>   &lt;option value="t2">Крокодил Гена&lt;/option><br>   &lt;option value="t3">Шапокляк&lt;/option><br>   &lt;option value="t4">Крыса Лариса&lt;/option><br>&lt;/select></code></pre>
-	</fieldset>
+	</div>
 </div>
 
 
@@ -143,8 +228,7 @@
 <h3 class="sin"><a href="#">Пример 3 - <samp class="lsin">multiple</samp>.</a></h3>
 	<p>Чтобы на сервер отправлялся массив данных, значение атрибута <samp class="sin">name</samp> следует писать с квадратными скобками — <samp class="lsin">hero[]</samp>, к примеру.</p>
 	<p><i>Не вводите людей в заблуждение. Если в PHP такая конвенция, то это ещё не значит, что атрибут "должен" выглядеть так. С другими серверными платформами всё может быть (и есть) по-другому.</i></p>
-	<fieldset class="prm">
-		<legend></legend>
+	<div class="prm mt20">
 		<form action="handler.php">
 			<select multiple name="hero[]">
 				<option>Чебурашка</option>
@@ -154,14 +238,13 @@
 			</select>
 		</form>
 		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;select multiple name="hero[]"><br>    &lt;option>Чебурашка&lt;/option><br>    &lt;option>Крокодил Гена&lt;/option><br>    &lt;option>Шапокляк&lt;/option><br>    &lt;option>Крыса Лариса&lt;/option><br>  &lt;/select><br>&lt;/form></code></pre>
-	</fieldset>
+	</div>
 </div>
 
 
 <div class="item" id="pr4">
 <h3 class="sin"><a href="#">Пример 4 - <samp class="lsin">required</samp>.</a></h3>
-	<fieldset class="prm">
-		<legend></legend>
+	<div class="prm mt20">
 		<form action="handler.php">
 			<p>Какое растение в списке вечнозелёное?</p>
 			<p><select name="pregunta" required>
@@ -174,14 +257,13 @@
 			<p><input type="submit" value="Отправить"></p>
 		</form>
 		<pre class="item2"><code>&lt;form action="handler.php"><br>   &lt;p>Какое растение в списке вечнозелёное?&lt;/p><br>   &lt;p>&lt;select name="pregunta" required><br>      &lt;option>&lt;/option><br>      &lt;option value="1">Ольха&lt;/option><br>      &lt;option value="2">Берёза&lt;/option><br>      &lt;option value="3">Бузина&lt;/option><br>      &lt;option value="4">Тис&lt;/option><br>   &lt;/select>&lt;/p><br>   &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
-	</fieldset>
+	</div>
 </div>
 
 
 <div class="item" id="pr5">
 <h3 class="sin"><a href="#">Пример 5 - <samp class="lsin">name + script</samp>.</a></h3>
-	<fieldset class="prm">
-		<legend></legend>
+	<div class="prm mt20">
 		<script>
 			function dataSelect(f) {
 				n = f.hero.selectedIndex
@@ -199,7 +281,7 @@
 			<input type="button" value="OK" onClick="dataSelect(this.form)"></p>
 		</form>
 		<pre class="item2"><code>&lt;script><br>   function dataSelect(f) {<br>      n = f.hero.selectedIndex<br>      if(n) alert("Выбран герой: " + f.hero.options[n].value)<br>   }<br>&lt;/script><br><br>&lt;form action="handler.php"><br>  &lt;p>&lt;select name="hero"><br>    &lt;option>Выберите героя&lt;/option><br>    &lt;option value="Чебурашка">Чебурашка&lt;/option><br>    &lt;option value="Крокодил Гена">Крокодил Гена&lt;/option><br>    &lt;option value="Шапокляк">Шапокляк&lt;/option><br>    &lt;option value="Крыса Лариса">Крыса Лариса&lt;/option><br>  &lt;/select><br>  &lt;input type="button" value="OK" onClick="dataSelect(this.form)">&lt;/p><br>&lt;/form></code></pre>
-	</fieldset>
+	</div>
 </div>
 
 </body></html>

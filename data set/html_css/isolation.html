@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><title>CSS свойство isolation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>isolation</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">isolation</samp> определяет должен ли элемент создавать новый контекст наложения. Это свойство особенно полезно при использовании совместно с <a href="background/background-blend-mode.html"><samp class="sin dib tdu">background-blend-mode</samp></a>.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  isolation: auto | isolate;<br>}</code></pre>
+
+	<ul class="list mt10 l1">
+		<li><samp class="sin">auto</samp> - новый контекст наложения создаётся только в том случае, если это требуется для одного из свойств, применяемых к элементу.</li>
+		<li><samp class="sin">isolate</samp> - новый контекст наложения должен быть создан, при этом эффект от значения свойства <samp class="sin dib">background-blend-mode</samp> будет игнорироваться, т.е. отменен для заданного блока.</li>
+	</ul>
+
+	<table class="support mt30">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">41</span></td>
+			<td><span          title="Opera">30</span></td>
+			<td><span         title="Safari">8</span></td>
+			<td><span             title="FF">36</span></td>
+			<td><span title="mobile-android">41</span></td>
+			<td><span      title="mobile-FF">36</span></td>
+			<td><span   title="mobile-opera">30</span></td>
+			<td><span  title="mobile-safary">8</span></td>
+		</tr>
+	</table>
+
+</div>
+
+
+
+<div class="item">
+
+	<style>
+		* {box-sizing: border-box;}
+		.big-square {
+			display:flex; gap:10px; width:480px; margin:auto; padding:5px; text-align:center;
+			background-color:#f00; color:#bbb;
+		}
+		.small-square {
+			line-height:140px; font-size:40px;
+			background-color: #f00;
+			width: 150px;
+			height: 150px;
+			border: 5px solid black;
+			mix-blend-mode: difference;
+		}
+		.isolation-auto {isolation: auto;}
+		.isolation-isolate {isolation: isolate;}
+	</style>
+	<div class="big-square">
+		<div class="isolation-auto">
+			<div class="small-square">auto</div>
+		</div>
+		<div class="isolation-isolate">
+			<div class="small-square">isolate</div>
+		</div>
+		<div class="isolation-isolate small-square">isolate</div>
+	</div>
+	<div class="item2">
+		<pre><code>&lt;div class="big-square"&gt;
+  &lt;div class="isolation-auto"&gt;
+    &lt;div class="small-square"&gt;auto&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="isolation-isolate"&gt;
+    &lt;div class="small-square"&gt;isolate&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="isolation-isolate small-square"&gt;isolate&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+		<pre><code>
+.big-square {
+  padding:5px;
+  background-color: #f00;
+}
+.small-square {
+  background-color: #f00;
+  border: 5px solid black;
+  mix-blend-mode: difference;
+}
+.isolation-auto {isolation: auto;}
+.isolation-isolate {isolation: isolate;}</code></pre>
+	</div>
+
+</div>
+
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html><html><head><title>Атрибут data-*</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>data-*</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">data-*</samp> создает пользовательский атрибут с данными, которые позволяют хранить и обмениваться информацией между HTML и его представлением DOM посредством JS. Данные могут быть получены с помощью скриптов или через стилевую функцию <a href="../help/help.html#attr"><samp class="sin tdu">attr()</samp></a>. Символ <b class="sin">*</b> может быть заменён любым именем, соответствующим производственному правилу имён xml, со следующими ограничениями:</p>
+	<ul class="list">
+		<li>имя не должно содержать точку с запятой (U + 003A).</li>
+		<li>имя не должно содержать заглавных букв.</li>
+		<li>имя не должно начинаться с xml, в любом случае для этих букв используется регистр.</li>
+		<li>можно использовать латинские буквы в нижнем регистре, цифры и символы: дефис ( - ), двоеточие ( : ), подчёркивание ( _ ).</li>
+	</ul>
+
+
+	<pre class="item2 mt30 mb30"><code>&lt;div id="user"<br>     data-id="1234567890"<br>     data-user="Вася Пупкин" <br>     data-date-of-birth="01.04.1990">Пользователь&lt;/div></code></pre>
+
+	<div>При использовании в JS имена атрибутов трансформируются в переменные, к которым в дальнейшем можно обращаться и получать значения, по следующим правилам:</div>
+	<ul class="list mb10">
+		<li>часть названия атрибута <samp class="sin">data-</samp> идещее первым, удаляется;</li>
+		<li>любой дефис в названии атрибута идущий перед буквой удаляется, а буква за ним становится заглавной;</li>
+		<li>любые другие буквы остаются неизменными.</li>
+	</ul>
+
+	<div class="item2 mt20 mb20">Например, атрибут <samp class="sin">data-date-of-birth</samp> преобразуется в переменную <samp class="red">dateOfBirth</samp>.</div>
+
+	<p class="mt20">Для обращения к атрибутам и получения их значений через JS для выбранного элемнта применяется метод <samp class="sin">dataset</samp>. Он же используется и для установки нового значения атрибута.</p>
+
+	<pre class="item2">значение = элемент.dataset.атрибут<br>элемент.dataset.атрибут = значение</pre>
+	<div>Здесь <samp class="pur">атрибут</samp> — это переменная, полученная путём изменения атрибута по вышеприведённым правилам: <samp class="sin">dateOfBirth</samp>, а не <samp class="sin dib">data-date-of-birth</samp> или <samp class="sin dib">date-of-birth</samp>.</div>
+
+</div>
+
+
+
+<div class="item">
+	<style>
+	  #user::after { content: ' ' attr(data-user) ' - ' attr(data-ban); }
+	</style>
+	<div id="user" data-id="1234567890" data-user="Вася Пупкин" data-date-of-birth="01.04.1990">Пользователь</div>
+	<script>
+		let el = document.getElementById('user'); // Элемент с id="user"
+		let id = el.dataset.id;              // Получаем значение атрибута data-id
+		let user = el.dataset.user;          // Получаем значение атрибута data-user
+		let dob = el.dataset.dateOfBirth;    // Получаем значение атрибута data-date-of-birth
+
+		el.dataset.ban = 'забанен';          // Назначаем новый атрибут data-ban и его значение
+		//console.log(user); //Вася Пупкин     // Выводим в консоль значение переменной user
+		//console.log(dob);  //01.04.1990      // Выводим в консоль значение переменной dob
+	</script>
+	<pre class="item2 ls-05"><code>&lt;div id="user"<br>     data-id="1234567890"<br>     data-user="Вася Пупкин" <br>     data-date-of-birth="01.04.1990">Пользователь&lt;/div><br><br>&lt;script><br>  let el = document.getElementById('user'); // элемент с id="user"<br>  let id = el.dataset.id;              // значение атрибута data-id<br>  let user = el.dataset.user;          // значение атрибута data-user<br>  let dob = el.dataset.dateOfBirth;    // значение атрибута data-date-of-birth<br><br>  el.dataset.ban = 'забанен';          // новый атрибут data-ban и его значение<br>  console.log(user);                   // Вася Пупкин<br>  console.log(dob);                    // 01.04.1990<br>&lt;/script><br><br>&lt;style><br>  #user::after { content: ' ' attr(data-user) ' - ' attr(data-ban); }<br>&lt;/style></code></pre>
+
+</div>
+
+
+</body></html>

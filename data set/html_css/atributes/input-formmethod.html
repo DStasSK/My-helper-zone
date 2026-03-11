@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head><title>Атрибут formmethod</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">formmethod</samp> элемента <samp class="teg">input</samp>.</h3>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">formmethod</samp> сообщает браузеру, каким методом следует передавать данные формы на сервер. Данный атрибут можно применять к элементу <samp class="teg">input</samp> с атрибутом <samp class="sin">type</samp> имеющим значение <samp class="lsin">submit</samp> или <samp class="lsin">image</samp> а также к элементу <samp class="teg">button</samp>. Значением атрибута является строка, указывающая метод HTTP, который следует использовать при отправке данных формы; это значение переопределяет любой атрибут метода, заданный в форме-владельце. Значение по умолчанию - <samp class="lsin">get</samp>.</p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;input type="submit" formmethod="get | post"><br>&lt;input type="image" formmethod="get | post"></code></pre>
+
+	<table class="t1">
+		<tr><td>get</td><td>
+			<p>URL-адрес создается путем начала URL-адреса, заданного атрибутом <samp class="sin">formaction</samp> или <samp class="sin">action</samp>, добавления символа вопросительного знака ("<b>?</b>"), а затем добавления данных формы, закодированных, как описано в атрибуте formenctype или enctype формы. Затем этот URL-адрес отправляется на сервер с помощью HTTP-запроса <samp class="pur">get</samp>. Этот метод хорошо работает для форм, которые содержат только символы ASCII и не имеют побочных эффектов. Это значение по умолчанию.</p>
+			<p>Этот метод передачи данных является одним из самых распространённых и предназначен для получения требуемой информации и передачи данных в адресной строке. Пары «имя=значение» присоединяются в этом случае к адресу после вопросительного знака и разделяются между собой амперсандом (символ &amp;). Полный адрес к примеру будет:</p>
+			<samp class="lsin dib">http://site.ru/doc/?name=Vasya&password=pup</samp>
+			<div class="no mt10">Объём данных в методе ограничен 4 Кб.</div>
+		</td></tr>
+		<tr><td>post</td><td>
+			Метод передачи данных <b>post</b> посылает на сервер данные в запросе браузера, объём пересылаемых данных ограничен лишь настройками сервера. Данные формы включаются в тело запроса, который отправляется на URL, указанный атрибутом <samp class="sin">formaction</samp> или <samp class="sin">action</samp>, с использованием метода HTTP <samp class="pur">post</samp>. Этот метод поддерживает сложные данные и вложения файлов.
+		</td></tr>
+		<tr><td>dialog</td><td>
+			Предназначен для закрытия диалогового окна, когда форма располагается внутри элемента <a href="../dialog.html"><samp class="teg tdu">dialog</samp></a>. Этот метод используется для указания того, что кнопка закрывает диалоговое окно, с которым связан ввод, и вообще не передает данные формы.
+		</td></tr>
+	</table>
+
+	<div class="prm mt20">
+		<form>
+			<p>Ваше имя: <input name="user"></p>
+			<p>Файл для заявки: <input name="file" type="file"></p>
+			<p><input type="submit" formaction="handler.php" formmethod="post" formenctype="multipart/form-data" value="Отправить">
+		</form>
+		<pre class="item2 ls-1"><code>&lt;form><br>  &lt;p>Ваше имя: &lt;input name="user">&lt;/p><br>  &lt;p>Файл для заявки: &lt;input name="file" type="file">&lt;/p><br>  &lt;p>&lt;input type="submit" <br>            formaction="handler.php" <br>            formmethod="post" <br>            formenctype="multipart/form-data" <br>            value="Отправить"><br>&lt;/form></code></pre>
+	</div>
+
+</div>
+
+
+</body></html>

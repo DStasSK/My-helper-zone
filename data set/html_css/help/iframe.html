@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>&lt;iframe></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -67,9 +67,9 @@
 		<tr>
 			<td><a href="#frameborder">frameborder</a></td><td>Устанавливает, отображать границу вокруг фрейма или нет.<span class="no ml10">только <samp class="ls1">HTML4</samp></span></td>
 		</tr>
-		<tr>
-			<td><a href="#loading">loading</a></td><td>Атрибут откладывает загрузку содержимого <samp>iframe</samp>, пока <samp>iframe</samp> не попасдет во вьюпорт - т.е. пока не попадет на экран.
-			<div class="no">Не поддерживается в Firefox</div></td>
+		<tr id="loading">
+			<td><a href="#">loading</a></td><td>Атрибут откладывает загрузку содержимого <samp class="teg">iframe</samp>, пока он не попадет во вьюпорт - т.е. пока не окажется на экране.
+			<br><a href="../atributes/loading.html" class="sin tdu">подронее...</a></td>
 		</tr>
 		<tr>
 			<td><a href="#height">height</a></td><td>Высота фрейма.</td>
@@ -157,24 +157,6 @@
 	<pre class="item2"><code>&lt;iframe  frameborder="yes (1) | no (0)">&lt;/iframe></code></pre>
 	<div class="no">Устарел - используйте стилевое свойство <samp class="sin">border</samp>.</div>
 </div>
-
-
-
-<div class="item">
-<h3 class="sin" id="loading"><a href="#z0">Атрибут - <samp class="grin">loading</samp></a></h3>
-	<p>Атрибут откладывает загрузку содержимого <samp>iframe</samp>, пока <samp>iframe</samp> не должен будет попасть во вьюпорт - т.е. пока не попадет на экран.</p>
-
-	<div class="no">Не поддерживается в Firefox</div>
-
-	<pre class="item2"><code>&lt;iframe loading="lazy | eager">&lt;/iframe></code></pre>
-
-	<ul class="list l1">
-		<li><samp class="lsin">eager</samp> - поведение браузера по умолчанию</li>
-		<li><samp class="lsin">lazy</samp> - откладывает загрузку <b>iframe</b>, пока тот не попадет во вьюпорт</li>
-	</ul>
-</div>
-
-
 
 
 

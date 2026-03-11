@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><title>Атрибут autocomplete</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">autocomplete</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов <samp class="teg">input</samp>, которые принимают текстовое или числовое значение в качестве входных данных, элементов <samp class="teg">textarea</samp>, элементов <samp class="teg">select</samp> и элементов <samp class="teg">form</samp>.</div>
+
+	<p>Этот атрибут помогает заполнять поля форм текстом, который был введён в них ранее. Значения сохраняет и подставляет браузер. Aвтозаполнение по соображениям безопасности может отключаться пользователем в настройках браузера и не может в таком случае управляться атрибутом <samp class="sin">autocomplete</samp>. К качестве значения атрибут принимает ключевые слова <samp class="lsin">off</samp> или <samp class="lsin">on</samp>, либо упорядоченный список <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#token_list_tokens" target="_blank" class="sin tdu">токенов</a>, разделенных пробелами.</p>
+
+	<pre class="item2 mt20 mb30"><code>&lt;input autocomplete="off"><br>&lt;input autocomplete="on"><br>&lt;input autocomplete="shipping street-address"></code></pre>
+
+	<div class="no">Значение по умолчанию - зависит от настроек браузера</div>
+
+	<p>Атрибут <samp class="sin">autocomplete</samp> может добавляться к полю формы, у которого атрибут <samp class="sin">type</samp> имеет одно из значений: <samp>text, password, search, url, tel, email, date, month, week, time, datetime-local, number, range, color</samp>.</p>
+
+	<p>При вводе первых букв текста выводится список сохранённых ранее значений, из которого можно выбрать необходимое. Автозаполнение поля формы привязывается к его атрибуту <samp class="sin">name</samp> и при его смене - теряется.</p>
+
+	<p>Если элемент <samp class="teg">input</samp>, <samp class="teg">select</samp> или <samp class="teg">textarea</samp> не имеет атрибута <samp class="sin">autocomplete</samp>, браузер будет использовать атрибут <samp class="sin">autocomplete</samp> формы, внутри которой вложен элемент. Либо формой у которой идентификатор совпадает с идентификатором элемента (если id присутствует).</p>
+
+
+	<div class="mt30"></div>
+	<table class="support">
+		<tr>
+			<td class="auto"></td>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="auto"><samp class="teg sin">form</samp></td>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">12</span></td>
+			<td><span         title="Chrome">14</span></td>
+			<td><span          title="Opera">16</span></td>
+			<td><span         title="Safari">6</span></td>
+			<td><span        title="Firefox">4</span></td>
+			<td><span title="mobile-android">4.4</span></td>
+			<td><span title="mobile-Firefox">4</span></td>
+			<td><span   title="mobile-opera">14</span></td>
+			<td><span  title="mobile-safary">6</span></td>
+		</tr>
+		<tr>
+			<td class="auto"><samp class="teg sin">input</samp></td>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">12</span></td>
+			<td><span         title="Chrome">14</span></td>
+			<td><span          title="Opera">12.1</span></td>
+			<td><span         title="Safari">6</span></td>
+			<td><span        title="Firefox">4</span></td>
+			<td><span title="mobile-android">4.4</span></td>
+			<td><span title="mobile-Firefox">4</span></td>
+			<td><span   title="mobile-opera">12.1</span></td>
+			<td><span  title="mobile-safary">6</span></td>
+		</tr>
+		<tr>
+			<td class="auto"><samp class="teg sin">select</samp></td>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">66</span></td>
+			<td><span          title="Opera">53</span></td>
+			<td><span         title="Safari">9.1</span></td>
+			<td><span        title="Firefox">59</span></td>
+			<td><span title="mobile-android">66</span></td>
+			<td><span title="mobile-Firefox">59</span></td>
+			<td><span   title="mobile-opera">47</span></td>
+			<td><span  title="mobile-safary">9.3</span></td>
+		</tr>
+		<tr>
+			<td class="auto"><samp class="teg sin">textarea</samp></td>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">66</span></td>
+			<td><span          title="Opera">53</span></td>
+			<td><span         title="Safari">9.1</span></td>
+			<td><span        title="Firefox">59</span></td>
+			<td><span title="mobile-android">66</span></td>
+			<td><span title="mobile-Firefox">59</span></td>
+			<td><span   title="mobile-opera">47</span></td>
+			<td><span  title="mobile-safary">9.3</span></td>
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item">
+	<h3 class="sin">Пример.</h3>
+	<form autocomplete="on" class="prm">
+		<p>Имя: <input name="user"></p>
+		<p>Пароль: <input name="pass" type="password"></p>
+		<p><input type="submit" value="Отправить"></p>
+	</form>
+	<pre class="item2 mt20"><code>&lt;form autocomplete="on"><br>  &lt;p>Имя: &lt;input name="user" autocomplete="on">&lt;/p><br>  &lt;p>Пароль: &lt;input name="pass" type="password" autocomplete="off">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+</div>
+</body></html>

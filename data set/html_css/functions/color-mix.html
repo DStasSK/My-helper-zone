@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>Функция - color-mix()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>color-mix()</samp></h2>
+<div class="item">
+	<p>Функция <samp class="sin">color-mix()</samp> принимает два значения <samp class="sin">color</samp> и возвращает результат их смешивания по указанному алгоритму с заданным процентным соотношением.</p>
+
+	<pre class="item2 mt20 mb10"><code>div {<br>  property: color-mix(method, color [percent], color [percent]);<br>}</code></pre>
+
+	<ul class="list">
+		<li><samp class="sin">method</samp> - указывает, какой метод следует использовать для смешивания цветов. Он состоит из ключевого слова <samp class="pur">in</samp>, за которым следует сам метод смешивания.</li>
+		<li><samp class="sin">color</samp> - значение цвета в css формате; <samp class="lsin">transparent</samp> допускается как значение.</li>
+		<li><samp class="sin">percent</samp> - значение от 0% до 100%, указыват % при смешивании.
+			<ul class="list">
+				<li>если данные параметры пропущены, то они считаются как 50%.</li>
+				<li>если указан только у одного цвета, то второй будет (100% - percent).</li>
+				<li>если указаны оба значения как 0% - то функция игнорируется.</li>
+				<li>если сумма % < 100%, то к полученному цвету применяется альфа-канал (100% - % - %).</li>
+				<li>если сумма % > 100%, то браузер пропорционально "нормализует" сумму до 100%.</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="mt30">Мметоды для смешивания.</div>
+	<ul class="list">
+		<li><samp class="sin">srgb</samp> - цветовое пространство RGBA.</li>
+		<li><samp class="sin">srgb-linear</samp> - цветовое пространство RGB.</li>
+		<li><samp class="sin">display-p3</samp> - цветовое пространство определенное Apple, объединяет цветовую гамму DCI-P3, точку белого D65 и кривую гаммы sRGB</li>
+		<li><samp class="sin">a98-rgb</samp> - цветовое пространство Adobe® 1998 RGB, для представления всех цветов CMYK как RGB.</li>
+		<li><samp class="sin">prophoto-rgb</samp> - цветовое пространство от Kodak, может представлять все цвета, которые могут встречаться в природе, и около 90% цветов CIElab.</li>
+		<li><samp class="sin">rec2020</samp> - это стандарт вещательной отрасли для телевизоров сверхвысокой четкости 4k и 8k. Способно отображать практически все видимые цвета реального мира, выходящие за рамки возможностей большинства дисплеев.</li>
+		<li><samp class="sin">lab</samp> - цветовое пространство CIELAB (или CIELab), также называемое L*a*b* (или Lab* для краткости), представляет весь диапазон цветов, которые может видеть человек. Оно выражает цвет в виде трех значений для четырех уникальных цветов человеческого зрения: красного, зеленого, синего и желтого.</li>
+		<li><samp class="sin">oklab</samp> - цветовое пространство CIELab с белой точкой — D65.</li>
+		<li><samp class="sin">xyz</samp> - цветовые пространства определенными количественными связями между распределениями длин волн в электромагнитном видимом спектре и воспринимаемыми цветами в человеческом зрении. Хотя комбинации красного, зеленого и синего хорошо подходят для представления цветов на экране, sRGB не соответствует напрямую тому, как люди воспринимают цвет.</li>
+		<li><samp class="sin">xyz-d50</samp> - цветовое пространство xyz с белой точкой — D50.</li>
+		<li><samp class="sin">xyz-d65</samp> - цветовое пространство xyz с белой точкой — D65.</li>
+		<li><samp class="sin">hsl</samp> - выражает цвет в формате <a href="../txt/color.html#hsl" class="sin tdu">HSL</a>.</li>
+		<li><samp class="sin">hwb</samp> - выражает цвет в формате HWB.</li>
+		<li><samp class="sin">lch</samp> - выражает заданный цвет в формате LCH.</li>
+		<li><samp class="sin">oklch</samp> - выражает заданный цвет в цветовом пространстве Oklab.</li>
+	</ul>
+
+	<pre class="item2 mt30"><code>div {<br>  background-color: color-mix(in oklab, #a71e14 75%, white);<br>  background-color: color-mix(in srgb, var(--base) 25%, transparent);<br>  color: color-mix(in lab, plum 60%, #f00 50%);<br>  color: color-mix(in hsl, hsl(200 50 80), coral 80%);<br>}</code></pre>
+
+	<div class="mt40">2023.07</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>111</span></td><!-- Edge -->
+			<td><span>111</span></td><!-- Chrome -->
+			<td><span>97</span></td><!-- Opera -->
+			<td><span>16.2</span></td><!-- Safari -->
+			<td><span>113</span></td><!-- FF -->
+			<td><span>111</span></td><!-- mobile-android -->
+			<td><span>113</span></td><!-- mobile-FF -->
+			<td><span>75</span></td><!-- mobile-opera -->
+			<td><span>16.2</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+
+</body>
+</html>

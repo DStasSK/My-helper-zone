@@ -1,61 +1,56 @@
 <!DOCTYPE html><html><head><title>image-set</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
 <link rel="stylesheet" href="../../highlight.js/styles/ss.css">
 <script src="../../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<style>
-  .support{
-    margin: auto;
-  }
-  .support th{
-    writing-mode:vertical-lr;
-    transform:rotate(180deg);
-    padding-inline:10px;
-    padding-block:16px;
-    }
-  .support th, .support td{
-    border:1px solid #777;
-  }
-  .support td{
-    padding:6px 0;
-    text-align:center;
-    font-size:16px;
-  }
-  .support tr:nth-child(3) td{
-    padding:6px 0;
-  }
-</style>
 </head>
 <body>
-<h2 class="sin">image-set</h2>
-
-<table class="support mt20">
-  <tr><th>Chrome</th><th>Edge</th><th>Firefox</th><th>Opera</th><th>Safari</th><th>Chrome Android</th><th>Firefox for Android</th><th>Opera Android</th><th>Safari on iOS</th><th>Samsung Internet</th><th>WebView Android</th><th>WebView on iOS</th></tr>
-
-  <tr><td>v.113</td><td>v.113</td><td>v.89</td><td>v.99</td><td>v.17</td><td>v.113</td><td>v.89</td><td>v.76</td><td>v.17</td><td>v.23.0</td><td>v.113</td><td>v.17</td></tr>
-
-  <tr><td>2023.05</td><td>2023.05</td><td>2021.06</td><td>2023.05</td><td>2023.09</td><td>2023.05</td><td>2021.06</td><td>2023.06</td><td>2023.09</td><td>2023.10</td><td>2023.05</td><td>2023.09</td></tr>
-</table>
-  
-
+<h2 class="sin">CSS функция <samp>image-set()</samp></h2>
 
 <div class="item">
-	<p>CSS-функция <samp class="sin">image-set()</samp> позволяет перечислить несколько фоновых изображений с условиями, по которым браузер решит, какое из них наиболее подходящее для загрузки в данный момент.</p>
+	<p>CSS функция <samp class="sin">image-set()</samp> позволяет перечислить несколько фоновых изображений с условиями, по которым браузер решит, какое из них наиболее подходящее для загрузки в данный момент.</p>
 
 	<div class="no no1">Похож по принципу работы на тег <a href="../help/picture.html"><samp class="teg sin tdu">picture</samp></a>.</div>
 
-	<p>На сайт могут заходить с разных устройств. У многих дисплеи с повышенной плотностью пикселей и им нужно показывать картинку хорошего качества. А на телефонах лучше показывать небольшие файлы ради ускорения загрузки страницы. Нужно как-то давать разным клиентам разные версии изображений. Раньше для этого использовали медиавыражения, а теперь есть простые и удобные решения, которые позволяют через запятую указать все версии изображений.</p>
-
-	<p>Внутри круглых скобок указываем через запятую две и более ссылки на изображения при помощи функции <samp class="sin">url()</samp> и пишем условие для выбора этой картинки. В качестве условия можно использовать коэффициент плотности пикселей: <b>1x</b>, <b>2x</b> и так далее. Или указываем тип изображения в формате <b>MIME</b>. Картинка будет загружена, если формат поддерживается браузером. Можно комбинировать условия.</p>
+	<p>Внутри круглых скобок через запятую указывают две и более ссылки на изображения при помощи функции <samp class="sin">url()</samp> и условие для выбора этой картинки. В качестве условия можно использовать коэффициент плотности пикселей: <b>1x</b>, <b>2x</b> и так далее. Или указываем тип изображения в формате <b>MIME</b>. Картинка будет загружена, если формат поддерживается браузером. Можно комбинировать условия.</p>
 
 	<p>Порядок перечисления форматов картинок <strong>важен</strong>: так сначала необходимо указывать более предпочтительные (AVIF, WebP), потом — менее (PNG, JPEG). Порядок перечисления картинок разной плотности не важен, браузер сам выберет подходящую.</p>
 
 	<pre class="item2"><code>div {<br>   background-image: url("pick.png");<br><br>   /* Для Chrome и Safari (в Safari не отображается AVIF) */<br>   background-image: -webkit-image-set(<br>      url("pick@2x.png") 2x,<br>      url("pick@1x.png") 1x<br>   );<br><br>   /* Для Firefox */<br>   background-image: image-set(<br>      url("pick@2x.avif") type("image/avif") 2x,<br>      url("pick@1x.avif") type("image/avif") 1x,<br>      url("pick@2x.webp") type("image/webp") 2x,<br>      url("pick@1x.webp") type("image/webp") 1x,<br>      url("pick@2x.png") 2x,<br>      url("pick@1x.png") 1x<br>   );<br>}</code></pre>
+
+
+  <div class="mt30">2023.10</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">113</span></td>
+			<td><span         title="Chrome">113</span></td>
+			<td><span          title="Opera">99</span></td>
+			<td><span         title="Safari">17</span></td>
+			<td><span             title="FF">89</span></td>
+			<td><span title="mobile-android">113</span></td>
+			<td><span      title="mobile-FF">89</span></td>
+			<td><span   title="mobile-opera">76</span></td>
+			<td><span  title="mobile-safary">17</span></td>
+		</tr>
+	</table>
 
 </div>
 

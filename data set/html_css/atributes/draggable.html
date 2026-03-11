@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>Атрибут draggable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>draggable</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">draggable</samp> указывает, можно ли перетаскивать элемент с помощью собственного поведения браузера, либо с помощью HTML Drag and Drop API. Атрибут <samp class="sin">draggable</samp> может быть применен к элементам, которые строго попадают под пространство имен HTML, что означает, что его нельзя применять к SVG.</p>
+
+	<pre class="item2 mt20"><code>&lt;div draggable="true | false | auto"><br>  text<br>&lt;/div></code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">true</samp> - Разрешает перетаскивание элемента.</li>
+		<li><samp class="sin">false</samp> - Запрещает перетаскивание элемента.</li>
+		<li><samp class="sin">auto</samp> - Задаёт поведение браузера по умолчанию.</li>
+	</ul>
+
+	<p>Атрибут <samp class="sin">draggable</samp> перечисляемый, а не логический. Значение <samp class="lsin">true</samp> или <samp class="lsin">false</samp> является обязательным, а сокращение типа <samp class="red dib">&lt;img <span class="sin">draggable</span>></samp> запрещено. Если этот атрибут не задан, его значение по умолчанию — <samp class="lsin">auto</samp>, что означает, что поведение перетаскивания — это поведение браузера по умолчанию: можно перетаскивать только выделенные тексты, изображения и ссылки. Для других элементов необходимо задать событие <samp class="pur">ondragstart</samp>, чтобы работало перетаскивание</p>
+
+	<div class="item2 mt30"><code>element.draggable [ = value ]  // JS</code></div>
+	<p>Возвращает <samp class="lsin">true</samp>, если элемент можно перетаскивать; в противном случае возвращает <samp class="lsin">false</samp>. Можно задать, чтобы переопределить значение или задать атрибут элемента.</p>
+
+	<div><a href="https://html.spec.whatwg.org/multipage/dnd.html#the-draggable-attribute" class="sin tdu">спецификация</a></div>
+	<!-- <p>Чтобы сделать элемент перетаскиваемым, присвойте элементу атрибут <samp class="sin">draggable</samp> и установите прослушиватель событий для <samp class="pur">dragstart</samp>, который сохраняет перетаскиваемые данные. Обработчик событий обычно должен проверить, что перетаскивается не выделенный текст, а затем сохранить данные в объекте <samp class="pur">DataTransfer</samp> и задать разрешенные эффекты (копирование, перемещение, ссылка или некоторая комбинация).</p> -->
+</div>
+
+
+
+<div class="item anp">
+<h3 class="sin">Пример.</h3>
+	<style>
+		.example .ptrash {border:1px solid #929292; height:160px; padding:10px; text-align:center; margin-bottom:1rem; background:url(../help/img/trash.png) no-repeat 50% 50%;}
+		.example img {cursor: move;}
+	</style>
+
+	<div class="example">
+		<p>Переместите картинку в прямоугольник.</p>
+		<div class="ptrash" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<img src="../help/img/fig.jpg" draggable="true" width="160px" height="160px" alt="пример изображения" ondragstart="drag(event)" id="photo">
+	</div>
+
+	<script>
+		function allowDrop(ev) { ev.preventDefault(); }
+		function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+	</script>
+
+
+	<div class="item2">
+		<pre><code>&lt;p>Переместите картинку в прямоугольник.&lt;/p><br>&lt;div class="ptrash"<br>     ondrop="drop(event)" ondragover="allowDrop(event)">&lt;/div><br>&lt;img src="help/img/fig.jpg" alt="" id="photo"<br>     draggable="true" ondragstart="drag(event)"></code></pre>
+		<pre><code><br>&lt;script><br>  function allowDrop(ev) {ev.preventDefault();}<br>  function drag(ev) {ev.dataTransfer.setData("text", ev.target.id);}<br>  function drop(ev) {<br>    ev.preventDefault();<br>    var data = ev.dataTransfer.getData("text");<br>    ev.target.appendChild(document.getElementById(data));<br>  }<br>&lt;/script></code></pre>
+		<pre><code><br>.ptrash {<br>  background:url(help/img/trash.png) no-repeat 50% 50%;<br>}<br>img {cursor: move;}</code></pre>
+	</div>
+
+</div>
+
+
+
+
+</body></html>

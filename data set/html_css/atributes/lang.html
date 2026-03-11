@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><title>Атрибут lang</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>lang</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">lang</samp> позволяет установить язык элемента, то есть тот язык, на котором написаны нередактируемые элементы, или язык, на котором пользователем должны быть написаны редактируемые элементы. Атрибут содержит <a href="../lang-code.html" class="sin tdu">код языка</a>.</p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;div lang="код языка"><br>  ...<br>&lt;/div></code></pre>
+
+	<p>Браузер использует значение атрибута для правильного отображения некоторых национальных символов. Текст документа может быть набран как на одном языке, так и содержать вставки на других языках, которые могут различаться по своим правилам оформления текста. Например, для русского, немецкого и английского языка характерны разные кавычки, в которые берется цитата. Чтобы указать язык, на котором написан текст внутри текущего элемента и применяется атрибут <samp class="sin">lang</samp></p>
+
+	<div class="prm anp">
+		<style>
+			q:lang(de) {quotes: "\201E" "\201C"} /* Вид кавычек для немецкого языка */
+			q:lang(en) {quotes: "\201C" "\201D"} /* Вид кавычек для английского языка */
+			q:lang(fr) {quotes: "\0AB" "\0BB"}   /* Вид кавычек для французского языка*/
+		</style>
+		<p>Цитата на французском языке: <q lang="fr">Ce que femme veut...</q>.</p>
+
+		<p>Цитата на немецком: <q lang="de">Der Mensch, versuche...</q>.</p>
+
+		<p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
+
+		<div class="item2 mt20 ls-1">
+			<pre><code>&lt;p>Цитата на французском языке: &lt;q lang="fr">Ce que femme veut...&lt;/q>.&lt;/p><br>&lt;p>Цитата на немецком: &lt;q lang="de">Der Mensch, versuche...&lt;/q>.&lt;/p><br>&lt;p>Цитата на английском: &lt;q lang="en">То be or not to be&lt;/q>.&lt;/p></code></pre>
+			<pre><code><br><br>q:lang(de) {quotes:"\201E" "\201C"} /* Вид кавычек для немецкого языка */<br>q:lang(en) {quotes:"\201C" "\201D"} /* Вид кавычек для английского языка */<br>q:lang(fr) {quotes:"\0AB" "\0BB"}   /* Вид кавычек для французского языка*/</code></pre>
+		</div>
+	</div>
+
+
+</div>
+
+</body></html>

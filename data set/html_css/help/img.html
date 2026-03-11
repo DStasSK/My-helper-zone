@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>&lt;img&gt;</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -150,12 +150,18 @@
 			<td><p>Чтобы создать альтернативный текст, следует применять атрибут <samp class="sin">alt</samp> для тега <samp class="teg">img</samp>. Альтернативный текст необходим для того, чтобы картинки были обозначены некоей текстовой информацией в тех случаях, когда в браузере показ изображений отключен, или же на период их загрузки. По его содержанию можно судить о том, что изображено на картинке, причем появляется он до ее загрузки.</p>
 			После того как загрузка <span class="pur">картинки</span> завершена, альтернативный текст исчезает.
 			<pre class="item2"><code>&lt;img alt="Альтернативный текст" /></code></pre></td></tr>
+
 		<tr><td id="crossorigin" class="ls-1">crossorigin<br><span class="html5 ml-10"></span></td>
-			<td><p>Атрибут <samp class="sin">crossorigin</samp> позволяет загружать изображения с ресурсов другого домена с помощью CORS-запросов. Изображения, загруженные в холст с помощью CORS-запросов, могут быть использованы повторно.</p>
+			<td><p>Атрибут <samp class="sin">crossorigin</samp> позволяет настроить CORS запросы для данных получаемых элементом. Oбеспечивает поддержку CORS, определяя, как элемент обрабатывает запросы кросс-источника, тем самым позволяя настраивать запросы CORS для извлеченных данных элемента. Позволяет загружать ресурсы c другого домена с помощью CORS-запросов.</p>
 			Допускаемые значения:
-			<p><samp class="lsin">anonymous</samp> - cross-origin запрос выполняется с помощью HTTP-заголовка, при этом учетные данные не передаются. Если сервер не даёт учетные данные серверу, с которого запрашивается контент, то изображение будет испорчено и его использование будет ограничено.</p>
-			<p><samp class="lsin">use-credentials</samp> - cross-origin запрос выполняется с передачей учетных данных.</p>
+			<ul class="list mb10 l1">
+				<li><samp class="sin">anonymous</samp> - запрос использует заголовки CORS, а флаг учетных данных установлен на 'same-origin'. Обмен учетными данными пользователя (через файлы cookie, клиентские сертификаты TLS или HTTP-аутентификацию) не производится, если только пункт назначения не является тем же источником.</li>
+				<li><samp class="sin">use-credentials</samp> - запрос выполняется с передачей учетных данных. Запрос использует заголовки CORS, флаг учетных данных установлен на «include», и учетные данные пользователя всегда включены.</li>
+				<li><samp class="sin">""</samp> - недопустимое ключевое слово и пустая строка будут обработаны как <samp class="sin">anonymous</samp>.</li>
+				<li>По умолчанию (то есть, когда атрибут не указан) CORS вообще не используется.</li>
+			</ul>
 			<pre class="item2"><code>&lt;img crossorigin="anonymous" /></code></pre></td></tr>
+
 		<tr><td id="height">height</td>
 			<td>Атрибут <samp class="sin">height</samp> задает высоту изображения как в пикселях, так и в процентах. В первом случае размер изображения не зависит от разрешения экрана и всегда будет постоянным, а во втором он будет меняться в зависимости от разрешения экрана.
 			<pre class="item2"><code>&lt;img src="/images/picture.jpg" width="200" height="200"><br>&lt;img src="/images/picture.jpg" width="25%" height="15%"></code></pre></td></tr>
@@ -168,8 +174,9 @@
 			<pre class="item2"><code>&lt;img src="" alt="" loading="lazy | eager"></code></pre>
 			<ul class="list l1">
 				<li><samp class="lsin">eager</samp> - поведение браузера по умолчанию</li>
-				<li><samp class="lsin">lazy</samp> - откладывает загрузку iframe, пока тот не попадет во вьюпорт</li>
+				<li><samp class="lsin">lazy</samp> - откладывает загрузку элемента, пока тот не попадет во вьюпорт</li>
 			</ul>
+			<a href="../atributes/loading.html" class="sin tdu">подронее...</a>
 		</td></tr>
 
 		<tr><td id="longdesc">longdesc</td>

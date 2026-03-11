@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><title>Атрибут disabled</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">disabled</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов <a href="../input.html"><samp class="teg tdu">input</samp></a>, <a href="../help/textarea.html"><samp class="teg tdu">textarea</samp></a>, <a href="../help/button.html"><samp class="teg tdu">button</samp></a>, <a href="../fieldset.html"><samp class="teg tdu">fieldset</samp></a>, <a href="../help/optgroup.html"><samp class="teg tdu">optgroup</samp></a>, <a href="../help/option.html"><samp class="teg tdu">option</samp></a> и <a href="../help/select.html"><samp class="teg tdu">select</samp></a>.</div>
+
+	<p>Булев атрибут <samp class="sin">disabled</samp> указывает, что пользователь не может взаимодействовать с элементом управления или его дочерними элементами управления. Если атрибут <samp class="sin">disabled</samp> указан в элементе управления формы, элемент и его потомки не участвуют в проверке ограничений. Часто браузеры делают такие элементы управления серыми, и они не будут получать никаких событий просмотра, таких как щелчки мыши или события, связанные с фокусом, и не отправляются с формой.</p>
+
+	<p>Когда к поддерживающему элементу применен атрибут <samp class="sin">disabled</samp>, к нему также применяется псевдокласс <a href="../psevdo-klass/disabled.html"><samp class="pur tdu">:disabled</samp></a>. И наоборот, элементы, которые поддерживают атрибут <samp class="sin">disabled</samp>, но не имеют установленного атрибута, соответствуют псевдоклассу <a href="../psevdo-klass/enabled.html"><samp class="pur tdu">:enabled</samp></a>. Если элемент не поддерживает атрибут <samp class="sin">disabled</samp>, атрибут не будет иметь никакого эффекта, в том числе не приведет к сопоставлению псевдоклассами <samp class="pur">:disabled</samp> и <samp class="pur">:enabled</samp>.</p>
+
+	<div class="mt30">2020.01</div>
+	<table class="support">
+		<tr>
+			<td class="auto"></td>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="auto"><samp class="teg sin">fieldset</samp></td>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">20</span></td>
+			<td><span          title="Opera">12</span></td>
+			<td><span         title="Safari">6</span></td>
+			<td><span        title="Firefox">4</span></td>
+			<td><span title="mobile-android">4.4</span></td>
+			<td><span title="mobile-Firefox">4</span></td>
+			<td><span   title="mobile-opera">12</span></td>
+			<td><span  title="mobile-safary">6</span></td>
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item anp">
+<h3 class="sin">Пример.</h3>
+	<fieldset>
+	  <legend>Checkboxes</legend>
+	  <p><label><input type="checkbox" name="ch-box" value="regular" /> Regular </label></p>
+	  <p><label><input type="checkbox" name="ch-box" value="disabled" disabled /> disabled </label></p>
+	</fieldset>
+
+	<fieldset>
+	  <legend>Radio buttons</legend>
+	  <p><label><input type="radio" name="radio" value="regular" /> Regular </label></p>
+	  <p><label><input type="radio" name="radio" value="disabled" disabled /> disabled </label></p>
+	</fieldset>
+
+	<p class="mt20 mb20">
+	  <label>Select an option:
+	    <select>
+	      <optgroup label="Group 1">
+	        <option>Option 1.1</option>
+	      </optgroup>
+	      <optgroup label="Group 2">
+	        <option>Option 2.1</option>
+	        <option disabled>Option 2.2</option>
+	        <option>Option 2.3</option>
+	      </optgroup>
+	      <optgroup label="Group 3" disabled>
+	        <option>Disabled 3.1</option>
+	        <option>Disabled 3.2</option>
+	        <option>Disabled 3.3</option>
+	      </optgroup>
+	    </select>
+	  </label>
+	</p>
+
+	<fieldset disabled>
+	  <legend>Disabled fieldset</legend>
+	  <p><label>Name: <input type="radio" name="radio" value="regular" /> Regular </label></p>
+	  <p><label>Number: <input type="number" /></label></p>
+	</fieldset>
+
+	<div class="prm anp mt20">
+		<form  action="handler.php">
+			<p><input type="text" size="30" onFocus="this.form.submit.disabled=0"></p>
+			<p><input type="submit" name="submit" value="Отправить" disabled style="color:#fff"></p>
+		</form>
+		<pre class="item2 ls-1"><code>&lt;form action="handler.php"><br>  &lt;input type="text" size="30" onFocus="this.form.submit.disabled=0"><br>  &lt;br>&lt;input type="submit" name="submit" value="Отправить" disabled><br>&lt;/form></code></pre>
+	</div>
+</div>
+</body></html>

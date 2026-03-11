@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><title>Атрибут accesskey</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>accesskey</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">accesskey</samp> генерирует сочетания клавиш для доступа к текущему элементу. Состоит из разделенного пробелами списка символов. В качестве значений принимает цифру (0-9) или латинскую букву (a-z). Браузер в первую очередь выбирает те клавиши, которые существуют на раскладке клавиатуры. Применяется к следующим элементам: <samp class="teg">a</samp>, <samp class="teg">area</samp>, <samp class="teg">button</samp>, <samp class="teg">input</samp>, <samp class="teg">label</samp>, <samp class="teg">legend</samp>, <samp class="teg">textarea</samp>.</p>
+
+	<pre class="item2 mb30 mt20 ls-05"><code>&lt;a href="img/xxx.jpg" accesskey="x">Горячая клавиша X для открытия ссылки&lt;/a><br>&lt;a href="img/rob.jpg" accesskey="r">Горячая клавиша R для открытия ссылки&lt;/a></code></pre>
+
+	<div>При использовании атрибута <samp class="sin">accesskey</samp> следует учитывать:</div>
+	<ul class="list mb30">
+		<li>Значение атрибута <samp class="sin">accesskey</samp> может конфликтовать с комбинациями клавиш системы, браузера или вспомогательными инструментами доступности.</li>
+		<li>Определённые значения атрибута <samp class="sin">accesskey</samp> могут отсутствовать на некоторых клавиатурах. Это особенно сильно проявляется, если вы используете язык отличный от английского.</li>
+		<li>Не существует стандартизированного способа информировать пользователя о наличии атрибута <samp class="sin">accesskey</samp> на элементе. Неинформированный пользователь может случайно активировать элемент с атрибутом <samp class="sin">accesskey</samp>.</li>
+	</ul>
+
+	<div>Атрибут <samp class="sin">accesskey</samp> позволяет получить доступ к элементу с помощью сочетания клавиш с заданной в атрибуте буквой или цифрой. Браузеры в windows при этом используют различные комбинации клавиш:</div>
+	<ul class="list">
+		<li><samp class="sin dib" style="width:75px">IE:</samp> <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
+		<li><samp class="sin dib" style="width:75px">Chrome:</samp> <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
+		<li><samp class="sin dib" style="width:75px">Safari:</samp> <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
+		<li><samp class="sin dib" style="width:75px">Opera:</samp> <code class="bg_g">&nbsp;Shift&nbsp;</code> + <code class="bg_g">&nbsp;Esc&nbsp;</code>, <code class="bg_g">&nbsp;key&nbsp;</code></li>
+		<li><samp class="sin dib" style="width:75px">Firefox:</samp> <code class="bg_g">&nbsp;Shift&nbsp;</code> + <code class="bg_g">&nbsp;Alt&nbsp;</code> + <code class="bg_g">&nbsp;key&nbsp;</code></li>
+	</ul>
+</div>
+
+
+</body></html>

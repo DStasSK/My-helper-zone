@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><title>CSS свойство box-sizing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>box-sizing</samp></h2>
+
+<div class="item">
+	<p>CSS свойство <samp class="sin">box-sizing</samp> определяет как вычисляется общая ширина и высота элемента. Согласно спецификации CSS ширина блока складывается из ширины содержимого - <samp class="sin">width</samp>, значений <samp class="sin">margin</samp>, <samp class="sin">padding</samp> и <samp class="sin">border</samp>. Аналогично обстоит и с высотой блока. Свойство <samp class="sin">box-sizing</samp> позволяет изменить этот алгоритм, чтобы свойства <samp class="sin">width</samp> и <samp class="sin">height</samp> задавали размеры не содержимого, а размеры блока.</p>
+
+	<pre class="item2 mt20 mb10"><code>div {<br>  box-sizing: content-box | border-box;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">content-box</samp> - значение по умолчанию. Свойства <samp class="sin">width</samp> и <samp class="sin">height</samp> задают ширину и высоту содержимого и не включают в себя значения <samp class="sin">margin</samp>, <samp class="sin">padding</samp> и <samp class="sin">border</samp>, реальный размер элемента будет отличаться, как правило в большую сторону на велечину отступов и толщину рамки.</li>
+		<li><samp class="sin">border-box</samp> - свойства <samp class="sin">width</samp> и <samp class="sin">height</samp> включают в себя значения <samp class="sin">padding</samp> и <samp class="sin">border</samp>, но не <samp class="sin">margin</samp>.</li>
+		<li><samp class="sin">padding-box</samp> - исключен из спецификации.</li>
+	</ul>
+
+</div>
+
+</body></html>

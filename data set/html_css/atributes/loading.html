@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>Атрибут loading</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">loading</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов
+	<a href="../help/img.html"><samp class="teg tdu">img</samp></a> и
+	<a href="../help/iframe.html"><samp class="teg tdu">iframe</samp></a>.</div>
+
+	<p>Aтрибут <samp class="sin">loading</samp> позволяет браузеру откладывать загрузку содержимого элементов, находящихся за пределами видимой области страницы, до тех пор, пока пользователь, прокручивая страницу, не окажется достаточно близко к этим элементам. Это помогает оптимизировать загрузку содержимого документа, откладывая загрузку элемента до тех пор, пока оно не понадобится, а не сразу во время начальной загрузки страницы.</p>
+
+	<pre class="item2 mt20"><code>&lt;img loading="lazy | eager" /></code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">lazy</samp> - загружает элемент только тогда, когда он попадает в видимую область страницы.</li>
+		<li><samp class="sin">eager</samp> - значение по умолчанию, загрузить элемент без задержки.</li>
+		<!-- <li><samp class="sin">auto</samp> - браузер самостоятельно примет решение о том, применять ли к материалам с этим значением атрибута ленивую загрузку.</li> -->
+	</ul>
+
+	<div class="no no1">Загрузка откладывается только при включенном JavaScript. Это мера против отслеживания.</div>
+
+	<div class="mt30">2023.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">77</span></td>
+			<td><span          title="Opera">64</span></td>
+			<td><span         title="Safari">16.4</span></td>
+			<td><span        title="Firefox">121</span></td>
+			<td><span title="mobile-android">77</span></td>
+			<td><span title="mobile-Firefox">121</span></td>
+			<td><span   title="mobile-opera">55</span></td>
+			<td><span  title="mobile-safary">16.4</span></td>
+		</tr>
+	</table>
+
+
+</div>
+
+
+</body></html>

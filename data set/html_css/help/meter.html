@@ -1,6 +1,6 @@
-<!DOCTYPE html><html><head><title>&lt;meter></title>
+<!DOCTYPE html><html><head><title>HTML элемент &lt;meter></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -8,40 +8,13 @@
 <script src="../../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<style type="text/css">
-	/*.t-html5::after, .t-trash::after{margin-left:3px}*/
-</style>
 </head>
 
 <body>
-<h2 class="sin">Элемент <samp class="t-html5">&lt;meter></samp></h2>
-<!-- Оглавление -->
-	<!-- <ul class="ogl">
-		<li>
-			<a href="#attributs">Атрибуты</a>
-			<div class="ogl2 ogl21">
-				<span><a href="#charset" title="Задаёт кодировку документа." class="t-html5">charset</a></span>
-				<span><a href="#content" title="Устанавливает значение атрибута, заданного с помощью name или http-equiv.">content</a></span>
-				<span><a href="#http-equiv" title="Предназначен для конвертирования метатега в заголовок HTTP.">http-equiv</a></span>
-				<span><a href="#name" title="Имя метатега, также косвенно устанавливает его предназначение. Устанавливает название/имя метаданных документа.">name</a></span>
-				<span></span>
-			</div>
-		</li>
-		<li><a href="#refresh">META-переадресация (<samp>http-equiv="<samp class="lsin">Refresh</samp>"</samp>)</a></li>
-		<li><a href="#robots">Индексация страниц (<samp>name="<samp class="lsin">Robots</samp>"</samp>)</a></li>
-		<li><a href="#view">Высота и ширина области просмотра (<samp>name="<samp class="lsin">viewport</samp>"</samp>)</a></li>
-		<li><a href="#scale">Масштабирование области просмотра (для мобильников)</a></li>
-		<li><a href="#device">Разрешение области просмотра</a></li>
-		<li><a href="#Cache-Control">Управление кэшированием (<samp>http-equiv="<samp class="lsin">Cache-Control</samp>"</samp>)</a></li>
-		<li><a href="#content-language">Язык для всего документа (<samp>http-equiv="<samp class="lsin">Content-Language</samp>"</samp>)</a></li>
-		<li><a href="#referrer">Отслеживание перемещения пользователей между страницами</a></li>
-		<li><a href="#viewport2"><i>Правило <samp class="red">@viewport</samp></i></a></li>
-	</ul> -->
-
-
+<h2 class="sin">HTML элемент <samp class="t-html5">&lt;meter></samp></h2>
 
 <div class="item">
-	<p>Элемент <samp class="red">&lt;meter></samp> (от англ. meter — измеритель, счётчик), отображает значение в виде рисунка, на котором цветом помечается текущее значение в указанном диапазоне. Браузеры, которые не поддерживают данный тэг, выводят текст, написанный внутри <samp class="red">&lt;meter></samp>.</p>
+	<p>Элемент <samp class="red">&lt;meter></samp> (от англ. <span lang="en" translate="no">meter</span> — измеритель, счётчик), отображает значение в виде рисунка, на котором цветом помечается текущее значение в указанном диапазоне. Браузеры, которые не поддерживают данный тэг, выводят текст, написанный внутри <samp class="red">&lt;meter></samp>.</p>
 
 	<p>Используется для вывода значения в некотором известном диапазоне. Применяется преимущественно для отображения числовых значений, например, количества результатов поиска, объёма жидкости, давления и др.</p>
 
@@ -49,8 +22,32 @@
 
 	<pre class="item2"><code>&lt;meter value="число">текст&lt;/meter></code></pre>
 
-	<div class="no">Internet explorer и ряд мобильных браузеров не поддерживают данный тэг, только -webkit- Браузеры.</div>
-	<div class="no mb10">Для оформления тэга можно использовать стили, но работает это ограниченно.</div>
+	<table class="support mt30">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">13</span></td>
+			<td><span         title="Chrome">6</span></td>
+			<td><span          title="Opera">11</span></td>
+			<td><span         title="Safari">6</span></td>
+			<td><span        title="Firefox">16</span></td>
+			<td class="n"><span title="mobile-android"></span></td>
+			<td><span title="mobile-Firefox">16</span></td>
+			<td><span   title="mobile-opera">11</span></td>
+			<td><span  title="mobile-safary">10.3</span></td>
+		</tr>
+	</table>
 </div>
 
 

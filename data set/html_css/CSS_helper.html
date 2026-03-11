@@ -1,9 +1,11 @@
 <!DOCTYPE html><html><head><title>Справочник CSS</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* Оформление для темной темы брайзера */
+	h3,h2{margin-bottom:20px !important; margin-top:60px !important}
+
+	/* Оформление для темной темы брайзера */
 	:root {color-scheme: light dark;}
 	@media (prefers-color-scheme: dark) {
 		.helper-title{color:#39f}
@@ -30,38 +32,42 @@
 		<li><a href="#M">M</a></li>
 		<li><a href="#O">O</a></li>
 		<li><a href="#P">P</a></li>
-		<li><a href="#QRS">Q, R, S</a></li>
+		<li><a href="#QR">Q, R</a></li>
+		<li><a href="#S">S</a></li>
 		<li><a href="#T">T</a></li>
-		<li><a href="#UV">U, V</a></li>
+		<li><a href="#U">U</a></li>
+		<li><a href="#V">V</a></li>
 		<li><a href="#W">W</a></li>
 		<li><a href="#Z">Z</a></li>
+		<li><a href="#attributs">Атрибуты тэгов</a></li>
 		<li><a href="#@">@-правила</a></li>
 		<li><a href="#selectors">Селекторы</a></li>
 		<li><a href="#pseudo-class">Псевдоклассы</a></li>
 		<li><a href="#pseudo-elements">Псевдоэлементы</a></li>
-		<li><a href="#vs">Вендорные свойства</a></li>
-		<!-- <li><a href="#value">Значения</a></li> -->
 		<li><a href="#function">Функции</a></li>
+		<li><a href="#function-math">Математические функции</a></li>
+		<li><a href="#vs">Вендорные свойства</a></li>
 		<li><a href="#unit">Единицы CSS</a></li>
-		<li><a href="uni attributs.html">Универсальные атрибуты</a></li>
 		<li style="flex:1; background:transparent;"></li>
 	</ul>
 </div>
 
 
 
-<div class="item helper helper-content">
+<div class="item">
+<div class="helper helper-content">
 
-<h3 id="!" style="margin:8px 0;"><a href="#">!</a></h3>
+<h3 id="!" style="margin:0 0 20px !important;"><a href="#">!</a></h3>
 	<ul>
-	<li><a href="help/help.html#important" title="Повышает приоритет стиля">!important</a></li>
+	<li><a href="important.html" title="Повышает приоритет стиля">!important</a></li>
 	</ul>
 
 <h3 id="A"><a href="#">A</a></h3>
 	<ul>
 	<li><a href="accent-color.html" title="Oпределяет цвет акцента для элементов управления пользовательским интерфейсом">accent-color</a></li>
-	<li><a href="help/help.html#accesskey" title="Назначение горячих клавиш для использовании на странице в браузере">accesskey</a></li>
-  <li><a href="../FlexBox/align-content.html" title="Выравнивает строки внутри флекс-контейнера при наличии свободного пространства по поперечной оси">align-content</a></li>
+	<li><a href="atributes/accesskey.html" title="Назначение горячих клавиш для использовании на странице в браузере">accesskey</a></li>
+
+	<li><a href="../FlexBox/align-content.html" title="Выравнивает строки внутри флекс-контейнера при наличии свободного пространства по поперечной оси">align-content</a></li>
 	<li><a href="../FlexBox/align-items.html" title="Выравнивает флекс-элементы внутри контейнера в перпендикулярном направлении">align-items</a></li>
 	<li><a href="../FlexBox/align-self.html" title="Задаёт выравнивание отдельного элемента в контейнере по поперечной оси">align-self</a></li>
 	<li><a href="all.html" title="Универсальное свойство, которое сбрасывает все значения свойств в исходные или наследуемые">all</a></li>
@@ -154,7 +160,7 @@
 	<li><a href="position.html#bottom" title="Устанавливает положение нижнего края содержимого элемента без учета толщины рамок и отступов">bottom</a></li>
 	<li><a href="box-decoration-break.html" title="Указывает, как оформлять фрагмент текста при его переносе на другую строку">box-decoration-break</a></li>
 	<li><a href="box-shadow.html" title="Добавляет тень к элементу">box-shadow</a></li>
-	<li><a href="help/help.html#box-sizing" title="Применяется для изменения алгоритма расчёта ширины и высоты элемента">box-sizing</a></li>
+	<li><a href="box-sizing.html" title="Применяется для изменения алгоритма расчёта ширины и высоты элемента">box-sizing</a></li>
 
 	<li><a href="../print/break-after.html" title="Добавляет разрыв страницы при печати документа после заданного элемента">break-after</a></li>
 	<li><a href="../print/break-before.html" title="Добавляет разрыв страницы при печати документа перед заданным элементом">break-before</a></li>
@@ -166,9 +172,13 @@
 	<li><a href="./table/caption.html#caption-side" title="Определяет положение заголовка таблицы, который задаётся с помощью элемента &lt;caption>">caption-side</a></li>
 	<li><a href="./help/meta.html#charset" title="Указывает кодировку документа">charset</a></li>
 	<li><a href="help/help.html#caret-color" title="Задаёт цвет текстового курсора, который отображается в текстовых полях формы, а также для элементов с атрибутом contenteditable">caret-color</a></li>
+
+	<li><a href="functions/circle.html" title="определяет окружность с помощью радиуса и положения её центра">circle()</a></li>
 	<li><a href="float.html#clear" title="Устанавливает, с какой стороны элемента запрещено его обтекание другими элементами">clear</a></li>
-	<li><a href="clip--clip-path.html" title="Определяет область позиционированного элемента, в которой будет показано его содержимое">clip</a></li>
-	<li><a href="clip--clip-path.html#z2" title="Определяет область позиционированного элемента, в которой будет показано его содержимое">clip-path</a></li>
+
+	<li><a href="clip.html" title="Определяет область позиционированного элемента, в которой будет показано его содержимое">clip</a></li>
+	<li><a href="clip-path.html" title="Определяет область позиционированного элемента, в которой будет показано его содержимое">clip-path</a></li>
+
 	<li><a href="txt/color.html" title="Определяет цвет текста элемента">color</a></li>
 	<li><a href="color-scheme.html" title="позволяет указать предпочтительную цветовую схему для элемента - светлую или тёмную">color-scheme</a></li>
 
@@ -188,9 +198,13 @@
 
 	<li><a href="content.html" title="Позволяет вставлять генерируемое содержание в текст веб-страницы, которое первоначально в тексте отсутствует.Позволяет вставлять генерируемое содержание в текст веб-страницы, которое первоначально в тексте отсутствует">content</a></li>
 	<li><a href="contenteditable.html" title="Cообщает, что элемент доступен для редактирования пользователем — можно удалять текст и вводить новый. Также работают стандартные команды вроде отмены, вставки текста из буфера и др. По умолчанию наследует значение родителя. Внесенные корректировки текста не сохраняются в коде страницы и после её обновления они исчезнут.">contenteditable</a></li>
-	<li><a href="help/help.html#counter-increment" title="Предназначено для увеличения значения счётчика приращений, который задается свойством counter-reset">counter-increment</a></li>
-	<li><a href="help/help.html#counter-reset" title="Устанавливает идентификатор, в котором будет храниться счетчик отображений определенного элемента, а также начальное значение счетчика">counter-reset</a></li>
-	<li><a href="txt/color.html" title="">currentColor</a></li>
+
+	<li><a href="counter.html#counter-increment" title="Предназначено для увеличения значения счётчика">counter-increment</a></li>
+	<li><a href="counter.html#counter-reset" title="Устанавливает идентификатор, в котором будет храниться счетчик отображений определенного элемента, а также начальное значение счетчика">counter-reset</a></li>
+	<li><a href="counter.html#counter-set" title="Устанавливает значение счетчика в указанное значение">counter-set</a></li>
+
+
+	<li><a href="txt/color.html#currentColor" title="Ключевое слово currentColor соответствует значению свойства color для текущего элемента">currentColor</a></li>
 	<li><a href="cursor.html" title="Устанавливает форму курсора, когда он находится в пределах элемента">cursor</a></li>
 	</ul>
 
@@ -200,6 +214,7 @@
 	<li><a href="txt/direction.html" title="Свойство предназначено для сайтов, в которых имеет значение направление текста">direction</a></li>
 	<li><a href="display.html" title="Многоцелевое свойство, которое определяет, как элемент должен быть показан в документе">display</a></li>
 	</ul><ul>
+	<li><a href="functions/ellipse.html" title="определяет эллипс с помощью радиусов и положения его центра">ellipse()</a></li>
 	<li><a href="./table/th.html#empty-cells" title="Задаёт отображение границ и фона в ячейке таблицы, если она пустая">empty-cells</a></li>
 	</ul>
 
@@ -271,27 +286,35 @@
 	<li><a href="hyphens.html#hyphenate-limit-chars" title="задаёт минимальную длину слова, при которой разрешён перенос на другую строку">hyphenate-limit-chars</a></li>
 	</ul>
 
-
 <h3 id="I"><a href="#">I</a></h3>
 	<ul>
 	<li><a href="help/img.html#image-orientation" title="Можно вращать изображение или отразить его по горизонтали">image-orientation</a></li>
 	<li><a href="help/img.html#ire" title="Сообщает браузеру, каким алгоритмом интерполировать изображение при масштабировании его размеров или изменении масштаба в параметрах браузера">image-rendering</a></li>
+
+	<li><a href="functions/image.html" title="определяет изображение с дополнительной функциональностью">image()</a></li>
 	<li><a href="./background/image-set.html" title="Позволяет перечислить несколько фоновых изображений с условиями их отображения">image-set()</a></li>
+	<li><a href="./important.html" title="позволяет повысить приоритет стиля или его важность">important</a></li>
+
 	<li><a href="help/help.html#inherit" title="Ключевое слово, которое сообщает, что необходимо наследовать значение свойства у родительского элемента.">inherit</a></li>
 	<li><a href="help/help.html#initial" title="применяется для установки исходного значения свойства">initial</a></li>
 	<li><a href="./help/meta.html#scale" title="Масштабирование области просмотра">initial-scale</a></li>
 	<li><a href="txt/writing-mode.html#inline-size" title="Определяет размер элемента по строчной оси, направление которой зависит от значения свойства writing-mode">inline-size</a></li>
 
-	<li><a href="position.html#inset" title="Устанавливает отступы позиционированного элемента со всех сторон">inset</a></li>
+	<li><a href="functions/inset_function.html" title="">inset()</a></li>
 
+	<li><a href="position.html#inset" title="Устанавливает отступы позиционированного элемента со всех сторон">inset</a></li>
 	<li><a href="position.html#inset_f" title="Устанавливает отступы позиционированного элемента в направлении блока">inset-block</a></li>
 	<li><a href="position.html#inset_f" title="Устанавливает отступ начала позиционированного элемента в направлении блока">inset-block-start</a></li>
 	<li><a href="position.html#inset_f" title="Устанавливает отступ конца позиционированного элемента в направлении блока">inset-block-end</a></li>
 	<li><a href="position.html#inset_f" title="Устанавливает отступы позиционированного элемента в направлении строки">inset-inline</a></li>
 	<li><a href="position.html#inset_f" title="Устанавливает отступ начала позиционированного элемента в направлении строки">inset-inline-start</a></li>
 	<li><a href="position.html#inset_f" title="Устанавливает отступ конца позиционированного элемента в направлении строки">inset-inline-end</a></li>
-	</ul>
 
+	<li><a href="isolation.html" title="определяет должен ли элемент создавать новый контекст наложения">isolation</a></li>
+
+	<li><a href="filter.html#invert" title="Инвертирует цвета в изображении">invert()</a></li>
+
+	</ul>
 
 <h3 id="J"><a href="#">J</a></h3>
 	<ul>
@@ -302,8 +325,12 @@
 
 <h3 id="L"><a href="#">L</a></h3>
 	<ul>
+	<li><a href="txt/color.html#lab" title="задание цвета в формате LAB">lab()</a></li>
+	<li><a href="txt/color.html#lch" title="задание цвета в формате LCH">lch()</a></li>
 	<li><a href="position.html#left" title="Устанавливает положение левого края элемента">left</a></li>
 	<li><a href="txt/letter-spacing.html" title="Определяет интервал между букв в тексте">letter-spacing</a></li>
+
+	<li><a href="color-scheme.html#light-dark" title="Принимает два значения цвета; возвращает первое значение, если установлена светлая тема и второе значение, если установлена тёмная тема">light-dark()</a></li>
 	<li><a href="txt/line-clamp.html" title="Ограничивает текст заданным числом строк">line-clamp</a></li>
 	<li><a href="txt/line-height.html" title="Устанавливает высоту строки текста">line-height</a></li>
   <li><a href="background/linear-gradient.html" title="Создаёт линейный градиент">linear-gradient()</a></li>
@@ -327,6 +354,11 @@
 
 	<li><a href="help/help.html#max-height" title="Устанавливает максимальную высоту элемента">max-height</a></li>
 	<li><a href="help/help.html#max-width" title="Устанавливает максимальную ширину элемента">max-width</a></li>
+
+	<li><a href="functions/max.html" title="Выбирает максимальное из предложенных значений">max()</a></li>
+	<li><a href="functions/min.html" title="Выбирает минимальное из предложенных значений">min()</a></li>
+	<li><a href="grid/minmax.html" title="Выбирает значение в диапазоне. Используется в CSS Grids">minmax()</a></li>
+
 	<li><a href="help/help.html#min-height" title="Задаёт минимальную высоту элемента">min-height</a></li>
 	<li><a href="help/help.html#min-width" title="Устанавливает минимальную ширину элемента">min-width</a></li>
 	<li><a href="mix-blend-mode.html" title="Определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение">mix-blend-mode</a></li>
@@ -385,29 +417,44 @@
 	<li><a class="fr" href="./grid/place-items.html" target="mane" title="производит выравнивание элементов макета сетки по оси строки и столбца grid-контенера">place-items</a></li>
 	<li><a class="fr" href="./grid/place-self.html" target="mane" title="производит выравнивание одного элемента макета сетки по оси строки и столбца grid-контенера">place-self</a></li>
 
-	<li><a href="help/help.html#pointer-events" title="Свойство pointer-events позволяет управлять тем, как элементы будут реагировать на события мыши или прикосновения к сенсорному экрану">pointer-events</a></li>
+	<li><a href="pointer-events.html" title="Свойство pointer-events позволяет управлять тем, как элементы будут реагировать на события мыши или прикосновения к сенсорному экрану">pointer-events</a></li>
+	<li><a href="functions/polygon.html" title="определяет многоугольник с вершинами по заданным координатам">polygon()</a></li>
+
 	<li><a href="position.html" title="Устанавливает способ позиционирования элемента относительно окна браузера или других объектов на веб-странице">position</a></li>
 	<li><a href="../Animation/prefers-reduced-motion.html" title="считывание пользовательского параметра ограничения анимаций">prefers-reduced-motion</a></li>
 	</ul>
 
-<h3 id="QRS"><a href="#">Q, R, S</a></h3>
+<h3 id="QR"><a href="#">Q, R</a></h3>
 	<ul>
 	<li><a href="help/help.html#quotes" title="Устанавливает тип кавычек, который применяется в тексте документа">quotes</a></li>
-  <li><a href="background/radial-gradient.html" title="Добавляет радиальный градиент">radial-gradient()</a></li>
 
-	<li><a href="help/help.html#resize" title="Указывает, можно ли пользователю изменять размеры текстового поля">resize</a></li>
+	<li><a href="background/radial-gradient.html" title="Добавляет радиальный градиент">radial-gradient()</a></li>
+
+	<li><a href="functions/rect.html" title="позволяет создать прямоугольник на основе указанных расстояний от левого и верхнего краёв области">rect()</a></li>
+	<li><a href="grid/repeat.html" title="Используется в CSS Grids, устанавливает количество генерируемых ячеек в грид контейнере">repeat()</a></li>
+
+	<li><a href="resize.html" title="Указывает, можно ли пользователю изменять размеры текстового поля элемента textarea">resize</a></li>
 	<li><a href="position.html#right" title="Устанавливает положение правого края элемента">right</a></li>
 	<li><a href="row-gap.html" title="определяет промежуток между строками/flex элементами">row-gap</a></li>
-	<!-- </ul>
-	<ul> -->
-	<li><a href="help/help.html#scroll-behavior" title="Определяет поведение прокрутки внутри элемента - плавная прокрутка или мгновенный переход">scroll-behavior</a></li>
-	<li><a href="../print/size.html" target="mane">size</a></li>
+	</ul>
+
+<h3 id="S"><a href="#">S</a></h3>
+	<ul>
+	<li><a href="scroll-behavior.html" title="Определяет поведение прокрутки внутри элемента - плавная прокрутка или мгновенный переход">scroll-behavior</a></li>
+	<li><a href="../print/size.html">size</a></li>
+
+	<li><a href="CSS Shapes.html#shape-image-threshold" title="определяет порог альфа-канала фигуры, другими словами, какой процент изображения будет считаться прозрачным">shape-image-threshold</a></li>
+	<li><a href="CSS Shapes.html#shape-margin" title="добавляет внешние отступы к фигуре">shape-margin</a></li>
+	<li><a href="CSS Shapes.html#shape-outside" title="это свойство определяет фигуры, вокруг которых может обтекать текст">shape-outside</a></li>
+
+	<li><a href="../Animation/animation-timing-function.html#steps" title="функция для заданния числа шагов воспроизведении анимации с одинаковым промежутком времени">steps()</a></li>
 	</ul>
 
 <h3 id="T"><a href="#">T</a></h3>
 	<ul>
-	<li><a href="help/help.html#tabindex" title="Определяет порядок перехода к элементу при помощи клавиши TAB.">tabindex</a></li>
+	<li><a href="atributes/tabindex.html" title="Определяет порядок перехода к элементу при помощи клавиши TAB.">tabindex</a></li>
 	<li><a href="help/help.html#tab-size" title="Используется для изменения ширины отступа, заданного с помощью символа табуляции">tab-size</a></li>
+
 	<li><a href="./table/table.html#table-layout" title="Определяет, как браузер должен вычислять ширину ячеек таблицы, основываясь на её содержимом">table-layout</a></li>
 	<li><a href="txt/text-aling.html" title="Определяет горизонтальное выравнивание текста">text-align</a></li>
 	<li><a href="txt/text-aling.html#text-aling-last" title="Задаёт выравнивание последней строки текста, когда свойство text-align установлено как justify">text-align-last</a></li>
@@ -425,7 +472,9 @@
 	<li><a href="txt/text-overflow.html" title="Определяет параметры видимости текста в блоке, если текст целиком не помещается в заданную область">text-overflow</a></li>
 	<li><a href="txt/text-shadow.html" title="Добавляет тень к тексту, а также устанавливает её параметры">text-shadow</a></li>
 	<li><a href="txt/text-transform.html" title="Управляет преобразованием текста элемента в заглавные или прописные символы">text-transform</a></li>
+
 	<li><a href="position.html#top" title="Устанавливает положение верхнего края содержимого элемента">top</a></li>
+	<li><a href="touch-action.html" title="устанавливает, как пользователь сенсорного экрана может манипулировать областью элемента">touch-action</a></li>
 
 	<li><a href="transform.html" title="Трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций">transform</a></li>
 	<li><a href="transform.html#transform-origin" title="Устанавливает координаты точки, относительно которой будет происходить трансформация элемента">transform-origin</a></li>
@@ -439,16 +488,23 @@
 	<li><a href="transition.html#transition-timing-function" title="Устанавливает, насколько быстро должно изменяться значение стилевого свойство для которого применяется эффект перехода" class="dib">transition-timing-function</a></li>
 	</ul>
 
-<h3 id="UV"><a href="#">U, V</a></h3>
+<h3 id="U"><a href="#">U</a></h3>
 	<ul>
 	<li><a href="txt/direction.html#z2" title="Задаёт, как должен располагаться текст">unicode-bidi</a></li>
 	<li><a href="txt/unicode-range.html" title="">unicode-range</a></li>
 	<li><a href="txt/user-select.html" title="Управляет поведением выделения текста и других элементов на странице">user-select</a></li>
+	</ul>
+
+<h3 id="V"><a href="#">V</a></h3>
+	<ul>
+	<li><a href="functions/var.html" title="Вставляет значения пользовательских переменных в значения стилевых свойств">var()</a></li>
 	<li><a href="txt/vertical-align.html" title="Выравнивает элемент по вертикали относительно своего родителя, окружающего текста или ячейки таблицы">vertical-align</a></li>
 
 	<li><a href="./help/meta.html#view" title="Oпределяет высоту или ширину области просмотра">viewport</a></li>
+	</ul>
+	<ul>
 	<li><a href="visibility.html" title="Предназначен для отображения или скрытия элемента">visibility</a></li>
-</ul>
+	</ul>
 
 <h3 id="W"><a href="#">W</a></h3>
 	<ul>
@@ -470,19 +526,103 @@
 
 
 
+<h2 id="attributs"><a href="#">Атрибуты тэгов</a></h2>
+	<ul>
+	<li><a href="atributes/input-accept.html" title="Устанавливает фильтр на типы файлов, которые вы можете отправить через поле загрузки файлов.">accept</a></li>
+	<!-- <li><a hidden href="uni attributs.html#accesskey" title="Позволяет получить доступ к элементу с помощью заданного сочетания клавиш.">accesskey</a></li> -->
+	<!-- <li><a hidden href="help/help.html#accesskey" title="Устанавливает ширину элемента">accesskey</a></li> -->
+	<li><a href="atributes/accesskey.html" title="Назначение горячих клавиш для использовании на странице в браузере">accesskey</a></li>
+	<li><a href="atributes/input-align.html" title="Определяет, как выравнивать поле с изображением относительно текста или других элементов формы.">align</a></li>
+
+	<li><a href="atributes/aria-label.html" title="альтернативное текстовое описание для элементов интерфейса">aria-label</a></li>
+
+	<li><a href="atributes/autocomplete.html" title="Aтрибут помогает заполнять поля форм текстом, который был введён в них ранее. Значения сохраняет и подставляет браузер.">autocomplete</a></li>
+	<li><a href="atributes/autofocus.html" title="атрибут, указывающий, что элемент должен быть сфокусирован при загрузке страницы">autofocus</a></li>
+
+	<!-- <li><a hidden href="atributes/capture.html" title="">capture</a></li> -->
+	<li><a href="atributes/input-checked.html" title="Предварительно активированный переключатель или флажок.">checked</a></li>
+	<li><a href="atributes/class.html" title="Определяет имя класса, которое позволяет связать элемент со стилевым оформлением.">class</a></li>
+	<li><a href="atributes/contenteditable.html" title="Сообщает, что элемент доступен для редактирования пользователем.">contenteditable</a></li>
+
+	<li><a href="atributes/crossorigin.html" title="позволяет настроить CORS запросы для ресурсов c другого домена">crossorigin</a></li>
+
+	<!-- <li><a hidden href="uni attributs.html#contextmenu" title="Устанавливает контекстное меню для элемента.">contextmenu</a></li> -->
+	<!-- <li><a hidden href="atributes/crossorigin.html" title="">crossorigin</a></li> -->
+	<li><a href="atributes/data.html" title="Позволяет создавать свои атрибуты для хранения произвольной информации.">data-*</a></li>
+	<li><a href="atributes/dir.html" title="Задаёт направление и отображение текста — слева направо или справа налево.">dir</a></li>
+	<li><a href="atributes/dirname.html" title="Параметр, который передаёт на сервер направление текста.">dirname</a></li>
+	<li><a href="atributes/disabled.html" title="Блокирует доступ и изменение элемента.">disabled</a></li>
+	<li><a href="atributes/draggable.html" title="Указывает, можно ли перетаскивать элемент используя Drag and Drop API.">draggable</a></li>
+
+	<!-- <li><a hidden href="uni attributs.html#dropzone" title="Определяет, что делать с перетаскиваемыми пользователем данными — скопировать их, перетащить или связать.">dropzone</a></li> -->
+	<!-- <li><a hidden href="atributes/elementtiming.html" title="">elementtiming</a></li> -->
+	<li><a href="atributes/enterkeyhint.html" title="позволяет менять вид и поведение кнопки Enter у виртуальной клавиатуры мобильных устройств">enterkeyhint</a></li>
+	<li><a href="atributes/for.html" title="указывает идентификатор элемента для связывания поля формы">for</a></li>
+	<li><a href="atributes/hidden.html" title="Скрывает содержимое элемента от просмотра.">hidden</a></li>
+	<li><a href="atributes/id.html" title="Указывает имя стилевого идентификатора.">id</a></li>
+	<li><a href="atributes/inert.html" title="позволяет отключить взаимодействие с элементом и его потомками.">inert</a></li>
+	<li><a href="atributes/inputmode.html" title="указывает, какой тип данных может ввести пользователь при наборе или редактировании текста">inputmode</a></li>
+
+	<!-- <li><a hidden href="" title="">is</a></li> -->
+	<li><a href="atributes/itemid.html" title="Определяет уникальный глобальный идентификатор элемента для микроданных.">itemid</a></li>
+	<li><a href="atributes/itemprop.html" title="Используется для добавления свойств словаря микроданных к элементу.">itemprop</a></li>
+	<li><a href="atributes/itemref.html" title="Связывает свойства элемента с элементами имеющих атрибут itemscope.">itemref</a></li>
+	<li><a href="atributes/itemscope.html" title="Задаёт область действия словаря в структуре данных.">itemscope</a></li>
+	<li><a href="atributes/itemtype.html" title="Указывает адрес словаря, который будет применяться для определения свойств элемента в структуре данных.">itemtype</a></li>
+	<li><a href="atributes/lang.html" title="Браузер использует значение атрибута для правильного отображения некоторых национальных символов.">lang</a></li>
+	<li><a href="atributes/loading.html" title="позволяет браузеру откладывать загрузку содержимого элементов, находящихся за пределами видимой области страницы">loading</a></li>
+
+	<li><a href="atributes/max.html" title="Верхнее значение для ввода числа или даты.">max</a></li>
+	<li><a href="atributes/maxlength.html" title="Устанавливает максимальное число символов, которое может быть введено пользователем в текстовом поле.">maxlength</a></li>
+	<li><a href="atributes/min.html" title="Нижнее значение для ввода числа или даты.">min</a></li>
+	<li><a href="atributes/minlength.html" title="Задаёт минимальное число символов, которое может быть введено пользователем в текстовом поле.">minlength</a></li>
+
+	<li><a href="atributes/nonce.html" title="атрибут определяющий однократно используемое число">nonce</a></li>
+	<li><a href="atributes/input-pattern.html" title="Устанавливает шаблон ввода.">pattern</a></li>
+	<li><a href="atributes/input-placeholder.html" title="Устанавливает текст отображаемый внутри поля формы">placeholder</a></li>
+	<!-- <li><a hidden href="popover.html" title="указывает, что элемент является всплывающим окном.">popover</a></li> -->
+
+	<li><a href="atributes/readonly.html" title="Делает поле формы доступным только для чтения.">readonly</a></li>
+	<li><a href="atributes/rel.html" title="Oпределяет отношения между текущим документом и файлом, на который делается ссылка.">rel</a></li>
+	<li><a href="atributes/required.html" title="Этот атрибут указывает, что пользователь должен заполнить значение элемента перед отправкой формы.">required</a></li>
+	<li><a href="atributes/size.html">size</a></li>
+
+	<li><a href="atributes/spellcheck.html" title="Указывает браузеру проверять или нет правописание и грамматику в тексте.">spellcheck</a></li>
+	<li><a href="input.html#step" title="Устанавливает шаг изменения числа для ползунков и полей ввода чисел.">step</a></li>
+	<li><a href="atributes/style.html" title="Применяется для определения стиля элемента с помощью правил CSS.">style</a></li>
+	<li><a href="atributes/tabindex.html" title="Устанавливает порядок получения фокуса при переходе между элементами с помощью клавиши Tab.">tabindex</a></li>
+
+	<li><a href="atributes/title.html" title="Описывает содержимое элемента в виде всплывающей подсказки.">title</a></li>
+	<li><a href="atributes/translate.html" title="Разрешает или запрещает перевод текста внутри элемента">translate</a></li>
+	<!-- <li><a hidden href="atributes/virtualkeyboardpolicy.html" title="">virtualkeyboardpolicy</a></li> -->
+	<!-- <li><a hidden href="atributes/writingsuggestions.html" title="">writingsuggestions</a></li> -->
+
+	</ul>
+
+
+
 <h2 id="@"><a href="#">@-правила</a></h2>
 	<ul>
-		<li><a href="help/@-rules.html#charset" title="Применяется для задания кодировки внешнего CSS-файла">@charset</a></li>
-		<li><a href="help/@-rules.html#document" title="@document устанавливает стилевые правила на основе адреса документа">@document</a></li>
-		<li><a href="txt/@font-face.html" title="Определяет настройки шрифтов, а также позволяет загрузить специфичный шрифт на компьютер пользователя">@font-face</a></li>
-		<li><a href="help/@-rules.html#import" title="Позволяет импортировать содержимое CSS-файла в текущую стилевую таблицу">@import</a></li>
+		<li><a href="rules/@charset.html" title="Применяется для задания кодировки внешнего CSS-файла">@charset</a></li>
+		<!-- <li>@color-profile</li> -->
+		<!-- <li>@container</li> -->
+		<li><a href="rules/@counter-style.html" title="стилизация оформления li элементов">@counter-style</a></li>
 
-		<li><a href="../animation/@keyframes.html" title="ключевые кадры анимации">@keyframes</a></li>
+		<li><a href="rules/@document.html" title="Устанавливает стилевые правила на основе адреса документа">@document</a></li>
+		<li><a href="txt/@font-face.html" title="Определяет настройки шрифтов, а также позволяет загрузить специфичный шрифт на компьютер пользователя">@font-face</a></li>
+
+		<li><a href="rules/@font-feature-values.html">@font-feature-values</a></li>
+		<li><a href="rules/@font-palette-values.html">@font-palette-values</a></li>
+
+		<li><a href="rules/@import.html" title="Позволяет импортировать содержимое CSS-файла в текущую стилевую таблицу">@import</a></li>
+		<li><a href="../animation/@keyframes.html" title="Ключевые кадры анимации">@keyframes</a></li>
+
+		<li><a href="rules/@layer.html" title="Используется для объявления каскадного слоя">@layer</a></li>
 		<li><a href="help/@media.html" title="Указывает тип носителя, для которого будет применяться указанный стиль">@media</a></li>
 		<li><a href="../print/@page.html" title="Задаёт значение полей при печати документа">@page</a></li>
 
 		<li><a href="rules/@supports.html" title="Позволяет проверить, поддерживает браузер ту или иную возможность, и на основе этого создать набор стилевых правил">@supports</a></li>
-		<li><a href="help/@-rules.html#viewport" title="Позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров">@viewport</a></li>
+		<li><a href="rules/@viewport.html" title="Позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров">@viewport</a></li>
 	</ul>
 
 
@@ -529,7 +669,7 @@
 		<li><a href="./psevdo-klass/focus.html" title="Определяет стиль для элемента, получающего фокус">:focus</a></li>
 		<li><a href="./psevdo-klass/focus-visible.html" title="используется для применения стилей к элементу, который получил фокус с помощью клавиатуры">:focus-visible</a></li>
 		<li><a href="./psevdo-klass/focus-within.html" title="Определяет стиль элемента, когда он сам или элементы внутри него получают фокус">:focus-within</a></li>
-		<li><a href="./psevdo-klass/fullscreen.html" title="Псевдокласс :fullscreen применяется к элементам, когда браузер находится в полноэкранном режиме">:fullscreen</a></li>
+		<li><a href="./psevdo-klass/fullscreen.html" title="Псевдокласс :fullscreen применяется к элементам, когда браузер находится в полноэкранном режиме">:full-screen</a></li>
 		<li><a href="./psevdo-klass/has.html" title="даёт возможность задавать стили родителя на основе его дочерних элементов">:has</a></li>
 		<li><a href="./psevdo-klass/hover.html" title="Определяет стиль элемента при наведении на него курсора мыши">:hover</a></li>
 		<li><a href="./psevdo-klass/indeterminate.html" title="Задаёт стиль для элементов форм, таким как флажки и переключатели, когда они находятся в неопределённом состоянии">:indeterminate</a></li>
@@ -588,71 +728,71 @@
 		<li><a href="./psevdo-klass/placeholder.html" title="Задаёт стилевое оформление подсказывающего текста, созданного атрибутом placeholder">::placeholder</a></li>
 		<li><a href="./psevdo-klass/selection.html" title="Применяет стиль к выделенному пользователем фрагменту текста">::selection</a></li>
 		<li><a href="./psevdo-klass/spelling-error.html" title="применяет стиль к фрагменту текста, который браузер помечает как написанный с орфографической ошибкой">::spelling-error</a></li>
-
 	</ul>
-
-
-
-<h2 id="vs" class="ls0"><a href="#">Вендорные свойства ("префиксы")</a></h2>
-	<style>
-		/* .vend {margin-bottom:15px;} */
-		.vend span {display:inline-block; width:85px; font-family:monospace; color:#009;}
-	</style>
-	<div class="vend">
-		<div>Эти свойства работают только в определённых браузерах:</div>
-		<div><span>-o-</span> для Opera</div>
-		<div><span>-ms-</span> для Internet Explorer</div>
-		<div><span>-moz-</span> для Firefox</div>
-		<div><span>-webkit-</span> для Chrome и Safari</div>
-	</div>
-	<!-- <ul>
-		<li><a href="" title="Устанавливает положение индикатора прогресса — горизонтальное или вертикальное">-moz-orient</a></li>
-		<li><a href="" title="Указывает браузеру, какой алгоритм использовать при масштабировании картинок">-ms-interpolation-mode</a></li>
-		<li><a href="" title="Позволяет задать стиль кнопки «Обзор» при загрузке файлов">::-ms-browse</a></li>
-		<li><a href="" title="Задаёт стиль переключателей и флажков">::-ms-check</a></li>
-		<li><a href="" title="Задаёт стиль кнопки для очистки текстового поля">::-ms-clear</a></li>
-		<li><a href="" title="Задаёт стиль кнопки раскрытия списка формы">::-ms-expand</a></li>
-		<li><a href="" title="Задаёт стиль индикатора прогресса">::-ms-fill</a></li>
-		<li><a href="" title="Задаёт стилевые параметры слайдера">::-ms-fill-lower</a></li>
-		<li><a href="" title="Задаёт стилевые параметры слайдера">::-ms-fill-upper</a></li>
-		<li><a href="" title="Задаёт стиль кнопки для просмотра пароля в поле формы">::-ms-reveal</a></li>
-		<li><a href="" title="Задаёт стиль ползунка для слайдера">::-ms-thumb</a></li>
-		<li><a href="" title="Применяет стилевые параметры к делениям ниже дорожки слайдера">::-ms-ticks-after</a></li>
-		<li><a href="" title="Применяет стилевые параметры к делениям выше дорожки слайдера">::-ms-ticks-before</a></li>
-		<li><a href="" title="Применяет стилевые параметры к всплывающей подсказке слайдера">::-ms-tooltip</a></li>
-		<li><a href="" title="Задаёт стиль дорожки ползунка для слайдера">::-ms-track</a></li>
-		<li><a href="" title="Позволяет изменять стиль элементов формы">::-ms-value</a></li>
-	</ul> -->
 
 
 
 <h2 id="function"><a href="#">Функции</a></h2>
 	<ul>
-		<li><a href="help/help.html#attr" title="Применяется для добавления значения атрибута HTML-элемента в стилевое свойство">attr()</a></li>
+		<!-- <li><a href="" title=" позволяет устанавливать размер, положение и поля элемента, позиционируемого как якорь, относительно размеров элементов якоря. Она возвращает <length> указанной стороны целевого элемента якоря.">anchor-size()</a></li> -->
+
+		<li><a href="functions/attr.html" title="Применяется для добавления значения атрибута HTML-элемента в стилевое свойство">attr()</a></li>
 		<li><a href="filter.html#blur" title="Задаёт размытие изображения или текста по Гауссу">blur()</a></li>
 		<li><a href="filter.html#brightness" title="Повышает или понижает яркость изображения">brightness()</a></li>
-		<li><a href="help/help.html#calc" title="Используется для указания вычисляемого значения свойств, которые в качестве значений используют размер, угол, время, число">calc()</a></li>
-		<li><a href="help/help.html#clamp" title="Задаёт предпочитаемое значение, а также его нижнюю и верхнюю границы">clamp()</a></li>
+
+		<li><a href="functions/calc.html" title="Используется для указания вычисляемого значения свойств, которые в качестве значений используют размер, угол, время, число">calc()</a></li>
+		<li><a href="functions/circle.html" title="определяет окружность с помощью радиуса и положения её центра">circle()</a></li>
+		<li><a href="functions/clamp.html" title="Задаёт предпочитаемое значение, а также его нижнюю и верхнюю границы">clamp()</a></li>
+		<li><a href="functions/color-mix.html" title="принимает два значения color и возвращает результат их смешивания по указанному алгоритму с заданным процентным соотношением.">color-mix()</a></li>
+
+		<li><a href="counter.html#counter" title="возвращает текущее значение именованного счетчика, если таковой имеется, в виде строки">counter()</a></li>
+		<li><a href="counter.html#counters" title="возвращает строку, которая объединяет текущие значения именованных и вложенных счетчиков, если таковые имеются, разделенные предоставленной строкой">counters()</a></li>
+
 		<li><a href="./background/conic-gradient.html" title="цвет фона в виде перехода цветов">conic-gradient()</a></li>
 		<li><a href="filter.html#contrast" title="Повышает или понижает контрастность изображения">contrast()</a></li>
+
+		<li><a href="../Animation/animation-timing-function.html#cubic-bezier" title="Задаёт функцию движения в виде кривой Безье">cubic-bezier()</a></li>
+		<li><a href="transition.html#cubic-bezier" title="Задаёт функцию движения в виде кривой Безье">cubic-bezier()</a></li>
+
 		<li><a href="filter.html#drop-shadow" title="Добавляет тень к изображению с учётом его прозрачных участков">drop-shadow()</a></li>
+
+		<li><a href="functions/ellipse.html" title="определяет эллипс с помощью радиусов и положения его центра">ellipse()</a></li>
+
+		<!-- <li><a href="grid/fit-content.html" title="Используется в CSS Grids">fit-content()</a></li> -->
+
 		<li><a href="filter.html#grayscale" title="Превращает изображение в чёрно-белое">grayscale()</a></li>
+		<li><a href="txt/color.html#hsl" title="задание цвета в формате hsl">hsl()</a></li>
 		<li><a href="filter.html#hue-rotate" title="Изменяет цветность изображения за счёт поворота оттенка на цветовом круге">hue-rotate()</a></li>
+		<li><a href="txt/color.html#hwb" title="задание цвета в формате HWB">hwb()</a></li>
+
+		<li><a href="functions/image.html" title="определяет изображение с дополнительной функциональностью">image()</a></li>
 		<li><a href="./background/image-set.html" title="Позволяет перечислить несколько фоновых изображений с условиями их отображения">image-set()</a></li>
+		<li><a href="functions/inset_function.html" title="">inset()</a></li>
+
 		<li><a href="filter.html#invert" title="Инвертирует цвета в изображении">invert()</a></li>
+		<li><a href="txt/color.html#lab" title="задание цвета в формате LAB">lab()</a></li>
+		<li><a href="txt/color.html#lch" title="задание цвета в формате LCH">lch()</a></li>
 
 		<li><a href="color-scheme.html#light-dark" title="Принимает два значения цвета; возвращает первое значение, если установлена светлая тема и второе значение, если установлена тёмная тема">light-dark()</a></li>
 		<li><a href="background/linear-gradient.html" title="Создаёт линейный градиент">linear-gradient()</a></li>
 
-		<li><a href="help/help.html#max" title="Выбирает максимальное из предложенных значений">max()</a></li>
-		<li><a href="help/help.html#min" title="Выбирает минимальное из предложенных значений">min()</a></li>
+		<li><a href="functions/max.html" title="Выбирает максимальное из предложенных значений">max()</a></li>
+		<li><a href="functions/min.html" title="Выбирает минимальное из предложенных значений">min()</a></li>
+		<li><a href="grid/minmax.html" title="Выбирает значение в диапазоне. Используется в CSS Grids">minmax()</a></li>
 
 		<li><a href="filter.html#opacity" title="Задаёт степень прозрачности изображениям">opacity()</a></li>
 		<li><a href="perspective.html#perspectiveF" title="Задаёт значение перспективы для трёхмерных трансформаций с элементом">perspective()</a></li>
+		<li><a href="functions/polygon.html" title="определяет многоугольник с вершинами по заданным координатам">polygon()</a></li>
+
+		<li><a title="определяет сегмент линии offset-path, по которому может следовать анимированный элемент.">ray()</a></li>
 
 		<li><a href="background/radial-gradient.html" title="Добавляет радиальный градиент">radial-gradient()</a></li>
+		<li><a href="grid/repeat.html" title="Используется в CSS Grids, устанавливает количество генерируемых ячеек в грид контейнере">repeat()</a></li>
+
 		<li><a href="background/linear-gradient.html#repeating-linear-gradient" title="Создаёт повторяющийся линейный градиент">repeating-linear-gradient()</a></li>
 		<li><a href="background/radial-gradient.html#repeating-radial-gradient" title="Создаёт повторяющийся радиальный градиент">repeating-radial-gradient()</a></li>
+
+		<li><a href="functions/rect.html" title="позволяет создать прямоугольник на основе указанных расстояний от левого и верхнего краёв области">rect()</a></li>
 
 		<li><a href="transform.html#rotate" title="Поворачивает элемент в двумерном пространстве на заданный угол относительно точки трансформации">rotate()</a></li>
 		<li><a href="transform.html#rotate" title="Поворачивает элемент на заданный угол относительно оси X">rotateX()</a></li>
@@ -666,19 +806,71 @@
 		<li><a href="transform.html#scale" title="Масштабирует элемент по вертикали">scaleY()</a></li>
 		<li><a href="transform.html#scale" title="Масштабирует элемент по оси Z">scaleZ()</a></li>
 
+
 		<li><a href="transform.html#skew" title="Наклоняет элемент на заданный угол по горизонтали и вертикали">skew()</a></li>
 		<li><a href="transform.html#skew" title="Наклоняет элемент на заданный угол по горизонтали">skewX()</a></li>
 		<li><a href="transform.html#skew" title="Наклоняет элемент на заданный угол по вертикали">skewY()</a></li>
+		<li><a href="../Animation/animation-timing-function.html#steps" title="функция для заданния числа шагов воспроизведении анимации с одинаковым промежутком времени">steps()</a></li>
 
 		<li><a href="transform.html#translate" title="Сдвигает элемент на заданное значение по горизонтали и вертикали">translate()</a></li>
 		<li><a href="transform.html#translate" title="Сдвигает элемент по горизонтали на указанное значение">translateX()</a></li>
 		<li><a href="transform.html#translate" title="Сдвигает элемент по вертикали на указанное значение">translateY()</a></li>
 		<li><a href="transform.html#translate" title="Сдвигает элемент по оси Z на указанное значение">translateZ()</a></li>
-		<li><a href="help/help.html#var" title="Вставляет значения пользовательских переменных в значения стилевых свойств">var()</a></li>
+
+		<li><a href="functions/var.html" title="Вставляет значения пользовательских переменных в значения стилевых свойств">var()</a></li>
+
+		<li><a href="functions/xywh.html" title="позволяет создать прямоугольник на основе указанных расстояний от левого и верхнего краёв области">xywh()</a></li>
+
 	</ul>
 
 
 
+<div class="helper helper-content">
+<h2 id="function-math"><a href="#">Математические функции</a></h2>
+	<ul>
+		<li><a href="functions/acos.html" title="арккосинус числа от -1 до 1 - это число радиан углa от 0 до 180 градусов">acos()</a></li>
+		<li><a href="functions/asin.html" title="арксинус числа от -1 до 1 - это число радиан углa от -90 до 90 градусов">asin()</a></li>
+
+		<li><a href="functions/atan.html" title="арктангенс числа от -∞ до ∞ - это число радиан углa от -90 до 90 градусов">atan()</a></li>
+		<li><a href="functions/atan2.html" title="арктангенс числа. Возвращаемое значение - функция atan2(y, x) вычисляет и возвращает <угол> между положительной осью x и лучом из начала координат в точку (x, y) - это число радиан углa от -180 до 180 градусов">atan2()</a></li>
+		<li><a href="functions/cos.html" title="косинус указанного угла">cos()</a></li>
+
+		<li><a href="functions/exp.html" title="принимает число в качестве аргумента и возвращает математическую константу e, возведенную в степень указанного числа">exp()</a></li>
+		<li><a href="functions/hypot.html" title="возвращает значение квадратного корня из суммы квадратов указанных чисел.">hypot()</a></li>
+
+		<li><a href="functions/log.html" title="возвращает логарифм указанного числа по указанному основанию">log()</a></li>
+		<li><a href="functions/mod.html" title="бинарная операция «взятия остатка»">mod()</a></li>
+
+		<li><a href="functions/pow.html" title="принимает два значения и возвращает рузультат возведения первого числа в степень, значением которой является второе число">pow()</a></li>
+		<li><a href="functions/rem.html" title="возвращает остаток от деления первого аргумента на второй">rem()</a></li>
+		<li><a href="functions/round.html" title="">round()</a></li>
+
+		<li><a title="возвращает знак числа-аргумента функции">sign()</a></li>
+		<li><a href="functions/sin.html" title="синус указанного угла">sin()</a></li>
+		<li><a href="functions/sqrt.html" title="квадратный корень числа">sqrt()</a></li>
+
+		<li><a href="functions/tan.html" title="тангенс указанного угла">tan()</a></li>
+	</ul>
+	</div><!-- /<div class="helper helper-content"> -->
+
+
+
+<h2 id="vs" class="ls0"><a href="#">Вендорные свойства ("префиксы")</a></h2>
+	</div><!-- /<div class="helper helper-content"> -->
+	<style>.vend samp {width: 85px;}</style>
+	<div class="vend">
+		Эти свойства работают только в определённых браузерах:
+		<ul class="list l1 l0" style="padding:0">
+			<li><samp class="sin dib">-o-</samp> для Opera</li>
+			<li><samp class="sin dib">-ms-</samp> для Internet Explorer</li>
+			<li><samp class="sin dib">-moz-</samp> для Firefox</li>
+			<li><samp class="sin dib">-webkit-</samp> для Chrome, Safari и -webkit- браузеров</li>
+		</ul>
+	</div>
+
+
+
+<div class="helper helper-content">
 <h2 id="unit"><a href="#">Единицы CSS</a></h2>
 	<h4>Размер - линейные единицы</h4>
 		<ul>
@@ -723,6 +915,7 @@
 <h4 style="margin:60px 0 0; font-size:20px">Анимация</h4>
 <div><a href="../Animation/animated_properties.html"><span class="sin tdu" style="font-size:20px">Список свойств, к которым применима анимация.</span></a></div>
 
+</div><!-- /<div class="helper helper-content"> -->
 
 </div><!-- /item -->
 </body></html>

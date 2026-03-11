@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>Атрибут pattern</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">pattern</samp> элемента <samp class="teg">input</samp>.</h3>
+
+<div class="item">
+	<p>Указывает регулярное выражение, согласно которому требуется вводить и проверять данные в поле формы. Если присутствует атрибут <samp class="sin">pattern</samp>, то форма не будет отправляться, пока поле не будет заполнено правильно.</p>
+	<p>Aтрибут <samp class="sin">pattern</samp> может добавляться только к полю формы, у которого <samp class="sin">type</samp> имеет одно из значений: <samp class="lsin">text</samp>, <samp class="lsin">password</samp>, <samp class="lsin">search</samp>, <samp class="lsin">url</samp>, <samp class="lsin">tel</samp>, <samp class="lsin">email</samp>.</p>
+
+	<pre class="item2"><code>&lt;input type="password"  pattern="выражение"></code></pre>
+
+  <h2 class="sin ls1 mt30 tac" id="filter" style="font-size:20px">Регулярные выражения</h2>
+	<table class="t1 todd t3 tb mb10">
+		<tr><td width="40%">\d [0-9]</td><td>Одна цифра от 0 до 9.</td></tr>
+		<tr><td>\D [^0-9]</td><td>Любой символ кроме цифры.</td></tr>
+		<tr><td>\s</td><td>Пробел.</td></tr>
+		<tr><td>[A-Z]</td><td>Только заглавная латинская буква.</td></tr>
+		<tr><td>[A-Za-z]</td><td>Только латинская буква в любом регистре.</td></tr>
+		<tr><td>[А-Яа-яЁё]</td><td>Только русская буква в любом регистре.</td></tr>
+		<tr><td>[A-Za-zА-Яа-яЁё]</td><td>Любая буква русского и латинского алфавита.</td></tr>
+		<tr><td>[0-9]{3}</td><td>Три цифры.</td></tr>
+		<tr><td>[A-Za-z]{6,}</td><td>Не менее шести латинских букв.</td></tr>
+		<tr><td>[A-Za-zА-Яа-яЁё]{2,}</td><td>Не менее двух символов.</td></tr>
+		<tr><td>[0-9]{,3}</td><td>Не более трёх цифр.</td></tr>
+		<tr><td>[0-9]{5,10}</td><td>От пяти до десяти цифр.</td></tr>
+		<tr><td>^[a-zA-Z]+$</td><td>Любое слово на латинице.</td></tr>
+		<tr><td>^[А-Яа-яЁё\s]+$</td><td>Любое слово на русском включая пробелы.</td></tr>
+		<tr><td>^[ 0-9]+$</td><td>Любое число.</td></tr>
+		<tr><td>[0-9]{6}</td><td>Почтовый индекс.</td></tr>
+		<tr><td>\d+(,\d{2})?</td><td>Число в формате 1,34 (разделитель запятая).</td></tr>
+		<tr><td>\d+(\.\d{2})?</td><td>Число в формате 2.10 (разделитель точка).</td></tr>
+		<tr><td style="font-size:16px">\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}</td><td>от 0.0.0.0 до 999.999.999.999 (IP-адрес)</td></tr>
+		<tr><td style="font-size:15px; letter-spacing:-1px;">^(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.(?:[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$</td><td>от 0.0.0.0 до 255.255.255.255 (ipv4)</td></tr>
+	</table>
+
+
+	<fieldset class="prm mt20">
+		<legend></legend>
+		<form action="handler.php">
+			<p>Введите телефон в формате 2-xxx-xxx, где вместо <b>x</b> должна быть цифра:</p>
+			<p><input type="tel" pattern="2-[0-9]{3}-[0-9]{3}"></p>
+			<p><input type="submit" value="Отправить"></p>
+		</form>
+		<pre class="item2"><code>&lt;form action="handler.php"><br>  &lt;p>Введите телефон в формате 2-xxx-xxx, где вместо x <br>     должна быть цифра:&lt;/p><br>  &lt;p>&lt;input type="tel" pattern="2-[0-9]{3}-[0-9]{3}">&lt;/p><br>  &lt;p>&lt;input type="submit" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</fieldset>
+
+</div>
+
+
+</body></html>

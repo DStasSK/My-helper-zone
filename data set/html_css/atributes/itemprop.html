@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>Атрибут itemprop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>itemprop</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">itemprop</samp> используется для добавления свойств словаря микроданных к элементу HTML. Значения свойств представляют собой либо строку, либо URL и могут быть связаны с очень широким диапазоном элементов. Когда значением атрибута является URL, оно выражается с помощью элемента <samp class="teg">a</samp> и его атрибута <samp class="sin">href</samp>, элемента <samp class="teg">img</samp> и его атрибутa <samp class="sin">src</samp> или других элементов, которые ссылаются на внешние ресурсы или встраивают их.</p>
+
+
+	<pre class="item2 mt20 mb10"><code>&lt;div itemprop="свойство"><br>  ...<br>&lt;/div></code></pre>
+
+	<div><samp class="lsin">"cвойство"</samp> - определяется словарём данных. К примеру, на <samp class="sin tdu"><a href="https://schema.org/docs/schemas.html" target="_blank">https://schema.org</a></samp>, которую поддерживает Яндекс и Google, перечислены словари с их возможными свойствами.</div>
+
+	<div class="prm mt40 anp">
+		<style>
+			#example a {text-decoration: underline;}
+		</style>
+		<div class="anp" id="example">
+			<article itemscope itemtype="http://schema.org/Movie" class="mb20">
+				<div>
+					<h1 itemprop="name" class="mt0">Облачный атлас </h1>
+					<span itemprop="alternativeHeadline">Cloud Atlas</span>
+				</div>
+				<p class="mt10 sin">
+					<a itemprop="director" href="/name/23330/">Лана Вачовски</a>,
+					<a itemprop="director" href="/name/26439/">Том Тыквер</a>,
+					<a itemprop="director" href="/name/23329/">Энди Вачовски</a>
+					<a itemprop="producer" href="/name/26437/">Штефан Арндт</a>,
+					<a itemprop="producer" href="/name/31351/">Грант Хилл</a>,
+					<a itemprop="producer" href="/name/26439/">Том Тыквер</a>,
+					<a href="/film/464484/cast/#producer">и другие</a>.
+					<br>
+					<a itemprop="musicBy" href="/name/312865/">Райнхольд Хайль</a>,
+					<a itemprop="musicBy" href="/name/608605/">Джонни Клаймек</a>,
+					<a itemprop="musicBy" href="/name/26439/">Том Тыквер</a>.
+					<br>
+					<a itemprop="genre" href="/level/10/m_act%5Bgenre%5D/2/">фантастика</a>,
+					<a itemprop="genre" href="/level/10/m_act%5Bgenre%5D/8/">драма</a>,
+					<a itemprop="genre" href="/level/10/m_act%5Bgenre%5D/17/">детектив</a>.
+				</p>
+				<p class="mt20">В главных ролях:</p>
+				<div class="mb10 sin">
+					<a itemprop="actor" href="/name/9144/">Том Хэнкс</a>,
+					<a itemprop="actor" href="/name/1179/">Холли Берри</a>,
+					<a itemprop="actor" href="/name/38704/">Джим Броудбент</a>.
+				</div>
+				<span itemprop="description">Шесть историй — пять реинкарнаций, происходящих в разное время, тесно переплетаются между собой…</span>
+			</article>
+
+			<pre class="item2 ls-1"><code>&lt;article itemscope itemtype="http://schema.org/Movie"><br>  &lt;div><br>    &lt;h1 itemprop="name">Облачный атлас &lt;/h1><br>    &lt;span itemprop="alternativeHeadline">Cloud Atlas&lt;/span><br>  &lt;/div><br>  &lt;p><br>    &lt;a itemprop="director" href="/name/23330/">Лана Вачовски&lt;/a>,<br>    &lt;a itemprop="director" href="/name/26439/">Том Тыквер&lt;/a>,<br>    &lt;a itemprop="director" href="/name/23329/">Энди Вачовски&lt;/a><br>    &lt;a itemprop="producer" href="/name/26437/">Штефан Арндт&lt;/a>,<br>    &lt;a itemprop="producer" href="/name/31351/">Грант Хилл&lt;/a>,<br>    &lt;a itemprop="producer" href="/name/26439/">Том Тыквер&lt;/a>,<br>    &lt;a href="/film/464484/cast/#producer">и другие&lt;/a>.<br>    &lt;br><br>    &lt;a itemprop="musicBy" href="/name/312865/">Райнхольд Хайль&lt;/a>,<br>    &lt;a itemprop="musicBy" href="/name/608605/">Джонни Клаймек&lt;/a>,<br>    &lt;a itemprop="musicBy" href="/name/26439/">Том Тыквер&lt;/a>.<br>    &lt;br><br>    &lt;a itemprop="genre" href="/level/m_act%5Bgenre%5D/2/">фантастика&lt;/a>,<br>    &lt;a itemprop="genre" href="/level/m_act%5Bgenre%5D/8/">драма&lt;/a>,<br>    &lt;a itemprop="genre" href="/level/m_act%5Bgenre%5D/17/">детектив&lt;/a>.<br>  &lt;/p><br>  &lt;p>В главных ролях:&lt;/p><br>  &lt;div><br>    &lt;a itemprop="actor" href="/name/9144/">Том Хэнкс&lt;/a>,<br>    &lt;a itemprop="actor" href="/name/1179/">Холли Берри&lt;/a>,<br>    &lt;a itemprop="actor" href="/name/38704/">Джим Броудбент&lt;/a>.<br>  &lt;/div><br>  &lt;div itemprop="description">Шесть историй — пять реинкарнаций,<br>  происходящих в разное время, тесно переплетаются между собой…&lt;/div><br>&lt;/article></code></pre>
+		</div>
+	</div>
+
+
+</div>
+
+</body></html>

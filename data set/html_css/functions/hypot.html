@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><title>Функция - hypot()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>hypot()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">hypot()</samp> — возвращает значение квадратного корня из суммы квадратов указанных чисел. Функция <samp class="sin">hypot()</samp> от одного и более аргументов, разделенных запятой, с одинаковым типом данных (числа, <samp class="lsin">px</samp>, <samp class="lsin">em</samp> и пр. смешивать нельзя). Функция вернёт значение в тех же единицах, что и её параметры.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin">hypot(<samp class="lsin">number, number, ...</samp>)</pre>
+		<pre><code><br>div {<br>  width: hypot(2em);           /* 2em */<br>  width: hypot(3em, 4em);      /* 5em */<br>  width: hypot(30px, 40px);    /* 50px */<br>  width: hypot(48px, 64px);    /* 80px */<br>  width: hypot(3px, 4px, 5px); /* 7.0710678118654755px */<br>}</code></pre>
+	</div>
+
+
+	<div class="mt30">2023.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>120</span></td><!-- Edge -->
+			<td><span>120</span></td><!-- Chrome -->
+			<td><span>106</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>118</span></td><!-- FF -->
+			<td><span>120</span></td><!-- mobile-android -->
+			<td><span>118</span></td><!-- mobile-FF -->
+			<td><span>80</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

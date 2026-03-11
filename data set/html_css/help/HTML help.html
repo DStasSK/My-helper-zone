@@ -1,12 +1,13 @@
 <!DOCTYPE html><html><head><title>HTML help</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
 <link rel="stylesheet" href="../../highlight.js/styles/ss.css">
 <script src="../../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 <style>
 	.item2 p,.item2 div,.item2 input {background:transparent; color:#333}
 </style>
@@ -14,7 +15,7 @@
 <body>
 <div class="menu-help"><a href="#">Home</a><a href="#end">End</a></div>
 
-<!-- <a href="#dialog">dialog</a> -->
+
 <div class="item">
 <p><samp class="sin bold" id="comment">&lt;!-- --></samp></p>
 	<p>Добавляет комментарий в код документа. Текст комментария не отображается на странице и предназначен для пояснения кода или для технических целей. Разрешается внутрь комментария добавлять другие элементы, при этом недопустимо один комментарий вкладывать внутрь другого.</p>
@@ -351,10 +352,17 @@
 
 <div class="item">
 <p><samp class="sin bold t-trash" id="font">&lt;font></samp></p>
-	<p>Элемент <samp class="red">&lt;font></samp> (от англ. font — шрифт) представляет собой контейнер для изменения характеристик шрифта, таких как размер, цвет и гарнитура. Атрибуты: <samp class="sin" title="Устанавливает цвет текста.">color</samp>, <samp class="sin" title="Определяет гарнитуру шрифта. Названий шрифтов можно привести несколько, через запятую. Можно использовать универсальные семейства шрифтов: serif, sans-serif, cursive, fantasy, monospace.">face</samp>, <samp class="sin" title="Задаёт размер шрифта в условных единицах от 1 до 7. Pазмер по умолчанию - 3. Размер шрифта можно указывать как абсолютной величиной (например, size=&Prime;4&Prime;), так и относительной (например, size=&Prime;+1&Prime;, size=&Prime;-1&Prime;).">size</samp>.</p>
+	<div class="no">Данный элемент устарел, взамен используйте стили. Эта возможность была удалена из веб-стандартов. Хотя некоторые браузеры по-прежнему могут поддерживать её, она находится в процессе удаления. Не используйте её ни в старых, ни в новых проектах. Страницы или веб-приложения, использующие её, могут в любой момент сломаться.</div>
+	<p>Элемент <samp class="red">&lt;font></samp> (от англ. font — шрифт) представляет собой контейнер для изменения характеристик шрифта, таких как размер, цвет и гарнитура.</p>
+
+	<div class="no mb10 mt30">Атрибуты тега <samp class="teg">font</samp> не рекомендуются к использованию - лучше для аналогичных целей использовать CSS стили.</div>
+	<ul class="list mb30">
+		<li><samp class="sin">color</samp> - устанавливает цвет текста, используя имя или шестнадцатеричный формат #RRGGBB.</li>
+		<li><samp class="sin">face</samp> - определяет гарнитуру шрифта. Названий шрифтов можно привести несколько, через запятую. Атрибут содержит разделённый запятыми список имён шрифтов. Текст документа отображается с использованием первого поддерживаемого браузером шрифта из этого списка. Если в системе нет указанных шрифтов, браузер обычно использует пропорциональный или моноширинный шрифт, который есть в системе. Можно использовать универсальные семейства шрифтов: serif, sans-serif, cursive, fantasy, monospace.</li>
+		<li><samp class="sin">size</samp> - задаёт размер шрифта в условных единицах от 1 до 7. Pазмер по умолчанию 3. Размер шрифта можно указывать как абсолютной величиной (например, size=&Prime;4&Prime;), так и относительной (например, size=&Prime;+1&Prime;, size=&Prime;-1&Prime;).</li>
+	</ul>
 
 	<pre class="item2"><code>&lt;font size="5" color="red" face="Arial">Текст&lt;/font></code></pre>
-	<div class="no">Данный элемент устарел, взамен используйте стили.</div>
 </div>
 
 
@@ -386,13 +394,27 @@
 
 <div class="item">
 <p><samp class="bold sin" id="hr">&lt;hr></samp></p>
-	<p>Элемент <samp class="red">&lt;hr></samp>(от англ. horizontal rule — горизонтальная линейка) рисует горизонтальную линию, которая по своему виду зависит от используемых параметров, а также браузера.</p>
-	<pre class="item2"><code>&lt;hr></code></pre>
+	<p>Элемент <samp class="red">&lt;hr></samp>(от англ. <i lang="en">horizontal rule</i> — горизонтальная линейка) рисует горизонтальную линию, которая по своему виду зависит от используемых параметров, а также браузера. Cлужит для тематического разделения абзацев.</p>
+	<pre class="item2 mt20 mb20"><code>&lt;hr></code></pre>
+
+	<div class="no mb10 mt30">Атрибуты тега <samp class="teg">hr</samp> не рекомендуются к использованию - лучше для аналогичных целей использовать CSS стили.</div>
+	<ul class="list mb30">
+		<li><samp class="sin">align</samp> - задаёт правило выравнивания; по умолчанию - left</li>
+		<li><samp class="sin">color</samp> - задаёт цвет линии</li>
+		<li><samp class="sin">noshade</samp> - устанавливает правило отсутствия тени/затенения</li>
+		<li><samp class="sin">size</samp> - устанавливает высоту в px</li>
+		<li><samp class="sin">width</samp> - задаёт длину линии в px либо в %</li>
+	</ul>
+
 	<style>
-		.dashed{border:0; border-bottom:1px dashed #000;}
+		.dashed {border:0; border-bottom:4px dashed #000;}
+		:root {color-scheme: light dark;}
+			@media (prefers-color-scheme: dark) {
+				.dashed {border-color: #fff}
+		}
 	</style>
 	<hr class="dashed">
-	<pre class="item2"><code>&lt;style><br>  hr {border:0; border-bottom:1px dashed #000;}<br>&lt;/style><br><br>&lt;hr></code></pre>
+	<pre class="item2"><code>&lt;style><br>  hr {border:0; border-bottom:4px dashed;}<br>&lt;/style><br><br>&lt;hr></code></pre>
 </div>
 
 
@@ -456,17 +478,14 @@
 	<p>Предназначен для вывода листинга программ или кода. Отображает содержимое моноширинным шрифтом уменьшенного размера.</p>
 	<div class="no">Это устаревший элемент (но поддреживается), взамен него используйте элемент <samp class="red">&lt;code></samp>.</div>
 	<pre class="item2 anp"><code>&lt;listing>Текст&lt;/listing></code></pre>
-	<fieldset class="prm">
-		<legend class="point" onclick='listing1.classList.toggle("hiden");' title="показать/скрыть"></legend>
-		<div id="listing1" class="hiden" onclick="event.stopPropagation()">
-			<listing style="margin:0; font-size:16px">if (s/.*\*\//?/<>&!@#$%^&1) {<br>    $comment = 0;<br>  }<br>  else {<br>    next;<br>    }<br>}</listing>
-			<div class="item2">
-				<pre><code>&lt;listing style="margin:0; font-size:16px"></code></pre>
-				<pre><code>  if (s/.*\*\//?/&lt;>&!@#$%^&1) {<br>    $comment = 0;<br>  }<br>  else {<br>    next;<br>    }<br>  }</code></pre>
-				<pre><code>&lt;/listing></code></pre>
-			</div>
+	<div class="prm">
+		<listing style="margin:0; font-size:16px">if (s/.*\*\//?/&lt;&gt;&amp;!@#$%^&1) {<br>    $comment = 0;<br>  }<br>  else {<br>    next;<br>    }<br>}</listing>
+		<div class="item2">
+			<pre><code>&lt;listing></code></pre>
+			<pre><code>  if (s/.*\*\//?/&lt;>&!@#$%^&1) {<br>    $comment = 0;<br>  }<br>  else {<br>    next;<br>    }<br>  }</code></pre>
+			<pre><code>&lt;/listing></code></pre>
 		</div>
-	</fieldset>
+	</div>
 </div>
 
 

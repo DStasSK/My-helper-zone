@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><title>Функция - log()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>log()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">log()</samp> — возвращает логарифм указанного числа по указанному основанию. Логарифм представляет собой показатель степени, в которую необходимо возвести основание логарифма (второй параметр), чтобы получить число из первого параметра. Функция <samp class="sin">log()</samp> в качестве значений принимает два числа. Если указан один параметр, то в качестве основания используется константа <samp class="red">e</samp> (2,7182818...) - получается натуральный логарифм.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin">pow(<samp class="lsin">value, base</samp>)</pre>
+		<pre><code><br>div {<br>  width: calc(100px * log(7.389));  /* 200px */<br>  width: calc(100px * log(8, 2));   /* 300px */<br>  width: calc(100px * log(625, 5)); /* 400px */<br>}</code></pre>
+	</div>
+
+	<ul class="list mb30">
+		<li><samp class="sin">value</samp> - число для расчета логарифма.</li>
+		<li><samp class="sin">base</samp> - число-основание для расчета логарифма.</li>
+	</ul>
+
+
+	<div class="mt30">2023.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>120</span></td><!-- Edge -->
+			<td><span>120</span></td><!-- Chrome -->
+			<td><span>106</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>118</span></td><!-- FF -->
+			<td><span>120</span></td><!-- mobile-android -->
+			<td><span>118</span></td><!-- mobile-FF -->
+			<td><span>80</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

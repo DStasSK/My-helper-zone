@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><title>Атрибут title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>title</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">title</samp> добавляет всплывающую подсказку с текстом, которая появляется при наведении курсора на элемент. Задаваемый текст представляющий собой справочную информацию, относящуюся к элементу, к которому он принадлежит. Вид такой подсказки зависит от браузера, настроек операционной системы и не может быть изменён напрямую с помощью HTML-кода или стилей.</p>
+
+	<pre class="item2 mt20"><code>&lt;div title="текст всплывающей подсказки">...&lt;/div></code></pre>
+
+	<!-- <div class="no">Значение этого атрибута, по крайней мере в контексте элемента <samp class="teg">a</samp>, индексируется поисковиком <samp class="red">Yandex</samp>.</div> -->
+
+	<p class="mt30">Атрибут <samp class="sin">title</samp> может содержать несколько строк так как переносы текста в значении атрибута остаются и отображаются как есть. Каждый символ <samp class="lsin">U+000A</samp> (LINE FEED или LF) представляет собой разрыв строки.</p>
+
+	<div class="prm">
+		Этот <span title="Здесь есть
+перенос строки" class="tdu" id="span">элемент <samp class="teg">span</samp></span> имеет атрибут <samp class="sin">title</samp> с двумя строками.
+		<div class="item2">
+			<pre><code>Этот &lt;span title="Здесь есть<br>перенос строки" class="tdu">элемент span&lt;/span> имеет<br>атрибут <samp class="sin">title</samp> с двумя строками.<br><br>&lt;pre id="output" title="my id = 'output'">&lt;/pre></code></pre>
+			<pre><code><br>&lt;script><br>  const span = document.querySelector("#span");<br>  const output = document.querySelector("#output");<br>  output.textContent = span.title;<br>&lt;/script><br> </code></pre>
+
+			<pre id="output" title="my id = 'output'"></pre>
+			<script>const span = document.querySelector("#span"); const output = document.querySelector("#output"); output.textContent = span.title;</script>
+		</div>
+	</div>
+
+</div>
+
+
+</body></html>

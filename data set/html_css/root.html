@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>Псевдокласс :root</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -34,6 +34,8 @@
 
   <div class="no no1">Сами переменные не обязательно объявлять внутри конструкции <samp class="sin">:root</samp>, их можно объялять в любом месте, но если объявлять переменные только внутри <samp class="sin">:root</samp>, то поддерживать такой проект будет проще.</div>
 
+	<p>Переменные действуют во всех вложенных элементах внутри того блока, в котором их объявили. Например, если объявить переменную внутри блока body или html, она будет действовать для всех элементов на странице, потому что они находятся внутри этих блоков.</p>
+
 	<div class="no mt30">Браузер Internet Explorer не поддерживает переменные.</div>
 </div>
 
@@ -42,7 +44,7 @@
 	<style>
 		:root {
 			--primary-color: #00a651;
-			--button-color: #fffac0; 
+			--button-color: #fffac0;
 			--primary-padding: .5rem 1rem;
 		}
 		.but button {

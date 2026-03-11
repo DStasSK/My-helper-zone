@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><title>Атрибут inputmode</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>inputmode</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">inputmode</samp> указывает, какой тип данных может ввести пользователь при наборе или редактировании текста, к примеру, только цифры, номер телефона и др. В зависимости от значения <samp class="sin">inputmode</samp> браузер отображает соответствующую типу данных виртуальную клавиатуру.</p>
+
+	<pre class="item2 ls-05 mt20 mb10"><code>&lt;input inputmode="none | text | tel | url | email |<br>                | numeric | decimal | search"></code></pre>
+
+	<style>
+		.list.flexed {padding-left:0;}
+		.flexed li {
+			display:flex; align-items:flex-start; gap:5px;
+			box-sizing:border-box; max-width:100%; margin:15px 0;
+			border:1px solid; border-radius:4px;
+			padding:2px 2px 2px 5px;
+			padding:0 0 2px 5px;
+		}
+		.flexed li > samp {width: 70px; display:block; flex-shrink:0;}
+		.flexed li > span {text-align: left}
+		.flexed li > div {flex-shrink:0; width:200px; aspect-ratio:9/5; position:relative; display:block; position:relative;}
+		.flexed img {width:100%; height:auto; transform-origin:100% 0; position:absolute; top:-1px; right:-1px; transition:.3s;}
+		.flexed img:hover {transform:scale(1.6); transition:.3s; z-index:100}
+
+		@media screen and (max-width:550px) {
+			.flexed li {flex-wrap:wrap;}
+			.flexed li > samp {order:1; font-size:30px; flex:1; line-height:3.5;}
+			.flexed li > div {order:2;}
+			.flexed li > span {order:3;}
+		}
+	</style>
+	<ul class="list flexed mb40">
+		<li>
+			<samp class="sin" style="line-height:1.2">none</samp>
+			<span>Виртуальная клавиатура не отображается. Используется в ситуациях, когда ввод данных реализован собственными средствами, к примеру, виртуальная клавиатура добавлена своя.</span>
+			<!-- <span></span> -->
+		</li>
+		<li>
+			<samp class="sin">text</samp>
+			<span>Стандартная клавиатура для ввода текста, в том числе кнопка для переключения языка. Является значением по умолчанию.</span>
+			<div><img src="img/text.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+		<li>
+			<samp class="sin">tel</samp>
+			<span>Раскладка для ввода номера телефона, включает числа от 0 до 9, звёздочку <samp class="key">*</samp> и решётку <samp class="key">#</samp>. Поля ввода форм, что имеют обязательное поле номера телефона должны использовать <samp class="sin teg dib">input type="<span class="lsin">tel</span>"</samp>.</span>
+			<div><img src="img/tel.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+		<li>
+			<samp class="sin">url</samp>
+			<span>Виртуальная клавиатура, оптимизированная для ввода ссылок. Может иметь кнопку <samp class="key">/</samp>, расположенную в более удобном месте. Поля ввода форм, что имеют обязательное поле ссылки URL должны использовать <samp class="sin teg dib">input type="<span class="lsin">url</span>"</samp>.</span>
+			<div><img src="img/url.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+		<li>
+			<samp class="sin">email</samp>
+			<span>Виртуальная клавиатура, оптимизированная для ввода электронной почты, с использованием символа <samp class="key">@</samp> и др. Поля ввода форм, что имеют обязательное поле электронной почты должны использовать <samp class="sin teg dib">input type="<span class="lsin">email</span>"</samp>.</span>
+			<div><img src="img/email.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+		<li>
+			<samp class="sin ls-1">numeric</samp>
+			<span>Числовая раскладка клавиатуры; числа от 0 до 9. Устройства могут показывать или нет символ минуса для отрицательных значений ( <samp class="key">-</samp> ).</span>
+			<div><img src="img/decimal.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+		<li>
+			<samp class="sin ls-1">decimal</samp>
+			<span>Дробные значения чисел, содержащие разряд и соответствующий символ-разделитель, который учитывает локализацию пользователя (чаще всего <samp class="key">.</samp> или <samp class="key">,</samp> ). Устройства могут показывать или нет символ минуса для отрицательных значений ( <samp class="key">-</samp> ).</span>
+			<div><img src="img/decimal.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+		<li>
+			<samp class="sin">search</samp>
+			<span>Виртуальная клавиатура, оптимизированная для работы с поиском. Например, кнопка ввода может быть заменена на <samp class="key">Поиск</samp> и др.</span>
+			<div><img src="img/text.gif" cite="https://webref.ru/html/attr/inputmode" alt=""></div>
+		</li>
+	</ul>
+
+	<p>Aтрибут <samp class="sin">inputmode</samp> используется в основном в элементах <samp class="teg">input</samp>, но может использоваться в любом элементе для которых установлен атрибут <samp class="sin">contenteditable</samp>.</p>
+
+	<div class="no">Важно понимать, что атрибут <samp class="sin">inputmode</samp> не приводит к принудительному применению каких-либо требований валидности к вводу. Чтобы потребовать, чтобы ввод соответствовал определенному типу данных, выберите подходящий тип элемента <samp class="teg">input</samp> через атрибут <a href="../input.html#type"><samp class="sin tdu">type</samp></a>.</div>
+
+	<div class="mt40">2021.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">66</span></td>
+			<td><span          title="Opera">53</span></td>
+			<td><span         title="Safari">12.1</span></td>
+			<td><span        title="Firefox">95</span></td>
+			<td><span title="mobile-android">66</span></td>
+			<td><span title="mobile-Firefox">79</span></td>
+			<td><span   title="mobile-opera">47</span></td>
+			<td><span  title="mobile-safary">12.2</span></td>
+		</tr>
+	</table>
+
+</div>
+
+</body></html>

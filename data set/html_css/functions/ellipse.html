@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><title>Функция - ellipse()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>ellipse()</samp></h2>
+
+<div class="item">
+	<p>Функция <samp class="sin">ellipse()</samp> — определяет эллипс с помощью радиусов по осям X и Y и расположению его центра. Эта функция используется в CSS свойствах <a href="../clip-path.html"><samp class="sin tdu dib">clip-path</samp></a> и <a href="../CSS%20Shapes.html#shape-outside"><samp class="sin tdu dib">shape-outside</samp></a>.</p>
+
+	<pre class="item2 mt20 mb10 sin">ellipse( <samp class="lsin">radial-size</samp> [<samp class="lsin">radial-size</samp>] [<samp class="pur">at</samp> <samp class="lsin">position</samp>] )</pre>
+	<ul class="list mb30">
+		<li>
+			<samp class="sin">radial-size</samp> - радиус окружности в единицах css, по умолчанию 50%. Обычно используют два значения: первое радиус эллипса по оси Х, второе - по оси Y.
+			<p class="mb0">Также радиус может быть задан при помощи ключевых значений:</p>
+			<ul class="list mb10 l1">
+				<li><samp class="sin">closest-side</samp> - расстояние от центра фигуры до ближайшей стороны опорного поля.</li>
+				<li><samp class="sin">farthest-side</samp> - расстояние от центра фигуры до самой дальней стороны опорного поля.</li>
+				<li><samp class="sin">closest-corner</samp> - расстояние от центра фигуры до ближайшего угла опорного поля.</li>
+				<li><samp class="sin">farthest-corner</samp> - расстояние от центра фигуры до дальнего угла опорного поля.</li>
+			</ul>
+		</li>
+		<li><samp class="sin">at</samp> - ключевое слово для обозначения смещения центра фигуры.</li>
+		<li><samp class="sin">position</samp> - смещение по X и Y в единицах css, % или при помощи ключевых слов: <samp class="lsin">left</samp>, <samp class="lsin">center</samp>, <samp class="lsin">right</samp>, <samp class="lsin">top</samp>, <samp class="lsin">bottom</samp>. Значение по умолчанию - <samp class="lsin">center</samp.</li>
+	</ul>
+
+
+	<fieldset class="prm">
+		<legend></legend>
+		<style>
+			.example {
+				display:flex; gap:30px; padding:10px; margin:5px 10px 10px;
+				background:#fff; color:#333; border:1px solid;
+			}
+			.example__item-1 {width:250px; flex-shrink:0;}
+			.example__item-2 {background:#eee; flex:1; margin:-10px; padding:10px;}
+			.ellipse {
+				float:left; height:200px; width:200px; background:#FDB171;
+				shape-outside: ellipse(40% 80% at 0 50%);
+				clip-path: ellipse(40% 80% at left center);
+				shape-margin: 10px;
+			}
+		</style>
+		<div class="example">
+			<div class="example__item-1">
+				<div class="ellipse"></div>
+				<span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</span>
+			</div>
+			<div class="example__item-2">
+				<pre><code>&lt;div class="ellipse">&lt;/div><br>&lt;div>text text text ...&lt;/div></code></pre>
+				<pre><code><br>.ellipse {<br>  float:left; height:200px; width:200px;<br>  background: #FDB171;<br>  shape-outside: ellipse(40% 80% at 0 50%);<br>  clip-path: ellipse(40% 80% at left center);<br>  shape-margin: 10px;<br>}</code></pre>
+			</div>
+		</div>
+	</fieldset>
+
+
+</div>
+
+</body>
+</html>

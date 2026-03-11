@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>Функция - pow()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>pow()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">pow()</samp> — принимает два значения, разделенныные запятой, и возвращает рузультат возведения первого числа в степень, значением которой является второе число.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin">pow(<samp class="lsin">base, number</samp>) = base<sup>number</sup></pre>
+		<pre><code><br>div {<br>  width: calc(10px * pow(5, 2));   /* 10px * 25 = 250px */<br>  width: calc(10px * pow(5, 3));   /* 10px * 125 = 1250px */<br>  width: calc(10px * pow(2, 10));  /* 10px * 1024 = 10240px */<br>}</code></pre>
+	</div>
+
+	<ul class="list mb30">
+		<li><samp class="sin">base</samp> - число-основание для возведение в степень.</li>
+		<li><samp class="sin">number</samp> - число-показатель степени.</li>
+	</ul>
+
+
+	<p>Функция CSS <samp class="sin">pow()</samp> работает только с числами, для использования с единицами CSS, такими как px, em, rem и др. можно воспользоваться функцией <samp class="sin">calc()</samp>:</p>
+
+	<pre class="item2"><code>.elem {<br>  font-size: calc(1rem * pow(4, 0.5));   /* 1rem × 2 = 2rem */<br>}</code></pre>
+
+
+	<div class="mt30">2023.12</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>120</span></td><!-- Edge -->
+			<td><span>120</span></td><!-- Chrome -->
+			<td><span>106</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>118</span></td><!-- FF -->
+			<td><span>120</span></td><!-- mobile-android -->
+			<td><span>118</span></td><!-- mobile-FF -->
+			<td><span>80</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

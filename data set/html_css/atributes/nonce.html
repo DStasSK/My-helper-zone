@@ -1,0 +1,60 @@
+<!DOCTYPE html><html><head><title>Атрибут nonce</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>nonce</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">nonce</samp> (от англ. <samp lang="en">number used once</samp> — однократно используемое число) применяется в криптографических целях для защиты содержимого от злоумышленников. Значение <samp class="sin">nonce</samp> представляет собой одноразовый код (строку в виде набора символов), уникальный для каждой страницы. Использоваться Политикой безопасности контента для определения того, будет ли разрешено продолжить данную выборку для данного элемента.</p>
+
+	<p>Сервер генерирует случайную последовательность символов и включает её в HTTP-заголовок Content-Security-Policy (<a href="https://developer.mozilla.org/ru/docs/Web/HTTP/CSP" class="sin tdu" target="_blank">CSP</a>, политика безопасности содержимого). Это же значение устанавливается и для элемента <samp class="teg">script</samp>. Браузер сравнивает значение <samp class="sin">nonce</samp>, полученное в SCP и указанное в <samp class="teg">script</samp> и если они совпадают, тогда скрипт выполняется. В противном случае выполнение скрипта блокируется.</p>
+
+	<div class="item2 mt10 mb30">
+		<pre><code>Content-Security-Policy: default-src 'self';<br>                         script-src 'self' 'nonce-088bebbe01749b89';</code></pre>
+		<pre><code><br><br>&lt;script nonce="088bebbe01749b89">…&lt;/script></code></pre>
+	</div>
+
+	<p>Значение <samp class="sin">nonce</samp> должно генерироваться при <strong>каждой</strong> загрузке страницы в кодировке base64 длиной не менее 128 бит данных с помощью криптографически безопасного генератора случайных чисел.</p>
+
+	<pre class="item2 "><code>const crypto = require("crypto"); <br>crypto.randomBytes(16).toString("base64");<br><br>let script = document.querySelector('#script_id');<br>script.getAttribute("nonce");                   // вернет пустую строку<br>script.nonce;                                   // вернет значение атрибута</code></pre>
+
+	<div class="mt30">2022.05</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">61</span></td>
+			<td><span          title="Opera">48</span></td>
+			<td><span         title="Safari">15.5</span></td>
+			<td><span        title="Firefox">75</span></td>
+			<td><span title="mobile-android">61</span></td>
+			<td><span title="mobile-Firefox">79</span></td>
+			<td><span   title="mobile-opera">45</span></td>
+			<td><span  title="mobile-safary">15/5</span></td>
+		</tr>
+	</table>
+
+</div>
+
+</body></html>

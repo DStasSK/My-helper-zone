@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><title>Функция - rem()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>rem()</samp></h2>
+
+<div class="item">
+	<p>Функция <samp class="sin">rem()</samp> — принимает два значения (делимое и делитель) и возвращает остаток от деления первого аргумента на второй, при этом остаток имеет математический знак первого аргумента. В качестве значений допустимо указывать целые числа, проценты и любые допустимые единицы CSS при этом оба числа должны иметь одинаковый формат.</p>
+
+	<div class="item2 mt20 mb10">
+		<pre class="sin ls-05">rem(<samp class="lsin">a, b</samp>) => {<samp class="lsin">a</samp> - ( <samp class="red">Math.trunc</samp>(<samp class="lsin">a</samp> / <samp class="lsin">b</samp>) * <samp class="lsin">b</samp> )}   <span class="o7" style="color:#333">/* Math.trunc - без дробной части */</span></pre>
+		<pre class="sin ls-05"><a href="mod.html" class="tdu">mod(<samp class="lsin">a, b</samp>)</a> => {<samp class="lsin">a</samp> - ( <samp class="red">Math.floor</samp>(<samp class="lsin">a</samp> / <samp class="lsin">b</samp>) * <samp class="lsin">b</samp> )}   <span class="o7" style="color:#333">/* Math.floor - округление вниз */</span></pre>
+		<pre><code><br>div {<br>  rotate: rem(200deg, 30deg);  /* 20deg */<br>  rotate: rem(140deg, -90deg); /* 50deg */<br>  rotate: rem(-90deg, 20deg);  /* -10deg */<br>  rotate: rem(-55deg, -15deg); /* -10deg */<br>}</code></pre>
+	</div>
+
+	<p>С помощью остатка от деления можно определить, делится ли число нацело на другое. Если остаток равен нулю — значит число делится нацело. А если остаток не равен нулю — то число не делится нацело, деление происходит с остатком.</p>
+
+
+	<div class="mt30">2024.06</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span></span></td><!-- IE -->
+			<td><span>125</span></td><!-- Edge -->
+			<td><span>125</span></td><!-- Chrome -->
+			<td><span>111</span></td><!-- Opera -->
+			<td><span>15.4</span></td><!-- Safari -->
+			<td><span>118</span></td><!-- FF -->
+			<td><span>125</span></td><!-- mobile-android -->
+			<td><span>118</span></td><!-- mobile-FF -->
+			<td><span>83</span></td><!-- mobile-opera -->
+			<td><span>15.4</span></td><!-- mobile-safary -->
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

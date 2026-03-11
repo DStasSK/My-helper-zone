@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head><title>CSS cвойство touch-action</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+<h2 class="sin">CSS cвойство <samp>touch-action</samp></h2>
+
+<div class="item">
+	<p>Свойство <samp class="sin">touch-action</samp> устанавливает, как пользователь сенсорного экрана может манипулировать областью элемента (например, с помощью встроенных в браузер функций масштабирования).</p>
+
+	<p>Приложения, использующие события <samp class="pur">Touch events</samp>, отключают обработку браузером жестов, вызывая <samp class="pur">preventDefault()</samp>, также должны использовать <samp class="sin">touch-action</samp>, чтобы браузер знал намерение приложения до того, как будут вызваны какие-либо прослушиватели событий.</p>
+
+	<div class="no no1">После начала жеста изменения <samp class="sin">touch-action</samp> не окажут никакого влияния на поведение текущего жеста.</div>
+
+	<pre class="item2 mt20 mb10"><code>div {
+  touch-action: auto | none | pan-x | pan-left | pan-right | pan-y |
+                pan-up | pan-down | pinch-zoom | manipulation;
+	}</code></pre>
+
+	<ul class="list mb30">
+		<li><samp class="sin">auto</samp> - включить обработку браузером всех жестов панорамирования и масштабирования.</li>
+		<li><samp class="sin">none</samp> - отключить обработку браузером всех жестов панорамирования и масштабирования. Может препятствовать работе возможностей масштабирования браузера. Это не позволит людям с плохим зрением читать и понимать содержимое страницы.</li>
+		<li><samp class="sin">pan-x</samp> - включить жесты горизонтального панорамирования одним пальцем. Можно сочетать с <samp class="sin">pan-y</samp>, <samp class="sin">pan-up</samp>, <samp class="sin">pan-down</samp> и/или <samp class="sin">pinch-zoom</samp>.</li>
+		<li><samp class="sin">pan-y</samp> - включить жесты вертикального панорамирования одним пальцем. Можно сочетать с <samp class="sin">pan-x</samp>, <samp class="sin">pan-left</samp>, <samp class="sin">pan-right</samp> и/или <samp class="sin">pinch-zoom</samp>.</li>
+		<li><samp class="sin">manipulation</samp> - включить жесты панорамирования и масштабирования, но отключить дополнительные нестандартные жесты, такие как двойное нажатие для масштабирования. Отключение двойного нажатия для масштабирования устраняет необходимость для браузеров задерживать генерацию событий щелчка, когда пользователь касается экрана. Это псевдоним для "<samp class="sin">pan-x pan-y pinch-zoom</samp>".</li>
+		<li><samp class="sin dib">pan-left, pan-right, pan-up, pan-down</samp> - включить жесты одним пальцем, которые начинаются с прокрутки в заданном направлении(ях). После начала прокрутки направление все еще может быть обратным. Обратите внимание, что прокрутка «вверх» (<samp class="sin">pan-up</samp>) означает, что пользователь проводит пальцем вниз по поверхности экрана, а <samp class="sin">pan-left</samp> означает, что пользователь проводит пальцем вправо. Несколько направлений могут быть объединены, за исключением случаев, когда есть более простое представление (например, <span class="dib">«<samp class="sin">pan-left pan-right</samp>»</span> недопустимо, поскольку <span class="dib">«<samp class="sin">pan-x</samp>»</span> проще, но <span class="dib">«<samp class="sin">pan-left pan-down</samp>»</span> допустимо).
+		<div class="no mt10 mb20">данные значения не поддерживаются некоторыми браузерами.</div>
+		</li>
+		<li><samp class="sin">pinch-zoom</samp> - включить панорамирование и масштабирование страницы несколькими пальцами. Это можно объединить с любым из значений <samp class="sin">pan-*</samp>.</li>
+	</ul>
+
+	<p>По умолчанию жесты панорамирования (прокрутки) и сжатия обрабатываются исключительно браузером. Приложение, использующее события <samp class="pur dib">Pointer events</samp>, получит событие <samp class="pur">pointercancel</samp>, когда браузер начнет обрабатывать жест касания. Явно указав, какие жесты должны обрабатываться браузером, приложение может предоставить собственное поведение в прослушивателях <samp class="pur">pointermove</samp> и <samp class="pur">pointerup</samp> для оставшихся жестов.</p>
+
+	<p>При запуске жеста браузер пересекает значения <samp class="sin">touch-action</samp> затронутого элемента и его предков, вплоть до того, который реализует жест (другими словами, первого содержащего прокручиваемый элемент). Это означает, что на практике <samp class="sin">touch-action</samp> обычно применяется только к элементам верхнего уровня, которые имеют какое-либо пользовательское поведение, без необходимости явно указывать <samp class="sin">touch-action</samp> для любого из потомков этого элемента.</p>
+
+</div>
+
+</body></html>

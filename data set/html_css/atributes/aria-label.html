@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><title>Атрибут aria-label</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>aria-label</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">aria-label</samp> обеспечивает альтернативное текстовое описание для элементов интерфейса, которые визуально понятны, но могут быть проблематичны для восприятия пользователями скринридеров. Цель атрибута - добавить текстовую подсказку к элементу, с помощью которой пользователи скринридера поймут его назначение. Этот текст не отображается визуально, но читается вспомогательными технологиями. Атрибут <samp class="sin">aria-label</samp> необходим для того, чтобы пользователи программ чтения с экрана понимали его функцию</p>
+
+	<div class="no">Примечание: атрибут <samp class="sin">aria-label</samp> предназначен для описания элементов, где неявная или явная роль не запрещает именование. Настоятельно рекомендуется отдавать приоритет использованию <samp class="sin">aria-labelledby</samp> перед <samp class="sin">aria-label</samp>, если существует видимая метка, на которую элемент может ссылаться (через id) и от которой может получать свое описание.</div>
+
+	<p>По умолчанию доступное имя кнопки - это содержимое между открывающим и закрывающим тегами <samp class="teg">button</samp>, доступное имя изображения — это содержимое его атрибута <samp class="sin">alt</samp>, а доступное имя поля ввода формы — это содержимое связанного с ним элемента <samp class="teg">label</samp>. Если ни один из этих вариантов недоступен или если доступное имя по умолчанию не подходит, используйте атрибут <samp class="sin">aria-label</samp> для определения доступного описания элемента.</p>
+
+	<p>Хотя атрибут <samp class="sin">aria-label</samp> можно использовать для любого элемента, имеющего доступное имя, на практике он поддерживается только для интерактивных элементов, виджетов, ориентиров, изображений и <samp class="teg">iframe</samp>.</p>
+
+	<div class="mt30">Оптимальная метка <samp class="sin">aria-label</samp> должна быть:</div>
+	<ul class="list l1 mb30">
+		<li>Содержательной — объясняющей функцию элемента</li>
+		<li>Краткой — идеально от 1 до 5 слов</li>
+		<li>Конкретной — избегайте расплывчатых описаний</li>
+	</ul>
+
+	<div class="no">Атрибут <samp class="sin">aria-label</samp> не поддерживается в тегах: caption, code, definition, deletion, emphasis, generic, insertion, mark, paragraph, presentation / none, strong, subscript, suggestion, superscript, term, time.</div>
+
+
+</div>
+
+
+</body></html>

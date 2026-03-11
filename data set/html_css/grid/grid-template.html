@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title>CSS свойство grid-template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -27,15 +27,9 @@
 
 	<div class="mt40 mb40"><img src="img/grid-template.gif" alt="схема" width="1035" height="337" class="img-c"></div>
 
-	<div class = "grid-container m0a mt40">
-		<div class = "grid-item item-a">Header</div>
-		<div class = "grid-item item-b">Main</div>
-		<div class = "grid-item item-c">Footer</div>
-		<div class = "grid-item item-d">Navigation</div>
-	</div>
 
 	<style>
-		.grid-container {display:grid; padding:10px; gap:10px; background:rgb(0,150,208);
+		.grid-container {display:grid; padding:10px; gap:10px; background:rgb(0,150,208); color:#333;
 		grid-template: 'header header header header' 40px
 							'nav main main .' 40px 'nav main main .' 40px
 							'footer footer footer footer' 40px / 1fr 1fr 1fr 1fr;}
@@ -46,27 +40,17 @@
 		.item-c {grid-area:footer; background:green;}
 		.item-d {grid-area:nav; background:violet;}
 	</style>
+	<div class = "grid-container m0a mt40">
+		<div class = "grid-item item-a">Header</div>
+		<div class = "grid-item item-b">Main</div>
+		<div class = "grid-item item-c">Footer</div>
+		<div class = "grid-item item-d">Navigation</div>
+	</div>
 
-	<pre class="item2 mt20"><code>&lt;div class = "grid-container">
-   &lt;div class = "item-a">Header&lt;/div>
-   &lt;div class = "item-b">Main&lt;/div>
-   &lt;div class = "item-c">Footer&lt;/div>
-   &lt;div class = "item-d">Navigation&lt;/div>
-&lt;/div>
-
-&lt;style>
-.grid-container {
-   display: grid;
-   grid-template:'header header header header' 40px
-                 'nav main main .' 40px 'nav main main .' 40px
-                 'footer footer footer footer' 40px / 1fr 1fr 1fr 1fr;
-}
-.item-a { grid-area: header; }
-.item-b { grid-area: main; }
-.item-c { grid-area: footer; }
-.item-d { grid-area: nav; }
-&lt;/style></code></pre>
-
+	<div class="item2 mt20">
+		<pre><code>&lt;div class = "grid-container"><br>  &lt;div class = "item-a">Header&lt;/div><br>  &lt;div class = "item-b">Main&lt;/div><br>  &lt;div class = "item-c">Footer&lt;/div><br>  &lt;div class = "item-d">Navigation&lt;/div><br>&lt;/div></code></pre>
+		<pre><code><br>.grid-container {<br>  display: grid;<br>  grid-template: 'header header header header' 40px<br>                 'nav main main .' 40px 'nav main main .' 40px<br>                 'footer footer footer footer' 40px / 1fr 1fr 1fr 1fr;<br>}<br>.item-a { grid-area: header; }<br>.item-b { grid-area: main; }<br>.item-c { grid-area: footer; }<br>.item-d { grid-area: nav; }</code></pre>
+	</div>
 </div>
 
 

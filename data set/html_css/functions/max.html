@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><title>Функция - max()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>max()</samp></h2>
+
+<div class="item">
+	<p>Функция CSS <samp class="sin">max()</samp> — позволяет установить наибольшее (наиболее положительное) значение из списка (от одного и более) значений/выражений, разделенных запятыми. В качестве аргументов принимает параметры CSS одинаковой размерности.</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  width: max( value, value, [value,] ... );<br>}</code></pre>
+
+	<p>Выражение может быть значениями, объединяющими операторы сложения <span class="dib">( + ),</span> вычитания <span class="dib">( - ),</span> умножения <span class="dib">( * )</span> и деления <span class="dib">( / ),</span> используя стандартные правила приоритета операторов. Обязательно поставьте пробел с каждой стороны операндов <span class="dib">+ и - .</span></p>
+
+	<pre class="item2 mt30"><code>.block {<br>  width: max(100%, 1024px);<br>}<br><br>/* или */<br><br>.block {<br>  width: 100%;<br>  min-width: 1024px;<br>}</code></pre>
+
+	<div class="mt30">2020.07</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">79</span></td>
+			<td><span          title="Opera">66</span></td>
+			<td><span         title="Safari">11.1</span></td>
+			<td><span             title="FF">75</span></td>
+			<td><span title="mobile-android">79</span></td>
+			<td><span      title="mobile-FF">79</span></td>
+			<td><span   title="mobile-opera">57</span></td>
+			<td><span  title="mobile-safary">11.3</span></td>
+		</tr>
+	</table>
+</div>
+
+</body>
+</html>

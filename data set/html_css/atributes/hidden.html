@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><title>Атрибут hidden</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>hidden</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">hidden</samp> cкрывает содержимое элемента от просмотра. Такой элемент не отображается на странице, но доступен через скрипты. Атрибут может: не содержать значение, иметь в качестве значения пустую строку, эти и все любые значения, кроме <samp class="lsin">until-found</samp> - делают элемент скрытым. По умолчанию атрибут выключен.</p>
+
+	<pre class="item2 mt20 mb20 ls-05"><code>&lt;div hidden>text&lt;/div>                  &lt;!-- элемент скрыт --><br>&lt;div hidden="">text&lt;/div>               &lt;!-- элемент скрыт --><br>&lt;div hidden="hidden">text&lt;/div>         &lt;!-- элемент скрыт --><br>&lt;div hidden="until-found">text&lt;/div>    &lt;!-- элемент скрыт до обнаружения --><br>&lt;div hidden="abracatabra">text&lt;/div>    &lt;!-- элемент скрыт --></code></pre>
+
+	<div class="no mb30">Если через стили установлено свойство <samp class="sin">display</samp> со значением отличным от <samp class="lsin">none</samp>, то элемент не будет скрыт. Если свойство <samp class="sin">display</samp> не установлено, то элемент будет скрыт.</div>
+
+	<p>При значении атрибута <samp class="sin dib">hidden="<samp class="lsin">until-found</samp>"</samp> элемент скрыт, но его содержимое будет доступно для функции браузера «найти на странице» или для навигации по фрагментам. Когда эти функции вызывают прокрутку к элементу, браузер: выполнит событие <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/beforematch_event" target="_blank"><samp class="pur tdu">beforematch</samp></a> для скрытого элемента, удалит атрибут <samp class="sin">hidden</samp> из элемента и прокрутит страницу к элементу, кроме случая когда свойство <samp class="sin">display</samp> имеет значение <samp class="lsin">none</samp>.</p>
+
+	<div class="no no1">Если браузер не поддерживает перечислимое значение <samp class="lsin">until-found</samp> атрибута <samp class="sin">hidden</samp>, то элемент будет скрыт так как значение свойства будет считаться не валидным.</div>
+
+	<div class="mt40"><samp class="sin dib">hidden="<span class="lsin">until-found</span>"</samp> &nbsp; 2022.11</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">102</span></td>
+			<td><span         title="Chrome">102</span></td>
+			<td><span          title="Opera">88</span></td>
+			<td class="n"><span title="Safari"></span></td>
+			<td class="n"><span     title="FF"></span></td>
+			<td><span   title="mobile-android">102</span></td>
+			<td class="n"><span title="mobile-FF"></span></td>
+			<td><span        title="mobile-opera">70</span></td>
+			<td class="n"><span title="mobile-safary"></span></td>
+		</tr>
+	</table>
+
+</div>
+
+
+
+<div class="item anp">
+	<style>
+		.example .showForm {cursor:pointer; background:#4bf; color:#000; padding:2px 5px 3px; border-radius:4px;}
+		.example .reverse {padding-left:10px; cursor:pointer;}
+	</style>
+	<script>
+		let form = '';
+		let link = '';
+		setTimeout( () => {
+			form = document.querySelector('#form');
+			link = document.querySelector('#link');
+		}, 500);
+		function showForm() {
+			form.hidden = false;
+			link.hidden = true;
+		}
+		function hiddenForm() {
+			form.hidden = true;
+			link.hidden = false;
+		}
+	</script>
+
+	<div class="example">
+		<p id="link"><span class="showForm" onclick="showForm()">Авторизация на сайте</span></p>
+		<form id="form" hidden>
+			<p>
+				<label>Логин: <input name="user" required></label>
+				<span class="reverse" onclick="hiddenForm()" title="обновить пример">&#8635;</span>
+			</p>
+			<p><label>Пароль: <input name="pass" type="password" required></label></p>
+			<p><input type="submit" value="Войти"></p>
+		</form>
+
+		<div class="item2 ls-1">
+			<pre><code>&lt;p id="link"&gt;&lt;span onclick="showForm()"&gt;Авторизация на сайте&lt;span&gt;&lt;/p&gt;<br>&lt;form id="form" hidden&gt;<br>  &lt;p&gt;&lt;label&gt;Логин: &lt;input name="user" required&gt;&lt;/label&gt;&lt;/p&gt;<br>  &lt;p&gt;&lt;label&gt;Пароль: &lt;input name="pass" type="password" required&gt;&lt;/label&gt;&lt;/p&gt;<br>  &lt;p&gt;&lt;input type="submit" value="Войти"&gt;&lt;/p&gt;<br>&lt;/form&gt;</code></pre>
+			<pre><code><br>&lt;script><br>  function showForm() {<br>    document.querySelector("#auth").hidden = false;<br>    document.querySelector("#link").hidden = true;<br>  }<br>&lt;/script></code></pre>
+		</div>
+
+	</div>
+
+</div>
+
+</body></html>

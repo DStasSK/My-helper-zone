@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>&lt;audio></title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -8,9 +8,7 @@
 <script src="../../highlight.js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<style type="text/css">
-	.html5::after{margin:4px 0;}
-</style>
+<style type="text/css">.html5::after{margin:4px 0}</style>
 
 </head>
 <body>
@@ -18,11 +16,11 @@
 <h2 class="sin t-html5"><samp>&lt;audio></samp></h2>
 <!-- Оглавление -->
 	<ul class="ogl">
-		<li>
-			<a href="#attr">Атрибуты</a>
+		<li><a href="#attr">Атрибуты</a>
 			<div class="ogl2 ogl21">
 				<span><a href="#autoplay" title="Звук начинает играть сразу после загрузки страницы.">autoplay</a></span>
 				<span><a href="#controls" title="Добавляет панель управления к аудиофайлу.">controls</a></span>
+				<span><a href="../atributes/crossorigin.html" title="позволяет настроить CORS запросы для ресурсов c другого домена">crossorigin</a></span>
 				<span><a href="#loop" title="Повторяет воспроизведение звука с начала после его завершения.">loop</a></span>
 				<span><a href="#muted" title="Отключает звук при воспроизведении музыки.">muted</a></span>
 				<span><a href="#preload" title="Используется для предварительной загрузки аудиофайла или его данных вместе с загрузкой веб-страницы.">preload</a></span>
@@ -68,19 +66,29 @@
 			<td>При наличии этого атрибута аудио начинает воспроизводиться автоматически после загрузки страницы. По умолчанию этот атрибут выключен. Атрибут <samp class="sin">autoplay</samp> отменяет действие атрибута <samp class="sin">preload</samp>.
 			<pre class="item2"><code>&lt;audio autoplay="autoplay" controls muted<br>       src="media/music.mp3">&lt;/audio></code></pre>
 			<audio autoplay="autoplay" src="media/music.mp3" controls muted="muted"></audio></td></tr>
+
 		<tr><td id="controls">controls</td>
 			<td>Добавляет панель управления к аудиофайлу. Вид панели и её содержимое зависит от браузера и может в себя включать: кнопку воспроизведения, паузы, перемотки, ползунок для изменения уровня громкости и др. В качестве значения указывается <samp class="lsin">controls</samp>, также допустимо писать атрибут без значения.
 			<pre class="item2"><code>&lt;audio controls="controls">&lt;/audio></code></pre>
 			<audio src="media/music.mp3" controls></audio></td></tr>
+
 		<tr><td id="loop">loop</td>
 			<td>Повторяет воспроизведение звука с начала после его завершения. По умолчанию этот атрибут выключен.
 			<pre class="item2"><code>&lt;audio loop="loop">&lt;/audio></code></pre></td></tr>
+
 		<tr><td id="muted">muted</td>
 			<td>Отключает звук при воспроизведении музыки. В качестве значения указывается muted, также допустимо вообще не указывать никакое значение.
 			<pre class="item2"><code>&lt;audio muted="muted">&lt;/audio></code></pre></td></tr>
+
 		<tr><td id="preload">preload</td>
 			<td>Используется для предварительной загрузки аудиофайла или его данных вместе с загрузкой веб-страницы. Этот атрибут игнорируется, если установлен атрибут <samp class="sin">autoplay</samp>. Пустое значение атрибута воспринимается как <samp class="lsin">auto</samp>. Значение по умолчанию - <samp class="lsin">none</samp>.
-			<pre class="item2"><code>&lt;audio preload="<abbr title="Не загружать предварительную информацию об аудиофайле.">none</abbr> | <abbr title="Загрузить только служебную информацию (продолжительность звучания и др.).">metadata</abbr> | <abbr title="Загрузить аудиофайл целиком при загрузке страницы.">auto</abbr>">&lt;/audio></code></pre></td></tr>
+			<pre class="item2 ls-1"><code>&lt;audio preload="none | metadata | auto">&lt;/audio></code></pre>
+			<ul class="list l1">
+				<li><samp class="sin">none</samp> - не загружать предварительную информацию об файле</li>
+				<li><samp class="sin">metadata</samp> - загрузить только служебную информацию (продолжительность и др.)</li>
+				<li><samp class="sin">auto</samp> - загрузить файл целиком при загрузке страницы</li>
+			</ul></td></tr>
+
 		<tr><td id="src">src</td>
 			<td>Указывает путь к воспроизводимому файлу. Для этой же цели также можно использовать элемент <samp class="teg sin tdu"><a href="source.html">source</a></samp>.
 			<pre class="item2"><code>&lt;audio src="media/music.mp3">&lt;/audio></code></pre></td></tr>

@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><title>Атрибут for</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">for</samp>.</h3>
+
+<div class="item">
+	<div class="no no1">Данный атрибут доступен для элементов <a href="../../scripts/output.html"><samp class="teg tdu">output</samp></a> и <a href="../label.html"><samp class="teg tdu">label</samp></a>.</div>
+
+	<p>При использовании в элементе <samp class="teg">label</samp> он указывает идентификатор <samp class="red">id</samp> элемента формы, к которому он относится. Атрибут <samp class="sin">for</samp> необходимо задавать в том случае, когда элемент формы и текст разделены. Если элемент формы размещается внутри контейнера <samp class="teg">label</samp>, то применять атрибут <samp class="sin">for</samp> не требуется.</p>
+	<pre class="item2 mb20"><code>&lt;label for="username">Your name&lt;/label><br>&lt;br>&lt;input type="text" id="username" /></code></pre>
+
+	<p>При использовании в элементе <samp class="teg">output</samp> атрибут <samp class="sin">for</samp> имеет значение, представляющее собой разделенный пробелами список значений идентификаторов элементов, которые используются для создания выходных данных.</p>
+	<pre class="item2"><code>&lt;input type="range" id="b" name="b" value="50" /> +<br>&lt;input type="number" id="a" name="a" value="10" /> =<br>&lt;output name="result" for="a b">60&lt;/output></code></pre>
+
+	<div class="no mt30">Значение атрибута <samp class="sin">for</samp> чуствительно к регистру.</div>
+
+
+</div>
+
+
+</body></html>

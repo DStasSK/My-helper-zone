@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>color</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -11,17 +11,28 @@
 </head>
 <body>
 <div class="item">
-<h2 class="sin"><samp>color</samp></h2>
+<h2 class="sin">CSS свойство <samp>color</samp></h2>
 	<p>CSS свойство <samp class="sin">color</samp> определяет цвет текста элемента. Значения свойства, заданное как <samp class="lsin">transparent</samp>, устанавливает прозрачный цвет.</p>
-	<p>Цвет в стилях можно задавать разными способами: по <a href="#c16" class="sin tdu">шестнадцатеричному значению</a>, по <a href="../color.html" class="sin tdu">названию</a>, в формате <a href="#rgb" class="sin tdu">RGB</a>, <a href="#rgba" class="sin tdu">RGBA</a>, <a href="#hsl" class="sin tdu">HSL</a>, <a href="#hsla" class="sin tdu">HSLA</a>.</p>
+	<p>Цвет в стилях можно задавать разными способами:
+		по <a href="#c16" class="sin tdu">шестнадцатеричному значению</a>,
+		по <a href="../color.html" class="sin tdu">названию</a>,
+		в формате
+		<a href="#rgb" class="sin tdu">RGB</a>,
+		<a href="#rgba" class="sin tdu">RGBA</a>,
+		<a href="#hsl" class="sin tdu">HSL</a>,
+		<a href="#hsla" class="sin tdu">HSLA</a>,
+		<a href="#hwb" class="sin tdu">HWB</a>,
+		<a href="#lab" class="sin tdu">LAB</a>,
+		<a href="#lch" class="sin tdu">LCH</a>.
+	</p>
 
-	<pre class="item2"><code>div {<br>  color: #000;             /* черный цвет текста */<br>  color: rgb(0, 0, 0);<br>  color: rgba(0, 0, 0, 1);<br>  color: hsl(0, 0, 0);<br>  color: hsla(0, 0, 0, 1);<br>}</code></pre>
+	<pre class="item2"><code>div {<br>  color: #000;             /* черный цвет текста */<br>  color: rgb(0, 0, 0);<br>  color: rgba(0, 0, 0, 1);<br>  color: hsl(0, 0, 0);<br>  color: hsla(0, 0, 0, 1);<br>  color: hwb(359 0% 100%);<br>}</code></pre>
 </div>
 
 
-<div class="item">
+<div class="item" id="currentColor">
 <h2 class="sin"><samp>currentColor</samp></h2>
-	<p>Ключевое слово <samp class="sin">currentColor</samp> соответствует значению свойства <samp class="sin">color</samp> для текущего элемента. Это позволяет использовать значение цвета для свойств, которые не получают его по умолчанию. Например можно установить цвет тени  у блока.</p>
+	<p>Ключевое слово <samp class="sin">currentColor</samp> соответствует значению свойства <samp class="sin">color</samp> для текущего элемента. Это позволяет использовать значение цвета для свойств, которые не получают его по умолчанию. Например можно установить цвет тени у блока.</p>
 	<style>
 		.cc1{background:#f0f0f0; color:#3b4d81; padding:10px; border:1px solid; transition:1s; margin:20px 0; border-radius:5px;
     box-shadow:0 0 5px currentColor;} /* Параметры тени - currentColor*/
@@ -37,7 +48,9 @@
 <div class="item" id="c16">
 <h2 class="sin"><a href="#">По шестнадцатеричному значению</a></h2>
 	<p>Цвета задаются числами в шестнадцатеричном коде. Шестнадцатеричная система, в отличие от десятичной системы, базируется, как следует из её названия, на числе 16. Цифры будут следующие: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Цифры от 10 до 15 заменены латинскими буквами. Числа больше 15 в шестнадцатеричной системе образуются объединением двух чисел в одно. Например, числу <b>255</b> в десятичной системе соответствует число <b>FF</b> в шестнадцатеричной системе.</p>
-	<p>Чтобы не возникало путаницы в определении системы счисления, перед шестнадцатеричным числом ставят символ решетки <samp class="red">#</samp>, например <b>#336699</b>.</p>
+	<p>Чтобы не возникало путаницы в определении системы счисления, перед шестнадцатеричным числом ставят символ решетки <samp class="red">#</samp>, например:</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  background-color: #e2a6ff;<br>}</code></pre>
 
 	<p>Каждый из трёх цветов — красный, зелёный и синий — может принимать значения от <samp class="sin">00</samp> до <samp class="sin">FF</samp>. Таким образом, обозначение цвета разбивается на три составляющие <samp class="lsin">#rrggbb</samp>, где первые два символа отмечают красную компоненту цвета, два средних — зелёную, а два последних — синюю.</p>
 	<p>Допускается использовать сокращенную форму вида <samp class="lsin">#rgb</samp>, где каждый символ следует удваивать. Так, запись <samp class="lsin">#fe0</samp> следует расценивать как <samp class="lsin">#ffee00</samp>.</p>
@@ -45,31 +58,246 @@
 
 
 <div class="item" id="rgb">
-<h2 class="sin"><a href="#"><samp>RGB</samp> формат</a></h2>
+<h2 class="sin"><a href="#"><samp>RGB</samp> формат цвета</a></h2>
 	<p>Можно определить цвет, используя значения красной, зелёной и синей составляющей в десятичном исчислении. Каждая из трёх компонент цвета принимает значение от <b>0</b> до <b>255</b>. Также допустимо задавать цвет в процентном отношении, при этом <b>100%</b> будет соответствовать числу <b>255</b>.</p>
-	<p>Вначале указывается ключевое слово <samp class="red">rgb</samp>, а затем в скобках, через запятую указываются компоненты цвета, например:<br><samp>rgb(255, 128, 128)</samp><br><samp>rgb(100%, 50%, 50%)</samp></p>
+	<p>Вначале указывается ключевое слово <samp class="red">rgb</samp>, а затем в скобках, через запятую указываются компоненты цвета, например:</p>
+
+	<pre class="item2 mt20"><code>div {<br>  color: rgb(255, 128, 128);<br>  background: rgb(100%, 50%, 50%);<br>}</code></pre>
 </div>
+
 
 
 <div class="item" id="rgba">
-<h2 class="sin"><a href="#"><samp>RGBA</samp> формат</a></h2>
+<h2 class="sin"><a href="#"><samp>RGBA</samp> формат цвета</a></h2>
 	<p><samp class="red">RGBA</samp> формат - <samp class="sin">Red, Green, Blue, Alpha</samp>. Все параметры кроме прозрачности аналогичны RGB. При выборе значения прозрачности равным 0.5, элемент становится полупрозрачным, 0 делает объект полностью прозрачным, а 1 отменяет прозрачность.</p>
+
+	<pre class="item2 mt20"><code>div {<br>  color: rgba(204, 62, 114, 0.8);<br>  color: rgba(204 62 114 / 0.8);    /* для современных браузеров, кроме IE */<br>}</code></pre>
 </div>
+
 
 
 <div class="item" id="hsl">
-<h2 class="sin"><a href="#" style="border:none"><samp>HSL</samp> формат</a></h2>
-	<p><samp class="red">HSL</samp> формат - <samp class="sin">Hue</samp> (оттенок), <samp class="sin">Saturation</samp> (насыщенность), <samp class="sin">Lightness</samp> (осветление). Оттенок это значение цвета на цветовом круге и задаётся в градусах. <samp class="red">0°</samp> соответствует красному цвету, <samp class="grin">120°</samp> - зелёному, а <samp class="sin">240°</samp> - синему. Значение оттенка может изменяться от <b>0</b> до <b>359</b>.</p>
-	<p>Насыщенностью называется интенсивность цвета, измеряется в процентах от 0% до 100%. Значение 0% обозначает отсутствие цвета и оттенок серого, 100% максимальное значение насыщенности.</p>
-	<p>Светлота задает, насколько цвет яркий и указывается в процентах от 0% до 100%. Малые значения делают цвет темнее, а высокие светлее, крайние значения 0% и 100% соответствуют чёрному и белому цвету.</p>
-	<center><img src="img/12.png"></center>
+<h2 class="sin"><a href="#" style="border:none"><samp>HSL</samp> формат цвета</a></h2>
+	<p><samp class="red">HSL</samp> формат - <samp class="sin">Hue</samp> (оттенок), <samp class="sin">Saturation</samp> (насыщенность), <samp class="sin">Lightness</samp> (осветление).
+	Данный формат цвета задается при помощи функции <samp class="sin">hsl()</samp> (от англ. <span lang="en">«hue, saturation, lightness»</span> — «оттенок, насыщенность, светлота») в которой задают три параметра для получения нужного цвета. В старых версиях браузеров параметры отделялись друг от друга запятыми, в современных браузерах запятые можно опускать.</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  /* для старых браузеров */<br>  color: hsl(оттенок, насыщенность, осветление);<br><br>  /* для современных браузеров, кроме IE */<br>  color: hsl([from color] оттенок насыщенность осветление [/alpha-value]);<br><br>  color: hsl(204, 62%, 14%);<br>  color: hsl(204 62% 14%);    /* для современных браузеров, кроме IE */<br>  color: hsl(from rgb(255 0 0) calc(h + 60) calc(s - 20) calc(l - 10))<br>}</code></pre>
+
+	<img class="img-c mb20 mt20" src="img/12.png">
+
+	<ul class="list">
+		<li>Оттенок это значение цвета на цветовом круге и задаётся в градусах. <samp class="red">0°</samp> соответствует красному цвету, <samp class="grin">120°</samp> - зелёному, а <samp class="sin">240°</samp> - синему. Значение оттенка может изменяться от <b>0</b> до <b>359</b>.</li>
+		<li>
+			Насыщенностью называется интенсивность цвета, измеряется в процентах от 0% до 100%. Значение 0% обозначает отсутствие цвета и оттенок серого, 100% максимальное значение насыщенности.
+			<div style="background:linear-gradient(90deg, hsl(120 0% 50%), hsl(120 50% 50%), hsl(120 100% 50%)); padding:5px 2px 7px" class="mb10">
+				<pre class="ls-1"><code>linear-gradient(90deg, hsl(120 0% 50%), hsl(120 50% 50%), hsl(120 100% 50%));</code></pre>
+			</div>
+		</li>
+		<li>
+			Светлота задает, насколько цвет яркий и указывается в процентах от 0% до 100%. Малые значения делают цвет темнее, а высокие светлее, крайние значения 0% и 100% соответствуют чёрному и белому цвету.
+			<div style="background:linear-gradient(90deg, hsl(120 50% 0%), hsl(120 50% 50%), hsl(120 50% 100%)); padding:5px 2px 7px" class="mb10">
+				<pre class="ls-1 sin"><code><samp class="sin">linear-gradient(90deg, hsl(120 50% 0%), hsl(120 50% 50%), hsl(120 50% 100%));</samp></code></pre>
+			</div>
+		</li>
+		<li><samp class="sin">from</samp> - ключевое слово за которым следует значение цвета (<samp class="lsin">color</samp>), представляющее исходный цвет. Это исходный цвет, относительно которого будет формироваться итоговый цвет. Исходный цвет может быть любым допустимым CSS синтаксисом.</li>
+		<li><samp class="sin">alpha-value</samp> - параметр прозрачности цвета, представляющее значение альфа-канала выходного цвета, где число 0 соответствует 0% (полностью прозрачный), а 1 соответствует 100% (полностью непрозрачный). Если значение не указано, по умолчанию используется значение альфа-канала исходного цвета. Если оно указано, перед значением ставится косая черта - /.</li>
+	</ul>
+
+	<div class="no no1">В новом коде рекомендуют использовать функцию <samp class="sin">hsl()</samp>, даже в том случае, когда необходим альфаканал. Т.е. старую формат чвета через <samp class="sin">hsla()</samp> не рекомендуют использовать.</div>
+
 </div>
+
 
 
 <div class="item" id="hsla">
-<h2 class="sin"><a href="#" style="border:none"><samp>HSLA</samp> формат</a></h2>
+<h2 class="sin"><a href="#" style="border:none"><samp>HSLA</samp> формат цвета</a></h2>
 	<p><samp class="red">HSLA</samp> формат - <samp class="sin">Hue, Saturation, Lightness, Alpha</samp> (альфа-канал). Цветовое значение в формате HSLA аналогично HSL, но с добавлением регулировки прозрачности как в RGBA.</p>
 </div>
+
+
+
+<div class="item" id="hwb">
+<h2 class="sin"><a href="#" style="border:none"><samp>HWB</samp> формат цвета</a></h2>
+	<p><samp class="red">HWB</samp> формат - <samp class="sin">Hue</samp> (оттенок), <samp class="sin">Whiteness</samp> (белизна), <samp class="sin">Blackness</samp> (чернота). Цвет в этом формате можно представить как краску, которая в определённых пропорциях смешивается с белой или чёрной краской для получения желаемого цвета.
+	Данный формат цвета задается при помощи функции <samp class="sin">hwb()</samp> (от англ. <span lang="en">«hue, whiteness, blackness»</span> — «оттенок, белизна, чернота») в которой задают три параметра для получения нужного цвета.</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  color: hwb(оттенок белизна чернота [/alpha-value]);<br><br>  color: hwb(11 2% 5%);          /* Красный */<br>  color: hwb(33 24% 5%);         /* Оранжевый */<br>  color: hwb(0 55% 45%);         /* Серый */<br>  color: hwb(98 21% 11% / 40%);  /* Полупрозрачный зелёный */<br>}</code></pre>
+
+	<img class="img-c mb20 mt20" src="img/12.png">
+
+	<ul class="list">
+		<li>Оттенок это значение цвета на цветовом круге и задаётся в градусах. <samp class="red">0°</samp> соответствует красному цвету, <samp class="grin">120°</samp> - зелёному, а <samp class="sin">240°</samp> - синему. Значение оттенка может изменяться от <b>0</b> до <b>359</b>.</li>
+		<li>
+			Белизна - это степень разбавления цвета белым. Параметр задаётся в процентах от 0% (чистый цвет без примеси белого) до 100% (чистый белый цвет).
+			<div style="background:linear-gradient(90deg, hsl(120 50% 50%), hsl(120 100% 100%)); padding:7px 4px 9px" class="mb10">
+				<pre class="ls-1"><code>linear-gradient(90deg, hwb(120 0% 0%), hwb(120 100% 0%));</code></pre>
+			</div>
+		</li>
+		<li>
+			Чернота - это степень разбавления цвета чёрным. Параметр так же задаётся в процентах от 0% (чистый цвет без примеси чёрного) до 100% (чистый чёрный цвет).
+			<div style="background:linear-gradient(90deg, hsl(120 50% 50%), hsl(120 0% 0%)); padding:9px" class="mb10">
+				<pre class="ls-1"><code><span style="background:#eee">linear-gradient(90deg, hwb(120 0% 0%), hwb(120 0% 100%));</span></code></pre>
+			</div>
+		</li>
+		<li><samp class="sin">alpha-value</samp> - параметр прозрачности цвета, представляющее значение альфа-канала выходного цвета, где число 0 соответствует 0% (полностью прозрачный), а 1 соответствует 100% (полностью непрозрачный). Если значение не указано, по умолчанию используется значение альфа-канала исходного цвета. Если оно указано, перед значением ставится косая черта - /.</li>
+	</ul>
+
+	<div class="no no1">Когда сумма параметров задающих степень "черноты" и "белизны" превышает 100%, то функция определяет оттенок серого пропорционально заданным параметрам, так чтобы их сумма была равна 100%.</div>
+
+	<div class="mt30">2024.07</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">125</span></td>
+			<td><span         title="Chrome">125</span></td>
+			<td><span          title="Opera">111</span></td>
+			<td><span         title="Safari">18</span></td>
+			<td><span             title="FF">128</span></td>
+			<td><span title="mobile-android">125</span></td>
+			<td><span      title="mobile-FF">128</span></td>
+			<td><span   title="mobile-opera">83</span></td>
+			<td><span  title="mobile-safary">18</span></td>
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="lab">
+<h2 class="sin"><a href="#" style="border:none"><samp>LAB</samp> формат цвета</a></h2>
+	<p><samp class="red">LAB</samp> — аббревиатура названия двух разных (хотя и похожих) цветовых пространств. Более известным и распространенным является CIELAB (точнее, CIE 1976 L*a*b*), другим — Hunter Lab (точнее, Hunter L, a, b). Таким образом, Lab — это неформальная аббревиатура, не определяющая цветовое пространство однозначно. Чаще всего, говоря о пространстве Lab, подразумевают CIELAB.</p>
+
+	<p>При разработке Lab преследовалась цель создания цветового пространства, изменение цвета в котором будет более линейным с точки зрения человеческого восприятия (по сравнению с XYZ), то есть с тем, чтобы одинаковое изменение значений координат цвета в разных областях цветового пространства производило одинаковое ощущение изменения цвета. Оба цветовых пространства рассчитываются относительно определенного значения точки белого. Если значение точки белого дополнительно не указывается, подразумевается, что значения Lab рассчитаны для стандартного осветителя <samp class="sin">D50</samp>.</p>
+
+	<p>В цветовом пространстве <samp class="red">LAB</samp> значение светлоты отделено от значения хроматической составляющей цвета (тон, насыщенность). Светлота задана координатой <samp class="red">L</samp> (изменяется от 0 до 100, то есть от самого темного до самого светлого), хроматическая составляющая — двумя декартовыми координатами <samp class="red">a</samp> и <samp class="red">b</samp>. Первая обозначает положение цвета в диапазоне от зелено-голубого до красно-малинового, вторая — от голубого до желтого.</p>
+
+	<style>
+		.labImage {display:flex; max-width:80%; margin:20px auto; padding:0;}
+		.labImage img {width:330px; max-width:100%; height:auto; aspect-ratio:1 / 1;}
+		.labImage figcaption {text-align:center;}
+	</style>
+	<div class="labImage" cite="https://ru.wikipedia.org/wiki/LAB">
+		<figure>
+			<img src="../img/Lab_color_at_luminance_25_percent.png" alt="Палитра lab цветов при светлоте 25%" width="330" height="303">
+			<figcaption>Светлота 25 %</figcaption>
+		</figure>
+		<figure>
+			<img src="../img/Lab_color_at_luminance_75_percent.png" alt="Палитра lab цветов при светлоте 75%" width="330" height="303">
+			<figcaption>Светлота 75 %</figcaption>
+		</figure>
+	</div>
+
+	<p>Данный формат цвета задается при помощи функции <samp class="sin">lab()</samp> в которой задают три параметра для получения нужного цвета - яркость, ось <samp class="pur">a</samp>, ось <samp class="pur">b</samp>. (<a href="https://colorscheme.ru/color-converter.html" target="_blank" class="sin tdu dib">Конвертор цветов.</a>)</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  color: lab( L a b [/alpha-value] );<br><br>  color: lab(0, 0, 0);                /* черный #000000 */<br>  color: lab(100, 0.01, -0.01);       /* белый #ffffff */<br>  color: lab(53.59, 0, 0);            /* серый #808080 */<br>  color: lab(32.3, 79.2, -107.86);    /* синий #0000ff */<br>  color: lab(53.23, 80.11, 67.22);    /* красный #ff0000 */<br>  color: lab(46.23, -51.7, 49.92);    /* зеленый #008000 */<br>  color: lab(97.14, -21.56, 94.48);   /* желтый #ffff00 */<br>}</code></pre>
+
+
+	<ul class="list">
+		<li><samp class="sin">L</samp> - значение от 0 до 100 определяет светлоту цвета. Здесь число 0 соответствует 0% (черный), а число 100 соответствует 100% (белый).</li>
+		<li><samp class="sin">a</samp> - указывает расстояние цвета вдоль оси a, которое определяет, насколько зеленым (-125) или красным (+125) является цвет. Значение может быть от -125 до 125, или от -100% до 100%.</li>
+		<li><samp class="sin">b</samp> - указывает расстояние цвета вдоль оси b, которое определяет, насколько синим (-125) или желтым (+125) является цвет. Значение может быть от -125 до 125, или от -100% до 100%.</li>
+		<li><samp class="lsin">none</samp> - ключевое слово в качестве значения для любого из трех параметров, означающее 0 или 0%.</li>
+		<li><samp class="sin">alpha-value</samp> - параметр прозрачности цвета, представляющее значение альфа-канала выходного цвета, где число 0 соответствует 0% (полностью прозрачный), а 1 соответствует 100% (полностью непрозрачный). Если значение не указано, по умолчанию используется значение альфа-канала исходного цвета. Если оно указано, перед значением ставится косая черта - /.</li>
+	</ul>
+
+	<div class="no no1 mb30">Оси <samp class="pur">a</samp> и <samp class="pur">b</samp> теоретически не ограничены значениями диапазона [-125...125]; значения являются ссылками при определении процентных входов и выходов относительно цветового пространства LAB.</div>
+
+
+	<p>Функция <samp class="sin">lab()</samp> помимо непосредственного задания цвета может задавать цвет относительно другого значения цвета при помощи ключевого слова <samp class="pur">from</samp> и указанного цвета в качестве начального значения в любом формате CSS.</p>
+
+	<pre class="item2 mt10 mb20"><code>div {<br>  color: lab( <samp class="pur">from</samp> color L a b [/alpha-value] );<br>}</code></pre>
+
+
+
+
+	<div class="mt30">2024.07</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">119</span></td>
+			<td><span         title="Chrome">119</span></td>
+			<td><span          title="Opera">105</span></td>
+			<td><span         title="Safari">16.4</span></td>
+			<td><span             title="FF">128</span></td>
+			<td><span title="mobile-android">119</span></td>
+			<td><span      title="mobile-FF">128</span></td>
+			<td><span   title="mobile-opera">79</span></td>
+			<td><span  title="mobile-safary">16.4</span></td>
+		</tr>
+	</table>
+</div>
+
+
+
+<div class="item" id="lch">
+<h2 class="sin"><a href="#" style="border:none"><samp>LCH</samp> формат цвета</a></h2>
+	<p>Данный формат цвета задается при помощи функции <samp class="sin">lch()</samp> в которой задают три параметра для получения нужного цвета - яркость, насыщенность и оттенок.</p>
+
+	<pre class="item2 mt20 mb20"><code>div {<br>  color: lab( L C H [/alpha-value] );<br><br>  color: lch(50% 130 20);     /* red */<br>}</code></pre>
+
+
+	<ul class="list">
+		<li><samp class="sin">L</samp> - значение от 0 до 100 определяет светлоту цвета. Здесь число 0 соответствует 0% (черный), а число 100 соответствует 100% (белый).</li>
+		<li><samp class="sin">С</samp> - определяет насыщенность цвета. Значение может быть от 0 до 150, или от 0% до 100%.</li>
+		<li><samp class="sin">Н</samp> - определяет оттенок цвета. Значение может быть от 0 до 360, или от 0% до 100%.</li>
+		<li><samp class="lsin">none</samp> - ключевое слово в качестве значения для любого из трех параметров, означающее 0 или 0%.</li>
+		<li><samp class="sin">alpha-value</samp> - параметр прозрачности цвета, представляющее значение альфа-канала выходного цвета, где число 0 соответствует 0% (полностью прозрачный), а 1 соответствует 100% (полностью непрозрачный). Если значение не указано, по умолчанию используется значение альфа-канала исходного цвета. Если оно указано, перед значением ставится косая черта - /.</li>
+	</ul>
+
+
+	<div class="mt30">2024.07</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">119</span></td>
+			<td><span         title="Chrome">119</span></td>
+			<td><span          title="Opera">105</span></td>
+			<td><span         title="Safari">16.4</span></td>
+			<td><span             title="FF">128</span></td>
+			<td><span title="mobile-android">119</span></td>
+			<td><span      title="mobile-FF">128</span></td>
+			<td><span   title="mobile-opera">79</span></td>
+			<td><span  title="mobile-safary">16.4</span></td>
+		</tr>
+	</table>
+</div>
+
 
 </body>
 </html>

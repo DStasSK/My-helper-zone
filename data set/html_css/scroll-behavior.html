@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><title>CSS свойство scroll-behavior</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">CSS свойство <samp>scroll-behavior</samp></h2>
+
+<div class="item">
+	<p>CSS-свойство <samp class="sin">scroll-behavior</samp> определяет поведение прокрутки для любого элемента на странице. Отрабатывается в момент автоматической прокрутки навигационных элементов, либо CSSOM прокручивается API. Любые другие прокручивания, например, те, которые выполняются пользователем, не затрагиваются этим свойством. Если это свойство указано на корневой элемент, оно относится ко всему viewport пространству. Значение по умолчанию <samp class="lsin">auto</samp>, не наследуется, не анимируется, применяется к блоку с прокруткой.</p>
+
+	<pre class="item2 mt20 mb10"><code>div {<br>  scroll-behavior: auto | smooth;<br>}</code></pre>
+	<ul class="list">
+		<li><samp class="sin">auto</samp> - cтандартное поведение прокрутки без эффекта плавности.</li>
+		<li><samp class="sin">smooth</samp> - прокрутка происходит плавно. Время и функция перехода устанавливаются непосредственно браузером.</li>
+	</ul>
+
+	<div class="mt30">2022.03</div>
+	<table class="support">
+		<tr>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">79</span></td>
+			<td><span         title="Chrome">61</span></td>
+			<td><span          title="Opera">48</span></td>
+			<td><span         title="Safari">15.4</span></td>
+			<td><span             title="FF">36</span></td>
+			<td><span title="mobile-android">61</span></td>
+			<td><span      title="mobile-FF">36</span></td>
+			<td><span   title="mobile-opera">45</span></td>
+			<td><span  title="mobile-safary">15.4</span></td>
+		</tr>
+	</table>
+</div>
+</body></html>

@@ -1,49 +1,30 @@
 <!DOCTYPE html><html lang="ru"><head><title>Коды языков</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
-	h2{margin:0; line-height:30px;}
-	.ul_menu{
-		display:flex;
-		height:40px;
-		width:100%;
-		margin:5px 0;
-		padding:0;
-		justify-content:center;
-		color:#333;
+	h1 {margin:10px 0 0; line-height:30px}
+	.item {margin-bottom:0}
+	.ul_menu {
+		display:flex; justify-content:center;
+		width:100%; margin:5px 0 10px; padding:0; color:#333;
 	}
-	.elA{
-		padding:2px 7px 3px;
-		margin-right:5px;
-		height:25px;
-		line-height:25px;
-		font-size:20px;
-		background:#dadada;
-		border-radius:5px;
-		transition:.2s;
+	.elA {
+		display:flex; align-items:center;
+		padding:2px 7px 3px; margin-right:5px; border-radius:5px; background:#dadada;
+		line-height:25px; font-size:18px; text-align:center; transition:.2s;
 	}
-	.elA:last-child{margin:0}
-	.elA:hover{
-		background:#bbb;
-		transition:.2s;
-	}
-	.elA.active{
-		background:#777 !important;
-		color:#fafafa;
-		transition:.2s;
-	}
-	.lang{
-		width:100%;
-		height:calc(100vh - 140px);
-	}
+	.elA:last-child {margin: 0}
+	.elA:hover {background:#bbb; transition:.2s}
+	.elA.active {background:#777; color:#fafafa}
+	.lang {width:100%; height:calc(100vh - 140px)}
 </style>
 </head>
 <body>
 
-<div class="item" style="min-width:822px">
-<h2 class="sin">Коды языков</h2>
+<h1 class="sin">Коды языков</h1>
+<div class="item">
 	<div class="ul_menu">
 		<a class="elA active" target="lang" href="lang-code-min.html" id="l1">min версия</a>
 		<a class="elA" target="lang" href="lang-code-iso639.html" id="l2">ISO 639</a>
@@ -58,32 +39,13 @@
 
 <script>
 	const ul = document.querySelector('.ul_menu').children;
-
-	for (let el of ul){
-		el.addEventListener('click', addActive);
-	}
+	for (let el of ul) {el.addEventListener('click', addActive)}
 
 	function addActive(e) {
-		for(let el of ul){
+		for (let el of ul) {
 			el.classList.remove('active');
-			if(el==e.target){
-				el.classList.add('active');
-			}
+			el==e.target ? el.classList.add('active') :'';
 		}
-	}
-
-
-	const iframe = document.querySelector('iframe');
-	let ls = localStorage.getItem('iframe_lang_code');
-	if(ls){
-		if(ls=='1'){document.querySelector(`#l${ls}`).click();}
-		if(ls=='2'){document.querySelector(`#l${ls}`).click();}
-		if(ls=='3'){document.querySelector(`#l${ls}`).click();}
-		if(ls=='4'){document.querySelector(`#l${ls}`).click();}
-		if(ls=='5'){document.querySelector(`#l${ls}`).click();}
-		if(ls=='6'){document.querySelector(`#l${ls}`).click();}
-		if(ls=='7'){document.querySelector(`#l${ls}`).click();}
-		localStorage.removeItem("iframe_lang_code");
 	}
 </script>
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><title>Ключевое слово important</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../highlight.js/styles/ss.css">
+<script src="../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Ключевое слово <samp>important</samp></h2>
+
+<div class="item">
+	<p>Когда при объявлении стиля используется модификатор <samp class="pur">!important</samp>, это объявление получает наивысший приоритет среди всех прочих объявлений. Поскольку <samp class="pur">!important</samp> усложняет отладку, нарушая естественное каскадирование ваших стилей, он не приветствуется и следует избегать его использования. Если к элементу применимы два взаимоисключающих стиля с модификатором <samp class="pur">!important</samp>, то применён будет стиль с большей специфичностью.</p>
+
+
+	<!-- <ul class="list mb20 mt20">
+		<li>Если <samp class="pur">!important</samp> отсутвствует в обоих таблицах стилей - то приоритет за сайтом.</li>
+		<li>Если <samp class="pur">!important</samp> есть в обоих таблицах стилей - то приоритет за пользователем.</li>
+		<li>Если <samp class="pur">!important</samp> только в одной из таблиц - то приоритет за ней.</li>
+	</ul> -->
+
+	<div class="mt30">Несколько практических советов:</div>
+	<ul class="list">
+		<li>Всегда пытайтесь использовать специфичность, а <samp class="pur">!important</samp> используйте только в крайних случаях.</li>
+		<li>Используйте <samp class="pur">!important</samp> только в страничных стилях, которые переопределяют стили сайта или внешние стили (стили библиотек, таких как Bootstrap или normalize.css).</li>
+		<li>Никогда не используйте <samp class="pur">!important</samp>, если вы пишете плагин или мэшап.</li>
+		<li>Никогда не используйте <samp class="pur">!important</samp> в общем CSS сайта.</li>
+	</ul>
+
+
+	<pre class="item2 mt30"><code>p {<br>  padding-left: 65px !important;<br>}</code></pre>
+</div>
+
+</body></html>

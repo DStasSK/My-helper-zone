@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><title>Функция - clamp()</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскраска тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<h2 class="sin">Функция <samp>clamp()</samp></h2>
+<div class="item">
+	<p>Функция <samp class="sin">clamp()</samp> задаёт предпочитаемое значение, а также его нижнюю и верхнюю границы. Это позволяет установить диапазон, в котором должно располагаться значение. Функция принимает в качестве аргументов три разделённых запятой выражения, указываемых в порядке: минимальное значение, предпочитаемое значение, максимальное значение.</p>
+
+	<pre class="sin item2 mt30">cвойство: <samp class="lsin">clamp(MIN, value, MAX);</samp></pre>
+
+	<ul class="list mb30">
+		<li><samp class="sin">MIN</samp> - наименьшее значение, являющееся нижней границей диапазона допустимых значений. Если "предпочитаемое" значение меньше "минимального", будет использоваться именно "минимальное".</li>
+		<li><samp class="sin">value</samp> - это выражение, чей результат будет использовать до тех пор, пока будет оставаться в пределах допустимого диапазона значений.</li>
+		<li><samp class="sin">MAX</samp> – наибольшее значение, которое будет устанавливаться, если предпочитаемое будет превышать верхнюю границу допустимого диапазона.</li>
+	</ul>
+
+	<div class="no">При указании значений необходимо соблюдать условие <samp class="sin dib">min < значение < max</samp>. Иными словами, значение должно быть больше минимума, но меньше максимума. Если параметры выставлены в неверном порядке - например: <samp class="sin dib">clamp(<span class="lsin">40px, 10px, 20px</span>)</samp>, то в качестве значения выбирается минимум, в данном случае <samp class="lsin">40px</samp>.</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html><html><head><title>Атрибут inert</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h2 class="sin">Атрибут <samp>inert</samp></h2>
+
+<div class="item">
+	<p>Атрибут <samp class="sin">inert</samp> - это логический атрибут, указывающий, что элемент и все его потомки становятся инертными, т.е. позволяет отключить взаимодействие с элементом и его потомками.</p>
+
+	<pre class="item2 mt20 mb20"><code>&lt;div inert>text&lt;/div><br>&lt;input inert name="text" placeholder="Введите своё имя"></code></pre>
+
+	<div class="no">Браузеры не всегда меняют внешний вид элементов с атрибутом <samp class="sin">inert</samp>, поэтому визуально понять, доступен элемент для взаимодействия или нет, не всегда возможно.</div>
+
+	<div>Добавление атрибута <samp class="sin">inert</samp> к элементу изменяет ряд его свойств:</div>
+	<ul class="list l1">
+		<li>Предотвращает срабатывание события <samp class="lsin">click</samp>, когда пользователь щелкает по элементу (ссылки и кнопки тоже не работают).</li>
+		<li>Предотвращает возникновение события <samp class="lsin">focus</samp>, не давая элементу получить фокус.</li>
+		<li>Предотвращает анализ содержимого при использования функции поиска на странице.</li>
+		<li>Предотвращает выделение текста пользователями внутри элемента.</li>
+		<li>Скрывает элемент и его содержимое от вспомогательных технологий, исключая их из дерева доступности.</li>
+	</ul>
+
+	<div class="no no1">Элементы <samp class="teg">dialog</samp>, созданные с помощью функции <samp class="pur">showModal()</samp>, избегают инертности, что означает, что они не наследуют инертность от своих предков, но могут стать инертными, только если атрибут <samp class="sin">inert</samp> будет явно установлен для них самих.</div>
+
+	<div class="mt40">2023.04 / 2024.11</div>
+	<table class="support">
+		<tr>
+			<td class="auto"></td>
+			<td><span class="t-ie" title="Internet Explorer"></span></td>
+			<td><span class="t-edge" title="Edge"></span></td>
+			<td><span class="t-chrome" title="Chrome"></span></td>
+			<td><span class="t-opera" title="Opera"></span></td>
+			<td><span class="t-safari" title="Safari"></span></td>
+			<td><span class="t-firefox" title="Firefox"></span></td>
+			<td><span class="t-android" title="mobile-android"></span></td>
+			<td><span class="t-firefox" title="mobile-Firefox"></span></td>
+			<td><span class="t-opera" title="mobile-Opera"></span></td>
+			<td><span class="t-safari" title="mobile-Safari"></span></td>
+		</tr>
+		<tr>
+			<td class="auto">inert</td>
+			<td class="n"><span   title="IE">102</span></td>
+			<td><span           title="Edge">102</span></td>
+			<td><span         title="Chrome"></span></td>
+			<td><span          title="Opera">88</span></td>
+			<td><span         title="Safari">15.5</span></td>
+			<td><span             title="FF">112</span></td>
+			<td><span title="mobile-android">102</span></td>
+			<td><span      title="mobile-FF">112</span></td>
+			<td><span   title="mobile-opera">70</span></td>
+			<td><span  title="mobile-safary">15.5</span></td>
+		</tr>
+		<tr>
+			<td class="auto"><samp class="dib ls-1">find-in-page</samp></td>
+			<td class="n"><span   title="IE"></span></td>
+			<td><span           title="Edge">124</span></td>
+			<td><span         title="Chrome">124</span></td>
+			<td><span          title="Opera">110</span></td>
+			<td class="n"><span title="Safari"></span></td>
+			<td><span             title="FF">120</span></td>
+			<td><span title="mobile-android">124</span></td>
+			<td><span      title="mobile-FF">120</span></td>
+			<td><span   title="mobile-opera">82</span></td>
+			<td class="n"><span title="mobile-safary"></span></td>
+		</tr>
+	</table>
+
+</div>
+
+</body></html>

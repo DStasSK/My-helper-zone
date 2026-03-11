@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><title>CSS свойство grid-gap</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскравка тегов внутри pre-code -->
@@ -18,12 +18,11 @@
 
 	<div class="no no1">Это свойство было переименовано в CSS3 <a href="../gap.html" class="sin tdu">gap</a></div>
 
-	<pre class="item2 css"><code>div {<br>   display: grid;<br>   grid-gap: grid-row-gap grid-column-gap;<br>}</code></pre>
-
-	<table class="t1 t3 tc mt20 mb20"><caption>Значения:</caption>
-		<tr><td width="155px">grid-row-gap</td><td>размер промежутка между строками в макете</td></tr>
-		<tr><td>grid-column-gap</td><td>размер промежутка между столбцами в макете</td></tr>
-	</table>
+	<pre class="item2 css mt20 mb10"><code>div {<br>   display: grid;<br>   grid-gap: grid-row-gap grid-column-gap;<br>}</code></pre>
+	<ul class="list mb30">
+		<li><samp class="sin">grid-row-gap</samp> - размер промежутка между строками в макете.</li>
+		<li><samp class="sin">grid-column-gap</samp> - размер промежутка между столбцами в макете.</li>
+	</ul>
 
 	<pre class="item2"><code>div {<br>   display: grid;<br>   grid-gap: 20px  40px;<br>}<br><br>div {<br>   display: grid;<br>   grid-gap: 40px;  /* grid-row-gap == grid-column-gap == 40px  */<br>}</code></pre>
 

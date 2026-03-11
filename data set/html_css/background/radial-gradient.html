@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><title>background-gradient</title>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../css/mane.css">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- автораскраска тегов внутри pre-code -->
@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-  
+
 <h2 class="sin">Функция <samp>radial-gradient()</samp></h2>
 <div class="item" id="radial">
   <p>Стилевая функция <samp class="sin dib">radial-gradient()</samp> добавляет радиальный градиент к фону элемента. Радиальные градиенты по своему принципу похожи на линейные градиенты, но один цвет переходит в другой не вдоль прямой линии, а словно круги по воде - вокруг начальной точки.</p>
@@ -107,7 +107,7 @@
 <h2 class="sin">Стоп-цвета</h2>
   <p>Подобно линейному градиенту можно указывать несколько цветов, устанавливать их позицию и делать резкие переходы между цветами. Для этого произвольное количество цветов перечисляется через запятую, а после значения цвета через пробел идёт его позиция, которая может быть задана в пикселях или процентах. Крайние значения 0% и 100% можно не писать, они подразумеваются автоматически.</p>
 
-  <img src="img/radial-gradient-color.png" width="100%" class="img-c mt20 mb20">
+  <img src="img/radial-gradient-color.png" width="100%" class="img-c mt20 mb20" style="background:#fff">
 
   <p>Когда позиция одного цвета совпадает с позицией другого иногда получаются резкие переходы - «лесенка» из пикселей (см. ниже). Чтобы немного сгладить переходы добавляют разницу в один процент.</p>
 
@@ -127,7 +127,7 @@
   <p>Стилевая функция <samp class="sin dib">repeating-radial-gradient()</samp> по своему действию похожа на радиальный градиент, который делается функцией <samp class="sin dib">radial-gradient()</samp>, и имеет с ним схожий синтаксис. Но цвета градиента бесконечно повторяются во всех направлениях образуя узор, заполняющий фон элемента.</p>
 
   <p>В функции <samp class="sin dib">radial-gradient()</samp> можно использовать несколько цветов, которые будут переходить из одного в другой на протяжении элемента. В функции <samp class="sin dib">repeating-radial-gradient()</samp> есть возможность задать интервалы для того или иного цвета общая сумма которых может быть меньше размера элемента, при этом дальнейшее чередование цветов зациклено.</p>
-  
+
   <ul class="list">
     <li>Chrome до версии 26, Safari до версии 6.1 и Android до версии 4.4 поддерживают -webkit-repeating-radial-gradient().</li>
     <li>Opera до версии 12.10 поддерживает -o-repeating-radial-gradient().</li>
@@ -146,7 +146,7 @@
 <h2 class="sin">Примеры с градиентом</h2>
   <style type="text/css">
     .box0{display:flex; justify-content:center; margin:0 -10px;}
-    
+
     .box{width:calc(50% - 10px); margin:10px; line-height:1.2; text-align:left;}
 
     .boxf{padding:20px 0; text-align:center; font-size:60px; width:300px; height:250px; margin:0 auto;}

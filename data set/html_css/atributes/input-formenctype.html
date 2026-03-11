@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><title>Атрибут formenctype</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- автораскравка тегов внутри pre-code -->
+<link rel="stylesheet" href="../../highlight.js/styles/ss.css">
+<script src="../../highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+<h3 class="sin">Атрибут <samp class="pur">formenctype</samp> элемента <samp class="teg">input</samp>.</h3>
+
+<div class="item">
+	<p>Устанавливает способ кодирования данных формы при их отправке на сервер. Этот атрибут по своему действию аналогичен атрибуту <samp class="sin">enctype</samp> элемента <samp class="teg">form</samp>; при совместном использовании <samp class="sin">formenctype</samp> и <samp class="sin">enctype</samp> последний игнорируется.</p>
+
+	<div class="no">Атрибут <samp class="sin">formenctype</samp> можно задать только на кнопку для отправки формы илик кнопке с изображением.</div>
+
+	<pre class="item2"><code>&lt;input type="submit"<br>       formenctype="application/x-www-form-urlencoded |<br>                    multipart/form-data | text/plain"></code></pre>
+
+	<table class="t1">
+		<tr><td width="210px">application/x-www-form-urlencoded</td><td>Значение по умолчанию. Вместо пробелов ставится +, символы вроде русских букв кодируются их шестнадцатеричными значениями (например, вместо Аня - %D0%90%D0%BD%D1%8F).</td></tr>
+		<tr><td>multipart/form-data</td><td>Данные не кодируются. Это значение применяется при отправке файлов.</td></tr>
+		<tr><td>text/plain</td><td>Пробелы заменяются знаком +, буквы и другие символы не кодируются.</td></tr>
+	</table>
+
+	<div class="prm mt20">
+		<form>
+			<p>Ваше имя: <input name="user"></p>
+			<p>Файл для заявки: <input name="file" type="file"></p>
+			<p><input type="submit" formaction="handler.php" formmethod="post" formenctype="multipart/form-data" value="Отправить"></p>
+		</form>
+		<pre class="item2 ls-1"><code>&lt;form><br>  &lt;p>Ваше имя: &lt;input name="user">&lt;/p><br>  &lt;p>Файл для заявки: &lt;input name="file" type="file">&lt;/p><br>  &lt;p>&lt;input type="submit" formaction="handler.php" formmethod="post" <br>    formenctype="multipart/form-data" value="Отправить">&lt;/p><br>&lt;/form></code></pre>
+	</div>
+
+
+</div>
+
+
+</body></html>
